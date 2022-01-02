@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f9481e6d-f32d-4828-8383-6d582121e177": {
+      "ProjectGuid": "f9481e6d-f32d-4828-8383-6d582121e177",
+      "DisplayName": "OrdererWebApp",
+      "ColorIndex": 0
+    },
+    "965e2388-1f3b-4c1f-9043-c769c7744782": {
+      "ProjectGuid": "965e2388-1f3b-4c1f-9043-c769c7744782",
+      "DisplayName": "BusinessData",
+      "ColorIndex": 1
+    },
+    "5f3af154-1437-4607-96ed-0ea7ebb1acad": {
+      "ProjectGuid": "5f3af154-1437-4607-96ed-0ea7ebb1acad",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "기타 파일",
+      "ColorIndex": -1
+    },
+    "bd16431d-57d2-40c4-b3aa-408297699697": {
+      "ProjectGuid": "bd16431d-57d2-40c4-b3aa-408297699697",
+      "DisplayName": "BusinessLogic",
+      "ColorIndex": 3
+    },
+    "4d11a509-1745-4e68-ac94-4fe238a29027": {
+      "ProjectGuid": "4d11a509-1745-4e68-ac94-4fe238a29027",
+      "DisplayName": "ModuleTest",
+      "ColorIndex": 4
+    },
+    "83ebbe63-d472-4dee-b55b-41c91ad4508c": {
+      "ProjectGuid": "83ebbe63-d472-4dee-b55b-41c91ad4508c",
+      "DisplayName": "ModuleTest",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

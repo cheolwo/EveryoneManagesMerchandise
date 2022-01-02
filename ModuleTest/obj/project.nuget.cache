@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iJv7/YF76KNBOj+WWhOaokG51LrCBFEnIrP5gPTYjwi5qT452ZHAH3uFLPIjw4PMjXyoLzOKkhmXVKiDb/CRSg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\ModuleTest\\ModuleTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
