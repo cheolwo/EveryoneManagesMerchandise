@@ -117,4 +117,22 @@ namespace BusinessLoogic.ofManager.ofHsCode
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
+    public class ClearanceInfoofHsCodeManager : EntityManager<ClearanceInfoofHsCode>
+    {
+        public ClearanceInfoofHsCodeManager(IEntityDataRepository<ClearanceInfoofHsCode> EntityDataRepository,
+            IEntityIdFactory<ClearanceInfoofHsCode> EntityIdFactory,
+            IEntityFileFactory<ClearanceInfoofHsCode> entityFileFactory,
+            IEntityBlobStorage<ClearanceInfoofHsCode> entityBlobStorage,
+            DicConvertFactory<ClearanceInfoofHsCode> dicConvertFactory) : base(EntityDataRepository, EntityIdFactory, entityFileFactory, entityBlobStorage, dicConvertFactory)
+        {
+        }
+        public override async Task<ClearanceInfoofHsCode> CreateAsync(ClearanceInfoofHsCode entity)
+        {
+            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
+            newId = (string)newId.Split('-').GetValue(0);
+            entity.Id = newId;
+            entity.CreateTime = DateTime.Now;
+            return await _EntityDataRepository.AddAsync(entity);
+        }
+    }
 }
