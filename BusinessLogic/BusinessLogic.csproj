@@ -19,10 +19,4 @@
     <Folder Include="ofManager\ofMarket\ofBlobStorage\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Interop.Microsoft.Office.Interop.Excel">
-      <HintPath>..\..\..\..\개발\EveryoneManagesMerchandise\ModuleTest\obj\Debug\net5.0\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

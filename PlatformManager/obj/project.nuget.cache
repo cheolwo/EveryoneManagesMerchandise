@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P+vNnPmOtfBvkCXeggz51O86Y7uKjGT3E0glUmZX/xYFnlu8HJE6NdjaBdGDMlOog2IQEE3Y2jPpf+j3xUtznA==",
+  "dgSpecHash": "LXOxJIFoDcNglaFVxKq/60iwbnXhfjG+fafrHu+N1TlXduBukUsHewAerkD4yW2J/zHcWKLEjd9/VotlZ2nPbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YHJ8nbh/6ufDtQrp++cslFpWRUkal5vYQxzEewPAdAA3dxEMZyNuVBUHOyKUd/37MCF0sZ1r1ZxqDB+OyPqA3Q==",
+  "dgSpecHash": "KByL/vNRpJO+zvFiu9sn3ntyXUeFJUrevlLTJNpIvi+pv+YsrUMZ8Pt8sbP2caUh/2oMYPlfa20Q96DGX+tg3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessLogic\\BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",

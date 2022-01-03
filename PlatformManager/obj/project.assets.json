@@ -3646,13 +3646,13 @@
     },
     "BusinessData/1.0.0": {
       "type": "project",
-      "path": "../../../Enterprise/EnterPrise/EnterPriseProject/BusinessData/BusinessData.csproj",
-      "msbuildProject": "../../../Enterprise/EnterPrise/EnterPriseProject/BusinessData/BusinessData.csproj"
+      "path": "../BusinessData/BusinessData.csproj",
+      "msbuildProject": "../BusinessData/BusinessData.csproj"
     },
     "BusinessLogic/1.0.0": {
       "type": "project",
-      "path": "../../../Enterprise/EnterPrise/EnterPriseProject/BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../../../Enterprise/EnterPrise/EnterPriseProject/BusinessLogic/BusinessLogic.csproj"
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3677,11 +3677,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
       "projectName": "PlatformManager",
-      "projectPath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\PlatformManager\\PlatformManager.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\PlatformManager\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\PlatformManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -3702,11 +3702,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessData\\BusinessData.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessData\\BusinessData.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
             }
           }
         }

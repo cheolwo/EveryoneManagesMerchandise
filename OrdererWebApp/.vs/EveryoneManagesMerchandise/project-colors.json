@@ -35,7 +35,17 @@
       "ProjectGuid": "83ebbe63-d472-4dee-b55b-41c91ad4508c",
       "DisplayName": "ModuleTest",
       "ColorIndex": 5
+    },
+    "69f55a4a-494b-487a-bf32-7580aaa10c8c": {
+      "ProjectGuid": "69f55a4a-494b-487a-bf32-7580aaa10c8c",
+      "DisplayName": "BusinessLogic",
+      "ColorIndex": 6
+    },
+    "57d29db8-fc23-4fc1-8d77-1aa773d640d5": {
+      "ProjectGuid": "57d29db8-fc23-4fc1-8d77-1aa773d640d5",
+      "DisplayName": "BusinessData",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 8
 }

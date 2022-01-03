@@ -1,7 +1,14 @@
 using BusinessData;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using BusinessData.ofCommon.ofHsCode.ofRepository;
+using BusinessData.ofGeneric.ofIdFactory;
+using BusinessLogic.ofManagement;
 using BusinessLogic.ofManagement.ofPatform;
+using BusinessLogic.ofManager.ofGeneric;
+using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessLoogic.ofManager.ofHsCode;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,15 +25,33 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var HsDbConnectionString = builder.Configuration.GetConnectionString("HsDbConnection");
 builder.Services.AddDbContext<HsDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(HsDbConnectionString));
 
+builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));
+builder.Services.AddScoped(typeof(IEntityBlobStorage<>), typeof(EntityBlobStorage<>));
+builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
+builder.Services.AddScoped(typeof(IEntityFileFactory<>), typeof(EntityFileFactory<>));
+builder.Services.AddScoped(typeof(IEntityContainerFactory<>), typeof(EntityContainerFactory<>));
+builder.Services.AddScoped(typeof(DicConvertFactory<>));
 builder.Services.AddScoped<PlatFormManagement>();
+builder.Services.AddScoped<HsCodeManagement>();
+
 builder.Services.AddScoped<HsCodePartRepository>();
 builder.Services.AddScoped<PracticalHsCodeRepository>();
 builder.Services.AddScoped<SubPartofHsCodeRepository>();
+builder.Services.AddScoped<SubPracticalHsCodeRepository>();
 builder.Services.AddScoped<DetailPracticalHsCodeRepository>();
 builder.Services.AddScoped<CountryRepository>();
+builder.Services.AddScoped<ClaranceInfoofHsCodeRepostiroy>();
+
+builder.Services.AddScoped<HsCodePartManager>();
+builder.Services.AddScoped<PracticalHsCodeManager>();
+builder.Services.AddScoped<SubPartofHsCodeManager>();
+builder.Services.AddScoped<SubPracticalHsCodeManager>();
+builder.Services.AddScoped<DetailPracticalHsCodeManager>();
+builder.Services.AddScoped<CountryManager>();
+builder.Services.AddScoped<ClearanceInfoofHsCodeManager>();
 
 builder.Services.AddMudServices();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

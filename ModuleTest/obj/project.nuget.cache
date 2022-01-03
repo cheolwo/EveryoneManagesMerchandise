@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iJv7/YF76KNBOj+WWhOaokG51LrCBFEnIrP5gPTYjwi5qT452ZHAH3uFLPIjw4PMjXyoLzOKkhmXVKiDb/CRSg==",
+  "dgSpecHash": "jDaWxzktTOJyZFOVof8ljCuserdhslqosSUCtI5p4BC81ljO89tAYctKsLUUdyKOGNDivAb67jWW3MNe3/E1FA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\ModuleTest\\ModuleTest.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\ModuleTest\\ModuleTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],

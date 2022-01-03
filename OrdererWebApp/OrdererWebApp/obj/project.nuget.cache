@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UWGYfXxGLrbE3QXI3XOTY8NEFAsDHPVZR6e5rkLma/p1h6shVvXkXaT6cQPvbA8+ihc/gT7PKoP0bEVdvyrQqg==",
+  "dgSpecHash": "ZFy4lZhat3Fuoyqt3FB74Xf+cHoQH1nDk9ktzLZOSDeFqY3lx7pUERETdLcBvevFrMGojIK2OjxRllT0c6z0oQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",

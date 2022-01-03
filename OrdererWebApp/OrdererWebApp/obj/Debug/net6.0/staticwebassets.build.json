@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AUUDNL4a6T4P2/KOdN/47fVRQwvMek4Gr9zZlo0ajUg=",
+  "Hash": "99rFG/lTiPFsPks18/R5w/QNBoE6ZEEzLEFI0DdSyjo=",
   "Source": "OrdererWebApp",
   "BasePath": "_content/OrdererWebApp",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "OrdererWebApp\\wwwroot",
       "Source": "OrdererWebApp",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "Pattern": "**"
     }
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.2\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\OrdererWebApp.styles.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\OrdererWebApp.styles.css",
       "SourceId": "OrdererWebApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "OrdererWebApp.styles.css",
       "AssetKind": "All",
@@ -1085,13 +1085,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\OrdererWebApp.styles.css"
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\OrdererWebApp.styles.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OrdererWebApp.bundle.scp.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OrdererWebApp.bundle.scp.css",
       "SourceId": "OrdererWebApp",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "OrdererWebApp.bundle.scp.css",
       "AssetKind": "All",
@@ -1102,13 +1102,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OrdererWebApp.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\OrdererWebApp.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\css\\site.css",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\favicon.ico",
       "SourceId": "OrdererWebApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\wwwroot\\",
       "BasePath": "_content/OrdererWebApp",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

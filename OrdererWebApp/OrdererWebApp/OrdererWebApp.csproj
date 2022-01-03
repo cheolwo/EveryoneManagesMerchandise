@@ -17,8 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Enterprise\EnterPrise\EnterPriseProject\BusinessData\BusinessData.csproj" />
-    <ProjectReference Include="..\..\..\..\Enterprise\EnterPrise\EnterPriseProject\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\BusinessData\BusinessData.csproj" />
   </ItemGroup>
 
 </Project>
