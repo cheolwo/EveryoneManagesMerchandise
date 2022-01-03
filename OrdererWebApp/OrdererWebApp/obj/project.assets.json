@@ -1328,23 +1328,6 @@
         "runtime": {
           "bin/placeholder/BusinessData.dll": {}
         }
-      },
-      "BusinessLogic/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
-          "Microsoft.AspNetCore.Components": "5.0.9",
-          "Microsoft.AspNetCore.Components.Web": "5.0.9"
-        },
-        "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        }
       }
     }
   },
@@ -3613,19 +3596,13 @@
     },
     "BusinessData/1.0.0": {
       "type": "project",
-      "path": "../../../../Enterprise/EnterPrise/EnterPriseProject/BusinessData/BusinessData.csproj",
-      "msbuildProject": "../../../../Enterprise/EnterPrise/EnterPriseProject/BusinessData/BusinessData.csproj"
-    },
-    "BusinessLogic/1.0.0": {
-      "type": "project",
-      "path": "../../../../Enterprise/EnterPrise/EnterPriseProject/BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../../../../Enterprise/EnterPrise/EnterPriseProject/BusinessLogic/BusinessLogic.csproj"
+      "path": "../../BusinessData/BusinessData.csproj",
+      "msbuildProject": "../../BusinessData/BusinessData.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessData >= 1.0.0",
-      "BusinessLogic >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.0",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.0",
@@ -3641,11 +3618,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
       "projectName": "OrdererWebApp",
-      "projectPath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\OrdererWebApp.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\개발\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\OrdererWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -3666,11 +3643,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessData\\BusinessData.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessData\\BusinessData.csproj"
-            },
-            "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\Enterprise\\EnterPrise\\EnterPriseProject\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             }
           }
         }

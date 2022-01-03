@@ -11,10 +11,20 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
 {
     public class HsDbContext : DbContext
     {
+        private string _connectionstring;
         public HsDbContext(DbContextOptions<HsDbContext> options)
             : base(options)
         {
 
+        }
+        public HsDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (_connectionstring is null) { _connectionstring = DbConnectionString.HsDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,8 +36,10 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
             modelBuilder.ApplyConfiguration(new ClarnaceInfoofHsCodeConfiguration());
             modelBuilder.ApplyConfiguration(new ConfirmationbythecustomsofficerConfiguration());
             modelBuilder.ApplyConfiguration(new DetailPracticalConfiguration());
+            modelBuilder.ApplyConfiguration(new SubPracticalHsCodeConfiguration());
         }
-        public class AgreetMentConfiguration : EntityConfiguration<AgreetMent>
+    }
+    public class AgreetMentConfiguration : EntityConfiguration<AgreetMent>
         {
             public override void Configure(EntityTypeBuilder<AgreetMent> builder)
             {
@@ -81,6 +93,13 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
                 base.Configure(builder);
             }
         }
+        public class SubPracticalHsCodeConfiguration : EntityConfiguration<SubPracticalHsCode>
+        {
+            public override void Configure(EntityTypeBuilder<SubPracticalHsCode> builder)
+            {
+                base.Configure(builder);
+            }
+        }
         public class SubPartofHsCodeConfiguration : EntityConfiguration<SubPartofHsCode>
         {
             public override void Configure(EntityTypeBuilder<SubPartofHsCode> builder)
@@ -95,5 +114,4 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
                 base.Configure(builder);
             }
         }
-    }
 }

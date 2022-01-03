@@ -3,17 +3,15 @@ using System;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace BusinessData.Migrations.HsDb
 {
     [DbContext(typeof(HsDbContext))]
-    [Migration("20211231132020_13")]
-    partial class _13
+    [Migration("20220102110245_1111")]
+    partial class _1111
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,7 +68,7 @@ namespace BusinessData.Migrations.HsDb
                     b.ToTable("AgreetMent");
                 });
 
-            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ClarnaceInfoofHsCode", b =>
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ClearanceInfoofHsCode", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(30)
@@ -79,8 +77,8 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("AgreetMentTaxRates")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BasicTaxRate")
-                        .HasColumnType("int");
+                    b.Property<string>("BasicTaxRate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChangedUsers")
                         .HasColumnType("nvarchar(max)");
@@ -112,10 +110,10 @@ namespace BusinessData.Migrations.HsDb
                         .IsUnique()
                         .HasFilter("[HsCode] IS NOT NULL");
 
-                    b.ToTable("ClarnaceInfoofHsCode");
+                    b.ToTable("ClearanceInfoofHsCode");
                 });
 
-            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.Confirmationbythecustomsofficer", b =>
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ConfirmationByTheCustomsOfficer", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(30)
@@ -166,7 +164,7 @@ namespace BusinessData.Migrations.HsDb
                         .IsUnique()
                         .HasFilter("[HsCode] IS NOT NULL");
 
-                    b.ToTable("Confirmationbythecustomsofficer");
+                    b.ToTable("ConfirmationByTheCustomsOfficer");
                 });
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.Country", b =>
@@ -225,13 +223,19 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("KoName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PracticalHsCodeId")
+                    b.Property<string>("QuantityUnits")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubPracticalHsCodeId")
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("QuantityUnits")
+                    b.Property<string>("UsName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -242,7 +246,7 @@ namespace BusinessData.Migrations.HsDb
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PracticalHsCodeId");
+                    b.HasIndex("SubPracticalHsCodeId");
 
                     b.ToTable("DetailPracticalHsCode");
                 });
@@ -374,6 +378,49 @@ namespace BusinessData.Migrations.HsDb
                     b.ToTable("SubPartofHsCode");
                 });
 
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.SubPracticalHsCode", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("ChangedUsers")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Container")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Docs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageofInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KoName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PracticalHsCodeId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("UsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PracticalHsCodeId");
+
+                    b.ToTable("SubPracticalHsCode");
+                });
+
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.AgreetMent", b =>
                 {
                     b.HasOne("BusinessData.ofCommon.ofHsCode.Country", null)
@@ -381,31 +428,31 @@ namespace BusinessData.Migrations.HsDb
                         .HasForeignKey("CountryId");
                 });
 
-            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ClarnaceInfoofHsCode", b =>
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ClearanceInfoofHsCode", b =>
                 {
                     b.HasOne("BusinessData.ofCommon.ofHsCode.DetailPracticalHsCode", "DetailPracticalHsCode")
-                        .WithOne("ClarnaceInfoofHsCode")
-                        .HasForeignKey("BusinessData.ofCommon.ofHsCode.ClarnaceInfoofHsCode", "HsCode");
+                        .WithOne("ClearanceInfoofHsCode")
+                        .HasForeignKey("BusinessData.ofCommon.ofHsCode.ClearanceInfoofHsCode", "HsCode");
 
                     b.Navigation("DetailPracticalHsCode");
                 });
 
-            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.Confirmationbythecustomsofficer", b =>
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.ConfirmationByTheCustomsOfficer", b =>
                 {
                     b.HasOne("BusinessData.ofCommon.ofHsCode.DetailPracticalHsCode", "DetailPracticalHsCode")
                         .WithOne("Confirmationbythecustomsofficer")
-                        .HasForeignKey("BusinessData.ofCommon.ofHsCode.Confirmationbythecustomsofficer", "HsCode");
+                        .HasForeignKey("BusinessData.ofCommon.ofHsCode.ConfirmationByTheCustomsOfficer", "HsCode");
 
                     b.Navigation("DetailPracticalHsCode");
                 });
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.DetailPracticalHsCode", b =>
                 {
-                    b.HasOne("BusinessData.ofCommon.ofHsCode.PracticalHsCode", "PracticalHsCode")
+                    b.HasOne("BusinessData.ofCommon.ofHsCode.SubPracticalHsCode", "SubPracticalHsCode")
                         .WithMany("DetailPracticalHsCodes")
-                        .HasForeignKey("PracticalHsCodeId");
+                        .HasForeignKey("SubPracticalHsCodeId");
 
-                    b.Navigation("PracticalHsCode");
+                    b.Navigation("SubPracticalHsCode");
                 });
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.HsCodePart", b =>
@@ -441,6 +488,15 @@ namespace BusinessData.Migrations.HsDb
                     b.Navigation("HsCodePart");
                 });
 
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.SubPracticalHsCode", b =>
+                {
+                    b.HasOne("BusinessData.ofCommon.ofHsCode.PracticalHsCode", "PracticalHsCode")
+                        .WithMany("SubPracticalHsCodes")
+                        .HasForeignKey("PracticalHsCodeId");
+
+                    b.Navigation("PracticalHsCode");
+                });
+
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.Country", b =>
                 {
                     b.Navigation("AgreetMents");
@@ -454,7 +510,7 @@ namespace BusinessData.Migrations.HsDb
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.DetailPracticalHsCode", b =>
                 {
-                    b.Navigation("ClarnaceInfoofHsCode");
+                    b.Navigation("ClearanceInfoofHsCode");
 
                     b.Navigation("Confirmationbythecustomsofficer");
                 });
@@ -466,12 +522,17 @@ namespace BusinessData.Migrations.HsDb
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.PracticalHsCode", b =>
                 {
-                    b.Navigation("DetailPracticalHsCodes");
+                    b.Navigation("SubPracticalHsCodes");
                 });
 
             modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.SubPartofHsCode", b =>
                 {
                     b.Navigation("PracticalHsCodes");
+                });
+
+            modelBuilder.Entity("BusinessData.ofCommon.ofHsCode.SubPracticalHsCode", b =>
+                {
+                    b.Navigation("DetailPracticalHsCodes");
                 });
 #pragma warning restore 612, 618
         }

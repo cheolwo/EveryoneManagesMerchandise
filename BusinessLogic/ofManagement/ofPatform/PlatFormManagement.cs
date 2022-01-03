@@ -35,7 +35,6 @@ namespace BusinessLogic.ofManagement.ofPatform
             int i = 2;
             bool IsSwitchPracticalHscode = false;
             PracticalHsCode practicalHsCode = new();
-            practicalHsCode.DetailPracticalHsCodes = new();
 
             DetailPracticalHsCode detailPracticalHsCode = new();
             detailPracticalHsCode.SubPracticalHsCode = new();

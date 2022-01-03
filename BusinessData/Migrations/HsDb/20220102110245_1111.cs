@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BusinessData.Migrations.HsDb
 {
-    public partial class _0 : Migration
+    public partial class _1111 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,6 +85,7 @@ namespace BusinessData.Migrations.HsDb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     HsCodePartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -97,6 +98,11 @@ namespace BusinessData.Migrations.HsDb
                 {
                     table.PrimaryKey("PK_SubPartofHsCode", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_SubPartofHsCode_Country_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Country",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_SubPartofHsCode_HsCodePart_HsCodePartId",
                         column: x => x.HsCodePartId,
                         principalTable: "HsCodePart",
@@ -108,9 +114,10 @@ namespace BusinessData.Migrations.HsDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    KoName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UsName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HsCodePartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     SubPartofHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -123,9 +130,9 @@ namespace BusinessData.Migrations.HsDb
                 {
                     table.PrimaryKey("PK_PracticalHsCode", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PracticalHsCode_HsCodePart_HsCodePartId",
-                        column: x => x.HsCodePartId,
-                        principalTable: "HsCodePart",
+                        name: "FK_PracticalHsCode_Country_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Country",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PracticalHsCode_SubPartofHsCode_SubPartofHsCodeId",
@@ -135,19 +142,66 @@ namespace BusinessData.Migrations.HsDb
                 });
 
             migrationBuilder.CreateTable(
-                name: "ClarnaceInfoofHsCode",
+                name: "SubPracticalHsCode",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    BasicTaxRate = table.Column<int>(type: "int", nullable: false),
-                    FVN1 = table.Column<int>(type: "int", nullable: false),
-                    FIN1 = table.Column<int>(type: "int", nullable: false),
-                    FAS1 = table.Column<int>(type: "int", nullable: false),
-                    FUS1 = table.Column<int>(type: "int", nullable: false),
-                    FEU1 = table.Column<int>(type: "int", nullable: false),
-                    FCN1 = table.Column<int>(type: "int", nullable: false),
-                    E1 = table.Column<int>(type: "int", nullable: false),
-                    WTO = table.Column<int>(type: "int", nullable: false),
+                    UsName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KoName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PracticalHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubPracticalHsCode", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SubPracticalHsCode_PracticalHsCode_PracticalHsCodeId",
+                        column: x => x.PracticalHsCodeId,
+                        principalTable: "PracticalHsCode",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DetailPracticalHsCode",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    UsName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KoName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    QuantityUnits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WeightUnits = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubPracticalHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetailPracticalHsCode", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DetailPracticalHsCode_SubPracticalHsCode_SubPracticalHsCodeId",
+                        column: x => x.SubPracticalHsCodeId,
+                        principalTable: "SubPracticalHsCode",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClearanceInfoofHsCode",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    BasicTaxRate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AgreetMentTaxRates = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HsCode = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -159,16 +213,16 @@ namespace BusinessData.Migrations.HsDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClarnaceInfoofHsCode", x => x.Id);
+                    table.PrimaryKey("PK_ClearanceInfoofHsCode", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ClarnaceInfoofHsCode_PracticalHsCode_HsCode",
+                        name: "FK_ClearanceInfoofHsCode_DetailPracticalHsCode_HsCode",
                         column: x => x.HsCode,
-                        principalTable: "PracticalHsCode",
+                        principalTable: "DetailPracticalHsCode",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Confirmationbythecustomsofficer",
+                name: "ConfirmationByTheCustomsOfficer",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
@@ -188,11 +242,11 @@ namespace BusinessData.Migrations.HsDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Confirmationbythecustomsofficer", x => x.Id);
+                    table.PrimaryKey("PK_ConfirmationByTheCustomsOfficer", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Confirmationbythecustomsofficer_PracticalHsCode_HsCode",
+                        name: "FK_ConfirmationByTheCustomsOfficer_DetailPracticalHsCode_HsCode",
                         column: x => x.HsCode,
-                        principalTable: "PracticalHsCode",
+                        principalTable: "DetailPracticalHsCode",
                         principalColumn: "Id");
                 });
 
@@ -202,18 +256,23 @@ namespace BusinessData.Migrations.HsDb
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClarnaceInfoofHsCode_HsCode",
-                table: "ClarnaceInfoofHsCode",
+                name: "IX_ClearanceInfoofHsCode_HsCode",
+                table: "ClearanceInfoofHsCode",
                 column: "HsCode",
                 unique: true,
                 filter: "[HsCode] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Confirmationbythecustomsofficer_HsCode",
-                table: "Confirmationbythecustomsofficer",
+                name: "IX_ConfirmationByTheCustomsOfficer_HsCode",
+                table: "ConfirmationByTheCustomsOfficer",
                 column: "HsCode",
                 unique: true,
                 filter: "[HsCode] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetailPracticalHsCode_SubPracticalHsCodeId",
+                table: "DetailPracticalHsCode",
+                column: "SubPracticalHsCodeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HsCodePart_CountryId",
@@ -221,9 +280,9 @@ namespace BusinessData.Migrations.HsDb
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PracticalHsCode_HsCodePartId",
+                name: "IX_PracticalHsCode_CountryId",
                 table: "PracticalHsCode",
-                column: "HsCodePartId");
+                column: "CountryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PracticalHsCode_SubPartofHsCodeId",
@@ -231,9 +290,19 @@ namespace BusinessData.Migrations.HsDb
                 column: "SubPartofHsCodeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SubPartofHsCode_CountryId",
+                table: "SubPartofHsCode",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SubPartofHsCode_HsCodePartId",
                 table: "SubPartofHsCode",
                 column: "HsCodePartId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SubPracticalHsCode_PracticalHsCodeId",
+                table: "SubPracticalHsCode",
+                column: "PracticalHsCodeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -242,10 +311,16 @@ namespace BusinessData.Migrations.HsDb
                 name: "AgreetMent");
 
             migrationBuilder.DropTable(
-                name: "ClarnaceInfoofHsCode");
+                name: "ClearanceInfoofHsCode");
 
             migrationBuilder.DropTable(
-                name: "Confirmationbythecustomsofficer");
+                name: "ConfirmationByTheCustomsOfficer");
+
+            migrationBuilder.DropTable(
+                name: "DetailPracticalHsCode");
+
+            migrationBuilder.DropTable(
+                name: "SubPracticalHsCode");
 
             migrationBuilder.DropTable(
                 name: "PracticalHsCode");

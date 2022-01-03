@@ -9,7 +9,19 @@ namespace ModuleTest
         static void Main(string[] args)
         {
             ReadExcelData();
-            Console.WriteLine("Hello World!");
+            string a = "asdfasdf";
+            string b = "asdfasdadsff";
+            string c = "asdfadfsdf";
+            string d = "asdfafefsdf";
+
+            int hashA = a.GetHashCode();
+            int hashB =  b.GetHashCode();
+            int hashC = c.GetHashCode();
+            int hashD = d.GetHashCode();
+            Console.WriteLine(Math.Abs(hashA));
+            Console.WriteLine(Math.Abs(hashB));
+            Console.WriteLine(Math.Abs(hashC));
+            Console.WriteLine(Math.Abs(hashD));
         }
         public static void ReadExcelData()
         {

@@ -32,6 +32,11 @@ namespace BusinessData.ofCommon.ofHsCode.ofRepository
         public PracticalHsCodeRepository(HsDbContext hsDbContext)
            : base(hsDbContext) { }
     }
+    public class SubPracticalHsCodeRepository : EntityDataRepository<SubPracticalHsCode>
+    {
+        public SubPracticalHsCodeRepository(HsDbContext hsDbContext)
+           : base(hsDbContext) { }
+    }
     public class DetailPracticalHsCodeRepository : EntityDataRepository<DetailPracticalHsCode> 
     {
         public DetailPracticalHsCodeRepository(HsDbContext hsDbContext)

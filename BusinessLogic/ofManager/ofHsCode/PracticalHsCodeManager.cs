@@ -20,9 +20,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<PracticalHsCode> CreateAsync(PracticalHsCode entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -38,9 +36,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<SubPracticalHsCode> CreateAsync(SubPracticalHsCode entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -56,9 +52,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<DetailPracticalHsCode> CreateAsync(DetailPracticalHsCode entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -74,9 +68,23 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<HsCodePart> CreateAsync(HsCodePart entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
+            entity.CreateTime = DateTime.Now;
+            return await _EntityDataRepository.AddAsync(entity);
+        }
+    }
+    public class SubPartofHsCodeManager : EntityManager<SubPartofHsCode>
+    {
+        public SubPartofHsCodeManager(IEntityDataRepository<SubPartofHsCode> EntityDataRepository,
+            IEntityIdFactory<SubPartofHsCode> EntityIdFactory,
+            IEntityFileFactory<SubPartofHsCode> entityFileFactory,
+            IEntityBlobStorage<SubPartofHsCode> entityBlobStorage,
+            DicConvertFactory<SubPartofHsCode> dicConvertFactory) : base(EntityDataRepository, EntityIdFactory, entityFileFactory, entityBlobStorage, dicConvertFactory)
+        {
+        }
+        public override async Task<SubPartofHsCode> CreateAsync(SubPartofHsCode entity)
+        {
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -92,9 +100,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<AgreetMent> CreateAsync(AgreetMent entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -110,9 +116,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<Country> CreateAsync(Country entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
@@ -128,9 +132,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<ClearanceInfoofHsCode> CreateAsync(ClearanceInfoofHsCode entity)
         {
-            string newId = await _EntityIdFactory.CreateIdByRelationEntity(entity);
-            newId = (string)newId.Split('-').GetValue(0);
-            entity.Id = newId;
+            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
