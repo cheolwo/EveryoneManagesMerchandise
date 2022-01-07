@@ -1,0 +1,14 @@
+﻿
+UserComponent
+@if(isConnected)
+{
+    <h3>@IdentityUser.UserName</h3>
+    <CascadingValue Value="this">
+        @EntityFragment
+    </CascadingValue>
+    @EntityFragment
+}
+else
+{
+    <p>Loading...</p>
+}

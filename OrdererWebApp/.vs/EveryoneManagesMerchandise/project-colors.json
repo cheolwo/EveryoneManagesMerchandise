@@ -45,7 +45,17 @@
       "ProjectGuid": "57d29db8-fc23-4fc1-8d77-1aa773d640d5",
       "DisplayName": "BusinessData",
       "ColorIndex": 7
+    },
+    "d40071c0-cb65-4928-99b7-c807d933e529": {
+      "ProjectGuid": "d40071c0-cb65-4928-99b7-c807d933e529",
+      "DisplayName": "ProducterWebApp",
+      "ColorIndex": 8
+    },
+    "8fe02659-9f4a-4297-8e42-eeb905b51f0c": {
+      "ProjectGuid": "8fe02659-9f4a-4297-8e42-eeb905b51f0c",
+      "DisplayName": "BusinessRazor",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 10
 }
