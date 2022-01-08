@@ -34,7 +34,7 @@ namespace BusinessLogic.ofManagement
     }
     delegate Task WeightHsFuction(Object[,] dataSet, int Row);
     public class HsCodeManagement : IHsCodeManagement
-    {
+    {   
         private readonly CountryManager _coutntryManager;
         private readonly HsCodePartManager _hsCodePartMangaer;
         private readonly SubPartofHsCodeManager _subPartofHsCodeManager;

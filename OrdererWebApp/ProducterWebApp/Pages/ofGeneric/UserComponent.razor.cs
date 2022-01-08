@@ -6,35 +6,44 @@ namespace ProducterWebApp.Pages.ofGeneric
 {
     public partial class UserComponent : ComponentBase
     {
-        [Parameter] public UserManager<IdentityUser> _userManager { get; set; }
-        [Parameter] public IHttpContextAccessor _httpContextAccessor { get; set; }
-        [Parameter] public ProtectedLocalStorage _protectedLocalStorage { get; set; }
-        [Parameter] public RenderFragment EntityFragment { get; set; }
-        [Parameter] public string Role { get; set; }
+        [Inject] public UserManager<IdentityUser>? UserManager { get; set; }
+        [Inject] public IHttpContextAccessor? HttpContextAccessor { get; set; }
+        [Inject] public ProtectedLocalStorage? ProtectedLocalStorage { get; set; }
+        public RenderFragment EntityFragment { get; set; }
+        [Parameter] public string? Role { get; set; }
         private bool isConnected { get; set; }
-        public IdentityUser IdentityUser = new();
+        public IdentityUser IdentityUser { get; set; }
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             //IsInRoleAsync(TUser, String)
             if (firstRender)
             {
-                var result = await _protectedLocalStorage.GetAsync<IdentityUser>("IdentityUser");
+                var result = await ProtectedLocalStorage.GetAsync<IdentityUser>("IdentityUser");
                 if(result.Value != null)
                 {
-                    bool IsInRole = await _userManager.IsInRoleAsync(IdentityUser, Role);
-                    if (!IsInRole) { throw new ArgumentException($"User don't have {Role}"); }
+                    bool IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role); 
+                    if (!IsInRole) 
+                    {
+                        // 역할등록하는 화면으로 이동
+                        throw new ArgumentException($"User don't have {Role}"); 
+                    }
                 }
                 else
                 {
-                    IdentityUser = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+                    IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
                     if (IdentityUser != null)
                     {
-                        bool IsInRole = await _userManager.IsInRoleAsync(IdentityUser, Role);
+                        bool IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
                         if (!IsInRole) { throw new ArgumentException($"User don't have {Role}"); }
                         else
                         {
-                            await _protectedLocalStorage.SetAsync("IdentityUser", IdentityUser);
+                            await ProtectedLocalStorage.SetAsync("IdentityUser", IdentityUser);
                         }
+                    }
+                    else
+                    {
+                        IdentityUser = new();
+                        IdentityUser.UserName = "Not Registered User";
                     }
                 }
                 isConnected = true;

@@ -71,3 +71,16 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Orde
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\obj\Debug\net6.0\ref\ProducterWebApp.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\obj\Debug\net6.0\ProducterWebApp.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\obj\Debug\net6.0\ProducterWebApp.genruntimeconfig.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Azure.Core.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Linkhub.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Popbill.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\BusinessData.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\BusinessData.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll

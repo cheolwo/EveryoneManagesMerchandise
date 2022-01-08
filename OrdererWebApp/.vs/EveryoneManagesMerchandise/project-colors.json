@@ -55,7 +55,12 @@
       "ProjectGuid": "8fe02659-9f4a-4297-8e42-eeb905b51f0c",
       "DisplayName": "BusinessRazor",
       "ColorIndex": 9
+    },
+    "8f44ae9e-ef79-42a2-b79d-7f3efff5f034": {
+      "ProjectGuid": "8f44ae9e-ef79-42a2-b79d-7f3efff5f034",
+      "DisplayName": "BusinessRazor",
+      "ColorIndex": 10
     }
   },
-  "NextColorIndex": 10
+  "NextColorIndex": 11
 }
