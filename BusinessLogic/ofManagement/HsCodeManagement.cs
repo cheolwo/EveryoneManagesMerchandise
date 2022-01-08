@@ -36,7 +36,7 @@ namespace BusinessLogic.ofManagement
 
     [DataContext(typeof(HsDbContext), DbConnectionString.HsDbConnection)]
     public class HsCodeManagement : IHsCodeManagement
-    {
+    {   
         private readonly CountryManager _coutntryManager;
         private readonly HsCodePartManager _hsCodePartMangaer;
         private readonly SubPartofHsCodeManager _subPartofHsCodeManager;
