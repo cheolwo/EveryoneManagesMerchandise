@@ -29,5 +29,5 @@ namespace BusinessRazor.ofCommon
             EventLogin.Invoke(formofCenterLogin);
             Switch.Invoke();
         }
-    }
+    } 
 }
