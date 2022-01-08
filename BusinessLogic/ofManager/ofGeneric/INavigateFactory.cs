@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public interface INavigateFactory<TEntity> where TEntity : Entity
+    public interface INavigateFactory
     {
         string GetNavigateofAdd();
         string GetNavigateofDelte();
@@ -15,26 +15,13 @@ namespace BusinessLogic.ofManager.ofGeneric
         string GetNavigateofDetail();
     }
 
-    public class NavigateFactory<TEntity> : INavigateFactory<TEntity> where TEntity : Entity
+    public class NavigateFactory : INavigateFactory 
     {
-        public string GetNavigateofAdd()
+        private readonly NavigationManager _navigationManager;
+        public NavigateFactory(NavigationManager navigationManager)
         {
-            throw new NotImplementedException();
+            _navigationManager = navigationManager;
         }
-
-        public string GetNavigateofDelte()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetNavigateofDetail()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetNavigateofUpdate()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -1,4 +1,4 @@
-using BusinessData;                          m
+using BusinessData;
 using BusinessLogic.ofManager.ofGeneric;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -13,87 +13,75 @@ namespace BusinessRazor
     {
         public string Id { get; set; }
         public string Password { get; set; } // Hasg
+        public CenterValidator(string Id, string Password)
+        {
+            this.Id = Id;
+            this.Password = Password;
+        }
     }
-    // 되는지 안 되는지 한 번 해봐야겟는데... 이 부분은...
-    // 지금으로서는 개인적인 생각에 Inject 라는 부분은 다 없어져야해.
+    // 비즈니스관리시스템 도면 : CenterCompoenent
     public partial class CenterComponent<TCenter> : ComponentBase where TCenter : Center, IRelationable
     {
-        [Parameter] public ICenterManager<TCenter> _centerManager { get; set; }
-        [Parameter] public ProtectedSessionStorage _protectedSesstionStorage { get; set; }
-        [Parameter] public ProtectedLocalStorage _protectedLocalStorage { get; set; }
-        [Parameter] public NavigationManager _navigationManager { get; set; }
+        [Inject] public ICenterManager<TCenter> _centerManager { get; set; } 
+        [Inject] public ProtectedLocalStorage _protectedLocalStorage { get; set; }
+        [Inject] public NavigationManager _navigationManager { get; set; }
         [CascadingParamenter] public UserComponent userComponent { get; set; }
         [Parameter] public RenderFragment ChildFragment { get; set; }
-        [Parameter] public TCenter Center;
+        [Parameter] public List<TCenter> Centers { get; set; }
+        public List<TCenter> CheckCenters = new(); 
+        public List<TCenter> NotCheckCenters = new(); 
+        private bool IsOpenLoginDialog = false;
         private bool IsConnected = false;
-        private bool IsSucceedLogin = false;
-        private bool IsCurrentUser = false;
-        
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (firstRender)
+            // 주로 플랫폼 관리자가 해당 코드로 데이터를 로드
+            if (userComponent is null)
             {
-                // 상태저장소 접근
-                Center = await _protectedSesstionStorage.GetAsync<TCenter>("Center");
-                if (Center != null)
+                Centers = await _centerManager.GetToListAsync();
+                return base.OnAfterRenderAsync(firstRender);
+            }
+            // 유저의 경우 해당 코드로 데이터를 로드
+            else
+            {
+                Centers = await _centerManager.GetToListByUserAsync(userComponent.IdentityUser);
+                if (firstRender)
                 {
-                    IsCurrentUser = true;
-                    var CenterValidator = await _protectedLocalStorage.GetAsync<CenterValidator>(Center.Id);
-                    if (CenterValidator != null)
+                    if (Centers != null)
                     {
-                        var IsLogin = await _centerManager.LoginByCryptPasswrodAsync(Center, CenterValidator.Id, CenterValidator.Password);
-                        if (IsLogin)
+                        foreach (var Center in Centers)
                         {
-                            await _protectedSesstionStorage.SetAsync<TCenter>(Center.Id, Center);
-                            IsSucceedLogin = true;
-                        };
-                    }
-                }
-                // DB 접근
-                else
-                {
-                    var user = userComponent.IdentityUser;
-                    if (user != null)
-                    {
-                        Center = _centerManager.GetByUserAsync(user);
-                        if (Center != null)
-                        {
-                            IsCurrentUser = true;
                             var CenterValidator = await _protectedLocalStorage.GetAsync<CenterValidator>(Center.Id);
-                            if (CenterValidator != null)
-                            {
-                                var IsLogin = await _centerManager.LoginByCryptPasswrodAsync(Center, CenterValidator.Id, CenterValidator.Password);
-                                if (IsLogin)
-                                {
-                                    await _protectedSesstionStorage.SetAsync<TCenter>(Center.Id, Center);
-                                    IsSucceedLogin = true;
-                                };
-                            }
+                            if (CenterValidator != null) { CheckCenters.Add(Center); }
+                            else { NotCheckCenters.Add(Center); }
                         }
                     }
+                    else { _navigationManager.NavigateTo("/Create/{typeof(Center).Name}"); }
+                    IsConnected = true;
+                    StateHasChanged();
                 }
-                IsConnected = true;
-                StateHasChanged();
             }
         }
-        public async Task Lonin(string id, string password)
+        // Center Login Component 의 EventCallBack 함수로 이용
+        private void Lonin(FormofCenterLogin formofCenterLogin)
         {
-            try
+            var Center = NotCheckCenters.FirstOrDefault(e => e.Id.Equals(formofCenterLogin.Id));
+            bool IsValidate = _centerManager.LoginCheck(Center, 
+                                    formofCenterLogin.CenterLoginId, formofCenterLogin.CenterPassword);
+            if (IsValidate)
             {
-                Center = await _centerManager.LoginAsync(id, password);
-                if (Center != null) { IsSucceedLogin = true; }
+                _protectedLocalStorage.SetAsync<CenterValidator>(Id, 
+                new CenterValidator(formofCenterLogin.CenterLoginId, formofCenterLogin.CenterPassword));
+                CheckCenters.Add(Center);
+                NotCheckCenters.Remove(Center);
+                return IsValidate;
             }
-            catch
-            {
-                // Awesome
-            }
-            finally
-            {
-                await _protectedSesstionStorage.SetAsync<TCenter>(Center.Id, Center);
-            }
+            return IsValidate;
         }
+        // // Center Login Component 의 EventCallBack 함수로 이용
+        private void SwitchLoinDialog()
+        {
+            IsOpenLoginDialog = !IsOpenLoginDialog;
+        }
+        
     }
-    
-    
-
 }
