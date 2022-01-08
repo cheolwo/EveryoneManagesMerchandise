@@ -33,6 +33,8 @@ namespace BusinessLogic.ofManagement
         Task HsInfoExcelToDb(object[,] dataSet);
     }
     delegate Task WeightHsFuction(Object[,] dataSet, int Row);
+
+    [DataContext(typeof(HsDbContext), DbConnectionString.HsDbConnection)]
     public class HsCodeManagement : IHsCodeManagement
     {
         private readonly CountryManager _coutntryManager;

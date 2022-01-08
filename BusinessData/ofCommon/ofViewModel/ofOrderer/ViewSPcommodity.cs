@@ -13,6 +13,7 @@ namespace BusinessData.ofCommon.ofViewModel.ofOrderer
         public string RestQuantity { get; set; }
         public string ProductableQuantity { get; set; }
         public string ProductCenterId { get; set; }
+        public string ProducterId {get; set;}
         public string ImageUrl { get; set; }
     }
     public class ViewofSTCommodity

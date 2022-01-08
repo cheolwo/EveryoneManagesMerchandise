@@ -7,7 +7,7 @@ using BusinessData.ofTrade.ofRepository;
 namespace OrdererWebApp.ofService
 {
     public delegate Task<List<ViewofSPCommodity>> CallBackGetToListofViewofSPCommodity(InputViewofSPCommodity inputViewofSPCommodity); 
-    public class OrdererManagement
+    public class OrdererServices
     {
         private readonly ProductCenterRepository _productCenterRepository;
         private readonly PCommodityRepository _pCommodityRepository;
@@ -19,7 +19,7 @@ namespace OrdererWebApp.ofService
         private readonly ETCommodityRepository _eCommodityRepository;
         private Dictionary<int, CallBackGetToListofViewofSPCommodity> WeightGetToListofViewofSPCommodity = new();
         
-        public OrdererManagement(ProductCenterRepository productCenterRepository, PCommodityRepository pCommodityRepository,
+        public OrdererServices(ProductCenterRepository productCenterRepository, PCommodityRepository pCommodityRepository,
             SPCommodityRepository sPCommodityRepository, TradeCenterRepository tradeCenterRepository, TCommodityRepository tCommodityRepository,
             STCommodityRepository sTCommodityRepository, MTCommodityRepository mTCommodityRepository, ETCommodityRepository eTCommodityRepository)
         {
