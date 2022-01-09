@@ -153,3 +153,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Orde
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\obj\Debug\net6.0\scopedcss\projectbundle\OrdererWebApp.bundle.scp.css
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\obj\Debug\net6.0\OrdererWebApp.csproj.CopyComplete
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\obj\Debug\net6.0\OrdererWebApp.genruntimeconfig.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\bin\Debug\net6.0\BusinessLogic.pdb

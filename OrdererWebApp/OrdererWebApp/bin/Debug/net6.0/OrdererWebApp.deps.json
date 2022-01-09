@@ -9,6 +9,7 @@
       "OrdererWebApp/1.0.0": {
         "dependencies": {
           "BusinessData": "1.0.0",
+          "BusinessLogic": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
           "Microsoft.AspNetCore.Identity.UI": "6.0.0",
@@ -783,6 +784,18 @@
         "runtime": {
           "BusinessData.dll": {}
         }
+      },
+      "BusinessLogic/1.0.0": {
+        "dependencies": {
+          "Azure.Storage.Blobs": "12.10.0",
+          "BusinessData": "1.0.0",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.0"
+        },
+        "runtime": {
+          "BusinessLogic.dll": {}
+        }
       }
     }
   },
@@ -1458,6 +1471,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "BusinessData/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BusinessLogic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

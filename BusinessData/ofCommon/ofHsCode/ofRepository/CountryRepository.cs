@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofCommon.ofHsCode.ofRepository
 {
-    public  class CountryRepository : EntityDataRepository<Country>
+    public class CountryRepository : EntityDataRepository<Country>
     {
         public CountryRepository(HsDbContext hsDbContext)
             : base(hsDbContext) { }

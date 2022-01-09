@@ -1,4 +1,6 @@
-﻿using BusinessData.ofCommon.ofHsCode;
+﻿using BusinessData;
+using BusinessData.ofCommon.ofHsCode;
+using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using BusinessLoogic.ofManager.ofHsCode;
 using System;
 using System.Collections.Generic;

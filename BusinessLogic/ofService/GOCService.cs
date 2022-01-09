@@ -1,4 +1,6 @@
+using BusinessData;
 using BusinessData.ofProduct;
+using BusinessLogic.ofManagement.ofOrderer;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder;
 using BusinessLogic.ofManager.ofOrder;
@@ -41,13 +43,17 @@ namespace BusinessLogic.ofService.ofOrderer
     public class OrdererService : IService
     {   
         private readonly OrderManagement _orderManagement;  // 주문은 출고와 관련이 있다.
-        private readonly ContractManagement _contractManagement; // 계약은 입고와 관련이 있다.
-        private readonly JournalManagement _journalManagement; // 회계는 주문 및 계약과 관련이 있다.
+        //private readonly ContractManagement _contractManagement; // 계약은 입고와 관련이 있다.
+        //private readonly JournalManagement _journalManagement; // 회계는 주문 및 계약과 관련이 있다.
         public OrdererService(OrderManagement orderManagement)
         {
             _orderManagement = orderManagement;
         }
-        
+
+        public int ServiceTypeChekc(IRelationable relationable, ServciePurpose purpose)
+        {
+            throw new System.NotImplementedException();
+        }
     }
     public class GOCService
     {

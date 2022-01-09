@@ -9,6 +9,7 @@ using System.Linq;
 namespace BusinessData.ofGeneric.ofTypeConfiguration
 {
     public enum ConstraintLength { Id = 30 , Name = 50, Barcode = 30, Address = 30}
+    
     public class EntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : Entity
     {
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)

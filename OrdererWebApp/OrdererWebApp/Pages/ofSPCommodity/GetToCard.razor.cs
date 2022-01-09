@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BusinessData.ofProduct;
+using Microsoft.AspNetCore.Components;
+using OrdererWebApp.ofService;
 
 namespace OrdererWebApp.Pages.ofSPCommodity
 {
@@ -8,7 +10,7 @@ namespace OrdererWebApp.Pages.ofSPCommodity
     {
         [Inject] public IHttpContextAccessor _httpContextAccessor {get; set;}
         [Inject] public OrdererServices _ordererServices {get; set;}
-        public List<SPCommdity> sPCommodities {get; set;}
+        public List<SPCommodity> sPCommodities {get; set;}
         
     }
 }

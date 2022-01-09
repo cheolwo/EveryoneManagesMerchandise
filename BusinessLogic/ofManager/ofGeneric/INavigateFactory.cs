@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,25 @@ namespace BusinessLogic.ofManager.ofGeneric
         {
             _navigationManager = navigationManager;
         }
-        
+
+        public string GetNavigateofAdd()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNavigateofDelte()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNavigateofDetail()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNavigateofUpdate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,6 +12,39 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
+        "HashCode": -619228471,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Pages.ofOCommodity.GetToTable",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GetToTable"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Pages.ofOCommodity.GetToTable"
+        }
+      },
+      {
+        "HashCode": -1480345784,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Pages.ofOCommodity.GetToTable",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "OrdererWebApp.Pages.ofOCommodity.GetToTable"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Pages.ofOCommodity.GetToTable",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 330356908,
         "Kind": "Components.Component",
         "Name": "OrdererWebApp.Pages.ofSPCommodity.GetToCard",
@@ -59712,6 +59745,67 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "MudBlazor.Internal.MudInputAdornment",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1059915107,
+        "Kind": "Components.Component",
+        "Name": "BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity>",
+        "AssemblyName": "BusinessLogic",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TableManager"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "HashCode": -1659179002,
+        "Kind": "Components.Component",
+        "Name": "BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity>",
+        "AssemblyName": "BusinessLogic",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessLogic.ofPresentation.ofBlazor.TableManager"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessLogic.ofPresentation.ofBlazor.TableManager<TEntity>",
+          "Components.GenericTyped": "True",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

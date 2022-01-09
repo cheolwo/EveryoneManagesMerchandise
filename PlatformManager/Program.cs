@@ -1,6 +1,7 @@
 using BusinessData;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using BusinessData.ofCommon.ofHsCode.ofRepository;
+using BusinessData.ofCommon.ofKamis.ofDbContext;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessLogic.ofManagement;
 using BusinessLogic.ofManagement.ofPatform;
@@ -26,6 +27,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var HsDbConnectionString = builder.Configuration.GetConnectionString("HsDbConnection");
 builder.Services.AddDbContext<HsDbContext>(options =>
     options.UseSqlServer(HsDbConnectionString));
+
+var KamisDbConnectionString = builder.Configuration.GetConnectionString("KamisDbConnection");
+builder.Services.AddDbContext<KamisDbContext>(optoins =>
+optoins.UseSqlServer(KamisDbConnectionString));
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));
