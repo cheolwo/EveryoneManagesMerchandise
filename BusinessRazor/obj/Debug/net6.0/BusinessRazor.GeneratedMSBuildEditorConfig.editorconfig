@@ -8,17 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows,browser
 build_property.RootNamespace = BusinessRazor
 build_property.RootNamespace = BusinessRazor
-build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\BusinessRazor\
+build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\BusinessRazor
+build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/BusinessRazor/_Imports.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/BusinessRazor/Component1.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Component1.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50MS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-i9t0l071tb

@@ -1,10 +1,5 @@
 ﻿using BusinessData;
-using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
@@ -20,15 +15,15 @@ namespace BusinessLogic.ofManager.ofGeneric
     {
         public virtual string NavigateAfterCreate(WhereOptions options)
         {
-            return $"/Get/{options.ToString()}";
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
         public virtual string NavigateAfterDelte(WhereOptions options)
         {
-            return $"/Get/{options.ToString()}";
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
         public virtual string NavigateAfterUpdate(WhereOptions options)
         {
-            return $"/Get/{options.ToString()}";
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
         // string NavigateAfterDetail(WhereOptions options)
         // {
