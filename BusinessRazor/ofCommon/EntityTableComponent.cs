@@ -1,16 +1,15 @@
+using BusinessData;
+using BusinessLogic.ofManager.ofGeneric;
+using Microsoft.AspNetCore.Components;
+
 namespace BusinessRazor.ofCommon
 {
-    public partial class EntityTableComponent : ComponentBase
+    public partial class EntityTableComponent<TEntity> : ComponentBase where TEntity : Entity, IRelationable
     {
-       [Parameter] public IUserTableManager<TEntity> UserTableManager {get; set;} // 형식구성담당
-       [Parameter] public IUserJounalManager<TEntity> JounalManager {get; set;} 
-       [Parameter] public IUserPayManager<TEntity> PayManager {get; set;}
        [Parameter] public IEntityManager<TEntity> EntityManager { get; set; } 
        [Parameter] public INavigateFactory<TEntity> NavigateFactory { get; set; }
        [Parameter] public NavigationManager NavigationManager { get; set; }
-       [Parameter] public BusinessUser businessUser {get; set;}
-       [Parameter] public TEntity Entity {get; set;}
-       [CascadingParameter] public CenterComponent centerComponent {get; set;}
+       [CascadingParameter] public UserComponent UserComponent {get; set;}
        public List<TEntity> Entities = new();
        public List<string> UserTableView = new();
         

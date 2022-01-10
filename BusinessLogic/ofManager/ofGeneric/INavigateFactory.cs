@@ -1,45 +1,32 @@
 ﻿using BusinessData;
-using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public interface INavigateFactory
+    public interface INavigateFactory<TEntity> where TEntity : Entity
     {
-        string GetNavigateofAdd();
-        string GetNavigateofDelte();
-        string GetNavigateofUpdate();
-        string GetNavigateofDetail();
+        string GetNavigateAfterAdd();
+        string GetNavigateAfterDelte();
+        string GetNavigateAfterUpdate();
     }
 
-    public class NavigateFactory : INavigateFactory 
+    public class NavigateFactory<TEntity> : INavigateFactory <TEntity> where TEntity : Entity
     {
-        private readonly NavigationManager _navigationManager;
-        public NavigateFactory(NavigationManager navigationManager)
+        public NavigateFactory()
         {
-            _navigationManager = navigationManager;
         }
 
-        public string GetNavigateofAdd()
+        public string GetNavigateAfterAdd()
         {
             throw new NotImplementedException();
         }
 
-        public string GetNavigateofDelte()
+        public string GetNavigateAfterDelte()
         {
             throw new NotImplementedException();
         }
 
-        public string GetNavigateofDetail()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetNavigateofUpdate()
+        public string GetNavigateAfterUpdate()
         {
             throw new NotImplementedException();
         }

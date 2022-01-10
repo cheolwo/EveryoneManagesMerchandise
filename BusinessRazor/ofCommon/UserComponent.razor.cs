@@ -1,3 +1,6 @@
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Components;
+
 namespace BusinessRazor
 {
     public partial class UserComponent : ComponentBase
