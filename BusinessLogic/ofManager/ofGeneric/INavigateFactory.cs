@@ -8,40 +8,31 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public interface INavigateFactory
+    public enum WhereOptions {Table, Card, DashBoard}
+    public interface INavigateFactory<TEntity> where TEntity : Entity
     {
-        string GetNavigateofAdd();
-        string GetNavigateofDelte();
-        string GetNavigateofUpdate();
-        string GetNavigateofDetail();
+        string NavigateAfterCreate(WhereOptions options);
+        string NavigateAfterDelte(WhereOptions options);
+        string NavigateAfterUpdate(WhereOptions options);
     }
 
-    public class NavigateFactory : INavigateFactory 
+    public class NavigateFactory<TEntity> : INavigateFactory<TEntity> where TEntity : Entity
     {
-        private readonly NavigationManager _navigationManager;
-        public NavigateFactory(NavigationManager navigationManager)
+        public virtual string NavigateAfterCreate(WhereOptions options)
         {
-            _navigationManager = navigationManager;
+            return $"/Get/{options.ToString()}";
         }
-
-        public string GetNavigateofAdd()
+        public virtual string NavigateAfterDelte(WhereOptions options)
         {
-            throw new NotImplementedException();
+            return $"/Get/{options.ToString()}";
         }
-
-        public string GetNavigateofDelte()
+        public virtual string NavigateAfterUpdate(WhereOptions options)
         {
-            throw new NotImplementedException();
+            return $"/Get/{options.ToString()}";
         }
-
-        public string GetNavigateofDetail()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetNavigateofUpdate()
-        {
-            throw new NotImplementedException();
-        }
+        // string NavigateAfterDetail(WhereOptions options)
+        // {
+        //     return $"/Get/{options.ToString()}";
+        // }
     }
 }
