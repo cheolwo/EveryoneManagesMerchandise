@@ -4,7 +4,7 @@
 
 namespace BusinessData.Migrations.KamisDb
 {
-    public partial class Int : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,21 @@ namespace BusinessData.Migrations.KamisDb
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_KamisCountryAdministrationPart", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "KamisGrade",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KamisGrade", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -112,9 +127,9 @@ namespace BusinessData.Migrations.KamisDb
                     RetailShippingUnitSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EcoFriendlyAgriculturalProductShippingUnit = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EcoFriendlyAgriculturalProductShippingUnitSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WholeSaleGrades = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RetailSaleGrades = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EcoFriendlyGrades = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WholeSaleGrade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RetailSaleGrade = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EcoFriendlyGrade = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KamisCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -193,6 +208,9 @@ namespace BusinessData.Migrations.KamisDb
         {
             migrationBuilder.DropTable(
                 name: "KamisDayPrice");
+
+            migrationBuilder.DropTable(
+                name: "KamisGrade");
 
             migrationBuilder.DropTable(
                 name: "KamisKindofCommodity");

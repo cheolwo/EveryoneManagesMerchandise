@@ -29,3 +29,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Busi
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\bin\Debug\net5.0\BusinessData.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\bin\Debug\net5.0\BusinessData.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CopyComplete
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net5.0\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.ResolveComReference.cache

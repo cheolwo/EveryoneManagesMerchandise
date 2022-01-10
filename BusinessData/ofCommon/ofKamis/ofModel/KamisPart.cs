@@ -337,9 +337,9 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
         public string RetailShippingUnitSize {get; set;} // 소매출하단위크기 8 
         public string EcoFriendlyAgriculturalProductShippingUnit {get; set;} // 친환경농산물 출하단위 11
         public string EcoFriendlyAgriculturalProductShippingUnitSize {get; set;} // 친환경농산물 출하단위 크기 12
-        public List<KamisGrade> WholeSaleGrades {get; set;} // 도매등급 13
-        public List<KamisGrade> RetailSaleGrades {get; set;} // 소매등급 14
-        public List<KamisGrade> EcoFriendlyGrades {get; set;} // 친환경등급 16
+        public string WholeSaleGrade {get; set;} // 도매등급 13
+        public string RetailSaleGrade {get; set;} // 소매등급 14
+        public string EcoFriendlyGrade {get; set;} // 친환경등급 16
         public List<KamisDayPrice> KamisDayPrices {get; set;}
         public KamisCommodity KamisCommodity {get; set;}
         public string KamisCommodityId {get; set;} // 품목코드 1
@@ -495,10 +495,156 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 
     [DataContext(typeof(KamisDbContext), DbConnectionString.KamisDbConnection)]
     [Relation(typeof(KamisGrade), nameof(KamisGrade))]
-    public class KamisGrade : KmaisEntity
+    public class KamisGrade : KamisEntity, IRelationable
     {
-        public string Code {get; set;}
-        public string Name {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+        public List<PropertyInfo> OnlyGetProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Get = prop.GetCustomAttribute<GetAttribute>();
+                if (Get != null)
+                {
+                    var Many = prop.GetCustomAttribute<ManyAttribute>();
+                    var One = prop.GetCustomAttribute<OneAttribute>();
+                    if (Many is null && One is null)
+                    {
+                        OnlyGetPropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return OnlyGetPropertyInfos;
+        }
+        public List<PropertyInfo> OnlyDetailProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> OnlyDetailPropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Get = prop.GetCustomAttribute<DetailAttribute>();
+                if (Get != null)
+                {
+                    var Many = prop.GetCustomAttribute<ManyAttribute>();
+                    var One = prop.GetCustomAttribute<OneAttribute>();
+                    if (Many is null && One is null)
+                    {
+                        OnlyDetailPropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return OnlyDetailPropertyInfos;
+        }
+        public List<PropertyInfo> GetManyProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Get = prop.GetCustomAttribute<GetAttribute>();
+                if (Get != null)
+                {
+                    var Many = prop.GetCustomAttribute<ManyAttribute>();
+                    if (Many != null)
+                    {
+                        GetManyPropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return GetManyPropertyInfos;
+        }
+
+        public List<PropertyInfo> GetOneProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Get = prop.GetCustomAttribute<GetAttribute>();
+                if (Get != null)
+                {
+                    var One = prop.GetCustomAttribute<OneAttribute>();
+                    if (One != null)
+                    {
+                        GetOnePropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return GetOnePropertyInfos;
+        }
+
+        public List<PropertyInfo> DetailOneProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Detail = prop.GetCustomAttribute<DetailAttribute>();
+                if (Detail != null)
+                {
+                    var One = prop.GetCustomAttribute<OneAttribute>();
+                    if (One != null)
+                    {
+                        GetOnePropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return GetOnePropertyInfos;
+        }
+
+        public List<PropertyInfo> DetailManyProperties()
+        {
+            Type t = this.GetType();
+            List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
+            var props = t.GetProperties();
+            foreach (var prop in props)
+            {
+                var Detail = prop.GetCustomAttribute<DetailAttribute>();
+                if (Detail != null)
+                {
+                    var Many = prop.GetCustomAttribute<ManyAttribute>();
+                    if (Many != null)
+                    {
+                        DetailManyPropertyInfos.Add(prop);
+                    }
+                }
+            }
+            return DetailManyPropertyInfos;
+        }
     }
 
     [DataContext(typeof(KamisDbContext), DbConnectionString.KamisDbConnection)]
@@ -506,7 +652,7 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
     public class KamisCountryAdministrationPart : KamisEntity, IRelationable
     {
         public List<KamisSubCountryAdministrationPart> KamisSubCountryAdministrationParts {get; set;}
-         public override string GetRelationCode()
+        public override string GetRelationCode()
         {
             RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
             if(relationAttribute != null)

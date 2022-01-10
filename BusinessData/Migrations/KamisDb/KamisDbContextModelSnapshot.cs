@@ -105,6 +105,29 @@ namespace BusinessData.Migrations.KamisDb
                     b.ToTable("KamisDayPrice");
                 });
 
+            modelBuilder.Entity("BusinessData.ofCommon.ofKamis.ofModel.KamisGrade", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Container")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Docs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageofInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("KamisGrade");
+                });
+
             modelBuilder.Entity("BusinessData.ofCommon.ofKamis.ofModel.KamisKindofCommodity", b =>
                 {
                     b.Property<string>("Id")
@@ -123,7 +146,7 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("EcoFriendlyAgriculturalProductShippingUnitSize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EcoFriendlyGrades")
+                    b.Property<string>("EcoFriendlyGrade")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageofInfos")
@@ -135,7 +158,7 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RetailSaleGrades")
+                    b.Property<string>("RetailSaleGrade")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RetailShippingUnit")
@@ -144,7 +167,7 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("RetailShippingUnitSize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WholeSaleGrades")
+                    b.Property<string>("WholeSaleGrade")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WholeSaleShippingUnizSize")

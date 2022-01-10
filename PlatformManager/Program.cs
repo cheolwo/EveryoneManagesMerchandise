@@ -2,6 +2,7 @@ using BusinessData;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using BusinessData.ofCommon.ofHsCode.ofRepository;
 using BusinessData.ofCommon.ofKamis.ofDbContext;
+using BusinessData.ofCommon.ofKamis.ofRepository;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessLogic.ofManagement;
 using BusinessLogic.ofManagement.ofPatform;
@@ -10,6 +11,7 @@ using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using BusinessLoogic.ofManager.ofHsCode;
+using BusinessLoogic.ofManager.ofKamis;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -39,8 +41,10 @@ builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>)
 builder.Services.AddScoped(typeof(IEntityFileFactory<>), typeof(EntityFileFactory<>));
 builder.Services.AddScoped(typeof(IEntityContainerFactory<>), typeof(EntityContainerFactory<>));
 builder.Services.AddScoped(typeof(DicConvertFactory<>));
+
 builder.Services.AddScoped<PlatFormManagement>();
 builder.Services.AddScoped<HsCodeManagement>();
+builder.Services.AddScoped<KamisManagement>();
 
 builder.Services.AddScoped<HsCodePartRepository>();
 builder.Services.AddScoped<PracticalHsCodeRepository>();
@@ -57,6 +61,24 @@ builder.Services.AddScoped<SubPracticalHsCodeManager>();
 builder.Services.AddScoped<DetailPracticalHsCodeManager>();
 builder.Services.AddScoped<CountryManager>();
 builder.Services.AddScoped<ClearanceInfoofHsCodeManager>();
+
+builder.Services.AddScoped<KamisPartManager>();
+builder.Services.AddScoped<KamisCommodityManager>();
+builder.Services.AddScoped<KamisKindofCommodityManager>();
+builder.Services.AddScoped<KamisGradeManager>();
+builder.Services.AddScoped<KamisCountryAdministrationPartManager>();
+builder.Services.AddScoped<KamisSubCountryAdministrationPartManager>();
+builder.Services.AddScoped<KamisMarketManager>();
+builder.Services.AddScoped<KamisDayPriceManager>();
+
+builder.Services.AddScoped<KamisPartRepository>();
+builder.Services.AddScoped<KamisCommodityRepository>();
+builder.Services.AddScoped<KamisKindofCommodityRepository>();
+builder.Services.AddScoped<KamisGradeRepository>();
+builder.Services.AddScoped<KamisCountryAdministrationPartRepository>();
+builder.Services.AddScoped<KamisSubCountryAdministrationPartRepository>();
+builder.Services.AddScoped<KamisMarketRepository>();
+builder.Services.AddScoped<KamisDayPriceRepository>();
 
 builder.Services.AddMudServices();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

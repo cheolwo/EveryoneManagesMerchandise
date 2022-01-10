@@ -36,6 +36,7 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             modelBuilder.ApplyConfiguration(new KamisSubCountryAdministrationPartConfiguration());
             modelBuilder.ApplyConfiguration(new KamisMarketConfiguration());
             modelBuilder.ApplyConfiguration(new KamisDayPriceConfiguration());
+            modelBuilder.ApplyConfiguration(new KamisGradeConfiguration());
         }
     }
     
@@ -56,6 +57,13 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             base.Configure(builder);
         }
     }
+    public class KamisGradeConfiguration : KamisEntityConfiguration<KamisGrade>
+    {
+        public override void Configure(EntityTypeBuilder<KamisGrade> builder)
+        {
+            base.Configure(builder);
+        }
+    }
     public class KamsiCommodityConfiguration : KamisEntityConfiguration<KamisCommodity>
     {
         public override void Configure(EntityTypeBuilder<KamisCommodity> builder)
@@ -70,24 +78,24 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         {
             base.Configure(builder);
             builder.HasOne(c => c.KamisCommodity).WithMany(k => k.KamisKindsofCommodity).HasForeignKey(c => c.KamisCommodityId);         
-            builder.Property(c => c.WholeSaleGrades).HasConversion(
-                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
-                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-            c => c.ToList()));
-            builder.Property(c => c.RetailSaleGrades).HasConversion(
-                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
-                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-            c => c.ToList()));
-            builder.Property(c => c.EcoFriendlyGrades).HasConversion(
-                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
-                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-            c => c.ToList()));
+            //builder.Property(c => c.WholeSaleGrades).HasConversion(
+            //     v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
+            //     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            //c => c.ToList()));
+            //builder.Property(c => c.RetailSaleGrades).HasConversion(
+            //     v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
+            //     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            //c => c.ToList()));
+            //builder.Property(c => c.EcoFriendlyGrades).HasConversion(
+            //     v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     v => JsonConvert.DeserializeObject<List<KamisGrade>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+            //     new ValueComparer<List<KamisGrade>>((c1, c2) => c1.SequenceEqual(c2),
+            //     c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            //c => c.ToList()));
         }
     }
     public class KamisCountryAdministrationPartConfiguration : KamisEntityConfiguration<KamisCountryAdministrationPart>

@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofCommon.ofKamis.ofRepository
 {
+    public class KamisGradeRepository : EntityDataRepository<KamisGrade>
+    {
+        public KamisGradeRepository(HsDbContext hsDbContext)
+            : base(hsDbContext) { }
+    }
     public class KamisPartRepository : EntityDataRepository<KamisPart>
     {
         public KamisPartRepository(HsDbContext hsDbContext)

@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\HsDb\" />
+    <Folder Include="Migrations\KamisDb\" />
     <Folder Include="Migrations\OrderDb\" />
     <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
