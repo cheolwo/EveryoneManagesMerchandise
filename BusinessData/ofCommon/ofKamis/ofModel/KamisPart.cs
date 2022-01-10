@@ -331,18 +331,18 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
     [Relation(typeof(KamisKindofCommodity), nameof(KamisKindofCommodity))]
     public class KamisKindofCommodity : KamisEntity, IRelationable
     {
-        public string WholesaleShippingUnit {get; set;}
-        public string WholeSaleShippingUnizSize {get; set;}
-        public string RetailShippingUnit {get; set;}
-        public string RetailShippingUnitSize {get; set;}
-        public string EcoFriendlyAgriculturalProductShippingUnit {get; set;}
-        public string EcoFriendlyAgriculturalProductShippingUnitSize {get; set;}
-        public List<KamisGrade> WholeSaleGrades {get; set;}
-        public List<KamisGrade> RetailSaleGrades {get; set;}
-        public List<KamisGrade> EcoFriendlyGrades {get; set;}
+        public string WholesaleShippingUnit {get; set;} // 도매출하단위 5
+        public string WholeSaleShippingUnizSize {get; set;} // 도매출하단위크기 6
+        public string RetailShippingUnit {get; set;} // 소매출한단위 7
+        public string RetailShippingUnitSize {get; set;} // 소매출하단위크기 8 
+        public string EcoFriendlyAgriculturalProductShippingUnit {get; set;} // 친환경농산물 출하단위 11
+        public string EcoFriendlyAgriculturalProductShippingUnitSize {get; set;} // 친환경농산물 출하단위 크기 12
+        public List<KamisGrade> WholeSaleGrades {get; set;} // 도매등급 13
+        public List<KamisGrade> RetailSaleGrades {get; set;} // 소매등급 14
+        public List<KamisGrade> EcoFriendlyGrades {get; set;} // 친환경등급 16
         public List<KamisDayPrice> KamisDayPrices {get; set;}
         public KamisCommodity KamisCommodity {get; set;}
-        public string KamisCommodityId {get; set;}
+        public string KamisCommodityId {get; set;} // 품목코드 1
          public override string GetRelationCode()
         {
             RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
@@ -493,14 +493,16 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
         }
     }
 
-    public class KamisGrade
+    [DataContext(typeof(KamisDbContext), DbConnectionString.KamisDbConnection)]
+    [Relation(typeof(KamisGrade), nameof(KamisGrade))]
+    public class KamisGrade : KmaisEntity
     {
         public string Code {get; set;}
         public string Name {get; set;}
     }
 
     [DataContext(typeof(KamisDbContext), DbConnectionString.KamisDbConnection)]
-    [Relation(typeof(KamisCountryAdministrationPart), nameof(KamisPart))]
+    [Relation(typeof(KamisCountryAdministrationPart), nameof(KamisCountryAdministrationPart))]
     public class KamisCountryAdministrationPart : KamisEntity, IRelationable
     {
         public List<KamisSubCountryAdministrationPart> KamisSubCountryAdministrationParts {get; set;}

@@ -21,7 +21,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisPart> CreateAsync(KamisPart entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -37,7 +36,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisCommodity> CreateAsync(KamisCommodity entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -53,7 +51,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisKindofCommodity> CreateAsync(KamisKindofCommodity entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -69,7 +66,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisCountryAdministrationPart> CreateAsync(KamisCountryAdministrationPart entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -85,7 +81,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisSubCountryAdministrationPart> CreateAsync(KamisSubCountryAdministrationPart entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -101,7 +96,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisMarket> CreateAsync(KamisMarket entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -117,7 +111,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         public override async Task<KamisDayPrice> CreateAsync(KamisDayPrice entity)
         {
             entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
