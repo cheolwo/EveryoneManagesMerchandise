@@ -3,32 +3,31 @@ using System;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
+    public enum WhereOptions {Table, Card, DashBoard}
     public interface INavigateFactory<TEntity> where TEntity : Entity
     {
-        string GetNavigateAfterAdd();
-        string GetNavigateAfterDelte();
-        string GetNavigateAfterUpdate();
+        string NavigateAfterCreate(WhereOptions options);
+        string NavigateAfterDelte(WhereOptions options);
+        string NavigateAfterUpdate(WhereOptions options);
     }
 
-    public class NavigateFactory<TEntity> : INavigateFactory <TEntity> where TEntity : Entity
+    public class NavigateFactory<TEntity> : INavigateFactory<TEntity> where TEntity : Entity
     {
-        public NavigateFactory()
+        public virtual string NavigateAfterCreate(WhereOptions options)
         {
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
-
-        public string GetNavigateAfterAdd()
+        public virtual string NavigateAfterDelte(WhereOptions options)
         {
-            throw new NotImplementedException();
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
-
-        public string GetNavigateAfterDelte()
+        public virtual string NavigateAfterUpdate(WhereOptions options)
         {
-            throw new NotImplementedException();
+            return $"/Get/{options.ToString()}/{nameof(TEntity)}";
         }
-
-        public string GetNavigateAfterUpdate()
-        {
-            throw new NotImplementedException();
-        }
+        // string NavigateAfterDetail(WhereOptions options)
+        // {
+        //     return $"/Get/{options.ToString()}";
+        // }
     }
 }
