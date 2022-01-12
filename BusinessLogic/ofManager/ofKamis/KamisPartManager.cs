@@ -6,9 +6,67 @@ using System;
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
+using System.Net.Http;
+using System.Web;
 
 namespace BusinessLoogic.ofManager.ofKamis
 {
+    public class KamisAPIManager
+    {
+        // ResponseField 
+        /*
+         *  //itemname :  품목명
+         *  //kindname : 품종명
+         *  // countryname : 시군구
+         *  //marketname :  마켓명
+         *  // yyyy : 연도
+         *  // regday : 날짜
+         *  // price : 가격
+         */
+        /*
+         * http://www.kamis.or.kr/service/price/xml.do?action=periodProductList&p_productclscode=02&p_startday=2015-10-01&p_endday=2015-12-01&p_itemcategorycode=200&p_itemcode=212&p_kindcode=00&p_productrankcode=04&p_countrycode=1101&p_convert_kg_yn=Y&p_cert_key=111&p_cert_id=222&p_returntype=xm
+         */
+        private HttpClient HttpClient = new();
+        private readonly string CertKey = "	c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533";
+        private readonly string CertId = "2281";
+        public KamisAPIManager()
+        //c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533
+        {
+            HttpClient.BaseAddress  = new Uri("http://www.kamis.or.kr/service/price");
+        }
+        public async Task<HttpResponseMessage> GetPrice()
+        {
+            var uriBuilder = new UriBuilder(HttpClient.BaseAddress);
+            //var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            //query["p_productclscode"] = "02";
+            //query["p_startday"] = "2021-06-01";
+            //query["p_endday"] = "2021-07-01";
+            //query["p_itemcategorycode"] = "200";
+            //query["p_itemcode"] = "212";
+            //query["p_kindcode"] = "00";
+            //query["p_productrankcode"] = "04";
+            //query["p_countrycode"] = "1101";
+            //query["p_convert_kg_yn"] = "Y";
+            //query["p_cert_key"] = CertKey;
+            //query["p_cert_id"] = CertId;
+            //query["p_returntype"] = "xml";
+           return await HttpClient.GetAsync("/xml.do?action=periodProductList" +
+               "&p_productclscode=02" +
+               "&p_startday=2021-12-01" +
+               "&p_endday=2021-12-30" +
+               "&p_itemcategorycode=200" +
+               "&p_itemcode=212" +
+               "&p_kindcode=00" +
+               "&p_productrankcode=04" +
+               "&p_countrycode=1101" +
+               "&p_convert_kg_yn=Y" +
+               "&p_cert_key=c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533&p_cert_id=2281" +
+               "&p_returntype=xml");
+
+            //HttpClient.BaseAddress = uriBuilder.ToString();
+        }
+
+    }
     public class KamisPartManager : EntityManager<KamisPart>
     {
         public KamisPartManager(IEntityDataRepository<KamisPart> EntityDataRepository, 
