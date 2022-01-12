@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject UserManager<IdentityUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+@inject ProtectedLocalStorage ProtectedLocalStorage
+@inject NavigationManager NavigationManager
+
+<h3>UserComponent</h3>
+@if(isConnected)
+{
+    <h3>@IdentityUser.UserName</h3>
+    <CascadingValue Value="this">
+        @EntityFragment
+    </CascadingValue>
+    @EntityFragment
+}
+else
+{
+    <p>Loading...</p>
+}
+@code {
+    [Parameter] public RenderFragment ?EntityFragment { get; set; }
+    [Parameter] public string ?Role { get; set; }
+    private bool isConnected = false;
+    public IdentityUser ?IdentityUser { get; set; }
+    // 비즈니스관리시스템 도면 : #UserComponent
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+            if (IdentityUser != null)
+            {
+                //var IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
+                //if (!IsInRole) { NavigationManager.NavigateTo("/Create/{Role}"); }
+            }
+            else
+            {
+                IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+                if (IdentityUser != null)
+                {
+                    await ProtectedLocalStorage.SetAsync(IdentityUser.Id, IdentityUser);
+                    //var IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
+                    //if (!IsInRole) { NavigationManager.NavigateTo("/Create/{Role}"); }
+                }
+                else { NavigationManager.NavigateTo("/Create/User"); }
+
+            }
+            isConnected = true;
+            StateHasChanged();
+        }
+        else
+        {
+            var Result = await ProtectedLocalStorage.GetAsync<IdentityUser>("IdentityUser");
+
+               isConnected = true;
+        }
+    }
+}

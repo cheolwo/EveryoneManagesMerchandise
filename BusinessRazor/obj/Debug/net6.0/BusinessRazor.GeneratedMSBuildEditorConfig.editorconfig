@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/ofCommon/UserComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21tb25cVXNlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

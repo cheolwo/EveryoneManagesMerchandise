@@ -162,7 +162,7 @@ namespace BusinessData.ofProduct
             return DetailManyPropertyInfos;
         }
 
-        public new Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public new Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();

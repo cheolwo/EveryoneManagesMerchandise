@@ -165,7 +165,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -392,7 +392,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -616,7 +616,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -841,7 +841,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -1077,7 +1077,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -1308,7 +1308,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -1547,7 +1547,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -1781,7 +1781,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
@@ -2019,7 +2019,7 @@ namespace BusinessData.ofCommon.ofHsCode
             }
             return DetailManyPropertyInfos;
         }
-        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public override Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             Type t = GetType();
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();

@@ -17,17 +17,23 @@ namespace BusinessRazor.ofCommon
         public string Id {get; set;}
         public string CenterLoginId {get; set;}
         public string CenterPassword {get; set;}
+        public FormofCenterLogin()
+        {
+            this.Id = "";
+            this.CenterLoginId = "";
+            this.CenterPassword = "";
+        }
     }
     // Validator를 만드는 것도 나쁘지 않겠는데....
     public partial class CenterLoginComponent : ComponentBase
     {
-        [Parameter] public EventCallBack<FormofCenterLogin> EventLogin {get; set;}
-        [Parameter] public EventCallBack Switch {get; set;}
+        [Parameter] public EventCallback<FormofCenterLogin> EventLogin {get; set;}
+        [Parameter] public EventCallback Switch {get; set;}
         public FormofCenterLogin formofCenterLogin = new();
-        public void Login()
+        public async Task Login()
         {
-            EventLogin.Invoke(formofCenterLogin);
-            Switch.Invoke();
+            await EventLogin.InvokeAsync(formofCenterLogin);
+            await Switch.InvokeAsync();
         }
     } 
 }

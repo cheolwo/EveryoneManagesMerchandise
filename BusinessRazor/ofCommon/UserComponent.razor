@@ -1,0 +1,56 @@
+﻿@*@inject UserManager<IdentityUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+
+<h3>UserComponent</h3>
+@if(isConnected)
+{
+    <h3>@IdentityUser.UserName</h3>
+    <CascadingValue Value="this">
+        @EntityFragment
+    </CascadingValue>
+    @EntityFragment
+}
+else
+{
+    <p>Loading...</p>
+}
+@code {
+        [Parameter] public RenderFragment ?EntityFragment { get; set; }
+        [Parameter] public string Role { get; set; }
+        private bool isConnected { get; set; }
+        public IdentityUser IdentityUser = new();
+        // 비즈니스관리시스템 도면 : #UserComponent
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                IdentityUser = await ProtectedLocalStorage.GetLocalAsync<IdentityUser>(IdentityUser.Id);
+                if (IdentityUser != null)
+                {
+                    var IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
+                    if (!IsInRole) { NavigationManager.NavigateTo("/Create/{Role}"); }
+                }
+                else
+                {
+                    IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+                    if (IdentityUser != null)
+                    {
+                        await ProtectedLocalStorage.SetLocalAsync(IdentityUser.Id, IdentityUser);
+                        var IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
+                        if (!IsInRole) { NavigationManager.NavigateTo("/Create/{Role}"); }
+                    }
+                    else { NavigationManager.NavigateTo("/Create/User"); }
+
+                }
+                isConnected = true;
+                StateHasChanged();
+            }
+            else
+            {
+                IdentityUser = await ProtectedLocalStorage.GetLocalAsync<IdentityUser>(IdentityUser.Id);
+                isConnected = true;
+            }
+        }
+}
+*@

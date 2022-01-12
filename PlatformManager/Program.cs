@@ -12,7 +12,11 @@ using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using BusinessLoogic.ofManager.ofHsCode;
 using BusinessLoogic.ofManager.ofKamis;
+using BusinessRazor;
+using BusinessRazor.ofCommon;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
@@ -33,6 +37,9 @@ builder.Services.AddDbContext<HsDbContext>(options =>
 var KamisDbConnectionString = builder.Configuration.GetConnectionString("KamisDbConnection");
 builder.Services.AddDbContext<KamisDbContext>(optoins =>
 optoins.UseSqlServer(KamisDbConnectionString));
+
+builder.Services.AddScoped<ProtectedLocalStorage>();
+builder.Services.AddScoped<ProtectedSessionStorage>();
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));

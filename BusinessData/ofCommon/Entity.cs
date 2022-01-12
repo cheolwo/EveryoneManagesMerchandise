@@ -200,7 +200,7 @@ namespace BusinessData
             }
         }
 
-        public virtual Dictionary<string, List<PropertyInfo>> GetToDictionaryfoClassifiedPropertyByAttribute()
+        public virtual Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute()
         {
             throw new NotImplementedException();
         }
