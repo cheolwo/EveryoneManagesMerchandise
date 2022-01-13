@@ -38,6 +38,14 @@ namespace BusinessLogic.ofManagement
     //          "/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
     //    }
     //}
+    public class KamisAPIManager
+    {
+        public HttpClient HttpClient {get;}
+        public KamisAPIManager()
+        {
+
+        }
+    }
     public class KamisManagement
     {
         private readonly KamisPartManager _KamisPartManager;
@@ -48,6 +56,7 @@ namespace BusinessLogic.ofManagement
         private readonly KamisMarketManager _KamisMarketManager;
         private readonly KamisDayPriceManager _KamisDayPriceManager;
         private readonly KamisGradeManager _KamisGradeManager;
+        private readonly KamisAPIManager _KamisAPIManger;
 
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
         KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager KamisCountryAdministrationPartManager,
@@ -62,6 +71,7 @@ namespace BusinessLogic.ofManagement
             _KamisMarketManager = KamisMarketManager;
             _KamisDayPriceManager = KamisDayPriceManager;
         }
+
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
             Worksheet ws1 = null;
@@ -178,6 +188,29 @@ namespace BusinessLogic.ofManagement
             catch
             {
                 kamisGrade = null;
+                return;
+            }
+        }
+        // 소매가격선택가능지역
+        private async Task KamisCodeSheet6ToDb(Worksheet ws)
+        {
+            KamisCountryAdministrationPart KamisCountryAdministrationPart = new();
+            Microsoft.Office.Interop.Excel.Range rng = ws.UsedRange;
+            object[,] data = rng.Value;
+            int i = 2;
+            try
+            {
+                while (data[i, 1] != null)
+                {
+                    KamisCountryAdministrationPart.Id = data[i, 1]?.ToString() ?? "";
+                    KamisCountryAdministrationPart.Name = data[i, 2]?.ToString() ?? "";
+                    await _KamisCountryAdministrationPartManager.CreateAsync(KamisCountryAdministrationPart);
+                    i++;
+                }
+            }
+            catch
+            {
+                KamisCountryAdministrationPart = null;
                 return;
             }
         }

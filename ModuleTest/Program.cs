@@ -8,6 +8,36 @@ using Microsoft.Office.Interop.Excel;
 
 namespace ModuleTest
 {
+    public class ProductPriceitem
+    {
+        public List<ProductPriceValue> ProductPriceValues {get; set;}
+    }
+    public class ProductPriceValue
+    {
+        public PeriodProductPriceListInfo Average {get; set;}
+        public PeriodProductPriceListInfo AverageByYear {get; set;}
+        public List<ProductPrice> ProductPrices {get; set;}
+    }
+    public class ProductPrice
+    {
+        public string itemname {get; set;}
+        public string kindname {get; set;}
+        public string countryname {get; set;}
+        public string marketname {get; set;}
+        public string yyyy {get; set;}
+        public string regday {get; set;}
+        public string price {get; set;}
+    }
+    public class PeriodProductPriceListInfo
+    {
+        public List<string> itemname {get; set;}
+        public List<string> kindname {get; set;}
+        public string countryname {get; set;}
+        public List<string> marketname {get; set;}
+        public string yyyy {get; set;}
+        public string regday {get; set;}
+        public string price {get; set;}
+    }
     internal class Program
     {
         static async Task Main(string[] args)
@@ -20,7 +50,7 @@ namespace ModuleTest
             HttpClient client = new HttpClient();
             var Message1 = await client.SendAsync(request1);
             using var responseStream = await Message1.Content.ReadAsStreamAsync();
-            var Reult = await JsonSerializer.DeserializeAsync<object>(responseStream);
+            var Reult = await JsonSerializer.DeserializeAsync<ProductPriceitem>(responseStream);
             Console.WriteLine(Reult.ToString());
 
             Console.WriteLine();

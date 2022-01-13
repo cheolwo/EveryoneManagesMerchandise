@@ -6,66 +6,81 @@ using System;
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
-using System.Net.Http;
-using System.Web;
 
 namespace BusinessLoogic.ofManager.ofKamis
 {
     public class KamisAPIManager
     {
-        // ResponseField 
-        /*
-         *  //itemname :  «∞∏Ò∏Ì
-         *  //kindname : «∞¡æ∏Ì
-         *  // countryname : Ω√±∫±∏
-         *  //marketname :  ∏∂ƒœ∏Ì
-         *  // yyyy : ø¨µµ
-         *  // regday : ≥Ø¬•
-         *  // price : ∞°∞›
-         */
-        /*
-         * http://www.kamis.or.kr/service/price/xml.do?action=periodProductList&p_productclscode=02&p_startday=2015-10-01&p_endday=2015-12-01&p_itemcategorycode=200&p_itemcode=212&p_kindcode=00&p_productrankcode=04&p_countrycode=1101&p_convert_kg_yn=Y&p_cert_key=111&p_cert_id=222&p_returntype=xm
-         */
-        private HttpClient HttpClient = new();
-        private readonly string CertKey = "	c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533";
-        private readonly string CertId = "2281";
+        public HttpClient _HttpClient {get;}
         public KamisAPIManager()
-        //c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533
         {
-            HttpClient.BaseAddress  = new Uri("http://www.kamis.or.kr/service/price");
+            _HttpClient = new();
         }
-        public async Task<HttpResponseMessage> GetPrice()
+    }
+    public class KamisRequestFactory
+    {
+        private List<string> RequestBufferUriFactory {get; set;}
+        private List<string> RequestUriFactory {get; set;}
+        private List<string> BufferWholeSaleUries {get; set;}
+        private List<string> BufferRetailUries {get; set;}
+        private const string BaseAddress = "http://www.kamis.or.kr/service/price";
+        public KamisRequestFactory()
+        {   
+            RequestBufferUriFactory = new();
+            RequestUriFactory = new();
+        }
+        public List<string> Create(string startdate, string enddate, List<KamisKindofCommodity> commodities,
+                                List<KamisCountryAdministrationPart> kamiscountryAdministrationparts)
         {
-            var uriBuilder = new UriBuilder(HttpClient.BaseAddress);
-            //var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            //query["p_productclscode"] = "02";
-            //query["p_startday"] = "2021-06-01";
-            //query["p_endday"] = "2021-07-01";
-            //query["p_itemcategorycode"] = "200";
-            //query["p_itemcode"] = "212";
-            //query["p_kindcode"] = "00";
-            //query["p_productrankcode"] = "04";
-            //query["p_countrycode"] = "1101";
-            //query["p_convert_kg_yn"] = "Y";
-            //query["p_cert_key"] = CertKey;
-            //query["p_cert_id"] = CertId;
-            //query["p_returntype"] = "xml";
-           return await HttpClient.GetAsync("/xml.do?action=periodProductList" +
-               "&p_productclscode=02" +
-               "&p_startday=2021-12-01" +
-               "&p_endday=2021-12-30" +
-               "&p_itemcategorycode=200" +
-               "&p_itemcode=212" +
-               "&p_kindcode=00" +
-               "&p_productrankcode=04" +
-               "&p_countrycode=1101" +
-               "&p_convert_kg_yn=Y" +
-               "&p_cert_key=c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533&p_cert_id=2281" +
-               "&p_returntype=xml");
-
-            //HttpClient.BaseAddress = uriBuilder.ToString();
+            foreach(var commodity in commodities)
+            {
+                var gradeSplited = commodity.grade.Split(',');
+                foreach(var grade in gradeSplited)
+                {
+                    string BufWholeslaeUri = PriceProductListStringFactory(commodity, grade, true, startdate, enddate);
+                    BufferWholeSaleUries.Add(BufUri);
+                    string BufRetailUri = PriceProductListStringFactory(commodity, grade, false, startdate, enddate);
+                    BufferRetailUries.Add(BufRetailUri);
+                }
+            }
+            // ÏßÄÏó≠ÏΩîÎìúÎ•º Ï†ÑÎã¨ÌïòÎäî Í≤ÉÎ∂ÄÌÑ∞ ÏßëÏóêÏÑú ÏãúÏûë.
         }
-
+        
+        /*
+            "http://www.kamis.or.kr/service/price/xml.do?action=periodProductList" +
+            "&p_productclscode=02&p_startday=2020-10-01&p_endday=2020-12-01" +
+            "&p_itemcategorycode=200&p_itemcode=212&p_kindcode=00&p_productrankcode=04&p_countrycode=1101&p_convert_kg_yn=Y" +
+            "&p_cert_key=c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533&p_cert_id=2281&p_returntype=json");
+        */
+        public static string PriceProductListStringFactory(KindofCommodity kindofCommodity, string grade, bool wholesale,
+                                                string startdate, string enddate)
+        {
+            string p_productclscode;
+            if(wholesale)
+            {
+                p_productclscode = "02"; //ÎèÑÎß§
+                return $"{BaseAddress}/xml.do?action=periodProductList"+
+                $"&p_productclscode={p_productclscode}"+
+                $"&p_startday={startdate}"+
+                $"&p_endday={enddate}"+
+                $"&p_itemcategorycode={kindofCommodity.KamisParyId}"+
+                $"&p_itemcode={kindofCommodity.KamisCommodityId}"+
+                $"&p_kindcode={knidofCommodity.Code}"+
+                $"&p_productrankcode={grade}";
+            }
+            else
+            {
+                p_productclscode = "01"; //ÏÜåÎß§
+                return $"{BaseAddress}/xml.do?action=periodProductList"+
+                $"&p_productclscode={p_productclscode}"+
+                $"&p_startday={startdate}"+
+                $"&p_endday={enddate}"+
+                $"&p_itemcategorycode={kindofCommodity.KamisParyId}"+
+                $"&p_itemcode={kindofCommodity.KamisCommodityId}"+
+                $"&p_kindcode={knidofCommodity.Code}"+
+                $"&p_productrankcode={grade}";
+            }
+        }
     }
     public class KamisPartManager : EntityManager<KamisPart>
     {

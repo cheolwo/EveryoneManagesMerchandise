@@ -45,13 +45,19 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         public async Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
             BlobServiceClient blobServiceClient = new(connectionString);
+            // entity 와 관려한 Container가 없으면 컨테이너 생성.
             if (entity.Container == null)
             {
                 entity.Container = await _entityBlobContainerFactory.CreateNameofContainer(entity);
                 blobServiceClient.CreateBlobContainer(entity.Container);
             }
+
+            // 저장할 파일이 없다면 BlobStorage 이용할 필요 없으니 모듈 종료.
             if(files.Count == 0) {return entity;}
+
+            // BlobStorage에서 컨테이너를 Load
             BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(entity.Container);
+            // 해당 컨테이너에 파일을 저장.
             foreach (var file in files)
             {
                 var Result = await blobContainerClient.UploadBlobAsync(file.Name, file.OpenReadStream());
