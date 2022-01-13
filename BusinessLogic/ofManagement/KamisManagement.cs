@@ -38,12 +38,65 @@ namespace BusinessLogic.ofManagement
     //          "/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
     //    }
     //}
+    public class KamisPriceInfo
+    {
+        public string itemname {get; set;}
+        public string kindname {get; set;}
+        public string countryname {get; set;}
+        public string marketname {get; set;}
+        public string yyyy {get; set;}
+        public string regday {get; set;}
+        public string price {get; set;}
+    }
     public class KamisAPIManager
     {
-        public HttpClient HttpClient {get;}
+        public HttpClient _HttpClient {get;}
+        private readonly KamisRequestFactory _kamisRequestFactory;
+        private List<KamisPriceInfo> kamisPriceInfos = new();
         public KamisAPIManager()
         {
-
+            _HttpClient = new();
+            _kamisRequestFactory = kamisRequestFactory;
+        }
+        // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
+        public async Task CollectPriceInfoToDbByGetAPI(List<KamisKindofCommodity> kamisKindofCommodity, List<KamisCountryAdministrationPart> kamisCountryAdministrationPart,
+                    string startdate, string enddate)
+        {
+            _kamisRequestFactory.CreateRequestFactory(startdate, enddate, kamisKindofCommodity, kamisCountryAdministrationparts);
+            var WholeSaleHttpRequests = _kamisRequestFactory.GetWholeSalePriceHttpRequests();
+            var ReatilPrcieHttpRequests = _kamisRequestFactory.GetReatilPrcieHttpRequests();
+            CollectWholeSalePriceInfoByGetAPI(WholeSaleHttpRequests);
+            CollectRetailPriceInfoByGetAPI(ReatilPrcieHttpRequests);
+        }
+        public List<KamisPriceInfo> GetKamisPriceInfos()
+        {
+            return this.kamisPriceInfos;
+        }
+        private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequest> wholeSaleHttpRequests)
+        {
+            if(wholeSaleHttpRequests != null)
+            {
+                foreach(var httpRequest in wholeSaleHttpRequests)
+                {
+                    var Response = await _HttpClient.SendAsync(httpRequest);
+                    using var responseStream = await Response.Content.ReadAsStreamAsync();
+                    var Result = await JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    kamisPriceInfos.Add(Result);
+                }
+            }
+        }
+        private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequest> retailHttpRequests)
+        {
+            if(wholeSaleHttpRequests != null)
+            {
+                foreach(var httpRequest in wholeSaleHttpRequests)
+                {
+                    var Response = await _HttpClient.SendAsync(httpRequest);
+                    using var responseStream = await Response.Content.ReadAsStreamAsync();
+                    var Result = await JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    kamisPriceInfos.Add(Result);
+                }
+            }
         }
     }
     public class KamisManagement
@@ -71,7 +124,26 @@ namespace BusinessLogic.ofManagement
             _KamisMarketManager = KamisMarketManager;
             _KamisDayPriceManager = KamisDayPriceManager;
         }
-
+        public async Task CollectPriceInfoByHttpAPI(string startdate, string enddate)
+        {
+            var kamisKindofCommodities = await _KamisKindofCommodityManager.GetToListAsync();
+            var kamisCountries = await _KamisCountryAdministrationPartManager.GetToListAsync();
+            await _KamisAPIManger.CollectPriceInfoAsync(kamisKindofCommodities, kamisCountries, startdate, enddate);
+            var KamisPriceInfos = _KamisAPIManger.GetKamisPriceInfos();
+            if(KamisPriceInfos.Count > 0)
+            {
+                await PriceInfosToDb(kmaisPriceInfos);
+            }
+        }
+        // PriceInfoToDb 를 할 때 외래키로 KindofCommodityId와 
+        private async Task PriceInfosToDb(List<KamisPriceInfo> kamisPriceInfos)
+        {
+            foreach(var priceInfo in kamisPriceInfos)
+            {
+                string marektname = priceInfo.marketname;
+                
+            }
+        }
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
             Worksheet ws1 = null;
