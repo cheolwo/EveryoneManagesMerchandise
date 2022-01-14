@@ -39,7 +39,6 @@ namespace BusinessLogic.ofManager.ofGeneric
     public interface ICenterManager<TEntity> : IEntityManager<TEntity> where TEntity : Center, IRelationable
     {
         Task<TEntity> GetByUserAsync(IdentityUser IdentityUser);
-        Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser);
         Task<TEntity> LoginAsync(string id, string password);
         Task<bool> LoginByCryptPasswrodAsync(TEntity entity, string id, string cryptPassword);
     }
@@ -84,7 +83,7 @@ namespace BusinessLogic.ofManager.ofGeneric
             return await _centerDataRepository.GetByUserAsync(IdentityUser);
         }
 
-        public async Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser)
+        public new async Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser)
         {
             return await _centerDataRepository.GetToListByUserAsync(IdentityUser);
         }

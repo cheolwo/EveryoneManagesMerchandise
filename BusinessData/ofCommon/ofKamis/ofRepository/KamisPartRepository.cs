@@ -33,11 +33,6 @@ namespace BusinessData.ofCommon.ofKamis.ofRepository
         public KamisCountryAdministrationPartRepository(HsDbContext hsDbContext)
             : base(hsDbContext) { }
     }
-    public class KamisSubCountryAdministrationPartRepository : EntityDataRepository<KamisSubCountryAdministrationPart>
-    {
-        public KamisSubCountryAdministrationPartRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
-    }
     public class KamisMarketRepository : EntityDataRepository<KamisMarket>
     {
         public KamisMarketRepository(HsDbContext hsDbContext)

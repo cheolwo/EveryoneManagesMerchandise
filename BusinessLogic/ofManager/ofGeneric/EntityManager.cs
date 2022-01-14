@@ -27,10 +27,12 @@ namespace BusinessLogic.ofManager.ofGeneric
     }
     public interface IEntityManager<TEntity> where TEntity : Entity, IRelationable
     {
+        
         Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> Files, string connectionString);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> Files);
+        Task<List<TEntity>> GetToListByUserAsync(IdentityUser user);
         Task<List<TEntity>> GetToListAsync();
         Task DeleteByIdAsync(string Id);
         Dictionary<int, TEntity> ConvertToDic(List<TEntity> entities);
@@ -140,6 +142,11 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
 
         public Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> Files)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<TEntity>> GetToListByUserAsync(IdentityUser user)
         {
             throw new NotImplementedException();
         }

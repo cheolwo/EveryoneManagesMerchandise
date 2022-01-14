@@ -1,12 +1,7 @@
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessData.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BusinessData.ofCommon.ofKamis.ofDbContext
 {
@@ -33,7 +28,6 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             modelBuilder.ApplyConfiguration(new KamsiCommodityConfiguration());
             modelBuilder.ApplyConfiguration(new KamisKindofCommodityConfiguration());
             modelBuilder.ApplyConfiguration(new KamisCountryAdministrationPartConfiguration());
-            modelBuilder.ApplyConfiguration(new KamisSubCountryAdministrationPartConfiguration());
             modelBuilder.ApplyConfiguration(new KamisMarketConfiguration());
             modelBuilder.ApplyConfiguration(new KamisDayPriceConfiguration());
             modelBuilder.ApplyConfiguration(new KamisGradeConfiguration());
@@ -105,20 +99,12 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             base.Configure(builder);
         }
     }
-    public class KamisSubCountryAdministrationPartConfiguration : KamisEntityConfiguration<KamisSubCountryAdministrationPart>
-    {
-        public override void Configure(EntityTypeBuilder<KamisSubCountryAdministrationPart> builder)
-        {
-            base.Configure(builder);
-            builder.HasOne(o => o.KamisCountryAdministrationPart).WithMany(m => m.KamisSubCountryAdministrationParts).HasForeignKey(o => o.KamisCountryAdministrationPartId);
-        }
-    }
     public class KamisMarketConfiguration : KamisEntityConfiguration<KamisMarket>
     {
         public override void Configure(EntityTypeBuilder<KamisMarket> builder)
         {
             base.Configure(builder);
-            builder.HasOne(o => o.KamisSubCountryAdministrationPart).WithMany(m => m.KamisMarkets).HasForeignKey(o => o.KamisSubCountryAdministrationPartId);
+            builder.HasOne(o => o.KamisCountryAdministrationPart).WithMany(m => m.KamisMakrets).HasForeignKey(o => o.KamisCountryAdministrationPartId);
         }
     }
     public class KamisDayPriceConfiguration : KamisEntityConfiguration<KamisDayPrice>

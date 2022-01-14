@@ -653,7 +653,7 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
     [Relation(typeof(KamisCountryAdministrationPart), nameof(KamisCountryAdministrationPart))]
     public class KamisCountryAdministrationPart : KamisEntity, IRelationable
     {
-        public List<Makret> Makrets {get; set;}
+        public List<KamisMarket> KamisMakrets {get; set;}
         public override string GetRelationCode()
         {
             RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));

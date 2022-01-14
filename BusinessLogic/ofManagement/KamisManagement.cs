@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessLoogic.ofManager.ofKamis;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Office.Interop.Excel;
 
 namespace BusinessLogic.ofManagement
@@ -53,18 +57,18 @@ namespace BusinessLogic.ofManagement
         public HttpClient _HttpClient {get;}
         private readonly KamisRequestFactory _kamisRequestFactory;
         private List<KamisPriceInfo> kamisPriceInfos = new();
-        public KamisAPIManager()
+        public KamisAPIManager(KamisRequestFactory kamisRequestFactory)
         {
             _HttpClient = new();
             _kamisRequestFactory = kamisRequestFactory;
         }
         // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
-        public async Task CollectPriceInfoToDbByGetAPI(List<KamisKindofCommodity> kamisKindofCommodity, List<KamisCountryAdministrationPart> kamisCountryAdministrationPart,
+        public async Task CollectPriceInfoToDbByGetAPI(List<KamisKindofCommodity> kamisKindofCommodity, List<KamisCountryAdministrationPart> kamisCountryAdministrationParts,
                     string startdate, string enddate)
         {
-            _kamisRequestFactory.CreateRequestFactory(startdate, enddate, kamisKindofCommodity, kamisCountryAdministrationparts);
-            var WholeSaleHttpRequests = _kamisRequestFactory.GetWholeSalePriceHttpRequests();
-            var ReatilPrcieHttpRequests = _kamisRequestFactory.GetReatilPrcieHttpRequests();
+            _kamisRequestFactory.CreateRequestFactory(startdate, enddate, kamisKindofCommodity, kamisCountryAdministrationParts);
+            var WholeSaleHttpRequests = _kamisRequestFactory.GetWholeSalePriceHttpRequestMessages();
+            var ReatilPrcieHttpRequests = _kamisRequestFactory.GetReatilPrcieHttpRequestMessage();
             CollectWholeSalePriceInfoByGetAPI(WholeSaleHttpRequests);
             CollectRetailPriceInfoByGetAPI(ReatilPrcieHttpRequests);
         }
@@ -72,7 +76,7 @@ namespace BusinessLogic.ofManagement
         {
             return this.kamisPriceInfos;
         }
-        private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequest> wholeSaleHttpRequests)
+        private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequestMessage> wholeSaleHttpRequests)
         {
             if(wholeSaleHttpRequests != null)
             {
@@ -85,11 +89,11 @@ namespace BusinessLogic.ofManagement
                 }
             }
         }
-        private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequest> retailHttpRequests)
+        private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequestMessage> retailHttpRequests)
         {
-            if(wholeSaleHttpRequests != null)
+            if(retailHttpRequests != null)
             {
-                foreach(var httpRequest in wholeSaleHttpRequests)
+                foreach(var httpRequest in retailHttpRequests)
                 {
                     var Response = await _HttpClient.SendAsync(httpRequest);
                     using var responseStream = await Response.Content.ReadAsStreamAsync();
@@ -105,7 +109,6 @@ namespace BusinessLogic.ofManagement
         private readonly KamisCommodityManager _KamisCommodityManager;
         private readonly KamisKindofCommodityManager _KamisKindofCommodityManager;
         private readonly KamisCountryAdministrationPartManager _KamisCountryAdministrationPartManager;
-        private readonly KamisSubCountryAdministrationPartManager _KamisSubCountryAdministrationPartManager;
         private readonly KamisMarketManager _KamisMarketManager;
         private readonly KamisDayPriceManager _KamisDayPriceManager;
         private readonly KamisGradeManager _KamisGradeManager;
@@ -113,28 +116,27 @@ namespace BusinessLogic.ofManagement
 
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
         KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager KamisCountryAdministrationPartManager,
-        KamisSubCountryAdministrationPartManager KamisSubCountryAdministrationPartManager, KamisMarketManager KamisMarketManager, KamisDayPriceManager KamisDayPriceManager)
+        KamisMarketManager KamisMarketManager, KamisDayPriceManager KamisDayPriceManager)
         {
             _KamisGradeManager = kamisGradeManager;
             _KamisPartManager = kamisPartManager;
             _KamisCommodityManager = kamisCommodityManager;
             _KamisKindofCommodityManager = kamisKindofCommodityManager;
             _KamisCountryAdministrationPartManager = KamisCountryAdministrationPartManager;
-            _KamisSubCountryAdministrationPartManager = KamisSubCountryAdministrationPartManager;
             _KamisMarketManager = KamisMarketManager;
             _KamisDayPriceManager = KamisDayPriceManager;
         }
-        public async Task CollectPriceInfoByHttpAPI(string startdate, string enddate)
-        {
-            var kamisKindofCommodities = await _KamisKindofCommodityManager.GetToListAsync();
-            var kamisCountries = await _KamisCountryAdministrationPartManager.GetToListAsync();
-            await _KamisAPIManger.CollectPriceInfoAsync(kamisKindofCommodities, kamisCountries, startdate, enddate);
-            var KamisPriceInfos = _KamisAPIManger.GetKamisPriceInfos();
-            if(KamisPriceInfos.Count > 0)
-            {
-                await PriceInfosToDb(kmaisPriceInfos);
-            }
-        }
+        //public async Task CollectPriceInfoByHttpAPI(string startdate, string enddate)
+        //{
+        //    var kamisKindofCommodities = await _KamisKindofCommodityManager.GetToListAsync();
+        //    var kamisCountries = await _KamisCountryAdministrationPartManager.GetToListAsync();
+        //    await _KamisAPIManger.CollectPriceInfoAsync(kamisKindofCommodities, kamisCountries, startdate, enddate);
+        //    var KamisPriceInfos = _KamisAPIManger.GetKamisPriceInfos();
+        //    if(KamisPriceInfos.Count > 0)
+        //    {
+        //        await PriceInfosToDb(kmaisPriceInfos);
+        //    }
+        //}
         // PriceInfoToDb 를 할 때 외래키로 KindofCommodityId와 
         private async Task PriceInfosToDb(List<KamisPriceInfo> kamisPriceInfos)
         {

@@ -74,7 +74,6 @@ builder.Services.AddScoped<KamisCommodityManager>();
 builder.Services.AddScoped<KamisKindofCommodityManager>();
 builder.Services.AddScoped<KamisGradeManager>();
 builder.Services.AddScoped<KamisCountryAdministrationPartManager>();
-builder.Services.AddScoped<KamisSubCountryAdministrationPartManager>();
 builder.Services.AddScoped<KamisMarketManager>();
 builder.Services.AddScoped<KamisDayPriceManager>();
 
@@ -83,7 +82,6 @@ builder.Services.AddScoped<KamisCommodityRepository>();
 builder.Services.AddScoped<KamisKindofCommodityRepository>();
 builder.Services.AddScoped<KamisGradeRepository>();
 builder.Services.AddScoped<KamisCountryAdministrationPartRepository>();
-builder.Services.AddScoped<KamisSubCountryAdministrationPartRepository>();
 builder.Services.AddScoped<KamisMarketRepository>();
 builder.Services.AddScoped<KamisDayPriceRepository>();
 
