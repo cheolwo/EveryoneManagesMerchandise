@@ -8,77 +8,77 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProducterWebApp
 build_property.RootNamespace = ProducterWebApp
-build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\
+build_property.ProjectDir = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp
+build_property.MSBuildProjectDirectory = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\ProducterWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/App.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Counter.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/FetchData.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Index.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/CenterComponent.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/CenterComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXENlbnRlckNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/EntityTableComponent.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/EntityTableComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXEVudGl0eVRhYmxlQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/UserComponent.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/ofGeneric/UserComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXFVzZXJDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/LoginDisplay.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/SurveyPrompt.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/_Imports.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/MainLayout.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pl99v7rmgt
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/NavMenu.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pc61t7hoet
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Error.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/_Host.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/_Layout.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/OrdererWebApp/ProducterWebApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
