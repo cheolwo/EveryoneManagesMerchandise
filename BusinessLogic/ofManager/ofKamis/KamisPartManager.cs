@@ -2,133 +2,164 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using System.Threading.Tasks;
-using System;
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using System.Collections.Generic;
 using System.Net.Http;
+using BusinessData.ofCommon.ofKamis.ofRepository;
+using System.Collections.Specialized;
 
 namespace BusinessLoogic.ofManager.ofKamis
 {
     public class KamisRequestFactory
     {
-        private List<string> BufferWholeSaleUries {get; set;}
-        private List<string> BufferRetailUries {get; set;}
+        private Dictionary<HttpRequestMessage, Dictionary<string, string>> DictionaryWholeSalePriceHttpRequestMessage { get; set; }
+        private Dictionary<HttpRequestMessage, Dictionary<string, string>> DictionaryRetailPriceHttpRequestMessage { get; set; }
         private const string BaseAddress = "http://www.kamis.or.kr/service/price";
         private const string APIUserId = "2281";
-        private const string APIKey = "	c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533";
-        private List<HttpRequestMessage> WholeSalePriceHttpRequestMessages = new();
-        private List<HttpRequestMessage> ReatilPrcieHttpRequestMessages = new();
-        public KamisRequestFactory()
-        {   
-            BufferWholeSaleUries = new();
-            BufferRetailUries = new();
-        }
-        public List<HttpRequestMessage> GetWholeSalePriceHttpRequestMessages()
+        private const string APIKey = "c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533";
+        private readonly KamisKindofCommodityRepository _KamisKindofCommodityRepository;
+        private readonly KamisCountryAdministrationPartRepository _KamisCountryAdministrationPartRepository;
+        public KamisRequestFactory(KamisKindofCommodityRepository kamisKindofCommodityRepository, 
+                            KamisCountryAdministrationPartRepository kamisCountryAdministrationPartRepository)
         {
-            return this.WholeSalePriceHttpRequestMessages;
+            _KamisCountryAdministrationPartRepository = kamisCountryAdministrationPartRepository;
+            _KamisKindofCommodityRepository = kamisKindofCommodityRepository;
+            DictionaryWholeSalePriceHttpRequestMessage = new();
+            DictionaryRetailPriceHttpRequestMessage = new();
         }
-        public List<HttpRequestMessage> GetReatilPrcieHttpRequestMessage()
-        {
-            return this.ReatilPrcieHttpRequestMessages;
-        }
-        public void CreateRequestFactory(string startdate, string enddate, List<KamisKindofCommodity> commodities,
-                                List<KamisCountryAdministrationPart> kamiscountryAdministrationparts)
-        {
-            // 여기 부분에 대해서는 좀더 고찰이 필요해.
-            //foreach(var commodity in commodities)
-            //{
-            //    var gradeSplited = commodity.grade.Split(',');
-            //    foreach(var grade in gradeSplited)
-            //    {
-            //        string BufWholeslaeUri = PriceProductListStringFactory(commodity, grade, true, startdate, enddate);
-            //        BufferWholeSaleUries.Add(BufUri);
-            //        string BufRetailUri = PriceProductListStringFactory(commodity, grade, false, startdate, enddate);
-            //        BufferRetailUries.Add(BufRetailUri);
-            //    }
-            //}
-            // 지역코드를 전달하는 것부터 집에서 시작.
-            // 도매 BufferUri 에 대한 HttpRequestMessage 생성
-            List<KamisCountryAdministrationPart> WholeSalecountries = DiviePartofWholeSaleRegion(kamiscountryAdministrationparts);
-            foreach(var country in WholeSalecountries)
-            {
-                foreach(var wholesaleuri in BufferWholeSaleUries)
-                {
-                    string RequestUri = wholesaleuri + $"p_countrycode={country.Id}"+
-                                                        $"p_convert_kg_yn=Y"+
-                                                        $"p_cert_key={APIKey}"+
-                                                        $"p_cert_id={APIUserId}"+
-                                                        $"p_returntype=json";
-                    HttpRequestMessage newHttpRequestMessage = new(HttpMethod.Get, RequestUri);
-                    WholeSalePriceHttpRequestMessages.Add(newHttpRequestMessage);
-                }
-            }
-             // 소매 BufferUri 에 대한 HttpRequestMessage 생성
-             // 소매가능지역이 kamiscountryAdministrationpart 전체이기 때문에 도매처럼 따로 Part를 만들 필요가 없음.
-            foreach(var country in kamiscountryAdministrationparts)
-            {
-                foreach(var retailuri in BufferRetailUries)
-                {
-                    string RequestUri = retailuri + $"p_countrycode={country.Id}"+
-                                                        $"p_convert_kg_yn=Y"+
-                                                        $"p_cert_key={APIKey}"+
-                                                        $"p_cert_id={APIUserId}"+
-                                                        $"p_returntype=json";
-                    HttpRequestMessage newHttpRequestMessage = new(HttpMethod.Get, RequestUri);
-                    ReatilPrcieHttpRequestMessages.Add(newHttpRequestMessage);
-                }
-            }
-        }
-        /*
-            "http://www.kamis.or.kr/service/price/xml.do?action=periodProductList" +
-            "&p_productclscode=02&p_startday=2020-10-01&p_endday=2020-12-01" +
-            "&p_itemcategorycode=200&p_itemcode=212&p_kindcode=00&p_productrankcode=04&p_countrycode=1101&p_convert_kg_yn=Y" +
-            "&p_cert_key=c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533&p_cert_id=2281&p_returntype=json");
-        */
-        public enum KamisWholeSaleRegion {서울 = 1101, 부산 = 2100 , 대구 = 2200, 광주 = 2401, 대전 = 2501}
+        public enum KamisWholeSaleRegion {서울 , 부산, 대구, 광주, 대전}
         private List<KamisCountryAdministrationPart> DiviePartofWholeSaleRegion(List<KamisCountryAdministrationPart> coutries)
         {
             List<KamisCountryAdministrationPart> PartofWholeSaleRegion = new();
             foreach(var country in coutries)
             {
-                if(country.Id.Equals(KamisWholeSaleRegion.서울.ToString())) { PartofWholeSaleRegion.Add(country);  continue; }
-                if(country.Id.Equals(KamisWholeSaleRegion.부산.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
-                if (country.Id.Equals(KamisWholeSaleRegion.대전.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
-                if (country.Id.Equals(KamisWholeSaleRegion.대구.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
-                if (country.Id.Equals(KamisWholeSaleRegion.광주.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
+                if(country.Name.Equals(KamisWholeSaleRegion.서울.ToString())) { PartofWholeSaleRegion.Add(country);  continue; }
+                if(country.Name.Equals(KamisWholeSaleRegion.부산.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
+                if (country.Name.Equals(KamisWholeSaleRegion.대전.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
+                if (country.Name.Equals(KamisWholeSaleRegion.대구.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
+                if (country.Name.Equals(KamisWholeSaleRegion.광주.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
             }
             return PartofWholeSaleRegion;
         }
         
-        public static string PriceProductListStringFactory(KamisKindofCommodity kindofCommodity, string grade, bool wholesale,
-                                                string startdate, string enddate)
+        public async Task CreateRequestMessage(string startdate, string enddate)
         {
-            string p_productclscode;
-            if(wholesale)
+            var kindofCommodities = await _KamisKindofCommodityRepository.GetToListAsync();
+            List<KamisCountryAdministrationPart> kamisCountryAdministrationParts = await _KamisCountryAdministrationPartRepository.GetToListAsync();
+            foreach(var kindofCommodity in kindofCommodities)
             {
-                p_productclscode = "02"; //도매
-                return $"{BaseAddress}/xml.do?action=periodProductList"+
-                $"&p_productclscode={p_productclscode}"+
-                $"&p_startday={startdate}"+
-                $"&p_endday={enddate}"+
-                $"&p_itemcategorycode={kindofCommodity.KamisPartId}"+
-                $"&p_itemcode={kindofCommodity.KamisCommodityId}"+
-                $"&p_kindcode={kindofCommodity.Id}"+
-                $"&p_productrankcode={grade}";
+                List<NameValueCollection> BufferWholeSaleQueryStrings = PriceProductListStringBuilderByWholeSale(kindofCommodity, startdate, enddate);
+                List<NameValueCollection> BufferRetailQueryStrings = PriceProductListStringBuilderByRetail(kindofCommodity, startdate, enddate);
+                if(BufferWholeSaleQueryStrings.Count > 0)
+                {
+                    var countries = DiviePartofWholeSaleRegion(kamisCountryAdministrationParts);
+                    foreach(var country in countries)
+                    {
+                         foreach(var WholeSaleQuetyString in BufferWholeSaleQueryStrings)
+                         {
+                            NameValueCollection FinalQuetyString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                            FinalQuetyString.Add("p_countrycode", country.Id);
+                            FinalQuetyString.Add("p_convert_kg_yn", "Y");
+                            FinalQuetyString.Add("p_cert_key", APIKey);
+                            FinalQuetyString.Add("p_cert_id", APIUserId);
+                            FinalQuetyString.Add("p_returntype", "json");
+                            string RequestQueryMessage = BaseAddress + "/"+WholeSaleQuetyString.ToString() +"&"+ FinalQuetyString.ToString();
+                            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, RequestQueryMessage);
+                            Dictionary<string, string> keyValuePairs = new();
+                            keyValuePairs.Add(nameof(KamisKindofCommodity), WholeSaleQuetyString["p_kindcode"]);
+                            keyValuePairs.Add(nameof(KamisCountryAdministrationPart), country.Id);
+                            keyValuePairs.Add(nameof(KamisGrade), WholeSaleQuetyString["p_productrankcode"]);
+                            DictionaryWholeSalePriceHttpRequestMessage.Add(httpRequestMessage, keyValuePairs);
+                         }
+                    }
+                }
+                if(BufferRetailQueryStrings.Count > 0)
+                {
+                    foreach(var country in kamisCountryAdministrationParts)
+                    {
+                        foreach(var RetailSaleQueryString in BufferRetailQueryStrings)
+                        {
+                            NameValueCollection FinalQuetyString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                            FinalQuetyString.Add("p_countrycode", country.Id);
+                            FinalQuetyString.Add("p_convert_kg_yn", "Y");
+                            FinalQuetyString.Add("p_cert_key", APIKey);
+                            FinalQuetyString.Add("p_cert_id", APIUserId);
+                            FinalQuetyString.Add("p_returntype", "json");
+                            string RequestQueryMessage = BaseAddress + FinalQuetyString.ToString();
+                            HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, RequestQueryMessage);
+                            Dictionary<string, string> keyValuePairs = new();
+                            keyValuePairs.Add(nameof(KamisKindofCommodity), RetailSaleQueryString["p_kindcode"]);
+                            keyValuePairs.Add(nameof(KamisCountryAdministrationPart), country.Id);
+                            keyValuePairs.Add(nameof(KamisGrade), RetailSaleQueryString["p_productrankcode"]);
+                            DictionaryWholeSalePriceHttpRequestMessage.Add(httpRequestMessage, keyValuePairs);
+                        }
+                    }
+                }
             }
-            else
+        }
+        private List<NameValueCollection> PriceProductListStringBuilderByWholeSale(KamisKindofCommodity kindofCommodity, string startdate, string enddate)
+        {
+            NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("xml.do?action", "periodProductList");
+            queryString.Add("p_productclscode", "02");
+            queryString.Add("p_startday", startdate);
+            queryString.Add("p_endday", enddate);
+            queryString.Add("p_itemcategorycode", kindofCommodity.KamisPartId);
+            queryString.Add("p_itemcode", kindofCommodity.KamisCommodityId);
+            queryString.Add("p_kindcode", kindofCommodity.Code);
+
+            return WholeSalePriceProductListStringBuilderByGrade(queryString, kindofCommodity);
+        }
+        private List<NameValueCollection> PriceProductListStringBuilderByRetail(KamisKindofCommodity kindofCommodity, string startdate, string enddate)
+        {
+            NameValueCollection queryString = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("xml.do?action", "periodProductList");
+            queryString.Add("p_productclscode", "01");
+            queryString.Add("p_startday", startdate);
+            queryString.Add("p_endday", enddate);
+            queryString.Add("p_itemcategorycode", kindofCommodity.KamisPartId);
+            queryString.Add("p_itemcode", kindofCommodity.KamisCommodityId);
+            queryString.Add("p_kindcode", kindofCommodity.Code);
+            return RetailPriceProductListStringBuilderByGrade(queryString, kindofCommodity);
+        }
+        private List<NameValueCollection> WholeSalePriceProductListStringBuilderByGrade(NameValueCollection ByWholeSale, KamisKindofCommodity kamisKindofCommodity)
+        {
+            var Grades = kamisKindofCommodity.WholeSaleGrade.Split(',');
+            List<NameValueCollection> BufferQueryString = new();
+            NameValueCollection nameValueCollection = new();
+            nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
+            if (Grades.Length > 0)
+            {          
+                foreach(string grade in Grades)
+                {
+                    foreach(string key in ByWholeSale)
+                    {
+                        ByWholeSale[key];
+                    }
+                    nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                    
+                    nameValueCollection.Add("p_productrankcode", grade);
+                    BufferQueryString.Add(nameValueCollection);
+                }
+            }
+            return BufferQueryString;
+        }
+        private List<NameValueCollection> RetailPriceProductListStringBuilderByGrade(NameValueCollection ByRetail, KamisKindofCommodity kamisKindofCommodity)
+        {
+            var Grades = kamisKindofCommodity.RetailSaleGrade.Split(',');
+            List<NameValueCollection> BufferQueryString = new();
+            if (Grades.Length > 0)
             {
-                p_productclscode = "01"; //소매
-                return $"{BaseAddress}/xml.do?action=periodProductList"+
-                $"&p_productclscode={p_productclscode}"+
-                $"&p_startday={startdate}"+
-                $"&p_endday={enddate}"+
-                $"&p_itemcategorycode={kindofCommodity.KamisPartId}"+
-                $"&p_itemcode={kindofCommodity.KamisCommodityId}"+
-                $"&p_kindcode={kindofCommodity.Id}"+
-                $"&p_productrankcode={grade}";
+                foreach (var grade in Grades)
+                {
+                    NameValueCollection nameValueCollection = ByRetail;
+                    nameValueCollection.Add("p_productrankcode", grade);
+                    BufferQueryString.Add(nameValueCollection);
+                }
             }
+            return BufferQueryString;
         }
     }
     public class KamisPartManager : EntityManager<KamisPart>
@@ -215,16 +246,30 @@ namespace BusinessLoogic.ofManager.ofKamis
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
-    public class KamisDayPriceManager : EntityManager<KamisDayPrice>
+    public class KamisWholeSalePriceManager : EntityManager<KamisWholeSalePrice>
     {
-        public KamisDayPriceManager(IEntityDataRepository<KamisDayPrice> EntityDataRepository, 
-            IEntityIdFactory<KamisDayPrice> EntityIdFactory,
-            IEntityFileFactory<KamisDayPrice> entityFileFactory, 
-            IEntityBlobStorage<KamisDayPrice> entityBlobStorage, 
-            DicConvertFactory<KamisDayPrice> dicConvertFactory) : base(EntityDataRepository, EntityIdFactory, entityFileFactory, entityBlobStorage, dicConvertFactory)
+        public KamisWholeSalePriceManager(IEntityDataRepository<KamisWholeSalePrice> EntityDataRepository, 
+            IEntityIdFactory<KamisWholeSalePrice> EntityIdFactory,
+            IEntityFileFactory<KamisWholeSalePrice> entityFileFactory, 
+            IEntityBlobStorage<KamisWholeSalePrice> entityBlobStorage, 
+            DicConvertFactory<KamisWholeSalePrice> dicConvertFactory) : base(EntityDataRepository, EntityIdFactory, entityFileFactory, entityBlobStorage, dicConvertFactory)
         {
         }
-        public override async Task<KamisDayPrice> CreateAsync(KamisDayPrice entity)
+        public override async Task<KamisWholeSalePrice> CreateAsync(KamisWholeSalePrice entity)
+        {
+            return await _EntityDataRepository.AddAsync(entity);
+        }
+    }
+    public class KamisRetailPriceManager : EntityManager<KamisRetailPrice>
+    {
+        public KamisRetailPriceManager(IEntityDataRepository<KamisRetailPrice> EntityDataRepository, 
+            IEntityIdFactory<KamisRetailPrice> EntityIdFactory,
+            IEntityFileFactory<KamisRetailPrice> entityFileFactory, 
+            IEntityBlobStorage<KamisRetailPrice> entityBlobStorage, 
+            DicConvertFactory<KamisRetailPrice> dicConvertFactory) : base(EntityDataRepository, EntityIdFactory, entityFileFactory, entityBlobStorage, dicConvertFactory)
+        {
+        }
+        public override async Task<KamisRetailPrice> CreateAsync(KamisRetailPrice entity)
         {
             return await _EntityDataRepository.AddAsync(entity);
         }

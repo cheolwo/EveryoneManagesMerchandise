@@ -41,6 +41,15 @@ optoins.UseSqlServer(KamisDbConnectionString));
 builder.Services.AddScoped<ProtectedLocalStorage>();
 builder.Services.AddScoped<ProtectedSessionStorage>();
 
+builder.Services.AddScoped<KamisPartRepository>();
+builder.Services.AddScoped<KamisCommodityRepository>();
+builder.Services.AddScoped<KamisKindofCommodityRepository>();
+builder.Services.AddScoped<KamisGradeRepository>();
+builder.Services.AddScoped<KamisCountryAdministrationPartRepository>();
+builder.Services.AddScoped<KamisMarketRepository>();
+builder.Services.AddScoped<KamisWholeSalePriceRepository>();
+builder.Services.AddScoped<KamisRetailPriceRepository>();
+
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));
 builder.Services.AddScoped(typeof(IEntityBlobStorage<>), typeof(EntityBlobStorage<>));
@@ -48,10 +57,6 @@ builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>)
 builder.Services.AddScoped(typeof(IEntityFileFactory<>), typeof(EntityFileFactory<>));
 builder.Services.AddScoped(typeof(IEntityContainerFactory<>), typeof(EntityContainerFactory<>));
 builder.Services.AddScoped(typeof(DicConvertFactory<>));
-
-builder.Services.AddScoped<PlatFormManagement>();
-builder.Services.AddScoped<HsCodeManagement>();
-builder.Services.AddScoped<KamisManagement>();
 
 builder.Services.AddScoped<HsCodePartRepository>();
 builder.Services.AddScoped<PracticalHsCodeRepository>();
@@ -75,20 +80,21 @@ builder.Services.AddScoped<KamisKindofCommodityManager>();
 builder.Services.AddScoped<KamisGradeManager>();
 builder.Services.AddScoped<KamisCountryAdministrationPartManager>();
 builder.Services.AddScoped<KamisMarketManager>();
-builder.Services.AddScoped<KamisDayPriceManager>();
+builder.Services.AddScoped<KamisWholeSalePriceManager>();
+builder.Services.AddScoped<KamisRetailPriceManager>();
+builder.Services.AddScoped<KamisAPIManager>();
+builder.Services.AddScoped<KamisRequestFactory>();
 
-builder.Services.AddScoped<KamisPartRepository>();
-builder.Services.AddScoped<KamisCommodityRepository>();
-builder.Services.AddScoped<KamisKindofCommodityRepository>();
-builder.Services.AddScoped<KamisGradeRepository>();
-builder.Services.AddScoped<KamisCountryAdministrationPartRepository>();
-builder.Services.AddScoped<KamisMarketRepository>();
-builder.Services.AddScoped<KamisDayPriceRepository>();
+builder.Services.AddScoped<PlatFormManagement>();
+builder.Services.AddScoped<HsCodeManagement>();
+builder.Services.AddScoped<KamisManagement>();
 
 builder.Services.AddMudServices();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();

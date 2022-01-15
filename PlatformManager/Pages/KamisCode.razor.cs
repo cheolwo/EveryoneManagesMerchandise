@@ -20,6 +20,13 @@ namespace PlatformManager.Pages
             wb = excelApp.Workbooks.Open(KamisCodeFilePath);
             await KamisManagement.KamisCodeExcelToDb(wb);
         }
+        public async Task Sheet4ToDb()
+        {
+            Application excelApp = new();
+            Workbook wb = null;
+            wb = excelApp.Workbooks.Open(KamisCodeFilePath);
+            await KamisManagement.KamisCodeSheet4ToDb(wb.Worksheets[4]);
+        }
     }
 }
 

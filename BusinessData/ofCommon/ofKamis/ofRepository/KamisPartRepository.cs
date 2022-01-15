@@ -1,46 +1,47 @@
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
+using BusinessData.ofCommon.ofKamis.ofDbContext;
 using BusinessData.ofCommon.ofKamis.ofModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessData.ofCommon.ofKamis.ofRepository
 {
     public class KamisGradeRepository : EntityDataRepository<KamisGrade>
     {
-        public KamisGradeRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisGradeRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
     public class KamisPartRepository : EntityDataRepository<KamisPart>
     {
-        public KamisPartRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisPartRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
     public class KamisCommodityRepository : EntityDataRepository<KamisCommodity>
     {
-        public KamisCommodityRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisCommodityRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
     public class KamisKindofCommodityRepository : EntityDataRepository<KamisKindofCommodity>
     {
-        public KamisKindofCommodityRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisKindofCommodityRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
     public class KamisCountryAdministrationPartRepository : EntityDataRepository<KamisCountryAdministrationPart>
     {
-        public KamisCountryAdministrationPartRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisCountryAdministrationPartRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
     public class KamisMarketRepository : EntityDataRepository<KamisMarket>
     {
-        public KamisMarketRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisMarketRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
-    public class KamisDayPriceRepository : EntityDataRepository<KamisDayPrice>
+    public class KamisWholeSalePriceRepository : EntityDataRepository<KamisWholeSalePrice>
     {
-        public KamisDayPriceRepository(HsDbContext hsDbContext)
-            : base(hsDbContext) { }
+        public KamisWholeSalePriceRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
+    }
+    public class KamisRetailPriceRepository : EntityDataRepository<KamisRetailPrice>
+    {
+        public KamisRetailPriceRepository(KamisDbContext KamisDbContext)
+            : base(KamisDbContext) { }
     }
 }

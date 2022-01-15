@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -44,17 +45,17 @@ namespace BusinessLogic.ofManagement
     //}
     public class KamisPriceInfo
     {
-        public string itemname {get; set;}
-        public string kindname {get; set;}
-        public string countryname {get; set;}
-        public string marketname {get; set;}
-        public string yyyy {get; set;}
-        public string regday {get; set;}
-        public string price {get; set;}
+        public string itemname { get; set; }
+        public string kindname { get; set; }
+        public string countryname { get; set; }
+        public string marketname { get; set; }
+        public string yyyy { get; set; }
+        public string regday { get; set; }
+        public string price { get; set; }
     }
     public class KamisAPIManager
     {
-        public HttpClient _HttpClient {get;}
+        public HttpClient _HttpClient { get; }
         private readonly KamisRequestFactory _kamisRequestFactory;
         private List<KamisPriceInfo> kamisPriceInfos = new();
         public KamisAPIManager(KamisRequestFactory kamisRequestFactory)
@@ -63,14 +64,10 @@ namespace BusinessLogic.ofManagement
             _kamisRequestFactory = kamisRequestFactory;
         }
         // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
-        public async Task CollectPriceInfoToDbByGetAPI(List<KamisKindofCommodity> kamisKindofCommodity, List<KamisCountryAdministrationPart> kamisCountryAdministrationParts,
+        public async Task CollectPriceInfoToDbByGetAPI(
                     string startdate, string enddate)
         {
-            _kamisRequestFactory.CreateRequestFactory(startdate, enddate, kamisKindofCommodity, kamisCountryAdministrationParts);
-            var WholeSaleHttpRequests = _kamisRequestFactory.GetWholeSalePriceHttpRequestMessages();
-            var ReatilPrcieHttpRequests = _kamisRequestFactory.GetReatilPrcieHttpRequestMessage();
-            CollectWholeSalePriceInfoByGetAPI(WholeSaleHttpRequests);
-            CollectRetailPriceInfoByGetAPI(ReatilPrcieHttpRequests);
+            await _kamisRequestFactory.CreateRequestMessage(startdate, enddate);
         }
         public List<KamisPriceInfo> GetKamisPriceInfos()
         {
@@ -78,9 +75,9 @@ namespace BusinessLogic.ofManagement
         }
         private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequestMessage> wholeSaleHttpRequests)
         {
-            if(wholeSaleHttpRequests != null)
+            if (wholeSaleHttpRequests != null)
             {
-                foreach(var httpRequest in wholeSaleHttpRequests)
+                foreach (var httpRequest in wholeSaleHttpRequests)
                 {
                     var Response = await _HttpClient.SendAsync(httpRequest);
                     using var responseStream = await Response.Content.ReadAsStreamAsync();
@@ -91,9 +88,9 @@ namespace BusinessLogic.ofManagement
         }
         private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequestMessage> retailHttpRequests)
         {
-            if(retailHttpRequests != null)
+            if (retailHttpRequests != null)
             {
-                foreach(var httpRequest in retailHttpRequests)
+                foreach (var httpRequest in retailHttpRequests)
                 {
                     var Response = await _HttpClient.SendAsync(httpRequest);
                     using var responseStream = await Response.Content.ReadAsStreamAsync();
@@ -110,21 +107,22 @@ namespace BusinessLogic.ofManagement
         private readonly KamisKindofCommodityManager _KamisKindofCommodityManager;
         private readonly KamisCountryAdministrationPartManager _KamisCountryAdministrationPartManager;
         private readonly KamisMarketManager _KamisMarketManager;
-        private readonly KamisDayPriceManager _KamisDayPriceManager;
+        private readonly KamisWholeSalePriceManager _KamisWholeSalePriceManager;
+        private readonly KamisRetailPriceManager _KamisRetailPriceManager;
         private readonly KamisGradeManager _KamisGradeManager;
         private readonly KamisAPIManager _KamisAPIManger;
 
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
-        KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager KamisCountryAdministrationPartManager,
-        KamisMarketManager KamisMarketManager, KamisDayPriceManager KamisDayPriceManager)
+        KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager kamisCountryAdministrationPartManager,
+        KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager lamisDayPriceManager, KamisRetailPriceManager kamisRetailPriceManager)
         {
             _KamisGradeManager = kamisGradeManager;
             _KamisPartManager = kamisPartManager;
             _KamisCommodityManager = kamisCommodityManager;
             _KamisKindofCommodityManager = kamisKindofCommodityManager;
-            _KamisCountryAdministrationPartManager = KamisCountryAdministrationPartManager;
-            _KamisMarketManager = KamisMarketManager;
-            _KamisDayPriceManager = KamisDayPriceManager;
+            _KamisCountryAdministrationPartManager = kamisCountryAdministrationPartManager;
+            _KamisMarketManager = kamisMarketManager;
+            _KamisRetailPriceManager = kamisRetailPriceManager;
         }
         //public async Task CollectPriceInfoByHttpAPI(string startdate, string enddate)
         //{
@@ -140,29 +138,32 @@ namespace BusinessLogic.ofManagement
         // PriceInfoToDb 를 할 때 외래키로 KindofCommodityId와 
         private async Task PriceInfosToDb(List<KamisPriceInfo> kamisPriceInfos)
         {
-            foreach(var priceInfo in kamisPriceInfos)
+            foreach (var priceInfo in kamisPriceInfos)
             {
                 string marektname = priceInfo.marketname;
-                
+
             }
         }
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
             Worksheet ws1 = null;
             Worksheet ws2 = null;
-            Worksheet ws3 = null;
+            Worksheet ws4 = null;
             Worksheet ws5 = null;
+            Worksheet ws6 = null;
             if (wb != null)
             {
                 ws1 = wb.Worksheets.get_Item(1) as Worksheet;
                 ws2 = wb.Worksheets.get_Item(2) as Worksheet;
-                ws3 = wb.Worksheets.get_Item(3) as Worksheet;
+                ws4 = wb.Worksheets.get_Item(4) as Worksheet;
                 ws5 = wb.Worksheets.get_Item(5) as Worksheet;
+                ws6 = wb.Worksheets.get_Item(6) as Worksheet;
             }
             if (ws1 != null) { await KamisCodeSheet1ToDb(ws1); }
             if (ws2 != null) { await KamisCodeSheet2ToDb(ws2); }
-            if (ws3 != null) { await KamisCodeSheet3ToDb(ws3); }
+            if (ws4 != null) { await KamisCodeSheet3ToDb(ws4); }
             if (ws5 != null) { await KamisCodeSheet5ToDb(ws5); }
+            if (ws6 != null) { await KamisCodeSheet6ToDb(ws6); }
         }
         private async Task KamisCodeSheet1ToDb(Worksheet ws)
         {
@@ -176,6 +177,7 @@ namespace BusinessLogic.ofManagement
                 {
                     kamisPart.Id = data[i, 1]?.ToString() ?? "";
                     kamisPart.Name = data[i, 2]?.ToString() ?? "";
+                    kamisPart.CreateTime = DateTime.Today;
                     await _KamisPartManager.CreateAsync(kamisPart);
                     i++;
                 }
@@ -198,6 +200,7 @@ namespace BusinessLogic.ofManagement
             {
                 while (data[i, 1] != null)
                 {
+                    kamisCommodity.CreateTime = DateTime.Today;
                     kamisCommodity.KamisPartId = data[i, 1]?.ToString() ?? "";
                     kamisCommodity.Id = data[i, 2]?.ToString() ?? "";
                     kamisCommodity.Name = data[i, 3]?.ToString() ?? "";
@@ -209,9 +212,9 @@ namespace BusinessLogic.ofManagement
             {
                 kamisCommodity = null;
                 return;
-            }           
+            }
         }
-        private async Task KamisCodeSheet3ToDb(Worksheet ws)
+        public async Task KamisCodeSheet3ToDb(Worksheet ws)
         {
             KamisKindofCommodity kamisKindofCommodity = new();
             Microsoft.Office.Interop.Excel.Range rng = ws.UsedRange;
@@ -221,8 +224,10 @@ namespace BusinessLogic.ofManagement
             {
                 while (data[i, 1] != null)
                 {
-                    kamisKindofCommodity.KamisCommodityId = data[i, 1]?.ToString() ?? "";
-                    kamisKindofCommodity.Id = data[i, 2]?.ToString() ?? "";
+                    kamisKindofCommodity.CreateTime = DateTime.Today;
+                    kamisKindofCommodity.KamisCommodityId = data[i, 1]?.ToString() ?? ""; ;
+                    kamisKindofCommodity.Code = data[i, 2]?.ToString() ?? "";
+                    kamisKindofCommodity.Id = kamisKindofCommodity.KamisCommodityId + kamisKindofCommodity.Code;
                     kamisKindofCommodity.Name = data[i, 4]?.ToString() ?? "";
                     kamisKindofCommodity.WholesaleShippingUnit = data[i, 5]?.ToString() ?? "";
                     kamisKindofCommodity.WholeSaleShippingUnizSize = data[i, 6]?.ToString() ?? "";
@@ -233,6 +238,42 @@ namespace BusinessLogic.ofManagement
                     kamisKindofCommodity.WholeSaleGrade = data[i, 13]?.ToString() ?? "";
                     kamisKindofCommodity.RetailSaleGrade = data[i, 14]?.ToString() ?? "";
                     kamisKindofCommodity.EcoFriendlyGrade = data[i, 16]?.ToString() ?? "";
+                    await _KamisKindofCommodityManager.CreateAsync(kamisKindofCommodity);
+                    i++;
+                }
+            }
+            catch
+            {
+                kamisKindofCommodity = null;
+                return;
+            }
+        }
+
+        public async Task KamisCodeSheet4ToDb(Worksheet ws)
+        {
+            KamisKindofCommodity kamisKindofCommodity = new();
+            Microsoft.Office.Interop.Excel.Range rng = ws.UsedRange;
+            object[,] data = rng.Value;
+            int i = 2;
+            try
+            {
+                while (data[i, 1] != null)
+                {
+                    kamisKindofCommodity.CreateTime = DateTime.Today;
+                    kamisKindofCommodity.KamisPartId = data[i, 1]?.ToString() ?? "";
+                    kamisKindofCommodity.KamisCommodityId = data[i, 3]?.ToString() ?? ""; ;
+                    kamisKindofCommodity.Code = data[i, 5]?.ToString() ?? "";
+                    kamisKindofCommodity.Id = kamisKindofCommodity.KamisCommodityId + kamisKindofCommodity.Code;
+                    kamisKindofCommodity.Name = data[i, 6]?.ToString() ?? "";
+                    kamisKindofCommodity.WholesaleShippingUnit = data[i, 7]?.ToString() ?? "";
+                    kamisKindofCommodity.WholeSaleShippingUnizSize = data[i, 8]?.ToString() ?? "";
+                    kamisKindofCommodity.RetailShippingUnit = data[i, 9]?.ToString() ?? "";
+                    kamisKindofCommodity.RetailShippingUnitSize = data[i, 10]?.ToString() ?? "";
+                    kamisKindofCommodity.EcoFriendlyAgriculturalProductShippingUnit = data[i, 13]?.ToString() ?? "";
+                    kamisKindofCommodity.EcoFriendlyAgriculturalProductShippingUnitSize = data[i, 14]?.ToString() ?? "";
+                    kamisKindofCommodity.WholeSaleGrade = data[i, 15]?.ToString() ?? "";
+                    kamisKindofCommodity.RetailSaleGrade = data[i, 16]?.ToString() ?? "";
+                    kamisKindofCommodity.EcoFriendlyGrade = data[i, 18]?.ToString() ?? "";
                     await _KamisKindofCommodityManager.CreateAsync(kamisKindofCommodity);
                     i++;
                 }
@@ -276,6 +317,7 @@ namespace BusinessLogic.ofManagement
             {
                 while (data[i, 1] != null)
                 {
+                    KamisCountryAdministrationPart.CreateTime = DateTime.Today;
                     KamisCountryAdministrationPart.Id = data[i, 1]?.ToString() ?? "";
                     KamisCountryAdministrationPart.Name = data[i, 2]?.ToString() ?? "";
                     await _KamisCountryAdministrationPartManager.CreateAsync(KamisCountryAdministrationPart);

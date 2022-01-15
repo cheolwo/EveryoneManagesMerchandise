@@ -21,7 +21,7 @@ else
     [Parameter] public RenderFragment ?EntityFragment { get; set; }
     [Parameter] public string ?Role { get; set; }
     private bool isConnected = false;
-    public IdentityUser ?IdentityUser { get; set; }
+    public IdentityUser IdentityUser = new();
     // 비즈니스관리시스템 도면 : #UserComponent
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
