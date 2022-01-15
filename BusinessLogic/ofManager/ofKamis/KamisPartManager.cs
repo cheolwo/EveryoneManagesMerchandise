@@ -19,6 +19,7 @@ namespace BusinessLoogic.ofManager.ofKamis
         private Dictionary<int, StimulatedFunc> DicStimulatedFunc {get; set;}
         private StringBuilder RecognizingBuilder {get; set;}
         private Dictionary<string, string> KeyValuePairs {get; set;}
+        private List<KamisPriceInfo> KamisPriceInfos {get; set;}
         public KamisConvertFactory()
         {
             DicStimulatedFunc = new();
@@ -41,18 +42,21 @@ namespace BusinessLoogic.ofManager.ofKamis
                 }
             }
         }
+        // 대괄호가 끝나면 Key And Value로 나타낸 것을 개체화한다.
         private bool RecognizeCheck(char c)
         {
-            
         }    
         private void Recognize(char c)
         {
-
+            RecognizingBuilder.Append(c);
+            string Rs = RecognizingBuilder.ToString();
+            int Stimulation = Math.Abs(Rs.GetHashCode());
+            DicStimulatedFunc[Stimulation](c);
         }
         // {
         private void StimulateFunc0(char c)
         {
-            // 신경저장소가 0인 경우 대괄호로 인식한다.
+            
         }
         // " ---> propName 즉 Key 구성
         private void StimulatedFunc1(char c) 
