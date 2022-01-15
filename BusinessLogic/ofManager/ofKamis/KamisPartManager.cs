@@ -13,6 +13,148 @@ using System.Collections.Specialized;
 namespace BusinessLoogic.ofManager.ofKamis
 {
     public enum KamisWholeSaleRegion { 서울, 부산, 대구, 광주, 대전 }
+    delegate void StimulatedFunc(char c);
+    public class KamisConvertFactory
+    {
+        private Dictionary<int, StimulatedFunc> DicStimulatedFunc {get; set;}
+        private StringBuilder RecognizingBuilder {get; set;}
+        private Dictionary<string, string> KeyValuePairs {get; set;}
+        public KamisConvertFactory()
+        {
+            DicStimulatedFunc = new();
+            RecognizingBuilder = new();
+        }
+        public List<KamisPriceInfo> ToKamisPriceInfos(object[] items)
+        {
+            foreach(object item in items)
+            {
+                string itemStr = item.ToString();
+                for(int i = 0; i <= itmeStr.Length; i++)
+                {
+                    bool Check = RecognizeCheck(itemStr[i]);
+                    if(Check) {Recognize(itemStr[i]);}
+                    else
+                    {
+                        int Stimulation = Math.Abs(RecognizingBuilder.ToString().GetHashCode());
+                        DicStimulatedFunc[Stimulation](itemStr[i]);
+                    }
+                }
+            }
+        }
+        private bool RecognizeCheck(char c)
+        {
+            
+        }    
+        private void Recognize(char c)
+        {
+
+        }
+        // {
+        private void StimulateFunc0(char c)
+        {
+            // 신경저장소가 0인 경우 대괄호로 인식한다.
+        }
+        // " ---> propName 즉 Key 구성
+        private void StimulatedFunc1(char c) 
+        {
+
+        }
+        // "" ---> Key 구성완료
+        private void StimulatedFunc2(char c) 
+        {
+
+        }
+        // "": ---> 아무것도 하지 않음
+        private void StimulatedFunc3(char c) 
+        {
+
+        }
+        // "":" ---> propValue 즉 Value 구성
+        private void StimulatedFunc4(char c) 
+        {
+
+        }
+        // "":"" ---> Value 구성완료
+        private void StimulatedFunc5(char c) 
+        {
+
+        }
+        // "":[ ---> Value를 Empty 로 초기화
+        private void StimulatedFunc6(char c) 
+        {
+
+        }
+        // "":[] ---> Value 구성완료
+        private void StimulatedFunc7(char c) 
+        {
+
+        }
+        // "":[], ---> 초기화
+        private void StimulatedFunc8(char c) 
+        {
+
+        }
+
+    }
+    public class KamisAPIManager
+    {
+        public HttpClient _HttpClient { get; }
+        private readonly KamisRequestFactory _kamisRequestFactory;
+        private List<KamisPriceInfo> kamisPriceInfos = new();
+        public ProductPriceResult ProductPriceResult = new();
+        public KamisAPIManager(KamisRequestFactory kamisRequestFactory)
+        {
+            _HttpClient = new();
+            _kamisRequestFactory = kamisRequestFactory;
+        }
+        // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
+        // 이제 변환로직과 저장로직을 만들면 되겠다.
+        public async Task CollectPriceInfoToDbByGetAPI(
+                    string startdate, string enddate)
+        {
+            await _kamisRequestFactory.CreateRequestMessage(startdate, enddate);
+            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicWholeSaleHttpRequestMessage = _kamisRequestFactory.GetDictionaryWholeSalePriceHttpRequestMessage();
+            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailHttpRequestMessage = _kamisRequestFactory.GetDictionaryRetailPriceHttpRequestMessage();
+            var RequestMessages = DicWholeSaleHttpRequestMessage.Keys;
+            foreach (var Message in RequestMessages)
+            {
+                HttpResponseMessage response = await _HttpClient.SendAsync(Message);
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
+                ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
+            }
+        }
+        public List<KamisPriceInfo> GetKamisPriceInfos()
+        {
+            return this.kamisPriceInfos;
+        }
+        private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequestMessage> wholeSaleHttpRequests)
+        {
+            if (wholeSaleHttpRequests != null)
+            {
+                foreach (var httpRequest in wholeSaleHttpRequests)
+                {
+                    var Response = await _HttpClient.SendAsync(httpRequest);
+                    using var responseStream = await Response.Content.ReadAsStreamAsync();
+                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    kamisPriceInfos.Add(Result);
+                }
+            }
+        }
+        private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequestMessage> retailHttpRequests)
+        {
+            if (retailHttpRequests != null)
+            {
+                foreach (var httpRequest in retailHttpRequests)
+                {
+                    var Response = await _HttpClient.SendAsync(httpRequest);
+                    using var responseStream = await Response.Content.ReadAsStreamAsync();
+                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    kamisPriceInfos.Add(Result);
+                }
+            }
+        }
+    }
     public class KamisRequestFactory
     {
         private Dictionary<HttpRequestMessage, Dictionary<string, string>> DictionaryWholeSalePriceHttpRequestMessage { get; set; }

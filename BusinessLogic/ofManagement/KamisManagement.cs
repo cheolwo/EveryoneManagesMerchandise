@@ -67,7 +67,8 @@ namespace BusinessLogic.ofManagement
             public string error_code { get; set; }
             public object [] item { get; set; }
         }
-        public class Item
+    }
+            public class Item
         {
             public object []itemname { get; set; }
             public string []kindname { get; set; }
@@ -77,7 +78,6 @@ namespace BusinessLogic.ofManagement
             public string regday { get; set; }
             public string price { get; set; }
         }
-    }
     public class ProductPrice
     {
         public string itemname { get; set; }
@@ -107,64 +107,6 @@ namespace BusinessLogic.ofManagement
         public string yyyy { get; set; }
         public string regday { get; set; }
         public string price { get; set; }
-    }
-    public class KamisAPIManager
-    {
-        public HttpClient _HttpClient { get; }
-        private readonly KamisRequestFactory _kamisRequestFactory;
-        private List<KamisPriceInfo> kamisPriceInfos = new();
-        public ProductPriceResult ProductPriceResult = new();
-        public KamisAPIManager(KamisRequestFactory kamisRequestFactory)
-        {
-            _HttpClient = new();
-            _kamisRequestFactory = kamisRequestFactory;
-        }
-        // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
-        public async Task CollectPriceInfoToDbByGetAPI(
-                    string startdate, string enddate)
-        {
-            await _kamisRequestFactory.CreateRequestMessage(startdate, enddate);
-            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicWholeSaleHttpRequestMessage = _kamisRequestFactory.GetDictionaryWholeSalePriceHttpRequestMessage();
-            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailHttpRequestMessage = _kamisRequestFactory.GetDictionaryRetailPriceHttpRequestMessage();
-            var RequestMessages = DicWholeSaleHttpRequestMessage.Keys;
-            foreach (var Message in RequestMessages)
-            {
-                HttpResponseMessage response = await _HttpClient.SendAsync(Message);
-                using var responseStream = await response.Content.ReadAsStreamAsync();
-                var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
-                ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
-            }
-        }
-        public List<KamisPriceInfo> GetKamisPriceInfos()
-        {
-            return this.kamisPriceInfos;
-        }
-        private async Task CollectWholeSalePriceInfoByGetAPI(List<HttpRequestMessage> wholeSaleHttpRequests)
-        {
-            if (wholeSaleHttpRequests != null)
-            {
-                foreach (var httpRequest in wholeSaleHttpRequests)
-                {
-                    var Response = await _HttpClient.SendAsync(httpRequest);
-                    using var responseStream = await Response.Content.ReadAsStreamAsync();
-                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
-                    kamisPriceInfos.Add(Result);
-                }
-            }
-        }
-        private async Task CollectRetailPriceInfoByGetAPI(List<HttpRequestMessage> retailHttpRequests)
-        {
-            if (retailHttpRequests != null)
-            {
-                foreach (var httpRequest in retailHttpRequests)
-                {
-                    var Response = await _HttpClient.SendAsync(httpRequest);
-                    using var responseStream = await Response.Content.ReadAsStreamAsync();
-                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
-                    kamisPriceInfos.Add(Result);
-                }
-            }
-        }
     }
     public class KamisManagement
     {
