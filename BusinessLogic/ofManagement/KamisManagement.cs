@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessLoogic.ofManager.ofKamis;
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json;
 
 namespace BusinessLogic.ofManagement
 {
@@ -43,6 +44,60 @@ namespace BusinessLogic.ofManagement
     //          "/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
     //    }
     //}
+    public class ProductPriceResult
+    {
+        public Condition[] condition { get; set; }
+        public Data data { get; set; }
+        public class Condition
+        {
+            public string p_startday { get; set; }
+            public string p_endday { get; set; }
+            public string p_itemcategorycode { get; set; }
+            public string p_itemcode { get; set; }
+            public string p_kindcode { get; set; }
+            public string p_productrankcode { get; set; }
+            public string p_countycode { get; set; }
+            public string p_convert_kg_yn { get; set; }
+            public string p_key { get; set; }
+            public string p_id { get; set; }
+            public string p_returntype { get; set; }
+         }
+        public class Data
+        {
+            public string error_code { get; set; }
+            public object [] item { get; set; }
+        }
+        public class Item
+        {
+            public object []itemname { get; set; }
+            public string []kindname { get; set; }
+            public string countryname { get; set; }
+            public string []marketname { get; set; }
+            public string yyyy { get; set; }
+            public string regday { get; set; }
+            public string price { get; set; }
+        }
+    }
+    public class ProductPrice
+    {
+        public string itemname { get; set; }
+        public string kindname { get; set; }
+        public string countryname { get; set; }
+        public string marketname { get; set; }
+        public string yyyy { get; set; }
+        public string regday { get; set; }
+        public string price { get; set; }
+    }
+    public class PeriodProductPriceListInfo
+    {
+        public string[] itemname { get; set; }
+        public string[] kindname { get; set; }
+        public string countryname { get; set; }
+        public string[] marketname { get; set; }
+        public string yyyy { get; set; }
+        public string regday { get; set; }
+        public string price { get; set; }
+    }
     public class KamisPriceInfo
     {
         public string itemname { get; set; }
@@ -58,6 +113,7 @@ namespace BusinessLogic.ofManagement
         public HttpClient _HttpClient { get; }
         private readonly KamisRequestFactory _kamisRequestFactory;
         private List<KamisPriceInfo> kamisPriceInfos = new();
+        public ProductPriceResult ProductPriceResult = new();
         public KamisAPIManager(KamisRequestFactory kamisRequestFactory)
         {
             _HttpClient = new();
@@ -68,6 +124,16 @@ namespace BusinessLogic.ofManagement
                     string startdate, string enddate)
         {
             await _kamisRequestFactory.CreateRequestMessage(startdate, enddate);
+            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicWholeSaleHttpRequestMessage = _kamisRequestFactory.GetDictionaryWholeSalePriceHttpRequestMessage();
+            Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailHttpRequestMessage = _kamisRequestFactory.GetDictionaryRetailPriceHttpRequestMessage();
+            var RequestMessages = DicWholeSaleHttpRequestMessage.Keys;
+            foreach (var Message in RequestMessages)
+            {
+                HttpResponseMessage response = await _HttpClient.SendAsync(Message);
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
+                ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
+            }
         }
         public List<KamisPriceInfo> GetKamisPriceInfos()
         {
@@ -81,7 +147,7 @@ namespace BusinessLogic.ofManagement
                 {
                     var Response = await _HttpClient.SendAsync(httpRequest);
                     using var responseStream = await Response.Content.ReadAsStreamAsync();
-                    var Result = await JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
                     kamisPriceInfos.Add(Result);
                 }
             }
@@ -94,7 +160,7 @@ namespace BusinessLogic.ofManagement
                 {
                     var Response = await _HttpClient.SendAsync(httpRequest);
                     using var responseStream = await Response.Content.ReadAsStreamAsync();
-                    var Result = await JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
+                    var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<KamisPriceInfo>(responseStream);
                     kamisPriceInfos.Add(Result);
                 }
             }

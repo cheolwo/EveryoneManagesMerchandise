@@ -12,6 +12,7 @@ using System.Collections.Specialized;
 
 namespace BusinessLoogic.ofManager.ofKamis
 {
+    public enum KamisWholeSaleRegion { 서울, 부산, 대구, 광주, 대전 }
     public class KamisRequestFactory
     {
         private Dictionary<HttpRequestMessage, Dictionary<string, string>> DictionaryWholeSalePriceHttpRequestMessage { get; set; }
@@ -29,7 +30,6 @@ namespace BusinessLoogic.ofManager.ofKamis
             DictionaryWholeSalePriceHttpRequestMessage = new();
             DictionaryRetailPriceHttpRequestMessage = new();
         }
-        public enum KamisWholeSaleRegion {서울 , 부산, 대구, 광주, 대전}
         private List<KamisCountryAdministrationPart> DiviePartofWholeSaleRegion(List<KamisCountryAdministrationPart> coutries)
         {
             List<KamisCountryAdministrationPart> PartofWholeSaleRegion = new();
@@ -42,8 +42,15 @@ namespace BusinessLoogic.ofManager.ofKamis
                 if (country.Name.Equals(KamisWholeSaleRegion.광주.ToString())) { PartofWholeSaleRegion.Add(country); continue; }
             }
             return PartofWholeSaleRegion;
+        }     
+        public Dictionary<HttpRequestMessage, Dictionary<string, string>> GetDictionaryWholeSalePriceHttpRequestMessage()
+        {
+            return DictionaryWholeSalePriceHttpRequestMessage;
         }
-        
+        public Dictionary<HttpRequestMessage, Dictionary<string, string>> GetDictionaryRetailPriceHttpRequestMessage()
+        {
+            return DictionaryRetailPriceHttpRequestMessage;
+        }
         public async Task CreateRequestMessage(string startdate, string enddate)
         {
             var kindofCommodities = await _KamisKindofCommodityRepository.GetToListAsync();
@@ -87,13 +94,13 @@ namespace BusinessLoogic.ofManager.ofKamis
                             FinalQuetyString.Add("p_cert_key", APIKey);
                             FinalQuetyString.Add("p_cert_id", APIUserId);
                             FinalQuetyString.Add("p_returntype", "json");
-                            string RequestQueryMessage = BaseAddress + FinalQuetyString.ToString();
+                            string RequestQueryMessage = BaseAddress + "/" + RetailSaleQueryString.ToString() + "&" + FinalQuetyString.ToString();
                             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, RequestQueryMessage);
                             Dictionary<string, string> keyValuePairs = new();
                             keyValuePairs.Add(nameof(KamisKindofCommodity), RetailSaleQueryString["p_kindcode"]);
                             keyValuePairs.Add(nameof(KamisCountryAdministrationPart), country.Id);
                             keyValuePairs.Add(nameof(KamisGrade), RetailSaleQueryString["p_productrankcode"]);
-                            DictionaryWholeSalePriceHttpRequestMessage.Add(httpRequestMessage, keyValuePairs);
+                            DictionaryRetailPriceHttpRequestMessage.Add(httpRequestMessage, keyValuePairs);
                         }
                     }
                 }
@@ -128,18 +135,15 @@ namespace BusinessLoogic.ofManager.ofKamis
         {
             var Grades = kamisKindofCommodity.WholeSaleGrade.Split(',');
             List<NameValueCollection> BufferQueryString = new();
-            NameValueCollection nameValueCollection = new();
-            nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
             if (Grades.Length > 0)
             {          
                 foreach(string grade in Grades)
                 {
-                    foreach(string key in ByWholeSale)
-                    {
-                        ByWholeSale[key];
+                    NameValueCollection nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                    foreach (string key in ByWholeSale)
+                    {                     
+                        nameValueCollection.Add(key, ByWholeSale[key]);
                     }
-                    nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
-                    
                     nameValueCollection.Add("p_productrankcode", grade);
                     BufferQueryString.Add(nameValueCollection);
                 }
@@ -154,7 +158,11 @@ namespace BusinessLoogic.ofManager.ofKamis
             {
                 foreach (var grade in Grades)
                 {
-                    NameValueCollection nameValueCollection = ByRetail;
+                    NameValueCollection nameValueCollection = System.Web.HttpUtility.ParseQueryString(string.Empty);
+                    foreach (string key in ByRetail)
+                    {
+                        nameValueCollection.Add(key, ByRetail[key]);
+                    }
                     nameValueCollection.Add("p_productrankcode", grade);
                     BufferQueryString.Add(nameValueCollection);
                 }
