@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
+using BusinessLogic.ofManagement;
 using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json;
 
 namespace ModuleTest
 {
@@ -42,22 +43,10 @@ namespace ModuleTest
     {
         static async Task Main(string[] args)
         {
-            var request1 = new HttpRequestMessage(HttpMethod.Get,
-            "http://www.kamis.or.kr/service/price/xml.do?action=periodProductList" +
-            "&p_productclscode=02&p_startday=2020-10-01&p_endday=2020-12-01" +
-            "&p_itemcategorycode=200&p_itemcode=212&p_kindcode=00&p_productrankcode=04&p_countrycode=1101&p_convert_kg_yn=Y" +
-            "&p_cert_key=c8b4e1e9-273f-4fb4-8d5c-fdfcf7ae1533&p_cert_id=2281&p_returntype=json");
-            HttpClient client = new HttpClient();
-            var Message1 = await client.SendAsync(request1);
-            using var responseStream = await Message1.Content.ReadAsStreamAsync();
-            var Reult = await JsonSerializer.DeserializeAsync<ProductPriceitem>(responseStream);
-            Console.WriteLine(Reult.ToString());
-
-            Console.WriteLine();
-            KamisAPIManager kamisAPIManager = new KamisAPIManager();
-            var Message2 = await kamisAPIManager.GetPrice();
-            Console.WriteLine(Message2.StatusCode);
-            
+            string test = "{\r\n  \"itemname\": [],\r\n  \"kindname\": [],\r\n  \"countyname\": \"평균\",\r\n  \"marketname\": [],\r\n  \"yyyy\": \"2021\",\r\n  \"regday\": \"11/01\",\r\n  \"price\": \"2,625\"\r\n}";
+            BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(test);
+            Console.WriteLine(averageKamisPriceInfo.itemname);
+            Console.WriteLine(averageKamisPriceInfo.countyname);
         }
         public class KamisAPIManager
         {
@@ -100,7 +89,6 @@ namespace ModuleTest
                 Console.WriteLine(query.ToString());
                 return await HttpClient.GetAsync(query.ToString());
             }
-
         }
         public static void ReadExcelData()
         {

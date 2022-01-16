@@ -1,5 +1,4 @@
-﻿using BusinessLogic.ofManagement;
-using BusinessLoogic.ofManager.ofKamis;
+﻿using BusinessLoogic.ofManager.ofKamis;
 using Microsoft.AspNetCore.Components;
 
 namespace PlatformManager.Pages
@@ -11,7 +10,7 @@ namespace PlatformManager.Pages
         public HttpClient HttpClient { get; }
         protected override async Task OnInitializedAsync()
         {
-            await KamisAPIManager.CollectPriceInfoToDbByGetAPI("2021-11-01", "2021-11-10");
+            await KamisAPIManager.CollectPriceInfoFromAPI("2021-11-01", "2021-11-10");
         }
     }
 }

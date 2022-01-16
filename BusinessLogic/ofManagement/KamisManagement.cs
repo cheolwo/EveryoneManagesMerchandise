@@ -61,23 +61,13 @@ namespace BusinessLogic.ofManagement
             public string p_key { get; set; }
             public string p_id { get; set; }
             public string p_returntype { get; set; }
-         }
+        }
         public class Data
         {
             public string error_code { get; set; }
-            public object [] item { get; set; }
+            public object[] item { get; set; }
         }
     }
-            public class Item
-        {
-            public object []itemname { get; set; }
-            public string []kindname { get; set; }
-            public string countryname { get; set; }
-            public string []marketname { get; set; }
-            public string yyyy { get; set; }
-            public string regday { get; set; }
-            public string price { get; set; }
-        }
     public class ProductPrice
     {
         public string itemname { get; set; }
@@ -92,7 +82,27 @@ namespace BusinessLogic.ofManagement
     {
         public string[] itemname { get; set; }
         public string[] kindname { get; set; }
-        public string countryname { get; set; }
+        public string countyname { get; set; }
+        public string[] marketname { get; set; }
+        public string yyyy { get; set; }
+        public string regday { get; set; }
+        public string price { get; set; }
+    }
+    public class AverageKamisPriceInfo
+    {
+        public string itemname { get; set; }
+        public string kindname { get; set; }
+        public string countyname { get; set; }
+        public string marketname { get; set; }
+        public string yyyy { get; set; }
+        public string regday { get; set; }
+        public string price { get; set; }
+    }
+    public class BufferAverageKamisPriceInfo
+    {
+        public string[] itemname { get; set; }
+        public string[] kindname { get; set; }
+        public string countyname { get; set; }
         public string[] marketname { get; set; }
         public string yyyy { get; set; }
         public string regday { get; set; }
@@ -102,7 +112,7 @@ namespace BusinessLogic.ofManagement
     {
         public string itemname { get; set; }
         public string kindname { get; set; }
-        public string countryname { get; set; }
+        public string countyname { get; set; }
         public string marketname { get; set; }
         public string yyyy { get; set; }
         public string regday { get; set; }
@@ -119,7 +129,6 @@ namespace BusinessLogic.ofManagement
         private readonly KamisRetailPriceManager _KamisRetailPriceManager;
         private readonly KamisGradeManager _KamisGradeManager;
         private readonly KamisAPIManager _KamisAPIManger;
-
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
         KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager kamisCountryAdministrationPartManager,
         KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager lamisDayPriceManager, KamisRetailPriceManager kamisRetailPriceManager)
@@ -132,25 +141,14 @@ namespace BusinessLogic.ofManagement
             _KamisMarketManager = kamisMarketManager;
             _KamisRetailPriceManager = kamisRetailPriceManager;
         }
-        //public async Task CollectPriceInfoByHttpAPI(string startdate, string enddate)
-        //{
-        //    var kamisKindofCommodities = await _KamisKindofCommodityManager.GetToListAsync();
-        //    var kamisCountries = await _KamisCountryAdministrationPartManager.GetToListAsync();
-        //    await _KamisAPIManger.CollectPriceInfoAsync(kamisKindofCommodities, kamisCountries, startdate, enddate);
-        //    var KamisPriceInfos = _KamisAPIManger.GetKamisPriceInfos();
-        //    if(KamisPriceInfos.Count > 0)
-        //    {
-        //        await PriceInfosToDb(kmaisPriceInfos);
-        //    }
-        //}
-        // PriceInfoToDb 를 할 때 외래키로 KindofCommodityId와 
-        private async Task PriceInfosToDb(List<KamisPriceInfo> kamisPriceInfos)
+        // 저장로직을 담당한다.
+        private async Task SavePriceInfoToDb(string startdate, string enddate)
         {
-            foreach (var priceInfo in kamisPriceInfos)
-            {
-                string marektname = priceInfo.marketname;
-
-            }
+            await _KamisAPIManger.CollectPriceInfoFromAPI(startdate, enddate);
+            var DicWholeSaleAverageKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleAverageKamisPriceInfos();
+            var DicWholeSaleKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleKamisPriceInfos();
+            var DicRetailKamisPriceInfos = _KamisAPIManger.GetDicRetailKamisPriceInfos();
+            var DicRetailAverageKamisPriceInfos = _KamisAPIManger.GetDicRetailAverageKamisPriceInfos();
         }
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
