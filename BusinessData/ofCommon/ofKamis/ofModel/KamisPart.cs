@@ -968,6 +968,8 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 		public string KamisKindofCommodityId {get; set;}
 		public string KamisGradeCode {get; set;}
 		public string KamisClsCode {get; set;}
+		public string yyyy {get; set;}
+		public string regday {get; set;}
 		public KamisMarket KamisMarket {get; set;}
 		public KamisKindofCommodity KamisKindofCommodity {get; set;}
 		public override string GetRelationCode()
@@ -1127,6 +1129,8 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 		public string KamisKindofCommodityId {get; set;}
 		public string KamisGradeCode {get; set;}
 		public string KamisClsCode {get; set;}
+		public string yyyy {get; set;}
+		public string regday {get; set;}
 		public KamisMarket KamisMarket {get; set;}
 		public KamisKindofCommodity KamisKindofCommodity {get; set;}
 

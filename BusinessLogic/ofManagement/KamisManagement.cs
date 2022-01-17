@@ -44,7 +44,6 @@ namespace BusinessLogic.ofManagement
     //          "/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
     //    }
     //}
-   
     public class KamisManagement
     {
         private readonly KamisPartManager _KamisPartManager;
@@ -94,6 +93,8 @@ namespace BusinessLogic.ofManagement
                     KamisWholeSalePrice newKamisWholeSalePrice = new();
                     newKamisWholeSalePrice.KamisMarketId = kamisMarket.Id;
                     newKamisWholeSalePrice.Name = kamisPriceInfo.price;
+                    newKamisWholeSalePrice.yyyy = kamisPriceInfo.yyyy;
+                    newKamisWholeSalePrice.regday = kamisPriceInfo.regday;
 			        newKamisWholeSalePrice.KamisKindofCommodityId = key[nameof(KamisKindofCommodity)];
 			        newKamisWholeSalePrice.KamisGradeCode = key[nameof(KamisGrade)];
 			        newKamisWholeSalePrice.KamisClsCode = key[nameof(KamisCountryAdministrationPart)];
@@ -125,6 +126,8 @@ namespace BusinessLogic.ofManagement
                     KamisRetailPrice newKamisRetailPrice = new();
                     newKamisRetailPrice.KamisMarketId = kamisMarket.Id;
                     newKamisRetailPrice.Name = kamisPriceInfo.price;
+                    newKamisWholeSalePrice.yyyy = kamisPriceInfo.yyyy;
+                    newKamisWholeSalePrice.regday = kamisPriceInfo.regday;
 			        newKamisRetailPrice.KamisKindofCommodityId = key[nameof(KamisKindofCommodity)];
 			        newKamisRetailPrice.KamisGradeCode = key[nameof(KamisGrade)];
 			        newKamisRetailPrice.KamisClsCode = key[nameof(KamisCountryAdministrationPart)];

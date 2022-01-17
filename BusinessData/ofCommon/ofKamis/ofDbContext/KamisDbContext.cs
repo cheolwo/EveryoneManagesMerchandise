@@ -94,6 +94,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisWholeSalePrice> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.CreateTime);
             builder.HasOne(o => o.KamisMarket).WithMany(m => m.KamisWholeSalePrices).HasForeignKey(o => o.KamisMarketId);
             builder.HasOne(o => o.KamisKindofCommodity).WithMany(m => m.KamisWholeSalePrices).HasForeignKey(o => o.KamisKindofCommodityId);
         }
@@ -103,6 +105,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisRetailPrice> builder)
         {   
             base.Configure(builder);
+            builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.CreateTime);
             builder.HasOne(o => o.KamisMarket).WithMany(m => m.KamisRetailPrices).HasForeignKey(o => o.KamisMarketId);
             builder.HasOne(o => o.KamisKindofCommodity).WithMany(m => m.KamisRetailPrices).HasForeignKey(o => o.KamisKindofCommodityId);
         }

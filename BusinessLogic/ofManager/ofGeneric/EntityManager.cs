@@ -77,36 +77,43 @@ namespace BusinessLogic.ofManager.ofGeneric
         protected readonly IEntityDataRepository<TEntity> _EntityDataRepository;
         protected readonly IEntityIdFactory<TEntity> _EntityIdFactory;
         protected readonly IEntityFileFactory<TEntity> _EntityFileFactory;
-        protected readonly IEntityBlobStorage<TEntity> _entityBlobStorage;
-        protected readonly DicConvertFactory<TEntity> _dicConvertFactory;
+        protected readonly IEntityBlobStorage<TEntity> _EntityBlobStorage;
+        protected readonly DicConvertFactory<TEntity> _DicConvertFactory;
 
         public EntityManager(IEntityDataRepository<TEntity> EntityDataRepository,
                             IEntityIdFactory<TEntity> EntityIdFactory,
                             IEntityFileFactory<TEntity> entityFileFactory,
-                            IEntityBlobStorage<TEntity> entityBlobStorage,
-                            DicConvertFactory<TEntity> dicConvertFactory
+                            IEntityBlobStorage<TEntity> EntityBlobStorage,
+                            DicConvertFactory<TEntity> DicConvertFactory
                             )
         {
-            _entityBlobStorage = entityBlobStorage;
+            _EntityBlobStorage = EntityBlobStorage;
             _EntityIdFactory = EntityIdFactory;
             _EntityDataRepository = EntityDataRepository;
             _EntityFileFactory = entityFileFactory;
-            _dicConvertFactory = dicConvertFactory;
+            _DicConvertFactory = DicConvertFactory;
         }
         public virtual async Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
-            entity.Id = await _EntityIdFactory.CreateIdByRelationEntity(entity);
+            entity.Id = await _EntityIdFactory.Create(entity);
             entity.CreateTime = DateTime.Now;
             if(files.Count > 0)
             {
-                TEntity BlobUploadEntity = await _entityBlobStorage.UploadAsync(entity, files, connectionString);
+                TEntity BlobUploadEntity = await _EntityBlobStorage.UploadAsync(entity, files, connectionString);
                 return await _EntityDataRepository.AddAsync(BlobUploadEntity);
             }          
             return await _EntityDataRepository.AddAsync(entity);
         }
+        public virtual async Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString)
+        {
+            entity.Id = await _EntityIdFactory.Create(entity);
+            entity.CreateTime = DateTime.Now;
+            await _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
+            await _EntityDataRepository.AddAsync(entity);
+        }
         public async Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
-            TEntity BlobUploadEntity = await _entityBlobStorage.UploadAsync(entity, files, connectionString);
+            TEntity BlobUploadEntity = await _EntityBlobStorage.UploadAsync(entity, files, connectionString);
             return await _EntityDataRepository.UpdateAsync(BlobUploadEntity);
         }
         public async Task<TEntity> UpdateAsync(TEntity entity)
@@ -115,12 +122,12 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         public Dictionary<int, TEntity> ConvertToDic(List<TEntity> entities)
         {
-            return _dicConvertFactory.ConvertToHashTable(entities);
+            return _DicConvertFactory.ConvertToHashTable(entities);
         }
 
         public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {
-            entity.Id = await _EntityIdFactory.CreateIdByRelationEntity(entity);
+            entity.Id = await _EntityIdFactory.Create(entity);
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }

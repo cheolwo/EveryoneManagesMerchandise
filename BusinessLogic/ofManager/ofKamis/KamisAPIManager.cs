@@ -100,7 +100,7 @@ namespace BusinessLoogic.ofManager.ofKamis
         private List<AverageKamisPriceInfo> AverageKamisPriceInfos { get; set; }
         private List<BufferAverageKamisPriceInfo> BufferAverageKamisPriceInfos { get; set; }
         private Dictionary<Dictionary<string, string>, List<KamisPriceInfo>> DicWholeSaleKamisPriceInfos { get; set; }
-        private Dictionary<Dictionary<string, string>,List<AverageKamisPriceInfo>> DicWholeSaleAverageKamisPriceInfos { get; set; }
+        private Dictionary<Dictionary<string, string>, List<AverageKamisPriceInfo>> DicWholeSaleAverageKamisPriceInfos { get; set; }
         private Dictionary<Dictionary<string, string>, List<KamisPriceInfo>> DicRetailKamisPriceInfos { get; set; }
         private Dictionary<Dictionary<string, string>, List<AverageKamisPriceInfo>> DicRetailAverageKamisPriceInfos { get; set; }
         public ProductPriceResult ProductPriceResult = new();
@@ -109,11 +109,11 @@ namespace BusinessLoogic.ofManager.ofKamis
             HttpClient = new();
             _kamisRequestFactory = kamisRequestFactory;
             KamisPriceInfos = new();
-            BufferAverageKamisPriceInfos= new();
+            BufferAverageKamisPriceInfos = new();
             AverageKamisPriceInfos = new();
             DicWholeSaleAverageKamisPriceInfos = new();
             DicWholeSaleKamisPriceInfos = new();
-            DicRetailKamisPriceInfos= new();
+            DicRetailKamisPriceInfos = new();
             DicRetailAverageKamisPriceInfos = new();
         }
         public Dictionary<Dictionary<string, string>, List<KamisPriceInfo>> GetDicWholeSaleKamisPriceInfos()
@@ -143,7 +143,7 @@ namespace BusinessLoogic.ofManager.ofKamis
         // KamisAPiManager는 HttpRequestFactory 를 이용하여 Json으로 데이터를 받아오는 것 까지를 담당한다.
         // 이제 변환로직과 저장로직을 만들면 되겠다. 
         public async Task CollectPriceInfoFromAPI(string startdate, string enddate)
-        { 
+        {
             await _kamisRequestFactory.CreateRequestMessage(startdate, enddate);
             Dictionary<HttpRequestMessage, Dictionary<string, string>> DicWholeSaleHttpRequestMessage = _kamisRequestFactory.GetDictionaryWholeSalePriceHttpRequestMessage();
             Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailHttpRequestMessage = _kamisRequestFactory.GetDictionaryRetailPriceHttpRequestMessage();
@@ -155,7 +155,7 @@ namespace BusinessLoogic.ofManager.ofKamis
         private static List<AverageKamisPriceInfo> CloneAverageKamisPriceInfos(List<AverageKamisPriceInfo> averageKamisPriceInfos)
         {
             List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
-            foreach(var priceInfo in averageKamisPriceInfos)
+            foreach (var priceInfo in averageKamisPriceInfos)
             {
                 AverageKamisPriceInfo newAverageKamisPriceInfo = new();
                 newAverageKamisPriceInfo.regday = priceInfo.regday;
@@ -164,7 +164,7 @@ namespace BusinessLoogic.ofManager.ofKamis
                 newAverageKamisPriceInfo.countyname = priceInfo.countyname;
                 newAverageKamisPriceInfo.price = priceInfo.price;
                 newAverageKamisPriceInfo.kindname = priceInfo.kindname;
-                newAverageKamisPriceInfo.yyyy  = priceInfo.yyyy;
+                newAverageKamisPriceInfo.yyyy = priceInfo.yyyy;
                 newAverageKamisPriceInfos.Add(newAverageKamisPriceInfo);
             }
             return newAverageKamisPriceInfos;
@@ -186,53 +186,55 @@ namespace BusinessLoogic.ofManager.ofKamis
             }
             return newKamisPriceInfos;
         }
+        // 1. 
         private void DivideConvertKamisPriceInfodataitems(object[] items) //ProductPriceResult.data.items
         {
             int Check = 0;
             bool IsContinue = false;
-            foreach(var item in items)
+            foreach (var item in items)
             {
-                if (item.ToString().Contains("itemname"))
+                string itemstr = item.ToString();
+                bool IsContainItemName = itemstr.Contains("itemname");
+                if (IsContainItemName)
                 {
-                    string itemstr = item.ToString();
-                    for (int i = 0; i < itemstr.Length; i++)
+                    bool IsConvertToAverage = itemstr.Contains("[]");
+                    if (IsConvertToAverage)
                     {
-                        if (itemstr[i].Equals('['))
-                        {
-                            Check++;
-                        }
-                        if (itemstr[i].Equals(']'))
-                        {
-                            Check++;
-                            if (Check >= 2)
-                            {
-                                BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(item.ToString());
-                                BufferAverageKamisPriceInfos.Add(averageKamisPriceInfo);
-                                Check = 0;
-                                IsContinue = true;
-                                break;
-                            }
-                        }
+                        BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(item.ToString());
+                        BufferAverageKamisPriceInfos.Add(averageKamisPriceInfo);
                     }
+                    else
+                    {
+                        KamisPriceInfo kamisPriceInfo = JsonConvert.DeserializeObject<KamisPriceInfo>(itemstr);
+                        KamisPriceInfos.Add(kamisPriceInfo);
+                    }
+                    // for (int i = 0; i < itemstr.Length; i++)
+                    // {
+                    //     if (itemstr[i].Equals('['))
+                    //     {
+                    //         Check++;
+                    //     }
+                    //     if (itemstr[i].Equals(']'))
+                    //     {
+                    //         Check++;
+                    //         if (Check >= 2)
+                    //         {
+                    //             BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(item.ToString());
+                    //             BufferAverageKamisPriceInfos.Add(averageKamisPriceInfo);
+                    //             Check = 0;
+                    //             IsContinue = true;
+                    //             break;
+                    //         }
+                    //     }
+                    // }
                 }
                 else { continue; }
-                if(IsContinue) 
-                { 
-                    IsContinue = false;
-                    continue; 
-                }
-                else
-                {
-                    KamisPriceInfo kamisPriceInfo = JsonConvert.DeserializeObject<KamisPriceInfo>(itemstr);
-                    KamisPriceInfos.Add(kamisPriceInfo);
-                    Check = 0;
-                }
             }
             ConvertBufToAverageKamisPriceInfo(BufferAverageKamisPriceInfos);
         }
         private void ConvertBufToAverageKamisPriceInfo(List<BufferAverageKamisPriceInfo> bufferAverageKamisPriceInfos)
         {
-            foreach(var bufInfo in bufferAverageKamisPriceInfos)
+            foreach (var bufInfo in bufferAverageKamisPriceInfos)
             {
                 AverageKamisPriceInfo averageKamisPriceInfo = new();
                 averageKamisPriceInfo.itemname = "";
@@ -255,17 +257,18 @@ namespace BusinessLoogic.ofManager.ofKamis
                 {
                     using var responseStream = await response.Content.ReadAsStreamAsync();
                     var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
-                    string ResultString = Result.ToString();
-                    if (ResultString.Contains("condition") && ResultString.Contains("data"))
-                    {
-                        ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
-                        DivideConvertKamisPriceInfodataitems(ProductPriceResult.data.item);
 
+                    ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
+                    DivideConvertKamisPriceInfodataitems(ProductPriceResult.data.item);
+                    if(GetAverageKamisPriceInfos.Count > 0)
+                    {
                         List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
                         newAverageKamisPriceInfos = CloneAverageKamisPriceInfos(GetAverageKamisPriceInfos());
                         DicWholeSaleAverageKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newAverageKamisPriceInfos);
                         AverageKamisPriceInfos.Clear();
-
+                    }
+                    if(GetKamisPriceInfos.Count > 0)
+                    {
                         List<KamisPriceInfo> newKamisPriceInfos = new();
                         newKamisPriceInfos = CloneKamisPriceInfos(GetKamisPriceInfos());
                         DicWholeSaleKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newKamisPriceInfos);
@@ -274,7 +277,7 @@ namespace BusinessLoogic.ofManager.ofKamis
                 }
             }
         }
-        
+
         private async Task CollectRetailPriceInfoByGetAPI(Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailSaleHttpRequestMessage)
         {
             var RetailSaleRequestMessage = DicRetailSaleHttpRequestMessage.Keys;
@@ -287,16 +290,20 @@ namespace BusinessLoogic.ofManager.ofKamis
                     var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
                     ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
                     DivideConvertKamisPriceInfodataitems(ProductPriceResult.data.item);
-
-                    List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
-                    newAverageKamisPriceInfos = CloneAverageKamisPriceInfos(GetAverageKamisPriceInfos());
-                    DicRetailAverageKamisPriceInfos.Add(DicRetailSaleHttpRequestMessage[Message], newAverageKamisPriceInfos);
-                    GetAverageKamisPriceInfos().Clear();
-
-                    List<KamisPriceInfo> newKamisPriceInfos = new();
-                    newKamisPriceInfos = CloneKamisPriceInfos(GetKamisPriceInfos());
-                    DicRetailKamisPriceInfos.Add(DicRetailSaleHttpRequestMessage[Message], newKamisPriceInfos);
-                    GetAverageKamisPriceInfos().Clear();
+                    if(GetAverageKamisPriceInfos.Count > 0)
+                    {
+                        List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
+                        newAverageKamisPriceInfos = CloneAverageKamisPriceInfos(GetAverageKamisPriceInfos());
+                        DicRetailAverageKamisPriceInfos.Add(DicRetailSaleHttpRequestMessage[Message], newAverageKamisPriceInfos);
+                        GetAverageKamisPriceInfos().Clear();
+                    }
+                    if(AverageKamisPriceInfos.Count > 0)
+                    {
+                        List<KamisPriceInfo> newKamisPriceInfos = new();
+                        newKamisPriceInfos = CloneKamisPriceInfos(GetKamisPriceInfos());
+                        DicRetailKamisPriceInfos.Add(DicRetailSaleHttpRequestMessage[Message], newKamisPriceInfos);
+                        GetAverageKamisPriceInfos().Clear();
+                    }
                 }
             }
         }

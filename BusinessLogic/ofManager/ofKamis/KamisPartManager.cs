@@ -14,7 +14,6 @@ using System.Diagnostics;
 namespace BusinessLoogic.ofManager.ofKamis
 {
     public enum KamisWholeSaleRegion { 서울, 부산, 대구, 광주, 대전 }
-    delegate void StimulatedFunc(char c);
     public class KamisRequestFactory
     {
         private Dictionary<HttpRequestMessage, Dictionary<string, string>> DictionaryWholeSalePriceHttpRequestMessage { get; set; }

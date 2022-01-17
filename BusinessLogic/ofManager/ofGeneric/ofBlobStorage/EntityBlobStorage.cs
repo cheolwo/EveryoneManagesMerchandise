@@ -42,6 +42,14 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         {
             _entityBlobContainerFactory = entityBlobContainerFactory;
         }
+        public async Task<TEntity> CreateBlobContainer(TEntity enitty, string connectionString)
+        {
+            if (entity.Container == null)
+            {
+                entity.Container = await _entityBlobContainerFactory.CreateNameofContainer(entity);
+                blobServiceClient.CreateBlobContainer(entity.Container);
+            }
+        }
         public async Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
             BlobServiceClient blobServiceClient = new(connectionString);

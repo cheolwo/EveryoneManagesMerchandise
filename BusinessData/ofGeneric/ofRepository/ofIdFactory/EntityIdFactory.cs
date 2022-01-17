@@ -19,6 +19,15 @@ namespace BusinessData.ofGeneric.ofIdFactory
             _entityDataRepository = entityDataRepository;
             
         }
+        public virtual async Task<string> CreateAsync(TEntity entity)
+        {
+            StringBuilder stringBuilder = new();
+            stringBuilder.Append(entity.GetRelationCode());
+            stringBuilder.Append('-');
+            int Count = await _entityDataRepository.GetCountAsync();
+            stringBuilder.Append(Count);
+            return stringBuilder.ToString();
+        }
         public virtual async Task<string> CreateIdByRelationEntity(TEntity entity)
         {
             StringBuilder stringBuilder = new();
