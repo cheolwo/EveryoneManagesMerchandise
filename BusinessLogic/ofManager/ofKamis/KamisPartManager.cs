@@ -262,21 +262,25 @@ namespace BusinessLoogic.ofManager.ofKamis
                 {
                     using var responseStream = await response.Content.ReadAsStreamAsync();
                     var Result = await System.Text.Json.JsonSerializer.DeserializeAsync<object>(responseStream);
-                    ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
-                    DivideConvertKamisPriceInfodataitems(ProductPriceResult.data.item);
+                    if (Result.ToString().Contains("평균"))
+                    {
+                        ProductPriceResult = JsonConvert.DeserializeObject<ProductPriceResult>(Result.ToString());
+                        DivideConvertKamisPriceInfodataitems(ProductPriceResult.data.item);
 
-                    List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
-                    newAverageKamisPriceInfos = CloneAverageKamisPriceInfos(GetAverageKamisPriceInfos());
-                    DicWholeSaleAverageKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newAverageKamisPriceInfos);
-                    AverageKamisPriceInfos.Clear();
+                        List<AverageKamisPriceInfo> newAverageKamisPriceInfos = new();
+                        newAverageKamisPriceInfos = CloneAverageKamisPriceInfos(GetAverageKamisPriceInfos());
+                        DicWholeSaleAverageKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newAverageKamisPriceInfos);
+                        AverageKamisPriceInfos.Clear();
 
-                    List<KamisPriceInfo> newKamisPriceInfos = new();
-                    newKamisPriceInfos = CloneKamisPriceInfos(GetKamisPriceInfos());
-                    DicWholeSaleKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newKamisPriceInfos);
-                    KamisPriceInfos.Clear();
+                        List<KamisPriceInfo> newKamisPriceInfos = new();
+                        newKamisPriceInfos = CloneKamisPriceInfos(GetKamisPriceInfos());
+                        DicWholeSaleKamisPriceInfos.Add(DicWholeSaleHttpRequestMessage[Message], newKamisPriceInfos);
+                        KamisPriceInfos.Clear();
+                    }
                 }
             }
         }
+        
         private async Task CollectRetailPriceInfoByGetAPI(Dictionary<HttpRequestMessage, Dictionary<string, string>> DicRetailSaleHttpRequestMessage)
         {
             var RetailSaleRequestMessage = DicRetailSaleHttpRequestMessage.Keys;

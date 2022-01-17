@@ -131,7 +131,7 @@ namespace BusinessLogic.ofManagement
         private readonly KamisAPIManager _KamisAPIManger;
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
         KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager kamisCountryAdministrationPartManager,
-        KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager lamisDayPriceManager, KamisRetailPriceManager kamisRetailPriceManager)
+        KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager KamisDayPriceManager, KamisRetailPriceManager kamisRetailPriceManager, KamisAPIManager kamisAPIManager)
         {
             _KamisGradeManager = kamisGradeManager;
             _KamisPartManager = kamisPartManager;
@@ -140,15 +140,18 @@ namespace BusinessLogic.ofManagement
             _KamisCountryAdministrationPartManager = kamisCountryAdministrationPartManager;
             _KamisMarketManager = kamisMarketManager;
             _KamisRetailPriceManager = kamisRetailPriceManager;
+            _KamisAPIManger = kamisAPIManager;
         }
         // 저장로직을 담당한다.
-        private async Task SavePriceInfoToDb(string startdate, string enddate)
+        public async Task SavePriceInfoToDb(string startdate, string enddate)
         {
             await _KamisAPIManger.CollectPriceInfoFromAPI(startdate, enddate);
             var DicWholeSaleAverageKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleAverageKamisPriceInfos();
             var DicWholeSaleKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleKamisPriceInfos();
             var DicRetailKamisPriceInfos = _KamisAPIManger.GetDicRetailKamisPriceInfos();
             var DicRetailAverageKamisPriceInfos = _KamisAPIManger.GetDicRetailAverageKamisPriceInfos();
+            int Count = DicWholeSaleAverageKamisPriceInfos.Keys.Count;
+            
         }
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
