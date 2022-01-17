@@ -320,39 +320,6 @@
         }
       },
       {
-        "HashCode": 2117060400,
-        "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Pages.FetchData",
-        "AssemblyName": "ProducterWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Pages.FetchData"
-        }
-      },
-      {
-        "HashCode": 970121787,
-        "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Pages.FetchData",
-        "AssemblyName": "ProducterWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ProducterWebApp.Pages.FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Pages.FetchData",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -2067483483,
         "Kind": "Components.Component",
         "Name": "ProducterWebApp.Pages.Index",
@@ -386,68 +353,35 @@
         }
       },
       {
-        "HashCode": 1939845651,
+        "HashCode": 2117060400,
         "Kind": "Components.Component",
-        "Name": "ProducterWebApp.App",
+        "Name": "ProducterWebApp.Pages.FetchData",
         "AssemblyName": "ProducterWebApp",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "FetchData"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.App"
+          "Common.TypeName": "ProducterWebApp.Pages.FetchData"
         }
       },
       {
-        "HashCode": 579510418,
+        "HashCode": 970121787,
         "Kind": "Components.Component",
-        "Name": "ProducterWebApp.App",
+        "Name": "ProducterWebApp.Pages.FetchData",
         "AssemblyName": "ProducterWebApp",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ProducterWebApp.App"
+            "TagName": "ProducterWebApp.Pages.FetchData"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.App",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 863852455,
-        "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Shared.LoginDisplay",
-        "AssemblyName": "ProducterWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LoginDisplay"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Shared.LoginDisplay"
-        }
-      },
-      {
-        "HashCode": 1078216609,
-        "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Shared.LoginDisplay",
-        "AssemblyName": "ProducterWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ProducterWebApp.Shared.LoginDisplay"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Shared.LoginDisplay",
+          "Common.TypeName": "ProducterWebApp.Pages.FetchData",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -501,6 +435,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "ProducterWebApp.Shared.SurveyPrompt",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1219238969,
+        "Kind": "Components.Component",
+        "Name": "ProducterWebApp.Shared.NavMenu",
+        "AssemblyName": "ProducterWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProducterWebApp.Shared.NavMenu"
+        }
+      },
+      {
+        "HashCode": 1447306277,
+        "Kind": "Components.Component",
+        "Name": "ProducterWebApp.Shared.NavMenu",
+        "AssemblyName": "ProducterWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ProducterWebApp.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProducterWebApp.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -601,35 +568,68 @@
         }
       },
       {
-        "HashCode": 1219238969,
+        "HashCode": 863852455,
         "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Shared.NavMenu",
+        "Name": "ProducterWebApp.Shared.LoginDisplay",
         "AssemblyName": "ProducterWebApp",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "LoginDisplay"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Shared.NavMenu"
+          "Common.TypeName": "ProducterWebApp.Shared.LoginDisplay"
         }
       },
       {
-        "HashCode": 1447306277,
+        "HashCode": 1078216609,
         "Kind": "Components.Component",
-        "Name": "ProducterWebApp.Shared.NavMenu",
+        "Name": "ProducterWebApp.Shared.LoginDisplay",
         "AssemblyName": "ProducterWebApp",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ProducterWebApp.Shared.NavMenu"
+            "TagName": "ProducterWebApp.Shared.LoginDisplay"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ProducterWebApp.Shared.NavMenu",
+          "Common.TypeName": "ProducterWebApp.Shared.LoginDisplay",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1939845651,
+        "Kind": "Components.Component",
+        "Name": "ProducterWebApp.App",
+        "AssemblyName": "ProducterWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProducterWebApp.App"
+        }
+      },
+      {
+        "HashCode": 579510418,
+        "Kind": "Components.Component",
+        "Name": "ProducterWebApp.App",
+        "AssemblyName": "ProducterWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ProducterWebApp.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ProducterWebApp.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

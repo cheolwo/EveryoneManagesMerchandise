@@ -171,3 +171,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\NLog.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KByL/vNRpJO+zvFiu9sn3ntyXUeFJUrevlLTJNpIvi+pv+YsrUMZ8Pt8sbP2caUh/2oMYPlfa20Q96DGX+tg3g==",
+  "dgSpecHash": "aqFpHpnVdB51D4BFJ4stReGrzP9eKIDnk4CdYUIG0C5j4zAOrdmpaaaHAjYOtIhbgRBopfUt6js0TbOhx/2G2Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\nlog\\5.0.0-rc1\\nlog.5.0.0-rc1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\popbill\\1.14.0\\popbill.1.14.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

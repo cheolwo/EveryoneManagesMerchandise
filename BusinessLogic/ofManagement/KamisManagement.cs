@@ -44,80 +44,7 @@ namespace BusinessLogic.ofManagement
     //          "/repos/aspnet/AspNetCore.Docs/issues?state=open&sort=created&direction=desc");
     //    }
     //}
-    public class ProductPriceResult
-    {
-        public Condition[] condition { get; set; }
-        public Data data { get; set; }
-        public class Condition
-        {
-            public string p_startday { get; set; }
-            public string p_endday { get; set; }
-            public string p_itemcategorycode { get; set; }
-            public string p_itemcode { get; set; }
-            public string p_kindcode { get; set; }
-            public string p_productrankcode { get; set; }
-            public string p_countycode { get; set; }
-            public string p_convert_kg_yn { get; set; }
-            public string p_key { get; set; }
-            public string p_id { get; set; }
-            public string p_returntype { get; set; }
-        }
-        public class Data
-        {
-            public string error_code { get; set; }
-            public object[] item { get; set; }
-        }
-    }
-    public class ProductPrice
-    {
-        public string itemname { get; set; }
-        public string kindname { get; set; }
-        public string countryname { get; set; }
-        public string marketname { get; set; }
-        public string yyyy { get; set; }
-        public string regday { get; set; }
-        public string price { get; set; }
-    }
-    public class PeriodProductPriceListInfo
-    {
-        public string[] itemname { get; set; }
-        public string[] kindname { get; set; }
-        public string countyname { get; set; }
-        public string[] marketname { get; set; }
-        public string yyyy { get; set; }
-        public string regday { get; set; }
-        public string price { get; set; }
-    }
-    public class AverageKamisPriceInfo
-    {
-        public string itemname { get; set; }
-        public string kindname { get; set; }
-        public string countyname { get; set; }
-        public string marketname { get; set; }
-        public string yyyy { get; set; }
-        public string regday { get; set; }
-        public string price { get; set; }
-    }
-    public class BufferAverageKamisPriceInfo
-    {
-        public string[] itemname { get; set; }
-        public string[] kindname { get; set; }
-        public string countyname { get; set; }
-        public string[] marketname { get; set; }
-        public string yyyy { get; set; }
-        public string regday { get; set; }
-        public string price { get; set; }
-    }
-    public class KamisPriceInfo
-    {
-        public string itemname { get; set; }
-        public string kindname { get; set; }
-        public string countyname { get; set; }
-        public string marketname { get; set; }
-        public string yyyy { get; set; }
-        public string regday { get; set; }
-        public string price { get; set; }
-    }
+   
     public class KamisManagement
     {
         private readonly KamisPartManager _KamisPartManager;
@@ -131,7 +58,7 @@ namespace BusinessLogic.ofManagement
         private readonly KamisAPIManager _KamisAPIManger;
         public KamisManagement(KamisGradeManager kamisGradeManager, KamisPartManager kamisPartManager, KamisCommodityManager kamisCommodityManager,
         KamisKindofCommodityManager kamisKindofCommodityManager, KamisCountryAdministrationPartManager kamisCountryAdministrationPartManager,
-        KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager KamisDayPriceManager, KamisRetailPriceManager kamisRetailPriceManager, KamisAPIManager kamisAPIManager)
+        KamisMarketManager kamisMarketManager, KamisWholeSalePriceManager kamisWholePriceManager, KamisRetailPriceManager kamisRetailPriceManager, KamisAPIManager kamisAPIManager)
         {
             _KamisGradeManager = kamisGradeManager;
             _KamisPartManager = kamisPartManager;
@@ -140,18 +67,70 @@ namespace BusinessLogic.ofManagement
             _KamisCountryAdministrationPartManager = kamisCountryAdministrationPartManager;
             _KamisMarketManager = kamisMarketManager;
             _KamisRetailPriceManager = kamisRetailPriceManager;
+            _KamisWholeSalePriceManager = kamisWholePriceManager;
             _KamisAPIManger = kamisAPIManager;
-        }
+        } 
         // 저장로직을 담당한다.
         public async Task SavePriceInfoToDb(string startdate, string enddate)
         {
             await _KamisAPIManger.CollectPriceInfoFromAPI(startdate, enddate);
-            var DicWholeSaleAverageKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleAverageKamisPriceInfos();
+            await SaveWholeSalePriceInfoToDb();
+            await SaveRetailPriceInfoToDb();
+        }
+        private async Task SaveWholeSalePriceInfoToDb()
+        {
             var DicWholeSaleKamisPriceInfos = _KamisAPIManger.GetDicWholeSaleKamisPriceInfos();
+            var Keys = DicWholeSaleKamisPriceInfos.Keys;
+            foreach (var key in Keys)
+            {
+                foreach (var kamisPriceInfo in DicWholeSaleKamisPriceInfos[key])
+                {
+                    string marketName = kamisPriceInfo.marketname;
+                    KamisMarket kamisMarket = await _KamisMarketManager.GetByMarketName(marketName);
+                    if (kamisMarket == null)
+                    {
+                        kamisMarket = await CreateMarket(marketName, key);
+                    }
+                    KamisWholeSalePrice newKamisWholeSalePrice = new();
+                    newKamisWholeSalePrice.KamisMarketId = kamisMarket.Id;
+                    newKamisWholeSalePrice.Name = kamisPriceInfo.price;
+			        newKamisWholeSalePrice.KamisKindofCommodityId = key[nameof(KamisKindofCommodity)];
+			        newKamisWholeSalePrice.KamisGradeCode = key[nameof(KamisGrade)];
+			        newKamisWholeSalePrice.KamisClsCode = key[nameof(KamisCountryAdministrationPart)];
+                    await _KamisWholeSalePriceManager.CreateAsync(newKamisWholeSalePrice);
+                }
+            }
+        }
+        private async Task<KamisMarket> CreateMarket(string marketname, Dictionary<string, string> key)
+        {
+            KamisMarket newKamisMarket = new();
+            newKamisMarket.KamisCountryAdministrationPartId = key[nameof(KamisCountryAdministrationPart)];
+			newKamisMarket.Name = marketname;
+            return await _KamisMarketManager.CreateAsync(newKamisMarket);
+        }
+        private async Task SaveRetailPriceInfoToDb()
+        {
             var DicRetailKamisPriceInfos = _KamisAPIManger.GetDicRetailKamisPriceInfos();
-            var DicRetailAverageKamisPriceInfos = _KamisAPIManger.GetDicRetailAverageKamisPriceInfos();
-            int Count = DicWholeSaleAverageKamisPriceInfos.Keys.Count;
-            
+            var Keys = DicRetailKamisPriceInfos.Keys;
+            foreach (var key in Keys)
+            {
+                foreach (var kamisPriceInfo in DicRetailKamisPriceInfos[key])
+                {
+                    string marketName = kamisPriceInfo.marketname;
+                    KamisMarket kamisMarket = await _KamisMarketManager.GetByMarketName(marketName);
+                    if (kamisMarket == null)
+                    {
+                        kamisMarket = await CreateMarket(marketName, key);
+                    }
+                    KamisRetailPrice newKamisRetailPrice = new();
+                    newKamisRetailPrice.KamisMarketId = kamisMarket.Id;
+                    newKamisRetailPrice.Name = kamisPriceInfo.price;
+			        newKamisRetailPrice.KamisKindofCommodityId = key[nameof(KamisKindofCommodity)];
+			        newKamisRetailPrice.KamisGradeCode = key[nameof(KamisGrade)];
+			        newKamisRetailPrice.KamisClsCode = key[nameof(KamisCountryAdministrationPart)];
+                    await _KamisRetailPriceManager.CreateAsync(newKamisRetailPrice);
+                }
+            }
         }
         public async Task KamisCodeExcelToDb(Workbook wb)
         {
@@ -170,7 +149,7 @@ namespace BusinessLogic.ofManagement
             }
             if (ws1 != null) { await KamisCodeSheet1ToDb(ws1); }
             if (ws2 != null) { await KamisCodeSheet2ToDb(ws2); }
-            if (ws4 != null) { await KamisCodeSheet3ToDb(ws4); }
+            if (ws4 != null) { await KamisCodeSheet4ToDb(ws4); }
             if (ws5 != null) { await KamisCodeSheet5ToDb(ws5); }
             if (ws6 != null) { await KamisCodeSheet6ToDb(ws6); }
         }

@@ -18,7 +18,7 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             _connectionstring = connectionstring;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        { 
             if(_connectionstring is null) { _connectionstring = DbConnectionString.KamisDbConnection; }
             optionsBuilder.UseSqlServer(_connectionstring);
         }

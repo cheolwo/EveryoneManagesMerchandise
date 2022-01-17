@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
+using BusinessData.ofCommon.ofKamis.ofModel;
 using BusinessLogic.ofManagement;
 using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json;
@@ -41,12 +42,9 @@ namespace ModuleTest
     }
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
-            string test = "{\r\n  \"itemname\": [],\r\n  \"kindname\": [],\r\n  \"countyname\": \"평균\",\r\n  \"marketname\": [],\r\n  \"yyyy\": \"2021\",\r\n  \"regday\": \"11/01\",\r\n  \"price\": \"2,625\"\r\n}";
-            BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(test);
-            Console.WriteLine(averageKamisPriceInfo.itemname);
-            Console.WriteLine(averageKamisPriceInfo.countyname);
+
         }
         public class KamisAPIManager
         {

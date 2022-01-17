@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IMJ86CRkkZVjcNPtvhQR1G1lASVvse93XmlTX0CfRLg3YFuwJ/OBvG0ZjXVXUBEh3YYoFGcb8NmhElrKR2ik9Q==",
+  "dgSpecHash": "p5UmfO539gcXR1HH1jQ5qVtrHOa/TQZVXdn6Tl4KPOLoICoMoTNZJRaM/zhFTWhKsKgB4EV5Ld29Io4ohwuS+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\OrdererWebApp\\ProducterWebApp\\ProducterWebApp.csproj",
   "expectedPackageFiles": [
@@ -75,6 +75,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.4\\mudblazor.6.0.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\nlog\\5.0.0-rc1\\nlog.5.0.0-rc1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\popbill\\1.14.0\\popbill.1.14.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

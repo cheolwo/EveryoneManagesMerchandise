@@ -810,7 +810,7 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 		public KamisCountryAdministrationPart KamisCountryAdministrationPart {get; set;}
 		public List<KamisWholeSalePrice> KamisWholeSalePrices {get; set;}
 		public List<KamisRetailPrice> KamisRetailPrices {get; set;}
-		 public override string GetRelationCode()
+		public override string GetRelationCode()
 		{
 			RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
 			if(relationAttribute != null)
@@ -967,7 +967,7 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 		public string KamisMarketId {get; set;}
 		public string KamisKindofCommodityId {get; set;}
 		public string KamisGradeCode {get; set;}
-		public string KmmisClsCode {get; set;}
+		public string KamisClsCode {get; set;}
 		public KamisMarket KamisMarket {get; set;}
 		public KamisKindofCommodity KamisKindofCommodity {get; set;}
 		public override string GetRelationCode()
@@ -1126,9 +1126,10 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 		public string KamisMarketId {get; set;}
 		public string KamisKindofCommodityId {get; set;}
 		public string KamisGradeCode {get; set;}
-		public string KmmisClsCode {get; set;}
+		public string KamisClsCode {get; set;}
 		public KamisMarket KamisMarket {get; set;}
 		public KamisKindofCommodity KamisKindofCommodity {get; set;}
+
 		public override string GetRelationCode()
 		{
 			RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
@@ -1277,5 +1278,79 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 			}
 			return DetailManyPropertyInfos;
 		}
+	}
+	public class ProductPriceResult
+	{
+		public Condition[] condition { get; set; }
+		public Data data { get; set; }
+		public class Condition
+		{
+			public string p_startday { get; set; }
+			public string p_endday { get; set; }
+			public string p_itemcategorycode { get; set; }
+			public string p_itemcode { get; set; }
+			public string p_kindcode { get; set; }
+			public string p_productrankcode { get; set; }
+			public string p_countycode { get; set; }
+			public string p_convert_kg_yn { get; set; }
+			public string p_key { get; set; }
+			public string p_id { get; set; }
+			public string p_returntype { get; set; }
+		}
+		public class Data
+		{
+			public string error_code { get; set; }
+			public object[] item { get; set; }
+		}
+	}
+	public class ProductPrice
+	{
+		public string itemname { get; set; }
+		public string kindname { get; set; }
+		public string countryname { get; set; }
+		public string marketname { get; set; }
+		public string yyyy { get; set; }
+		public string regday { get; set; }
+		public string price { get; set; }
+	}
+	public class PeriodProductPriceListInfo
+	{
+		public string[] itemname { get; set; }
+		public string[] kindname { get; set; }
+		public string countyname { get; set; }
+		public string[] marketname { get; set; }
+		public string yyyy { get; set; }
+		public string regday { get; set; }
+		public string price { get; set; }
+	}
+	public class AverageKamisPriceInfo
+	{
+		public string itemname { get; set; }
+		public string kindname { get; set; }
+		public string countyname { get; set; }
+		public string marketname { get; set; }
+		public string yyyy { get; set; }
+		public string regday { get; set; }
+		public string price { get; set; }
+	}
+	public class BufferAverageKamisPriceInfo
+	{
+		public string[] itemname { get; set; }
+		public string[] kindname { get; set; }
+		public string countyname { get; set; }
+		public string[] marketname { get; set; }
+		public string yyyy { get; set; }
+		public string regday { get; set; }
+		public string price { get; set; }
+	}
+	public class KamisPriceInfo
+	{
+		public string itemname { get; set; }
+		public string kindname { get; set; }
+		public string countyname { get; set; }
+		public string marketname { get; set; }
+		public string yyyy { get; set; }
+		public string regday { get; set; }
+		public string price { get; set; }
 	}
 }

@@ -78,125 +78,6 @@
         }
       },
       {
-        "HashCode": 961014166,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.App",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.App"
-        }
-      },
-      {
-        "HashCode": -272913851,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.App",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "OrdererWebApp.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.App",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 688353790,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.Shared.LoginDisplay",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "LoginDisplay"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.Shared.LoginDisplay"
-        }
-      },
-      {
-        "HashCode": 1005921030,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.Shared.LoginDisplay",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "OrdererWebApp.Shared.LoginDisplay"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.Shared.LoginDisplay",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1953923945,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.Shared.SurveyPrompt",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.Shared.SurveyPrompt"
-        }
-      },
-      {
-        "HashCode": 74311252,
-        "Kind": "Components.Component",
-        "Name": "OrdererWebApp.Shared.SurveyPrompt",
-        "AssemblyName": "OrdererWebApp",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "OrdererWebApp.Shared.SurveyPrompt"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Title",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Title"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "OrdererWebApp.Shared.SurveyPrompt",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 1635086319,
         "Kind": "Components.Component",
         "Name": "OrdererWebApp.Shared.MainLayout",
@@ -322,6 +203,125 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "OrdererWebApp.Shared.NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1953923945,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Shared.SurveyPrompt",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Shared.SurveyPrompt"
+        }
+      },
+      {
+        "HashCode": 74311252,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Shared.SurveyPrompt",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "OrdererWebApp.Shared.SurveyPrompt"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Title",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Title"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Shared.SurveyPrompt",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 688353790,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Shared.LoginDisplay",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginDisplay"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Shared.LoginDisplay"
+        }
+      },
+      {
+        "HashCode": 1005921030,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.Shared.LoginDisplay",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "OrdererWebApp.Shared.LoginDisplay"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.Shared.LoginDisplay",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 961014166,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.App",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.App"
+        }
+      },
+      {
+        "HashCode": -272913851,
+        "Kind": "Components.Component",
+        "Name": "OrdererWebApp.App",
+        "AssemblyName": "OrdererWebApp",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "OrdererWebApp.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "OrdererWebApp.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sj3r4Ib/OYHieS5RC00hjNdh3L3Hs5h5Gh4hdLNfhcV8fi4NyOoKhATPENMv/G/JRgmwSXQeaAuHKqXE5nmF3w==",
+  "dgSpecHash": "udT77QyGLwayMkO5QxHGSHT+25xETQnMCjF3gvjj0KAnYR55rT0hdCDId6BlIsAqWGqMDHXwz2z1R3ojfO40ZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj",
   "expectedPackageFiles": [
@@ -99,6 +99,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.2\\mudblazor.6.0.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\nlog\\5.0.0-rc1\\nlog.5.0.0-rc1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\popbill\\1.14.0\\popbill.1.14.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

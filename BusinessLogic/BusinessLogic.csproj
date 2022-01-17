@@ -21,14 +21,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
+    <PackageReference Include="NLog" Version="5.0.0-rc1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="ofManager\ofMarket\ofBlobStorage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
   </ItemGroup>
 
 </Project>

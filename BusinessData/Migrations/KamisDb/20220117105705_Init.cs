@@ -143,15 +143,16 @@ namespace BusinessData.Migrations.KamisDb
                 name: "KamisRetailPrice",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     KamisMarketId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisKindofCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisGradeCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KmmisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -176,7 +177,7 @@ namespace BusinessData.Migrations.KamisDb
                     KamisMarketId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisKindofCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisGradeCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KmmisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),

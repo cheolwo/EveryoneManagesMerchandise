@@ -231,13 +231,23 @@ namespace BusinessData.Migrations.KamisDb
             modelBuilder.Entity("BusinessData.ofCommon.ofKamis.ofModel.KamisRetailPrice", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Docs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageofInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KamisClsCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KamisGradeCode")
                         .HasColumnType("nvarchar(max)");
@@ -248,13 +258,7 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("KamisMarketId")
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("KmmisClsCode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -284,6 +288,9 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("KamisClsCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("KamisGradeCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -292,9 +299,6 @@ namespace BusinessData.Migrations.KamisDb
 
                     b.Property<string>("KamisMarketId")
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("KmmisClsCode")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
