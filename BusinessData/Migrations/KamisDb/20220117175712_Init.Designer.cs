@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessData.Migrations.KamisDb
 {
     [DbContext(typeof(KamisDbContext))]
-    [Migration("20220117105705_Init")]
+    [Migration("20220117175712_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -236,12 +236,6 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Container")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
@@ -261,6 +255,12 @@ namespace BusinessData.Migrations.KamisDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("regday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yyyy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -278,12 +278,6 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Container")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
@@ -303,6 +297,12 @@ namespace BusinessData.Migrations.KamisDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("regday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yyyy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

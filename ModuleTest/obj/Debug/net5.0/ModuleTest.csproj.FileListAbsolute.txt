@@ -128,3 +128,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Modu
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\obj\Debug\net5.0\ModuleTest.csproj.CopyComplete
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net5.0\Microsoft.Extensions.Http.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net5.0\NLog.dll

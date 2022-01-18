@@ -126,8 +126,8 @@ namespace BusinessLogic.ofManagement
                     KamisRetailPrice newKamisRetailPrice = new();
                     newKamisRetailPrice.KamisMarketId = kamisMarket.Id;
                     newKamisRetailPrice.Name = kamisPriceInfo.price;
-                    newKamisWholeSalePrice.yyyy = kamisPriceInfo.yyyy;
-                    newKamisWholeSalePrice.regday = kamisPriceInfo.regday;
+                    newKamisRetailPrice.yyyy = kamisPriceInfo.yyyy;
+                    newKamisRetailPrice.regday = kamisPriceInfo.regday;
 			        newKamisRetailPrice.KamisKindofCommodityId = key[nameof(KamisKindofCommodity)];
 			        newKamisRetailPrice.KamisGradeCode = key[nameof(KamisGrade)];
 			        newKamisRetailPrice.KamisClsCode = key[nameof(KamisCountryAdministrationPart)];

@@ -148,9 +148,9 @@ namespace BusinessData.Migrations.KamisDb
                     KamisKindofCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisGradeCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    yyyy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    regday = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -178,9 +178,9 @@ namespace BusinessData.Migrations.KamisDb
                     KamisKindofCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisGradeCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    yyyy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    regday = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

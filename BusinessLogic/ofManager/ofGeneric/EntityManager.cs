@@ -27,7 +27,7 @@ namespace BusinessLogic.ofManager.ofGeneric
     }
     public interface IEntityManager<TEntity> where TEntity : Entity, IRelationable
     {
-        
+        Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString);
         Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> Files, string connectionString);
         Task<TEntity> UpdateAsync(TEntity entity);
@@ -95,7 +95,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         public virtual async Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
-            entity.Id = await _EntityIdFactory.Create(entity);
+            entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
             if(files.Count > 0)
             {
@@ -106,10 +106,10 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         public virtual async Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString)
         {
-            entity.Id = await _EntityIdFactory.Create(entity);
+            entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
             await _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
-            await _EntityDataRepository.AddAsync(entity);
+            return await _EntityDataRepository.AddAsync(entity);
         }
         public async Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
@@ -127,7 +127,7 @@ namespace BusinessLogic.ofManager.ofGeneric
 
         public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {
-            entity.Id = await _EntityIdFactory.Create(entity);
+            entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }

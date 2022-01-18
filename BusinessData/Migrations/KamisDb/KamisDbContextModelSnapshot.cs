@@ -234,12 +234,6 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Container")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
@@ -259,6 +253,12 @@ namespace BusinessData.Migrations.KamisDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("regday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yyyy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -276,12 +276,6 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Container")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
@@ -301,6 +295,12 @@ namespace BusinessData.Migrations.KamisDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("regday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("yyyy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

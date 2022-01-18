@@ -8,6 +8,7 @@ namespace BusinessData.ofGeneric.ofIdFactory
     public interface IEntityIdFactory<TEntity> where TEntity : Entity, IRelationable
     {
         Task<string> CreateIdByRelationEntity(TEntity entity);
+        Task<string> CreateAsync(TEntity entity);
     }
 
     public class EntityIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity : Entity, IRelationable
