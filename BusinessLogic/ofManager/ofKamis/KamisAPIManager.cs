@@ -215,25 +215,6 @@ namespace BusinessLoogic.ofManager.ofKamis
                         KamisPriceInfo kamisPriceInfo = JsonConvert.DeserializeObject<KamisPriceInfo>(itemstr);
                         KamisPriceInfos.Add(kamisPriceInfo);
                     }
-                    // for (int i = 0; i < itemstr.Length; i++)
-                    // {
-                    //     if (itemstr[i].Equals('['))
-                    //     {
-                    //         Check++;
-                    //     }
-                    //     if (itemstr[i].Equals(']'))
-                    //     {
-                    //         Check++;
-                    //         if (Check >= 2)
-                    //         {
-                    //             BufferAverageKamisPriceInfo averageKamisPriceInfo = JsonConvert.DeserializeObject<BufferAverageKamisPriceInfo>(item.ToString());
-                    //             BufferAverageKamisPriceInfos.Add(averageKamisPriceInfo);
-                    //             Check = 0;
-                    //             IsContinue = true;
-                    //             break;
-                    //         }
-                    //     }
-                    // }
                 }
                 else { continue; }
             }
@@ -279,6 +260,7 @@ namespace BusinessLoogic.ofManager.ofKamis
                             }
 
                             var newKamisWholeSalePrice = CloneKamisWholeSalePrice(kamisMarket, kamisPriceInfo, DicWholeSaleHttpRequestMessage[Message]);
+                           
                             await _kamisWholeSalePriceManager.CreateAsync(newKamisWholeSalePrice);
                         }
                         GetKamisPriceInfos().Clear();
