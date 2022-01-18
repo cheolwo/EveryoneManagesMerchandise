@@ -289,6 +289,10 @@ namespace BusinessLoogic.ofManager.ofKamis
         {         
             return await base.CreateAsync(entity);
         }
+        public async Task<KamisWholeSalePrice> FirstOrDefaultAsync()
+        {
+            return await _EntityDataRepository.FirstOrDefaultAsync();
+        }
     }
     public class KamisRetailPriceManager : EntityManager<KamisRetailPrice>
     {
