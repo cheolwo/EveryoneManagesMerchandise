@@ -59,8 +59,7 @@ namespace BusinessLoogic.ofManager.ofKamis
             Dictionary<string, string> dic = new Dictionary<string, string>();
             foreach(var key in keyValuePairs.Keys)
             {
-                string value = keyValuePairs[key];
-                dic.Add(key, value);
+                dic.Add(key, keyValuePairs[key]);
             }
             return dic;
         }
@@ -90,10 +89,12 @@ namespace BusinessLoogic.ofManager.ofKamis
                             keyValuePairs.Add(nameof(KamisCountryAdministrationPart), country.Id);
                             keyValuePairs.Add(nameof(KamisGrade), WholeSaleQuetyString["p_productrankcode"]);
                             var dic = CopyToDic(keyValuePairs);
-                            keyValuePairs.Clear();
+                            keyValuePairs.Remove(nameof(KamisCountryAdministrationPart));
+                            keyValuePairs.Remove(nameof(KamisGrade));
                             DictionaryWholeSalePriceHttpRequestMessage.Add(httpRequestMessage, dic);
                          }
                     }
+                    keyValuePairs.Clear();
                 }
                 List<NameValueCollection> BufferRetailQueryStrings = PriceProductListStringBuilderByRetail(kindofCommodity, startdate, enddate);
                 if (BufferRetailQueryStrings.Count > 0)
@@ -113,10 +114,12 @@ namespace BusinessLoogic.ofManager.ofKamis
                             keyValuePairs.Add(nameof(KamisCountryAdministrationPart), country.Id);
                             keyValuePairs.Add(nameof(KamisGrade), RetailSaleQueryString["p_productrankcode"]);
                             var dic = CopyToDic(keyValuePairs);
-                            keyValuePairs.Clear();
+                            keyValuePairs.Remove(nameof(KamisCountryAdministrationPart));
+                            keyValuePairs.Remove(nameof(KamisGrade));
                             DictionaryRetailPriceHttpRequestMessage.Add(httpRequestMessage, dic);
                         }
                     }
+                    keyValuePairs.Clear();
                 }
             }
         }

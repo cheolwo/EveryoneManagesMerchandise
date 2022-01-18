@@ -73,8 +73,6 @@ namespace BusinessLogic.ofManagement
         public async Task SavePriceInfoToDb(string startdate, string enddate)
         {
             await _KamisAPIManger.CollectPriceInfoFromAPI(startdate, enddate);
-            await SaveWholeSalePriceInfoToDb();
-            await SaveRetailPriceInfoToDb();
         }
         private async Task SaveWholeSalePriceInfoToDb()
         {

@@ -12,7 +12,7 @@ namespace PlatformManager.Pages
         public HttpClient HttpClient { get; }
         protected override async Task OnInitializedAsync()
         {
-            await KamisManagement.SavePriceInfoToDb("2021-11-01", "2021-11-01");
+            await KamisAPIManager.CollectPriceInfoFromAPI("2021-11-01", "2021-11-02");
         }
     }
 }
