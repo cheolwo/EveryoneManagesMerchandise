@@ -11,7 +11,6 @@ namespace BusinessData.ofGroupOrder.ofModel
     public class GroupOrderCenter : Center, IRelationable, ITablable
     {
         public List<string> OrderCenters { get; set; }
-
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
