@@ -30,6 +30,7 @@ namespace BusinessData.ofWarehouse.Model
     [Relation(typeof(Warehouse), "W")] 
     public class Warehouse : Center, IRelationable, IRelatedCenter, IRelatedRoles, IBarcodable, ITablable
     {
+        public string OwnerId {get; set;}
         [Detail][Many(ViewNameofWarehouse.WCommodity)] public List<WCommodity> WCommodities { get; set; }
         [Detail][Many(ViewNameofWarehouse.EWCommodity)] public List<EWCommodity> EWCommodities { get; set; }
         [Detail][Many(ViewNameofWarehouse.MWCommodity)] public List<MWCommodity> MWCommodities { get; set; }

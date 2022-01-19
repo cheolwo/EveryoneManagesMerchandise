@@ -16,17 +16,22 @@ namespace BusinessLogic.ofManager.ofWarehouse
     public class WarehouseManager : CenterManager<Warehouse>, IWarehouseManager
     {
         private readonly IWarehouseRepository _WarehouseRepository;
+        private readonly IWarehouseIdFactory _WarehouseIdFactory;
+        private readonly IWarehouseBlobStorage _WarehouseBlobStorage;
+        private readonly IWarehouseFileFactory _WarehouseFileFactory;
         public WarehouseManager(IWarehouseRepository WarehouseRepository,
-                               IWarehouseIdFactory warehouseIdFactory,
+                               IWarehouseIdFactory WarehouseIdFactory,
                                IWarehouseFileFactory WarehouseFileFactory,
-                               IWarehouseBlobStorage blobStorage,
+                               IWarehouseBlobStorage WarehouseBlobStorage,
                                CenterPasswordHasher<Warehouse> centerPasswordHasher,
                             DicConvertFactory<Warehouse> dicConvertFactory)
             : base(WarehouseRepository, warehouseIdFactory, WarehouseFileFactory, blobStorage, dicConvertFactory, centerPasswordHasher)
         {
             _WarehouseRepository = WarehouseRepository;
+            _WarehouseIdFactory = WarehouseIdFactory;
+            _WarehouseBlobStorage = WarehouseBlobStorage;
+            _WarehouseFileFactory = WarehouseFileFactory;
         }
-
         public async Task<bool> WarehouseLoginAsync(string LoginId, string Password)
         {
             Warehouse warehouse = await base.LoginAsync(LoginId, Password);
@@ -36,7 +41,19 @@ namespace BusinessLogic.ofManager.ofWarehouse
             }
             else { return false; }
         }
-
+        public async Task<Warehouse> CreateByKAptAndGOC(KAptBasicInfo kAptBasicInfo, GroupOrderCenter groupOrderCenter)
+        {
+            var newWarehouse = InitByKaptAndGOC(kAptBasicInfo, groupOrderCenter);
+            newWarehouse.Id =_WarehouseIdFactory.CreateByKapt(newWarehouse, kAptBasicInfo);
+            return _WarehouseRepository.AddAsync(newWarehouse);    
+        }
+        private Warehouse InitByKaptAndGOC(KAptBasicInfo kAptBasicInfo, GroupOrderCenter groupOrderCenter)
+        {
+            Warehouse warehouse = new Warehouse();
+            /*특정한 데이터 대입을 처리한다*/
+            warehouse.UserId = groupOrderCenter.Id; // 핵심사항.
+            return warehouse;
+        }
         // Id로 Entity를 Load 하는 단계
         // Entity Password와 입력 Password를 비교하는 단계
         // 일치할 시 Entity를 반환하고 아닌 경우 예외처리하는 단계를 포함하는

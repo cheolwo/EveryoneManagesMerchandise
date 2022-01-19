@@ -16,6 +16,7 @@ namespace BusinessLogic.ofManager.ofGroupOrder
     public class GroupOrderCenterManager : CenterManager<GroupOrderCenter>, IGroupOrderCenterManager
     {
         private readonly IGroupOrderCenterRepository _GroupOrderCenterRepository;
+        private readonly IGroupOrderCenterIdFactory _GroupCenterIdFactory;
         public GroupOrderCenterManager(IGroupOrderCenterRepository GroupOrderCenterRepository,
                                IGroupOrderCenterIdFactory GroupOrderCenterIdFactory,
                                IGroupOrderCenterFileFactory GroupOrderCenterFileFactory,
@@ -25,8 +26,20 @@ namespace BusinessLogic.ofManager.ofGroupOrder
             : base(GroupOrderCenterRepository, GroupOrderCenterIdFactory, GroupOrderCenterFileFactory, blobStorage, dicConvertFactory, centerPasswordHasher)
         {
             _GroupOrderCenterRepository = GroupOrderCenterRepository;
+            _GroupCenterIdFactory = GroupOrderCenterIdFactory;
         }
-
+        public async Task<GroupOrderCenter> CreateByKApt(KAptBasicInfo kAptBasicInfo)
+        {
+            var newGOC = InitByKApt(kAptBasicInfo);
+            newGOC.Id = await _GroupCenterIdFactory.CreateByKApt(newGOC, kAptBasicInfo); 
+            return await _GroupOrderCenterRepository.AddAsync(newGOC); 
+        }
+        private GroupOrderCenter InitByKApt(KPatBasicInfo kPatBasicInfo)
+        {
+            GroupOrderCenter groupOrderCenter = new();
+            /*  GOC */
+            return groupOrderCenter;
+        }
         public async Task<bool> GroupOrderCenterLoginAsync(string LoginId, string Password)
         {
             GroupOrderCenter GroupOrderCenter = await base.LoginAsync(LoginId, Password);

@@ -15,6 +15,15 @@ namespace BusinessLogic.ofManager.ofGroupOrder.ofIdFactory
         {
 
         }
+        public async Task<string> CreateByKApt(GroupOrderCenter groupOrderCenter, KAptBasicInfo kAptBasicInfo)
+        {
+            string Id = await base.CreateAsync(groupOrderCenter);
+            stringBuilder.Append(Id);
+            stringBuilder.Append('-');
+            stringBuilder.Append("KApt");
+            stringBuilder.Appned(kAptBasicInfo.Id);
+            return strnigBuilder.ToString();
+        }
     }
     public interface IGOCommodityIdFactory : ICommodityIdFactory<GOCommodity>
     {

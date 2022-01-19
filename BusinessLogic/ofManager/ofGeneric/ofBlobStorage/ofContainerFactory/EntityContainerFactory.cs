@@ -18,11 +18,19 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory
         }
         public StringBuilder stringBuilder = new ();
         private int ChainingCode = 0;
-
+        // 이것의 의미가 같은 형식의 같은 유저에 대한 비정형 파일은
+        // 같은 공간에 저장하겠다는 의미다. 이것을 기본으로 하자.
+        public virtual static string Create(TEntity entity)
+        {
+            stringBuilder.Append(entity.GetRelationCode()); // 1~4
+            stringBuilder.Append('-');
+            stringBuilder.Append(entity.UserId.ToLower());
+            return stringBuilder.ToString();
+        }
         public virtual async Task<string> CreateNameofContainer(TEntity entity)
         {
             stringBuilder.Append(entity.GetRelationCode()); // 1~4
-            stringBuilder.Append(entity.UserId.ToLower());
+            stringBuilder.Append(entity.UserId.ToLower()); // 컨테이너 이름 소문자만 가능
             stringBuilder.Append('-');
             stringBuilder.Append(ChainingCode);
             string ContainerName = stringBuilder.ToString();

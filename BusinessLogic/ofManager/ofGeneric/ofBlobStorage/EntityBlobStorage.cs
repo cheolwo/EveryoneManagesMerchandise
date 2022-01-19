@@ -48,7 +48,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
             if (entity.Container == null)
             {
                 BlobServiceClient blobServiceClient = new(connectionString);
-                entity.Container = await _entityBlobContainerFactory.CreateNameofContainer(entity);
+                entity.Container = await _entityBlobContainerFactory.Create(entity);
                 blobServiceClient.CreateBlobContainer(entity.Container);
             }
         }
@@ -58,8 +58,12 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
             // entity 와 관려한 Container가 없으면 컨테이너 생성.
             if (entity.Container == null)
             {
-                entity.Container = await _entityBlobContainerFactory.CreateNameofContainer(entity);
-                blobServiceClient.CreateBlobContainer(entity.Container);
+                entity.Container = await _entityBlobContainerFactory.Create(entity);
+                var Container = blobServiceClient.GetBlobContainer(entity.Container);
+                if(Container == null)
+                {
+                    blobServiceClient.CreateBlobContainer(entity.Container);
+                }
             }
 
             // 저장할 파일이 없다면 BlobStorage 이용할 필요 없으니 모듈 종료.

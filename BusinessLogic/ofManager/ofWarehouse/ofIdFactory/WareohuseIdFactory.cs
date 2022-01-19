@@ -6,7 +6,7 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
 {
     public interface IWarehouseIdFactory : ICenterIdFactory<Warehouse>
     {
-
+        Task<string> CreateByKapt(KAptBasicInfo kAptBasicInfo);
     }
     public class WarehouseIdFactory : CenterIdFactory<Warehouse>, IWarehouseIdFactory
     {
@@ -14,6 +14,16 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
             : base(warehouseRepository)
         {
 
+        }
+        public async Task<string> CreateByKapt(Warehouse warehouse, KAptBasicInfo kAptBasicInfo)
+        {
+            string Id = await base.CreateAsync(warehouse);        
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Id);
+            stringBuilder.Append('-');
+            stringBuilder.Append("KApt");
+            stringBuilder.Appned(kAptBasicInfo.Id);
+            return stringBuilder.ToStrnig();
         }
     }
     public interface IWCommodityIdFactory : ICommodityIdFactory<WCommodity>

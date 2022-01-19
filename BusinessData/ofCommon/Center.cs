@@ -5,7 +5,6 @@ namespace BusinessData
     public class Center : Entity
     {
         [Get] public string LoginId { get; set; }
-        [Get] public string Barcode {get; set;}
         [Get] public string Password { get; set; }
         [Get] public int FailLogin {get; set;}
         [Get] public string Address {get; set;}
@@ -13,6 +12,8 @@ namespace BusinessData
         [Detail] public string CardNumber {get; set;}
         [Get] public string Cvv {get; set;}
         [Get] public string CardPassword {get; set;}
+        [Get] public string PhoneNumber {get; set;}
+        [Get] public string FaxNumber {get; set;}
         [Get][Many] public List<Commodity> Commodities { get; set; }
         [Get][Many] public List<EStatus> EStatuses { get; set; }
         [Get][Many] public List<MStatus> MStatuses { get; set; }
