@@ -1,5 +1,3 @@
-using BusinessData;
-using BusinessLogic.ofManager.ofGeneric;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;

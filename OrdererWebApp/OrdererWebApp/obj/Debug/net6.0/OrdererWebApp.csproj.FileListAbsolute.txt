@@ -155,3 +155,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Orde
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\obj\Debug\net6.0\OrdererWebApp.genruntimeconfig.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\bin\Debug\net6.0\BusinessLogic.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\OrdererWebApp\OrdererWebApp\bin\Debug\net6.0\NLog.dll

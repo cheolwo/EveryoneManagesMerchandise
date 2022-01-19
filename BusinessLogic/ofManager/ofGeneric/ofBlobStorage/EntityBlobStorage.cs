@@ -34,6 +34,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString);
         Task DownLoadAsync(TEntity entity, string downloadPath);
         Task<List<BlobItem>> GetToListByContainerName(string containerName);
+        Task CreateBlobContainer(TEntity entity, string connectionString);
     }
     public class EntityBlobStorage<TEntity> : IEntityBlobStorage<TEntity> where TEntity : Entity, IRelationable
     {
@@ -42,10 +43,11 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         {
             _entityBlobContainerFactory = entityBlobContainerFactory;
         }
-        public async Task CreateBlobContainer(TEntity enitty, string connectionString)
+        public async Task CreateBlobContainer(TEntity entity, string connectionString)
         {
             if (entity.Container == null)
             {
+                BlobServiceClient blobServiceClient = new(connectionString);
                 entity.Container = await _entityBlobContainerFactory.CreateNameofContainer(entity);
                 blobServiceClient.CreateBlobContainer(entity.Container);
             }

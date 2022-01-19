@@ -11,6 +11,7 @@ namespace BusinessData
     {
         // 기본
         Task<List<TEntity>> GetToListAsync();
+        Task <TEntity> FirstOrDefaultAsync();
         Task<TEntity> AddAsync(TEntity tentity);
         Task<TEntity> UpdateAsync(TEntity tentity);
         Task DeleteByIdAsync(string Id);
@@ -156,6 +157,11 @@ namespace BusinessData
         public async Task<TEntity> GetByUserAsync(IdentityUser identityUser)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(identityUser.Id));
+        }
+
+        public async Task<TEntity> FirstOrDefaultAsync()
+        {
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync();
         }
     }
 }
