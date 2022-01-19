@@ -42,7 +42,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         {
             _entityBlobContainerFactory = entityBlobContainerFactory;
         }
-        public async Task<TEntity> CreateBlobContainer(TEntity enitty, string connectionString)
+        public async Task CreateBlobContainer(TEntity enitty, string connectionString)
         {
             if (entity.Container == null)
             {

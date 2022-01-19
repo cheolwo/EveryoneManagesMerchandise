@@ -19,6 +19,7 @@ namespace BusinessData.ofGeneric.ofIdFactory
             _entityDataRepository = entityDataRepository;
             
         }
+        // 이거 하다가 Error 발생하면 쓰레드 부분에서 발생할 가능성이 있음.
         public virtual async Task<string> CreateAsync(TEntity entity)
         {
             StringBuilder stringBuilder = new();
