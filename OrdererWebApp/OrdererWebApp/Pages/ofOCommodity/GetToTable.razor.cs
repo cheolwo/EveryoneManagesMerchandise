@@ -5,23 +5,21 @@
 // 나오지 않는 쪽으로 만들어졌으면 좋겟어.
 // 그럼 또 Service 를 부모개체로 하는 하위 개체를 만들어서
 // 사전신경계에서 데이터 처리가 이루어질 수 있도록 한다?
-// Add, Update, Delete, Get 
-using BusinessData.ofOrder.ofModel;
-using BusinessLogic.ofService.ofOrderer;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Identity;
+// // Add, Update, Delete, Get 
+// using Microsoft.AspNetCore.Components;
+// using Microsoft.AspNetCore.Identity;
 
-namespace OrdererWebApp.Pages.ofOCommodity
-{
-    public partial class GetToTable : ComponentBase
-    {
-        [Inject] public UserManager<IdentityUser> _userManager {get; set;}
-        [Inject] public OrdererService _ordererService {get; set; }
-        public List<OCommodity> oCommodities = new();
-        protected override async Task OnInitializedAsync()
-        {
-            //oCommodities = await _ordererService.GetToListofOCommoditiy();
-        }
+// namespace OrdererWebApp.Pages.ofOCommodity
+// {
+//     public partial class GetToTable : ComponentBase
+//     {
+//         [Inject] public UserManager<IdentityUser> _userManager {get; set;}
+//         [Inject] public OrdererService _ordererService {get; set; }
+//         public List<OCommodity> oCommodities = new();
+//         protected override async Task OnInitializedAsync()
+//         {
+//             //oCommodities = await _ordererService.GetToListofOCommoditiy();
+//         }
         
-    }
-}
+//     }
+// }

@@ -196,8 +196,6 @@ namespace BusinessLoogic.ofManager.ofKamis
         // 1. 
         private void DivideConvertKamisPriceInfodataitems(object[] items) //ProductPriceResult.data.items
         {
-            int Check = 0;
-            bool IsContinue = false;
             foreach (var item in items)
             {
                 string itemstr = item.ToString();

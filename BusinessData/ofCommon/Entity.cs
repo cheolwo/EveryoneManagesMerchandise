@@ -22,6 +22,7 @@ namespace BusinessData
         public const string TradeDbConnection = "Server=(localdb)\\mssqllocaldb;Database=TradeDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string HsDbConnection = "Server=(localdb)\\mssqllocaldb;Database=HsDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string KamisDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KamisDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string KAptDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KAptInfoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
     public class OneAttribute : Attribute
     {

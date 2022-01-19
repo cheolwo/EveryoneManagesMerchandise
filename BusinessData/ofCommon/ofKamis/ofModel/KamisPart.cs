@@ -16,7 +16,7 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 	{
 		public List<KamisCommodity> KamisCommodities {get; set;}
 		public List<KamisKindofCommodity> KamisKindsofCommodities { get; set; }
-		 public override string GetRelationCode()
+		public override string GetRelationCode()
 		{
 			RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
 			if(relationAttribute != null)
