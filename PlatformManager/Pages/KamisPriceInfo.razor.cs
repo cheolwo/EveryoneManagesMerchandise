@@ -9,15 +9,15 @@ namespace PlatformManager.Pages
         [Inject] public KamisRequestFactory KamisRequestFactory { get; set; }
         [Inject] public KamisAPIManager KamisAPIManager { get; set; }
         [Inject] public KamisManagement KamisManagement { get; set; }
-        [Inject] public KamisWholeSalePriceManager KamisWholeSalePriceManager { get;  }
+        [Inject] public KamisWholeSalePriceManager KamisWholeSalePriceManager { get; set; }
         public HttpClient HttpClient { get; }
         protected override async Task OnInitializedAsync()
         {
-            var KamisWholeSale = KamisWholeSalePriceManager.FirstOrDefaultAsync();
-            if(KamisWholeSale == null)
-            {
-                await KamisAPIManager.CollectPriceInfoFromAPI("2021-11-01", "2021-11-02");
-            }
+            //var KamisWholeSale = await KamisWholeSalePriceManager.FirstOrDefaultAsync();
+            //if(KamisWholeSale == null)
+            //{
+            //    await KamisAPIManager.CollectPriceInfoFromAPI("2021-11-01", "2021-11-02");
+            //}
         }
     }
 }

@@ -1,12 +1,15 @@
+using BusinessData.ofCommon.ofKapt;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofWarehouse.Model;
 using BusinessData.ofWarehouse.ofRepository;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
 {
     public interface IWarehouseIdFactory : ICenterIdFactory<Warehouse>
     {
-        Task<string> CreateByKapt(KAptBasicInfo kAptBasicInfo);
+        Task<string> CreateByKapt(Warehouse warehouse, KAptBasicInfo kAptBasicInfo);
     }
     public class WarehouseIdFactory : CenterIdFactory<Warehouse>, IWarehouseIdFactory
     {
@@ -22,8 +25,9 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
             stringBuilder.Append(Id);
             stringBuilder.Append('-');
             stringBuilder.Append("KApt");
-            stringBuilder.Appned(kAptBasicInfo.Id);
-            return stringBuilder.ToStrnig();
+            stringBuilder.Append('-');
+            stringBuilder.Append(kAptBasicInfo.Id);
+            return stringBuilder.ToString();
         }
     }
     public interface IWCommodityIdFactory : ICommodityIdFactory<WCommodity>

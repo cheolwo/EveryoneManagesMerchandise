@@ -107,7 +107,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         {
             entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
-            await _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
+            _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
             return await _EntityDataRepository.AddAsync(entity);
         }
         public async Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)

@@ -28,15 +28,46 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
     }
     public class WarehouseBlobContainerFactory : EntityContainerFactory<Warehouse>, IWarehouseBlobContainerFactory
     {
-        private readonly IWarehouseRepository _warehouseRepository;
         public WarehouseBlobContainerFactory(IWarehouseRepository warehouseRepository)
                 :base(warehouseRepository)
         {
-            _warehouseRepository = warehouseRepository;
+            
         }
         public override async Task<string> CreateNameofContainer(Warehouse entity)
         {
             return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class WCommodityBlobContainerFactory : EntityContainerFactory<WCommodity>, IWCommodityBlobContainerFactory
+    {
+        public WCommodityBlobContainerFactory(IWCommodityRepository WCommodityRepository)
+                :base(WCommodityRepository)
+        {
+            
+        }
+    }
+    public class SWCommodityBlobContainerFactory : EntityContainerFactory<SWCommodity>, ISWCommodityBlobContainerFactory
+    {
+        public SWCommodityBlobContainerFactory(ISWCommodityRepository SWCommodityRepository)
+                :base(SWCommodityRepository)
+        {
+            
+        }
+    }
+    public class MWCommodityBlobContainerFactory : EntityContainerFactory<MWCommodity>, IMWCommodityBlobContainerFactory
+    {
+        public MWCommodityBlobContainerFactory(IMWCommodityRepository MWCommodityRepository)
+                :base(MWCommodityRepository)
+        {
+            
+        }
+    }
+    public class EWCommodityBlobContainerFactory : EntityContainerFactory<EWCommodity>, IEWCommodityBlobContainerFactory
+    {
+        public EWCommodityBlobContainerFactory(IEWCommodityRepository EWCommodityRepository)
+                :base(EWCommodityRepository)
+        {
+            
         }
     }
     public interface IWCommodityBlobStorage : IEntityBlobStorage<WCommodity>

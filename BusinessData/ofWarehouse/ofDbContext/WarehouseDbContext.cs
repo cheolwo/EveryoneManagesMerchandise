@@ -56,7 +56,6 @@ namespace BusinessData.ofWarehouse.ofDbContext
         {
             base.Configure(builder);
             builder.ToTable("Warehose");
-            builder.Property(c => c.Address).HasMaxLength((int)ConstraintLength.Address);
         }
     }
     public class WCommodityConfiguration : CommodityConfiguration<WCommodity>

@@ -1,5 +1,5 @@
+using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofModel;
-using BusinessData.ofGroupOrder.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
@@ -7,20 +7,20 @@ using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
 
 namespace BusinessLogic.ofManager.ofOrder
 {
-    public interface ISGOCommodityManager : IStatusManager<SGOCommodity>
+    public interface ISGOCManager : IStatusManager<SGOC>
     {
     }
-    public class SGOCommodityManager : StatusManager<SGOCommodity>, ISGOCommodityManager
+    public class SGOCManager : StatusManager<SGOC>, ISGOCManager
     {
-        private readonly ISGOCommodityRepository _SGOCommodityRepository;
-        public SGOCommodityManager(ISGOCommodityRepository SGOCommodityRepository,
-                               ISGOCommodityIdFactory SGOCommodityIdFactory,
-                               ISGOCommodityFileFactory SGOCommodityFileFactory,
-                               ISGOCommodityBlobStorage blobStorage,
-                            DicConvertFactory<SGOCommodity> dicConvertFactory)
-            : base(SGOCommodityRepository, SGOCommodityIdFactory, SGOCommodityFileFactory, blobStorage, dicConvertFactory)
+        private readonly ISGOCRepository _SGOCRepository;
+        public SGOCManager(ISGOCRepository SGOCRepository,
+                               ISGOCIdFactory SGOCIdFactory,
+                               ISGOCFileFactory SGOCFileFactory,
+                               ISGOCBlobStorage blobStorage,
+                            DicConvertFactory<SGOC> dicConvertFactory)
+            : base(SGOCRepository, SGOCIdFactory, SGOCFileFactory, blobStorage, dicConvertFactory)
         {
-            _SGOCommodityRepository = SGOCommodityRepository;
+            _SGOCRepository = SGOCRepository;
         }
     }
 }

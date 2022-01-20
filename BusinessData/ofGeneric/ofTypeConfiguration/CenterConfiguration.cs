@@ -14,7 +14,6 @@ namespace BusinessData.ofGeneric.ofTypeConfiguration
         {
             base.Configure(builder);
             builder.Property(c => c.Name).HasMaxLength((int)ConstraintLength.Name);
-            builder.Property(c => c.Barcode).HasMaxLength((int)ConstraintLength.Barcode);
             builder.Property(c => c.CenterIPAddresses).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 v => JsonConvert.DeserializeObject<List<CenterIPAddress>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),

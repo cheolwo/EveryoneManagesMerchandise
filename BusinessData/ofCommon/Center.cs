@@ -26,12 +26,11 @@ namespace BusinessData
         {
             return base.Equals(obj) && obj is Center center &&
                    Name == center.Name &&
-                   UserId == center.UserId &&
-                   Barcode == center.Barcode;
+                   UserId == center.UserId;
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name, UserId, Barcode);
+            return HashCode.Combine(base.GetHashCode(), Name, UserId);
         }
 
         public virtual Center GetRelatedCenter()

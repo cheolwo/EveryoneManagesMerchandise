@@ -1,5 +1,5 @@
+using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofModel;
-using BusinessData.ofGroupOrder.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
@@ -7,20 +7,20 @@ using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
 
 namespace BusinessLogic.ofManager.ofOrder
 {
-    public interface IEGOCommodityManager : IStatusManager<EGOCommodity>
+    public interface IEGOCManager : IStatusManager<EGOC>
     {
     }
-    public class EGOCommodityManager : StatusManager<EGOCommodity>, IEGOCommodityManager
+    public class EGOCManager : StatusManager<EGOC>, IEGOCManager
     {
-        private readonly IEGOCommodityRepository _EGOCommodityRepository;
-        public EGOCommodityManager(IEGOCommodityRepository EGOCommodityRepository,
-                               IEGOCommodityIdFactory EGOCommodityIdFactory,
-                               IEGOCommodityFileFactory EGOCommodityFileFactory,
-                               IEGOCommodityBlobStorage blobStorage,
-                            DicConvertFactory<EGOCommodity> dicConvertFactory)
-            : base(EGOCommodityRepository, EGOCommodityIdFactory, EGOCommodityFileFactory, blobStorage, dicConvertFactory)
+        private readonly IEGOCRepository _EGOCRepository;
+        public EGOCManager(IEGOCRepository EGOCRepository,
+                               IEGOCIdFactory EGOCIdFactory,
+                               IEGOCFileFactory EGOCFileFactory,
+                               IEGOCBlobStorage blobStorage,
+                            DicConvertFactory<EGOC> dicConvertFactory)
+            : base(EGOCRepository, EGOCIdFactory, EGOCFileFactory, blobStorage, dicConvertFactory)
         {
-            _EGOCommodityRepository = EGOCommodityRepository;
+            _EGOCRepository = EGOCRepository;
         }
     }
 }

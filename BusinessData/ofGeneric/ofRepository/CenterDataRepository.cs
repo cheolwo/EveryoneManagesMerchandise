@@ -9,7 +9,6 @@ namespace BusinessData
     {
         // By
         Task<TEntity> GetByLoginId(string LoginId);
-        Task<TEntity> GetByBarcode(string Barcode);
         Task<TEntity> GetByAddress(string Address);
         Task<List<TEntity>> GetToListByCountryCode(string CoutryCode);
         // With
@@ -36,12 +35,6 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Address.Equals(Address));
         }
-
-        public async Task<TEntity> GetByBarcode(string Barcode)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));
-        }
-
         public async Task<TEntity> GetByLoginId(string LoginId)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.LoginId.Equals(LoginId));

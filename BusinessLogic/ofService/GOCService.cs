@@ -59,8 +59,8 @@ namespace BusinessLogic.ofService.ofOrderer
     {
         private readonly IStatusManager<SPCommodity> _SPCommodityManager;
         private readonly IOrderCenterManager _OrderCenterManager;
-        private readonly IGroupOrderCenterManager _GroupOrderCenterManager;
-        public GOCService(IStatusManager<SPCommodity> sPCommodityManager, IOrderCenterManager orderCenterManager, IGroupOrderCenterManager groupOrderCenterManager)
+        private readonly IGOCManager _GroupOrderCenterManager;
+        public GOCService(IStatusManager<SPCommodity> sPCommodityManager, IOrderCenterManager orderCenterManager, IGOCManager groupOrderCenterManager)
         {
             _SPCommodityManager = sPCommodityManager;
             _OrderCenterManager = orderCenterManager;

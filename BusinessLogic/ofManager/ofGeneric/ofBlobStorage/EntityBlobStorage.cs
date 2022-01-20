@@ -34,7 +34,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString);
         Task DownLoadAsync(TEntity entity, string downloadPath);
         Task<List<BlobItem>> GetToListByContainerName(string containerName);
-        Task CreateBlobContainer(TEntity entity, string connectionString);
+        void CreateBlobContainer(TEntity entity, string connectionString);
     }
     public class EntityBlobStorage<TEntity> : IEntityBlobStorage<TEntity> where TEntity : Entity, IRelationable
     {
@@ -43,31 +43,33 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         {
             _entityBlobContainerFactory = entityBlobContainerFactory;
         }
-        public async Task CreateBlobContainer(TEntity entity, string connectionString)
+        public void CreateBlobContainer(TEntity entity, string connectionString)
         {
+            bool IsCreateContainer = true;
             if (entity.Container == null)
             {
                 BlobServiceClient blobServiceClient = new(connectionString);
-                entity.Container = await _entityBlobContainerFactory.Create(entity);
-                blobServiceClient.CreateBlobContainer(entity.Container);
+                entity.Container = IEntityContainerFactory<TEntity>.Create(entity);
+                var Containers = blobServiceClient.GetBlobContainers();
+                foreach (var container in Containers)
+                {
+                    if (container.Name.Equals(entity.Container))
+                    {
+                        IsCreateContainer = false;
+                    }
+                }
+                if (IsCreateContainer)
+                {
+                    blobServiceClient.CreateBlobContainer(entity.Container);
+                }
             }
         }
         public async Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
             BlobServiceClient blobServiceClient = new(connectionString);
-            // entity 와 관려한 Container가 없으면 컨테이너 생성.
-            if (entity.Container == null)
-            {
-                entity.Container = await _entityBlobContainerFactory.Create(entity);
-                var Container = blobServiceClient.GetBlobContainer(entity.Container);
-                if(Container == null)
-                {
-                    blobServiceClient.CreateBlobContainer(entity.Container);
-                }
-            }
-
+            CreateBlobContainer(entity, connectionString);
             // 저장할 파일이 없다면 BlobStorage 이용할 필요 없으니 모듈 종료.
-            if(files.Count == 0) {return entity;}
+            if (files.Count == 0) {return entity;}
 
             // BlobStorage에서 컨테이너를 Load
             BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(entity.Container);

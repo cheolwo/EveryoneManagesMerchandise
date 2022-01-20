@@ -6,11 +6,21 @@ using BusinessData.ofGroupOrder.ofDbContext;
 
 namespace BusinessData.ofGroupOrder.ofModel
 {
-    [Relation(typeof(GroupOrderCenter), "O")]
-    [DataContext(typeof(GroupOrderDbContext), DbConnectionString.OrderDbConnection)]
-    public class GroupOrderCenter : Center, IRelationable, ITablable
+    [Relation(typeof(GOC), nameof(GOC))]
+    [DataContext(typeof(GODbContext), DbConnectionString.OrderDbConnection)]
+    public class GOC : Center, IRelationable, ITablable
     {
         public List<string> OrderCenters { get; set; }
+        public string WarehouseId { get; set; }
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
@@ -219,8 +229,17 @@ namespace BusinessData.ofGroupOrder.ofModel
             return keyValuePairs;
         }
     }
-    public class GOCommodity : Commodity, IRelationable, ITablable
+    public class GOCC : Commodity, IRelationable, ITablable
     {
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
@@ -429,8 +448,17 @@ namespace BusinessData.ofGroupOrder.ofModel
             return keyValuePairs;
         }
     }
-    public class SGOCommodity : SStatus, IRelationable, ITablable
+    public class SGOC : SStatus, IRelationable, ITablable
     {
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
@@ -639,8 +667,18 @@ namespace BusinessData.ofGroupOrder.ofModel
             return keyValuePairs;
         }
     }
-    public class MGOCommodity : MStatus, IRelationable, ITablable
+    
+    public class MGOC : MStatus, IRelationable, ITablable
     {
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
@@ -848,8 +886,17 @@ namespace BusinessData.ofGroupOrder.ofModel
             return keyValuePairs;
         }
     }
-    public class EGOCommodity : EStatus, IRelationable, ITablable
+    public class EGOC : EStatus, IRelationable, ITablable
     {
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
         public Type GetDbContextType()
         {
             DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));

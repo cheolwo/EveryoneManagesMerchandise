@@ -17,7 +17,7 @@ namespace BusinessData
         public const string MarketDbConnection = "Server=(localdb)\\mssqllocaldb;Database=MarketDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string JournalDbConnection = "Server=(localdb)\\mssqllocaldb;Database=JournalDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string OrderDbConnection = "Server=(localdb)\\mssqllocaldb;Database=OrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string GroupOrderDbConnection = "Server=(localdb)\\mssqllocaldb;Database=GroupOrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string GroupOrderDbConnection = "Server=(localdb)\\mssqllocaldb;Database=GOCDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string ProductDbConnection = "Server=(localdb)\\mssqllocaldb;Database=ProductDbDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string TradeDbConnection = "Server=(localdb)\\mssqllocaldb;Database=TradeDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string HsDbConnection = "Server=(localdb)\\mssqllocaldb;Database=HsDb;Trusted_Connection=True;MultipleActiveResultSets=true";
