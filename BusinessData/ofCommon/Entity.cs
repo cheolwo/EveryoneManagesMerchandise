@@ -244,6 +244,8 @@ namespace BusinessData
     }
     public class Status : Entity, IRelatedCenter
     {
+        public string CommodityId {get; set;}
+        public string CenterId {get; set;}
         [Get][One] public Commodity Commodity { get; set; }
         [Get][One] public Center Center {get; set;}
 
@@ -258,11 +260,13 @@ namespace BusinessData
     }
     public class MStatus : Status
     {
+        public Commodity Commodity {get;set;}
         [Get][One] public SStatus SStatus { get; set; }
         [Get][Many] public List<EStatus> EStatuses { get; set; }
     }
     public class EStatus : Status
     {
+        public string MStatusId {get; set;}
         [Get][One] public MStatus MStatus { get; set; }
     }
     public class RelationAttribute : Attribute

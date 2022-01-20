@@ -51,7 +51,7 @@ namespace BusinessData
         {
             _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
         }
-        public async Task<TEntity> AddAsync(TEntity tentity)
+        public virtual async Task<TEntity> AddAsync(TEntity tentity)
         {
             try
             {
