@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessData.Migrations.KamisDb
 {
     [DbContext(typeof(KamisDbContext))]
-    [Migration("20220119151049_Init")]
+    [Migration("20220121091049_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,9 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("Id")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
@@ -57,6 +60,9 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -79,6 +85,9 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("Id")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
@@ -166,6 +175,9 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -194,6 +206,9 @@ namespace BusinessData.Migrations.KamisDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -216,6 +231,9 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("Id")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -255,6 +273,9 @@ namespace BusinessData.Migrations.KamisDb
                     b.Property<string>("Id")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,9 +42,16 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<TEntity> GetByUserAsync(IdentityUser IdentityUser);
         Task<TEntity> LoginAsync(string id, string password);
         Task<bool> LoginByCryptPasswrodAsync(TEntity entity, string id, string cryptPassword);
+
+        Task<Dictionary<string, List<TEntity>>> ExcelToCenterEntities(string fileconnectionString, Dictionary<PropertyInfo, int> Target,
+                                            int UserCodeTarget);
+
+
     }
     public class CenterManager<TEntity> : EntityManager<TEntity>, ICenterManager<TEntity> where TEntity : Center, IRelationable
     {
+        private readonly ICenterIdFactory<TEntity> _centerIdFactory;
+        private readonly ICenterFileFactory<TEntity> _centerFileFactory;
         private readonly ICenterDataRepository<TEntity> _centerDataRepository;
         private readonly IPasswordHasher<TEntity> _passwordHashser;
         public CenterManager(ICenterDataRepository<TEntity> centerDataRepository,
@@ -51,11 +59,13 @@ namespace BusinessLogic.ofManager.ofGeneric
                             ICenterFileFactory<TEntity> centerFileFactory,
                             IEntityBlobStorage<TEntity> entityBlobStorage,
                             DicConvertFactory<TEntity> dicConvertFactory,
-                            IPasswordHasher<TEntity> passwordHasher)
+                            CenterPasswordHasher<TEntity> passwordHasher)
                 : base(centerDataRepository, centerIdFactory, centerFileFactory, entityBlobStorage, dicConvertFactory)
         {
+            _centerIdFactory = centerIdFactory;
             _centerDataRepository = centerDataRepository;
             _passwordHashser = passwordHasher;
+            _centerFileFactory = centerFileFactory;
         }
         public Task<TEntity> CreateAsync(TEntity entity, string password)
         {
@@ -112,6 +122,15 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<bool> ICenterManager<TEntity>.LoginByCryptPasswrodAsync(TEntity entity, string id, string cryptPassword)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Dictionary<string, List<TEntity>>> ExcelToCenterEntities(string fileconnectionString, Dictionary<PropertyInfo, int> Target,
+                                            int UserCodeTarget)
+        {
+            int count = await _EntityDataRepository.GetCountAsync();
+            var datas = _EntityFileFactory.InitExcelData(fileconnectionString);
+            var UserKeyCenterValue = _centerFileFactory.SetExcelCenters(datas, Target, UserCodeTarget);
+            return _centerIdFactory.SetUserKeyCenterValueId(UserKeyCenterValue, count);
         }
     }
 }

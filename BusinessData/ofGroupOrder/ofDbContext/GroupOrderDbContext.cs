@@ -56,6 +56,8 @@ namespace BusinessData.ofGroupOrder.ofDbContext
                 new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
                  c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
             c => c.ToList()));
+            builder.Ignore(c => c.CenterIPAddresses);
+            builder.Ignore(c => c.CenterMacAddresses);
         }
     }
     public class SGOConfiguration : SStatusConfiguration<SGOC>

@@ -13,6 +13,7 @@ namespace BusinessData.Migrations.KamisDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -28,6 +29,7 @@ namespace BusinessData.Migrations.KamisDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -43,6 +45,7 @@ namespace BusinessData.Migrations.KamisDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -59,6 +62,7 @@ namespace BusinessData.Migrations.KamisDb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     KamisCountryAdministrationPartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -80,6 +84,7 @@ namespace BusinessData.Migrations.KamisDb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     KamisPartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -100,7 +105,6 @@ namespace BusinessData.Migrations.KamisDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WholesaleShippingUnit = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WholeSaleShippingUnizSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RetailShippingUnit = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -112,6 +116,7 @@ namespace BusinessData.Migrations.KamisDb
                     EcoFriendlyGrade = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KamisPartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     KamisCommodityId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -143,6 +148,7 @@ namespace BusinessData.Migrations.KamisDb
                     KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     yyyy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     regday = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -172,6 +178,7 @@ namespace BusinessData.Migrations.KamisDb
                     KamisClsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     yyyy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     regday = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

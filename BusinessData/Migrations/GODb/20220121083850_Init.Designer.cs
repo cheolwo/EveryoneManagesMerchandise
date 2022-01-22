@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessData.Migrations.GODb
 {
     [DbContext(typeof(GODbContext))]
-    [Migration("20220119145442_Init")]
+    [Migration("20220121083850_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,9 @@ namespace BusinessData.Migrations.GODb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -91,6 +94,9 @@ namespace BusinessData.Migrations.GODb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -122,6 +128,9 @@ namespace BusinessData.Migrations.GODb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -161,6 +170,9 @@ namespace BusinessData.Migrations.GODb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -198,6 +210,9 @@ namespace BusinessData.Migrations.GODb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -242,12 +257,6 @@ namespace BusinessData.Migrations.GODb
             modelBuilder.Entity("BusinessData.ofGroupOrder.ofModel.GOC", b =>
                 {
                     b.HasBaseType("BusinessData.Center");
-
-                    b.Property<string>("CenterIPAddresses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CenterMacAddresses")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChangedUsers")
                         .HasColumnType("nvarchar(max)");

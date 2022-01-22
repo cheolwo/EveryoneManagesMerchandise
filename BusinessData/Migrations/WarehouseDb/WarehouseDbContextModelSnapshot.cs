@@ -29,13 +29,15 @@ namespace BusinessData.Migrations.WarehouseDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Address")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -50,14 +52,32 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("Cvv")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DividedTagId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DotBarcodeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EWCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<int>("FailLogin")
                         .HasColumnType("int");
 
                     b.Property<string>("FaxNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("IncomingTagId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoadFrameId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("LoginId")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MWCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
@@ -69,10 +89,37 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SWCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("WCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("WorkingDeskId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DividedTagId");
+
+                    b.HasIndex("DotBarcodeId");
+
+                    b.HasIndex("EWCommodityId");
+
+                    b.HasIndex("IncomingTagId");
+
+                    b.HasIndex("LoadFrameId");
+
+                    b.HasIndex("MWCommodityId");
+
+                    b.HasIndex("SWCommodityId");
+
+                    b.HasIndex("WCommodityId");
+
+                    b.HasIndex("WorkingDeskId");
 
                     b.ToTable("Center");
                 });
@@ -90,18 +137,30 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("EWCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("HsCode")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MWCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SWCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -109,6 +168,12 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.HasKey("Id");
 
                     b.HasIndex("CenterId");
+
+                    b.HasIndex("EWCommodityId");
+
+                    b.HasIndex("MWCommodityId");
+
+                    b.HasIndex("SWCommodityId");
 
                     b.ToTable("Commodity");
                 });
@@ -121,6 +186,9 @@ namespace BusinessData.Migrations.WarehouseDb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -160,6 +228,9 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -197,6 +268,9 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<bool>("Attached")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -229,6 +303,9 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -255,6 +332,9 @@ namespace BusinessData.Migrations.WarehouseDb
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
@@ -289,6 +369,9 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -315,6 +398,9 @@ namespace BusinessData.Migrations.WarehouseDb
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
@@ -349,6 +435,9 @@ namespace BusinessData.Migrations.WarehouseDb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -543,11 +632,62 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.ToTable("WCommodity", (string)null);
                 });
 
+            modelBuilder.Entity("BusinessData.Center", b =>
+                {
+                    b.HasOne("BusinessData.ofWarehouse.Model.DividedTag", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("DividedTagId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.DotBarcode", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("DotBarcodeId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.EWCommodity", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("EWCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.IncomingTag", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("IncomingTagId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.LoadFrame", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("LoadFrameId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.MWCommodity", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("MWCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.SWCommodity", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("SWCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("WCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.WorkingDesk", null)
+                        .WithMany("Warehouse")
+                        .HasForeignKey("WorkingDeskId");
+                });
+
             modelBuilder.Entity("BusinessData.Commodity", b =>
                 {
                     b.HasOne("BusinessData.Center", "Center")
                         .WithMany("Commodities")
                         .HasForeignKey("CenterId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.EWCommodity", null)
+                        .WithMany("WCommodity")
+                        .HasForeignKey("EWCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.MWCommodity", null)
+                        .WithMany("WCommodity")
+                        .HasForeignKey("MWCommodityId");
+
+                    b.HasOne("BusinessData.ofWarehouse.Model.SWCommodity", null)
+                        .WithMany("WCommodity")
+                        .HasForeignKey("SWCommodityId");
 
                     b.Navigation("Center");
                 });
@@ -600,49 +740,39 @@ namespace BusinessData.Migrations.WarehouseDb
                         .WithMany("DividedTags")
                         .HasForeignKey("IncomingTagId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("DividedTags")
                         .HasForeignKey("WarehouseId");
 
                     b.Navigation("IncomingTag");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.DotBarcode", b =>
                 {
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("DotBarcodes")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.IncomingTag", b =>
                 {
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("IncomingTags")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.LoadFrame", b =>
                 {
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("LoadFrames")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.WorkingDesk", b =>
                 {
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("WorkingDesks")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.SStatus", b =>
@@ -672,19 +802,15 @@ namespace BusinessData.Migrations.WarehouseDb
                         .WithMany("EWCommodities")
                         .HasForeignKey("MWCommodityId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", "WCommodity")
+                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", null)
                         .WithMany("EWCommodities")
                         .HasForeignKey("WCommodityId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("EWCommodities")
                         .HasForeignKey("WarehouseId");
 
                     b.Navigation("MWCommodity");
-
-                    b.Navigation("WCommodity");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.MWCommodity", b =>
@@ -703,21 +829,17 @@ namespace BusinessData.Migrations.WarehouseDb
                         .WithMany("MWCommodities")
                         .HasForeignKey("SWCommodityId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", "WCommodity")
+                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", null)
                         .WithMany("MWCommodities")
                         .HasForeignKey("WCommodityId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("MWCommodities")
                         .HasForeignKey("WarehouseId");
 
                     b.Navigation("LoadFrame");
 
                     b.Navigation("SWCommodity");
-
-                    b.Navigation("WCommodity");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.SWCommodity", b =>
@@ -728,17 +850,13 @@ namespace BusinessData.Migrations.WarehouseDb
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", "WCommodity")
+                    b.HasOne("BusinessData.ofWarehouse.Model.WCommodity", null)
                         .WithMany("SWCommodities")
                         .HasForeignKey("WCommodityId");
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("SWCommodities")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("WCommodity");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.Warehouse", b =>
@@ -758,11 +876,9 @@ namespace BusinessData.Migrations.WarehouseDb
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", "Warehouse")
+                    b.HasOne("BusinessData.ofWarehouse.Model.Warehouse", null)
                         .WithMany("WCommodities")
                         .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.Center", b =>
@@ -790,14 +906,33 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Navigation("EStatuses");
                 });
 
+            modelBuilder.Entity("BusinessData.ofWarehouse.Model.DividedTag", b =>
+                {
+                    b.Navigation("Warehouse");
+                });
+
+            modelBuilder.Entity("BusinessData.ofWarehouse.Model.DotBarcode", b =>
+                {
+                    b.Navigation("Warehouse");
+                });
+
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.IncomingTag", b =>
                 {
                     b.Navigation("DividedTags");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.LoadFrame", b =>
                 {
                     b.Navigation("MWCommodities");
+
+                    b.Navigation("Warehouse");
+                });
+
+            modelBuilder.Entity("BusinessData.ofWarehouse.Model.WorkingDesk", b =>
+                {
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.SStatus", b =>
@@ -805,14 +940,29 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Navigation("MStatuses");
                 });
 
+            modelBuilder.Entity("BusinessData.ofWarehouse.Model.EWCommodity", b =>
+                {
+                    b.Navigation("WCommodity");
+
+                    b.Navigation("Warehouse");
+                });
+
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.MWCommodity", b =>
                 {
                     b.Navigation("EWCommodities");
+
+                    b.Navigation("WCommodity");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.SWCommodity", b =>
                 {
                     b.Navigation("MWCommodities");
+
+                    b.Navigation("WCommodity");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("BusinessData.ofWarehouse.Model.Warehouse", b =>
@@ -843,6 +993,8 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Navigation("MWCommodities");
 
                     b.Navigation("SWCommodities");
+
+                    b.Navigation("Warehouse");
                 });
 #pragma warning restore 612, 618
         }

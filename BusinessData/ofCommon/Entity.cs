@@ -23,6 +23,7 @@ namespace BusinessData
         public const string HsDbConnection = "Server=(localdb)\\mssqllocaldb;Database=HsDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string KamisDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KamisDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string KAptDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KAptInfoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string FisheriesDbConnection = "Server=(localdb)\\mssqllocaldb;Database=FisheriesDb;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
     public class OneAttribute : Attribute
     {
@@ -85,6 +86,7 @@ namespace BusinessData
     public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer, ITablable
     {
         [Key] [Get] public string Id { get; set; }
+        public string Code { get; set; }
         [Get("OrdererApp = {SPCommodityInOrdererView}")] public string Name { get; set; }
         [Detail]public string Container {get; set;}
         [Detail]public DateTime CreateTime { get; set; }
@@ -170,6 +172,10 @@ namespace BusinessData
         public bool Equals(Entity other)
         {
             if(other == null) { throw new ArgumentNullException("Other Is Null"); }
+            if(other.Code != null && other.Name != null)
+            {
+                return this.Code.Equals(other.Code) && this.Name.Equals(other.Name);
+            }
             else
             {
                 return this.Id.Equals(other.Id);
@@ -260,7 +266,6 @@ namespace BusinessData
     }
     public class MStatus : Status
     {
-        public Commodity Commodity {get;set;}
         [Get][One] public SStatus SStatus { get; set; }
         [Get][Many] public List<EStatus> EStatuses { get; set; }
     }

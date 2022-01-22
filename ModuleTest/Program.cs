@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BusinessData.ofCommon.ofKamis.ofModel;
-using BusinessLogic.ofManagement;
 using Microsoft.Office.Interop.Excel;
-using Newtonsoft.Json;
 
 namespace ModuleTest
 {
@@ -42,9 +39,18 @@ namespace ModuleTest
     }
     internal class Program
     {
+        public class Test
+        {
+            public int j { get; set; }
+            public int i { get; set; }
+        }
         static void Main(string[] args)
         {
-
+            object[,] objs = { { 1, 2 }, { 1, 2 }, { 1, 2 }, { 1, 2 } };
+           foreach(var obj in objs)
+            {
+                Console.WriteLine(obj);
+            }      
         }
         public class KamisAPIManager
         {

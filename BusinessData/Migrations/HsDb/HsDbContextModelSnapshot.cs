@@ -3,8 +3,6 @@ using System;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -28,7 +26,7 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -39,9 +37,6 @@ namespace BusinessData.Migrations.HsDb
 
                     b.Property<string>("CoutryName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -57,9 +52,6 @@ namespace BusinessData.Migrations.HsDb
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -80,14 +72,11 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("BasicTaxRate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -99,9 +88,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -125,17 +111,14 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<DateTime>("ApplicationStartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("ClassificationofImportAndExport")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ClassificationofImportAndExport")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -155,9 +138,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("RequirementConfirmationDocumentName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("HsCode")
@@ -173,17 +153,11 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -192,9 +166,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -208,14 +179,11 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -238,9 +206,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("UsName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("WeightUnits")
                         .HasColumnType("nvarchar(max)");
 
@@ -257,7 +222,7 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -266,9 +231,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("CountryId")
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
@@ -276,9 +238,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -294,7 +253,7 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -302,9 +261,6 @@ namespace BusinessData.Migrations.HsDb
 
                     b.Property<string>("CountryId")
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -324,9 +280,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("UsName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
@@ -342,7 +295,7 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
@@ -350,9 +303,6 @@ namespace BusinessData.Migrations.HsDb
 
                     b.Property<string>("CountryId")
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -364,9 +314,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -384,14 +331,11 @@ namespace BusinessData.Migrations.HsDb
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("ChangedUsers")
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
@@ -409,9 +353,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("UsName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

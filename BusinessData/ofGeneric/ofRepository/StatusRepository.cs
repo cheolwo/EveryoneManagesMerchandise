@@ -18,6 +18,15 @@ namespace BusinessData
         public StatusDataRepository(DbContext DbContext)
             :base(DbContext)
         {
+            if (DbContext != null)
+            {
+                _DbContext = DbContext;
+            }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+        }
+        public StatusDataRepository()
+        {
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
         }
         public async Task<List<TEntity>> GetToListByCountryCode(string CountryCode)
         {

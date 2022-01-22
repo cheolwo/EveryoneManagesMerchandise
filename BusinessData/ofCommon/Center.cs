@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Collections;
+
 namespace BusinessData
 {
-    public class Center : Entity
+    public class Center : Entity, IEnumerable<Center>
     {
         [Get] public string LoginId { get; set; }
         [Get] public string Password { get; set; }
@@ -28,6 +30,12 @@ namespace BusinessData
                    Name == center.Name &&
                    UserId == center.UserId;
         }
+
+        public IEnumerator<Center> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(base.GetHashCode(), Name, UserId);
@@ -36,6 +44,11 @@ namespace BusinessData
         public virtual Center GetRelatedCenter()
         {
             return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

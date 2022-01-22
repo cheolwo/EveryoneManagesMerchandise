@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +30,15 @@ namespace BusinessData
         public CenterDataRepository(DbContext DbContext)
             : base(DbContext)
         {
-
+            if (DbContext != null)
+            {
+                _DbContext = DbContext;
+            }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+        }
+        public CenterDataRepository()
+        {
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
         }
         public async Task<TEntity> GetByAddress(string Address)
         {

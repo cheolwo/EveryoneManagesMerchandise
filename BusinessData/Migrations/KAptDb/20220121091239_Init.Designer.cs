@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessData.Migrations.KAptDb
 {
     [DbContext(typeof(KAptDbContext))]
-    [Migration("20220119025850_Init")]
+    [Migration("20220121091239_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace BusinessData.Migrations.KAptDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Classification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Container")

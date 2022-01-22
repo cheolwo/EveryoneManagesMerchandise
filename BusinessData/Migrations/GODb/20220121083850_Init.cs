@@ -24,6 +24,7 @@ namespace BusinessData.Migrations.GODb
                     CardPassword = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FaxNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -42,6 +43,7 @@ namespace BusinessData.Migrations.GODb
                     HsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Barcode = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     CenterId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -66,9 +68,7 @@ namespace BusinessData.Migrations.GODb
                     WarehouseId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CenterMacAddresses = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CenterIPAddresses = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -104,6 +104,7 @@ namespace BusinessData.Migrations.GODb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -132,6 +133,7 @@ namespace BusinessData.Migrations.GODb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     SStatusId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -184,6 +186,7 @@ namespace BusinessData.Migrations.GODb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     MStatusId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),

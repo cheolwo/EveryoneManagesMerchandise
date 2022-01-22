@@ -40,78 +40,105 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
         }
     }
     public class AgreetMentConfiguration : EntityConfiguration<AgreetMent>
+    {
+        public override void Configure(EntityTypeBuilder<AgreetMent> builder)
         {
-            public override void Configure(EntityTypeBuilder<AgreetMent> builder)
-            {
-                base.Configure(builder);
-                builder.Property(c => c.CoutryName).HasConversion(
-                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
-                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-            c => c.ToList()));
-            }
+            base.Configure(builder);
+            builder.Property(c => c.CoutryName).HasConversion(
+             v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+             v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+             new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+             c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+        c => c.ToList()));
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class DetailPracticalConfiguration : EntityConfiguration<DetailPracticalHsCode>
+    }
+    public class DetailPracticalConfiguration : EntityConfiguration<DetailPracticalHsCode>
+    {
+        public override void Configure(EntityTypeBuilder<DetailPracticalHsCode> builder)
         {
-            public override void Configure(EntityTypeBuilder<DetailPracticalHsCode> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class CountryConfiguration : EntityConfiguration<Country> 
+    }
+    public class CountryConfiguration : EntityConfiguration<Country>
+    {
+        public override void Configure(EntityTypeBuilder<Country> builder)
         {
-            public override void Configure(EntityTypeBuilder<Country> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class ConfirmationbythecustomsofficerConfiguration : EntityConfiguration<ConfirmationByTheCustomsOfficer> 
+    }
+    public class ConfirmationbythecustomsofficerConfiguration : EntityConfiguration<ConfirmationByTheCustomsOfficer>
+    {
+        public override void Configure(EntityTypeBuilder<ConfirmationByTheCustomsOfficer> builder)
         {
-            public override void Configure(EntityTypeBuilder<ConfirmationByTheCustomsOfficer> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class ClarnaceInfoofHsCodeConfiguration : EntityConfiguration<ClearanceInfoofHsCode>
+    }
+    public class ClarnaceInfoofHsCodeConfiguration : EntityConfiguration<ClearanceInfoofHsCode>
+    {
+        public override void Configure(EntityTypeBuilder<ClearanceInfoofHsCode> builder)
         {
-            public override void Configure(EntityTypeBuilder<ClearanceInfoofHsCode> builder)
-            {
-                base.Configure(builder);
-                builder.Property(c => c.AgreetMentTaxRates).HasConversion(
-                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 v => JsonConvert.DeserializeObject<List<AgreetMentTaxRate>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-                 new ValueComparer<List<AgreetMentTaxRate>>((c1, c2) => c1.SequenceEqual(c2),
-                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-            c => c.ToList()));
-            }
+            base.Configure(builder);
+            builder.Property(c => c.AgreetMentTaxRates).HasConversion(
+             v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+             v => JsonConvert.DeserializeObject<List<AgreetMentTaxRate>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+             new ValueComparer<List<AgreetMentTaxRate>>((c1, c2) => c1.SequenceEqual(c2),
+             c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+        c => c.ToList()));
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class PracticalHsCodeConfiguration : EntityConfiguration<PracticalHsCode>
+    }
+    public class PracticalHsCodeConfiguration : EntityConfiguration<PracticalHsCode>
+    {
+        public override void Configure(EntityTypeBuilder<PracticalHsCode> builder)
         {
-            public override void Configure(EntityTypeBuilder<PracticalHsCode> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class SubPracticalHsCodeConfiguration : EntityConfiguration<SubPracticalHsCode>
+    }
+    public class SubPracticalHsCodeConfiguration : EntityConfiguration<SubPracticalHsCode>
+    {
+        public override void Configure(EntityTypeBuilder<SubPracticalHsCode> builder)
         {
-            public override void Configure(EntityTypeBuilder<SubPracticalHsCode> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class SubPartofHsCodeConfiguration : EntityConfiguration<SubPartofHsCode>
+    }
+    public class SubPartofHsCodeConfiguration : EntityConfiguration<SubPartofHsCode>
+    {
+        public override void Configure(EntityTypeBuilder<SubPartofHsCode> builder)
         {
-            public override void Configure(EntityTypeBuilder<SubPartofHsCode> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
-        public class HsCodePartConfiguration : EntityConfiguration<HsCodePart>
+    }
+    public class HsCodePartConfiguration : EntityConfiguration<HsCodePart>
+    {
+        public override void Configure(EntityTypeBuilder<HsCodePart> builder)
         {
-            public override void Configure(EntityTypeBuilder<HsCodePart> builder)
-            {
-                base.Configure(builder);
-            }
+            base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
+    }
 }

@@ -26,8 +26,8 @@ namespace BusinessLogic.ofManager.ofWarehouse
                                IWarehouseIdFactory WarehouseIdFactory,
                                IWarehouseFileFactory WarehouseFileFactory,
                                IWarehouseBlobStorage WarehouseBlobStorage,
-                               CenterPasswordHasher<Warehouse> centerPasswordHasher,
-                            DicConvertFactory<Warehouse> dicConvertFactory)
+                            DicConvertFactory<Warehouse> dicConvertFactory,
+                            CenterPasswordHasher<Warehouse> centerPasswordHasher)
             : base(WarehouseRepository, WarehouseIdFactory, WarehouseFileFactory, WarehouseBlobStorage, dicConvertFactory, centerPasswordHasher)
         {
             _WarehouseRepository = WarehouseRepository;

@@ -37,6 +37,9 @@ namespace BusinessData.Migrations.GODb
                     b.Property<string>("CardPassword")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -89,6 +92,9 @@ namespace BusinessData.Migrations.GODb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -120,6 +126,9 @@ namespace BusinessData.Migrations.GODb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -159,6 +168,9 @@ namespace BusinessData.Migrations.GODb
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -196,6 +208,9 @@ namespace BusinessData.Migrations.GODb
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -240,12 +255,6 @@ namespace BusinessData.Migrations.GODb
             modelBuilder.Entity("BusinessData.ofGroupOrder.ofModel.GOC", b =>
                 {
                     b.HasBaseType("BusinessData.Center");
-
-                    b.Property<string>("CenterIPAddresses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CenterMacAddresses")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChangedUsers")
                         .HasColumnType("nvarchar(max)");

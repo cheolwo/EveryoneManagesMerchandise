@@ -37,6 +37,7 @@ namespace BusinessData.Migrations.KAptDb
                     ManagementOfficePhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ManagementOfficeFax = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WelfareFacility = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true)

@@ -1,3 +1,10 @@
+using BusinessData.ofCommon.ofFisheries.ofModel;
+using BusinessLogic.ofManager.ofGeneric;
+using Microsoft.Office.Interop.Excel;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+
 namespace BusinessLogic.ofManager.ofFisheries
 {
     // RequestFactory
@@ -14,43 +21,132 @@ namespace BusinessLogic.ofManager.ofFisheries
     {
         Task GetFisheries();
         Task GetFishMCommodity();
-        Task GetFishMCommodity();
-        Task GetFishECommodity();       
+        Task GetFishSCommodity();
+        Task GetFishECommodity();
     }
     public class FisheriesAPIManager : IFisheriesAPIManager
     {
-        private HttpClient HttpClient {get; set;}
-        private readonly ICenterManaegr<Fisheries> _CenterManager;
+        private HttpClient HttpClient { get; set; }
+        private readonly IEntityManager<Copartnership> _CopartnershipManager;
+        private readonly ICenterManager<Fisheries> _CenterManager;
         private readonly ICommodityManager<FishCommodity> _CommodityManager;
         private readonly ISStatusManager<SFishCommodity> _SFishCommodityManager;
         private readonly IMStatusManager<MFishCommodity> _MFishCommodityManager;
         private readonly IEStatusManager<EFishCommodity> _EFishCommodityManager;
-        // 창고정보 API Key
-        private const string CetnerAPIKey = "";
-        // 재고정보 API Key
-        private const string MCommodityAPIKey = "";
-        // 입출고정보 API Key
-        private const string SECommodityAPIKey = ""; 
         public FisheriesAPIManager(ICenterManager<Fisheries> centerManager, ICommodityManager<FishCommodity> commodityManager,
-            ISStatusManager<SFishCommodity> sFishCommodityManager, IMStatusManager<MFishCommdity> mFishCommodtiyManager,
-            IEStatusManager<EFishCommodity> eFishCommodityManager)
+            ISStatusManager<SFishCommodity> sFishCommodityManager, IMStatusManager<MFishCommodity> mFishCommodtiyManager,
+            IEStatusManager<EFishCommodity> eFishCommodityManager, IEntityManager<Copartnership> CopartnershipManager)
         {
-                _CommodityManager =  commodityManager;
-                _CenterManager = centerManager;
-                _SFishCommodityManager = sFishCommodityManager;
-                _MFishCommodityManager = mFishCommodtiyManager;
-                _EFishCommodityManager = eFishCommodityManager;
-                HttpClient = new();
+            _CopartnershipManager = CopartnershipManager;
+            _CommodityManager = commodityManager;
+            _CenterManager = centerManager;
+            _SFishCommodityManager = sFishCommodityManager;
+            _MFishCommodityManager = mFishCommodtiyManager;
+            _EFishCommodityManager = eFishCommodityManager;
+            HttpClient = new();
         }
-        // 1. GetToList - 조합 및 창고정보
-        // 2. 상기 정보를 이용해 RequestFactory 작성
-        // 3. HttpClient를 이용해 SendAsync 후 ResponseMessage 검사
-        // 4. ResponseMessage 에 대한 .Net 개체 변환
-        // 5. 상기 개체 중복성 검사 후 Fisheries DB 에 저장하는 것을
-        // 특징으로 하는 Fisheries API Manager Get 모듈.
+        //public async Task ExcelToDb(Workbook wb)
+        //{
+        //    Worksheet ws = null;
+        //    if (wb != null)
+        //    {
+        //        ws = wb.Worksheets.get_Item(1) as Worksheet;
+        //    }
+        //    await ExcelCopartnershipToDb(ws);
+        //    await ExcelFisheriesToDb(ws);
+        //    await ExcelFishCommodityToDb(ws);
+        //}
+       public  async Task ExcelCopartnershipToDb(Worksheet ws)
+        {
+            Range rng = ws.UsedRange;
+            object[,] data = rng.Value;
+            int i = 2;
+            try
+            {
+                while (data[i, 1] != null)
+                {
+                    var copartnership = await _CopartnershipManager.GetByCodeAsync(data[i, 1].ToString());
+                    if(copartnership == null)
+                    {
+                        Copartnership newCopartnership = new();
+                        newCopartnership.Code = data[i, 1]?.ToString() ?? "";
+                        newCopartnership.Name = data[i, 5]?.ToString() ?? "";
+                        await _CopartnershipManager.CreateAsync(newCopartnership);
+                        continue;
+                    }
+                    i++;
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        public async Task ExcelFisheriesToDb(Worksheet ws)
+        {
+            Range rng = ws.UsedRange;
+            object[,] data = rng.Value;
+            int i = 2;
+            try
+            {
+                while (data[i, 1] != null)
+                {
+                    var fisheries = await _CenterManager.GetByCodeAsync(data[i, 2].ToString());
+                    if (fisheries == null)
+                    {
+                        Fisheries newCenter = new();
+                        newCenter.Code = data[i, 2]?.ToString() ?? "";
+                        newCenter.Name = data[i, 6]?.ToString() ?? "";
+                        Copartnership copartnership = await _CopartnershipManager.GetByCodeAsync(data[i, 1].ToString());
+                        newCenter.CopartnershipId = copartnership.Id;
+                        await _CenterManager.CreateAsync(newCenter);
+                        continue;
+                    }
+                    i++;
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        public async Task ExcelFishCommodityToDb(Worksheet ws)
+        {
+            Range rng = ws.UsedRange;
+            object[,] data = rng.Value;
+            int i = 2;
+            FishCommodity fishCommodity = new();
+            try
+            {
+                while (data[i, 1] != null)
+                {
+                    fishCommodity.Code = data[i, 3]?.ToString() ?? "";
+                    fishCommodity.Name = data[i, 7]?.ToString() ?? string.Empty;
+                    string FisheriesCode = data[i, 2]?.ToString() ?? string.Empty;
+                    string PartnerCode = data[i, 1]?.ToString() ?? string.Empty;
+                    var Fisheries = await _CenterManager.GetByCodeAsync(FisheriesCode);
+                    var Copartner = await _CopartnershipManager.GetByCodeAsync(PartnerCode);
+                    if(Fisheries != null  && Copartner != null)
+                    {
+                        fishCommodity.FisheriesId = Fisheries.Id;
+                        fishCommodity.CopartnershipId = Copartner.Id;
+                        await _CommodityManager.CreateAsync(fishCommodity);
+                        continue;
+                    }
+                    i++;
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
+
         public async Task GetFisheries()
         {
-            
+
         }
         public async Task GetFishSCommodity()
         {

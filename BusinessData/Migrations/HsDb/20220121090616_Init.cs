@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BusinessData.Migrations.HsDb
 {
-    public partial class _1111 : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,9 +17,6 @@ namespace BusinessData.Migrations.HsDb
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -37,11 +34,9 @@ namespace BusinessData.Migrations.HsDb
                     EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CoutryName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -61,11 +56,9 @@ namespace BusinessData.Migrations.HsDb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -86,11 +79,9 @@ namespace BusinessData.Migrations.HsDb
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     HsCodePartId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -118,11 +109,9 @@ namespace BusinessData.Migrations.HsDb
                     UsName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubPartofHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     CountryId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -149,11 +138,9 @@ namespace BusinessData.Migrations.HsDb
                     UsName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     KoName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PracticalHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -177,11 +164,9 @@ namespace BusinessData.Migrations.HsDb
                     QuantityUnits = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WeightUnits = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubPracticalHsCodeId = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -203,11 +188,9 @@ namespace BusinessData.Migrations.HsDb
                     BasicTaxRate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AgreetMentTaxRates = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HsCode = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -232,11 +215,9 @@ namespace BusinessData.Migrations.HsDb
                     RelatedLaws = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RequirementConfirmationDocumentName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HsCode = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
