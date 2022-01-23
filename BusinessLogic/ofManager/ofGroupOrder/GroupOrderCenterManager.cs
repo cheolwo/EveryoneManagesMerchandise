@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
+using BusinessData.ofCommon.ofKapt;
+using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofModel;
-using BusinessData.ofGroupOrder.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
@@ -8,42 +9,47 @@ using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
 
 namespace BusinessLogic.ofManager.ofGroupOrder
 {
-    public interface IGroupOrderCenterManager : ICenterManager<GroupOrderCenter>
+    public interface IGOCManager : ICenterManager<GOC>
     {
-        Task<GroupOrderCenter> LoginWithDataAsync(string LoginId, string Password);
-        Task<bool> GroupOrderCenterLoginAsync(string LoginId, string Password);
+        Task<GOC> LoginWithDataAsync(string LoginId, string Password);
+        Task<bool> GOCLoginAsync(string LoginId, string Password);
+        Task<GOC> CreateByKAptBasicInfo(KAptBasicInfo kAptBasicInfo);
     }
-    public class GroupOrderCenterManager : CenterManager<GroupOrderCenter>, IGroupOrderCenterManager
+    public class GOCManager : CenterManager<GOC>, IGOCManager
     {
-        private readonly IGroupOrderCenterRepository _GroupOrderCenterRepository;
-        private readonly IGroupOrderCenterIdFactory _GroupCenterIdFactory;
-        public GroupOrderCenterManager(IGroupOrderCenterRepository GroupOrderCenterRepository,
-                               IGroupOrderCenterIdFactory GroupOrderCenterIdFactory,
-                               IGroupOrderCenterFileFactory GroupOrderCenterFileFactory,
-                               IGroupOrderCenterBlobStorage blobStorage,
-                               CenterPasswordHasher<GroupOrderCenter> centerPasswordHasher,
-                            DicConvertFactory<GroupOrderCenter> dicConvertFactory)
-            : base(GroupOrderCenterRepository, GroupOrderCenterIdFactory, GroupOrderCenterFileFactory, blobStorage, dicConvertFactory, centerPasswordHasher)
+        private readonly IGOCRepository _GOCRepository;
+        private readonly IGOCIdFactory _GroupCenterIdFactory;
+        public GOCManager(IGOCRepository GOCRepository,
+                               IGOCIdFactory GOCIdFactory,
+                               IGOCFileFactory GOCFileFactory,
+                               IGOCBlobStorage blobStorage,
+                               CenterPasswordHasher<GOC> centerPasswordHasher,
+                            DicConvertFactory<GOC> dicConvertFactory)
+            : base(GOCRepository, GOCIdFactory, GOCFileFactory, blobStorage, dicConvertFactory, centerPasswordHasher)
         {
-            _GroupOrderCenterRepository = GroupOrderCenterRepository;
-            _GroupCenterIdFactory = GroupOrderCenterIdFactory;
+            _GOCRepository = GOCRepository;
+            _GroupCenterIdFactory = GOCIdFactory;
         }
-        public async Task<GroupOrderCenter> CreateByKApt(KAptBasicInfo kAptBasicInfo)
+        public async Task<GOC> CreateByKAptBasicInfo(KAptBasicInfo kAptBasicInfo)
         {
             var newGOC = InitByKApt(kAptBasicInfo);
             newGOC.Id = await _GroupCenterIdFactory.CreateByKApt(newGOC, kAptBasicInfo); 
-            return await _GroupOrderCenterRepository.AddAsync(newGOC); 
+            return await _GOCRepository.AddAsync(newGOC); 
         }
-        private GroupOrderCenter InitByKApt(KPatBasicInfo kPatBasicInfo)
+        private GOC InitByKApt(KAptBasicInfo kAptBasicInfo)
         {
-            GroupOrderCenter groupOrderCenter = new();
-            /*  GOC */
-            return groupOrderCenter;
+            GOC GOC = new();
+            GOC.Address = kAptBasicInfo.StreetAddress;
+            GOC.CountryCode = "KR";
+            GOC.FaxNumber = kAptBasicInfo.ManagementOfficeFax;
+            GOC.Name = kAptBasicInfo.Name;
+            GOC.PhoneNumber = kAptBasicInfo.ManagementOfficePhoneNumber;
+            return GOC;
         }
-        public async Task<bool> GroupOrderCenterLoginAsync(string LoginId, string Password)
+        public async Task<bool> GOCLoginAsync(string LoginId, string Password)
         {
-            GroupOrderCenter GroupOrderCenter = await base.LoginAsync(LoginId, Password);
-            if(GroupOrderCenter != null)
+            GOC GOC = await base.LoginAsync(LoginId, Password);
+            if(GOC != null)
             {
                 return true;
             }
@@ -54,12 +60,12 @@ namespace BusinessLogic.ofManager.ofGroupOrder
         // Entity Password와 입력 Password를 비교하는 단계
         // 일치할 시 Entity를 반환하고 아닌 경우 예외처리하는 단계를 포함하는
         // CenterManager 로그인 메서드를 오버라이딩하여
-        // Entity가 반환된 경우 관련 데이터를 같이 로드하는 것을 특징으로 하는 GroupOrderCenterManager 로그인 메서드
-        public async Task<GroupOrderCenter> LoginWithDataAsync(string LoginId, string Password)
+        // Entity가 반환된 경우 관련 데이터를 같이 로드하는 것을 특징으로 하는 GOCManager 로그인 메서드
+        public async Task<GOC> LoginWithDataAsync(string LoginId, string Password)
         {
-            GroupOrderCenter GroupOrderCenter = await base.LoginAsync(LoginId, Password);
-            GroupOrderCenter = await _GroupOrderCenterRepository.GetRelatedData(GroupOrderCenter); 
-            return GroupOrderCenter;
+            GOC GOC = await base.LoginAsync(LoginId, Password);
+            GOC = await _GOCRepository.GetRelatedData(GOC); 
+            return GOC;
         }
     }
 }

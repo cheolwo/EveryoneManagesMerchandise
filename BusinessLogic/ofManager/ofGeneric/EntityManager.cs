@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
@@ -30,11 +31,19 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> Files, string connectionString);
         Task<TEntity> UpdateAsync(TEntity entity);
+        Task UpdateAttachAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> Files);
         Task<List<TEntity>> GetToListByUserAsync(IdentityUser user);
         Task<List<TEntity>> GetToListAsync();
+        Task<TEntity> GetByCodeAsync(string Code);
+        Task<TEntity> GetByIdAsync(string Id);
         Task DeleteByIdAsync(string Id);
         Dictionary<int, TEntity> ConvertToDic(List<TEntity> entities);
+        Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target);
+        Task<List<TEntity>> ExcelToEntities(string fileconnectionstring, Dictionary<PropertyInfo, int> target);
+        object[, ] GetExcelDatas(string fileconnectionstring);
+        Task EntitiesToDb(List<TEntity> entities);
+        Task EntitiesToDbAttach(List<TEntity> entities);
     }
 
     // 데이터 적합성 검사의 경우는 ApplicationLayer 단에서 해결해야될 문제야.
@@ -68,7 +77,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         // public Type Rescope(Entity entity)
         // {
         //     string RelationCode = entity.GetRelationCode();
-            
+
         // }
     }
     public class EntityManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity, IRelationable
@@ -92,22 +101,30 @@ namespace BusinessLogic.ofManager.ofGeneric
             _EntityFileFactory = entityFileFactory;
             _DicConvertFactory = DicConvertFactory;
         }
+        public virtual async Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target)
+        {
+            int count = await _EntityDataRepository.GetCountAsync();
+            var datas = _EntityFileFactory.InitExcelData(fileconnectionstring);
+            var entities = _EntityFileFactory.SetExcelEntities(datas, target);
+            IList<TEntity> SetIdEntities = _EntityIdFactory.SetEntityId(entities, count);
+            await _EntityDataRepository.AddEntities(SetIdEntities);
+        }
         public virtual async Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
             entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
-            if(files.Count > 0)
+            if (files.Count > 0)
             {
                 TEntity BlobUploadEntity = await _EntityBlobStorage.UploadAsync(entity, files, connectionString);
                 return await _EntityDataRepository.AddAsync(BlobUploadEntity);
-            }          
+            }
             return await _EntityDataRepository.AddAsync(entity);
         }
         public virtual async Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString)
         {
             entity.Id = await _EntityIdFactory.CreateAsync(entity);
             entity.CreateTime = DateTime.Now;
-            await _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
+            _EntityBlobStorage.CreateBlobContainer(entity, connectionString);
             return await _EntityDataRepository.AddAsync(entity);
         }
         public async Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
@@ -155,6 +172,45 @@ namespace BusinessLogic.ofManager.ofGeneric
         public Task<List<TEntity>> GetToListByUserAsync(IdentityUser user)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<TEntity> GetByCodeAsync(string Code)
+        {
+            return await _EntityDataRepository.GetByCodeAsync(Code);
+        }
+
+        public async Task<List<TEntity>> ExcelToEntities(string fileconnectionstring, Dictionary<PropertyInfo, int> target)
+        {
+            int count = await _EntityDataRepository.GetCountAsync();
+            var datas = _EntityFileFactory.InitExcelData(fileconnectionstring);
+            var entities = _EntityFileFactory.SetExcelEntities(datas, target);
+            List<TEntity> SetIdEntities = _EntityIdFactory.SetEntityId(entities, count);
+            return SetIdEntities;
+        }
+
+        public object[,] GetExcelDatas(string fileconnectionstring)
+        {
+            return _EntityFileFactory.InitExcelData(fileconnectionstring);
+        }
+
+        public async Task EntitiesToDb(List<TEntity> entities)
+        {
+            await _EntityDataRepository.AddEntities(entities);
+        }
+
+        public async Task<TEntity> GetByIdAsync(string Id)
+        {
+            return await _EntityDataRepository.GetByIdAsync(Id);
+        }
+
+        public async Task EntitiesToDbAttach(List<TEntity> entities)
+        {
+            await _EntityDataRepository.AddEntitiesByAttach(entities);
+        }
+
+        public async Task UpdateAttachAsync(TEntity entity)
+        {
+            await _EntityDataRepository.UpdateAttachAsync(entity);
         }
     }
 }

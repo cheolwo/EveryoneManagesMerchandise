@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Collections;
+
 namespace BusinessData
 {
-    // Generic 을 구분할 줄 알아야 돼....
-    public class Center : Entity
+    public class Center : Entity, IEnumerable<Center>
     {
         [Get] public string LoginId { get; set; }
         [Get] public string Password { get; set; }
@@ -27,17 +28,27 @@ namespace BusinessData
         {
             return base.Equals(obj) && obj is Center center &&
                    Name == center.Name &&
-                   UserId == center.UserId &&
-                   Barcode == center.Barcode;
+                   UserId == center.UserId;
         }
+
+        public IEnumerator<Center> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public override int GetHashCode()
         {
-            return HashCode.Combine(base.GetHashCode(), Name, UserId, Barcode);
+            return HashCode.Combine(base.GetHashCode(), Name, UserId);
         }
 
         public virtual Center GetRelatedCenter()
         {
             return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

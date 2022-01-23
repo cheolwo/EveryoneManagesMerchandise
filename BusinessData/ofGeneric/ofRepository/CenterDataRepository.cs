@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,6 @@ namespace BusinessData
     {
         // By
         Task<TEntity> GetByLoginId(string LoginId);
-        Task<TEntity> GetByBarcode(string Barcode);
         Task<TEntity> GetByAddress(string Address);
         Task<List<TEntity>> GetToListByCountryCode(string CoutryCode);
         // With
@@ -30,18 +30,20 @@ namespace BusinessData
         public CenterDataRepository(DbContext DbContext)
             : base(DbContext)
         {
-
+            if (DbContext != null)
+            {
+                _DbContext = DbContext;
+            }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+        }
+        public CenterDataRepository()
+        {
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
         }
         public async Task<TEntity> GetByAddress(string Address)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Address.Equals(Address));
         }
-
-        public async Task<TEntity> GetByBarcode(string Barcode)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));
-        }
-
         public async Task<TEntity> GetByLoginId(string LoginId)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.LoginId.Equals(LoginId));

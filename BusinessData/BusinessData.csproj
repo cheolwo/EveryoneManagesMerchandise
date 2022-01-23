@@ -41,7 +41,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\FisheriesDb\" />
+    <Folder Include="Migrations\GODb\" />
     <Folder Include="Migrations\HsDb\" />
+    <Folder Include="Migrations\KamisDb\" />
+    <Folder Include="Migrations\KAptDb\" />
     <Folder Include="Migrations\OrderDb\" />
     <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />

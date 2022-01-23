@@ -1,74 +1,79 @@
+using BusinessData.ofCommon.ofKapt;
 using BusinessData.ofGeneric.ofIdFactory;
+using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofModel;
-using BusinessData.ofGroupOrder.ofRepository;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGroupOrder.ofIdFactory
 {
-    public interface IGroupOrderCenterIdFactory : ICenterIdFactory<GroupOrderCenter>
+    public interface IGOCIdFactory : ICenterIdFactory<GOC>
     {
-
+        Task<string> CreateByKApt(GOC newGOC, KAptBasicInfo kAptBasicInfo);
     }
-    public class GroupOrderCenterIdFactory : CenterIdFactory<GroupOrderCenter>, IGroupOrderCenterIdFactory
+    public class GOCIdFactory : CenterIdFactory<GOC>, IGOCIdFactory
     {
-        public GroupOrderCenterIdFactory(IGroupOrderCenterRepository GroupOrderCenterRepository)
-            : base(GroupOrderCenterRepository)
+        public GOCIdFactory(IGOCRepository GOCRepository)
+            : base(GOCRepository)
         {
 
         }
-        public async Task<string> CreateByKApt(GroupOrderCenter groupOrderCenter, KAptBasicInfo kAptBasicInfo)
+        public async Task<string> CreateByKApt(GOC GOC, KAptBasicInfo kAptBasicInfo)
         {
-            string Id = await base.CreateAsync(groupOrderCenter);
+            string Id = await base.CreateAsync(GOC);
+            StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(Id);
             stringBuilder.Append('-');
             stringBuilder.Append("KApt");
-            stringBuilder.Appned(kAptBasicInfo.Id);
-            return strnigBuilder.ToString();
+            stringBuilder.Append('-');
+            stringBuilder.Append(kAptBasicInfo.Id);
+            return stringBuilder.ToString();
         }
     }
-    public interface IGOCommodityIdFactory : ICommodityIdFactory<GOCommodity>
+    public interface IGOCCIdFactory : ICommodityIdFactory<GOCC>
     {
 
     }
-    public class GOCommodityIdFactory : CommodityIdFactory<GOCommodity>, IGOCommodityIdFactory
+    public class GOCCIdFactory : CommodityIdFactory<GOCC>, IGOCCIdFactory
     {
-        public GOCommodityIdFactory(IGOCommodityRepository GOCommodityRepository)
-            : base(GOCommodityRepository)
+        public GOCCIdFactory(IGOCCRepository GOCCRepository)
+            : base(GOCCRepository)
         {
 
         }
     }
-    public interface ISGOCommodityIdFactory : IStatusIdFactory<SGOCommodity>
+    public interface ISGOCIdFactory : IStatusIdFactory<SGOC>
     {
 
     }
-    public class SGOCommodityIdFactory : StatusIdFactory<SGOCommodity>, ISGOCommodityIdFactory
+    public class SGOCIdFactory : StatusIdFactory<SGOC>, ISGOCIdFactory
     {
-        public SGOCommodityIdFactory(ISGOCommodityRepository SGOCommodityRepository)
-            : base(SGOCommodityRepository)
+        public SGOCIdFactory(ISGOCRepository SGOCRepository)
+            : base(SGOCRepository)
         {
 
         }
     }
-    public interface IMGOCommodityIdFactory : IStatusIdFactory<MGOCommodity>
+    public interface IMGOCIdFactory : IStatusIdFactory<MGOC>
     {
 
     }
-    public class MGOCommodityIdFactory : StatusIdFactory<MGOCommodity>, IMGOCommodityIdFactory
+    public class MGOCIdFactory : StatusIdFactory<MGOC>, IMGOCIdFactory
     {
-        public MGOCommodityIdFactory(IMGOCommodityRepository MGOCommodityRepository)
-            : base(MGOCommodityRepository)
+        public MGOCIdFactory(IMGOCRepository MGOCRepository)
+            : base(MGOCRepository)
         {
 
         }
     }
-    public interface IEGOCommodityIdFactory : IStatusIdFactory<EGOCommodity>
+    public interface IEGOCIdFactory : IStatusIdFactory<EGOC>
     {
 
     }
-    public class EGOCommodityIdFactory : StatusIdFactory<EGOCommodity>, IEGOCommodityIdFactory
+    public class EGOCIdFactory : StatusIdFactory<EGOC>, IEGOCIdFactory
     {
-        public EGOCommodityIdFactory(IEGOCommodityRepository EGOCommodityRepository)
-            : base(EGOCommodityRepository)
+        public EGOCIdFactory(IEGOCRepository EGOCRepository)
+            : base(EGOCRepository)
         {
 
         }

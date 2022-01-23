@@ -17,6 +17,9 @@ namespace BusinessData
         Task DeleteByIdAsync(string Id);
         Task<TEntity> GetByIdAsync(string Id);
         Task<List<TEntity>> GetToListWithRelated();
+        Task AddEntities(IList<TEntity> entities);
+        Task AddEntitiesByAttach(IList<TEntity> entities);
+        Task UpdateAttachAsync(TEntity entity);
 
         // 특정 By
         Task<TEntity> GetByUserAsync(IdentityUser identityUser);
@@ -25,6 +28,7 @@ namespace BusinessData
         Task<TEntity> GetByNameAsync(string Name);
         Task<TEntity> GetByContainerAsync(string containerName);
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
+        Task<TEntity> GetByCodeAsync(string Code);
 
         // By + With
         Task<TEntity> GetByIdWithChangedUsers(string Id);
@@ -33,12 +37,14 @@ namespace BusinessData
         Task<TEntity> GetByIdWithRelated(string Id);
 
         Task<int> GetCountAsync();
+
+        
     }
     
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, IRelationable, new()
     {
         protected DbContext _DbContext;
-        private readonly TEntity entity = new();
+        protected readonly TEntity entity = new();
         public EntityDataRepository(DbContext DbContext)
         {
             if (DbContext != null)
@@ -162,6 +168,39 @@ namespace BusinessData
         public async Task<TEntity> FirstOrDefaultAsync()
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync();
+        }
+
+        public async Task<TEntity> GetByCodeAsync(string Code)
+        {
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Code.Equals(Code));
+        }
+
+        public async Task AddEntities(IList<TEntity> entities)
+        {
+            foreach(var entity in entities)
+            {
+                entity.CreateTime = DateTime.Now;
+                _DbContext.Set<TEntity>().Add(entity);
+                await _DbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task AddEntitiesByAttach(IList<TEntity> entities)
+        {
+            foreach(var entity in entities)
+            {
+                entity.CreateTime = DateTime.Now;
+                var attach = _DbContext.Attach(entity);
+                attach.State = EntityState.Modified;
+                await _DbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateAttachAsync(TEntity entity)
+        {
+            var attach = _DbContext.Attach(entity);
+            attach.State = EntityState.Modified;
+            await _DbContext.SaveChangesAsync();
         }
     }
 }

@@ -3,43 +3,43 @@ using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 
 namespace BusinessLogic.ofManager.ofGroupOrder.ofFileFactory
 {
-    public interface IGroupOrderCenterFileFactory : ICenterFileFactory<GroupOrderCenter>
+    public interface IGOCFileFactory : ICenterFileFactory<GOC>
     {
 
     }
-    public class GroupOrderCenterFileFactory : CenterFileFactory<GroupOrderCenter>, IGroupOrderCenterFileFactory
+    public class GOCFileFactory : CenterFileFactory<GOC>, IGOCFileFactory
     {
 
     }
-    public interface IGOCommodityFileFactory : ICommodityFileFactory<GOCommodity>
+    public interface IGOCCFileFactory : ICommodityFileFactory<GOCC>
     {
 
     }
-    public class GOCommodityFileFactory : CommodityFileFactory<GOCommodity>, IGOCommodityFileFactory
+    public class GOCCFileFactory : CommodityFileFactory<GOCC>, IGOCCFileFactory
     {
 
     }
-    public interface ISGOCommodityFileFactory : IStatusFileFactory<SGOCommodity>
+    public interface ISGOCFileFactory : IStatusFileFactory<SGOC>
     {
 
     }
-    public class SGOCommodityFileFactory : StatusFileFactory<SGOCommodity>, ISGOCommodityFileFactory
+    public class SGOCFileFactory : StatusFileFactory<SGOC>, ISGOCFileFactory
     {
 
     }
-    public interface IMGOCommodityFileFactory : IStatusFileFactory<MGOCommodity>
+    public interface IMGOCFileFactory : IStatusFileFactory<MGOC>
     {
 
     }
-    public class MGOCommodityFileFactory : StatusFileFactory<MGOCommodity>, IMGOCommodityFileFactory
+    public class MGOCFileFactory : StatusFileFactory<MGOC>, IMGOCFileFactory
     {
 
     }
-    public interface IEGOCommodityFileFactory : IStatusFileFactory<EGOCommodity>
+    public interface IEGOCFileFactory : IStatusFileFactory<EGOC>
     {
 
     }
-    public class EGOCommodityFileFactory : StatusFileFactory<EGOCommodity>, IEGOCommodityFileFactory
+    public class EGOCFileFactory : StatusFileFactory<EGOC>, IEGOCFileFactory
     {
 
     }

@@ -41,6 +41,7 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
             base.Configure(builder);
             builder.Ignore(c => c.ChangedUsers);
             builder.Ignore(c => c.UserId);
+            builder.Ignore(c => c.CreateTime);
         }
     }
     public class KamisPartConfiguration : KamisEntityConfiguration<KamisPart>
@@ -48,6 +49,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisPart> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
         }
     }
@@ -56,6 +59,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisGrade> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
         }
     }
@@ -64,6 +69,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisCommodity> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
             builder.HasOne(p => p.KamisPart).WithMany(c => c.KamisCommodities).HasForeignKey(p => p.KamisPartId);
         }
@@ -73,6 +80,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisKindofCommodity> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
             builder.HasOne(c => c.KamisCommodity).WithMany(k => k.KamisKindsofCommodity).HasForeignKey(c => c.KamisCommodityId);
             builder.HasOne(c => c.KamisPart).WithMany(k => k.KamisKindsofCommodities).HasForeignKey(c => c.KamisPartId);
@@ -83,6 +92,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisCountryAdministrationPart> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
         }
     }
@@ -91,6 +102,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         public override void Configure(EntityTypeBuilder<KamisMarket> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
             builder.HasOne(o => o.KamisCountryAdministrationPart).WithMany(m => m.KamisMakrets).HasForeignKey(o => o.KamisCountryAdministrationPartId);
         }
@@ -101,6 +114,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         {
             base.Configure(builder);
             builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
             builder.Ignore(c => c.ImageofInfos);
             builder.HasOne(o => o.KamisMarket).WithMany(m => m.KamisWholeSalePrices).HasForeignKey(o => o.KamisMarketId);
@@ -113,6 +128,8 @@ namespace BusinessData.ofCommon.ofKamis.ofDbContext
         {   
             base.Configure(builder);
             builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.ChangedUsers);
+            builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
             builder.Ignore(c => c.ImageofInfos);
             builder.HasOne(o => o.KamisMarket).WithMany(m => m.KamisRetailPrices).HasForeignKey(o => o.KamisMarketId);

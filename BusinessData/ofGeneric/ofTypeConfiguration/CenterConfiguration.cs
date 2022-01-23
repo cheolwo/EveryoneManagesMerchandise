@@ -14,7 +14,6 @@ namespace BusinessData.ofGeneric.ofTypeConfiguration
         {
             base.Configure(builder);
             builder.Property(c => c.Name).HasMaxLength((int)ConstraintLength.Name);
-            builder.Property(c => c.Barcode).HasMaxLength((int)ConstraintLength.Barcode);
             builder.Property(c => c.CenterIPAddresses).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 v => JsonConvert.DeserializeObject<List<CenterIPAddress>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
@@ -27,6 +26,7 @@ namespace BusinessData.ofGeneric.ofTypeConfiguration
                 new ValueComparer<List<CenterMacAddress>>((c1, c2) => c1.SequenceEqual(c2),
                  c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
             c => c.ToList()));
+            
         }
     }
 }

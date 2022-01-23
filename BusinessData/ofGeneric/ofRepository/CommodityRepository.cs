@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,9 +40,17 @@ namespace BusinessData.ofGenericRepository
         public CommodityDataRepository(DbContext DbContext)
             :base(DbContext)
         {
-
+            if (DbContext != null)
+            {
+                _DbContext = DbContext;
+            }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
         }
-
+        public CommodityDataRepository()
+        {
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
+        }
+        
         public async Task<TEntity> GetByBarcodeAsync(string Barcode)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));

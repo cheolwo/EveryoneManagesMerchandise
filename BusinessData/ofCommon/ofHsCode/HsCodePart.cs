@@ -11,7 +11,6 @@ namespace BusinessData.ofCommon.ofHsCode
     [Relation(typeof(Country), "Country")] 
     public class Country : Entity, IRelationable
     {
-        [Get] public string Code { get; set; }
         public List<HsCodePart> HsCodePart { get; set; }
         public List<SubPartofHsCode> SubPartofHsCode { get; set; }
         public List<PracticalHsCode> PracticalHsCode { get; set; }

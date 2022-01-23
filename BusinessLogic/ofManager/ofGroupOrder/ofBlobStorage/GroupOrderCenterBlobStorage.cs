@@ -1,101 +1,101 @@
+using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofModel;
-using BusinessData.ofGroupOrder.ofRepository;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage
 {
-    public interface IGOCommodityBlobContainerFactory : IEntityContainerFactory<GOCommodity>
+    public interface IGOCCBlobContainerFactory : IEntityContainerFactory<GOCC>
     {
 
     }
-    public interface ISGOCommodityBlobContainerFactory : IEntityContainerFactory<SGOCommodity>
+    public interface ISGOCBlobContainerFactory : IEntityContainerFactory<SGOC>
     {
 
     }
-    public interface IMGOCommodityBlobContainerFactory : IEntityContainerFactory<MGOCommodity>
+    public interface IMGOCBlobContainerFactory : IEntityContainerFactory<MGOC>
     {
 
     }
-    public interface IEGOCommodityBlobContainerFactory : IEntityContainerFactory<EGOCommodity>
+    public interface IEGOCBlobContainerFactory : IEntityContainerFactory<EGOC>
     {
 
     }
-    public interface IGroupOrderCenterBlobContainerFactory : IEntityContainerFactory<GroupOrderCenter>
+    public interface IGOCBlobContainerFactory : IEntityContainerFactory<GOC>
     {
 
     }
-    public class GroupOrderCenterBlobContainerFactory : EntityContainerFactory<GroupOrderCenter>, IGroupOrderCenterBlobContainerFactory
+    public class GOCBlobContainerFactory : EntityContainerFactory<GOC>, IGOCBlobContainerFactory
     {
-        private readonly IGroupOrderCenterRepository _GroupOrderCenterRepository;
-        public GroupOrderCenterBlobContainerFactory(IGroupOrderCenterRepository GroupOrderCenterRepository)
-                :base(GroupOrderCenterRepository)
+        private readonly IGOCRepository _GOCRepository;
+        public GOCBlobContainerFactory(IGOCRepository GOCRepository)
+                :base(GOCRepository)
         {
-            _GroupOrderCenterRepository = GroupOrderCenterRepository;
+            _GOCRepository = GOCRepository;
         }
-        public override async Task<string> CreateNameofContainer(GroupOrderCenter entity)
+        public override async Task<string> CreateNameofContainer(GOC entity)
         {
             return await base.CreateNameofContainer(entity);
         }
     }
-    public interface IGOCommodityBlobStorage : IEntityBlobStorage<GOCommodity>
+    public interface IGOCCBlobStorage : IEntityBlobStorage<GOCC>
     {
 
     }
-    public interface ISGOCommodityBlobStorage : IEntityBlobStorage<SGOCommodity>
+    public interface ISGOCBlobStorage : IEntityBlobStorage<SGOC>
     {
 
     }
-    public interface IMGOCommodityBlobStorage : IEntityBlobStorage<MGOCommodity>
+    public interface IMGOCBlobStorage : IEntityBlobStorage<MGOC>
     {
 
     }
-    public interface IEGOCommodityBlobStorage : IEntityBlobStorage<EGOCommodity>
+    public interface IEGOCBlobStorage : IEntityBlobStorage<EGOC>
     {
 
     }
-    public interface IGroupOrderCenterBlobStorage : IEntityBlobStorage<GroupOrderCenter>
+    public interface IGOCBlobStorage : IEntityBlobStorage<GOC>
     {
 
     }
-    public class GOCommodityBlobStorage : EntityBlobStorage<GOCommodity>, IGOCommodityBlobStorage
+    public class GOCBlobStorage : EntityBlobStorage<GOC>, IGOCBlobStorage
     {
-        public GOCommodityBlobStorage(IGOCommodityBlobContainerFactory GOCommodityBlobContainerFactory)
-            : base(GOCommodityBlobContainerFactory)
+        public GOCBlobStorage(IGOCBlobContainerFactory GOCBlobContainerFactory)
+            : base(GOCBlobContainerFactory)
         {
 
         }
     }
-    public class SGOCommodityBlobStorage : EntityBlobStorage<SGOCommodity>, ISGOCommodityBlobStorage
+    public class SGOCBlobStorage : EntityBlobStorage<SGOC>, ISGOCBlobStorage
     {
-        public SGOCommodityBlobStorage(ISGOCommodityBlobContainerFactory SGOCommodityBlobContainerFactory)
-            : base(SGOCommodityBlobContainerFactory)
+        public SGOCBlobStorage(ISGOCBlobContainerFactory SGOCBlobContainerFactory)
+            : base(SGOCBlobContainerFactory)
         {
 
         }
 
     }
-    public class MGOCommodityBlobStorage : EntityBlobStorage<MGOCommodity>, IMGOCommodityBlobStorage
+    public class MGOCBlobStorage : EntityBlobStorage<MGOC>, IMGOCBlobStorage
     {
-        public MGOCommodityBlobStorage(IMGOCommodityBlobContainerFactory MGOCommodityBlobContainerFactory)
-            : base(MGOCommodityBlobContainerFactory)
+        public MGOCBlobStorage(IMGOCBlobContainerFactory MGOCBlobContainerFactory)
+            : base(MGOCBlobContainerFactory)
         {
 
         }
     }
-    public class EGOCommodityBlobStorage : EntityBlobStorage<EGOCommodity>, IEGOCommodityBlobStorage
+    public class EGOCBlobStorage : EntityBlobStorage<EGOC>, IEGOCBlobStorage
     {
-        public EGOCommodityBlobStorage(IEGOCommodityBlobContainerFactory EGOCommodityBlobContainerFactory)
-            : base(EGOCommodityBlobContainerFactory)
+        public EGOCBlobStorage(IEGOCBlobContainerFactory EGOCBlobContainerFactory)
+            : base(EGOCBlobContainerFactory)
         {
 
         }
     }
-    public class GroupOrderCenterBlobStorage : EntityBlobStorage<GroupOrderCenter>, IGroupOrderCenterBlobStorage
+    public class GOCCBlobStorage : EntityBlobStorage<GOCC>, IGOCCBlobStorage
     {
-        public GroupOrderCenterBlobStorage(IGroupOrderCenterBlobContainerFactory GroupOrderCenterBlobContainerFactory)
-            : base(GroupOrderCenterBlobContainerFactory)
+        public GOCCBlobStorage(IGOCCBlobContainerFactory GOCCBlobContainerFactory)
+            : base(GOCCBlobContainerFactory)
         {
 
         }

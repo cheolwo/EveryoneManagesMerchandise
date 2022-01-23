@@ -33,6 +33,9 @@ namespace BusinessData.Migrations.KAptDb
                     b.Property<string>("Classification")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 

@@ -3,69 +3,69 @@ using BusinessData.ofGenericRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
 using BusinessData.ofGroupOrder.ofModel;
 
-namespace BusinessData.ofGroupOrder.ofRepository
+namespace BusinessData.ofGO.ofRepository
 {
-    public interface IGroupOrderCenterRepository : ICenterDataRepository<GroupOrderCenter>
+    public interface IGOCRepository : ICenterDataRepository<GOC>
     {
-        Task<GroupOrderCenter> GetRelatedData(GroupOrderCenter GroupOrderCenter);
+        Task<GOC> GetRelatedData(GOC GOC);
     }
-    public interface IGOCommodityRepository : ICommodityDataRepository<GOCommodity>
+    public interface IGOCCRepository : ICommodityDataRepository<GOCC>
     {
 
     }
-    public interface ISGOCommodityRepository : IStatusDataRepository<SGOCommodity>
+    public interface ISGOCRepository : IStatusDataRepository<SGOC>
     {
 
     }
-    public interface IMGOCommodityRepository : IStatusDataRepository<MGOCommodity>
+    public interface IMGOCRepository : IStatusDataRepository<MGOC>
     {
 
     }
-    public interface IEGOCommodityRepository : IStatusDataRepository<EGOCommodity>
+    public interface IEGOCRepository : IStatusDataRepository<EGOC>
     {
 
     }
-    public class GroupOrderCenterRepository : CenterDataRepository<GroupOrderCenter>, IGroupOrderCenterRepository
+    public class GOCRepository : CenterDataRepository<GOC>, IGOCRepository
     {
-        public GroupOrderCenterRepository(GroupOrderDbContext GroupOrderDbContext)
-            :base(GroupOrderDbContext)
+        public GOCRepository(GODbContext GODbContext)
+            :base(GODbContext)
         {
 
         }
 
-        public Task<GroupOrderCenter> GetRelatedData(GroupOrderCenter GroupOrderCenter)
+        public Task<GOC> GetRelatedData(GOC GOC)
         {
             throw new System.NotImplementedException();
         }
     }
-    public class GOCommodityRepository : CommodityDataRepository<GOCommodity>, IGOCommodityRepository
+    public class GOCCRepository : CommodityDataRepository<GOCC>, IGOCCRepository
     {
-        public GOCommodityRepository(GroupOrderDbContext GroupOrderDbContext)
-            :base(GroupOrderDbContext)
+        public GOCCRepository(GODbContext GODbContext)
+            :base(GODbContext)
         {
 
         }
     }
-    public class SGOCommodityRepository : StatusDataRepository<SGOCommodity>, ISGOCommodityRepository
+    public class SGOCRepository : StatusDataRepository<SGOC>, ISGOCRepository
     {
-        public SGOCommodityRepository(GroupOrderDbContext GroupOrderDbContext)
-            :base(GroupOrderDbContext)
+        public SGOCRepository(GODbContext GODbContext)
+            :base(GODbContext)
         {
 
         }
     }
-    public class MGOCommodityRepository : StatusDataRepository<MGOCommodity>, IMGOCommodityRepository
+    public class MGOCRepository : StatusDataRepository<MGOC>, IMGOCRepository
     {
-        public MGOCommodityRepository(GroupOrderDbContext GroupOrderDbContext)
-            :base(GroupOrderDbContext)
+        public MGOCRepository(GODbContext GODbContext)
+            :base(GODbContext)
         {
 
         }
     }
-    public class EGOCommodityRepository : StatusDataRepository<EGOCommodity>, IEGOCommodityRepository
+    public class EGOCRepository : StatusDataRepository<EGOC>, IEGOCRepository
     {
-        public EGOCommodityRepository(GroupOrderDbContext GroupOrderDbContext)
-            :base(GroupOrderDbContext)
+        public EGOCRepository(GODbContext GODbContext)
+            :base(GODbContext)
         {
 
         }

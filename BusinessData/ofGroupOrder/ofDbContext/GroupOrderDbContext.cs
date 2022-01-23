@@ -1,19 +1,24 @@
 using BusinessData.ofGeneric.ofTypeConfiguration;
 using BusinessData.ofGroupOrder.ofModel;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessData.ofGroupOrder.ofDbContext
 {
-    public class GroupOrderDbContext : DbContext
+    public class GODbContext : DbContext
     {
         private string _connectionstring;
-        public GroupOrderDbContext(DbContextOptions<GroupOrderDbContext> options)
+        public GODbContext(DbContextOptions<GODbContext> options)
             :base(options)
         {
 
         }
-        public GroupOrderDbContext(string connectionstring)
+        public GODbContext(string connectionstring)
         {
             _connectionstring = connectionstring;
         }
@@ -24,46 +29,59 @@ namespace BusinessData.ofGroupOrder.ofDbContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new GOCommodityConfiguration());
-            modelBuilder.ApplyConfiguration(new GroupOrderCenterConfiguration());
-            modelBuilder.ApplyConfiguration(new SGOCommodityConfiguration());
-            modelBuilder.ApplyConfiguration(new MGOCommodityConfiguration());
-            modelBuilder.ApplyConfiguration(new EGOCommodityConfiguration());
+            modelBuilder.ApplyConfiguration(new GOCCConfiguration());
+            modelBuilder.ApplyConfiguration(new GOCConfiguration());
+            modelBuilder.ApplyConfiguration(new SGOConfiguration());
+            modelBuilder.ApplyConfiguration(new MGOConfiguration());
+            modelBuilder.ApplyConfiguration(new EGOConfiguration());
         }
     }
-    public class GOCommodityConfiguration : CommodityConfiguration<GOCommodity>
+    public class GOCCConfiguration : CommodityConfiguration<GOCC>
     {
-        public override void Configure(EntityTypeBuilder<GOCommodity> builder)
+        public override void Configure(EntityTypeBuilder<GOCC> builder)
         {
             base.Configure(builder);
+            builder.ToTable("GOCCC");
         }
     }
-    public class GroupOrderCenterConfiguration : CenterConfiguration<GroupOrderCenter>
+    public class GOCConfiguration : CenterConfiguration<GOC>
     {
-        public override void Configure(EntityTypeBuilder<GroupOrderCenter> builder)
+        public override void Configure(EntityTypeBuilder<GOC> builder)
         {
             base.Configure(builder);
+            builder.ToTable("GOCC");
+            builder.Property(c => c.OrderCenters).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+            builder.Ignore(c => c.CenterIPAddresses);
+            builder.Ignore(c => c.CenterMacAddresses);
         }
     }
-    public class SGOCommodityConfiguration : SStatusConfiguration<SGOCommodity>
+    public class SGOConfiguration : SStatusConfiguration<SGOC>
     {
-        public override void Configure(EntityTypeBuilder<SGOCommodity> builder)
+        public override void Configure(EntityTypeBuilder<SGOC> builder)
         {
             base.Configure(builder);
+            builder.ToTable("SGOC");
         }
     }
-    public class MGOCommodityConfiguration : MStatusConfiguration<MGOCommodity>
+    public class MGOConfiguration : MStatusConfiguration<MGOC>
     {
-        public override void Configure(EntityTypeBuilder<MGOCommodity> builder)
+        public override void Configure(EntityTypeBuilder<MGOC> builder)
         {
             base.Configure(builder);
+            builder.ToTable("MGOC");
         }
     }
-    public class EGOCommodityConfiguration : EStatusConfiguration<EGOCommodity>
+    public class EGOConfiguration : EStatusConfiguration<EGOC>
     {
-        public override void Configure(EntityTypeBuilder<EGOCommodity> builder)
+        public override void Configure(EntityTypeBuilder<EGOC> builder)
         {
             base.Configure(builder);
+            builder.ToTable("EGOC");
         }
     }
 }

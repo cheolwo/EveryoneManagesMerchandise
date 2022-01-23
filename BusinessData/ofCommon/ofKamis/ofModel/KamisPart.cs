@@ -327,7 +327,6 @@ namespace BusinessData.ofCommon.ofKamis.ofModel
 	[Relation(typeof(KamisKindofCommodity), nameof(KamisKindofCommodity))]
 	public class KamisKindofCommodity : KamisEntity, IRelationable
 	{
-		public string Code { get; set; }
 		public string WholesaleShippingUnit {get; set;} // 도매출하단위 5
 		public string WholeSaleShippingUnizSize {get; set;} // 도매출하단위크기 6
 		public string RetailShippingUnit {get; set;} // 소매출한단위 7

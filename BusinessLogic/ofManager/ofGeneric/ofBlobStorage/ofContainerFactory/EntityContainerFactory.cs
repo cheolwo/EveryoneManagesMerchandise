@@ -7,6 +7,14 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory
     public interface IEntityContainerFactory<TEntity> where TEntity : Entity, IRelationable
     {
         Task<string> CreateNameofContainer(TEntity entity);
+        public static string Create(TEntity entity)
+        {
+            StringBuilder stringBuilder = new();
+            stringBuilder.Append(entity.GetRelationCode()); // 1~4
+            stringBuilder.Append('-');
+            stringBuilder.Append(entity.UserId.ToLower());
+            return stringBuilder.ToString();
+        }
     }
 
     public class EntityContainerFactory<TEntity> : IEntityContainerFactory<TEntity> where TEntity : Entity, IRelationable
@@ -20,13 +28,6 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory
         private int ChainingCode = 0;
         // 이것의 의미가 같은 형식의 같은 유저에 대한 비정형 파일은
         // 같은 공간에 저장하겠다는 의미다. 이것을 기본으로 하자.
-        public virtual static string Create(TEntity entity)
-        {
-            stringBuilder.Append(entity.GetRelationCode()); // 1~4
-            stringBuilder.Append('-');
-            stringBuilder.Append(entity.UserId.ToLower());
-            return stringBuilder.ToString();
-        }
         public virtual async Task<string> CreateNameofContainer(TEntity entity)
         {
             stringBuilder.Append(entity.GetRelationCode()); // 1~4
