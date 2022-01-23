@@ -2,6 +2,7 @@
 using System;
 namespace BusinessData
 {
+    // Generic 을 구분할 줄 알아야 돼....
     public class Center : Entity
     {
         [Get] public string LoginId { get; set; }
