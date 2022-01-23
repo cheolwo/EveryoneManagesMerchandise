@@ -9,7 +9,6 @@ namespace BusinessData.ofCommon.ofFisheries.ofModel
     public class FishCommodity : Commodity, IRelationable
     {
         public string CopartnershipId { get; set; }
-        public string FisheriesId { get; set; }
         public Fisheries Fisheries { get; set; }
         public Copartnership Copartnership { get; set; }
         public List<MFishCommodity> MFishCommodities { get; set; }

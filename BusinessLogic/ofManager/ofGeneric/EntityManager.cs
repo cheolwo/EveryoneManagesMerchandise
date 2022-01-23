@@ -31,17 +31,19 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> Files, string connectionString);
         Task<TEntity> UpdateAsync(TEntity entity);
+        Task UpdateAttachAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity, List<IBrowserFile> Files);
         Task<List<TEntity>> GetToListByUserAsync(IdentityUser user);
         Task<List<TEntity>> GetToListAsync();
         Task<TEntity> GetByCodeAsync(string Code);
+        Task<TEntity> GetByIdAsync(string Id);
         Task DeleteByIdAsync(string Id);
         Dictionary<int, TEntity> ConvertToDic(List<TEntity> entities);
-
         Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target);
         Task<List<TEntity>> ExcelToEntities(string fileconnectionstring, Dictionary<PropertyInfo, int> target);
         object[, ] GetExcelDatas(string fileconnectionstring);
         Task EntitiesToDb(List<TEntity> entities);
+        Task EntitiesToDbAttach(List<TEntity> entities);
     }
 
     // 데이터 적합성 검사의 경우는 ApplicationLayer 단에서 해결해야될 문제야.
@@ -194,6 +196,21 @@ namespace BusinessLogic.ofManager.ofGeneric
         public async Task EntitiesToDb(List<TEntity> entities)
         {
             await _EntityDataRepository.AddEntities(entities);
+        }
+
+        public async Task<TEntity> GetByIdAsync(string Id)
+        {
+            return await _EntityDataRepository.GetByIdAsync(Id);
+        }
+
+        public async Task EntitiesToDbAttach(List<TEntity> entities)
+        {
+            await _EntityDataRepository.AddEntitiesByAttach(entities);
+        }
+
+        public async Task UpdateAttachAsync(TEntity entity)
+        {
+            await _EntityDataRepository.UpdateAttachAsync(entity);
         }
     }
 }

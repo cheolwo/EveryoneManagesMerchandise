@@ -18,6 +18,8 @@ namespace BusinessData
         Task<TEntity> GetByIdAsync(string Id);
         Task<List<TEntity>> GetToListWithRelated();
         Task AddEntities(IList<TEntity> entities);
+        Task AddEntitiesByAttach(IList<TEntity> entities);
+        Task UpdateAttachAsync(TEntity entity);
 
         // 특정 By
         Task<TEntity> GetByUserAsync(IdentityUser identityUser);
@@ -179,7 +181,25 @@ namespace BusinessData
             {
                 entity.CreateTime = DateTime.Now;
                 _DbContext.Set<TEntity>().Add(entity);
+                await _DbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task AddEntitiesByAttach(IList<TEntity> entities)
+        {
+            foreach(var entity in entities)
+            {
+                entity.CreateTime = DateTime.Now;
+                var attach = _DbContext.Attach(entity);
+                attach.State = EntityState.Modified;
+                await _DbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateAttachAsync(TEntity entity)
+        {
+            var attach = _DbContext.Attach(entity);
+            attach.State = EntityState.Modified;
             await _DbContext.SaveChangesAsync();
         }
     }

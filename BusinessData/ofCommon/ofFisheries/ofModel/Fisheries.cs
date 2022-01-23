@@ -7,9 +7,7 @@ namespace BusinessData.ofCommon.ofFisheries.ofModel
     [DataContext(typeof(FisheriesDbContext), DbConnectionString.FisheriesDbConnection)]
     [Relation(typeof(Fisheries), nameof(Fisheries))]
     public class Fisheries : Center, IRelationable // 조합창고
-    {
-        public Copartnership Copartnership { get; set; }
-        public string CopartnershipId { get; set; }
+    { 
         public List<MFishCommodity> MFishCommodities { get; set; }
         public List<EFishCommodity> EFishCommodities { get; set; }
         public List<SFishCommodity> SFishCommodities { get; set; }

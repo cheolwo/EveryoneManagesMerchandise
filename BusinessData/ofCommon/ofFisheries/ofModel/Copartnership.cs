@@ -8,8 +8,7 @@ namespace BusinessData.ofCommon.ofFisheries.ofModel
     [Relation(typeof(Copartnership), nameof(Copartnership))]
     public class Copartnership : Entity, IRelationable
     {
-        public List<Fisheries> Fisheries { get; set; }
-        public List<FishCommodity> FishCommodities { get; set; }
+        public List<string> FisheriesId { get; set; }
         public override string GetRelationCode()
         {
             RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));

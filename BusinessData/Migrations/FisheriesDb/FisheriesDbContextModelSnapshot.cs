@@ -83,15 +83,10 @@ namespace BusinessData.Migrations.FisheriesDb
                     b.Property<string>("SFishCommodityId")
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("TempId10")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasAlternateKey("TempId10");
 
                     b.HasIndex("EFishCommodityId");
 
@@ -258,6 +253,9 @@ namespace BusinessData.Migrations.FisheriesDb
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FisheriesId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
 
@@ -358,16 +356,11 @@ namespace BusinessData.Migrations.FisheriesDb
                 {
                     b.HasBaseType("BusinessData.Center");
 
-                    b.Property<string>("CopartnershipId")
-                        .HasColumnType("nvarchar(30)");
-
                     b.Property<string>("Docs")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("CopartnershipId");
 
                     b.ToTable("Fisheries", (string)null);
                 });
@@ -535,7 +528,7 @@ namespace BusinessData.Migrations.FisheriesDb
             modelBuilder.Entity("BusinessData.ofCommon.ofFisheries.ofModel.FishCommodity", b =>
                 {
                     b.HasOne("BusinessData.ofCommon.ofFisheries.ofModel.Copartnership", "Copartnership")
-                        .WithMany("FishCommodities")
+                        .WithMany()
                         .HasForeignKey("CopartnershipId");
 
                     b.HasOne("BusinessData.ofCommon.ofFisheries.ofModel.Fisheries", null)
@@ -553,17 +546,11 @@ namespace BusinessData.Migrations.FisheriesDb
 
             modelBuilder.Entity("BusinessData.ofCommon.ofFisheries.ofModel.Fisheries", b =>
                 {
-                    b.HasOne("BusinessData.ofCommon.ofFisheries.ofModel.Copartnership", "Copartnership")
-                        .WithMany("Fisheries")
-                        .HasForeignKey("CopartnershipId");
-
                     b.HasOne("BusinessData.Center", null)
                         .WithOne()
                         .HasForeignKey("BusinessData.ofCommon.ofFisheries.ofModel.Fisheries", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
-
-                    b.Navigation("Copartnership");
                 });
 
             modelBuilder.Entity("BusinessData.ofCommon.ofFisheries.ofModel.MFishCommodity", b =>
@@ -623,13 +610,6 @@ namespace BusinessData.Migrations.FisheriesDb
             modelBuilder.Entity("BusinessData.MStatus", b =>
                 {
                     b.Navigation("EStatuses");
-                });
-
-            modelBuilder.Entity("BusinessData.ofCommon.ofFisheries.ofModel.Copartnership", b =>
-                {
-                    b.Navigation("FishCommodities");
-
-                    b.Navigation("Fisheries");
                 });
 
             modelBuilder.Entity("BusinessData.SStatus", b =>

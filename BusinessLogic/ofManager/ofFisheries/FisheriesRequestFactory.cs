@@ -108,7 +108,7 @@ getselect0140List?serviceKey=인증키(URL Encode)
             List<HttpRequestMessage> httpRequestMessages = new();
             foreach (var center in Fisheries)
             {
-                Copartnership copartnership = await _entityDataRepostiroy.GetByIdAsync(center.CopartnershipId);
+                Copartnership copartnership = await _entityDataRepostiroy.GetByCodeAsync(center.Code);
                 string RequestMessage = BaseFisheriesAPIMessage("1", "10", copartnership.Name, center.Name);
                 httpRequestMessages.Add(new HttpRequestMessage(HttpMethod.Get, RequestMessage));
             }
@@ -120,7 +120,7 @@ getselect0140List?serviceKey=인증키(URL Encode)
             List<HttpRequestMessage> httpRequestMessages = new();
             foreach (var center in Fisheries)
             {
-                Copartnership copartnership = await _entityDataRepostiroy.GetByIdAsync(center.CopartnershipId);
+                Copartnership copartnership = await _entityDataRepostiroy.GetByIdAsync(center.Code);
                 foreach (var commodity in center.Commodities)
                 {
                     string RequestMessage = BaseMCommodityAPIMessage("1", "10", dt, copartnership.Name,
@@ -138,7 +138,7 @@ getselect0140List?serviceKey=인증키(URL Encode)
                 List<HttpRequestMessage> httpRequestMessages = new();
                 foreach (var center in Fisheries)
                 {
-                    Copartnership copartnership = await _entityDataRepostiroy.GetByIdAsync(center.CopartnershipId);
+                    Copartnership copartnership = await _entityDataRepostiroy.GetByCodeAsync(center.Code);
                     foreach (var commodity in center.Commodities)
                     {                      
                         string RequestMessage = BaseSECommodityAPIMessage("1", "10", dt, copartnership.Name,
@@ -154,7 +154,7 @@ getselect0140List?serviceKey=인증키(URL Encode)
                 List<HttpRequestMessage> httpRequestMessages = new();
                 foreach (var center in Fisheries)
                 {
-                    Copartnership copartnership = await _entityDataRepostiroy.GetByIdAsync(center.CopartnershipId);
+                    Copartnership copartnership = await _entityDataRepostiroy.GetByCodeAsync(center.Code);
                     foreach (var commodity in center.Commodities)
                     {                    
                         string RequestMessage = BaseSECommodityAPIMessage("1", "10", dt, copartnership.Name,

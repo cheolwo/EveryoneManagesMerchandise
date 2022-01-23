@@ -1,11 +1,9 @@
-﻿using BusinessData;
-using BusinessData.ofCommon.ofFisheries.ofModel;
+﻿using BusinessData.ofCommon.ofFisheries.ofModel;
 using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManagement;
 using BusinessLogic.ofManager.ofFisheries;
 using BusinessLogic.ofManager.ofGeneric;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 
 namespace PlatformManager.Pages
@@ -50,7 +48,7 @@ namespace PlatformManager.Pages
         }
         public async Task ExcelUserAndCenterToDb()
         {
-            Dictionary<Entity, Dictionary<PropertyInfo, int>> Targets = new();
+            Dictionary<Type, Dictionary<PropertyInfo, int>> Targets = new();
             var userProperties = typeof(Copartnership).GetProperties();
             Dictionary<PropertyInfo, int> UserTargetColumn = new();
             foreach (var prop in userProperties)
@@ -66,9 +64,9 @@ namespace PlatformManager.Pages
                     continue;
                 }
             }
-            Targets.Add(new Copartnership(), UserTargetColumn);
+            Targets.Add(typeof(Copartnership), UserTargetColumn);
            
-            var centerProperties = typeof(Copartnership).GetProperties();
+            var centerProperties = typeof(Fisheries).GetProperties();
             Dictionary<PropertyInfo, int> CenterTargetColumn = new();
             foreach (var prop in centerProperties)
             {
@@ -83,7 +81,24 @@ namespace PlatformManager.Pages
                     continue;
                 }
             }
-            Targets.Add(new Fisheries(), CenterTargetColumn);
+            Targets.Add(typeof(Fisheries), CenterTargetColumn);
+
+            var commodityProperties = typeof(FishCommodity).GetProperties();
+            Dictionary<PropertyInfo, int> CommodityTargetColumn = new();
+            foreach (var prop in commodityProperties)
+            {
+                if (prop.Name.Equals("Name"))
+                {
+                    CommodityTargetColumn.Add(prop, 7);
+                    continue;
+                }
+                if (prop.Name.Equals("Code"))
+                {
+                    CommodityTargetColumn.Add(prop, 3);
+                    continue;
+                }
+            }
+            Targets.Add(typeof(FishCommodity), CommodityTargetColumn);
             await FisheriesManagement.ExcelToDb(FisheriesCodeFilePath, Targets);
         }
     }

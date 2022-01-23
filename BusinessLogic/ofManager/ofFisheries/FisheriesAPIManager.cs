@@ -99,7 +99,6 @@ namespace BusinessLogic.ofManager.ofFisheries
                         newCenter.Code = data[i, 2]?.ToString() ?? "";
                         newCenter.Name = data[i, 6]?.ToString() ?? "";
                         Copartnership copartnership = await _CopartnershipManager.GetByCodeAsync(data[i, 1].ToString());
-                        newCenter.CopartnershipId = copartnership.Id;
                         await _CenterManager.CreateAsync(newCenter);
                         continue;
                     }
@@ -130,7 +129,7 @@ namespace BusinessLogic.ofManager.ofFisheries
                     var Copartner = await _CopartnershipManager.GetByCodeAsync(PartnerCode);
                     if(Fisheries != null  && Copartner != null)
                     {
-                        fishCommodity.FisheriesId = Fisheries.Id;
+                        fishCommodity.CenterId = Fisheries.Id;
                         fishCommodity.CopartnershipId = Copartner.Id;
                         await _CommodityManager.CreateAsync(fishCommodity);
                         continue;

@@ -11,11 +11,19 @@ namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
         object[,] InitExcelData(string fileconnection);
         List<TEntity> SetExcelEntities(object[,] datas, Dictionary<PropertyInfo, int> Target);
     }
+    public interface ICenterFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Center
+    {
+        Dictionary<string, List<TEntity>> SetExcelCenters(object[,] datas, Dictionary<PropertyInfo, int> Target, int UserTarget);
+    }
+    public interface ICommodityFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Entity
+    {
+        Dictionary<string, List<TEntity>> SetExcelCommodities(object[,] datas, Dictionary<PropertyInfo, int> Target, int CenterTarget);
+    }
     public class EntityFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Entity, new()
     {
-        Application Application { get; set; }
-        Workbook Workbook { get; set; }
-        Worksheet Worksheet { get; set; }
+        protected Application Application { get; set; }
+        protected Workbook Workbook { get; set; }
+        protected Worksheet Worksheet { get; set; }
         public EntityFileFactory()
         {
         }
@@ -70,14 +78,14 @@ namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
             }
             catch
             {
+                Application.Workbooks.Close();
+                Application = null;
                 return entities;
             }
+            Application.Workbooks.Close();
+            Application = null;
             return entities;
         }
-    }
-    public interface ICenterFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Center
-    {
-        Dictionary<string, List<TEntity>> SetExcelCenters(object[,] datas, Dictionary<PropertyInfo, int> Target, int UserTarget);
     }
     public class CenterFileFactory<TEntity> : EntityFileFactory<TEntity>, ICenterFileFactory<TEntity> where TEntity : Center, new()
     {
@@ -109,17 +117,17 @@ namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
                     {
                         entities.Add(entity);
                         string UserCode = datas[i, UserTarget].ToString();
-                        var values = keyValuePairs[UserCode];
-                        if (values.Count > 0 || values == null) // 초기값 확인 및 저장
+                        // UserCode 라는 Key가 있는지 확인
+                        bool IsContain = keyValuePairs.ContainsKey(UserCode);
+                        if(IsContain)
                         {
-                            List<TEntity> newValues = new();
-                            newValues.Add(entity);
-                            keyValuePairs.Add(UserCode, newValues);
+                            var values = keyValuePairs[UserCode];
+                            values.Add(entity);
                             i++;
                         }
-                        else // UserCode 관계성을 맺어 데이터  저장
+                        else
                         {
-                            values.Add(entity);
+                            keyValuePairs.Add(UserCode, new List<TEntity>() {entity});
                             i++;
                         }
                     }
@@ -132,18 +140,14 @@ namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
             }
             catch
             {
+                Application.Workbooks.Close();
+                Application = null;
                 return keyValuePairs;
             }
+            Application.Workbooks.Close();
+            Application = null;
             return keyValuePairs;
         }
-    }
-    public interface ICommodityFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Entity
-    {
-
-    }
-    public class CommodityFileFactory<TEntity> : EntityFileFactory<TEntity>, ICommodityFileFactory<TEntity> where TEntity : Commodity, new()
-    {
-
     }
     public interface IStatusFileFactory<TEntity> : IEntityFileFactory<TEntity> where TEntity : Status
     {
