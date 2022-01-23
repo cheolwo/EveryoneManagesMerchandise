@@ -72,7 +72,8 @@ namespace BusinessLogic.ofManagement
                 DicFisheries = await _FisheriesManager.ExcelToCenterEntities(fileConnectionString, FisheiresTarget, 1);
             }
             if(FishCommodityTarget.Count > 0){
-                DicFishCommodities = await _FishCommodityManager.ExcelToCommodityEntities(fileConnectionString, FishCommodityTarget, 2);
+                DicFishCommodities = await _FishCommodityManager.ExcelToCommodityEntities(fileConnectionString,
+                    FishCommodityTarget, 2);
             }
             if (copartnerships.Count > 0 && DicFisheries.Count > 0 && DicFishCommodities.Count > 0)
             {

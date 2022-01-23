@@ -65,7 +65,12 @@
       "ProjectGuid": "717b0c65-4ef7-4a51-acbf-058f3179ef84",
       "DisplayName": "BusinessRazor",
       "ColorIndex": 11
+    },
+    "cf15c1b3-ab9e-413e-96d1-ceeab42b4d68": {
+      "ProjectGuid": "cf15c1b3-ab9e-413e-96d1-ceeab42b4d68",
+      "DisplayName": "FisheriesDb",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 12
+  "NextColorIndex": 13
 }
