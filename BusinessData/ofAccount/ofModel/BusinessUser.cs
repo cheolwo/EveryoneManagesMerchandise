@@ -10,62 +10,45 @@ using System.ComponentModel.DataAnnotations.Schema;
 // 역할에 등록이 될 때마다 사용자 등록이 가능해지도록 만드는 게 바람직하겠다.
 namespace BusinessData.ofAccount.ofModel
 {
-    [NotMapped]
-    public class BusinessAccountEntity
-    {
-        [Key] public string Id { get; set; }
-        public DateTime CreateTime {get; set;}
-        public IList<ChangeUser> ChangedUsers {get; set;}
-        public IList<ImageofInfo> ImageofInfos {get; set;}
-        public IList<Doc> Docs {get; set;}
-    }
     // IdentityDataBase
-
-    public class BusinessUser : BusinessAccountEntity, IRelatedUser
+    public class BusinessUser : Entity, IRelationable
     {
-        public string UserId {get ;set;} // IdentityUser.Id
-        public string BuinessNumber { get; set; }
+        public string BuinessNumber { get; set; } // 사업자 등록번호
         public string CoutryCode {get; set;}    // 바코드 국가코드
         public string LogisticsCode {get; set;} // 바코드 업체코드
         public List<JournalSetting> JournalSettings { get; set; }
         public List<PayService> PayServices { get; set; }
         public List<TableSetting> TableSetings { get; set; }
 
-        public string GetRelatedUser()
-        {
-            throw new NotImplementedException();
-        }
     }
-    public class WarehouseUser : BusinessUser
+    public class JournalSetting : Entity, IRelationable
     {
-
-    }
-
-    public class JournalSetting : BusinessAccountEntity
-    {
-        public string Purspoe { get; set; }
+        public string Purpose {get; set;}
+        public string RelationCode {get; set;}
         public IList<string> Debits { get; set; }
         public IList<string> Credits { get; set; }
         public BusinessUser BusinessUser { get; set; }
     }
-    public class PayService : BusinessAccountEntity
+    public class PayService : Entity, IRelationable
     {
         public string ServiceName { get; set; }   // EntityManager,  OpenMakret, Tax, Message.. 등등
         public string DetailServiceName { get; set; } // TCommodity, SCommodity... 등등
-        public IList<string> oprations { get; set; } // Add, Delete, Get, Update
         public BusinessUser BusinessUser { get; set; }
     }
-    public class TableSetting : BusinessAccountEntity
+    public class TableSetting : Entity, IRelationable
     {
-        public string EntityCode {get; set; }
-        public List<string> SelectColumn { get; set; }
+        public string RelationCode {get; set; }
+        public string ManagedMode {get; set;}
+        public string ViewMode {get; set;} // 
+        public List<string> GetColumnsSelected {get; set;}
+        public List<string> DetailColumnsSelected {get; set;}
         public BusinessUser BusinessUser {get; set;}
     }
-    public class PopBillInfo
-    {
-        public string PopBillId { get; set; }
-        public string Password { get; set; }
-        public string LinkId { get; set; }
-        public string SecreatKey { get; set; }
-    }
+    // public class PopBillInfo
+    // {
+    //     public string PopBillId { get; set; }
+    //     public string Password { get; set; }
+    //     public string LinkId { get; set; }
+    //     public string SecreatKey { get; set; }
+    // }
 }

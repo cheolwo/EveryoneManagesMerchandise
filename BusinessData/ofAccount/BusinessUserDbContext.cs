@@ -3,82 +3,88 @@ using BusinessData.ofGeneric.ofTypeConfiguration.ofAccount;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessData.ofAccount
 {
-    // 사업자 계정 DB
-    public class EmployerIdentityDbContext : IdentityDbContext
-    {
-        public EmployerIdentityDbContext(DbContextOptions<EmployerIdentityDbContext> options)
-            :base(options)
-        {
-
-        }
-    }
-
-    // 근로자 계정 DB
-    public class EmployeeIdentityDbContext : IdentityDbContext
-    {
-        public EmployeeIdentityDbContext(DbContextOptions<EmployeeIdentityDbContext> options)
-            :base(options)
-        {
-
-        }
-    }
-    
-    // 사업자 인력관리 DB
-    public class EmployerEmployeeIdentityDbContextg : IdentityDbContext
-    {
-        public EmployerEmployeeIdentityDbContextg(DbContextOptions<EmployerEmployeeIdentityDbContextg> options)
-            :base(options)
-        {
-
-        }
-    }
-   
     public class BusinessUserDbContext : DbContext
     {
+        private string _connectionstring;
         public BusinessUserDbContext(DbContextOptions<BusinessUserDbContext> options)
             :base(options)
         {
 
         }
+        public BusinessUserDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(_connectionstring is null) { _connectionstring = DbConnectionString.BusinessUserDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BusinessUserConfiguration());
+            modelBuilder.ApplyConfiguration(new JournalSettingConfiguration());
+            modelBuilder.ApplyConfiguration(new PayServiceConfiguration());
+            modelBuilder.ApplyConfiguration(new TableSettingConfiguration());
         }
     }
-    public class BusinessUserConfiguration : BusinessAccountEntityConfiguration<BusinessUser>
+    public class BusinessUserConfiguration : EntityConfiguration<BusinessUser>
     {
         public override void Configure(EntityTypeBuilder<BusinessUser> builder)
         {
             base.Configure(builder);
         }
     }
-    // public class AccountDbContext : IdentityDbContext<BusinessUser>
-    // {
-    //     public AccountDbContext(DbContextOptions<AccountDbContext> options)
-    //         :base(options)
-    //     {
-
-    //     }
-    //     protected override void OnModelCreating(ModelBuilder builder)
-    //     {
-    //         base.OnModelCreating(builder);
-    //         builder.ApplyConfiguration(new BusinessUserConfiguration());
-    //     }
-    // }
-    // public class BusinessUserConfiguration : IEntityTypeConfiguration<BusinessUser>
-    // {
-    //     public void Configure(EntityTypeBuilder<BusinessUser> builder)
-    //     {
-    //         builder.Property(c => c.JournalSettings).HasConversion(
-    //               v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-    //               v => JsonConvert.DeserializeObject<IList<JournalSetting>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
-    //         builder.Property(c => c.PayServices).HasConversion(
-    //               v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
-    //               v => JsonConvert.DeserializeObject<IList<PayService>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
-   
-    //     }
-    // }
+    public class JournalSettingConfiguration : EntityConfiguartion<JournalSetting>
+    {
+        public override void Configure(EntityTypeBuilder<JournalSetting> builder)
+        {
+            builder.Property(c => c.Debits).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+            builder.Property(c => c.Credits).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+        }
+    }
+    public class PayServiceConfiguration : EntityConfiguration<PayService>
+    {
+        public override void Configure(EntityTypeBuilder<PayService> builder)
+        {
+            base.Configure(builder);
+        }
+    }
+    public class TableSettingConfiguration : EntityConfiguration<TableSetting>
+    {
+        public override void Configure(EntityTypeBuilder<TableSetting> builder)
+        {
+            base.Configure(builder);
+            builder.Property(c => c.GetColumns).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+            builder.Property(c => c.DetailColumns).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+        }
+    }
 }

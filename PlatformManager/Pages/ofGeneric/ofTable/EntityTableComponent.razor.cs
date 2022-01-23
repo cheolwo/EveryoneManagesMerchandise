@@ -14,16 +14,21 @@ namespace PlatformManager.Pages.ofGeneric
     // EntityTableComponent Control Dialog View
     // 제어는 부모 페이지에서 한다.
     // Many, One is RelationShip
-    public enum TableViewMode {Dialog, Page}
-    public enum TableStateMode {Get, Detail} 
+    public enum TableManagedMode {Dialog, Page}
+    public enum TableViewMode {Get, Detail} 
     // Foreign Key의 경우 버튼으로 나타낸다. View 단 코드 처리하는 게 남아있다.
-    public class EntityTableComponent<TEntity> : ComponentBase where TEntity: Entity, IRelationable, ITablable, new()
+    // 프론트 개발자는 주어진 기능을 이용하여 앞에 디자인 단을 개발하는 그런 사람을 말하는 게 아닌가 싶네.
+    public partial class EntityTableComponent<TEntity> : ComponentBase where TEntity: Entity, IRelationable, ITablable, new()
     {
         [Inject] public IEntityManager<TEntity> EntityManager {get; set;}
+        [Inject] public IEntityManager<BusinessUser> BusinessUserManager {get; set;}
+        [Inject] public EntityNavigateFactory<TEntity> EntityNavigateFactory {get; set;}
+        [Inject] public NavigationManager NavigationManager {get; set;}
         [CascadingParameter] public UserComponent UserComponent {get; set;}
         [Parameter] public List<TEntity> Entities { get; set; }
-        [Parameter] public TableViewMode ViewMode {get; set;}
-        [Parameter] public TableStateMode StateModel {get; set;}        
+        [Parameter] public string ViewMode {get; set;}
+        [Parameter] public string ManagedMode {get; set;}    
+        private TableSetting tableSetting {get; set;}    
         private Dictionary<string, List<PropertyInfo>> DicTableProp {get; set;}
         private List<string> OneValueColumns = new();
         public List<PropertyInfo> OneValues = new();
@@ -40,14 +45,37 @@ namespace PlatformManager.Pages.ofGeneric
         protected override async Task OnParameterSetAsync()
         {
             // 이런 거는 ? 로 어떻게 처리할 수 있겠다.
-            if(UserComponent != null) { IdentityUser = UserComponent.IdentityUser;}
-            //if(StateModel == null ) { StateModel = TableStateMode.Get;}
+            if(UserComponent != null) 
+            {
+                IdentityUser = UserComponent.IdentityUser;
+                var BusinessUser = await BusinessUserManager.GetByUserId(IdentityUser.Id); // 이 코드는 암묵적으로 SNS 계정 하나 당 비즈니스 유저 하나만을 나타낼 수 있음을 의미한다.
+                if(BusinessUser == null) {NavigationManager.NavigateTo($"/Create/BusinessUser/{IdentityUser.Id}");}
+                TableSetting = await BusinessUser.TableSettings.FirstorDefaultAsync(e=>e.RelationCode.Equals(Entity.GetRelationCode()));
+                if(TableSetting != null)
+                {
+                  TableManagedMode = TableSetting.ManagedMode;
+                  TableViewMode = TableSetting.ViewMode; 
+                  if(TableSetting.GetColumnsSelected == null)
+                  {
+                      TableSetting.GetColumnsSelected = new();
+                  }
+                  if(TableSetting.DetailColumnsSelected == null)
+                  {
+                      TableSetting.DetailColumnsSelected = new();
+                  }
+                }
+                else
+                {
+                    await InitUserTableSetting(BusinessUser);
+                }
+            }
+            
         }
         protected override async Task OnInitializedAsync()
         {            
             var props = typeof(TEntity).GetProperties();
             DicTableProp = Entity.GetToDictionaryforClassifiedPropertyByAttribute();    
-            InitViewColumn(StateModel);
+            InitViewColumn(StateMode);
             if(IdentityUser != null)
             {
                 Entities = await EntityManager.GetToListByUserAsync(IdentityUser);
@@ -70,9 +98,9 @@ namespace PlatformManager.Pages.ofGeneric
             IsOpenUpdateDialog = !IsOpenUpdateDialog;
         }    
         // PropertyInfo.PropertyType is being
-        private void InitViewColumn(TableStateMode stateMode)
+        private void InitViewColumn(TableViewMode ViewMode)
         {
-            if(stateMode.Equals(TableStateMode.Get))
+            if(ViewMode.Equals(TableViewMode.Get))
             {   
                 var props = DicTableProp[TableMetaInfo.Get];
                 foreach(var prop in props)
@@ -89,7 +117,7 @@ namespace PlatformManager.Pages.ofGeneric
                 InitOneValues(OneValues);
                 InitManyValues(ManyValues);
             }
-            if(stateMode.Equals(TableStateMode.Detail))
+            if(ViewMode.Equals(TableViewMode.Detail))
             {
                 var props = DicTableProp[TableMetaInfo.Detail];
                 foreach(var prop in props)
@@ -129,7 +157,22 @@ namespace PlatformManager.Pages.ofGeneric
         }
         public async Task CreateAsync(TEntity entity)
         {
-            
+            // 이러한 코드 부분은 Finallty 에 해당한다.
+            await EntityManager.CreateAsync(entity);
+            SwitchCreateDialog();
+            NavigationManager.NavigateTo(EntityNavigateFactory.GetPageofEntity());
+        }
+        public async Task UpdateAsync(TEntity entity)
+        {
+            await EntityManager.UpdateAsync(entity);
+            SwitchUpdateDialog();
+            NavigationManager.NavigateTo(EntityNavigateFactory.GetPageofEntity());
+        }
+        public async Task DeleteAsync(TEntity entity)
+        {
+            await EntityManager.DeleteAsync(entity);
+            SwitchCDeleteDialog();
+            NavigationManager.NavigateTo(EntityNavigateFactory.GetPageofEntity());
         }
     }
 }

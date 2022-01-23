@@ -24,6 +24,7 @@ namespace BusinessData
         public const string KamisDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KamisDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string KAptDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KAptInfoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string FisheriesDbConnection = "Server=(localdb)\\mssqllocaldb;Database=FisheriesDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string BusinessUserDbConnection = "Server=(localdb)\\mssqllocaldb;Database=BusinessUserDb;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
     public class OneAttribute : Attribute
     {
