@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Reflection;
+
 namespace PlatformManager.Pages.ofGeneric
 {
     // 이것도 Dictionary 형태로 만드는 게 좋아보이기는 해.
@@ -14,7 +17,7 @@ namespace PlatformManager.Pages.ofGeneric
         {
             NamePropPairs.Add(name, prop);
         }
-        public IEnumrable<string> GetColumns()
+        public IEnumerable<string> GetColumns()
         {
             return NamePropPairs.Keys;
         }
