@@ -1,5 +1,5 @@
 namespace PlatformManager.Pages.ofGeneric
-{ 
+{
     // 1. Column Name
     // 2. Column Value
     // 3. Manager
@@ -9,54 +9,46 @@ namespace PlatformManager.Pages.ofGeneric
     // Many, One is RelationShip
     public enum TableViewMode {Dialog, Page}
     public enum TableStateMode {Get, Detail} 
-    // 이것도 Dictionary 형태로 만드는 게 좋아보이기는 해.
-    public class TableSetting
-    {
-        private Dictionary<string, PropertyInfo> NamePropPairs {get; set;}
-        private PropertyInfo Origin {get; set;}
-        public TableSetting(PropertyInfo origin)
-        {
-            Origin = origin;
-            NamePropPairs = new();
-        }    
-        public void Add(string name, PropertyInfo prop)
-        {
-            NamePropPairs.Add(name, prop);
-        }
-        public IEnumrable<string> GetColumns()
-        {
-            return NamePropPairs.Keys;
-        }
-        public List<PropertyInfo> GetValues()
-        {
-            List<PropertyInfo> props = new();
-            foreach(var key in NamePropPairs.Keys)
-            {
-                props.Add(NamePropPairs[key]);
-            }
-            return props;
-        }
-    }
-    // One의 경우 버튼으로 나타낸다.
-    public class EntityTableComponent<TEntity> : CompoenentBase where TEntity: Entity, IRelationable, ITablable
+    // Foreign Key의 경우 버튼으로 나타낸다. View 단 코드 처리하는 게 남아있다.
+    public class EntityTableComponent<TEntity> : CompoenentBase where TEntity: Entity, IRelationable, ITablable, new()
     {
         [Inject] public IEntityManager<TEntity> EntityManager {get; set;}
+        [CascadingParameter] public UserComponent UserComponent {get; set;}
         [Parameter] public List<TEntity> Entities = new();
         [Parameter] public TableViewMode ViewMode {get; set;}
-        [Parameter] public TableStatieMode StateMode {get; set;}
+        [Parameter] public TableStatieMode StateMode {get; set;}        
         private Dictionary<string, List<PropertyInfo>> DicTableProp {get; set;}
         private List<string> OneValueColumns = new();
-        private List<PropertyInfo> OneValues = new();
-        private List<PropertyInfo> ManyValues = new();
+        public List<PropertyInfo> OneValues = new();
+        public List<PropertyInfo> ManyValues = new();
         private TEntity Entity = new();
+        private IdentityUser IdentityUser {get; set;}
         private bool IsOpenCreateDialog {get; set;}
         private bool IsOpenUpdateDilaog {get; set;} 
         protected bool IsOpenDeleteDialog {get; set;}
-        protected override async Task OninitializedAsync()
+        // 사용자 정의 View를 여기서 불러오면 되겠다.
+        // IdentityUser 초기화 할 때.
+        // 테이블 옵션에 해당하는 기능들을 추가했을 때 사용자 설정을 기억해야되니
+        // OnParameterSetAsync()에서 기억하게 만들면 되겠다.
+        protected override async Task OnParameterSetAsync()
+        {
+            // 이런 거는 ? 로 어떻게 처리할 수 있겠다.
+            if(UserComponent != null) { IdentityUser = UserComponent.IdentityUser;}
+            if(StateModel == null ) { StateMode = TableStateMode.Get;}
+        }
+        protected override async Task OnInitializedAsync()
         {            
             var props = typeof(TEntity).GerProperties();
-            DicTableProp = Entity.GetToDictionaryforClassifiedPropertyByAttribute();
-            Entities = await EntityManager.GetToListAsync();              
+            DicTableProp = Entity.GetToDictionaryforClassifiedPropertyByAttribute();    
+            InitViewColumn(StateMode);
+            if(IdentityUser != null)
+            {
+                Entities = await EntityManager.GetToListByUserAsync(IdentityUser);
+            }     
+            else
+            {
+                Entities = await EntityManager.GetToListAsync();
+            }
         }
         public void SwitchCreateDialog()
         {
@@ -127,6 +119,10 @@ namespace PlatformManager.Pages.ofGeneric
             {
                 OneValueColumns.Add(prop.Name);
             }
+        }
+        public async Task CreateAsync(TEntity entity)
+        {
+            
         }
     }
 }
