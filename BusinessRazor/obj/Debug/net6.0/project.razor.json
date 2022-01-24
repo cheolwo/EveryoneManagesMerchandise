@@ -114,6 +114,218 @@
         }
       },
       {
+        "HashCode": 1889640888,
+        "Kind": "Components.Component",
+        "Name": "PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity>",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EntityCreateComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EventCreate",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<TEntity>",
+            "Metadata": {
+              "Common.PropertyName": "EventCreate",
+              "Components.EventCallback": "True",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EventCancel",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback",
+            "Metadata": {
+              "Common.PropertyName": "EventCancel",
+              "Components.EventCallback": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Entity",
+            "TypeName": "TEntity",
+            "Metadata": {
+              "Common.PropertyName": "Entity",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "IsOpen",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "IsOpen"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ViewMode",
+            "TypeName": "PlatformManager.Pages.ofGeneric.TableViewMode",
+            "IsEnum": true,
+            "Metadata": {
+              "Common.PropertyName": "ViewMode"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "HashCode": -255153286,
+        "Kind": "Components.Component",
+        "Name": "PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity>",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformManager.Pages.ofGeneric.EntityCreateComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EventCreate",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<TEntity>",
+            "Metadata": {
+              "Common.PropertyName": "EventCreate",
+              "Components.EventCallback": "True",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EventCancel",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback",
+            "Metadata": {
+              "Common.PropertyName": "EventCancel",
+              "Components.EventCallback": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Entity",
+            "TypeName": "TEntity",
+            "Metadata": {
+              "Common.PropertyName": "Entity",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "IsOpen",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "IsOpen"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ViewMode",
+            "TypeName": "PlatformManager.Pages.ofGeneric.TableViewMode",
+            "IsEnum": true,
+            "Metadata": {
+              "Common.PropertyName": "ViewMode"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PlatformManager.Pages.ofGeneric.EntityCreateComponent<TEntity>",
+          "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1842086564,
+        "Kind": "Components.Component",
+        "Name": "PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity>",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EntityTableComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "HashCode": 165140604,
+        "Kind": "Components.Component",
+        "Name": "PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity>",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformManager.Pages.ofGeneric.EntityTableComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TEntity",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TEntity for the PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity> component.",
+            "Metadata": {
+              "Common.PropertyName": "TEntity",
+              "Components.TypeParameter": "True",
+              "Components.TypeParameterIsCascading": "False"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "PlatformManager.Pages.ofGeneric.EntityTableComponent<TEntity>",
+          "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -876609937,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.CascadingValue<TValue>",
