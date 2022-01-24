@@ -37,16 +37,13 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         // 생성자의 패스워드 해쉬 인터페이스를 상속받는 개체가 있어야겠다.
     }
-    public interface ICenterManager<TEntity> : IEntityManager<TEntity> where TEntity : Center, IRelationable
+    public interface ICenterManager<TEntity> : IEntityManager<TEntity>, ICenterDataRepository<TEntity> where TEntity : Center, IRelationable
     {
         Task<TEntity> GetByUserAsync(IdentityUser IdentityUser);
         Task<TEntity> LoginAsync(string id, string password);
         Task<bool> LoginByCryptPasswrodAsync(TEntity entity, string id, string cryptPassword);
-
         Task<Dictionary<string, List<TEntity>>> ExcelToCenterEntities(string fileconnectionString, Dictionary<PropertyInfo, int> Target,
                                             int UserCodeTarget);
-
-
     }
     public class CenterManager<TEntity> : EntityManager<TEntity>, ICenterManager<TEntity> where TEntity : Center, IRelationable
     {

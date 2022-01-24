@@ -22,6 +22,8 @@ namespace BusinessData
         Task<List<TEntity>> GetToListWithCenterRoles();
         // By With
         Task<List<TEntity>> GetToListByCountryCodeWithRelated(string CoutryCode);
+        Task<TEntity> GetByCenterWithStatus(TEntity entity);
+
     }
     public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>, 
                                                     ICenterDataRepository<TEntity>
@@ -111,6 +113,12 @@ namespace BusinessData
                 return true;
             }
             return false;
+        }
+        public async Task<TEntity> GetByCenterWithStatus(TEntity entity)
+        {
+            return await _DbContext.Set<TEntity>().Where(e=>e.Equals(entity)).Include(entity => entity.SStatuses).
+                                                                              Include(entity => entity.MStatuses).
+                                                                              Include(entity => entity.EStatuses);
         }
     }
 }

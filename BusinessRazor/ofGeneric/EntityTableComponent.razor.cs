@@ -7,16 +7,25 @@ using System.Reflection;
 
 namespace PlatformManager.Pages.ofGeneric
 {
+    // 내가 한 것은 디자인이라기 보다는 TableCompoentnt 추상화.
     public enum TableManagedMode {Dialog, Page}
     public enum TableViewMode {Get, Detail} 
-    public partial class EntityTableComponent<TEntity> : ComponentBase where TEntity: Entity, IRelationable, ITablable, new()
+    public class EntityTableComponent<TEntity> : ComponentBase where TEntity: Entity, IRelationable, ITablable, new()
     {
-        [Inject] public IEntityManager<TEntity> EntityManager {get; set;}
-        [Inject] public IEntityManager<BusinessUser> BusinessUserManager {get; set;}
-        [Inject] public EntityNavigateFactory<TEntity> EntityNavigateFactory {get; set;}
-        [Inject] public NavigationManager NavigationManager {get; set;}
+        protected readonly IEntityManager<TEntity> EntityManager {get; set;}
+        protected readonly IEntityManager<BusinessUser> BusinessUserManager {get; set;}
+        protected readonly EntityNavigateFactory<TEntity> EntityNavigateFactory {get; set;}
+        protected readonly NavigationManager NavigationManager {get; set;}
+        public EntityTableComponent(IEntityManager<TEntity> entityManager, IEntityManager<BusinessUser> businessUserManager,
+                                EntityNavigateFactory<TEntity> entityNavigateFactory, NavigationManager navigationManager)
+        {
+            EntityManager = entityManager;
+            BusinessUserManager = businessUserManager;
+            EntityNavigateFactory = entityNavigateFactory;
+            NavigationManager = navigationManager;
+        }
         [CascadingParameter] public UserComponent UserComponent {get; set;}
-        [Parameter] public List<TEntity> Entities { get; set; }
+        private List<TEntity> Entities { get; set; }
         private List<PropertyInfo> EntitySingObject {get; set;}
         private List<PropertyInfo> EntityMultifleObject {get; set;}
         private string TableViewMode {get; set;}
@@ -49,7 +58,8 @@ namespace PlatformManager.Pages.ofGeneric
             }
         }
         protected override async Task OnInitializedAsync()
-        {            
+        {   
+            Entities = new();         
             var props = typeof(TEntity).GetProperties();
             DicTableProp = Entity.GetToDictionaryforClassifiedPropertyByAttribute();    
             InitViewColumn(StateMode);
