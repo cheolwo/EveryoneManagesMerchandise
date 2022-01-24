@@ -4,11 +4,11 @@ using System.Reflection;
 namespace PlatformManager.Pages.ofGeneric
 {
     // 이것도 Dictionary 형태로 만드는 게 좋아보이기는 해.
-    public class TableSetting
+    public class TableInfo
     {
         private Dictionary<string, PropertyInfo> NamePropPairs {get; set;}
         private PropertyInfo Origin {get; set;}
-        public TableSetting(PropertyInfo origin)
+        public TableInfo(PropertyInfo origin)
         {
             Origin = origin;
             NamePropPairs = new();
