@@ -161,6 +161,18 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authorization/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -194,10 +206,10 @@
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/6.0.0": {
+      "Microsoft.AspNetCore.Components.Forms/6.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.1"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {}
@@ -206,14 +218,14 @@
           "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Web/6.0.0": {
+      "Microsoft.AspNetCore.Components.Web/6.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.0",
-          "Microsoft.AspNetCore.Components.Forms": "6.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.1",
+          "Microsoft.AspNetCore.Components.Forms": "6.0.1",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.JSInterop": "6.0.0",
-          "System.IO.Pipelines": "6.0.0"
+          "Microsoft.JSInterop": "6.0.1",
+          "System.IO.Pipelines": "6.0.1"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll": {}
@@ -1333,7 +1345,7 @@
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
-      "Microsoft.JSInterop/6.0.0": {
+      "Microsoft.JSInterop/6.0.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.JSInterop.dll": {}
@@ -1405,11 +1417,11 @@
           }
         }
       },
-      "MudBlazor/6.0.2": {
+      "MudBlazor/6.0.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "6.0.0",
-          "Microsoft.AspNetCore.Components.Web": "6.0.0"
+          "Microsoft.AspNetCore.Components": "6.0.1",
+          "Microsoft.AspNetCore.Components.Web": "6.0.1"
         },
         "compile": {
           "lib/net6.0/MudBlazor.dll": {}
@@ -1542,7 +1554,7 @@
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
-      "System.IO.Pipelines/6.0.0": {
+      "System.IO.Pipelines/6.0.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/System.IO.Pipelines.dll": {}
@@ -1847,10 +1859,10 @@
           "BusinessLogic": "1.0.0",
           "Microsoft.AspNetCore": "2.2.0",
           "Microsoft.AspNetCore.Components": "6.0.1",
-          "Microsoft.AspNetCore.Components.Web": "6.0.0",
+          "Microsoft.AspNetCore.Components.Web": "6.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
           "Microsoft.Extensions.Identity.Core": "6.0.1",
-          "MudBlazor": "6.0.2"
+          "ProducterWebApp": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BusinessRazor.dll": {}
@@ -1858,6 +1870,30 @@
         "runtime": {
           "bin/placeholder/BusinessRazor.dll": {}
         }
+      },
+      "ProducterWebApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BusinessData": "1.0.0",
+          "BusinessLogic": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Google": "6.0.1",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
+          "MudBlazor": "6.0.4"
+        },
+        "compile": {
+          "bin/placeholder/ProducterWebApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProducterWebApp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -2032,6 +2068,21 @@
         "microsoft.aspnetcore.authentication.core.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Authentication.Google/6.0.1": {
+      "sha512": "8eCnlAXsczzoVcoom0QwPGD2X8A/cCjROFmP4jkGqm9FUjU6A15MdMrLF+aWzfloptiAZlmPIQCilLfodZM01A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.6.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/6.0.1": {
       "sha512": "4XjeiDdQPmC5eNMFGM9LEcQUxORz6NpUsYD1AmZuk8GBA8IW8kN+o7M7m+rhhrYIWxQ9TADePaMWeomScGhbCQ==",
       "type": "package",
@@ -2082,10 +2133,10 @@
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/6.0.0": {
-      "sha512": "POjep/9qy79PD/q/5Gai7Xsg6Oybmo10+bVsCkoTrfu1kAO8dWgbQgJWH8I/VMfOPZY/dPgfo+BitqEriWMuKQ==",
+    "Microsoft.AspNetCore.Components.Forms/6.0.1": {
+      "sha512": "uXGsVTnyEuj4C8c4M8Kuq5i1CNAAd1C7P0XhBsauJ0aocSq1xUJ9qL6XLZFA7NZUwDvdlPUC+s456eEcbdCIig==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/6.0.0",
+      "path": "microsoft.aspnetcore.components.forms/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2093,14 +2144,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.6.0.1.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/6.0.0": {
-      "sha512": "EvTZEhXCqcIxEs01ScF0ts/CyMOzXQIFfcgwTeLae7dQV7WnPEFhqrlD+1l78lA/h+Uer1RvaRbkAScGE/0tyQ==",
+    "Microsoft.AspNetCore.Components.Web/6.0.1": {
+      "sha512": "OhaK9izLH6Jjc1xJ+L0UEhuUcj12iQ80DDsIs/x9rwYyb3fhnttbu5zYQfA75SDlJbURXMt8IyMh1gY5fD2MLw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/6.0.0",
+      "path": "microsoft.aspnetcore.components.web/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2108,7 +2159,7 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.6.0.1.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
       ]
     },
@@ -3608,10 +3659,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.JSInterop/6.0.0": {
-      "sha512": "M7NyTgOY0vhozRtppvxUDJblgPWBUg6ioJ2vpaKpXVYILB0No8Vrv4HPis+ig5BzaOWd3PR9D3oTovYKGBt3mw==",
+    "Microsoft.JSInterop/6.0.1": {
+      "sha512": "MJ3GtQiAMuu7JtgjlaPxeP5/P2h0hOlYaGhCvsUOyA645+nOnWGSnsNJ4ktCIjQYErOYPDJuV8dHTK7bysI8aQ==",
       "type": "package",
-      "path": "microsoft.jsinterop/6.0.0",
+      "path": "microsoft.jsinterop/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3619,7 +3670,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net6.0/Microsoft.JSInterop.dll",
         "lib/net6.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.6.0.0.nupkg.sha512",
+        "microsoft.jsinterop.6.0.1.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
       ]
     },
@@ -3729,10 +3780,10 @@
         "version.txt"
       ]
     },
-    "MudBlazor/6.0.2": {
-      "sha512": "q4rLzAHng2aBHZgSljAZhXNVDB3WBGaBLy6uOlbyWm6BykUeWVE9HiVd3A3f1Vlx8+sWnJCpWyXyflph81/x1w==",
+    "MudBlazor/6.0.5": {
+      "sha512": "tw59g9BFGmIUXIjWqmANDIyIvKyEMeVcDrofgvF7a4j+6spNLS7/sSHCoTr+1H+GdH26f+TpaYFxuEJULcNX/Q==",
       "type": "package",
-      "path": "mudblazor/6.0.2",
+      "path": "mudblazor/6.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3744,7 +3795,7 @@
         "buildTransitive/MudBlazor.props",
         "lib/net6.0/MudBlazor.dll",
         "lib/net6.0/MudBlazor.xml",
-        "mudblazor.6.0.2.nupkg.sha512",
+        "mudblazor.6.0.5.nupkg.sha512",
         "mudblazor.nuspec",
         "staticwebassets/MudBlazor.min.css",
         "staticwebassets/MudBlazor.min.js"
@@ -3971,10 +4022,10 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
-    "System.IO.Pipelines/6.0.0": {
-      "sha512": "mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+    "System.IO.Pipelines/6.0.1": {
+      "sha512": "1j1pZX1ICzEyjafyssU3BzWVxUsaN3zq0wEmGKj3bxINC6NkmS30eEVuZ7k/QX2UKYNCaUch6g46taYKxcpFtw==",
       "type": "package",
-      "path": "system.io.pipelines/6.0.0",
+      "path": "system.io.pipelines/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3991,7 +4042,7 @@
         "lib/netcoreapp3.1/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "system.io.pipelines.6.0.0.nupkg.sha512",
+        "system.io.pipelines.6.0.1.nupkg.sha512",
         "system.io.pipelines.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -4610,6 +4661,11 @@
       "type": "project",
       "path": "../BusinessRazor/BusinessRazor.csproj",
       "msbuildProject": "../BusinessRazor/BusinessRazor.csproj"
+    },
+    "ProducterWebApp/1.0.0": {
+      "type": "project",
+      "path": "../OrdererWebApp/ProducterWebApp/ProducterWebApp.csproj",
+      "msbuildProject": "../OrdererWebApp/ProducterWebApp/ProducterWebApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4625,7 +4681,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.0",
       "Microsoft.Extensions.Identity.Core >= 6.0.1",
       "Microsoft.Extensions.Logging.Abstractions >= 6.0.0",
-      "MudBlazor >= 6.0.2",
+      "MudBlazor >= 6.0.5",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
@@ -4717,7 +4773,7 @@
           },
           "MudBlazor": {
             "target": "Package",
-            "version": "[6.0.2, )"
+            "version": "[6.0.5, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

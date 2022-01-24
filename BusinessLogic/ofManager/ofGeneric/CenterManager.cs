@@ -37,7 +37,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         // 생성자의 패스워드 해쉬 인터페이스를 상속받는 개체가 있어야겠다.
     }
-    public interface ICenterManager<TEntity> : IEntityManager<TEntity>, ICenterDataRepository<TEntity> where TEntity : Center, IRelationable
+    public interface ICenterManager<TEntity> : IEntityManager<TEntity> where TEntity : Center, IRelationable
     {
         Task<TEntity> GetByUserAsync(IdentityUser IdentityUser);
         Task<TEntity> LoginAsync(string id, string password);
@@ -49,7 +49,7 @@ namespace BusinessLogic.ofManager.ofGeneric
     {
         private readonly ICenterIdFactory<TEntity> _centerIdFactory;
         private readonly ICenterFileFactory<TEntity> _centerFileFactory;
-        private readonly ICenterDataRepository<TEntity> _centerDataRepository;
+        public readonly ICenterDataRepository<TEntity> _centerDataRepository;
         private readonly IPasswordHasher<TEntity> _passwordHashser;
         public CenterManager(ICenterDataRepository<TEntity> centerDataRepository,
             ICenterIdFactory<TEntity> centerIdFactory,

@@ -1,3 +1,8 @@
+using BusinessData;
+using BusinessRazor.ofGeneric;
+using Microsoft.AspNetCore.Components;
+using System.Reflection;
+
 namespace PlatformManager.Pages.ofGeneric
 {
     public class EntityDeleteComponent<TEntity> : ComponentBase where TEntity : Entity, IRelationable, new()
@@ -10,13 +15,13 @@ namespace PlatformManager.Pages.ofGeneric
         [CascadingParameter] public EntityTableComponent<TEntity> EntityTableComponent {get; set;}
         private List<PropertyInfo> OneValues = new();
         private List<PropertyInfo> ManyValues = new();
-        protected override async Task OnParameterSetAsync()
+        protected override async Task OnParametersSetAsync()
         {
             if(EntityTableComponent != null)
             {
-                var TableViewMode = EntityTableComponent.ViewMode;
-                OneValues = EntityTableComponent.OneValues;
-                ManyValues = EntityTableComponent.ManyValues;
+                var TableViewMode = EntityTableComponent.TableViewMode;
+                OneValues = EntityTableComponent.EntitySingleObject;
+                ManyValues = EntityTableComponent.EntityMultifleObject;
             }
         }
         public void Delete()
@@ -26,7 +31,7 @@ namespace PlatformManager.Pages.ofGeneric
         }
         public void Cancel()
         {
-            EventCancle.InvokeAsync();
+            EventCancel.InvokeAsync();
         }
     }
 }

@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BusinessData.ofGeneric.ofTypeConfiguration;
 
 namespace BusinessData.ofAccount
 {
@@ -43,7 +44,7 @@ namespace BusinessData.ofAccount
             base.Configure(builder);
         }
     }
-    public class JournalSettingConfiguration : EntityConfiguartion<JournalSetting>
+    public class JournalSettingConfiguration : EntityConfiguration<JournalSetting>
     {
         public override void Configure(EntityTypeBuilder<JournalSetting> builder)
         {
@@ -73,13 +74,13 @@ namespace BusinessData.ofAccount
         public override void Configure(EntityTypeBuilder<TableSetting> builder)
         {
             base.Configure(builder);
-            builder.Property(c => c.GetColumns).HasConversion(
+            builder.Property(c => c.GetColumnsSelected).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
                  c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
             c => c.ToList()));
-            builder.Property(c => c.DetailColumns).HasConversion(
+            builder.Property(c => c.DetailColumnsSelected).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),

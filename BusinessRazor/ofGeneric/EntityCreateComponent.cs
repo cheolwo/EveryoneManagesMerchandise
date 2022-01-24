@@ -1,4 +1,5 @@
 using BusinessData;
+using BusinessRazor.ofGeneric;
 using Microsoft.AspNetCore.Components;
 using System.Reflection;
 
@@ -13,19 +14,19 @@ namespace PlatformManager.Pages.ofGeneric
     {
         [Parameter] public EventCallback<TEntity> EventCreate {get; set;}
         [Parameter] public EventCallback EventCancel {get; set;}
-        [Parameter] public TEntity Entity {get; set;}
+        [Parameter] public TEntity ?Entity {get; set;}
         [Parameter] public bool IsOpen {get; set;}
         [Parameter] public TableViewMode ViewMode {get; set;}
-        [CascadingParameter] public EntityTableComponent<TEntity> EntityTableComponent {get; set;}
-        private List<PropertyInfo> OneValues = new();
-        private List<PropertyInfo> ManyValues = new();
-        protected override async Task OnParameterSetAsync()
+        [CascadingParameter] public EntityTableComponent<TEntity> ?EntityTableComponent {get; set;}
+        private List<PropertyInfo> EntitySingleObject = new();
+        private List<PropertyInfo> EntityMultifleObject = new();
+        protected override async Task OnParametersSetAsync()
         {
             if(EntityTableComponent != null)
             {
-                var TableViewMode = EntityTableComponent.ViewMode;
-                OneValues = EntityTableComponent.OneValues;
-                ManyValues = EntityTableComponent.ManyValues;
+                var TableViewMode = EntityTableComponent.TableViewMode;
+                EntitySingleObject = EntityTableComponent.EntitySingleObject;
+                EntityMultifleObject = EntityTableComponent.EntityMultifleObject;
             }
         }
         public void Create()

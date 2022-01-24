@@ -37,6 +37,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<List<TEntity>> GetToListAsync();
         Task<TEntity> GetByCodeAsync(string Code);
         Task<TEntity> GetByIdAsync(string Id);
+        Task<TEntity> GetByUserId(string UserId);
         Task DeleteByIdAsync(string Id);
         Dictionary<int, TEntity> ConvertToDic(List<TEntity> entities);
         Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target);
@@ -82,7 +83,7 @@ namespace BusinessLogic.ofManager.ofGeneric
     }
     public class EntityManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity, IRelationable
     {
-        protected readonly IEntityDataRepository<TEntity> _EntityDataRepository;
+        public readonly IEntityDataRepository<TEntity> _EntityDataRepository;
         protected readonly IEntityIdFactory<TEntity> _EntityIdFactory;
         protected readonly IEntityFileFactory<TEntity> _EntityFileFactory;
         protected readonly IEntityBlobStorage<TEntity> _EntityBlobStorage;
@@ -211,6 +212,11 @@ namespace BusinessLogic.ofManager.ofGeneric
         public async Task UpdateAttachAsync(TEntity entity)
         {
             await _EntityDataRepository.UpdateAttachAsync(entity);
+        }
+
+        public async Task<TEntity> GetByUserId(string UserId)
+        {
+            return await _EntityDataRepository.GetByUserId(UserId);
         }
     }
 }

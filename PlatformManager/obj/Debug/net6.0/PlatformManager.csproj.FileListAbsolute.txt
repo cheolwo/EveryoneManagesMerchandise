@@ -172,3 +172,14 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\NLog.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.deps.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.runtimeconfig.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.staticwebassets.runtime.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.exe
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\Microsoft.JSInterop.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformManager\bin\Debug\net6.0\ProducterWebApp.pdb

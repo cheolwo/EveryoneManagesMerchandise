@@ -1,9 +1,7 @@
 ﻿using BusinessLogic.ofManagement;
 using BusinessLogic.ofManagement.ofPatform;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Office.Interop.Excel;
-using System.Text;
 
 namespace PlatformManager.Pages
 {

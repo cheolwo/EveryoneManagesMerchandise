@@ -1,36 +1,36 @@
 using BusinessData;
+using BusinessData.ofAccount.ofModel;
 using BusinessData.ofCommon.ofInterface;
 using BusinessLogic.ofManager.ofGeneric;
+using BusinessRazor.ofGeneric;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Identity;
-using System.Reflection;
 
 namespace BusinessRazor.Pages.ofGeneric
 {
     public class CenterTableComponent<TCenter> : EntityTableComponent<TCenter> where TCenter : Center, IRelationable, ITablable, new()
     {
-        protected readonly ICenterManager<TCenter> _CenterManager;
-        public CenterTableComponent(ICenterManager<TCenter> CenterManager, IEntityManager<BusinessUser> businessUserManager,
+        protected readonly CenterManager<TCenter> _CenterManager;
+        public CenterTableComponent(CenterManager<TCenter> CenterManager, EntityManager<BusinessUser> businessUserManager,
                                 EntityNavigateFactory<TCenter> EntityrNavigateFactory, NavigationManager navigationManager)
                                 :base(CenterManager, businessUserManager, EntityrNavigateFactory, navigationManager)
         {
             _CenterManager = CenterManager;
         }
-        protected override async Task OnParameterSetAsync()
+        public TCenter Center = new();
+        public List<TCenter> Centers = new();
+        protected override async Task OnParametersSetAsync()
         {
-            base.OnParameterSetAsync();
+            await base.OnParametersSetAsync();
         }
-        protected override async Task OnInitialziedAsync()
+        protected override async Task OnInitializedAsync()
         {
             base.OnInitializedAsync();
-            if(Entities != null)
+            foreach(var Center in Entities)
             {
-                foreach(var center in Entities)
-                {
-                    center = await _CenterManager.GetByCenterWithRelated(center);
-                }
+                TCenter center = new();
+                center = await _CenterManager._centerDataRepository.GetByCenterWithStatus(Center);
+                Centers.Add(center);
             }
-               
         }
             
     }

@@ -49,15 +49,6 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.Commodity).ToListAsync();
         }
-
-        public override async Task<List<TEntity>> GetToListWithRelated()
-        {
-            return await _DbContext.Set<TEntity>().Include(entity => entity.ChangedUsers).
-                                                    Include(entity => entity.Docs).
-                                                    Include(entity => entity.ImageofInfos).
-                                                    Include(entity => entity.Commodity).
-                                                    Include(entity => entity.Center).ToListAsync();
-        }
     }
     public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
     {
@@ -71,15 +62,6 @@ namespace BusinessData
         public async Task<List<TEntity>> GetToListWithMStatuses()
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.MStatuses).ToListAsync();
-        }
-        public override async Task<List<TEntity>> GetToListWithRelated()
-        {
-            return await _DbContext.Set<TEntity>().Include(entity => entity.ChangedUsers).
-                                                    Include(entity => entity.Docs).
-                                                    Include(entity => entity.ImageofInfos).
-                                                    Include(entity => entity.Commodity).
-                                                    Include(entity => entity.Center).
-                                                    Include(entity => entity.MStatuses).ToListAsync();
         }
     }
     public interface IMStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : MStatus, IRelationable, new()

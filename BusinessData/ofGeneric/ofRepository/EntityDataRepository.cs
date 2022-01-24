@@ -16,7 +16,6 @@ namespace BusinessData
         Task<TEntity> UpdateAsync(TEntity tentity);
         Task DeleteByIdAsync(string Id);
         Task<TEntity> GetByIdAsync(string Id);
-        Task<List<TEntity>> GetToListWithRelated();
         Task AddEntities(IList<TEntity> entities);
         Task AddEntitiesByAttach(IList<TEntity> entities);
         Task UpdateAttachAsync(TEntity entity);
@@ -29,12 +28,7 @@ namespace BusinessData
         Task<TEntity> GetByContainerAsync(string containerName);
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
         Task<TEntity> GetByCodeAsync(string Code);
-
-        // By + With
-        Task<TEntity> GetByIdWithChangedUsers(string Id);
-        Task<TEntity> GetByIdWithImageofInfos(string Id);
-        Task<TEntity> GetByIdWithDocs(string Id);
-        Task<TEntity> GetByIdWithRelated(string Id);
+        Task<TEntity> GetByUserId(string UserId);
 
         Task<int> GetCountAsync();
 
@@ -116,21 +110,6 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Where(e => e.CreateTime >= beforeDateTime && e.CreateTime <= AfterDateTime).ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdWithChangedUsers(string Id)
-        {
-            return await _DbContext.Set<TEntity>().Where(_ => _.Id == Id).Include(entity => entity.ChangedUsers).FirstOrDefaultAsync();
-        }
-
-        public async Task<TEntity> GetByIdWithImageofInfos(string Id)
-        {
-            return await _DbContext.Set<TEntity>().Where(_ => _.Id == Id).Include(entity=> entity.ImageofInfos).FirstOrDefaultAsync();
-        }
-
-        public async Task<TEntity> GetByIdWithDocs(string Id)
-        {
-            return await _DbContext.Set<TEntity>().Where(_ => _.Id == Id).Include(entity=> entity.Docs).FirstOrDefaultAsync();
-        }
-
         public async Task<List<TEntity>> GetToListByUserId(string UserId)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).ToListAsync();
@@ -139,20 +118,6 @@ namespace BusinessData
         public async Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(IdentityUser.Id)).ToListAsync();
-        }
-
-        public async Task<TEntity> GetByIdWithRelated(string Id)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(Id)).Include(entity => entity.Docs).
-                                                                                Include(entity => entity.ImageofInfos).
-                                                                                Include(entity => entity.ChangedUsers).FirstOrDefaultAsync();
-        }
-
-        public async virtual Task<List<TEntity>> GetToListWithRelated()
-        {
-            return await _DbContext.Set<TEntity>().Include(entity => entity.ChangedUsers).
-                                                    Include(entity => entity.Docs).
-                                                    Include(entity => entity.ImageofInfos).ToListAsync();
         }
 
         public async Task<TEntity> GetByNameAsync(string Name)
@@ -201,6 +166,11 @@ namespace BusinessData
             var attach = _DbContext.Attach(entity);
             attach.State = EntityState.Modified;
             await _DbContext.SaveChangesAsync();
+        }
+
+        public async Task<TEntity> GetByUserId(string UserId)
+        {
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(UserId)); 
         }
     }
 }

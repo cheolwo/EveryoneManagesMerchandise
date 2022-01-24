@@ -1,22 +1,27 @@
+using BusinessData;
+using BusinessRazor.ofGeneric;
+using Microsoft.AspNetCore.Components;
+using System.Reflection;
+
 namespace PlatformManager.Pages.ofGeneric
 {
     public class EntityUpdateComponent<TEntity> : ComponentBase where TEntity : Entity, IRelationable, new()
     {
         [Parameter] public EventCallback<TEntity> EventUpdate {get; set;}
         [Parameter] public EventCallback EventCancel {get; set;}
-        [Parameter] public TEntity Entity {get; set;}
+        [Parameter] public TEntity ?Entity {get; set;}
         [Parameter] public bool IsOpen {get; set;}
         [Parameter] public TableViewMode ViewMode {get; set;}
-        [CascadingParameter] public EntityTableComponent<TEntity> EntityTableComponent {get; set;}
+        [CascadingParameter] public EntityTableComponent<TEntity> ?EntityTableComponent {get; set;}
         private List<PropertyInfo> OneValues = new();
         private List<PropertyInfo> ManyValues = new();
-        protected override async Task OnParameterSetAsync()
+        protected override async Task OnParametersSetAsync()
         {
             if(EntityTableComponent != null)
             {
-                var TableViewMode = EntityTableComponent.ViewMode;
-                OneValues = EntityTableComponent.OneValues;
-                ManyValues = EntityTableComponent.ManyValues;
+                var TableViewMode = EntityTableComponent.TableViewMode;
+                OneValues = EntityTableComponent.EntitySingleObject;
+                ManyValues = EntityTableComponent.EntityMultifleObject;
             }
         }
         protected override async Task OnInitializedAsync()
@@ -30,7 +35,7 @@ namespace PlatformManager.Pages.ofGeneric
         }
         public void Cancel()
         {
-            EventCancle.InvokeAsync();
+            EventCancel.InvokeAsync();
         }
     }
 }

@@ -305,15 +305,6 @@ namespace BusinessData.ofWarehouse.Model
         {
             return Warehouse;
         }
-        public override string GetRelationCode()
-        {
-            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
-            if(relationAttribute != null)
-            {
-                return relationAttribute.GetEntityRelation();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
         public IList<string> GetRelatedRoles()
         {
             AuthorizeAttribute AuthorizeAttribute = (AuthorizeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(AuthorizeAttribute));
@@ -322,6 +313,15 @@ namespace BusinessData.ofWarehouse.Model
                 return AuthorizeAttribute.Roles.Split(',').ToList();
             }
             throw new ArgumentException("Not Define Related Roles");
+        }
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
+            if(relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
         }
         public Type GetDbContextType()
         {

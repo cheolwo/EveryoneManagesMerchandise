@@ -23,7 +23,6 @@ namespace BusinessData
         // By With
         Task<List<TEntity>> GetToListByCountryCodeWithRelated(string CoutryCode);
         Task<TEntity> GetByCenterWithStatus(TEntity entity);
-
     }
     public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>, 
                                                     ICenterDataRepository<TEntity>
@@ -116,9 +115,8 @@ namespace BusinessData
         }
         public async Task<TEntity> GetByCenterWithStatus(TEntity entity)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Equals(entity)).Include(entity => entity.SStatuses).
-                                                                              Include(entity => entity.MStatuses).
-                                                                              Include(entity => entity.EStatuses);
+            return await _DbContext.Set<TEntity>().Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.MStatuses).
+                Include(e => e.Commodities).FirstOrDefaultAsync(e=>e.Equals(entity));
         }
     }
 }
