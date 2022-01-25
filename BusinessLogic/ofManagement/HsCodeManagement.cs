@@ -140,10 +140,10 @@ namespace BusinessLogic.ofManagement
                 CurrentPracticalHsCode.SubPracticalHsCodes = new();
                 IsReHs4 = false;
             }
-            if(dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { CurrentPracticalHsCode.KoName = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
+            if(dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { CurrentPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
             if (dataSet[Row, (int)HsExcelFileMetaInfo.UsName] != null) { CurrentPracticalHsCode.UsName = dataSet[Row, (int)HsExcelFileMetaInfo.UsName].ToString(); }
-            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { CurrentPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
-            CurrentPracticalHsCode.Id = Math.Abs(CurrentPracticalHsCode.Name.GetHashCode()).ToString();
+            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { CurrentPracticalHsCode.Code = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
+            CurrentPracticalHsCode.Id = Math.Abs(CurrentPracticalHsCode.Code.GetHashCode()).ToString();
             practicalHsCodes.Add(CurrentPracticalHsCode);
             IsReHs4 = true;
         }
@@ -160,10 +160,10 @@ namespace BusinessLogic.ofManagement
         {
             SubPracticalHsCode subPracticalHsCode = new();
             subPracticalHsCode.DetailPracticalHsCodes = new();
-            if (dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { subPracticalHsCode.KoName = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
+            if (dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { subPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
             if (dataSet[Row, (int)HsExcelFileMetaInfo.UsName] != null) { subPracticalHsCode.UsName = dataSet[Row, (int)HsExcelFileMetaInfo.UsName].ToString(); }
-            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { subPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
-            subPracticalHsCode.Id = Math.Abs(subPracticalHsCode.Name.GetHashCode()).ToString();
+            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { subPracticalHsCode.Code = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
+            subPracticalHsCode.Id = Math.Abs(subPracticalHsCode.Code.GetHashCode()).ToString();
             CurrentPracticalHsCode.SubPracticalHsCodes.Add(subPracticalHsCode);
         }
         private string Get6Length(string HsCode)
@@ -184,10 +184,10 @@ namespace BusinessLogic.ofManagement
             detailPracticalHsCode.ClearanceInfoofHsCode = new();
             if (dataSet[Row, (int)HsExcelFileMetaInfo.WeightUnit] != null) { detailPracticalHsCode.WeightUnits = dataSet[Row, (int)HsExcelFileMetaInfo.WeightUnit].ToString(); }
             if (dataSet[Row, (int)HsExcelFileMetaInfo.QuantityUnit] != null) { detailPracticalHsCode.QuantityUnits = dataSet[Row, (int)HsExcelFileMetaInfo.QuantityUnit].ToString(); }
-            if (dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { detailPracticalHsCode.KoName = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
+            if (dataSet[Row, (int)HsExcelFileMetaInfo.KoName] != null) { detailPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.KoName].ToString(); }
             if (dataSet[Row, (int)HsExcelFileMetaInfo.UsName] != null) { detailPracticalHsCode.UsName = dataSet[Row, (int)HsExcelFileMetaInfo.UsName].ToString(); }
-            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { detailPracticalHsCode.Name = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
-            detailPracticalHsCode.Id = Math.Abs(detailPracticalHsCode.Name.GetHashCode()).ToString();
+            if (dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn] != null) { detailPracticalHsCode.Code = dataSet[Row, (int)HsExcelFileMetaInfo.HSColumn].ToString(); }
+            detailPracticalHsCode.Id = Math.Abs(detailPracticalHsCode.Code.GetHashCode()).ToString();
             
             ClearanceInfoofHsCode clearanceInfoofHsCode = new();
             clearanceInfoofHsCode.DetailPracticalHsCode = detailPracticalHsCode;
@@ -205,8 +205,8 @@ namespace BusinessLogic.ofManagement
                 }
             }
             detailPracticalHsCode.ClearanceInfoofHsCode = clearanceInfoofHsCode;
-            string HsCode6 = Get6Length(detailPracticalHsCode.Name);
-            var subPracticalHsCode = CurrentPracticalHsCode.SubPracticalHsCodes.FirstOrDefault(e => e.Name.Equals(HsCode6));
+            string HsCode6 = Get6Length(detailPracticalHsCode.Code);
+            var subPracticalHsCode = CurrentPracticalHsCode.SubPracticalHsCodes.FirstOrDefault(e => e.Code.Equals(HsCode6));
             if (subPracticalHsCode != null){ subPracticalHsCode.DetailPracticalHsCodes.Add(detailPracticalHsCode);}
             // Final
             if (Row.Equals((int)HsExcelFileMetaInfo.EndRow)) {

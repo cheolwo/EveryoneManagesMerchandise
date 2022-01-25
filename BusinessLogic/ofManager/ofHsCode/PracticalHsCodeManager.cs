@@ -20,8 +20,6 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<PracticalHsCode> CreateAsync(PracticalHsCode entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
             return await _EntityDataRepository.AddAsync(entity);
         }
     }
@@ -36,9 +34,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<SubPracticalHsCode> CreateAsync(SubPracticalHsCode entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
     public class DetailPracticalHsCodeManager : EntityManager<DetailPracticalHsCode>
@@ -52,9 +48,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<DetailPracticalHsCode> CreateAsync(DetailPracticalHsCode entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);          
         }
     }
     public class HsCodePartManager : EntityManager<HsCodePart>
@@ -68,9 +62,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<HsCodePart> CreateAsync(HsCodePart entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
     public class SubPartofHsCodeManager : EntityManager<SubPartofHsCode>
@@ -84,9 +76,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<SubPartofHsCode> CreateAsync(SubPartofHsCode entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
     public class AgreetMentManager : EntityManager<AgreetMent>
@@ -100,9 +90,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<AgreetMent> CreateAsync(AgreetMent entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
     public class CountryManager : EntityManager<Country>
@@ -116,9 +104,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<Country> CreateAsync(Country entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
     public class ClearanceInfoofHsCodeManager : EntityManager<ClearanceInfoofHsCode>
@@ -132,9 +118,7 @@ namespace BusinessLoogic.ofManager.ofHsCode
         }
         public override async Task<ClearanceInfoofHsCode> CreateAsync(ClearanceInfoofHsCode entity)
         {
-            entity.Id = Math.Abs(entity.Name.GetHashCode()).ToString();
-            entity.CreateTime = DateTime.Now;
-            return await _EntityDataRepository.AddAsync(entity);
+            return await base.CreateAsync(entity);
         }
     }
 }

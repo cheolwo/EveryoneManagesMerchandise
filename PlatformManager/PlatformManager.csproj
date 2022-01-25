@@ -35,7 +35,11 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ofComponent\ofHsCode\ofTable\" />
+    <Folder Include="Pages\ofWarehouse\" />
   </ItemGroup>
 
 </Project>

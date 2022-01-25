@@ -1,0 +1,32 @@
+﻿@using PlatformManager.ofComponent.ofGeneric
+@using System.Reflection
+@typeparam TEntity where TEntity : Entity, IRelationable, new()
+@inject EntityTableComponent<TEntity> _EntityTableComponent
+<MudTable Items=Entities>
+	<HeaderContent>
+		@foreach(PropertyInfo prop in EntityTableComponent.GetEntitySingleObjectProps())
+		{
+			<MudTh>@prop.Name</MudTh>
+		}
+	</HeaderContent>
+	<RowTemplate>
+		@foreach(PropertyInfo prop in EntityTableComponent.GetEntitySingleObjectProps())
+		{
+			<MudTd>prop.GetValue(@context)</MudTd>
+			@foreach(TableInfo tableInfo in EntityTableComponent.GetMultifleObjectTableInfo())
+			{
+				<MudButton>@tableInfo.GetOrigin().Name</MudButton>
+			}
+		}
+	</RowTemplate>
+</MudTable>
+@code
+{
+	[CascadingParameter] public UserComponent ?UserComponent { get; set; }
+	[Inject] public EntityTableComponent<TEntity> ?EntityTableComponent { get; set; }
+	[Parameter] public List<TEntity> Entities { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+		await _EntityTableComponent.OnParametersSetAsync(Entities, UserComponent);
+	}
+}

@@ -3,6 +3,8 @@ using System;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -72,9 +74,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("BasicTaxRate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
@@ -85,9 +84,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("ImageofInfos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -268,9 +264,6 @@ namespace BusinessData.Migrations.HsDb
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("KoName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -341,9 +334,6 @@ namespace BusinessData.Migrations.HsDb
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageofInfos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KoName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

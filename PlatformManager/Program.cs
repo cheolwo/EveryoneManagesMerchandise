@@ -10,7 +10,6 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
-using BusinessData.ofWarehouse.Model;
 using BusinessData.ofWarehouse.ofDbContext;
 using BusinessData.ofWarehouse.ofRepository;
 using BusinessLogic.ofManagement;
@@ -38,6 +37,7 @@ using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using PlatformManager.Areas.Identity;
 using PlatformManager.Data;
+using PlatformManager.ofComponent.ofGeneric;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,12 +73,17 @@ options.UseSqlServer(FisheriesConnectionString));
 builder.Services.AddScoped<ProtectedLocalStorage>();
 builder.Services.AddScoped<ProtectedSessionStorage>();
 
+builder.Services.AddScoped(typeof(EntityManager<>));
+builder.Services.AddScoped(typeof(EntityBlobStorage<>));
+builder.Services.AddScoped(typeof(EntityIdFactory<>));
+builder.Services.AddScoped(typeof(EntityFileFactory<>));
+builder.Services.AddScoped(typeof(EntityContainerFactory<>));
+builder.Services.AddScoped(typeof(DicConvertFactory<>));
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityBlobStorage<>), typeof(EntityBlobStorage<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
 builder.Services.AddScoped(typeof(IEntityFileFactory<>), typeof(EntityFileFactory<>));
 builder.Services.AddScoped(typeof(IEntityContainerFactory<>), typeof(EntityContainerFactory<>));
-builder.Services.AddScoped(typeof(DicConvertFactory<>));
 
 builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));
 builder.Services.AddScoped(typeof(ICenterDataRepository<>), typeof(CenterDataRepository<>));
@@ -89,8 +94,10 @@ builder.Services.AddScoped(typeof(ICenterIdFactory<>), typeof(CenterIdFactory<>)
 builder.Services.AddScoped(typeof(ICommodityIdFactory<>), typeof(CommodityIdFactory<>));
 builder.Services.AddScoped(typeof(IStatusIdFactory<>), typeof(StatusIdFactory<>));
 
+builder.Services.AddScoped(typeof(CenterManager<>));
 builder.Services.AddScoped(typeof(ICenterManager<>), typeof(CenterManager<>));
 builder.Services.AddScoped(typeof(CenterPasswordHasher<>));
+builder.Services.AddScoped(typeof(CommodityManager<>));
 builder.Services.AddScoped(typeof(ICommodityManager<>), typeof(CommodityManager<>));
 builder.Services.AddScoped(typeof(IStatusManager<>), typeof(StatusManager<>));
 
@@ -98,6 +105,9 @@ builder.Services.AddScoped(typeof(ICenterFileFactory<>), typeof(CenterFileFactor
 builder.Services.AddScoped(typeof(ICommodityFileFactory<>), typeof(CommodityFileFactory<>));
 builder.Services.AddScoped(typeof(IStatusFileFactory<>), typeof(StatusFileFactory<>));
 
+builder.Services.AddScoped(typeof(SStatusManager<>));
+builder.Services.AddScoped(typeof(MStatusManager<>));
+builder.Services.AddScoped(typeof(EStatusManager<>));
 builder.Services.AddScoped(typeof(ISStatusManager<>), typeof(SStatusManager<>));
 builder.Services.AddScoped(typeof(IMStatusManager<>), typeof(MStatusManager<>));
 builder.Services.AddScoped(typeof(IEStatusManager<>), typeof(EStatusManager<>));
@@ -188,6 +198,8 @@ builder.Services.AddScoped<HsCodeManagement>();
 builder.Services.AddScoped<KamisManagement>();
 builder.Services.AddScoped<KAptManagement>();
 builder.Services.AddScoped<GOCManagement>();
+
+builder.Services.AddScoped(typeof(EntityTableComponent<>));
 
 /********************************************/
 builder.Services.AddMudServices();

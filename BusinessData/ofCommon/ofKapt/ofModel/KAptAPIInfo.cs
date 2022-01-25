@@ -1,4 +1,5 @@
-﻿using BusinessData.ofCommon.ofKApt.ofDbContext;
+﻿using BusinessData.ofCommon.ofInterface;
+using BusinessData.ofCommon.ofKApt.ofDbContext;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -7,7 +8,7 @@ namespace BusinessData.ofCommon.ofKapt
 {
     [DataContext(typeof(KAptDbContext), DbConnectionString.KAptDbConnection)]
 	[Relation(typeof(KAptBasicInfo), nameof(KAptBasicInfo))]
-    public class KAptBasicInfo : Entity, IRelationable
+    public class KAptBasicInfo : Entity, IRelationable, ITablable
     {
         public string County { get; set; } //1
         public string City { get; set; } //2

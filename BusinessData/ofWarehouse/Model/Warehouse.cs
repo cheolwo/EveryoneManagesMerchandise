@@ -40,18 +40,18 @@ namespace BusinessData.ofWarehouse.Model
         [Detail][Many(ViewNameofWarehouse.DividedTag)] public List<DividedTag> DividedTags {get; set;}
         [Detail][Many(ViewNameofWarehouse.IncomingTag)] public List<IncomingTag> IncomingTags {get; set;}
 
-        public Warehouse()
-        {    
-            WCommodities = new();
-            EWCommodities = new();
-            MWCommodities = new();
-            SWCommodities = new();
-            LoadFrames = new();
-            DotBarcodes = new();
-            WorkingDesks = new();
-            DividedTags = new();
-            IncomingTags = new();
-        }
+        //public Warehouse()
+        //{    
+        //    WCommodities = new();
+        //    EWCommodities = new();
+        //    MWCommodities = new();
+        //    SWCommodities = new();
+        //    LoadFrames = new();
+        //    DotBarcodes = new();
+        //    WorkingDesks = new();
+        //    DividedTags = new();
+        //    IncomingTags = new();
+        //}
         
         public override Center GetRelatedCenter()
         {

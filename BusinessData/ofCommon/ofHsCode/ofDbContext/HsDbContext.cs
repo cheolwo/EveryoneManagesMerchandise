@@ -99,6 +99,8 @@ namespace BusinessData.ofCommon.ofHsCode.ofDbContext
             builder.Ignore(c => c.ChangedUsers);
             builder.Ignore(c => c.UserId);
             builder.Ignore(c => c.CreateTime);
+            builder.Ignore(c => c.Code);
+            builder.Ignore(c => c.Name);
         }
     }
     public class PracticalHsCodeConfiguration : EntityConfiguration<PracticalHsCode>

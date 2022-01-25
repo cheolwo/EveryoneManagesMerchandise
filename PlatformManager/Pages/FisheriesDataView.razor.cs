@@ -10,14 +10,14 @@ namespace PlatformManager.Pages
 {
     public partial class FisheriesDataView : ComponentBase
     {
-        [Inject] public IEntityManager<Warehouse> entityManager { get; set; }
-        [Inject] public ICenterManager<Warehouse> centerMangaer { get; set; }
-        [Inject] public FisheriesAPIManager FisheriesAPIManager { get; set; }
-        [Inject] public FisheriesManagement FisheriesManagement { get; set; }
+        [Inject] public IEntityManager<Warehouse> ?entityManager { get; set; }
+        [Inject] public ICenterManager<Warehouse> ?centerMangaer { get; set; }
+        [Inject] public FisheriesAPIManager ?FisheriesAPIManager { get; set; }
+        [Inject] public FisheriesManagement ?FisheriesManagement { get; set; }
         private const string FisheriesCodeFilePath = @"C:\\Users\\user\\Downloads\\해양수산부_수산물 수협창고 재고정보_20211231.csv";
         [Inject] public IEntityManager<Copartnership> CopartnershipManager { get; set; }
-        public string name { get; set; }
-        protected override async Task OnInitializedAsync()
+        public string ?name { get; set; }
+        protected override void OnInitialized()
         {
         }
         public async Task ExcelCopartnershipToDb()

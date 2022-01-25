@@ -24,4 +24,8 @@
     <ProjectReference Include="..\OrdererWebApp\ProducterWebApp\ProducterWebApp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ofGeneric\" />
+  </ItemGroup>
+
 </Project>

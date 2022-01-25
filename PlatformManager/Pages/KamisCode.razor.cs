@@ -8,7 +8,7 @@ namespace PlatformManager.Pages
     {
         //C:\Users\user\Downloads\농축수산물 품목 및 등급 코드표.xlsx
         private const string KamisCodeFilePath = @"C:\\Users\\user\\Downloads\\농축수산물 품목 및 등급 코드표.xlsx";
-        [Inject] public KamisManagement KamisManagement { get; set; }
+        [Inject] public KamisManagement ?KamisManagement { get; set; }
         protected override Task OnInitializedAsync()
         {
             return base.OnInitializedAsync();

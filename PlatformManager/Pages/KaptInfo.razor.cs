@@ -11,9 +11,9 @@ namespace PlatformManager.Pages
     public partial class KaptInfo : ComponentBase
     {
         private const string KamisCodeFilePath = @"C:\\Users\\user\\Downloads\\20220103_단지_기본정보.xls";
-        [Inject] public KAptManagement KAptManagement { get; set; }
-        [Inject] public IEntityManager<KAptBasicInfo> entityManager { get; set; }
-        [Inject] public GOCManagement GOCManagement { get; set; } 
+        [Inject] public KAptManagement ?KAptManagement { get; set; }
+        [Inject] public IEntityManager<KAptBasicInfo> ?entityManager { get; set; }
+        [Inject] public GOCManagement ?GOCManagement { get; set; } 
         protected override Task OnInitializedAsync()
         {
             return base.OnInitializedAsync();
