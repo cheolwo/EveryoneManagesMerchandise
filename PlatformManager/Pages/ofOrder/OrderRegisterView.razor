@@ -18,7 +18,7 @@
 	}
 	else
 	{
-		<SOCommodityTableComponent IsSelectedReturn=true SelectedSOcommodityId=SelectSOCommodity ></SOCommodityTableComponent>
+		<SOCommodityTableComponent IsSelectedReturn=true SelectedSOcommodity=SelectSOCommodity ></SOCommodityTableComponent>
 	}
 	@if(IsSelectedSOCommodity)
 	{
@@ -29,6 +29,8 @@
 	<WareohuseTableComponent IsRelatedCount=true SelectWarehouse=SelectWarehouse></WareohuseTableComponent>
 	}
 </UserComponent>
+<MudButton Variant="Variant.Filled" Color="Color.Primary">뒤로</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Primary" >등록</MudButton>
 @code {
 	public string? BusinessNumber { get; set; }
 	public bool IsSelectedSOCommodity { get; set; }

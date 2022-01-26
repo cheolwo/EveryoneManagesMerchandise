@@ -3,16 +3,14 @@ using System;
 using BusinessData.ofWarehouse.ofDbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace BusinessData.Migrations.WarehouseDb
 {
     [DbContext(typeof(WarehouseDbContext))]
-    [Migration("20220122202121_Init")]
+    [Migration("20220126124137_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,6 +158,9 @@ namespace BusinessData.Migrations.WarehouseDb
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("OpponentBusinessUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SWCommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -451,6 +452,9 @@ namespace BusinessData.Migrations.WarehouseDb
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Quantity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")

@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace BusinessData.Migrations
 {
     [DbContext(typeof(OrderDbContext))]
@@ -15,9 +17,10 @@ namespace BusinessData.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.10")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, (int)1L, 1);
 
             modelBuilder.Entity("BusinessData.Center", b =>
                 {
@@ -28,17 +31,19 @@ namespace BusinessData.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Barcode")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
                     b.Property<string>("CardNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardPassword")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateTime")
@@ -47,23 +52,49 @@ namespace BusinessData.Migrations
                     b.Property<string>("Cvv")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EOCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<int>("FailLogin")
                         .HasColumnType("int");
 
+                    b.Property<string>("FaxNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LoginId")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MOCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("OCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SOCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EOCommodityId");
+
+                    b.HasIndex("MOCommodityId");
+
+                    b.HasIndex("OCommodityId");
+
+                    b.HasIndex("SOCommodityId");
 
                     b.ToTable("Center");
                 });
@@ -81,15 +112,33 @@ namespace BusinessData.Migrations
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Container")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("EOCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("HsCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MOCommodityId")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("OpponentBusinessUserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SOCommodityId")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -97,6 +146,12 @@ namespace BusinessData.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CenterId");
+
+                    b.HasIndex("EOCommodityId");
+
+                    b.HasIndex("MOCommodityId");
+
+                    b.HasIndex("SOCommodityId");
 
                     b.ToTable("Commodity");
                 });
@@ -109,6 +164,9 @@ namespace BusinessData.Migrations
 
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -148,6 +206,9 @@ namespace BusinessData.Migrations
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -186,6 +247,9 @@ namespace BusinessData.Migrations
                     b.Property<string>("CenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -198,6 +262,9 @@ namespace BusinessData.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Quantity")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
@@ -208,70 +275,6 @@ namespace BusinessData.Migrations
                     b.HasIndex("CommodityId");
 
                     b.ToTable("SStatus");
-                });
-
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OrderCenter", b =>
-                {
-                    b.HasBaseType("BusinessData.Center");
-
-                    b.Property<string>("CenterIPAddresses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CenterMacAddresses")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ChangedUsers")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Docs")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageofInfos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("OrderCenter");
-                });
-
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
-                {
-                    b.HasBaseType("BusinessData.Commodity");
-
-                    b.Property<string>("ChangedUsers")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DCommodityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Docs")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageofInfos")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderCenterId")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("OrderId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrderedAt")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PCommodityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("WarehouseId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("OrderCenterId");
-
-                    b.ToTable("OCommodity");
                 });
 
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.EOCommodity", b =>
@@ -305,7 +308,7 @@ namespace BusinessData.Migrations
 
                     b.HasIndex("OrderCenterId");
 
-                    b.ToTable("EOCommodity");
+                    b.ToTable("EOCommodity", (string)null);
                 });
 
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.MOCommodity", b =>
@@ -336,7 +339,56 @@ namespace BusinessData.Migrations
 
                     b.HasIndex("SOCommodityId");
 
-                    b.ToTable("MOCommodity");
+                    b.ToTable("MOCommodity", (string)null);
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
+                {
+                    b.HasBaseType("BusinessData.Commodity");
+
+                    b.Property<string>("ChangedUsers")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Docs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageofInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderCenterId")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasIndex("OrderCenterId");
+
+                    b.ToTable("OCommodity", (string)null);
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OrderCenter", b =>
+                {
+                    b.HasBaseType("BusinessData.Center");
+
+                    b.Property<string>("CenterIPAddresses")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CenterMacAddresses")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChangedUsers")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Docs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageofInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("OrderCenter", (string)null);
                 });
 
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.SOCommodity", b =>
@@ -352,17 +404,45 @@ namespace BusinessData.Migrations
                     b.Property<string>("ImageofInfos")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Incorterms")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("OCommodityId")
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("OrderCenterId")
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QualityTerms")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasIndex("OCommodityId");
 
                     b.HasIndex("OrderCenterId");
 
-                    b.ToTable("SOCommodity");
+                    b.ToTable("SOCommodity", (string)null);
+                });
+
+            modelBuilder.Entity("BusinessData.Center", b =>
+                {
+                    b.HasOne("BusinessData.ofOrder.ofModel.EOCommodity", null)
+                        .WithMany("OrderCenter")
+                        .HasForeignKey("EOCommodityId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.MOCommodity", null)
+                        .WithMany("OrderCenter")
+                        .HasForeignKey("MOCommodityId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", null)
+                        .WithMany("OrderCenter")
+                        .HasForeignKey("OCommodityId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.SOCommodity", null)
+                        .WithMany("OrderCenter")
+                        .HasForeignKey("SOCommodityId");
                 });
 
             modelBuilder.Entity("BusinessData.Commodity", b =>
@@ -370,6 +450,18 @@ namespace BusinessData.Migrations
                     b.HasOne("BusinessData.Center", "Center")
                         .WithMany("Commodities")
                         .HasForeignKey("CenterId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.EOCommodity", null)
+                        .WithMany("OCommodity")
+                        .HasForeignKey("EOCommodityId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.MOCommodity", null)
+                        .WithMany("OCommodity")
+                        .HasForeignKey("MOCommodityId");
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.SOCommodity", null)
+                        .WithMany("OCommodity")
+                        .HasForeignKey("SOCommodityId");
 
                     b.Navigation("Center");
                 });
@@ -431,30 +523,6 @@ namespace BusinessData.Migrations
                     b.Navigation("Commodity");
                 });
 
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OrderCenter", b =>
-                {
-                    b.HasOne("BusinessData.Center", null)
-                        .WithOne()
-                        .HasForeignKey("BusinessData.ofOrder.ofModel.OrderCenter", "Id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
-                {
-                    b.HasOne("BusinessData.Commodity", null)
-                        .WithOne()
-                        .HasForeignKey("BusinessData.ofOrder.ofModel.OCommodity", "Id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", "OrderCenter")
-                        .WithMany("OCommodities")
-                        .HasForeignKey("OrderCenterId");
-
-                    b.Navigation("OrderCenter");
-                });
-
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.EOCommodity", b =>
                 {
                     b.HasOne("BusinessData.EStatus", null)
@@ -467,19 +535,15 @@ namespace BusinessData.Migrations
                         .WithMany("EOCommodities")
                         .HasForeignKey("MOCommodityId");
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", "OCommodity")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", null)
                         .WithMany("EOCommodities")
                         .HasForeignKey("OCommodityId");
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", "OrderCenter")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", null)
                         .WithMany("EOCommodities")
                         .HasForeignKey("OrderCenterId");
 
                     b.Navigation("MOCommodity");
-
-                    b.Navigation("OCommodity");
-
-                    b.Navigation("OrderCenter");
                 });
 
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.MOCommodity", b =>
@@ -490,11 +554,11 @@ namespace BusinessData.Migrations
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", "OCommodity")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", null)
                         .WithMany("MOCommodities")
                         .HasForeignKey("OCommodityId");
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", "OrderCenter")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", null)
                         .WithMany("MOCommodities")
                         .HasForeignKey("OrderCenterId");
 
@@ -502,11 +566,29 @@ namespace BusinessData.Migrations
                         .WithMany("MOCommodities")
                         .HasForeignKey("SOCommodityId");
 
-                    b.Navigation("OCommodity");
-
-                    b.Navigation("OrderCenter");
-
                     b.Navigation("SOCommodity");
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
+                {
+                    b.HasOne("BusinessData.Commodity", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofOrder.ofModel.OCommodity", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", null)
+                        .WithMany("OCommodities")
+                        .HasForeignKey("OrderCenterId");
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OrderCenter", b =>
+                {
+                    b.HasOne("BusinessData.Center", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofOrder.ofModel.OrderCenter", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.SOCommodity", b =>
@@ -517,17 +599,13 @@ namespace BusinessData.Migrations
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", "OCommodity")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OCommodity", null)
                         .WithMany("SOCommodities")
                         .HasForeignKey("OCommodityId");
 
-                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", "OrderCenter")
+                    b.HasOne("BusinessData.ofOrder.ofModel.OrderCenter", null)
                         .WithMany("SOCommodities")
                         .HasForeignKey("OrderCenterId");
-
-                    b.Navigation("OCommodity");
-
-                    b.Navigation("OrderCenter");
                 });
 
             modelBuilder.Entity("BusinessData.Center", b =>
@@ -560,6 +638,33 @@ namespace BusinessData.Migrations
                     b.Navigation("MStatuses");
                 });
 
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.EOCommodity", b =>
+                {
+                    b.Navigation("OCommodity");
+
+                    b.Navigation("OrderCenter");
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.MOCommodity", b =>
+                {
+                    b.Navigation("EOCommodities");
+
+                    b.Navigation("OCommodity");
+
+                    b.Navigation("OrderCenter");
+                });
+
+            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
+                {
+                    b.Navigation("EOCommodities");
+
+                    b.Navigation("MOCommodities");
+
+                    b.Navigation("OrderCenter");
+
+                    b.Navigation("SOCommodities");
+                });
+
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.OrderCenter", b =>
                 {
                     b.Navigation("EOCommodities");
@@ -571,23 +676,13 @@ namespace BusinessData.Migrations
                     b.Navigation("SOCommodities");
                 });
 
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.OCommodity", b =>
-                {
-                    b.Navigation("EOCommodities");
-
-                    b.Navigation("MOCommodities");
-
-                    b.Navigation("SOCommodities");
-                });
-
-            modelBuilder.Entity("BusinessData.ofOrder.ofModel.MOCommodity", b =>
-                {
-                    b.Navigation("EOCommodities");
-                });
-
             modelBuilder.Entity("BusinessData.ofOrder.ofModel.SOCommodity", b =>
                 {
                     b.Navigation("MOCommodities");
+
+                    b.Navigation("OCommodity");
+
+                    b.Navigation("OrderCenter");
                 });
 #pragma warning restore 612, 618
         }

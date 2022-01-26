@@ -41,6 +41,7 @@ namespace BusinessData.Migrations.GODb
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     HsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OpponentBusinessUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Barcode = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     CenterId = table.Column<string>(type: "nvarchar(30)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -104,6 +105,7 @@ namespace BusinessData.Migrations.GODb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Quantity = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Container = table.Column<string>(type: "nvarchar(max)", nullable: true),

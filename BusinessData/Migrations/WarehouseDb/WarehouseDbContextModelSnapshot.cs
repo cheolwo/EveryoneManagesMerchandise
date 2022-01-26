@@ -159,6 +159,9 @@ namespace BusinessData.Migrations.WarehouseDb
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("OpponentBusinessUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SWCommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -449,6 +452,9 @@ namespace BusinessData.Migrations.WarehouseDb
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Quantity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")

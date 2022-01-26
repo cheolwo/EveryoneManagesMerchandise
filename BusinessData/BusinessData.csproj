@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\OrderDb\**" />
     <Compile Remove="ofWarehouse\DataManager\**" />
+    <EmbeddedResource Remove="Migrations\OrderDb\**" />
     <EmbeddedResource Remove="ofWarehouse\DataManager\**" />
+    <None Remove="Migrations\OrderDb\**" />
     <None Remove="ofWarehouse\DataManager\**" />
   </ItemGroup>
 
@@ -43,12 +46,9 @@
   <ItemGroup>
     <Folder Include="Migrations\BusinessUserDb\" />
     <Folder Include="Migrations\FisheriesDb\" />
-    <Folder Include="Migrations\GODb\" />
     <Folder Include="Migrations\HsDb\" />
     <Folder Include="Migrations\KamisDb\" />
     <Folder Include="Migrations\KAptDb\" />
-    <Folder Include="Migrations\OrderDb\" />
-    <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
     <Folder Include="ofHumanResource\" />
     <Folder Include="ofAccount\NewFolder\" />

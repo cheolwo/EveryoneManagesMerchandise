@@ -108,6 +108,9 @@ namespace BusinessData.Migrations.GODb
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("OpponentBusinessUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
@@ -222,6 +225,9 @@ namespace BusinessData.Migrations.GODb
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Quantity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")

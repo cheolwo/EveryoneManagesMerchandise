@@ -4,8 +4,15 @@
 
 @if(IsSelectedReturn)
 {
+    <MudTextField @bind-Value="SOCommodity.CreateTime" Label="Outlined" Variant="Variant.Outlined">거래일자</MudTextField>
+    <MudTextField @bind-Value="SOCommodity.Name" Label="Outlined" Variant="Variant.Outlined">주문명</MudTextField>
+    <MudTextField @bind-Value="SOCommodity.Incorterms" Label="Outlined" Variant="Variant.Outlined">거래조건</MudTextField>
+    <MudTextField @bind-Value="SOCommodity.QualityTerms" Label="Outlined" Variant="Variant.Outlined">품질조건</MudTextField>
+    <MudTextField @bind-Value="SOCommodity.Quantity" Label="Outlined" Variant="Variant.Outlined">수량</MudTextField>
+    <MudTextField @bind-Value="SOCommodity.Price" Label="Outlined" Variant="Variant.Outlined">가격</MudTextField>
 }
- <MudButton OnClick="ClickSelectedEvent">SelecteItem</MudButton>
+else
+{
 <MudTable Items="@SOCommodities" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">
     <HeaderContent>
         <MudTh>거래일자</MudTh>
@@ -31,11 +38,14 @@
     </FooterContent>
 </MudTable>
 <MudText Inline="true">Selected items: @(selectedItems1==null ? "" : string.Join(", ", selectedItems1.OrderBy(x=>x.Name).Select(x=>x.Name)))</MudText>
+ <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="ClickSelectedEvent">SelecteItem</MudButton>
+}
 
 @code {
     [CascadingParameter] public UserComponent? UserComponent { get; set; }
     [Parameter] public bool IsSelectedReturn { get; set; }
-    [Parameter] public EventCallback<SOCommodity> SelectedSOcommodityId { get; set; }
+    [Parameter] public EventCallback<SOCommodity> SelectedSOcommodity{ get; set; }
+    public SOCommodity? SOCommodity = new();
     public IEnumerable<SOCommodity> SOCommodities = new List<SOCommodity>();
     protected override async Task OnInitializedAsync()
     {
@@ -52,8 +62,8 @@
     {
         if(selectedItems1.Count > 0)
         {
-            var sOCommodity = selectedItems1.FirstOrDefault();
-            SelectedSOcommodityId.InvokeAsync(sOCommodity);
+            SOCommodity = selectedItems1.FirstOrDefault();
+            SelectedSOcommodity.InvokeAsync(SOCommodity);
         }
     }
     private bool hover = true;
