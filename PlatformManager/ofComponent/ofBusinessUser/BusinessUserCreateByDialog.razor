@@ -35,6 +35,7 @@
 
 @code {
     [CascadingParameter] public MudDialogInstance MudDialog { get; set; }
+    [Parameter] public EventCallback<BusinessUser> EventCreateBusinessUserAsync(BusinessUser businessUser);
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
     bool success;
@@ -42,7 +43,12 @@
     MudTextField<string> pwField1;
     MudForm form;
     public BusinessUser BusinessUser = new();
-    private IEnumerable<string> PasswordStrength(string pw)
+    public async Task CreateBusinessUserAsync(BusinessUser businessUser)
+    {
+        MudDialog.Close(DialogResult.Ok(true));
+        EventCreateBusinessUserAsync.InvokeAsync(businessUser);
+    }
+    @* private IEnumerable<string> PasswordStrength(string pw)
     {
         if (string.IsNullOrWhiteSpace(pw))
         {
@@ -64,5 +70,5 @@
         if (pwField1.Value != arg)
             return "Passwords don't match";
         return null;
-    }
+    } *@
 }

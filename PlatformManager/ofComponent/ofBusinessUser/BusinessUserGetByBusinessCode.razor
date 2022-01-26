@@ -1,7 +1,7 @@
 @using BusinessData.ofAccount.ofModel
 @using BusinessLogic.ofManager.ofGeneric
-<MudTextField @bind-Value="BusinessNumber" Label="»ç¾÷ÀÚµî·Ï¹øÈ£"></MudTextField>
-<MudButton OnClick=SearchBusinssUserByNumber>°Ë»ö</MudButton>
+<MudTextField @bind-Value="BusinessNumber" Label="ï¿½ï¿½ï¿½ï¿½Úµï¿½Ï¹ï¿½È£"></MudTextField>
+<MudButton OnClick=SearchBusinssUserByNumber>ï¿½Ë»ï¿½</MudButton>
 @if(BusinessUser != null)
 {
     <MudText>@BusinessUser.Name</MudText>
@@ -11,9 +11,9 @@
 </CascadingValue>
 
 @code {
-    [Inject] public IEntityManager<BusinessUser> ?BusinssUserManager { get; set; }
     public BusinessUser ?BusinessUser { get; set; }
     public RenderFragment? RenderFragment { get; set; }
+    [Parameter] public EventCallback<string> EventSearchBusinessUserByNumber {get; set;}
     protected override void OnInitialized()
     {
         BusinessUser = new();
@@ -23,15 +23,7 @@
     {
         if (BusinessNumber != null)
         {
-            var SearcgingBusinessUser = await BusinssUserManager!.GetByCodeAsync(BusinessNumber);
-            if(SearcgingBusinessUser == null)
-            {
-                BusinessUser!.Name = "»ç¾÷ÀÚ°¡ ¾ø½À´Ï´Ù.";
-            }
-            else
-            {
-                BusinessUser = SearcgingBusinessUser;
-            }
+            await EventSearchBusinessUserByNumber.InvokeAsync(BusinessNumber);
         }
     } 
 }

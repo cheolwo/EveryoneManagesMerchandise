@@ -5,34 +5,40 @@
 @using PlatformManager.ofComponent.ofOrder.ofSOCommodity
 @using PlatformManager.ofComponent.ofWarehouse
 @inject IDialogService DialogService
+@inject NavigationManager _NavigationManager
+@inject IEntityManager<BusinessUser> _BusinessUserManager
 @page "/Register/Order"
+@if(BusinessUser != null)
+{
+	BusienssUser.Name;
+}
 <MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
 	사업자등록
 </MudButton>
-<BusinessUserGetByBusinessCode></BusinessUserGetByBusinessCode>
+<BusinessUserGetByBusinessCode EventCreateBusinessUserAsync="CreateBusinssUserAsync"></BusinessUserGetByBusinessCode>
 <UserComponent>
-	@if(IsSelectedSOCommodity)
+	@if (IsSelectedSOCommodity)
 	{
 		<MudTextField @bind-Value="SOCommodity.Quantity" Label="Outlined" Variant="Variant.Outlined">수량</MudTextField>
 		<MudTextField @bind-Value="SOCommodity.Price" Label="Outlined" Variant="Variant.Outlined">가격</MudTextField>
 	}
 	else
 	{
-		<SOCommodityTableComponent IsSelectedReturn=true SelectedSOcommodity=SelectSOCommodity ></SOCommodityTableComponent>
+		<SOCommodityTableComponent SelectedSOcommodity=SelectSOCommodity></SOCommodityTableComponent>
 	}
-	@if(IsSelectedSOCommodity)
+	@if (IsSelectedWarehouse)
 	{
 		<MudTextField @bind-Value="Warehouse.Name" Label="Outlined" Variant="Variant.Outlined">창고이름</MudTextField>
 	}
 	else
 	{
-	<WareohuseTableComponent IsRelatedCount=true SelectWarehouse=SelectWarehouse></WareohuseTableComponent>
+		<WareohuseTableComponent SelectWarehouse=SelectWarehouse></WareohuseTableComponent>
 	}
 </UserComponent>
 <MudButton Variant="Variant.Filled" Color="Color.Primary">뒤로</MudButton>
-<MudButton Variant="Variant.Filled" Color="Color.Primary" >등록</MudButton>
+<MudButton Variant="Variant.Filled" Color="Color.Primary">등록</MudButton>
 @code {
-	public string? BusinessNumber { get; set; }
+	public BusinessUser BusinessUser { get; set; }
 	public bool IsSelectedSOCommodity { get; set; }
 	public bool IsSelectedWarehouse { get; set; }
 	public Warehouse Warehouse { get; set; }
@@ -40,14 +46,24 @@
 	protected override void OnInitialized()
 	{
 		base.OnInitialized();
-		 Warehouse = new();
+		Warehouse = new();
+		BusinessUser = new();
 		SOCommodity = new();
 		IsSelectedSOCommodity = false;
 		IsSelectedWarehouse = false;
 	}
+	public async Task SearchBusinessUserByNumber(string businessNumber)
+	{
+		BusinessUser = await _BusinessUserManager.GetByCodeAsny(businessNumber);
+	}
+	public async Task CreateBusinessUserAsync(BusinessUser businessUser)
+	{
+		BusinessUser = await _BusinessUserManager.CreateAsync(businessUser);
+	}
 	public void SelectWarehouse(Warehouse warehouse)
 	{
 		Warehouse = warehouse;
+		IsSelectedWarehouse = true;
 	}
 	public void SelectSOCommodity(SOCommodity soCommodity)
 	{
