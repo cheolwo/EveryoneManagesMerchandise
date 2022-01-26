@@ -44,6 +44,8 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<bool> LoginByCryptPasswrodAsync(TEntity entity, string id, string cryptPassword);
         Task<Dictionary<string, List<TEntity>>> ExcelToCenterEntities(string fileconnectionString, Dictionary<PropertyInfo, int> Target,
                                             int UserCodeTarget);
+        Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId);
+        Task<List<TEntity>> GetToListWithRelatedAsync();
     }
     public class CenterManager<TEntity> : EntityManager<TEntity>, ICenterManager<TEntity> where TEntity : Center, IRelationable
     {
@@ -128,6 +130,26 @@ namespace BusinessLogic.ofManager.ofGeneric
             var datas = _EntityFileFactory.InitExcelData(fileconnectionString);
             var UserKeyCenterValue = _centerFileFactory.SetExcelCenters(datas, Target, UserCodeTarget);
             return _centerIdFactory.SetUserKeyCenterValueId(UserKeyCenterValue, count);
+        }
+
+        public async Task<TEntity> GetByUserIdWithRelated(string UserId)
+        {
+            var Center =  await _centerDataRepository.GetByUserId(UserId);
+            if(Center != null)
+            {
+                return await _centerDataRepository.GetByCenterWithStatus(Center);
+            }
+            throw new ArgumentNullException("Not Register Center");
+        }
+
+        public async Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId)
+        {
+            return await _centerDataRepository.GetToListByUserIdWithRelated(UserId);
+        }
+
+        public async Task<List<TEntity>> GetToListWithRelatedAsync()
+        {
+            return await _centerDataRepository.GetToListWithStatuses();
         }
     }
 }

@@ -170,9 +170,9 @@ namespace BusinessLogic.ofManager.ofGeneric
             throw new NotImplementedException();
         }
 
-        public Task<List<TEntity>> GetToListByUserAsync(IdentityUser user)
+        public async Task<List<TEntity>> GetToListByUserAsync(IdentityUser user)
         {
-            throw new NotImplementedException();
+            return await _EntityDataRepository.GetToListByUserAsync(user);
         }
 
         public async Task<TEntity> GetByCodeAsync(string Code)

@@ -8,6 +8,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\ofHsCode\**" />
+    <Compile Remove="Pages\ofMPCommodity\**" />
+    <Compile Remove="Pages\ofPCommodity\**" />
+    <Compile Remove="Pages\ofProducterCenter\**" />
+    <Compile Remove="Pages\ofProducter\**" />
+    <Compile Remove="Pages\ofSPCommodity\**" />
+    <Content Remove="Pages\ofHsCode\**" />
+    <Content Remove="Pages\ofMPCommodity\**" />
+    <Content Remove="Pages\ofPCommodity\**" />
+    <Content Remove="Pages\ofProducterCenter\**" />
+    <Content Remove="Pages\ofProducter\**" />
+    <Content Remove="Pages\ofSPCommodity\**" />
+    <EmbeddedResource Remove="Pages\ofHsCode\**" />
+    <EmbeddedResource Remove="Pages\ofMPCommodity\**" />
+    <EmbeddedResource Remove="Pages\ofPCommodity\**" />
+    <EmbeddedResource Remove="Pages\ofProducterCenter\**" />
+    <EmbeddedResource Remove="Pages\ofProducter\**" />
+    <EmbeddedResource Remove="Pages\ofSPCommodity\**" />
+    <None Remove="Pages\ofHsCode\**" />
+    <None Remove="Pages\ofMPCommodity\**" />
+    <None Remove="Pages\ofPCommodity\**" />
+    <None Remove="Pages\ofProducterCenter\**" />
+    <None Remove="Pages\ofProducter\**" />
+    <None Remove="Pages\ofSPCommodity\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
@@ -19,12 +46,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\ofEPCommodity\" />
-    <Folder Include="Pages\ofMPCommodity\" />
-    <Folder Include="Pages\ofSPCommodity\" />
-    <Folder Include="Pages\ofPCommodity\" />
-    <Folder Include="Pages\ofHsCode\" />
-    <Folder Include="Pages\ofProducter\" />
-    <Folder Include="Pages\ofProducterCenter\" />
   </ItemGroup>
 
   <ItemGroup>

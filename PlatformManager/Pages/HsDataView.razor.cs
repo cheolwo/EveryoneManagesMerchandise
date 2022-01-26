@@ -19,7 +19,9 @@ namespace PlatformManager.Pages
         int Count { get; set; }
         protected override async Task OnInitializedAsync()
         {
-           Count =  await PracticalHsCodeManager._EntityDataRepository.GetCountAsync();
+#pragma warning disable CS8602 // null 가능 참조에 대한 역참조입니다.
+            Count = await PracticalHsCodeManager._EntityDataRepository.GetCountAsync();
+#pragma warning restore CS8602 // null 가능 참조에 대한 역참조입니다.
         }
         public async Task ExcelToDb()
         {

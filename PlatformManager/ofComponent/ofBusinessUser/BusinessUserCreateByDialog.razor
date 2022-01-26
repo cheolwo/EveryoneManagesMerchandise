@@ -1,0 +1,68 @@
+﻿@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using BusinessData.ofAccount.ofModel
+
+<MudDialog>
+    <DialogContent>
+        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudTextField T="string"  @bind-Value="BusinessUser.Name" Label="사업자명" Required="true" RequiredError="필수 값입니다!"/>
+                     <MudTextField T="string" @bind-Value="BusinessUser.BusinessName" Label="사업장명" Required="true" RequiredError="필수 값입니다!"/>
+                      <MudTextField T="string" @bind-Value="BusinessUser.RegisterNumber" Label="사업자등록번호" Required="true" RequiredError="필수 값입니다!"/>
+                       <MudTextField T="string" @bind-Value="BusinessUser.BusinessSector" Label="업태" Required="true" RequiredError="필수 값입니다!"/>
+                        <MudTextField T="string" @bind-Value="BusinessUser.BusinssType" Label="종목" Required="true" RequiredError="필수 값입니다!"/>
+                    <MudTextField T="string" @bind-Value="BusinessUser.Email" Label="Email" Required="true" RequiredError="필수 값입니다!"
+                                  Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})"/>                  
+                    <div class="d-flex">
+                        <MudRadioGroup T="string" Required="true" RequiredError="Account type is required!">
+                            <MudRadio Option="@("Personal")">Personal</MudRadio>
+                            <MudRadio Option="@("Professional")">Professional</MudRadio>
+                        </MudRadioGroup>
+                    </div>
+                    <div class="d-flex align-center justify-space-between mt-6">
+                        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Class="ml-n2" Label="I agree!"/>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Register</MudButton>
+                    </div>
+            </MudForm>   
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="@(()=>form.Validate())">Validate</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true" OnClick="@(()=>form.Reset())" Class="mx-2">Reset</MudButton>
+            <MudButton Variant="Variant.Filled" DisableElevation="true" OnClick="@(()=>form.ResetValidation())">Reset Validation</MudButton>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] public MudDialogInstance MudDialog { get; set; }
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+    bool success;
+    string[] errors = { };
+    MudTextField<string> pwField1;
+    MudForm form;
+    public BusinessUser BusinessUser = new();
+    private IEnumerable<string> PasswordStrength(string pw)
+    {
+        if (string.IsNullOrWhiteSpace(pw))
+        {
+            yield return "Password is required!";
+            yield break;
+        }
+        if (pw.Length < 8)
+            yield return "Password must be at least of length 8";
+        if (!Regex.IsMatch(pw, @"[A-Z]"))
+            yield return "Password must contain at least one capital letter";
+        if (!Regex.IsMatch(pw, @"[a-z]"))
+            yield return "Password must contain at least one lowercase letter";
+        if (!Regex.IsMatch(pw, @"[0-9]"))
+            yield return "Password must contain at least one digit";
+    }
+
+    private string PasswordMatch(string arg)
+    {
+        if (pwField1.Value != arg)
+            return "Passwords don't match";
+        return null;
+    }
+}

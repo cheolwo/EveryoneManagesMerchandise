@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BusinessData.ofCommon.ofKapt;
 using BusinessData.ofGroupOrder.ofModel;
@@ -10,6 +11,23 @@ using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
 
 namespace BusinessLogic.ofManager.ofWarehouse
 {
+    public class WarehouseRelatedCountViewModel
+    {
+        public Warehouse Warehouse { get; set; }
+        public int CountCommodity { get; set; }
+        public int CountSWCommodity { get; set; }
+        public int CountMWCommodity { get; set; }
+        public int CountEWCommodity { get; set; }
+        public WarehouseRelatedCountViewModel(Warehouse warehouse, int CountCommodity, int CountSWCommodity,
+            int CountMWCommmodity, int CountEWCommodity)
+        {
+            Warehouse = warehouse;
+            this.CountCommodity = CountCommodity;
+            this.CountSWCommodity = CountSWCommodity;
+            this.CountMWCommodity = CountMWCommmodity;
+            this.CountEWCommodity = CountEWCommodity;
+        }
+    }
     public interface IWarehouseManager : ICenterManager<Warehouse>
     {
         Task<Warehouse> LoginWithDataAsync(string LoginId, string Password);
@@ -74,6 +92,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
             return warehouse;
         }
     }
+
     //public class WorkingDeskManager : EntityManager<WorkingDesk>
     //{
     //    public WorkingDeskManager(IWorkingDeskRepository CenterDataRepository,

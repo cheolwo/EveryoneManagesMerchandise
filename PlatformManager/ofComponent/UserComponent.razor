@@ -2,7 +2,7 @@
 {
     <h3>@IdentityUser.UserName</h3>
     <CascadingValue Value="this">
-        @EntityFragment
+        @ChildContent
     </CascadingValue>
 }
 else
@@ -10,5 +10,5 @@ else
     <p>Loading...</p>
 }
 @code {
-
+    [Parameter] public RenderFragment ChildContent { get; set; }
 }

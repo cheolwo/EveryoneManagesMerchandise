@@ -1,6 +1,4 @@
 ﻿using BusinessData.ofAccount.ofModel;
-using BusinessData.ofGeneric.ofTypeConfiguration.ofAccount;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -41,7 +39,6 @@ namespace BusinessData.ofAccount
     {
         public override void Configure(EntityTypeBuilder<BusinessUser> builder)
         {
-            base.Configure(builder);
         }
     }
     public class JournalSettingConfiguration : EntityConfiguration<JournalSetting>
@@ -60,20 +57,37 @@ namespace BusinessData.ofAccount
                 new ValueComparer<List<string>>((c1, c2) => c1.SequenceEqual(c2),
                  c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
             c => c.ToList()));
+            builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.CreateTime);
+            builder.Ignore(c => c.UserId);
         }
     }
     public class PayServiceConfiguration : EntityConfiguration<PayService>
     {
         public override void Configure(EntityTypeBuilder<PayService> builder)
         {
-            base.Configure(builder);
+            builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.CreateTime);
+            builder.Ignore(c => c.UserId);
         }
     }
+    /*
+     * Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Container = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ChangedUsers = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageofInfos = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Docs = table.Column<string>(type: "nvarchar(max)", nullable: true)
+     */
     public class TableSettingConfiguration : EntityConfiguration<TableSetting>
     {
         public override void Configure(EntityTypeBuilder<TableSetting> builder)
         {
-            base.Configure(builder);
+            builder.Ignore(c => c.Container);
+            builder.Ignore(c => c.CreateTime);
+            builder.Ignore(c => c.UserId);
             builder.Property(c => c.GetColumnsSelected).HasConversion(
                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                 v => JsonConvert.DeserializeObject<List<string>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),

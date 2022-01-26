@@ -1,0 +1,67 @@
+﻿@using BusinessData.ofOrder.ofModel
+@using BusinessData.ofWarehouse.Model
+@using PlatformManager.ofComponent.ofBusinessUser
+@using PlatformManager.ofComponent.ofOrder
+@using PlatformManager.ofComponent.ofOrder.ofSOCommodity
+@using PlatformManager.ofComponent.ofWarehouse
+@inject IDialogService DialogService
+@page "/Register/Order"
+<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
+	사업자등록
+</MudButton>
+<BusinessUserGetByBusinessCode></BusinessUserGetByBusinessCode>
+<UserComponent>
+	@if(IsSelectedSOCommodity)
+	{
+		<MudTextField @bind-Value="SOCommodity.Quantity" Label="Outlined" Variant="Variant.Outlined">수량</MudTextField>
+		<MudTextField @bind-Value="SOCommodity.Price" Label="Outlined" Variant="Variant.Outlined">가격</MudTextField>
+	}
+	else
+	{
+		<SOCommodityTableComponent IsSelectedReturn=true SelectedSOcommodityId=SelectSOCommodity ></SOCommodityTableComponent>
+	}
+	@if(IsSelectedSOCommodity)
+	{
+		<MudTextField @bind-Value="Warehouse.Name" Label="Outlined" Variant="Variant.Outlined">창고이름</MudTextField>
+	}
+	else
+	{
+	<WareohuseTableComponent IsRelatedCount=true SelectWarehouse=SelectWarehouse></WareohuseTableComponent>
+	}
+</UserComponent>
+@code {
+	public string? BusinessNumber { get; set; }
+	public bool IsSelectedSOCommodity { get; set; }
+	public bool IsSelectedWarehouse { get; set; }
+	public Warehouse Warehouse { get; set; }
+	public SOCommodity SOCommodity { get; set; }
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		 Warehouse = new();
+		SOCommodity = new();
+		IsSelectedSOCommodity = false;
+		IsSelectedWarehouse = false;
+	}
+	public void SelectWarehouse(Warehouse warehouse)
+	{
+		Warehouse = warehouse;
+	}
+	public void SelectSOCommodity(SOCommodity soCommodity)
+	{
+		SOCommodity.CenterId = soCommodity.CenterId;
+		SOCommodity.CommodityId = soCommodity.CommodityId;
+		SOCommodity.Incorterms = soCommodity.Incorterms;
+		SOCommodity.Quantity = soCommodity.Quantity;
+		SOCommodity.QualityTerms = soCommodity.QualityTerms;
+		SOCommodity.Price = soCommodity.Price;
+		SOCommodity.Name = soCommodity.Name;
+		SOCommodity.UserId = soCommodity.UserId;
+		IsSelectedSOCommodity = true;
+	}
+	private void OpenDialog()
+	{
+		var options = new DialogOptions { CloseOnEscapeKey = true };
+		DialogService.Show<BusinessUserCreateByDialog>("사업자등록", options);
+	}
+}

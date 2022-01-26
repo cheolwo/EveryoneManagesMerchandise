@@ -17,14 +17,16 @@ namespace BusinessData
         Task<List<TEntity>> GetToListWithEStatuses();
         Task<List<TEntity>> GetToListWithMStatuses();
         Task<List<TEntity>> GetToListWithSStatuses();
+        Task<List<TEntity>> GetToListWithStatuses();
         Task<List<TEntity>> GetToListWithCenterMacAddresses();
         Task<List<TEntity>> GetToListWithCenterIPAddresses();
         Task<List<TEntity>> GetToListWithCenterRoles();
         // By With
         Task<List<TEntity>> GetToListByCountryCodeWithRelated(string CoutryCode);
         Task<TEntity> GetByCenterWithStatus(TEntity entity);
+        Task<List<TEntity>> GetToListByUserIdWithRelated(string userId);
     }
-    public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>, 
+    public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>,
                                                     ICenterDataRepository<TEntity>
                                                 where TEntity : Center, IRelationable, new()
     {
@@ -43,21 +45,21 @@ namespace BusinessData
         }
         public async Task<TEntity> GetByAddress(string Address)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Address.Equals(Address));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Address.Equals(Address));
         }
         public async Task<TEntity> GetByLoginId(string LoginId)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.LoginId.Equals(LoginId));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.LoginId.Equals(LoginId));
         }
 
         public async Task<List<TEntity>> GetToListByCountryCode(string CoutryCode)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CoutryCode)).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e => e.CountryCode.Equals(CoutryCode)).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByCountryCodeWithRelated(string CoutryCode)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CoutryCode)).Include(entity => entity.ChangedUsers).
+            return await _DbContext.Set<TEntity>().Where(e => e.CountryCode.Equals(CoutryCode)).Include(entity => entity.ChangedUsers).
                                                                                         Include(entity => entity.Docs).
                                                                                         Include(entity => entity.ImageofInfos).
                                                                                         Include(entity => entity.SStatuses).
@@ -106,8 +108,8 @@ namespace BusinessData
 
         public async Task<bool> IsDuplecatedByNameAsync(TEntity tentity)
         {
-            Center center = await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Name.Equals(tentity.Name));
-            if(center == null)
+            Center center = await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Name.Equals(tentity.Name));
+            if (center == null)
             {
                 return true;
             }
@@ -116,7 +118,17 @@ namespace BusinessData
         public async Task<TEntity> GetByCenterWithStatus(TEntity entity)
         {
             return await _DbContext.Set<TEntity>().Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.MStatuses).
-                Include(e => e.Commodities).FirstOrDefaultAsync(e=>e.Equals(entity));
+                Include(e => e.Commodities).FirstOrDefaultAsync(e => e.Equals(entity));
+        }
+
+        public async Task<List<TEntity>> GetToListWithStatuses()
+        {
+            return await _DbContext.Set<TEntity>().Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.EStatuses).Include(e => e.Commodities).ToListAsync();
+        }
+        public async Task<List<TEntity>> GetToListByUserIdWithRelated(string UserId)
+        {
+            return await _DbContext.Set<TEntity>().Where(e => e.UserId.Equals(UserId)).Include(e => e.SStatuses).
+                Include(e => e.MStatuses).Include(e => e.EStatuses).Include(e => e.Commodities).ToListAsync();
         }
     }
 }

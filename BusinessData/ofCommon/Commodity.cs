@@ -7,6 +7,7 @@ namespace BusinessData
     public class Commodity : Entity, IRelatedCenter, IEnumerable<Commodity>
     {
         public string HsCode {get; set;}
+        public string OpponentBusinessUserId { get; set; }
         [Detail]public string Barcode {get; set;}
         public string CenterId {get; set;}
         [One][Get]public Center Center { get; set; }

@@ -19,6 +19,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofBusinessUser/BusinessUserCreateByDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZCdXNpbmVzc1VzZXJcQnVzaW5lc3NVc2VyQ3JlYXRlQnlEaWFsb2cucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofBusinessUser/BusinessUserGetByBusinessCode.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZCdXNpbmVzc1VzZXJcQnVzaW5lc3NVc2VyR2V0QnlCdXNpbmVzc0NvZGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/EntityTableView.razor]
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXEVudGl0eVRhYmxlVmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -27,8 +35,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZLYXB0SW5mb1xLQXB0SW5mby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofWarehouse/WarehouseTableView.razor]
-build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZXYXJlaG91c2VcV2FyZWhvdXNlVGFibGVWaWV3LnJhem9y
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofOrder/ofSOCommodity/SOCommodityTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZPcmRlclxvZlNPQ29tbW9kaXR5XFNPQ29tbW9kaXR5VGFibGVDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofOrder/OrderRelatedBusinessUser.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZPcmRlclxPcmRlclJlbGF0ZWRCdXNpbmVzc1VzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofWarehouse/WareohuseTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZXYXJlaG91c2VcV2FyZW9odXNlVGFibGVDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/UserComponent.razor]
@@ -65,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Pages/KaptInfo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2FwdEluZm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Pages/ofOrder/OrderRegisterView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZPcmRlclxPcmRlclJlZ2lzdGVyVmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Shared/LoginDisplay.razor]

@@ -25,6 +25,7 @@ namespace BusinessData
         public const string KAptDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KAptInfoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string FisheriesDbConnection = "Server=(localdb)\\mssqllocaldb;Database=FisheriesDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string BusinessUserDbConnection = "Server=(localdb)\\mssqllocaldb;Database=BusinessUserDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string OrderDbconnection = "Server=(localdb)\\mssqllocaldb;Database=OrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
     public class OneAttribute : Attribute
     {
@@ -250,7 +251,7 @@ namespace BusinessData
         public const string ED = "ED";
     }
     public class Status : Entity, IRelatedCenter
-    {
+    { 
         public string CommodityId {get; set;}
         public string CenterId {get; set;}
         [Get][One] public Commodity Commodity { get; set; }
@@ -263,6 +264,7 @@ namespace BusinessData
     }
     public class SStatus : Status
     {
+        public string Quantity { get; set; }
         [Get][Many]public List<MStatus> MStatuses { get; set; }
     }
     public class MStatus : Status

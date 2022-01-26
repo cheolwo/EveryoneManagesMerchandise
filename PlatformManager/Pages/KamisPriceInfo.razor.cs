@@ -13,8 +13,10 @@ namespace PlatformManager.Pages
         public HttpClient HttpClient { get; }
         protected override async Task OnInitializedAsync()
         {
+#pragma warning disable CS8602 // null 가능 참조에 대한 역참조입니다.
             var KamisWholeSale = await KamisWholeSalePriceManager.FirstOrDefaultAsync();
-            if(KamisWholeSale == null)
+#pragma warning restore CS8602 // null 가능 참조에 대한 역참조입니다.
+            if (KamisWholeSale == null)
             {
                 await KamisAPIManager.CollectPriceInfoFromAPI("2021-11-01", "2021-11-02");
             }

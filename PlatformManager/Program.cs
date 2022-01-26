@@ -1,4 +1,5 @@
 using BusinessData;
+using BusinessData.ofAccount;
 using BusinessData.ofCommon;
 using BusinessData.ofCommon.ofHsCode.ofDbContext;
 using BusinessData.ofCommon.ofHsCode.ofRepository;
@@ -10,6 +11,8 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
+using BusinessData.ofOrder.ofDbContext;
+using BusinessData.ofOrder.ofRepository;
 using BusinessData.ofWarehouse.ofDbContext;
 using BusinessData.ofWarehouse.ofRepository;
 using BusinessLogic.ofManagement;
@@ -23,6 +26,8 @@ using BusinessLogic.ofManager.ofGroupOrder;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
 using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
+using BusinessLogic.ofManager.ofOrder;
+using BusinessLogic.ofManager.ofOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse;
 using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
@@ -69,6 +74,14 @@ optoins.UseSqlServer(GODbConnectionString));
 var FisheriesConnectionString = builder.Configuration.GetConnectionString("FisheriesConnection");
 builder.Services.AddDbContext<FisheriesDbContext>(options =>
 options.UseSqlServer(FisheriesConnectionString));
+
+var BusinessUserConnectionString = builder.Configuration.GetConnectionString("BusinessUserDbConnection");
+builder.Services.AddDbContext<BusinessUserDbContext>(options =>
+options.UseSqlServer(BusinessUserConnectionString));
+
+var OrderConnectionString = builder.Configuration.GetConnectionString("OrderDbConnection");
+builder.Services.AddDbContext<OrderDbContext>(options =>
+options.UseSqlServer(BusinessUserConnectionString));
 
 builder.Services.AddScoped<ProtectedLocalStorage>();
 builder.Services.AddScoped<ProtectedSessionStorage>();
@@ -119,6 +132,7 @@ builder.Services.AddScoped<IWarehouseBlobContainerFactory, WarehouseBlobContaine
 builder.Services.AddScoped<IWarehouseFileFactory, WarehouseFileFactory>();
 builder.Services.AddScoped<IWarehouseManager, WarehouseManager>();
 
+
 builder.Services.AddScoped<IWCommodityRepository, WCommodityRepository>();
 builder.Services.AddScoped<IWCommodityBlobStorage, WCommodityBlobStorage>();
 builder.Services.AddScoped<IWCommodityIdFactory, WCommodityIdFactory>();
@@ -142,6 +156,41 @@ builder.Services.AddScoped<IEWCommodityBlobStorage, EWCommodityBlobStorage>();
 builder.Services.AddScoped<IEWCommodityIdFactory, EWCommodityIdFactory>();
 builder.Services.AddScoped<IEWCommodityBlobContainerFactory, EWCommodityBlobContainerFactory>();
 builder.Services.AddScoped<IEWCommodityFileFactory, EWCommodityFileFactory>();
+
+builder.Services.AddScoped<IOrderCenterRepository, OrderCenterRepository>();
+builder.Services.AddScoped<IOrderCenterBlobStorage, OrderCenterBlobStorage>();
+builder.Services.AddScoped<IOrderCenterIdFactory, OrderCenterIdFactory>();
+builder.Services.AddScoped<IOrderCenterBlobContainerFactory, OrderCenterBlobContainerFactory>();
+builder.Services.AddScoped<IOrderCenterFileFactory, OrderCenterFileFactory>();
+builder.Services.AddScoped<IOrderCenterManager, OrderCenterManager>();
+
+builder.Services.AddScoped<IOCommodityRepository, OCommodityRepository>();
+builder.Services.AddScoped<IOCommodityBlobStorage, OCommodityBlobStorage>();
+builder.Services.AddScoped<IOCommodityIdFactory, OCommodityIdFactory>();
+builder.Services.AddScoped<IOCommodityBlobContainerFactory, OCommodityBlobContainerFactory>();
+builder.Services.AddScoped<IOCommodityFileFactory, OCommodityFileFactory>();
+builder.Services.AddScoped<IOCommodityManager, OCommodityManager>();
+
+builder.Services.AddScoped<ISOCommodityRepository, SOCommodityRepository>();
+builder.Services.AddScoped<ISOCommodityBlobStorage, SOCommodityBlobStorage>();
+builder.Services.AddScoped<ISOCommodityIdFactory, SOCommodityIdFactory>();
+builder.Services.AddScoped<ISOCommodityBlobContainerFactory, SOCommodityBlobContainerFactory>();
+builder.Services.AddScoped<ISOCommodityFileFactory, SOCommodityFileFactory>();
+builder.Services.AddScoped<ISOCommodityManager, SOCommodityManager>();
+
+builder.Services.AddScoped<IMOCommodityRepository, MOCommodityRepository>();
+builder.Services.AddScoped<IMOCommodityBlobStorage, MOCommodityBlobStorage>();
+builder.Services.AddScoped<IMOCommodityIdFactory, MOCommodityIdFactory>();
+builder.Services.AddScoped<IMOCommodityBlobContainerFactory, MOCommodityBlobContainerFactory>();
+builder.Services.AddScoped<IMOCommodityFileFactory, MOCommodityFileFactory>();
+builder.Services.AddScoped<IMOCommodityManager, MOCommodityManager>();
+
+builder.Services.AddScoped<IEOCommodityRepository, EOCommodityRepository>();
+builder.Services.AddScoped<IEOCommodityBlobStorage, EOCommodityBlobStorage>();
+builder.Services.AddScoped<IEOCommodityIdFactory, EOCommodityIdFactory>();
+builder.Services.AddScoped<IEOCommodityBlobContainerFactory, EOCommodityBlobContainerFactory>();
+builder.Services.AddScoped<IEOCommodityFileFactory, EOCommodityFileFactory>();
+builder.Services.AddScoped<IEOCommodityManager, EOCommodityManager>();
 
 builder.Services.AddScoped<IGOCRepository, GOCRepository>();
 builder.Services.AddScoped<IGOCBlobStorage, GOCBlobStorage>();

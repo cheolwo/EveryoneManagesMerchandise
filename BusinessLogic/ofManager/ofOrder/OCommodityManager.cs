@@ -4,6 +4,7 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofOrder
 {
@@ -12,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     }
     public class OCommodityManager : CommodityManager<OCommodity>, IOCommodityManager
     {
-        private readonly IOCommodityRepository _OCommodityRepository;
+        public readonly IOCommodityRepository _OCommodityRepository;
         public OCommodityManager(IOCommodityRepository OCommodityRepository,
                                IOCommodityIdFactory OCommodityIdFactory,
                                IOCommodityFileFactory OCommodityFileFactory,

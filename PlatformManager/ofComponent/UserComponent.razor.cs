@@ -8,8 +8,7 @@ namespace PlatformManager.ofComponent
     {
         [Inject] public UserManager<IdentityUser>? UserManager { get; set; }
         [Inject] public IHttpContextAccessor? HttpContextAccessor { get; set; }
-        [Inject] public ProtectedLocalStorage? ProtectedLocalStorage { get; set; }
-        public RenderFragment ?EntityFragment { get; set; }
+        [Inject] public ProtectedLocalStorage? ProtectedLocalStorage { get; set; }      
         [Parameter] public string? Role { get; set; }
         public bool IsConnected { get; set; }
         public IdentityUser IdentityUser { get; set; }
@@ -20,17 +19,20 @@ namespace PlatformManager.ofComponent
                 IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
                 if (IdentityUser != null)
                 {
-                    bool IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
-                    if (!IsInRole) { throw new ArgumentException($"User don't have {Role}"); }
-                    else
+                    var result = await ProtectedLocalStorage.GetAsync<IdentityUser>("IdentiyUser");
+                    if (result.Value == null)
                     {
                         await ProtectedLocalStorage.SetAsync("IdentityUser", IdentityUser);
                     }
+                    IsConnected = true;
+                    StateHasChanged();
                 }
                 else
                 {
                     IdentityUser = new();
                     IdentityUser.UserName = "Not Registered User";
+                    IsConnected = true;
+                    StateHasChanged();
                 }
             }
             else
@@ -38,12 +40,6 @@ namespace PlatformManager.ofComponent
                 var result = await ProtectedLocalStorage.GetAsync<IdentityUser>("IdentityUser");
                 if (result.Value != null)
                 {
-                    bool IsInRole = await UserManager.IsInRoleAsync(IdentityUser, Role);
-                    if (!IsInRole)
-                    {
-                        // 역할등록하는 화면으로 이동
-                        throw new ArgumentException($"User don't have {Role}");
-                    }
                     IsConnected = true;
                     StateHasChanged();
                 }

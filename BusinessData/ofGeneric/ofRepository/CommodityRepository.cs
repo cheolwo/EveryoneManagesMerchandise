@@ -33,6 +33,8 @@ namespace BusinessData.ofGenericRepository
         Task<List<TEntity>> GetToListByBarcodeWithMStatues(string Barcode);
         Task<List<TEntity>> GetToListByBarcodeWithSStatues(string Barcode);
         Task<List<TEntity>> GetToListByBarcodeWithRelatedStatuses(string Barcode);
+
+        Task<List<TEntity>> GetToListByUserIdWithSStatus(string UserId);
     }
     public class CommodityDataRepository<TEntity> : EntityDataRepository<TEntity>, ICommodityDataRepository<TEntity>
                                                      where TEntity : Commodity, IRelationable, new()
@@ -153,6 +155,11 @@ namespace BusinessData.ofGenericRepository
             TEntity FindEntity = await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Name.Equals(entity.Name));
             if (FindEntity != null) { return true;  }
             else { return false;  }
+        }
+
+        public async Task<List<TEntity>> GetToListByUserIdWithSStatus(string UserId)
+        {
+            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).Include(e=>e.SStatuses).ToListAsync();
         }
     }
 }

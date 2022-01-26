@@ -11,7 +11,6 @@ namespace BusinessData.ofOrder.ofRepository
     }
     public interface IOCommodityRepository : ICommodityDataRepository<OCommodity>
     {
-
     }
     public interface ISOCommodityRepository : IStatusDataRepository<SOCommodity>
     {
