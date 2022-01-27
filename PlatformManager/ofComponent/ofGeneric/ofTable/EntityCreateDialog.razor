@@ -1,5 +1,10 @@
-@typeparam TEntity where TEntity : Entity, IRelatioanble, ITablable
-@inject EntityManager<TEntity> EntityManager
+@using BusinessData.ofAccount.ofModel
+@using BusinessData.ofCommon.ofInterface
+@using BusinessLogic.ofManager.ofGeneric
+@using System.Reflection
+@using System.ComponentModel.DataAnnotations
+@typeparam TEntity where TEntity : Entity, IRelationable, ITablable, new();
+@inject IEntityManager<TEntity> EntityManager
 <MudDialog>
     <DialogContent>
         <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
@@ -17,22 +22,30 @@
             <MudButton Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true" OnClick="@(()=>form.Reset())" Class="mx-2">Reset</MudButton>
             <MudButton Variant="Variant.Filled" DisableElevation="true" OnClick="@(()=>form.ResetValidation())">Reset Validation</MudButton>
         <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="CreateBusinessUserAsync">Register</MudButton>
+        <MudButton Color="Color.Primary" OnClick="CreateAsync">Create</MudButton>
     </DialogActions>
 </MudDialog>
 @code
 {
+    [CascadingParameter] public MudDialogInstance MudDialog { get; set; }
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+    bool success;
+    string[] errors = { };
+    MudTextField<string> pwField1;
+    MudForm form;
+    public BusinessUser BusinessUser = new();
     [Parameter] public List<TEntity> Entities {get; set;}
-    public List<PropertyInfo> PropertyInfos = new();
+    public PropertyInfo[] PropertyInfos = new PropertyInfo[20];
     public TEntity Entity = new();
-    protected override async Task OnInitialzedAsync()
+    protected override async Task OnInitializedAsync()
     {
         PropertyInfos = typeof(TEntity).GetProperties();
     }
     public async Task CreateAsync()
     {
-        var Entity = await EntityManager.CreateAsync(Entity);
-        Entities.Add(Entity);
+        var NewEntity = await EntityManager.CreateAsync(Entity);
+        Entities.Add(NewEntity);
         StateHasChanged(); // 이걸로 커버가 안되면 NavigateTo를 사용해야지.
     }
 }

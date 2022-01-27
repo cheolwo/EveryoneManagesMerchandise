@@ -27,8 +27,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZCdXNpbmVzc1VzZXJcQnVzaW5lc3NVc2VyR2V0QnlCdXNpbmVzc0NvZGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/ofTable/EntityTableComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXG9mVGFibGVcRW50aXR5VGFibGVDb21wb25lbnQucmF6b3I=
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/EntityTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXEVudGl0eVRhYmxlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/ofTable/EntityCreateDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXG9mVGFibGVcRW50aXR5Q3JlYXRlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofKaptInfo/KAptInfo.razor]
