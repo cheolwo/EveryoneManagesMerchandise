@@ -10,69 +10,6 @@ namespace PlatformManager.ofComponent.ofGeneric
 {
     public enum TableManagedMode { Dialog, Page }
     public enum TableViewMode { Get, Detail }
-    // 데이터 로드와는 관계
-    public class TableOption
-    {
-        private TableViewMode TableViewMode { get; set; }
-        private TableManagedMode TableManagedMode { get; set; }
-        private bool IsUserTableSetting { get; set; }
-        public TableOption(TableViewMode tableViewMode, TableManagedMode tableManagedMode)
-        {
-            TableViewMode = tableViewMode;
-            TableManagedMode = tableManagedMode;
-            IsUserTableSetting = false;
-        }
-        public void IsSetUserSettingTable() { IsUserTableSetting = true; }
-        public TableOption(string tableView, string tableManagedMode)
-        {
-            if(tableView.Equals(TableViewMode.Get.ToString()))
-            {
-                TableViewMode = TableViewMode.Get;
-            }
-            else
-            {
-                TableViewMode = TableViewMode.Detail;
-            }
-            if(tableManagedMode.Equals(TableManagedMode.Dialog.ToString()))
-            {
-               TableManagedMode = TableManagedMode.Dialog;
-            }
-            else
-            {
-                TableManagedMode= TableManagedMode.Page;
-            }
-        }
-        public TableViewMode GetTableViewMode()
-        {
-            return TableViewMode;
-        }
-        public TableManagedMode GetTableManagedMode()
-        {
-            return TableManagedMode;
-        }
-    }
-    public class TableInfo
-    {
-        private PropertyInfo PropertyInfo { get; set; }
-        private Dictionary<string, PropertyInfo> keyValuePairs { get; set; }
-        public TableInfo(PropertyInfo propertyInfo)
-        {
-            PropertyInfo = propertyInfo;
-            keyValuePairs = new();
-        }
-        public PropertyInfo GetOrigin()
-        {
-            return PropertyInfo;
-        }
-        public TableInfo()
-        {
-            keyValuePairs = new();
-        }
-        public void Add(string name, PropertyInfo propertyInfo)
-        {
-            keyValuePairs.Add(name, propertyInfo);
-        }
-    }
     public enum TableInitCode { Success, Required_User_Register, Success_With_Table_Setting }
     public class EntityTableComponent<TEntity> where TEntity : Entity, IRelationable, ITablable, new()
     {
@@ -96,10 +33,8 @@ namespace PlatformManager.ofComponent.ofGeneric
         public string TableViewMode { get; set; }
         private string TableManagedMode { get; set; }
         private TableSetting TableSetting { get; set; }
-       
         private TableInfo EntitySingleObjectTableInfo { get; set; }
         private List<TableInfo> EntityMultifleObjectTableInfo { get; set; }
-
         private Dictionary<string, List<PropertyInfo>> DicTableProp { get; set; }
         private TEntity Entity = new();
 
@@ -156,7 +91,11 @@ namespace PlatformManager.ofComponent.ofGeneric
         }
         private async Task InitUserTableSetting(BusinessUser businessUser, TEntity entity)
         {
+            // 초기화
             TableSetting tableSetting = new TableSetting();
+            tableSetting.GetColumnsSelected = new();
+            tableSetting.DetailColumnsSelected = new();
+
             TableSetting.CreateTime = DateTime.Now;
             Dictionary<string, List<PropertyInfo>> DicTable = entity.GetToDictionaryforClassifiedPropertyByAttribute();
             List<string> GetColumnsSelected = new();

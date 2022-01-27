@@ -1,0 +1,38 @@
+@typeparam TEntity where TEntity : Entity, IRelatioanble, ITablable
+@inject EntityManager<TEntity> EntityManager
+<MudDialog>
+    <DialogContent>
+        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudTextField T="string"  @bind-Value="BusinessUser.Name" Label="사업자명" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.BusinessName" Label="사업장명" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.RegisterNumber" Label="사업자등록번호" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.BusinessSector" Label="업태" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.BusinssType" Label="종목" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.Email" Label="Email" Required="true" RequiredError="필수 값입니다!"
+                                  Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})"/>                  
+        </MudForm>   
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="@(()=>form.Validate())">Validate</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true" OnClick="@(()=>form.Reset())" Class="mx-2">Reset</MudButton>
+            <MudButton Variant="Variant.Filled" DisableElevation="true" OnClick="@(()=>form.ResetValidation())">Reset Validation</MudButton>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="CreateBusinessUserAsync">Register</MudButton>
+    </DialogActions>
+</MudDialog>
+@code
+{
+    [Parameter] public List<TEntity> Entities {get; set;}
+    public List<PropertyInfo> PropertyInfos = new();
+    public TEntity Entity = new();
+    protected override async Task OnInitialzedAsync()
+    {
+        PropertyInfos = typeof(TEntity).GetProperties();
+    }
+    public async Task CreateAsync()
+    {
+        var Entity = await EntityManager.CreateAsync(Entity);
+        Entities.Add(Entity);
+        StateHasChanged(); // 이걸로 커버가 안되면 NavigateTo를 사용해야지.
+    }
+}

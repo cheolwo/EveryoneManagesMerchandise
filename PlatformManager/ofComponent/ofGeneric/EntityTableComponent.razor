@@ -1,0 +1,358 @@
+@typeparam TEntity where TEntity : Entity, IRelatioanble, ITablable
+@inject EntityManager<TEntity> EntityManager 
+@inject BusinessUserManager BusinessUserManager
+@inject EntityNavigateFactory<TEntity> EntityNavigateFactory
+@inject NavigationManager NavigationManager
+@if(TableOption.GetTableViewMode().Equals(TableViewMode.Get))
+{
+    @* Single 및 Multi 오브젝트에 대한 처리가 이루어져야한다. *@
+    @if(TableOption.GetManagedMode().Equals(TableManagedMode.Dialog))
+    {
+        @* foreach(var TableInfo in EntityMultifleObjectTableInfo)
+        {
+            var OriginProp = TableInfo.GetOrigin();
+            var items = OriginProp.GetValue(Entity);
+        } *@
+        @* 여기는 Single Object 부분에 해당한다. *@
+        <MudButton Variant="Variant.Filled" Color="Color.Primary">생성</MudButton>
+        <MudTable Items=Entities>
+            <HeaderContent>
+                @foreach (var key in EntitySingleObjectTableInfo.GetKeys())
+                {
+                    <MudTh>@key</MudTh>
+                }
+                <MudTh>Managed</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                @foreach (var key in EntitySingleObjectTableInfo.GetKeys())
+                {
+                    <MudTd>@EntitySingleObjectTableInfo.GetValue(key).GetValue(Entity)</MudTd>
+                }
+                <MudTd><MudButton onclick=OpenUpdateDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">수정</MudButton></MudTd>
+                <MudTd><MudButton onclick=OpenDeleteDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">삭제</MudButton></MudTd>
+                @if(EntityMultifleObjectTableInfo != null) @* 이런 거는 View Option 이랑도 결합되어서 이용되면 좋을 것 같에, 보여주네 마네로 결정하는 거지. *@
+                {
+                    @foreach(var TableInfo in EntityMultifleObjectTableInfo)
+                    {
+                        <MudTd><MudButton onclick=OpenParticularDialog(@context.Id, TableInfo.GetOrigin()) Variant="Variant.Filled" Color="Color.Primary">@TableInfo.GetOrigin().Name</MudButton></MudTd>
+                    }
+                }
+                <MudTd><MudButton onclick=NavigateToDetailPage(@conext.Id) Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton></MudTd>               
+                @* 외래키가 되는 개체가 있다면 버튼을 통해 확인할 수 있도록 하는 것도 나쁘지 않지. *@
+            </RowTemplate>
+        </MudTable>
+    }
+    else
+    {
+        <MudTable Items=Entities>
+            <HeaderContent>
+                @foreach (var name in TableSetting.GetColumnsSelected())
+                {
+                    <MudTh>@name</MudTh>
+                }
+            </HeaderContent>
+            <RowTemplate>
+            </RowTemplate>
+        </MudTable>
+    }
+}
+else
+{
+    @if(TableOption.GetManagedMode().Equals(TableManagedMode.Dialog))
+    {
+        <MudTable Items=Entities>
+            <HeaderContent>
+                @foreach (var name in TableSetting.DetailColumnsSelected())
+                {
+                    <MudTh>@name</MudTh>
+                }
+            </HeaderContent>
+            <RowTemplate>
+            </RowTemplate>
+        </MudTable>
+    }
+    else
+    {
+        <MudTable Items=Entities>
+            <HeaderContent>
+                @foreach (var name in TableSetting.DetailColumnsSelected())
+                {
+                    <MudTh>@name</MudTh>
+                }
+            </HeaderContent>
+            <RowTemplate>
+            </RowTemplate>
+        </MudTable>
+    }
+}
+@code
+{
+    // Entitie 를 Parameter 로 받는 이유는 Page Component 에서 상태관리를 하기 위함.
+    [Parameter] public List<TEntity> Entities {get; set;}
+    [Parameter] public UserComponent UserComponent {get; set;}
+    public TEntity Entity {get; set;}
+    public TableOption TableOption {get; set;}
+    public BusinessUser BusinessUser {get; set;}
+    public TableSetting TableSetting {get; set;}
+    private List<PropertyInfo> EntitySingleObject { get; set; }
+    private List<PropertyInfo> EntityMultifleObject { get; set; }
+    private TableInfo EntitySingleObjectTableInfo { get; set; }
+    private List<TableInfo> EntityMultifleObjectTableInfo { get; set; }
+    private Dictionary<string, List<PropertyInfo>> DicTableProp { get; set; }
+    protected override async Task OnParametersSetAsync()
+    {
+        Entity = new();
+        TableSetting = new();
+        // 1. UserCompoennt 존재여부
+        // 2. BusinessUser 존재여부
+        // 3. BusinessUser.TableSettings 존재여부
+        // 4. 이에 따른 TableView 및 Managed 모드 초기화
+        if(UserComponent != null)
+        {
+            BusinessUser = await BuseinssUserManager.GetByUserIdWithTableSetting(UserComponent.IdentityUser.Id);
+            if(BusinessUser != null)
+            {
+                if(BusinessUser.TableSettings != null)
+                {
+                    TableSetting = BusinessUser.TableSetting.FirstOrDefault(e=>e.Equals(Entity.GetRelationCode()));
+                    if(TableSetting == null)
+                    {
+                        await InitUserTableSetting(BusinessUser, Entity);
+                        TableOption = new(TableViewMode.Get, TableManagedModel.Dialog);
+                    }
+                }
+                await InitUserTableSetting(BusinessUser, Entity);
+                TableOption = new(TableViewMode.Get, TableManagedModel.Dialog);
+            }
+            var BusinessUser = await BusinessUserManager.CreateAsync(UserComponent.IdentityUser.Id);
+            await InitUserTableSetting(BusinessUser, Entity);
+            TableOption = new(TableViewMode.Get, TableManagedModel.Dialog);
+        }
+    }
+    // Purpose : DataLoad
+    protected override async Task OnInitialzedAsync()
+    {
+        if(entities.Count > 0)
+        {
+            var props = typeof(TEntity).GetProperties();
+            DicTableProp = Entity.GetToDictionaryforClassifiedPropertyByAttribute();
+            InitView();
+            if(UserComponent != null)
+            {
+                Entities = await EntityManager.GetToListByUserAsync(UserComponent.IdentityUser);
+            }
+            else
+            {
+                Entities = await EntityManager.GetToListAsync();
+            }
+        }
+    }
+    private void OpenCreateDialog()
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parametes = new DialogParameters();
+        parametes.Add("Entities", Entities);
+        string Title = nameof(OpenCreateDialog) + "-" + Entity.GetRelationCode();
+		DialogService.Show<EntityCreateDialog<TEntity>>(Title, options);
+    }
+    private void OpenUpdateDialog(string Id)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parametes = new DialogParameters();
+        parametes.Add("EntityId", Id);
+        string Title = nameof(OpenUpdateDialog) + "-" + Entity.GetRelationCode();
+		DialogService.Show<EntityUpdateDialog<TEntity>>(Title, parametes, options);
+    }
+    private void OpenDeleteDialog(string Id)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+		var parametes = new DialogParameters();
+        parametes.Add("EntityId", Id);
+        string Title = nameof(OpenDeleteDialog) + "-" + Entity.GetRelationCode();
+		DialogService.Show<EntityDeleteDialog<TEntity>>(Title, parametes, options);
+    }
+    private void OpenParticularDialog(string Id, string propName)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        var parametes = new DialogParameters();
+        parametes.Add("EntityId", Id); 
+        parametes.Add("ParticularPropName", propName);        
+        string Title = nameof(OpenParticularDialog) + "-" + Entity.GetRelationCode();
+        DialogService.Show<EntityParticularDialog<TEntity>>(Title, parametes, options);
+    }
+    private void NavigateToCreatePage()
+    {
+        NavigationManager.NavigateTo($"/Create/Page/{Entity.GetRelationCode()}");
+    }
+    private void NavigateToUpdatePage(string Id)
+    {
+        NavigationManager.NavigateTo($"/Update/Page/{Entity.GetRelationCode()}/{Id}");
+    }
+    private void NavigateToDeletePage(string Id)
+    {
+        NavigationManager.NavigateTo($"/Delete/Page/{Entity.GetRelationCode()}/{Id}");
+    }
+    private void NavigateToDetailPage(string Id)
+    {
+        NavigationManager.NavigateTo($"/Detail/Page/{Entity.GetRelationCode()}/{Id}");
+    }
+    private async Task InitUserTableSetting(BusinessUser businessUser, TEntity entity)
+        {
+            TableSetting tableSetting = new TableSetting();
+            TableSetting.CreateTime = DateTime.Now;
+            Dictionary<string, List<PropertyInfo>> DicTable = entity.GetToDictionaryforClassifiedPropertyByAttribute();
+            List<string> GetColumnsSelected = new();
+            List<string> DetailColumnsSelected = new();
+            List<PropertyInfo> propertyInfos1 = DicTable[TableMetaInfo.Get];
+            List<PropertyInfo> propertyInfos2 = DicTable[TableMetaInfo.GetMany];
+            List<PropertyInfo> propertyInfos3 = DicTable[TableMetaInfo.GetOne];
+
+            InitGetSettting(propertyInfos1, GetColumnsSelected);
+            InitGetSettting(propertyInfos2, GetColumnsSelected);
+            InitGetSettting(propertyInfos3, GetColumnsSelected);
+
+            List<PropertyInfo> propertyInfos4 = DicTable[TableMetaInfo.Detail];
+            List<PropertyInfo> propertyInfos5 = DicTable[TableMetaInfo.DetailOne];
+            List<PropertyInfo> propertyInfos6 = DicTable[TableMetaInfo.DetailMany];
+
+            InitDetailSettting(propertyInfos4, DetailColumnsSelected);
+            InitDetailSettting(propertyInfos5, DetailColumnsSelected);
+            InitDetailSettting(propertyInfos6, DetailColumnsSelected);
+
+            tableSetting.RelationCode = entity.GetRelationCode();
+            tableSetting.GetColumnsSelected = GetColumnsSelected;
+            tableSetting.DetailColumnsSelected = DetailColumnsSelected;
+            tableSetting.ManagedMode = Dialog;
+            tableSetting.ViewMode = Get;
+            await _BusinessUserManager.UpdateAttachAsync(businessUser); 
+        }
+    public class TableOption {
+        private TableViewMode TableViewMode { get; set; }
+        private TableManagedMode TableManagedMode { get; set; }
+        private bool IsUserTableSetting { get; set; }
+        public TableOption(TableViewMode tableViewMode, TableManagedMode tableManagedMode)
+        {
+            TableViewMode = tableViewMode;
+            TableManagedMode = tableManagedMode;
+            IsUserTableSetting = false;
+        }
+        public void IsSetUserSettingTable() { IsUserTableSetting = true; }
+        public TableOption(string tableView, string tableManagedMode)
+        {
+            if(tableView.Equals(TableViewMode.Get.ToString()))
+            {
+                TableViewMode = TableViewMode.Get;
+            }
+            else
+            {
+                TableViewMode = TableViewMode.Detail;
+            }
+            if(tableManagedMode.Equals(TableManagedMode.Dialog.ToString()))
+            {
+               TableManagedMode = TableManagedMode.Dialog;
+            }
+            else
+            {
+                TableManagedMode= TableManagedMode.Page;
+            }
+        }
+        public TableViewMode GetTableViewMode()
+        {
+            return TableViewMode;
+        }
+        public TableManagedMode GetTableManagedMode()
+        {
+            return TableManagedMode;
+        }
+    }
+    public class TableInfo{
+        private PropertyInfo PropertyInfo { get; set; }
+        private Dictionary<string, PropertyInfo> keyValuePairs { get; set; }
+        public TableInfo(PropertyInfo propertyInfo)
+        {
+            PropertyInfo = propertyInfo;
+            keyValuePairs = new();
+        }
+        public PropertyInfo GetOrigin()
+        {
+            return PropertyInfo;
+        }
+        public TableInfo()
+        {
+            keyValuePairs = new();
+        }
+        public void Add(string name, PropertyInfo propertyInfo)
+        {
+            keyValuePairs.Add(name, propertyInfo);
+        }
+        public string[] GetKeys()
+        {
+            return keyValuePairs.Keys;
+        }
+        public PropertyInfo GetValueByKey(string key)
+        {
+            return keyValuePairs[key];
+        }
+    }
+    private void InitView()
+        {
+            TableViewMode tableViewMode = TableOption.GetTableViewMode();
+            if (tableViewMode.Equals(TableViewMode.Get))
+            {
+                var props = DicTableProp[TableMetaInfo.Get];
+                foreach (var prop in props)
+                {
+                    if (prop.PropertyType.Equals(typeof(IList<>)) || prop.PropertyType.Equals(typeof(List<>)))
+                    {
+                        EntityMultifleObject.Add(prop);
+                    }
+                    else
+                    {
+                        EntitySingleObject.Add(prop);
+                    }
+                }
+                InitEntitySingObject(EntitySingleObject);
+                InitEntityMultifleObject(EntityMultifleObject);
+            }
+            if (tableViewMode.Equals("Detail"))
+            {
+                var props = DicTableProp[TableMetaInfo.Detail];
+                foreach (var prop in props)
+                {
+                    if (prop.PropertyType.Equals(typeof(IList<>)) || prop.PropertyType.Equals(typeof(List<>)))
+                    {
+                        EntityMultifleObject.Add(prop);
+                    }
+                    else
+                    {
+                        EntitySingleObject.Add(prop);
+                    }
+                }
+                InitEntitySingObject(EntitySingleObject);
+                InitEntityMultifleObject(EntityMultifleObject);
+            }
+        }
+        // EntityMultifleObject 에 대한 자료를 제어할 수 있게 해주는 부분.
+        private void InitEntityMultifleObject(List<PropertyInfo> entityMultifleObject)
+        {
+            foreach (var prop in entityMultifleObject)
+            {
+                TableInfo newTable = new TableInfo(prop);
+                var listprops = prop.PropertyType.GetProperties();
+                foreach (var lprop in listprops)
+                {
+                    newTable.Add(lprop.Name, lprop);
+                }
+                EntityMultifleObjectTableInfo.Add(newTable);
+            }
+        }
+        private void InitEntitySingObject(List<PropertyInfo> oneProps)
+        {
+            TableInfo newTable = new TableInfo();
+            foreach (var prop in oneProps)
+            {
+                newTable.Add(prop.Name, prop);
+            }
+            EntitySingleObjectTableInfo = newTable;
+        }
+}
