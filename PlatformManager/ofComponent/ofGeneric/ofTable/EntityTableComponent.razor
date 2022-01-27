@@ -1,0 +1,101 @@
+﻿@using BusinessData
+@using BusinessData.ofAccount.ofModel
+@using BusinessData.ofGeneric
+@using BusinessData.ofCommon
+@using BusinessLogic.ofManager
+@using BusinessLogic.ofManager.ofGeneric
+@using PlatformManager.ofComponent.ofGeneric
+
+@typeparam TEntity where TEntity : Entity, IRelationable, new()
+@attribute [CascadingTypeParameter(nameof(TEntity))]
+@inject IEntityManager<TEntity> EntitManager
+@inject IEntityManager<BusinessUser> BusinessUserManager
+@inject IEntityManager<TableSetting> TableSettingManager
+@inject NavigationManager NavigationManager
+@inject EntityNavigateFactory<TEntity> NavigateFactory
+
+<MudButton Variant=Variant.Filled>테스트</MudButton>
+<MudTable T=TEntity Items=TEntities MultiSelection="true">
+	<HeaderContent>
+		@foreach (var prop in propName)
+		{
+			<MudTh>@prop</MudTh>
+		}
+	</HeaderContent>
+	<RowTemplate>
+	</RowTemplate>
+	<PagerContent>
+		<MudTablePager PageSizeOptions="new int[]{50, 100}" />
+	</PagerContent>
+	<FooterContent>
+		<MudTd colspan="5">Select All</MudTd>
+	</FooterContent>
+</MudTable>
+
+@code {
+	[CascadingParameter] public UserComponent UserComponent {get; set;}
+	[Parameter] public List<TEntity> TEntities { get; set; }
+
+	public TEntity Entity = new();
+	public List<string> propName = new();
+	public TableInitCode TableInitCode { get; set; }
+	public TableOption ?TableOption { get; set; }
+	public TableSetting TableSetting = new();
+	public IdentityUser IdentityUser { get; set; }
+	protected override async Task OnParametersSetAsync()
+	{
+		if (UserComponent != null)
+		{
+			IdentityUser = UserComponent.IdentityUser;
+			var BusinessUser = await BusinessUserManager.GetByUserId(IdentityUser.Id); 
+			// 이 코드는 암묵적으로 SNS 계정 하나 당 비즈니스 유저 하나만을 나타낼 수 있음을 의미한다.
+			// 그렇기에 BusinessUser 를 생성할 때 값이 있는 경우 생성을 못하도록 제약을 걸 필요가 있다.
+			if (BusinessUser != null) 
+			{
+				TableSetting = BusinessUser.TableSettings.FirstOrDefault(e => e.RelationCode.Equals(Entity.GetRelationCode()));
+				if (TableSetting != null)
+				{
+					TableOption = new(TableSetting.ViewMode, TableSetting.ManagedMode);
+					TableOption.IsSetUserSettingTable();
+				}
+				// BusinessUser 에 TableSetting 이 안 되어 있으면 
+				await InitUserTableSetting(BusinessUser, Entity);
+				if (TableSetting.GetColumnsSelected == null) { TableSetting.GetColumnsSelected = new(); }
+				if (TableSetting.DetailColumnsSelected == null) { TableSetting.DetailColumnsSelected = new(); }
+			}
+		}
+	}
+	protected override async Task OnInitializedAsync()
+	{
+		
+	}
+	private async Task InitUserTableSetting(BusinessUser businessUser, TEntity entity)
+        {
+            TableSetting tableSetting = new TableSetting();
+            TableSetting.CreateTime = DateTime.Now;
+            Dictionary<string, List<PropertyInfo>> DicTable = entity.GetToDictionaryforClassifiedPropertyByAttribute();
+            List<string> GetColumnsSelected = new();
+            List<string> DetailColumnsSelected = new();
+            List<PropertyInfo> propertyInfos1 = DicTable[TableMetaInfo.Get];
+            List<PropertyInfo> propertyInfos2 = DicTable[TableMetaInfo.GetMany];
+            List<PropertyInfo> propertyInfos3 = DicTable[TableMetaInfo.GetOne];
+
+            InitGetSettting(propertyInfos1, GetColumnsSelected);
+            InitGetSettting(propertyInfos2, GetColumnsSelected);
+            InitGetSettting(propertyInfos3, GetColumnsSelected);
+
+            List<PropertyInfo> propertyInfos4 = DicTable[TableMetaInfo.Detail];
+            List<PropertyInfo> propertyInfos5 = DicTable[TableMetaInfo.DetailOne];
+            List<PropertyInfo> propertyInfos6 = DicTable[TableMetaInfo.DetailMany];
+
+            InitDetailSettting(propertyInfos4, DetailColumnsSelected);
+            InitDetailSettting(propertyInfos5, DetailColumnsSelected);
+            InitDetailSettting(propertyInfos6, DetailColumnsSelected);
+
+            tableSetting.RelationCode = entity.GetRelationCode();
+            tableSetting.GetColumnsSelected = GetColumnsSelected;
+            tableSetting.DetailColumnsSelected = DetailColumnsSelected;
+
+            await _BusinessUserManager.UpdateAsync(businessUser); // 이거 할 때 오류나면 Attach 로 해야되.
+        }
+}

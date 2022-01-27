@@ -8,7 +8,8 @@ namespace PlatformManager.ofComponent
     {
         [Inject] public UserManager<IdentityUser>? UserManager { get; set; }
         [Inject] public IHttpContextAccessor? HttpContextAccessor { get; set; }
-        [Inject] public ProtectedLocalStorage? ProtectedLocalStorage { get; set; }      
+        [Inject] public ProtectedLocalStorage? ProtectedLocalStorage { get; set; }     
+        [Inject] public NavigationManager? NavigationManager { get; set; }
         [Parameter] public string? Role { get; set; }
         public bool IsConnected { get; set; }
         public IdentityUser IdentityUser { get; set; }
@@ -29,10 +30,7 @@ namespace PlatformManager.ofComponent
                 }
                 else
                 {
-                    IdentityUser = new();
-                    IdentityUser.UserName = "Not Registered User";
-                    IsConnected = true;
-                    StateHasChanged();
+                    NavigationManager.NavigateTo("/Login");
                 }
             }
             else
@@ -40,6 +38,14 @@ namespace PlatformManager.ofComponent
                 var result = await ProtectedLocalStorage.GetAsync<IdentityUser>("IdentityUser");
                 if (result.Value != null)
                 {
+                    IdentityUser = result.Value;
+                    IsConnected = true;
+                    StateHasChanged();
+                }
+                else
+				{
+                    IdentityUser = await UserManager.GetUserAsync(HttpContextAccessor.HttpContext.User);
+                    await ProtectedLocalStorage.SetAsync("IdentityUser", IdentityUser);
                     IsConnected = true;
                     StateHasChanged();
                 }

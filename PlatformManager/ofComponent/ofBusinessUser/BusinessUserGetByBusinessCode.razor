@@ -1,29 +1,31 @@
 @using BusinessData.ofAccount.ofModel
 @using BusinessLogic.ofManager.ofGeneric
-<MudTextField @bind-Value="BusinessNumber" Label="����ڵ�Ϲ�ȣ"></MudTextField>
-<MudButton OnClick=SearchBusinssUserByNumber>�˻�</MudButton>
-@if(BusinessUser != null)
+<div class=col-8>
+	<MudDivider></MudDivider>
+	<MudDivider></MudDivider>
+	<div class=col-6>
+		<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick=SearchBusinssUserByNumber>사업자찾기</MudButton>
+		<MudTextField @bind-Value="BusinessNumber" Label="사업자등록번호"></MudTextField>
+	</div>
+</div>
+@if (BusinessUser != null)
 {
-    <MudText>@BusinessUser.Name</MudText>
+	<MudText>@BusinessUser.Name</MudText>
 }
-<CascadingValue Value=@this>
-        @RenderFragment
-</CascadingValue>
 
 @code {
-    public BusinessUser ?BusinessUser { get; set; }
-    public RenderFragment? RenderFragment { get; set; }
-    [Parameter] public EventCallback<string> EventSearchBusinessUserByNumber {get; set;}
-    protected override void OnInitialized()
-    {
-        BusinessUser = new();
-    }
-    public string ?BusinessNumber { get; set; }
-    public async Task SearchBusinssUserByNumber()
-    {
-        if (BusinessNumber != null)
-        {
-            await EventSearchBusinessUserByNumber.InvokeAsync(BusinessNumber);
-        }
-    } 
+	public BusinessUser? BusinessUser { get; set; }
+	[Parameter] public EventCallback<string> EventSearchBusinessUserByNumber { get; set; }
+	protected override void OnInitialized()
+	{
+		BusinessUser = new();
+	}
+	public string? BusinessNumber { get; set; }
+	public async Task SearchBusinssUserByNumber()
+	{
+		if (BusinessNumber != null)
+		{
+			await EventSearchBusinessUserByNumber.InvokeAsync(BusinessNumber);
+		}
+	}
 }

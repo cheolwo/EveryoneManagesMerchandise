@@ -1,4 +1,5 @@
 ﻿@using BusinessData.ofOrder.ofModel
+@using BusinessLogic.ofManager.ofGeneric
 @using BusinessLogic.ofManager.ofOrder
 @inject ISOCommodityManager SOCommodityManager
 <MudTable Items="@SOCommodities" MultiSelection="true" @bind-SelectedItems="selectedItems1" Hover="@hover">

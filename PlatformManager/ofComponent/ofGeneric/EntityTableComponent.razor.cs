@@ -10,6 +10,47 @@ namespace PlatformManager.ofComponent.ofGeneric
 {
     public enum TableManagedMode { Dialog, Page }
     public enum TableViewMode { Get, Detail }
+    // 데이터 로드와는 관계
+    public class TableOption
+    {
+        private TableViewMode TableViewMode { get; set; }
+        private TableManagedMode TableManagedMode { get; set; }
+        private bool IsUserTableSetting { get; set; }
+        public TableOption(TableViewMode tableViewMode, TableManagedMode tableManagedMode)
+        {
+            TableViewMode = tableViewMode;
+            TableManagedMode = tableManagedMode;
+            IsUserTableSetting = false;
+        }
+        public void IsSetUserSettingTable() { IsUserTableSetting = true; }
+        public TableOption(string tableView, string tableManagedMode)
+        {
+            if(tableView.Equals(TableViewMode.Get.ToString()))
+            {
+                TableViewMode = TableViewMode.Get;
+            }
+            else
+            {
+                TableViewMode = TableViewMode.Detail;
+            }
+            if(tableManagedMode.Equals(TableManagedMode.Dialog.ToString()))
+            {
+               TableManagedMode = TableManagedMode.Dialog;
+            }
+            else
+            {
+                TableManagedMode= TableManagedMode.Page;
+            }
+        }
+        public TableViewMode GetTableViewMode()
+        {
+            return TableViewMode;
+        }
+        public TableManagedMode GetTableManagedMode()
+        {
+            return TableManagedMode;
+        }
+    }
     public class TableInfo
     {
         private PropertyInfo PropertyInfo { get; set; }
@@ -136,10 +177,11 @@ namespace PlatformManager.ofComponent.ofGeneric
             InitDetailSettting(propertyInfos5, DetailColumnsSelected);
             InitDetailSettting(propertyInfos6, DetailColumnsSelected);
 
+            tableSetting.RelationCode = entity.GetRelationCode();
             tableSetting.GetColumnsSelected = GetColumnsSelected;
             tableSetting.DetailColumnsSelected = DetailColumnsSelected;
 
-            await _BusinessUserManager.UpdateAsync(businessUser);
+            await _BusinessUserManager.UpdateAsync(businessUser); // 이거 할 때 오류나면 Attach 로 해야되.
         }
         private void InitGetSettting(List<PropertyInfo> propertyInfos, List<string> GetColumnsSelected)
         {

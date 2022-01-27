@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessData.Migrations.BusinessUserDb
 {
     [DbContext(typeof(BusinessUserDbContext))]
-    [Migration("20220125213550_Init")]
+    [Migration("20220126172234_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,15 @@ namespace BusinessData.Migrations.BusinessUserDb
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("BusinessName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BusinessSector")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BusinssType")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
@@ -41,10 +50,19 @@ namespace BusinessData.Migrations.BusinessUserDb
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LogisticsCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegisterNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StartDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")

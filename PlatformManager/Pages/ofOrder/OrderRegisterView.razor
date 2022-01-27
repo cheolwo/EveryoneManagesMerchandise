@@ -1,21 +1,24 @@
-﻿@using BusinessData.ofOrder.ofModel
+﻿@using BusinessData.ofAccount.ofModel
+@using BusinessData.ofOrder.ofModel
 @using BusinessData.ofWarehouse.Model
+@using BusinessLogic.ofManager.ofGeneric
 @using PlatformManager.ofComponent.ofBusinessUser
 @using PlatformManager.ofComponent.ofOrder
 @using PlatformManager.ofComponent.ofOrder.ofSOCommodity
 @using PlatformManager.ofComponent.ofWarehouse
+@using PlatformManager.ofComponent.ofTest
 @inject IDialogService DialogService
 @inject NavigationManager _NavigationManager
 @inject IEntityManager<BusinessUser> _BusinessUserManager
+@inject IEntityManager<Warehouse> _WarehouseManager
+
 @page "/Register/Order"
+<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">사업자등록 </MudButton>
 @if(BusinessUser != null)
 {
-	BusienssUser.Name;
+	@BusinessUser.Name;
 }
-<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
-	사업자등록
-</MudButton>
-<BusinessUserGetByBusinessCode EventCreateBusinessUserAsync="CreateBusinssUserAsync"></BusinessUserGetByBusinessCode>
+<BusinessUserGetByBusinessCode EventSearchBusinessUserByNumber="SearchBusinessUserByNumber"></BusinessUserGetByBusinessCode>
 <UserComponent>
 	@if (IsSelectedSOCommodity)
 	{
@@ -37,24 +40,35 @@
 </UserComponent>
 <MudButton Variant="Variant.Filled" Color="Color.Primary">뒤로</MudButton>
 <MudButton Variant="Variant.Filled" Color="Color.Primary">등록</MudButton>
+@*<EntityTableComponent TEntity=Warehouse TEntities=Warehouses CreateAsync=CreateWarehouse></EntityTableComponent>*@
+
 @code {
 	public BusinessUser BusinessUser { get; set; }
 	public bool IsSelectedSOCommodity { get; set; }
 	public bool IsSelectedWarehouse { get; set; }
 	public Warehouse Warehouse { get; set; }
 	public SOCommodity SOCommodity { get; set; }
+	public List<Warehouse> Warehouses { get; set; }
 	protected override void OnInitialized()
 	{
 		base.OnInitialized();
 		Warehouse = new();
+		Warehouses = new();
 		BusinessUser = new();
 		SOCommodity = new();
 		IsSelectedSOCommodity = false;
 		IsSelectedWarehouse = false;
+		Warehouses.Add(new Warehouse());
+		Warehouses.Add(new Warehouse());
+		Warehouses.Add(new Warehouse());
+	}
+	public async Task CreateWarehouse(Warehouse warehouse)
+	{
+		await _WarehouseManager.CreateAsync(warehouse);
 	}
 	public async Task SearchBusinessUserByNumber(string businessNumber)
 	{
-		BusinessUser = await _BusinessUserManager.GetByCodeAsny(businessNumber);
+		BusinessUser = await _BusinessUserManager.GetByCodeAsync(businessNumber);
 	}
 	public async Task CreateBusinessUserAsync(BusinessUser businessUser)
 	{

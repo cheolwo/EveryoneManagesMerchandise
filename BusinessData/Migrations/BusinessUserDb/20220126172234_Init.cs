@@ -14,6 +14,12 @@ namespace BusinessData.Migrations.BusinessUserDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    StartDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BusinessName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BusinessSector = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BusinssType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RegisterNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CoutryCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LogisticsCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true),

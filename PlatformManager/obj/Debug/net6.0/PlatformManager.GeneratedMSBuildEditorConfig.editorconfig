@@ -27,8 +27,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZCdXNpbmVzc1VzZXJcQnVzaW5lc3NVc2VyR2V0QnlCdXNpbmVzc0NvZGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/EntityTableView.razor]
-build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXEVudGl0eVRhYmxlVmlldy5yYXpvcg==
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGeneric/ofTable/EntityTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXG9mVGFibGVcRW50aXR5VGFibGVDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofKaptInfo/KAptInfo.razor]
@@ -41,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofOrder/OrderRelatedBusinessUser.razor]
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZPcmRlclxPcmRlclJlbGF0ZWRCdXNpbmVzc1VzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofTest/ExampleTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZUZXN0XEV4YW1wbGVUYWJsZUNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofWarehouse/WareohuseTableComponent.razor]
