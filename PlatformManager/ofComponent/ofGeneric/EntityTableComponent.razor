@@ -28,16 +28,16 @@
                 {
                     <MudTd>@EntitySingleObjectTableInfo.GetValue(key).GetValue(Entity)</MudTd>
                 }
-                <MudTd><MudButton onclick=OpenUpdateDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">수정</MudButton></MudTd>
-                <MudTd><MudButton onclick=OpenDeleteDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">삭제</MudButton></MudTd>
+                <MudTd><MudButton @onclick=OpenUpdateDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">수정</MudButton></MudTd>
+                <MudTd><MudButton @onclick=OpenDeleteDialog(@context.Id) Variant="Variant.Filled" Color="Color.Primary">삭제</MudButton></MudTd>
                 @if(EntityMultifleObjectTableInfo != null) @* 이런 거는 View Option 이랑도 결합되어서 이용되면 좋을 것 같에, 보여주네 마네로 결정하는 거지. *@
                 {
                     @foreach(var TableInfo in EntityMultifleObjectTableInfo)
                     {
-                        <MudTd><MudButton onclick=OpenParticularDialog(@context.Id, TableInfo.GetOrigin()) Variant="Variant.Filled" Color="Color.Primary">@TableInfo.GetOrigin().Name</MudButton></MudTd>
+                        <MudTd><MudButton @onclick=OpenParticularDialog(@context.Id, TableInfo.GetOrigin()) Variant="Variant.Filled" Color="Color.Primary">@TableInfo.GetOrigin().Name</MudButton></MudTd>
                     }
                 }
-                <MudTd><MudButton onclick=NavigateToDetailPage(@conext.Id) Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton></MudTd>               
+                <MudTd><MudButton @onclick=NavigateToDetailPage(@conext.Id) Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton></MudTd>               
                 @* 외래키가 되는 개체가 있다면 버튼을 통해 확인할 수 있도록 하는 것도 나쁘지 않지. *@
             </RowTemplate>
         </MudTable>

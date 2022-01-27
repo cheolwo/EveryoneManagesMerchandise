@@ -3,7 +3,7 @@
 <MudDialog>
     <DialogContent>
         <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-                <MudTextField T="string"  @bind-Value="BusinessUser.Name" Label="사업자명" Required="true" RequiredError="필수 값입니다!"/>
+                <MudTextField T="string" @bind-Value="BusinessUser.Name" Label="사업자명" Required="true" RequiredError="필수 값입니다!"/>
                 <MudTextField T="string" @bind-Value="BusinessUser.BusinessName" Label="사업장명" Required="true" RequiredError="필수 값입니다!"/>
                 <MudTextField T="string" @bind-Value="BusinessUser.RegisterNumber" Label="사업자등록번호" Required="true" RequiredError="필수 값입니다!"/>
                 <MudTextField T="string" @bind-Value="BusinessUser.BusinessSector" Label="업태" Required="true" RequiredError="필수 값입니다!"/>
