@@ -8,13 +8,23 @@
 <MudDialog>
     <DialogContent>
         <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-                <MudTextField T="string" @bind-Value="BusinessUser.Name" Label="사업자명" Required="true" RequiredError="필수 값입니다!"/>
-                <MudTextField T="string" @bind-Value="BusinessUser.BusinessName" Label="사업장명" Required="true" RequiredError="필수 값입니다!"/>
-                <MudTextField T="string" @bind-Value="BusinessUser.RegisterNumber" Label="사업자등록번호" Required="true" RequiredError="필수 값입니다!"/>
-                <MudTextField T="string" @bind-Value="BusinessUser.BusinessSector" Label="업태" Required="true" RequiredError="필수 값입니다!"/>
-                <MudTextField T="string" @bind-Value="BusinessUser.BusinssType" Label="종목" Required="true" RequiredError="필수 값입니다!"/>
-                <MudTextField T="string" @bind-Value="BusinessUser.Email" Label="Email" Required="true" RequiredError="필수 값입니다!"
-                                  Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})"/>                  
+            @foreach (var prop in StringPropInfos)
+            {
+                @if(@prop.Name.Equals("Email") || @prop.Name.Equals("email"))
+                {
+                    <MudTextField T="string" @bind-Value="BusinessUser.Email" Label="Email" Required="true" RequiredError="필수 값입니다!"
+                                  Validation="@(new EmailAddressAttribute() {ErrorMessage = "The email address is invalid"})"/>         
+                }
+                else
+                {
+                    <MudTextField T="string" @bind-Value=@prop.GetValue(Entity) Label=@prop.Name Required="true" RequiredError="필수 값입니다!"></MudTextField>
+                }
+            }    
+            @* 외래키가 되는 부분의 경우 직접적으로 조정가능하게 만드는 게 좋으려나 *@
+            @foreach (var prop in IntPropInfos)
+            {
+                    
+            }             
         </MudForm>   
     </DialogContent>
     <DialogActions>
@@ -28,23 +38,36 @@
 @code
 {
     [CascadingParameter] public MudDialogInstance MudDialog { get; set; }
-    void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
     bool success;
     string[] errors = { };
-    MudTextField<string> pwField1;
     MudForm form;
-    public BusinessUser BusinessUser = new();
-    [Parameter] public List<TEntity> Entities {get; set;}
+    [Parameter] public List<TEntity> Entities {get; set;} // 변화를 기록하기 위해 받았네.
+    [Parameter] public IEnumerable<PropertyInfo> UsingPropertyInfos {get; set;}
+    public RenderFragment ChildFragment {get; set;}
     public PropertyInfo[] PropertyInfos = new PropertyInfo[20];
     public TEntity Entity = new();
+    public List<PropertyInfo> StringPropInfos = new();
+    public List<PropertyInfo> IntPropInfos = new();
     protected override async Task OnInitializedAsync()
     {
         PropertyInfos = typeof(TEntity).GetProperties();
+        foreach(var prop in PropertyInfos)
+        {
+            if(prop.PropertyType.Equals(typeof(string)))
+            {
+                StringPropInfos.Add(prop);
+            }
+            else
+            {
+                IntPropInfos.Add(prop);
+            }
+        }
     }
     public async Task CreateAsync()
     {
         var NewEntity = await EntityManager.CreateAsync(Entity);
+        MudDialog.Close(DialogResult.Ok(true));
         Entities.Add(NewEntity);
         StateHasChanged(); // 이걸로 커버가 안되면 NavigateTo를 사용해야지.
     }
