@@ -2,6 +2,8 @@ using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
@@ -26,17 +28,36 @@ namespace BusinessLogic.ofManager.ofGeneric
             IStatusIdFactory<TEntity> statusIdFactory,
                             IStatusFileFactory<TEntity> statusFileFactory,
                             IEntityBlobStorage<TEntity> entityBlobStorage,
-                            DicConvertFactory<TEntity> dicConvertFactory,
-                            StatusJounralManager<TEntity> statusJounralManager,
-                            StatusHRManager<TEntity> statusHRManager)
+                            DicConvertFactory<TEntity> dicConvertFactory
+                            )
             : base(statusDataRepository, statusIdFactory, statusFileFactory, entityBlobStorage, dicConvertFactory)
         {
-            Observers.Add(statusJounralManager);
-            Observers.Add(statusHRManager);
+            //Observers.Add(statusJounralManager);
+            //Observers.Add(statusHRManager);
         }
         public override async Task<TEntity> CreateAsync(TEntity entity)
         {
             return await base.CreateAsync(entity);
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNext(TEntity value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
         }
     }
     public class SStatusManager<TEntity> : EntityManager<TEntity>, ISStatusManager<TEntity> where TEntity : Status, IRelationable, new()

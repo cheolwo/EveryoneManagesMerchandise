@@ -1,98 +1,283 @@
+using System;
+using System.Collections.Generic;
+
 namespace BusinessData.ofSmartFarm
 {
-    public class SmartFarm : Center
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(SmartFarm), nameof(SmartFarm))]
+    public class SmartFarm : Center, IRelationable
     {
         public string ProductLendId {get; set;}
+        public List<FarmController> FarmControllers {get; set;}
         public List<FarmCommodtiy> FarmCommodiites {get; set;}
-        public List<SFarmCommodtiy> SFarmCommodiites {get; set;}
-        public List<MFarmCommodtiy> MFarmCommodiites {get; set;}
-        public List<EFarmCommodtiy> EFarmCommodiites {get; set;}
-        public List<FarmStatus> FarmStatuses {get; set;}
+        public List<SFarmCommodity> SFarmCommodiites {get; set;}
+        public List<MFarmCommodity> MFarmCommodiites {get; set;}
+        public List<EFarmCommodity> EFarmCommodiites {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class FarmCommodtiy : Commodity
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(SFarmCommodity), nameof(SFarmCommodity))]
+    public class SFarmCommodity : SStatus, IRelationable
     {
-        public string PCommodityId {get; set;}
-        public string SmartFarmId {get; set;}
-        public SmartFarm SmartFarm {get; set;}
-        public FarmController FarmController {get; set;}
-        public List<SFarmCommodity> SFarmCommodityes {get; set;}
-        public List<MFarmCommodity> MFarmCommodityes {get; set;}
-        public List<EFarmCommodity> EFarmCommodityes {get; set;}
-    }
-    public class SFarmCommodiy : SStatus
-    {
-        public string SmartFarmId {get; set;}
-        public string FarmCommodtiyId {get; set;}
-        public string FarmControllerId {get; set;}
-        public string MPCommodityId {get; set;}
         public SmartFarm SmartFarm {get; set;}
         public FarmCommodtiy FarmCommodtiy {get; set;}
-        public FarmController FarmController {get; set;}
         public List<SControllerValue> SControllerValues {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class MFarmCommodiy : MStatus
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(MFarmCommodity), nameof(MFarmCommodity))]
+    public class MFarmCommodity : MStatus, IRelationable
     {
-        public string SmartFarmId {get; set;}
-        public string FarmCommodtiyId {get; set;}
-        public string FarmControllerId {get; set;}
-        public string MPCommodityId {get; set;}
         public SmartFarm SmartFarm {get; set;}
         public FarmCommodtiy FarmCommodtiy {get; set;}
-        public FarmController FarmController{get; set;}
-        public List<MContollerValue> MControllerValues {get; set;}
+        public List<MControllerValue> MControllerValues {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class EFarmCommodiy : EStatus
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(EFarmCommodity), nameof(EFarmCommodity))]
+    public class EFarmCommodity : EStatus, IRelationable
     {
-        public string SmartFarmId {get; set;}
-        public string FarmCommodtiyId {get; set;}
-        public string FarmControllerId {get; set;}
-        public string MPCommodityId {get; set;}
         public SmartFarm SmartFarm {get; set;}
         public FarmCommodtiy FarmCommodtiy {get; set;}
-        public FarmController FarmController{get; set;}
         public List<EControllerValue> EControllerValues {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class FarmController : Entity, IRelationalbe
-    {
-        public List<SControllerValue> SContollerValues {get; set;}
-        public List<MControllerValue> MContollerValues {get; set;}
-        public List<EControllerValue> EContollerValues {get; set;}
-        public string FarmCommodtiyId {get; set;}
-        public string SmartFarmId {get; set;}
-        public FarmCommodtiy FarmCommodtiy {get; set;}
-        public SmartFarm SmartFarm {get; set;}
-    }
-    public class SConrollerValue : Entity, IRelationable
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(SControllerValue), nameof(SControllerValue))]
+    public class SControllerValue : Entity, IRelationable
     {
         public float Temperature {get; set;}
         public float Humidity {get; set;}
         public float AirPressure {get; set;}
         public float WindSpeed {get;set;}
         public string SFarmCommodityId {get; set;}
-        public string FarmControllerId {get; set;}
-        public SFarmCommodiy SFarmCommodiy {get; set;}
-        public FarmController FarmController {get; set;}
+        public string ControllerCommodityId {get; set;}
+        public SFarmCommodity SFarmCommodiy {get; set;}
+        public ControllerCommodity ControllerCommodity {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class MConrollerValue : Entity, IRelationable
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(MControllerValue), nameof(MControllerValue))]
+    public class MControllerValue : Entity, IRelationable
     {
         public float Temperature {get; set;}
         public float Humidity {get; set;}
         public float AirPressure {get; set;}
         public float WindSpeed {get;set;}
         public string MFarmCommodityId {get; set;}
-        public string FarmControllerId {get; set;}
-        public MFarmCommodiy MFarmCommodiy {get; set;}
-        public FarmController FarmController {get; set;}
+        public string ControllerCommodityId {get; set;}
+        public MFarmCommodity MFarmCommodiy {get; set;}
+        public ControllerCommodity ControllerCommodity {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
-    public class EConrollerValue : Entity, IRelationable
+    [DataContext(typeof(SmartFarmDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(EControllerValue), nameof(EControllerValue))]
+    public class EControllerValue : Entity, IRelationable
     {
         public float Temperature {get; set;}
         public float Humidity {get; set;}
         public float AirPressure {get; set;}
         public float WindSpeed {get;set;}
         public string EFarmCommodityId {get; set;}
-        public string FarmControllerId {get; set;}
-        public EFarmCommodiy EFarmCommodiy {get; set;}
-        public FarmController FarmController {get; set;}
+        public string ControllerCommodityId {get; set;}
+        public EFarmCommodity EFarmCommodiy {get; set;}
+        public ControllerCommodity ControllerCommodity {get; set;}
+        public override string GetRelationCode()
+        {
+            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(GetType(), typeof(RelationAttribute));
+            if (relationAttribute != null)
+            {
+                return relationAttribute.GetEntityRelation();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public Type GetDbContextType()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+
+        public string GetDbConnetionString()
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
     }
 }

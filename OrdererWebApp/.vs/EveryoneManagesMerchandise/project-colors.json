@@ -80,7 +80,12 @@
       "ProjectGuid": "a4c88286-6a66-4eb0-a325-f419c0cb0200",
       "DisplayName": "SmartFarmWebApp",
       "ColorIndex": 14
+    },
+    "c9476147-f02c-408c-a476-6282e5a96e12": {
+      "ProjectGuid": "c9476147-f02c-408c-a476-6282e5a96e12",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 15
     }
   },
-  "NextColorIndex": 15
+  "NextColorIndex": 0
 }

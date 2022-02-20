@@ -51,7 +51,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Busi
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\bin\Debug\net5.0\BusinessData.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\bin\Debug\net5.0\ref\BusinessData.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\bin\Debug\net5.0\BusinessData.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.csproj.AssemblyReference.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\Interop.Microsoft.Office.Interop.Excel.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.csproj.ResolveComReference.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.GeneratedMSBuildEditorConfig.editorconfig
@@ -62,3 +61,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Busi
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\ref\BusinessData.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.genruntimeconfig.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessData\obj\Debug\net5.0\BusinessData.csproj.AssemblyReference.cache

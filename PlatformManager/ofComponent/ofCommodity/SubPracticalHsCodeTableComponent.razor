@@ -1,5 +1,3 @@
-@inject SubPracticalHsCodeManager SubPracticalHsCodeManager
-
 <MudTable Items=SubPracticalHsCodes>
 	<HeaderContent>
 		<MudTh>Id</MudTh>
@@ -19,15 +17,11 @@
 @code
 {
     [Parameter] public string HsCode {get; set;}
-	public List<SubPracticalHsCode> SubPracticalHsCodes = new();
 	protected override async Task OnInitializedAsync()
 	{
-		SubPracticalHsCodes = await SubPracticalHsCodeManager.GetToListAsync();
 	}
 	public void SelectHsCode(string HsCode)
 	{
 		this.HsCode = HsCode;
-		StatusChanged();
 	}
-    
 }

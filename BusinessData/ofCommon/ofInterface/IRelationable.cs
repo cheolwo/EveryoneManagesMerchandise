@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace BusinessData
 {
@@ -8,12 +6,6 @@ namespace BusinessData
     {
         string GetRelationCode();
         Type GetDbContextType();
-        string GetDbConnetionString();
-        List<PropertyInfo> OnlyGetProperties();
-        List<PropertyInfo> OnlyDetailProperties();
-        List<PropertyInfo> GetManyProperties();
-        List<PropertyInfo> GetOneProperties();
-        List<PropertyInfo> DetailOneProperties();
-        List<PropertyInfo> DetailManyProperties();
+        string GetDbConnetionString();     
     }
 }

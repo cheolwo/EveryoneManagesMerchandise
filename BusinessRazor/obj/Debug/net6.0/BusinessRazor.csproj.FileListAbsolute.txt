@@ -21,11 +21,3 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Busi
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\BusinessRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\ref\BusinessRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\BusinessRazor.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.deps.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.runtimeconfig.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\appsettings.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.staticwebassets.runtime.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.exe
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\ProducterWebApp.pdb

@@ -119,22 +119,22 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/5.0.10": {
+      "Microsoft.AspNetCore.Authorization/6.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "5.0.10",
+          "Microsoft.AspNetCore.Metadata": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Authorization.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.1021.41022"
+          "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52608"
           }
         }
       },
       "Microsoft.AspNetCore.Components/5.0.9": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
           "Microsoft.AspNetCore.Components.Analyzers": "5.0.9"
         },
         "runtime": {
@@ -320,11 +320,11 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/5.0.10": {
+      "Microsoft.AspNetCore.Metadata/6.0.0": {
         "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Metadata.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.1021.41022"
+          "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52608"
           }
         }
       },
@@ -1487,7 +1487,7 @@
       "BusinessData/1.0.0": {
         "dependencies": {
           "Azure.Storage.Blobs": "12.10.0",
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
           "Microsoft.AspNetCore.Components.Web": "5.0.9",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -1506,7 +1506,7 @@
         "dependencies": {
           "Azure.Storage.Blobs": "12.10.0",
           "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
           "Microsoft.AspNetCore.Components": "5.0.9",
           "Microsoft.AspNetCore.Components.Web": "5.0.9",
           "NLog": "5.0.0-rc1"
@@ -1579,12 +1579,12 @@
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authorization/5.0.10": {
+    "Microsoft.AspNetCore.Authorization/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-py8ztdwlg0HJCtjyn3zLm5iInUhlW638sS2oWT6YQZGdjJJHYbnFIZ6MD9laUKrH/31fJb8+VbN09bO68D9rrA==",
-      "path": "microsoft.aspnetcore.authorization/5.0.10",
-      "hashPath": "microsoft.aspnetcore.authorization.5.0.10.nupkg.sha512"
+      "sha512": "sha512-HPEhmNwINXzGVWirzmvVxx5/GkoaQJC7vKNIbhOUTzgnRHEf2zO6S2s4lMw3TPFWBGcAlfn6Ta0cVB9f15QC8w==",
+      "path": "microsoft.aspnetcore.authorization/6.0.0",
+      "hashPath": "microsoft.aspnetcore.authorization.6.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components/5.0.9": {
       "type": "package",
@@ -1698,12 +1698,12 @@
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.7",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.7.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Metadata/5.0.10": {
+    "Microsoft.AspNetCore.Metadata/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qWqYHZT7slCbmdEHZd4hKnXRLKJjEuBBvuSu0GSSoqpJlyVYI9Wwv32R6lr658ozfuGNz/YzkmAEyqMLkFOGEg==",
-      "path": "microsoft.aspnetcore.metadata/5.0.10",
-      "hashPath": "microsoft.aspnetcore.metadata.5.0.10.nupkg.sha512"
+      "sha512": "sha512-giBCvjANLIOqC+DJ84zCkCQnE4ebRTrgVyBe5e0gG3/F8GYzdqSSdtMSAvbOkBQsf0F8dySBPSM59vX6ksOeQg==",
+      "path": "microsoft.aspnetcore.metadata/6.0.0",
+      "hashPath": "microsoft.aspnetcore.metadata.6.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
       "type": "package",

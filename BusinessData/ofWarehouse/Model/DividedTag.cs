@@ -8,7 +8,7 @@ using BusinessData.ofWarehouse.ofDbContext;
 namespace BusinessData.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
-    public class DividedTag : Entity, IBarcodable, ITablable
+    public class DividedTag : Entity, IBarcodable
     {
         [Get]public bool Attached { get; set; }
         [Get]public string IncomingTagId {get; set;}

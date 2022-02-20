@@ -26,6 +26,7 @@ namespace BusinessData
         public const string FisheriesDbConnection = "Server=(localdb)\\mssqllocaldb;Database=FisheriesDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string BusinessUserDbConnection = "Server=(localdb)\\mssqllocaldb;Database=BusinessUserDb;Trusted_Connection=True;MultipleActiveResultSets=true";
         public const string OrderDbconnection = "Server=(localdb)\\mssqllocaldb;Database=OrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string SmartFarmDbConnection = "Server=(localdb)\\mssqllocaldb;Database=SmartFarmDb;Trusted_Connection=True;MultipleActiveResultSets=true";
     }
     public class OneAttribute : Attribute
     {
@@ -85,7 +86,7 @@ namespace BusinessData
         }
     }
     [Rescope]
-    public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer, ITablable
+    public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer
     {
         [Key] [Get] public string Id { get; set; }
         public string Code { get; set; }

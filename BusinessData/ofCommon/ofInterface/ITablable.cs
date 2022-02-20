@@ -15,5 +15,11 @@ namespace BusinessData.ofCommon.ofInterface
     public interface ITablable
     {
         Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute();
+        List<PropertyInfo> OnlyGetProperties();
+        List<PropertyInfo> OnlyDetailProperties();
+        List<PropertyInfo> GetManyProperties();
+        List<PropertyInfo> GetOneProperties();
+        List<PropertyInfo> DetailOneProperties();
+        List<PropertyInfo> DetailManyProperties();
     }
 }

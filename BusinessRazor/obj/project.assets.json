@@ -2463,7 +2463,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Azure.Storage.Blobs": "12.10.0",
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
           "Microsoft.AspNetCore.Components.Web": "5.0.9",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -2487,7 +2487,7 @@
         "dependencies": {
           "Azure.Storage.Blobs": "12.10.0",
           "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "5.0.10",
+          "Microsoft.AspNetCore.Authorization": "6.0.0",
           "Microsoft.AspNetCore.Components": "5.0.9",
           "Microsoft.AspNetCore.Components.Web": "5.0.9",
           "NLog": "5.0.0-rc1"

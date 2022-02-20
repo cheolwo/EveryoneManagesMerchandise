@@ -1,9 +1,11 @@
+using BusinessData;
 using BusinessData.ofFinancial.Model;
 using BusinessData.ofFinancial.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofJournal.ofIdFactory;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
+using System;
 
 namespace BusinessLogic.ofManager
 {
@@ -60,10 +62,23 @@ namespace BusinessLogic.ofManager
 
        }
     }
-    public class StatsJournalManager<TEntity> : JournalManager, IObserver<TEntity> where TEntity : Status, IRelationable, new()
-    {
-       StatusManager()
-    }
+    //public class StatsJournalManager<TEntity> : JournalManager, IObserver<TEntity> where TEntity : Status, IRelationable, new()
+    //{
+    //    public void OnCompleted()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void OnError(Exception error)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+
+    //    public void OnNext(TEntity value)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
     public class UserSettingJournalManager : EntityManager<UserSettingJournal>, IUserSettingJournalManager
     {
        public UserSettingJournalManager(IUserSettingJournalRepository CommodityDataRepository,
