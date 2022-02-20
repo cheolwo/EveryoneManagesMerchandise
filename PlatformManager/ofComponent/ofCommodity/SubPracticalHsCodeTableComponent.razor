@@ -1,0 +1,33 @@
+@inject SubPracticalHsCodeManager SubPracticalHsCodeManager
+
+<MudTable Items=SubPracticalHsCodes>
+	<HeaderContent>
+		<MudTh>Id</MudTh>
+		<MudTh>HsCode</MudTh>
+		<MudTh>KoName</MudTh>
+		<MudTh>UsName</MudTh>
+		<MudTh>Managed</MudTh>
+	</HeaderContent>
+	<RowTemplate>
+		<MudTd>@context.Id</MudTd>
+		<MudTd>@context.Code</MudTd>
+		<MudTd>@context.Name</MudTd>
+		<MudTd>@context.UsName</MudTd>
+		<MudButton @onclick=SelectHsCode(context.Code) Variant="Variant.Filled" Color="Color.Primary">선택(Select)</MudButton>
+	</RowTemplate>
+</MudTable>
+@code
+{
+    [Parameter] public string HsCode {get; set;}
+	public List<SubPracticalHsCode> SubPracticalHsCodes = new();
+	protected override async Task OnInitializedAsync()
+	{
+		SubPracticalHsCodes = await SubPracticalHsCodeManager.GetToListAsync();
+	}
+	public void SelectHsCode(string HsCode)
+	{
+		this.HsCode = HsCode;
+		StatusChanged();
+	}
+    
+}

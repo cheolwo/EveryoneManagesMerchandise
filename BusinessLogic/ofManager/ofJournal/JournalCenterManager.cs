@@ -60,6 +60,10 @@ namespace BusinessLogic.ofManager
 
        }
     }
+    public class StatsJournalManager<TEntity> : JournalManager, IObserver<TEntity> where TEntity : Status, IRelationable, new()
+    {
+       StatusManager()
+    }
     public class UserSettingJournalManager : EntityManager<UserSettingJournal>, IUserSettingJournalManager
     {
        public UserSettingJournalManager(IUserSettingJournalRepository CommodityDataRepository,
