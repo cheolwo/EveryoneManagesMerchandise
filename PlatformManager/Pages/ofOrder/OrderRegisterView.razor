@@ -13,7 +13,7 @@
 @inject IEntityManager<Warehouse> _WarehouseManager
 
 @page "/Register/Order"
-<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">사업자등록 </MudButton>
+<MudButton @onclick="OpenCreateDialog" Variant="Variant.Filled" Color="Color.Primary">사업자등록 </MudButton>
 @if(BusinessUser != null)
 {
 	@BusinessUser.Name;

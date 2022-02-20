@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <Folder Include="ofComponent\ofHsCode\ofTable\" />
+    <Folder Include="Pages\ofGroupOrder\" />
     <Folder Include="Pages\ofWarehouse\" />
   </ItemGroup>
 

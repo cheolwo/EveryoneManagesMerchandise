@@ -11,6 +11,7 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
+using BusinessData.ofManager;
 using BusinessData.ofOrder.ofDbContext;
 using BusinessData.ofOrder.ofRepository;
 using BusinessData.ofWarehouse.ofDbContext;
@@ -248,7 +249,9 @@ builder.Services.AddScoped<KamisManagement>();
 builder.Services.AddScoped<KAptManagement>();
 builder.Services.AddScoped<GOCManagement>();
 
-builder.Services.AddScoped(typeof(EntityTableComponent<>));
+builder.Services.AddScoped<BusinessUserManager>();
+
+//builder.Services.AddScoped(typeof(EntityTableComponent<>));
 
 /********************************************/
 builder.Services.AddMudServices();

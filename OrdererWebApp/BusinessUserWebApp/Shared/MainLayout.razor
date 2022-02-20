@@ -1,0 +1,68 @@
+﻿@inherits LayoutComponentBase
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        My Application
+        <MudAvatar Color="Color.Primary">M</MudAvatar>
+        <MudAvatar Color="Color.Secondary">U</MudAvatar>
+        <MudAvatar Color="Color.Tertiary">D</MudAvatar>
+        <MudAvatar Color="Color.Info" Variant="Variant.Outlined">M</MudAvatar>
+    <MudAvatar Color="Color.Success" Variant="Variant.Outlined">U</MudAvatar>
+    <MudAvatar Color="Color.Warning" Variant="Variant.Outlined">D</MudAvatar>
+    <MudAvatar Color="Color.Warning" Variant="Variant.Filled">
+        <MudIcon Color="Color.Dark" Icon="@Icons.Custom.Uncategorized.Radioactive" Size="Size.Large" />
+    </MudAvatar>
+    <MudAvatar Color="Color.Primary" Variant="Variant.Outlined">
+        <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" />
+    </MudAvatar>
+    <MudAvatar Color="Color.Secondary" Variant="Variant.Outlined">
+        <MudIcon Icon="@Icons.Material.Filled.FormatListNumbered" />
+    </MudAvatar>
+    <MudAvatar Image="_content/MudBlazor.Docs/images/mony.jpg" />
+    <MudAvatar Image="_content/MudBlazor.Docs/images/mony.jpg" Alt="An image of the best dog ever!"/>
+    <MudAvatar Image="_content/MudBlazor.Docs/images/toiletvisit.jpg" />
+    <MudAvatar Square="true">N</MudAvatar>
+    <MudAvatar Rounded="true" Color="Color.Secondary">
+        <MudIcon Icon="@Icons.Material.Filled.FormatListNumbered" />
+    </MudAvatar>
+    <MudAvatar Color="Color.Primary">
+        <MudIcon Icon="@Icons.Material.Filled.Comment" />
+    </MudAvatar>
+    <MudAvatar Square="true" Variant="Variant.Outlined">N</MudAvatar>
+    <MudAvatar Rounded="true" Color="Color.Secondary"  Variant="Variant.Outlined">
+        <MudIcon Icon="@Icons.Material.Filled.FormatListNumbered" />
+    </MudAvatar>
+    <MudAvatar Color="Color.Primary" Variant="Variant.Outlined">
+        <MudIcon Icon="@Icons.Material.Filled.Comment" />
+    </MudAvatar>
+    <MudBadge Color="Color.Success" Overlap="true" Bordered="true">
+        <MudAvatar Image="_content/MudBlazor.Docs/images/jonny.jpg" />
+    </MudBadge>
+    <MudBadge Color="Color.Warning" Overlap="true" Bordered="true">
+        <MudAvatar Image="_content/MudBlazor.Docs/images/mony.jpg" />
+    </MudBadge>
+    <MudBadge Color="Color.Error" Icon="@Icons.Material.Filled.Remove" Overlap="true" Bordered="true">
+        <MudAvatar Image="_content/MudBlazor.Docs/images/toiletvisit.jpg" />
+    </MudBadge>
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu></NavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Medium">
+            @Body
+    </MudContainer>
+    </MudMainContent>
+</MudLayout>
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}

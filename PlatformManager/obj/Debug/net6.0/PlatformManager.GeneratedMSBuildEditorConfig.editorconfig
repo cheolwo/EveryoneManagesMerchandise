@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHZW5lcmljXG9mVGFibGVcRW50aXR5Q3JlYXRlRGlhbG9nLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofGroupOrder/GroupOrderTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZHcm91cE9yZGVyXEdyb3VwT3JkZXJUYWJsZUNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofKaptInfo/KAptInfo.razor]
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZLYXB0SW5mb1xLQXB0SW5mby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +49,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofOrder/OrderRelatedBusinessUser.razor]
 build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZPcmRlclxPcmRlclJlbGF0ZWRCdXNpbmVzc1VzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofProducter/SelectProducterTableComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = b2ZDb21wb25lbnRcb2ZQcm9kdWN0ZXJcU2VsZWN0UHJvZHVjdGVyVGFibGVDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/ofComponent/ofTest/ExampleTableComponent.razor]
@@ -91,8 +99,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2FwdEluZm8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Pages/ofCommon/UserComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZDb21tb25cVXNlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Pages/ofOrder/OrderRegisterView.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZPcmRlclxPcmRlclJlZ2lzdGVyVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Pages/ofRole/GetToTable.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZSb2xlXEdldFRvVGFibGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/PlatformManager/Shared/LoginDisplay.razor]

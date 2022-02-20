@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\OrdererWebApp\ProducterWebApp\ProducterWebApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

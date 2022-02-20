@@ -70,7 +70,17 @@
       "ProjectGuid": "cf15c1b3-ab9e-413e-96d1-ceeab42b4d68",
       "DisplayName": "FisheriesDb",
       "ColorIndex": 12
+    },
+    "3de91fa8-8c1b-44cd-80ee-b8ccb0e744c5": {
+      "ProjectGuid": "3de91fa8-8c1b-44cd-80ee-b8ccb0e744c5",
+      "DisplayName": "BusinessUserWebApp",
+      "ColorIndex": 13
+    },
+    "a4c88286-6a66-4eb0-a325-f419c0cb0200": {
+      "ProjectGuid": "a4c88286-6a66-4eb0-a325-f419c0cb0200",
+      "DisplayName": "SmartFarmWebApp",
+      "ColorIndex": 14
     }
   },
-  "NextColorIndex": 13
+  "NextColorIndex": 15
 }

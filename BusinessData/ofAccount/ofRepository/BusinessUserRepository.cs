@@ -1,70 +1,48 @@
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using System;
-    using BusinessData.ofAccount.ofModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
+using BusinessData.ofAccount.ofModel;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-    namespace BusinessData.ofAccount.ofRepository
+namespace BusinessData.ofAccount.ofRepository
+{
+    public interface IBusinessUserRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, IRelationable, new()
     {
-    //public interface IBusinessUserRepository<TEntity> where TEntity : BusinessAccountEntity
-    //{
-    //    Task<List<TEntity>> GetToListAsync();
-    //    Task<TEntity> AddAsync(TEntity tentity);
-    //    Task<TEntity> UpdateAsync(TEntity tentity);
-    //    void DeleteByEntity(TEntity tentity);
-    //}
-    //public class BusinessUserRepository<TEntity> : IBusinessUserRepository<TEntity> where TEntity : BusinessAccountEntity
-    //{
-    //    private readonly BusinessUserDbContext _BusinessUserDbContext;
-    //    public BusinessUserRepository(BusinessUserDbContext BusinessUserDbContext)
-    //    {
-    //        _BusinessUserDbContext = BusinessUserDbContext;
-    //    }
+    }
+    public class BusinessUserRepository : EntityDataRepository<BusinessUser>, IBusinessUserRepository<BusinessUser>
+    {
+        private readonly BusinessUserDbContext _BusinessUserDbContext;
+        public BusinessUserRepository(BusinessUserDbContext BusinessUserDbContext)
+        {
+            _BusinessUserDbContext = BusinessUserDbContext;
+        }
+        public async Task<BusinessUser> GetByUserIdWithTableSetting(string UserId)
+        {
+            return await _DbContext.Set<BusinessUser>().Where(e => e.UserId.Equals(UserId)).Include(e => e.TableSettings).FirstOrDefaultAsync();
+        }
+    }
+    public interface IBusinessUserRepository : IEntityDataRepository<BusinessUser>
+    {
 
-    //    public Task<TEntity> AddAsync(TEntity tentity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+    }
+    public interface ITableSettingRepository
+    {
 
-    //    public void DeleteByEntity(TEntity tentity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+    }
+    public interface IJournalSettingRepository
+    {
 
-    //    public Task<List<TEntity>> GetToListAsync()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+    }
+    public interface IPayServiceRepository
+    {
 
-    //    public Task<TEntity> UpdateAsync(TEntity tentity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
-    //public interface IBusinessUserRepository
-    //{
-
-    //}
-    //public interface IWarehouseUserRepository
-    //{
-
-    //}
-    //public interface ITableSettingRepository
-    //{
-
-    //}
-    //public interface IJournalSettingRepository
-    //{
-
-    //}
-    //public interface IPayServiceRepository
-    //{
-
-    //}
-    //// public class UserTableSettingRepository : AccountDataRepository<UserTableSetting>
-    //// {
-    ////     public UserTableSettingRepository(BusinessUserDbContext BusinessUserDbContext)
-    ////         : base(BusinessUserDbContext)
-    ////     {
-    ////     }
-    //// }
+    }
+    // public class UserTableSettingRepository : AccountDataRepository<UserTableSetting>
+    // {
+    //     public UserTableSettingRepository(BusinessUserDbContext BusinessUserDbContext)
+    //         : base(BusinessUserDbContext)
+    //     {
+    //     }
+    // }
 }

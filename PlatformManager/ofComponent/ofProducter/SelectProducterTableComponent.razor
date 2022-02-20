@@ -1,0 +1,23 @@
+﻿@using BusinessData.ofProduct
+@using BusinessLogic.ofManager.ofGeneric
+@inject IEntityManager<ProductCenter> ProductCenterManager
+<MudTable Items=ProducterCenters>
+	<HeaderContent>
+		<MudTh>사업자 No</MudTh>
+		<MudTh>등록번호</MudTh>
+		<MudTh>이름</MudTh>
+		<MudTh>주종목</MudTh>
+	</HeaderContent>
+	<RowTemplate>
+		<MudTd>@context.Id</MudTd>
+		<MudTd>@context.Code</MudTd>
+		<MudTd>@context.Name</MudTd>
+		<MudTd>@context.</MudTd>
+	</RowTemplate>
+</MudTable>
+<h3>SelectProducterTableComponent</h3>
+
+@code {
+	public List<ProductCenter> ProducterCenters = new();
+	
+}

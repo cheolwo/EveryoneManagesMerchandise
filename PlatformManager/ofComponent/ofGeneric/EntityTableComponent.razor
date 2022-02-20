@@ -1,52 +1,20 @@
+@using System.Reflection
 @using BusinessData.ofAccount.ofModel
 @using BusinessData.ofCommon.ofInterface
+@using BusinessData.ofManager
 @using BusinessLogic.ofManager.ofGeneric
-@using System.Reflection
 @using PlatformManager.ofComponent.ofGeneric.ofTable
 @typeparam TEntity where TEntity : Entity, IRelationable, ITablable, new()
-@inject EntityManager<TEntity> EntityManager 
+@inject IEntityManager<TEntity> EntityManager 
 @inject BusinessUserManager BusinessUserManager
 @inject EntityNavigateFactory<TEntity> EntityNavigateFactory
 @inject NavigationManager NavigationManager
 @inject IDialogService DialogService
 @if(TableOption.GetTableViewMode().Equals(TableViewMode.Get))
 {
-    @* Single 및 Multi 오브젝트에 대한 처리가 이루어져야한다. *@
     @if(TableOption.GetTableManagedMode().Equals(TableManagedMode.Dialog))
     {
-        @* foreach(var TableInfo in EntityMultifleObjectTableInfo)
-        {
-            var OriginProp = TableInfo.GetOrigin();
-            var items = OriginProp.GetValue(Entity);
-        } *@
-        @* 여기는 Single Object 부분에 해당한다. *@
-        <MudButton Variant="Variant.Filled" Color="Color.Primary">생성</MudButton>
-        <MudTable Items=Entities>
-            <HeaderContent>
-                @foreach (var key in EntitySingleObjectTableInfo.GetKeys())
-                {
-                    <MudTh>@key</MudTh>
-                }
-                <MudTh>Managed</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                @foreach (var key in EntitySingleObjectTableInfo.GetKeys()) 
-                {
-                    <MudTd>@EntitySingleObjectTableInfo.GetValueByKey(key).GetValue(Entity)</MudTd>
-                }
-                <MudTd><MudButton @onclick="OpenUpdateDialog(context.Id)" Variant="Variant.Filled" Color="Color.Primary">수정</MudButton></MudTd>
-                <MudTd><MudButton @onclick="OpenDeleteDialog(context.Id)" Variant="Variant.Filled" Color="Color.Primary">삭제</MudButton></MudTd>
-                @if(EntityMultifleObjectTableInfo != null) @* 이런 거는 View Option 이랑도 결합되어서 이용되면 좋을 것 같에, 보여주네 마네로 결정하는 거지. *@
-                {
-                    @foreach(var TableInfo in EntityMultifleObjectTableInfo)
-                    {
-                        <MudTd><MudButton @onclick="OpenParticularDialog(context.Id, TableInfo.GetOrigin().ToString()" Variant="Variant.Filled" Color="Color.Primary">@TableInfo.GetOrigin().Name</MudButton></MudTd>
-                    }
-                }
-                <MudTd><MudButton @onclick=NavigateToDetailPage(conext.Id) Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton></MudTd>               
-                @* 외래키가 되는 개체가 있다면 버튼을 통해 확인할 수 있도록 하는 것도 나쁘지 않지. *@
-            </RowTemplate>
-        </MudTable>
+
     }
     else
     {
@@ -166,55 +134,55 @@ else
                 DetailColumnsSelected.Add(prop.Name);
             }
         }
-    private void OpenCreateDialog()
-    {
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-        var parametes = new DialogParameters();
-        parametes.Add("Entities", Entities);
-        string Title = nameof(OpenCreateDialog) + "-" + Entity.GetRelationCode();
-		DialogService.Show<EntityCreateDialog<TEntity>>(Title, options);
-    }
-    private void OpenUpdateDialog(string Id)
-    {
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-        var parametes = new DialogParameters();
-        parametes.Add("EntityId", Id);
-        string Title = nameof(OpenUpdateDialog) + "-" + Entity.GetRelationCode();
-		DialogService.Show<EntityUpdateDialog<TEntity>>(Title, parametes, options);
-    }
-    private void OpenDeleteDialog(string Id)
-    {
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-		var parametes = new DialogParameters();
-        parametes.Add("EntityId", Id);
-        string Title = nameof(OpenDeleteDialog) + "-" + Entity.GetRelationCode();
-		DialogService.Show<EntityDeleteDialog<TEntity>>(Title, parametes, options);
-    }
-    private void OpenParticularDialog(string Id, string propName)
-    {
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-        var parametes = new DialogParameters();
-        parametes.Add("EntityId", Id); 
-        parametes.Add("ParticularPropName", propName);        
-        string Title = nameof(OpenParticularDialog) + "-" + Entity.GetRelationCode();
-        DialogService.Show<EntityParticularDialog<TEntity>>(Title, parametes, options);
-    }
-    private void NavigateToCreatePage()
-    {
-        NavigationManager.NavigateTo($"/Create/Page/{Entity.GetRelationCode()}");
-    }
-    private void NavigateToUpdatePage(string Id)
-    {
-        NavigationManager.NavigateTo($"/Update/Page/{Entity.GetRelationCode()}/{Id}");
-    }
-    private void NavigateToDeletePage(string Id)
-    {
-        NavigationManager.NavigateTo($"/Delete/Page/{Entity.GetRelationCode()}/{Id}");
-    }
-    private void NavigateToDetailPage(string Id)
-    {
-        NavigationManager.NavigateTo($"/Detail/Page/{Entity.GetRelationCode()}/{Id}");
-    }
+  //  private void OpenCreateDialog()
+  //  {
+  //      var options = new DialogOptions { CloseOnEscapeKey = true };
+  //      var parametes = new DialogParameters();
+  //      parametes.Add("Entities", Entities);
+  //      string Title = nameof(OpenCreateDialog) + "-" + Entity.GetRelationCode();
+		//DialogService.Show<EntityCreateDialog<TEntity>>(Title, options);
+  //  }
+  //  private void OpenUpdateDialog(string Id)
+  //  {
+  //      var options = new DialogOptions { CloseOnEscapeKey = true };
+  //      var parametes = new DialogParameters();
+  //      parametes.Add("EntityId", Id);
+  //      string Title = nameof(OpenUpdateDialog) + "-" + Entity.GetRelationCode();
+		////DialogService.Show<EntityUpdateDialog<TEntity>>(Title, parametes, options);
+  //  }
+  //  private void OpenDeleteDialog(string Id)
+  //  {
+  //      var options = new DialogOptions { CloseOnEscapeKey = true };
+		//var parametes = new DialogParameters();
+  //      parametes.Add("EntityId", Id);
+  //      string Title = nameof(OpenDeleteDialog) + "-" + Entity.GetRelationCode();
+		////DialogService.Show<EntityDeleteDialog<TEntity>>(Title, parametes, options);
+  //  }
+  //  private void OpenParticularDialog(string Id, string propName)
+  //  {
+  //      var options = new DialogOptions { CloseOnEscapeKey = true };
+  //      var parametes = new DialogParameters();
+  //      parametes.Add("EntityId", Id); 
+  //      parametes.Add("ParticularPropName", propName);        
+  //      string Title = nameof(OpenParticularDialog) + "-" + Entity.GetRelationCode();
+  //      //DialogService.Show<EntityParticularDialog<TEntity>>(Title, parametes, options);
+  //  }
+    //private void NavigateToCreatePage()
+    //{
+    //    NavigationManager.NavigateTo($"/Create/Page/{Entity.GetRelationCode()}");
+    //}
+    //private void NavigateToUpdatePage(string Id)
+    //{
+    //    NavigationManager.NavigateTo($"/Update/Page/{Entity.GetRelationCode()}/{Id}");
+    //}
+    //private void NavigateToDeletePage(string Id)
+    //{
+    //    NavigationManager.NavigateTo($"/Delete/Page/{Entity.GetRelationCode()}/{Id}");
+    //}
+    //private void NavigateToDetailPage(string Id)
+    //{
+    //    NavigationManager.NavigateTo($"/Detail/Page/{Entity.GetRelationCode()}/{Id}");
+    //}
     private async Task InitUserTableSetting(BusinessUser businessUser, TEntity entity)
         {
             TableSetting tableSetting = new TableSetting();
