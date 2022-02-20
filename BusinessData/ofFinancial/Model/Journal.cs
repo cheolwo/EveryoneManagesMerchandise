@@ -236,7 +236,7 @@ namespace BusinessData.ofFinancial.Model
         public string b_nm { get; set; } // 사업장 이름
         public string enus_bnm {get; set;} // 사업자 영문이름
         public string HomePageAddress {get; set;} // 홈페이지주소
-        public string corp_no { get; set; } // 법인 등록번호
+        public string corp_no { ge;t; set; } // 법인 등록번호
 
         public int TaxOffice {get; set;} // 관할세무서 코드
         public string b_sector { get; set; } // 주업태명
