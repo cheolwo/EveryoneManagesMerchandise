@@ -49,10 +49,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.Property<string>("Cvv")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("EFarmCommodityId")
                         .HasColumnType("nvarchar(30)");
 
@@ -103,8 +99,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.HasIndex("SFarmCommodityId");
 
                     b.ToTable("Center");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Center");
                 });
 
             modelBuilder.Entity("BusinessData.Commodity", b =>
@@ -128,10 +122,6 @@ namespace BusinessData.Migrations.SmartFarmDb
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EFarmCommodityId")
                         .HasColumnType("nvarchar(30)");
@@ -166,8 +156,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.HasIndex("SFarmCommodityId");
 
                     b.ToTable("Commodity");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Commodity");
                 });
 
             modelBuilder.Entity("BusinessData.EStatus", b =>
@@ -191,10 +179,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MStatusId")
                         .HasColumnType("nvarchar(30)");
 
@@ -213,8 +197,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.HasIndex("MStatusId");
 
                     b.ToTable("EStatus");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("EStatus");
                 });
 
             modelBuilder.Entity("BusinessData.MStatus", b =>
@@ -238,10 +220,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -260,8 +238,6 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.HasIndex("SStatusId");
 
                     b.ToTable("MStatus");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("MStatus");
                 });
 
             modelBuilder.Entity("BusinessData.SStatus", b =>
@@ -589,7 +565,7 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.Property<string>("ProductLendId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasDiscriminator().HasValue("SmartFarm");
+                    b.ToTable("SmartFarm");
                 });
 
             modelBuilder.Entity("BusinessData.ofSmartFarm.FarmCommodtiy", b =>
@@ -613,7 +589,7 @@ namespace BusinessData.Migrations.SmartFarmDb
 
                     b.HasIndex("SmartFarmId");
 
-                    b.HasDiscriminator().HasValue("FarmCommodtiy");
+                    b.ToTable("FarmCommodity");
                 });
 
             modelBuilder.Entity("BusinessData.ofSmartFarm.EFarmCommodity", b =>
@@ -639,7 +615,7 @@ namespace BusinessData.Migrations.SmartFarmDb
 
                     b.HasIndex("SmartFarmId");
 
-                    b.HasDiscriminator().HasValue("EFarmCommodity");
+                    b.ToTable("EFarmCommodity");
                 });
 
             modelBuilder.Entity("BusinessData.ofSmartFarm.MFarmCommodity", b =>
@@ -665,7 +641,7 @@ namespace BusinessData.Migrations.SmartFarmDb
 
                     b.HasIndex("SmartFarmId");
 
-                    b.HasDiscriminator().HasValue("MFarmCommodity");
+                    b.ToTable("MFarmCommodity");
                 });
 
             modelBuilder.Entity("BusinessData.ofSmartFarm.SFarmCommodity", b =>
@@ -853,8 +829,23 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.Navigation("SFarmCommodiy");
                 });
 
+            modelBuilder.Entity("BusinessData.ofSmartFarm.SmartFarm", b =>
+                {
+                    b.HasOne("BusinessData.Center", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofSmartFarm.SmartFarm", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BusinessData.ofSmartFarm.FarmCommodtiy", b =>
                 {
+                    b.HasOne("BusinessData.Commodity", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofSmartFarm.FarmCommodtiy", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
                     b.HasOne("BusinessData.ofSmartFarm.SmartFarm", null)
                         .WithMany("FarmCommodiites")
                         .HasForeignKey("SmartFarmId");
@@ -866,6 +857,12 @@ namespace BusinessData.Migrations.SmartFarmDb
                         .WithMany("EFarmCommodityes")
                         .HasForeignKey("FarmCommodtiyId");
 
+                    b.HasOne("BusinessData.EStatus", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofSmartFarm.EFarmCommodity", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
                     b.HasOne("BusinessData.ofSmartFarm.SmartFarm", null)
                         .WithMany("EFarmCommodiites")
                         .HasForeignKey("SmartFarmId");
@@ -876,6 +873,12 @@ namespace BusinessData.Migrations.SmartFarmDb
                     b.HasOne("BusinessData.ofSmartFarm.FarmCommodtiy", null)
                         .WithMany("MFarmCommodityes")
                         .HasForeignKey("FarmCommodtiyId");
+
+                    b.HasOne("BusinessData.MStatus", null)
+                        .WithOne()
+                        .HasForeignKey("BusinessData.ofSmartFarm.MFarmCommodity", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
 
                     b.HasOne("BusinessData.ofSmartFarm.SmartFarm", null)
                         .WithMany("MFarmCommodiites")

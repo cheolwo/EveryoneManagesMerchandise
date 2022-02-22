@@ -41,6 +41,7 @@ namespace BusinessData.ofSmartFarm
         public override void Configure(EntityTypeBuilder<SmartFarm> builder)
         {
             base.Configure(builder);
+            builder.ToTable("SmartFarm");
         }
     }
     public class FarmCommodityConfiguration  : CommodityConfiguration<FarmCommodtiy>
@@ -48,6 +49,7 @@ namespace BusinessData.ofSmartFarm
         public override void Configure(EntityTypeBuilder<FarmCommodtiy> builder)
         {
             base.Configure(builder);
+            builder.ToTable("FarmCommodity");
             builder.HasOne(e => e.ControllerCommodity).WithOne(e => e.FarmCommodtiy).HasForeignKey<ControllerCommodity>(e => e.FarmCommodtiyId);
         }
     }
@@ -56,6 +58,7 @@ namespace BusinessData.ofSmartFarm
         public override void Configure(EntityTypeBuilder<SFarmCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("SFarmCommodity");
         }
     }
     public class MFarmCommodityConfiguration : StatusConfiguration<MFarmCommodity>
@@ -63,6 +66,7 @@ namespace BusinessData.ofSmartFarm
         public override void Configure(EntityTypeBuilder<MFarmCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("MFarmCommodity");
         }
     }
     public class EFarmCommodityConfiguration : StatusConfiguration<EFarmCommodity>
@@ -70,6 +74,7 @@ namespace BusinessData.ofSmartFarm
         public override void Configure(EntityTypeBuilder<EFarmCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("EFarmCommodity");
         }
     }
     public class FarmControllerConfiguration : EntityConfiguration<FarmController>

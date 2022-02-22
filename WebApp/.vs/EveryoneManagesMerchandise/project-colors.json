@@ -1,0 +1,131 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f9481e6d-f32d-4828-8383-6d582121e177": {
+      "ProjectGuid": "f9481e6d-f32d-4828-8383-6d582121e177",
+      "DisplayName": "OrdererWebApp",
+      "ColorIndex": 0
+    },
+    "965e2388-1f3b-4c1f-9043-c769c7744782": {
+      "ProjectGuid": "965e2388-1f3b-4c1f-9043-c769c7744782",
+      "DisplayName": "BusinessData",
+      "ColorIndex": 1
+    },
+    "5f3af154-1437-4607-96ed-0ea7ebb1acad": {
+      "ProjectGuid": "5f3af154-1437-4607-96ed-0ea7ebb1acad",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "기타 파일",
+      "ColorIndex": -1
+    },
+    "bd16431d-57d2-40c4-b3aa-408297699697": {
+      "ProjectGuid": "bd16431d-57d2-40c4-b3aa-408297699697",
+      "DisplayName": "BusinessLogic",
+      "ColorIndex": 3
+    },
+    "4d11a509-1745-4e68-ac94-4fe238a29027": {
+      "ProjectGuid": "4d11a509-1745-4e68-ac94-4fe238a29027",
+      "DisplayName": "ModuleTest",
+      "ColorIndex": 4
+    },
+    "83ebbe63-d472-4dee-b55b-41c91ad4508c": {
+      "ProjectGuid": "83ebbe63-d472-4dee-b55b-41c91ad4508c",
+      "DisplayName": "ModuleTest",
+      "ColorIndex": 5
+    },
+    "69f55a4a-494b-487a-bf32-7580aaa10c8c": {
+      "ProjectGuid": "69f55a4a-494b-487a-bf32-7580aaa10c8c",
+      "DisplayName": "BusinessLogic",
+      "ColorIndex": 6
+    },
+    "57d29db8-fc23-4fc1-8d77-1aa773d640d5": {
+      "ProjectGuid": "57d29db8-fc23-4fc1-8d77-1aa773d640d5",
+      "DisplayName": "BusinessData",
+      "ColorIndex": 7
+    },
+    "d40071c0-cb65-4928-99b7-c807d933e529": {
+      "ProjectGuid": "d40071c0-cb65-4928-99b7-c807d933e529",
+      "DisplayName": "ProducterWebApp",
+      "ColorIndex": 8
+    },
+    "8fe02659-9f4a-4297-8e42-eeb905b51f0c": {
+      "ProjectGuid": "8fe02659-9f4a-4297-8e42-eeb905b51f0c",
+      "DisplayName": "BusinessRazor",
+      "ColorIndex": 9
+    },
+    "8f44ae9e-ef79-42a2-b79d-7f3efff5f034": {
+      "ProjectGuid": "8f44ae9e-ef79-42a2-b79d-7f3efff5f034",
+      "DisplayName": "BusinessRazor",
+      "ColorIndex": 10
+    },
+    "717b0c65-4ef7-4a51-acbf-058f3179ef84": {
+      "ProjectGuid": "717b0c65-4ef7-4a51-acbf-058f3179ef84",
+      "DisplayName": "BusinessRazor",
+      "ColorIndex": 11
+    },
+    "cf15c1b3-ab9e-413e-96d1-ceeab42b4d68": {
+      "ProjectGuid": "cf15c1b3-ab9e-413e-96d1-ceeab42b4d68",
+      "DisplayName": "FisheriesDb",
+      "ColorIndex": 12
+    },
+    "3de91fa8-8c1b-44cd-80ee-b8ccb0e744c5": {
+      "ProjectGuid": "3de91fa8-8c1b-44cd-80ee-b8ccb0e744c5",
+      "DisplayName": "BusinessUserWebApp",
+      "ColorIndex": 13
+    },
+    "a4c88286-6a66-4eb0-a325-f419c0cb0200": {
+      "ProjectGuid": "a4c88286-6a66-4eb0-a325-f419c0cb0200",
+      "DisplayName": "SmartFarmWebApp",
+      "ColorIndex": 14
+    },
+    "c9476147-f02c-408c-a476-6282e5a96e12": {
+      "ProjectGuid": "c9476147-f02c-408c-a476-6282e5a96e12",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 15
+    },
+    "5acad000-e3da-489e-b931-0067fb82200d": {
+      "ProjectGuid": "5acad000-e3da-489e-b931-0067fb82200d",
+      "DisplayName": "PlatfromUserWebApp",
+      "ColorIndex": 0
+    },
+    "deaf795b-2f39-4f6e-ad9b-35bcaf9834b4": {
+      "ProjectGuid": "deaf795b-2f39-4f6e-ad9b-35bcaf9834b4",
+      "DisplayName": "WarehouseServer",
+      "ColorIndex": 1
+    },
+    "8715a69d-cd28-4f3d-bf6c-4f72865c7369": {
+      "ProjectGuid": "8715a69d-cd28-4f3d-bf6c-4f72865c7369",
+      "DisplayName": "PlatformManagerWebApp",
+      "ColorIndex": 2
+    },
+    "5716595f-ba84-45a8-909e-ade6c3cb86bc": {
+      "ProjectGuid": "5716595f-ba84-45a8-909e-ade6c3cb86bc",
+      "DisplayName": "BusinessUserWebApp",
+      "ColorIndex": 3
+    },
+    "fb045ac8-7f76-4277-9229-cf2c3d6b6090": {
+      "ProjectGuid": "fb045ac8-7f76-4277-9229-cf2c3d6b6090",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 4
+    },
+    "9362f9f1-6650-4335-bbfe-0405aa61d03c": {
+      "ProjectGuid": "9362f9f1-6650-4335-bbfe-0405aa61d03c",
+      "DisplayName": "PlatformManager",
+      "ColorIndex": 5
+    },
+    "fb794c03-2fd3-48c0-ad80-6a393e9bfeb2": {
+      "ProjectGuid": "fb794c03-2fd3-48c0-ad80-6a393e9bfeb2",
+      "DisplayName": "PlanLogisticsUserWebApp",
+      "ColorIndex": 6
+    },
+    "6c8996c3-57e7-40eb-8fdc-69f5527ae6b5": {
+      "ProjectGuid": "6c8996c3-57e7-40eb-8fdc-69f5527ae6b5",
+      "DisplayName": "PlanLogisticsManagerWebApp",
+      "ColorIndex": 7
+    }
+  },
+  "NextColorIndex": 8
+}
