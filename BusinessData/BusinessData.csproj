@@ -6,10 +6,16 @@
 
   <ItemGroup>
     <Compile Remove="Migrations\OrderDb\**" />
+    <Compile Remove="ofAccount\NewFolder\**" />
+    <Compile Remove="ofAccount\ofIdentityDbContext\**" />
     <Compile Remove="ofWarehouse\DataManager\**" />
     <EmbeddedResource Remove="Migrations\OrderDb\**" />
+    <EmbeddedResource Remove="ofAccount\NewFolder\**" />
+    <EmbeddedResource Remove="ofAccount\ofIdentityDbContext\**" />
     <EmbeddedResource Remove="ofWarehouse\DataManager\**" />
     <None Remove="Migrations\OrderDb\**" />
+    <None Remove="ofAccount\NewFolder\**" />
+    <None Remove="ofAccount\ofIdentityDbContext\**" />
     <None Remove="ofWarehouse\DataManager\**" />
   </ItemGroup>
 
@@ -53,8 +59,6 @@
     <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
     <Folder Include="ofHumanResource\" />
-    <Folder Include="ofAccount\NewFolder\" />
-    <Folder Include="ofAccount\ofIdentityDbContext\" />
     <Folder Include="ofFinancial\Migrations\" />
     <Folder Include="ofFinancial\Configuration\" />
     <Folder Include="ofHRMarket\Migrations\" />
@@ -63,7 +67,12 @@
     <Folder Include="ofMarket\Migrations\" />
     <Folder Include="ofSmartFarm\ofRepository\" />
     <Folder Include="ofTrade\Migrations\" />
+    <Folder Include="ofViewModel\ofSystem\" />
     <Folder Include="ofWarehouse\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>

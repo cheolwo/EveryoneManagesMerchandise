@@ -14,7 +14,10 @@
           "Microsoft.AspNetCore.Identity.UI": "6.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.2",
-          "Microsoft.EntityFrameworkCore.Tools": "6.0.0"
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
+          "MudBlazor": "6.0.6",
+          "MudBlazor.Markdown": "0.0.8",
+          "MudBlazor.ThemeManager": "1.0.6"
         },
         "runtime": {
           "PlanLogisticsManagerWebApp.dll": {}
@@ -75,6 +78,14 @@
           "lib/netcoreapp2.0/Linkhub.dll": {
             "assemblyVersion": "1.4.1.0",
             "fileVersion": "1.4.1.0"
+          }
+        }
+      },
+      "Markdig/0.26.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/Markdig.dll": {
+            "assemblyVersion": "0.26.0.0",
+            "fileVersion": "0.26.0.0"
           }
         }
       },
@@ -634,6 +645,42 @@
           }
         }
       },
+      "MudBlazor/6.0.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {
+            "assemblyVersion": "6.0.6.0",
+            "fileVersion": "6.0.6.0"
+          }
+        }
+      },
+      "MudBlazor.Markdown/0.0.8": {
+        "dependencies": {
+          "Markdig": "0.26.0",
+          "MudBlazor": "6.0.6"
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.Markdown.dll": {
+            "assemblyVersion": "0.0.8.0",
+            "fileVersion": "0.0.8.0"
+          }
+        }
+      },
+      "MudBlazor.ThemeManager/1.0.6": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.2",
+          "MudBlazor": "6.0.6"
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.ThemeManager.dll": {
+            "assemblyVersion": "1.0.6.0",
+            "fileVersion": "1.0.6.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -912,6 +959,13 @@
       "sha512": "sha512-GRV7I6KwH4mc1PexDuHMpI24qx1v+ewfcFH6f4bb6F7vaJ/cZTMeFnTruLUzbj0nD5JZkIFdSrq2x6w0Qg9d3g==",
       "path": "linkhub/1.4.1",
       "hashPath": "linkhub.1.4.1.nupkg.sha512"
+    },
+    "Markdig/0.26.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9+V9emMb+/rzzuwbNldmIUK6YTYU7hP4Fw1QxH2ht1N0Pr33TJobayzXM6/cBCILV1nhhOxzNGdISj85v2OBcQ==",
+      "path": "markdig/0.26.0",
+      "hashPath": "markdig.0.26.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
@@ -1353,6 +1407,27 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "MudBlazor/6.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e1yGz52Y427jqIN2ZmR7PgKAadWDdq6ChqAWMiwtYatFDH67elh3Q3uMk+5jP08EKaG0ZRsNxrBL/pxpBd/p5Q==",
+      "path": "mudblazor/6.0.6",
+      "hashPath": "mudblazor.6.0.6.nupkg.sha512"
+    },
+    "MudBlazor.Markdown/0.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GM1w5VjssgU6odK/NaUef83KnFY72x8i4vaCKdkcLLQZ4LVp89nmqLxlrJLkdTWw5sVWHpKdnZNC5CsWwbeMkg==",
+      "path": "mudblazor.markdown/0.0.8",
+      "hashPath": "mudblazor.markdown.0.0.8.nupkg.sha512"
+    },
+    "MudBlazor.ThemeManager/1.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jo2AhWvjkw9tyNJ7PbRRaKo1P0ikjY+Ijj1kocgISBguRtl8CACISKLwwHdrrGWFePfI+rUaAHAGLxj6XfD4/Q==",
+      "path": "mudblazor.thememanager/1.0.6",
+      "hashPath": "mudblazor.thememanager.1.0.6.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

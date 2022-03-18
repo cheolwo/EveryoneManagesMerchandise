@@ -88,3 +88,7 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebA
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\obj\Debug\net6.0\PlanLogisticsManagerWebApp.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\obj\Debug\net6.0\PlanLogisticsManagerWebApp.genruntimeconfig.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\obj\Debug\net6.0\ref\PlanLogisticsManagerWebApp.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\bin\Debug\net6.0\MudBlazor.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\bin\Debug\net6.0\Markdig.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\bin\Debug\net6.0\MudBlazor.Markdown.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsManagerWebApp\bin\Debug\net6.0\MudBlazor.ThemeManager.dll

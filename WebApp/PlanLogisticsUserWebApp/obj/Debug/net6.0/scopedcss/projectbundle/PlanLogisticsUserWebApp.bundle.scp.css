@@ -1,4 +1,4 @@
-/* /Shared/MainLayout.razor.rz.scp.css */
+/* _content/PlanLogisticsUserWebApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-md49m5pp01] {
     position: relative;
     display: flex;
@@ -22,17 +22,12 @@ main[b-md49m5pp01] {
     align-items: center;
 }
 
-    .top-row[b-md49m5pp01]  a, .top-row[b-md49m5pp01]  .btn-link {
+    .top-row[b-md49m5pp01]  a, .top-row .btn-link[b-md49m5pp01] {
         white-space: nowrap;
         margin-left: 1.5rem;
-        text-decoration: none;
     }
 
-    .top-row[b-md49m5pp01]  a:hover, .top-row[b-md49m5pp01]  .btn-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-row[b-md49m5pp01]  a:first-child {
+    .top-row a:first-child[b-md49m5pp01] {
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -46,7 +41,7 @@ main[b-md49m5pp01] {
         justify-content: space-between;
     }
 
-    .top-row[b-md49m5pp01]  a, .top-row[b-md49m5pp01]  .btn-link {
+    .top-row a[b-md49m5pp01], .top-row .btn-link[b-md49m5pp01] {
         margin-left: 0;
     }
 }
@@ -69,18 +64,12 @@ main[b-md49m5pp01] {
         z-index: 1;
     }
 
-    .top-row.auth[b-md49m5pp01]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
     .top-row[b-md49m5pp01], article[b-md49m5pp01] {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
 }
-/* /Shared/NavMenu.razor.rz.scp.css */
+/* _content/PlanLogisticsUserWebApp/Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-9rpkkwy4uy] {
     background-color: rgba(255, 255, 255, 0.1);
 }

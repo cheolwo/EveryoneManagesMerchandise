@@ -280,6 +280,18 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "MudBlazor.Markdown": {
+              "target": "Package",
+              "version": "[0.0.8, )"
+            },
+            "MudBlazor.ThemeManager": {
+              "target": "Package",
+              "version": "[1.0.6, )"
             }
           },
           "imports": [
