@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
+    <PackageReference Include="MudBlazor" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\ofGroupOrderer\ofTable\" />
+    <Folder Include="Components\ofMarketer\ofTable\" />
+    <Folder Include="Components\ofOrderer\ofTable\" />
+    <Folder Include="Components\ofProducter\ofTable\" />
+    <Folder Include="Components\ofTrader\ofTable\" />
+    <Folder Include="Components\ofWarehouser\ofTable\ofManager\" />
+  </ItemGroup>
+
+</Project>

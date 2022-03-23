@@ -4,29 +4,28 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
-using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
 
 namespace BusinessData
 {
     public static class DbConnectionString
     {
-        public const string WarehouseDbConnection = "Server=(localdb)\\mssqllocaldb;Database=WarehouseDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string HRDbConnection = "Server=(localdb)\\mssqllocaldb;Database=HRDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string DeliveryDbConnection = "Server=(localdb)\\mssqllocaldb;Database=DeliveryDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string MarketDbConnection = "Server=(localdb)\\mssqllocaldb;Database=MarketDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string JournalDbConnection = "Server=(localdb)\\mssqllocaldb;Database=JournalDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string OrderDbConnection = "Server=(localdb)\\mssqllocaldb;Database=OrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string GroupOrderDbConnection = "Server=(localdb)\\mssqllocaldb;Database=GOCDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string ProductDbConnection = "Server=(localdb)\\mssqllocaldb;Database=ProductDbDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string TradeDbConnection = "Server=(localdb)\\mssqllocaldb;Database=TradeDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string HsDbConnection = "Server=(localdb)\\mssqllocaldb;Database=HsDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string KamisDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KamisDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string KAptDbConnection = "Server=(localdb)\\mssqllocaldb;Database=KAptInfoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string FisheriesDbConnection = "Server=(localdb)\\mssqllocaldb;Database=FisheriesDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string BusinessUserDbConnection = "Server=(localdb)\\mssqllocaldb;Database=BusinessUserDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string OrderDbconnection = "Server=(localdb)\\mssqllocaldb;Database=OrderDb;Trusted_Connection=True;MultipleActiveResultSets=true";
-        public const string SmartFarmDbConnection = "Server=(localdb)\\mssqllocaldb;Database=SmartFarmDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public const string WarehouseDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=WarehouseDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string HRDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=HRDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string DeliveryDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=DeliveryDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string MarketDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=MarketDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string JournalDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=JournalDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string OrderDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=OrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string GroupOrderDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=GroupOrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string ProductDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=ProductDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string TradeDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=TradeDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string HsDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=HsDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string KamisDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=KamisDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string KAptDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=KAptDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string FisheriesDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=FisheriesDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BusinessUserDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BusinessUserDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string OrderDbconnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=OrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string SmartFarmDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=SmartFarmDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
     }
     public class OneAttribute : Attribute
     {
@@ -90,10 +89,10 @@ namespace BusinessData
     {
         [Key] [Get] public string Id { get; set; }
         public string Code { get; set; }
-        [Get("OrdererApp = {SPCommodityInOrdererView}")] public string Name { get; set; }
+        [Get] public string Name { get; set; }
         [Detail]public string Container {get; set;}
         [Detail]public DateTime CreateTime { get; set; }
-        [Detail]public string UserId {get; set;}
+        [Detail]public string UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
         [Detail]public List<ChangeUser> ChangedUsers {get; set;}
         [Detail]public List<ImageofInfo> ImageofInfos {get; set;}
         [Detail]public List<Doc> Docs {get; set;}

@@ -12,40 +12,25 @@
     public class AuthenticateUser
     {
         public HttpClient HttpClient { get; set; }
+        public AuthenticateUser()
+        {
+            HttpClient = new HttpClient();
+            HttpClient.BaseAddress = new Uri("https://identityserverinplanlogistcs.azurewebsites.net/");
+        }
+        
     }
     public interface IAuthorizeUser
     {
-
-    }
-    public class Warehouser : IAuthorizeUser
-{
-        public HttpClient HttpClient { get; set; }
-    }
-    public class Forwarder : IAuthorizeUser
-    {
-        public HttpClient HttpClient { get; set; }
-    }
-    public class Orderer : IAuthorizeUser
-    {
-        public HttpClient HttpClient { get; set; }
-    }
-    public class Seller : IAuthorizeUser
-    {
-        public HttpClient HttpClient { get; set; }
-    }
-    public class Producter : IAuthorizeUser
-    {
-        public HttpClient HttpClient { get; set; }
+        bool CheckRoles(string IdentityUserId);
     }
 
     public class AuthorizeUserFactory
     {
         private List<IAuthorizeUser> AuthorizeUsers = new();
-        public AuthorizeUserFactory()
+        public void Clear()
         {
-
+            AuthorizeUsers.Clear();
         }
-        
         public List<IAuthorizeUser> CreateAuthenticateUser(IList<string> Roles)
         {
             foreach (var Role in Roles)

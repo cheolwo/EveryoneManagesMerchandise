@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.AssemblyInfo.cs
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessView.deps.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessView.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\ref\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\refint\BusinessView.dll
