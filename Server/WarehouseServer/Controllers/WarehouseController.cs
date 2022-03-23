@@ -1,9 +1,6 @@
-﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
+﻿using BusinessData.ofWarehouse.Model;
 using BusinessData.ofWarehouse.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofWarehouse;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WarehouseServer.Controllers
@@ -12,17 +9,12 @@ namespace WarehouseServer.Controllers
     [ApiController]
     public class WarehouseController : ControllerBase
     {
-        private readonly IEntityManager<Warehouse> _EntityManager;
-        private readonly IEntityDataRepository<Warehouse> _EntityDataRepository;
         private readonly IWarehouseManager _WarehouseManager;
         private readonly IWarehouseRepository _WarehouseRepository;
-        public WarehouseController(IEntityManager<Warehouse> entityManager,
-            IEntityDataRepository<Warehouse> entityDataRepository, 
+        public WarehouseController(
             IWarehouseManager warehouseManager,
             IWarehouseRepository warehouseRepository)
         {
-            _EntityManager = entityManager;
-            _EntityDataRepository = entityDataRepository;
             _WarehouseManager = warehouseManager;
             _WarehouseRepository = warehouseRepository;
         }

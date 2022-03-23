@@ -34,7 +34,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
         Task<bool> WarehouseLoginAsync(string LoginId, string Password);
         Task<Warehouse> CreateByKAptAndGOC(KAptBasicInfo kAptBasicInfo, GOC groupOrderCenter);
     }
-    public class WarehouseManager : CenterManager<Warehouse>, IWarehouseManager
+    public class WarehouseManager : CenterManager<Warehouse>
     {
         private readonly IWarehouseRepository _WarehouseRepository;
         private readonly IWarehouseIdFactory _WarehouseIdFactory;
