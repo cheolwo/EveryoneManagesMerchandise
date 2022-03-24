@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-PlanLogisticsWebApp-890E8FDF-7541-4FBB-A5AA-C39CB0AD43BB")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlanLogisticsWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ofArea\ofWarehouse\" />
+    <Compile Remove="ofArea\**" />
+    <EmbeddedResource Remove="ofArea\**" />
+    <None Remove="ofArea\**" />
   </ItemGroup>
 
   <ItemGroup>
