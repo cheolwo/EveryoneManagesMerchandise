@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofGenericRepository
 {
-    public interface ICommodityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Commodity, IRelationable, new()
+    public interface ICommodityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Commodity
     {
         //By
         Task<List<TEntity>> GetToListByHsCode(string HsCode);
@@ -37,7 +37,7 @@ namespace BusinessData.ofGenericRepository
         Task<List<TEntity>> GetToListByUserIdWithSStatus(string UserId);
     }
     public class CommodityDataRepository<TEntity> : EntityDataRepository<TEntity>, ICommodityDataRepository<TEntity>
-                                                     where TEntity : Commodity, IRelationable, new()
+                                                     where TEntity : Commodity, new()
     {
         public CommodityDataRepository(DbContext DbContext)
             :base(DbContext)
@@ -46,11 +46,11 @@ namespace BusinessData.ofGenericRepository
             {
                 _DbContext = DbContext;
             }
-            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity))); }
         }
         public CommodityDataRepository()
         {
-            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
         
         public async Task<TEntity> GetByBarcodeAsync(string Barcode)

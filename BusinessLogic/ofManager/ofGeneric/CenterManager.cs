@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public class CenterPasswordHasher<TEntity> : IPasswordHasher<TEntity> where TEntity : Center, IRelationable
+    public class CenterPasswordHasher<TEntity> : IPasswordHasher<TEntity> where TEntity : Center
     {
         public string HashPassword(TEntity entity, string password)
         {
@@ -37,7 +37,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         }
         // 생성자의 패스워드 해쉬 인터페이스를 상속받는 개체가 있어야겠다.
     }
-    public interface ICenterManager<TEntity> : IEntityManager<TEntity> where TEntity : Center, IRelationable
+    public interface ICenterManager<TEntity> : IEntityManager<TEntity> where TEntity : Center, new()
     {
         Task<TEntity> GetByUserAsync(IdentityUser IdentityUser);
         Task<TEntity> LoginAsync(string id, string password);
@@ -47,7 +47,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId);
         Task<List<TEntity>> GetToListWithRelatedAsync();
     }
-    public class CenterManager<TEntity> : EntityManager<TEntity>, ICenterManager<TEntity> where TEntity : Center, IRelationable
+    public class CenterManager<TEntity> : EntityManager<TEntity>, ICenterManager<TEntity> where TEntity : Center, new()
     {
         private readonly ICenterIdFactory<TEntity> _centerIdFactory;
         private readonly ICenterFileFactory<TEntity> _centerFileFactory;

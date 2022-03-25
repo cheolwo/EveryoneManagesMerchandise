@@ -8,14 +8,23 @@
     <Compile Remove="Migrations\OrderDb\**" />
     <Compile Remove="ofAccount\NewFolder\**" />
     <Compile Remove="ofAccount\ofIdentityDbContext\**" />
+    <Compile Remove="ofHRMarket\Migrations\**" />
+    <Compile Remove="ofMarket\DataManager\**" />
+    <Compile Remove="ofMarket\Migrations\**" />
     <Compile Remove="ofWarehouse\DataManager\**" />
     <EmbeddedResource Remove="Migrations\OrderDb\**" />
     <EmbeddedResource Remove="ofAccount\NewFolder\**" />
     <EmbeddedResource Remove="ofAccount\ofIdentityDbContext\**" />
+    <EmbeddedResource Remove="ofHRMarket\Migrations\**" />
+    <EmbeddedResource Remove="ofMarket\DataManager\**" />
+    <EmbeddedResource Remove="ofMarket\Migrations\**" />
     <EmbeddedResource Remove="ofWarehouse\DataManager\**" />
     <None Remove="Migrations\OrderDb\**" />
     <None Remove="ofAccount\NewFolder\**" />
     <None Remove="ofAccount\ofIdentityDbContext\**" />
+    <None Remove="ofHRMarket\Migrations\**" />
+    <None Remove="ofMarket\DataManager\**" />
+    <None Remove="ofMarket\Migrations\**" />
     <None Remove="ofWarehouse\DataManager\**" />
   </ItemGroup>
 
@@ -61,10 +70,6 @@
     <Folder Include="ofHumanResource\" />
     <Folder Include="ofFinancial\Migrations\" />
     <Folder Include="ofFinancial\Configuration\" />
-    <Folder Include="ofHRMarket\Migrations\" />
-    <Folder Include="ofMarket\DataManager\ofMCommodity\" />
-    <Folder Include="ofMarket\DataManager\ofSCommodity\" />
-    <Folder Include="ofMarket\Migrations\" />
     <Folder Include="ofSmartFarm\ofRepository\" />
     <Folder Include="ofTrade\Migrations\" />
     <Folder Include="ofViewModel\ofSystem\" />

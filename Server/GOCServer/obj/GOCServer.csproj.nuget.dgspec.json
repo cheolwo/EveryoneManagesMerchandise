@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj": {}
+    "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+    "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj",
         "projectName": "BusinessData",
-        "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj",
-        "packagesPath": "C:\\Users\\409\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\409\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -106,22 +110,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
+    "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\409\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\409\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -134,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
-                "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
+              "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
               }
             }
           }
@@ -202,22 +210,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
+    "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj",
         "projectName": "BusinessView",
-        "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj",
-        "packagesPath": "C:\\Users\\409\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\409\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -230,8 +242,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
-                "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
+              "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
               }
             }
           }
@@ -270,22 +282,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj": {
+    "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj",
         "projectName": "GOCServer",
-        "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj",
-        "packagesPath": "C:\\Users\\409\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\Server\\GOCServer\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\GOCServer\\GOCServer.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\GOCServer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\409\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -298,14 +314,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
-                "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
+              "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
               },
-              "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
+              "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
               },
-              "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
-                "projectPath": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj"
+              "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj"
               }
             }
           }
@@ -343,7 +359,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

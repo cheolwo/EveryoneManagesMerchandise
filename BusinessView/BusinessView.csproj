@@ -22,4 +22,9 @@
     <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ofTrade\" />
+    <Folder Include="ofProduct\" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace BusinessData
 {
@@ -29,7 +31,7 @@ namespace BusinessData
     }
     public class OneAttribute : Attribute
     {
-        public string Name {get; set;}
+        public string Name { get; set; }
         public OneAttribute(string name)
         {
             Name = name;
@@ -41,7 +43,7 @@ namespace BusinessData
     }
     public class ManyAttribute : Attribute
     {
-        public string Name {get; set;}
+        public string Name { get; set; }
         public ManyAttribute(string name)
         {
             Name = name;
@@ -51,11 +53,11 @@ namespace BusinessData
             Name = "";
         }
     }
-    
+
     public class RescopeAttribute : Attribute
     {
-        private string EntityCode {get; set;}
-        private Type T {get; set;}
+        private string EntityCode { get; set; }
+        private Type T { get; set; }
         public void SetEntityCode(string Code)
         {
             EntityCode = Code;
@@ -78,24 +80,24 @@ namespace BusinessData
         public List<string> Views { get; set; }
         public OrdererView(List<string> NameofViews)
         {
-            foreach(var item in NameofViews)
+            foreach (var item in NameofViews)
             {
-                Views.Add(item);    
+                Views.Add(item);
             }
         }
     }
     [Rescope]
     public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer
     {
-        [Key] [Get] public string Id { get; set; }
+        [Key] public string Id { get; set; }
         public string Code { get; set; }
-        [Get] public string Name { get; set; }
-        [Detail]public string Container {get; set;}
-        [Detail]public DateTime CreateTime { get; set; }
-        [Detail]public string UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
-        [Detail]public List<ChangeUser> ChangedUsers {get; set;}
-        [Detail]public List<ImageofInfo> ImageofInfos {get; set;}
-        [Detail]public List<Doc> Docs {get; set;}
+        public string Name { get; set; }
+        public string Container { get; set; }
+        public DateTime CreateTime { get; set; }
+        public string UserId { get; set; } // 이 부분은 인덱스로 만들어도 괜찮겠다.
+        public List<ChangeUser> ChangedUsers { get; set; }
+        public List<ImageofInfo> ImageofInfos { get; set; }
+        public List<Doc> Docs { get; set; }
         public Entity()
         {
             ChangedUsers = new();
@@ -105,7 +107,7 @@ namespace BusinessData
         public void SetRelation(Type type, string Code)
         {
             RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(Entity));
-            if(rescopeAttribute != null)
+            if (rescopeAttribute != null)
             {
                 rescopeAttribute.SetEntityCode(Code);
                 rescopeAttribute.SetEntityType(type);
@@ -126,10 +128,10 @@ namespace BusinessData
         {
             return HashCode.Combine(Id);
         }
-        public virtual string GetRelationCode()
+        public string GetRelationCode(Type t)
         {
-            RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(Entity));
-            if(rescopeAttribute != null)
+            RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(t, typeof(Entity));
+            if (rescopeAttribute != null)
             {
                 rescopeAttribute.GetEntityCode();
             }
@@ -138,11 +140,38 @@ namespace BusinessData
         public virtual Type GetRelationType()
         {
             RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(Entity));
-            if(rescopeAttribute != null)
+            if (rescopeAttribute != null)
             {
                 rescopeAttribute.GetEntityType();
             }
             throw new ArgumentException("Not Defined Relation Type");
+        }
+        public Type GetDbContextType(Type t)
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(t, typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbContextType();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+        public string GetDbConnetionString(Type t)
+        {
+            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(t, typeof(DataContextAttribute));
+            if (dataContextAttribute != null)
+            {
+                return dataContextAttribute.GetDbConnectionString();
+            }
+            throw new ArgumentException("Not Defined Relation");
+        }
+        public virtual IList<string> GetRelatedRoles(Type t)
+        {
+            AuthorizeAttribute AuthorizeAttribute = (AuthorizeAttribute)Attribute.GetCustomAttribute(t, typeof(AuthorizeAttribute));
+            if (AuthorizeAttribute != null)
+            {
+                return AuthorizeAttribute.Roles.Split(',').ToList();
+            }
+            throw new ArgumentException("Not Define Related Roles");
         }
 
         public int CompareTo(Entity other)
@@ -160,7 +189,7 @@ namespace BusinessData
             else
             {
                 Entity entity = obj as Entity;
-                if(obj != null)
+                if (obj != null)
                 {
                     return entity.CompareTo(entity);
                 }
@@ -173,8 +202,8 @@ namespace BusinessData
 
         public bool Equals(Entity other)
         {
-            if(other == null) { throw new ArgumentNullException("Other Is Null"); }
-            if(other.Code != null && other.Name != null)
+            if (other == null) { throw new ArgumentNullException("Other Is Null"); }
+            if (other.Code != null && other.Name != null)
             {
                 return this.Code.Equals(other.Code) && this.Name.Equals(other.Name);
             }
@@ -214,12 +243,12 @@ namespace BusinessData
             throw new NotImplementedException();
         }
     }
-    
+
     [NotMapped]
     public class CenterRole : Entity, IEqualityComparer<CenterRole>
     {
-        public string Role {get; set;}
-        public string Content {get; set;}
+        public string Role { get; set; }
+        public string Content { get; set; }
 
         public bool Equals(CenterRole x, CenterRole y)
         {
@@ -241,7 +270,7 @@ namespace BusinessData
     public static class NameofStatus
     {
         public const string SW = "SW";
-        public const string MW = "MW";    
+        public const string MW = "MW";
         public const string EW = "EW";
         public const string SP = "SP";
         public const string MP = "MP";
@@ -251,11 +280,12 @@ namespace BusinessData
         public const string ED = "ED";
     }
     public class Status : Entity, IRelatedCenter
-    { 
-        public string CommodityId {get; set;}
-        public string CenterId {get; set;}
-        [Get][One] public Commodity Commodity { get; set; }
-        [Get][One] public Center Center {get; set;}
+    {
+        public string CommodityId { get; set; }
+        public string CenterId { get; set; }
+        public string Quantity { get; set; }
+        public Commodity Commodity { get; set; }
+        public Center Center { get; set; }
 
         public virtual Center GetRelatedCenter()
         {
@@ -264,27 +294,26 @@ namespace BusinessData
     }
     public class SStatus : Status
     {
-        public string Quantity { get; set; }
-        [Get][Many]public List<MStatus> MStatuses { get; set; }
+        public List<MStatus> MStatuses { get; set; }
     }
     public class MStatus : Status
     {
-        [Get][One] public SStatus SStatus { get; set; }
-        [Get][Many] public List<EStatus> EStatuses { get; set; }
+        public SStatus SStatus { get; set; }
+        public List<EStatus> EStatuses { get; set; }
     }
     public class EStatus : Status
     {
-        public string MStatusId {get; set;}
-        [Get][One] public MStatus MStatus { get; set; }
+        public string MStatusId { get; set; }
+        public MStatus MStatus { get; set; }
     }
     public class RelationAttribute : Attribute
     {
         private string EntityRelation { get; set; }
-        private Type t {get; set;}
-        
+        private Type t { get; set; }
+
         public RelationAttribute(Type RelationType, string entityRelation)
         {
-           EntityRelation = entityRelation;
+            EntityRelation = entityRelation;
         }
         public RelationAttribute()
         {
@@ -306,7 +335,7 @@ namespace BusinessData
     }
     public class Origin : Attribute
     {
-        private Type T {get; set;}
+        private Type T { get; set; }
         public Origin(Type t)
         {
             this.T = t;
@@ -329,7 +358,7 @@ namespace BusinessData
     //     }
     //     public Journal()
     //     {
-            
+
     //     }
     //     public string GetDebit()
     //     {

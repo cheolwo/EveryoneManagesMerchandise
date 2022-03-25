@@ -18,7 +18,7 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
         {
             _HRCenterRepository = HRCenterRepository;
         }
-        public override async Task<string> CreateNameofContainer( HRCenter entity)
+        public override async Task<string> CreateNameofContainer(HRCenter entity)
         {
             return await base.CreateNameofContainer(entity);
         }

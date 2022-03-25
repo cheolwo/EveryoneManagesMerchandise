@@ -8,12 +8,12 @@ namespace BusinessData
     {
         public string HsCode {get; set;}
         public string OpponentBusinessUserId { get; set; }
-        [Detail]public string Barcode {get; set;}
+        public string Barcode {get; set;}
         public string CenterId {get; set;}
-        [One][Get]public Center Center { get; set; }
-        [Many][Get]public List<EStatus> EStatuses { get; set; }
-        [Many][Get]public List<MStatus> MStatuses { get; set; }
-        [Many][Get]public List<SStatus> SStatuses { get; set; } 
+        public Center Center { get; set; }
+        public List<EStatus> EStatuses { get; set; }
+        public List<MStatus> MStatuses { get; set; }
+        public List<SStatus> SStatuses { get; set; } 
         public override bool Equals(object obj)
         {
             return base.Equals(obj) && obj is Commodity commodity &&

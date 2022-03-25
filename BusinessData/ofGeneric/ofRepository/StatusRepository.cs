@@ -6,14 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData
 {
-    public interface IStatusDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Status, IRelationable
+    public interface IStatusDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Status
     {
         Task<List<TEntity>> GetToListByCountryCodeAsync(string CountryCode);
         // List
         Task<List<TEntity>> GetToListWithCenterAsync();
         Task<List<TEntity>> GetToListWithCommodity();
     }
-    public class StatusDataRepository<TEntity> : EntityDataRepository<TEntity>, IStatusDataRepository<TEntity> where TEntity : Status, IRelationable, new()
+    public class StatusDataRepository<TEntity> : EntityDataRepository<TEntity>, IStatusDataRepository<TEntity> where TEntity : Status, new()
     {
         public StatusDataRepository(DbContext DbContext)
             :base(DbContext)
@@ -22,11 +22,11 @@ namespace BusinessData
             {
                 _DbContext = DbContext;
             }
-            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity))); }
         }
         public StatusDataRepository()
         {
-            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
         public async Task<List<TEntity>> GetToListByCountryCode(string CountryCode)
         {

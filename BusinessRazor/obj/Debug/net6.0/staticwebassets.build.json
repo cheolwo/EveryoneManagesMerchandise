@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "668yV2NXdwKIa+sScHBNoVv4M4IHYnSYfKZ7Ps7vdRg=",
+  "Hash": "ZKPLJGSbEfF/zDCSiL9jTI7BZBNU0aYBw3offzZFlu4=",
   "Source": "BusinessRazor",
   "BasePath": "_content/BusinessRazor",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BusinessRazor\\wwwroot",
       "Source": "BusinessRazor",
-      "ContentRoot": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
       "BasePath": "_content/BusinessRazor",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css",
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css"
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css"
     },
     {
-      "Identity": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js",
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\409\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js"
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css",
       "SourceId": "BusinessRazor",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BusinessRazor",
       "RelativePath": "BusinessRazor.styles.css",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css"
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css"
     },
     {
-      "Identity": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css",
       "SourceId": "BusinessRazor",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BusinessRazor",
       "RelativePath": "BusinessRazor.bundle.scp.css",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\background.png",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\background.png",
       "SourceId": "BusinessRazor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
       "BasePath": "_content/BusinessRazor",
       "RelativePath": "background.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\background.png"
     },
     {
-      "Identity": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\exampleJsInterop.js",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\exampleJsInterop.js",
       "SourceId": "BusinessRazor",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\409\\Documents\\GitHub\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
       "BasePath": "_content/BusinessRazor",
       "RelativePath": "exampleJsInterop.js",
       "AssetKind": "All",

@@ -2,11 +2,11 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofGeneric.ofIdFactory
 {
-    public interface IStatusIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Status, IRelationable
+    public interface IStatusIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Status
     {
 
     }
-    public class StatusIdFactory<TEntity> : EntityIdFactory<TEntity>, IStatusIdFactory<TEntity> where TEntity : Status, IRelationable, new()
+    public class StatusIdFactory<TEntity> : EntityIdFactory<TEntity>, IStatusIdFactory<TEntity> where TEntity : Status,  new()
     {
         public StatusIdFactory(IStatusDataRepository<TEntity> statusDataRepository)
             : base(statusDataRepository)

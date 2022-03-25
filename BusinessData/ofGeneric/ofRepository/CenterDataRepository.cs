@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData
 {
-    public interface ICenterDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Center, IRelationable
+    public interface ICenterDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Center
     {
         // By
         Task<TEntity> GetByLoginId(string LoginId);
@@ -28,7 +28,7 @@ namespace BusinessData
     }
     public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>,
                                                     ICenterDataRepository<TEntity>
-                                                where TEntity : Center, IRelationable, new()
+                                                where TEntity : Center, new()
     {
         public CenterDataRepository(DbContext DbContext)
             : base(DbContext)
@@ -37,11 +37,11 @@ namespace BusinessData
             {
                 _DbContext = DbContext;
             }
-            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity))); }
         }
         public CenterDataRepository()
         {
-            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
         public async Task<TEntity> GetByAddress(string Address)
         {
