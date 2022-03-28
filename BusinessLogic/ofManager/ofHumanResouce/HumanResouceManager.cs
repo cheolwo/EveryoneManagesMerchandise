@@ -2,6 +2,9 @@
 using BusinessData.ofHumanResouce.ofIdFactory;
 using BusinessData.ofHumanResource.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
+using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 
@@ -11,9 +14,11 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HRCenterManager : CenterManager<HRCenter>, IHRCenterManager
+    public class HRCenterManager : CenterManager<HRCenter>, IEmployerHRCenterManager, IEmployeeHRCenterManager, IPlatformHRCenterManager
     {
-        public HRCenterManager(IHRCenterRepository HRCenterRepository, IHRCenterIdFactory hRCenterIdFactory, IHRCenterFileFactory HRCenterFileFactory,
+        public HRCenterManager(IHRCenterRepository HRCenterRepository, 
+        IHRCenterIdFactory hRCenterIdFactory, 
+        IHRCenterFileFactory HRCenterFileFactory,
            IHRCenterBlobStorage entityBlobStorage,
          DicConvertFactory<HRCenter> dicConvertFactory, CenterPasswordHasher<HRCenter> centerPasswordHasher)
             : base(HRCenterRepository, hRCenterIdFactory, HRCenterFileFactory, entityBlobStorage, dicConvertFactory, centerPasswordHasher)
@@ -25,7 +30,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HREmployeeManager : EntityManager<HREmployee>, IHREmployeeManager
+    public class HREmployeeManager : EntityManager<HREmployee>, IEmployerHREmployeeManager, IEmployeeHREmployeeManager, IPlatformHREmployeeManager
     {
         public HREmployeeManager(IHREmployeeRepository HREmployeeRepository, IHREmployeeIdFactory hREmployeeIdFactory, IHREmployeeFileFactory HREmployeeFileFactory,
         IHREmployeeBlobStorage entityBlobStorage, DicConvertFactory<HREmployee> dicConvertFactory)
@@ -38,7 +43,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HRRoleManager : EntityManager<HRRole>, IHRRoleManager
+    public class HRRoleManager : EntityManager<HRRole>, IEmployerHRRoleManager, IEmployeeHRRoleManager, IPlatformHRRoleManager
     {
         public HRRoleManager(IHRRoleRepository HRRoleRepository, IHRRoleIdFactory hRRoleIdFactory, IHRRoleFileFactory HRRoleFileFactory,
         IHRRoleBlobStorage entityBlobStorage, DicConvertFactory<HRRole> dicConvertFactory)
@@ -51,7 +56,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class EmployeeRoleManager : EntityManager<EmployeeRole>, IEmployeeRoleManager
+    public class EmployeeRoleManager : EntityManager<EmployeeRole>, IEmployerEmployeeRoleManager, IEmployeeEmployeeRoleManager, IPlatformEmployeeRoleManager
     {
         public EmployeeRoleManager(IEmployeeRoleRepository EmployeeRoleRepository, IEmployeeRoleIdFactory employeeRoleIdFactory, IEmployeeRoleFileFactory EmployeeRoleFileFactory,
         IEmployeeRoleBlobStorage entityBlobStorage, DicConvertFactory<EmployeeRole> dicConvertFactory)

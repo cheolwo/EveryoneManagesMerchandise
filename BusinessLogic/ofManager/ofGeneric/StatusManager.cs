@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public interface IStatusManager<TEntity> : IEntityManager<TEntity> where TEntity : Status, IRelationable
+    public interface IStatusManager<TEntity> : IEntityManager<TEntity> where TEntity : Status, new()
     {   
     }
-    public interface IMStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, IRelationable
+    public interface IMStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
     {
     }
-    public interface IEStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, IRelationable
+    public interface IEStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
     {
     }
-    public interface ISStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, IRelationable
+    public interface ISStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
     {
     }
     // StatusManager 의 경우 회계 및 인사와 관련이 있다. 
-    public class StatusManager<TEntity> : EntityManager<TEntity>, IObservable<TEntity>, IObserver<TEntity> where TEntity : Status, IRelationable, new()
+    public class StatusManager<TEntity> : EntityManager<TEntity>, IStatusManager<TEntity>, IObservable<TEntity>, IObserver<TEntity> where TEntity : Status, new()
     {
         private List<IObserver<TEntity>> Observers = new();
         public StatusManager(IStatusDataRepository<TEntity> statusDataRepository,
@@ -60,7 +60,7 @@ namespace BusinessLogic.ofManager.ofGeneric
             throw new NotImplementedException();
         }
     }
-    public class SStatusManager<TEntity> : EntityManager<TEntity>, ISStatusManager<TEntity> where TEntity : Status, IRelationable, new()
+    public class SStatusManager<TEntity> : StatusManager<TEntity>, ISStatusManager<TEntity> where TEntity : SStatus, new()
     {
         public SStatusManager(IStatusDataRepository<TEntity> statusDataRepository,
             IStatusIdFactory<TEntity> statusIdFactory,
@@ -74,7 +74,7 @@ namespace BusinessLogic.ofManager.ofGeneric
             return await base.CreateAsync(entity);
         }
     }
-    public class MStatusManager<TEntity> : EntityManager<TEntity>, IMStatusManager<TEntity> where TEntity : Status, IRelationable, new()
+    public class MStatusManager<TEntity> : StatusManager<TEntity>, IMStatusManager<TEntity> where TEntity : MStatus, new()
     {
         public MStatusManager(IStatusDataRepository<TEntity> statusDataRepository,
             IStatusIdFactory<TEntity> statusIdFactory,
@@ -88,7 +88,7 @@ namespace BusinessLogic.ofManager.ofGeneric
             return await base.CreateAsync(entity);
         }
     }
-    public class EStatusManager<TEntity> : EntityManager<TEntity>, IEStatusManager<TEntity> where TEntity : Status, IRelationable, new()
+    public class EStatusManager<TEntity> : StatusManager<TEntity>, IEStatusManager<TEntity> where TEntity : EStatus, new()
     {
         public EStatusManager(IStatusDataRepository<TEntity> statusDataRepository,
             IStatusIdFactory<TEntity> statusIdFactory,

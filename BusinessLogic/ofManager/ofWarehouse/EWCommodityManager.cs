@@ -4,14 +4,17 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 
 namespace BusinessLogic.ofManager.ofWarehouse
 {
-    public interface IEWCommodityManager
+    public interface IEWCommodityManager : IEStatusManager<EWCommodity>
     {
 
     }
-    public class EWCommodityManager : StatusManager<EWCommodity>
+    public class EWCommodityManager : StatusManager<EWCommodity>, IEmployerEWCommodityManager, IEmployeeEWCommodityManager, IPlatformEWCommodityManager
     {
         public EWCommodityManager(IEWCommodityRepository StatusDataRepository,
             IEWCommodityIdFactory eWCommodityIdFactory,

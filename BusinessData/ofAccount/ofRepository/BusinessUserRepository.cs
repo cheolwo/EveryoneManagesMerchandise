@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData.ofAccount.ofRepository
 {
-    public interface IBusinessUserRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, IRelationable, new()
+    public interface IBusinessUserRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity
     {
     }
     public class BusinessUserRepository : EntityDataRepository<BusinessUser>, IBusinessUserRepository<BusinessUser>

@@ -25,7 +25,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         Task DeleteByIdAsync(string Id);
         Type GetManagerType();
     }
-    public interface IEntityManager<TEntity> where TEntity : Entity, IRelationable
+    public interface IEntityManager<TEntity> where TEntity : Entity
     {
         Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString);
         Task<TEntity> CreateAsync(TEntity entity);
@@ -81,7 +81,7 @@ namespace BusinessLogic.ofManager.ofGeneric
 
         // }
     }
-    public class EntityManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity, IRelationable
+    public class EntityManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity, new()
     {
         public readonly IEntityDataRepository<TEntity> _EntityDataRepository;
         protected readonly IEntityIdFactory<TEntity> _EntityIdFactory;

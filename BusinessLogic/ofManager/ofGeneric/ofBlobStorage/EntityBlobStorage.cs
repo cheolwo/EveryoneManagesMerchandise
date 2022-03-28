@@ -29,14 +29,14 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
             Option = option;
         }
     }
-    public interface IEntityBlobStorage<TEntity> where TEntity : Entity, IRelationable
+    public interface IEntityBlobStorage<TEntity> where TEntity : Entity
     {
         Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString);
         Task DownLoadAsync(TEntity entity, string downloadPath);
         Task<List<BlobItem>> GetToListByContainerName(string containerName);
         void CreateBlobContainer(TEntity entity, string connectionString);
     }
-    public class EntityBlobStorage<TEntity> : IEntityBlobStorage<TEntity> where TEntity : Entity, IRelationable
+    public class EntityBlobStorage<TEntity> : IEntityBlobStorage<TEntity> where TEntity : Entity
     {
         private readonly IEntityContainerFactory<TEntity> _entityBlobContainerFactory;
         public EntityBlobStorage(IEntityContainerFactory<TEntity> entityBlobContainerFactory)

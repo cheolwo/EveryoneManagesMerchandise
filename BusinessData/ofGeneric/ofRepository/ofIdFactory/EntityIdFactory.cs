@@ -1,35 +1,33 @@
 using System.Text;
 using System.Threading.Tasks;
-using BusinessData;
 using System;
 using System.Collections.Generic;
 
 namespace BusinessData.ofGeneric.ofIdFactory
 {
-    public interface IEntityIdFactory<TEntity> where TEntity : Entity, IRelationable
+    public interface IEntityIdFactory<TEntity> where TEntity : Entity
     {
         Task<string> CreateIdByRelationEntity(TEntity entity);
         Task<string> CreateAsync(TEntity entity);
         List<TEntity> SetEntityId(List<TEntity> entities, int count);
     }
 
-    public class EntityIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity : Entity, IRelationable, new()
+    public class EntityIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity : Entity, new()
     {
         protected readonly IEntityDataRepository<TEntity> _entityDataRepository;
         private int ChainingCode = 0;
-        protected TEntity entity = new();
-        protected readonly string RelationCode;
+        protected string RelationCode { get; set; }
+        public TEntity Entity = new();
         public EntityIdFactory(IEntityDataRepository<TEntity> entityDataRepository)
         {
             _entityDataRepository = entityDataRepository;
-            RelationCode = entity.GetRelationCode();
-            
+            RelationCode = Entity.GetRelationCode(typeof(TEntity));
         }
         // 이거 하다가 Error 발생하면 쓰레드 부분에서 발생할 가능성이 있음.
         public virtual async Task<string> CreateAsync(TEntity entity)
         {
             StringBuilder stringBuilder = new();
-            stringBuilder.Append(entity.GetRelationCode());
+            stringBuilder.Append(RelationCode); ;
             stringBuilder.Append('-');
             int Count = await _entityDataRepository.GetCountAsync();
             stringBuilder.Append(Count);
@@ -38,7 +36,7 @@ namespace BusinessData.ofGeneric.ofIdFactory
         public virtual async Task<string> CreateIdByRelationEntity(TEntity entity)
         {
             StringBuilder stringBuilder = new();
-            stringBuilder.Append(entity.GetRelationCode());
+            stringBuilder.Append(entity.GetRelationCode(typeof(TEntity)));
             stringBuilder.Append('-');
 
             string dateTime = DateTime.Now.ToString("YY//MM/dd");
@@ -72,7 +70,7 @@ namespace BusinessData.ofGeneric.ofIdFactory
             foreach(var entity in entities)
             {
                 StringBuilder stringBuilder = new();
-                stringBuilder.Append(entity.GetRelationCode());
+                stringBuilder.Append(entity.GetRelationCode(typeof(TEntity)));
                 stringBuilder.Append('-');
                 stringBuilder.Append(SetCount);
                 entity.Id = stringBuilder.ToString();

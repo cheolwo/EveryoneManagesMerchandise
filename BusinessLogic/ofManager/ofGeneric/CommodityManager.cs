@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofGeneric
 {
-    public interface ICommodityManager<TEntity> : IEntityManager<TEntity> where TEntity : Commodity, IRelationable
+    public interface ICommodityManager<TEntity> : IEntityManager<TEntity> where TEntity : Commodity, new()
     {   
         Task<Dictionary<string, List<TEntity>>> ExcelToCommodityEntities(string fileconnectionString, Dictionary<PropertyInfo, int> Target,
                                             int UserCodeTarget);
     }
     public class CommodityManager<TEntity> : EntityManager<TEntity>, ICommodityManager<TEntity> 
-                                                                where TEntity : Commodity, IRelationable, new()
+                                                                where TEntity : Commodity, new()
     {
         private readonly ICommodityFileFactory<TEntity> _commodityFileFactory;
         private readonly ICommodityIdFactory<TEntity> _commodiyIdFactory;

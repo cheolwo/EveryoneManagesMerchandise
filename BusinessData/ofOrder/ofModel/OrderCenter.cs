@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
+using System.Linq;
 using BusinessData.ofOrder.ofDbContext;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessData.ofOrder.ofModel
 {
-	public static class ViewNameofOrderCenter
+    public static class ViewNameofOrderCenter
     {
         public const string OrderCenter = "OrderCenter";
         public const string OCommodity = "OCommodity";
@@ -17,161 +17,15 @@ namespace BusinessData.ofOrder.ofModel
     }
     [Relation(typeof(OrderCenter), "O")]
     [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
-    public class OrderCenter : Center, IRelationable
+    public class OrderCenter : Center
     {
-        [Detail][Many(ViewNameofOrderCenter.OCommodity)]public List<OCommodity> OCommodities {get; set;}
-        [Detail][Many(ViewNameofOrderCenter.SOCommodity)]public List<SOCommodity> SOCommodities {get; set;}
-        [Detail][Many(ViewNameofOrderCenter.MOCommodity)]public List<MOCommodity> MOCommodities {get; set;}
-        [Detail][Many(ViewNameofOrderCenter.EOCommodity)]public List<EOCommodity> EOCommodities {get; set;}
+        public List<OCommodity> OCommodities {get; set;}
+        public List<SOCommodity> SOCommodities {get; set;}
+        public List<MOCommodity> MOCommodities {get; set;}
+        public List<EOCommodity> EOCommodities {get; set;}
         public OrderCenter()
         {
             SetRelation(typeof(OrderCenter), "C");
-        }
-        public override string GetRelationCode()
-        {
-            RelationAttribute relationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(RelationAttribute));
-            if (relationAttribute != null)
-            {
-                return relationAttribute.GetEntityRelation();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
-        public Type GetDbContextType()
-        {
-            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
-            if (dataContextAttribute != null)
-            {
-                return dataContextAttribute.GetDbContextType();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
-        public string GetDbConnetionString()
-        {
-            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
-            if (dataContextAttribute != null)
-            {
-                return dataContextAttribute.GetDbConnectionString();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
-        public List<PropertyInfo> OnlyGetProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyGetPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyGetPropertyInfos;
-        }
-        public List<PropertyInfo> OnlyDetailProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyDetailPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<DetailAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyDetailPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyDetailPropertyInfos;
-        }
-        public List<PropertyInfo> GetManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        GetManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetManyPropertyInfos;
-        }
-
-        public List<PropertyInfo> GetOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        DetailManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return DetailManyPropertyInfos;
         }
     }
     /*
@@ -191,7 +45,7 @@ namespace BusinessData.ofOrder.ofModel
     public enum OrderType { SW, EW, SD, ED, SP, ST }
     [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
     [Relation(typeof(OrderGroup), "OG")]
-    public class OrderGroup : Entity, IRelationable
+    public class OrderGroup : Entity
     {
         public string GroupName {get; set;}
         public Dictionary<string, int> OrdreCenterKeyOrderQuantityValue {get; set;}
@@ -216,279 +70,12 @@ namespace BusinessData.ofOrder.ofModel
         {
             OrdreCenterKeyOrderQuantityValue = new();
         }
-        public Type GetDbContextType()
-        {
-            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
-            if (dataContextAttribute != null)
-            {
-                return dataContextAttribute.GetDbContextType();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
-
-        public string GetDbConnetionString()
-        {
-            DataContextAttribute dataContextAttribute = (DataContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(DataContextAttribute));
-            if (dataContextAttribute != null)
-            {
-                return dataContextAttribute.GetDbConnectionString();
-            }
-            throw new ArgumentException("Not Defined Relation");
-        }
-        public List<PropertyInfo> OnlyGetProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyGetPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyGetPropertyInfos;
-        }
-        public List<PropertyInfo> OnlyDetailProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyDetailPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<DetailAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyDetailPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyDetailPropertyInfos;
-        }
-        public List<PropertyInfo> GetManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        GetManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetManyPropertyInfos;
-        }
-
-        public List<PropertyInfo> GetOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        DetailManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return DetailManyPropertyInfos;
-        }
     }
-    public class OGCommodity : Commodity, IRelationable
+    public class OGCommodity : Commodity
     {
         public OGCommodity()
         {
 
-        }
-        public string GetDbConnetionString()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Type GetDbContextType()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<PropertyInfo> OnlyGetProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyGetPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyGetPropertyInfos;
-        }
-        public List<PropertyInfo> OnlyDetailProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> OnlyDetailPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<DetailAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(Many is null && One is null)
-                    {
-                        OnlyDetailPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return OnlyDetailPropertyInfos;
-        }
-        public List<PropertyInfo> GetManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        GetManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetManyPropertyInfos;
-        }
-
-        public List<PropertyInfo> GetOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if(Get != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailOneProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var One = prop.GetCustomAttribute<OneAttribute>();
-                    if(One != null)
-                    {
-                        GetOnePropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return GetOnePropertyInfos;
-        }
-
-        public List<PropertyInfo> DetailManyProperties()
-        {
-            Type t = this.GetType();
-            List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
-            var props = t.GetProperties();
-            foreach(var prop in props)
-            {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if(Detail != null)
-                {
-                    var Many = prop.GetCustomAttribute<ManyAttribute>();
-                    if(Many != null)
-                    {
-                        DetailManyPropertyInfos.Add(prop);
-                    }
-                }
-            }
-            return DetailManyPropertyInfos;
         }
     }
 }

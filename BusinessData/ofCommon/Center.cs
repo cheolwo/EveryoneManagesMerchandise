@@ -4,26 +4,35 @@ using System.Collections;
 
 namespace BusinessData
 {
-    public class Center : Entity, IEnumerable<Center>
+    public class Center : Entity
     {
-        [Get] public string LoginId { get; set; }
-        [Get] public string Password { get; set; }
-        [Get] public int FailLogin {get; set;}
-        [Get] public string Address {get; set;}
-        [Get] public string CountryCode {get; set;}
-        [Detail] public string CardNumber {get; set;}
-        [Get] public string Cvv {get; set;}
-        [Get] public string CardPassword {get; set;}
-        [Get] public string PhoneNumber {get; set;}
-        [Get] public string FaxNumber {get; set;}
-        [Get][Many] public List<Commodity> Commodities { get; set; }
-        [Get][Many] public List<EStatus> EStatuses { get; set; }
-        [Get][Many] public List<MStatus> MStatuses { get; set; }
-        [Get][Many] public List<SStatus> SStatuses { get; set; }
-        [Detail] public List<CenterMacAddress> CenterMacAddresses { get; set; }
-        [Detail] public List<CenterIPAddress> CenterIPAddresses { get; set; }
-        [Detail] public List<CenterRole> CenterRoles {get; set;}
-
+        public string LoginId { get; set; }
+        public string Password { get; set; }
+        public int FailLogin { get; set; }
+        public string Address { get; set; }
+        public string CountryCode { get; set; }
+        public string CardNumber { get; set; }
+        public string Cvv { get; set; }
+        public string CardPassword { get; set; }
+        public string PhoneNumber { get; set; }
+        public string FaxNumber { get; set; }
+        public List<Commodity> Commodities { get; set; }
+        public List<EStatus> EStatuses { get; set; }
+        public List<MStatus> MStatuses { get; set; }
+        public List<SStatus> SStatuses { get; set; }
+        public List<CenterMacAddress> CenterMacAddresses { get; set; }
+        public List<CenterIPAddress> CenterIPAddresses { get; set; }
+        public List<CenterRole> CenterRoles { get; set; }
+        public Center()
+        {
+            Commodities = new();
+            EStatuses = new();
+            MStatuses = new();
+            SStatuses = new();
+            CenterMacAddresses = new(); 
+            CenterIPAddresses = new();
+            CenterRoles = new();
+        }
         public override bool Equals(object obj)
         {
             return base.Equals(obj) && obj is Center center &&
@@ -31,10 +40,6 @@ namespace BusinessData
                    UserId == center.UserId;
         }
 
-        public IEnumerator<Center> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
 
         public override int GetHashCode()
         {
@@ -44,11 +49,6 @@ namespace BusinessData
         public virtual Center GetRelatedCenter()
         {
             return this;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

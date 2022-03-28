@@ -39,6 +39,58 @@ namespace BusinessLogic.ofManager.ofProduct.ofBlobStorage
             return await base.CreateNameofContainer(entity);
         }
     }
+    public class PCommodityBlobContainerFactory : EntityContainerFactory<PCommodity>, IPCommodityBlobContainerFactory
+    {
+        private readonly IPCommodityRepository _PCommodityRepository;
+        public PCommodityBlobContainerFactory(IPCommodityRepository PCommodityRepository)
+                :base(PCommodityRepository)
+        {
+            _PCommodityRepository = PCommodityRepository;
+        }
+        public override async Task<string> CreateNameofContainer(PCommodity entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class SPCommodityBlobContainerFactory : EntityContainerFactory<SPCommodity>, ISPCommodityBlobContainerFactory
+    {
+        private readonly ISPCommodityRepository _SPCommodityRepository;
+        public SPCommodityBlobContainerFactory(ISPCommodityRepository SPCommodityRepository)
+                :base(SPCommodityRepository)
+        {
+            _SPCommodityRepository = SPCommodityRepository;
+        }
+        public override async Task<string> CreateNameofContainer(SPCommodity entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class MPCommodityBlobContainerFactory : EntityContainerFactory<MPCommodity>, IMPCommodityBlobContainerFactory
+    {
+        private readonly IMPCommodityRepository _MPCommodityRepository;
+        public MPCommodityBlobContainerFactory(IMPCommodityRepository MPCommodityRepository)
+                :base(MPCommodityRepository)
+        {
+            _MPCommodityRepository = MPCommodityRepository;
+        }
+        public override async Task<string> CreateNameofContainer(MPCommodity entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class EPCommodityBlobContainerFactory : EntityContainerFactory<EPCommodity>, IEPCommodityBlobContainerFactory
+    {
+        private readonly IEPCommodityRepository _EPCommodityRepository;
+        public EPCommodityBlobContainerFactory(IEPCommodityRepository EPCommodityRepository)
+                :base(EPCommodityRepository)
+        {
+            _EPCommodityRepository = EPCommodityRepository;
+        }
+        public override async Task<string> CreateNameofContainer(EPCommodity entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
     public interface IPCommodityBlobStorage : IEntityBlobStorage<PCommodity>
     {
 

@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\ofGroupOrderer\**" />
+    <Compile Remove="Components\ofMarketer\**" />
+    <Compile Remove="Components\ofOrderer\**" />
+    <Compile Remove="Components\ofProducter\**" />
+    <Compile Remove="Components\ofTrader\**" />
+    <Content Remove="Components\ofGroupOrderer\**" />
+    <Content Remove="Components\ofMarketer\**" />
+    <Content Remove="Components\ofOrderer\**" />
+    <Content Remove="Components\ofProducter\**" />
+    <Content Remove="Components\ofTrader\**" />
+    <EmbeddedResource Remove="Components\ofGroupOrderer\**" />
+    <EmbeddedResource Remove="Components\ofMarketer\**" />
+    <EmbeddedResource Remove="Components\ofOrderer\**" />
+    <EmbeddedResource Remove="Components\ofProducter\**" />
+    <EmbeddedResource Remove="Components\ofTrader\**" />
+    <None Remove="Components\ofGroupOrderer\**" />
+    <None Remove="Components\ofMarketer\**" />
+    <None Remove="Components\ofOrderer\**" />
+    <None Remove="Components\ofProducter\**" />
+    <None Remove="Components\ofTrader\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
+    <PackageReference Include="MudBlazor" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
+  </ItemGroup>
+
+</Project>

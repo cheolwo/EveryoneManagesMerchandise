@@ -5,11 +5,11 @@ using BusinessData.ofGenericRepository;
 
 namespace BusinessData.ofGeneric.ofIdFactory
 {
-    public interface ICommodityIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Commodity, IRelationable
+    public interface ICommodityIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Commodity
     {
         Dictionary<string, List<TEntity>> SetCenterKeyCommodityValueId(Dictionary<string, List<TEntity>> keyValues, int count);
     }
-    public class CommodityIdFactory<TEntity> : EntityIdFactory<TEntity>, ICommodityIdFactory<TEntity> where TEntity : Commodity, IRelationable, new()
+    public class CommodityIdFactory<TEntity> : EntityIdFactory<TEntity>, ICommodityIdFactory<TEntity> where TEntity : Commodity, new()
     {
         public CommodityIdFactory(ICommodityDataRepository<TEntity> commodityDataRepository)
             : base(commodityDataRepository)

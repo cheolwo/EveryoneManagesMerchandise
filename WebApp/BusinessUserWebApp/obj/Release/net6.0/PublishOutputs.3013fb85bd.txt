@@ -1,1 +1,0 @@
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\BusinessUserWebApp\obj\Release\net6.0\browser-wasm\PubTmp\Out\web.config

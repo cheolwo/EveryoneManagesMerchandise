@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData
 {
-    public interface IEntityDataRepository<TEntity> where TEntity : Entity, IRelationable
+    public interface IEntityDataRepository<TEntity> where TEntity : Entity
     {
         // 기본
         Task<List<TEntity>> GetToListAsync();
@@ -19,7 +19,6 @@ namespace BusinessData
         Task AddEntities(IList<TEntity> entities);
         Task AddEntitiesByAttach(IList<TEntity> entities);
         Task UpdateAttachAsync(TEntity entity);
-
         // 특정 By
         Task<TEntity> GetByUserAsync(IdentityUser identityUser);
         Task<List<TEntity>> GetToListByUserId(string UserId);
@@ -29,13 +28,10 @@ namespace BusinessData
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
         Task<TEntity> GetByCodeAsync(string Code);
         Task<TEntity> GetByUserId(string UserId);
-
         Task<int> GetCountAsync();
-
-        
     }
     
-    public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, IRelationable, new()
+    public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
     {
         protected DbContext _DbContext;
         protected readonly TEntity entity = new();
@@ -45,11 +41,11 @@ namespace BusinessData
             {
                 _DbContext = DbContext;
             }
-            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString()); }
+            else { _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity))); }
         }
         public EntityDataRepository()
         {
-            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(), entity.GetDbConnetionString());
+            _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
         public virtual async Task<TEntity> AddAsync(TEntity tentity)
         {

@@ -1,0 +1,7 @@
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.AssemblyInfo.cs
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\JournalServer\obj\Debug\net6.0\JournalServer.MvcApplicationPartsAssemblyInfo.cache

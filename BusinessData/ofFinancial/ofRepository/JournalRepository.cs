@@ -21,7 +21,7 @@ namespace BusinessData.ofFinancial.ofRepository
     {
 
     }
-    public class JournalCenterRepository : CenterDataRepository<JournalCenter>
+    public class JournalCenterRepository : CenterDataRepository<JournalCenter>, IJournalCenterRepository
     {
         public JournalCenterRepository(JournalDbContext JournalDbContext)
             :base(JournalDbContext)
@@ -29,7 +29,7 @@ namespace BusinessData.ofFinancial.ofRepository
 
         }
     }
-    public class JCommodityRepository : CommodityDataRepository<JCommodity>
+    public class JCommodityRepository : CommodityDataRepository<JCommodity>, IJCommodityRepository
     {
         public JCommodityRepository(JournalDbContext JournalDbContext)
             :base(JournalDbContext)
@@ -49,7 +49,7 @@ namespace BusinessData.ofFinancial.ofRepository
             return await _DbContext.Set<UserSettingJournal>().FirstOrDefaultAsync(e=>e.EntityTypeName.Equals(entityTypeName));
         }
     }
-    public class JournalRepository : EntityDataRepository<Journal>
+    public class JournalRepository : EntityDataRepository<Journal>, IJournalRepository
     {
         public JournalRepository(JournalDbContext JournalDbContext)
             :base(JournalDbContext)

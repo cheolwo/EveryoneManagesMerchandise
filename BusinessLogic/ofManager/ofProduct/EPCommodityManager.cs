@@ -3,11 +3,19 @@ using BusinessData.ofProduct;
 using BusinessData.ofProduct.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofProduct.ofBlobStorage;
+using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofProduct.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 
 namespace BusinessLogic.ofManager.ofProduct
 {
-    public class EPCommodityManager : StatusManager<EPCommodity>
+    public interface IEPCommodityManager : IEStatusManager<EPCommodity>
+    {
+        
+    }
+
+    public class EPCommodityManager : EStatusManager<EPCommodity>, IEmployerEPCommodityManager, IEmployeeEPCommodityManager, IPlatformEPCommodityManager
     {
         private readonly IEPCommodityRepository _EPCommodityRepository;
         public EPCommodityManager(IEPCommodityRepository EPCommodityRepository,
