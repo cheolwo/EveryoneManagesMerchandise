@@ -1,11 +1,134 @@
 {
   "Version": 1,
-  "Hash": "3/tuIhpumoTcpttmgB0TnJwpQRZHRQALOknl8XitI8s=",
+  "Hash": "7elRHEhJ/ysOetYg6nxCY3ICgZa0LEqZmITLmAItHTU=",
   "Source": "TradeServer",
   "BasePath": "_content/TradeServer",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj",
+      "Version": 2,
+      "Source": "BusinessRazor",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BusinessRazor\\wwwroot",
+      "Source": "BusinessRazor",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "BasePath": "_content/BusinessRazor",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css",
+      "SourceId": "BusinessRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/BusinessRazor",
+      "RelativePath": "BusinessRazor.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\background.png",
+      "SourceId": "BusinessRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "BasePath": "_content/BusinessRazor",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "BusinessRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
+      "BasePath": "_content/BusinessRazor",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\TradeServer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TradeServer.styles.css",
+      "SourceId": "TradeServer",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\TradeServer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/TradeServer",
+      "RelativePath": "TradeServer.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\TradeServer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\TradeServer.styles.css"
+    }
+  ]
 }

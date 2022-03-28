@@ -4,13 +4,16 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
 using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofPlatform;
 
 namespace BusinessLogic.ofManager.ofOrder
 {
-    public interface ISGOCManager : IStatusManager<SGOC>
+    public interface ISGOCManager : ISStatusManager<SGOC>
     {
     }
-    public class SGOCManager : StatusManager<SGOC>, ISGOCManager
+    public class SGOCManager : SStatusManager<SGOC>, IEmployerSGOCManager, IEmployeeSGOCManager, IPlatformSGOCManager
     {
         private readonly ISGOCRepository _SGOCRepository;
         public SGOCManager(ISGOCRepository SGOCRepository,

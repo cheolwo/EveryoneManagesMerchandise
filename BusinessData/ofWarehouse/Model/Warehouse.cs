@@ -39,6 +39,18 @@ namespace BusinessData.ofWarehouse.Model
         public List<WorkingDesk> WorkingDesks {get; set;}
         public List<DividedTag> DividedTags {get; set;}
         public List<IncomingTag> IncomingTags {get; set;}
+        public Warehouse()
+        {
+            WCommodities = new List<WCommodity>();
+            EWCommodities = new();
+            MWCommodities = new List<MWCommodity>();
+            SWCommodities = new List<SWCommodity>();
+            LoadFrames = new();
+            DotBarcodes = new();
+            WorkingDesks = new();
+            DividedTags = new();
+            IncomingTags = new();
+        }
         public override Center GetRelatedCenter()
         {
             return this;

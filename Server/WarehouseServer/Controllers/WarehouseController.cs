@@ -12,34 +12,37 @@ namespace WarehouseServer.Controllers
         private readonly IWarehouseManager _WarehouseManager;
         private readonly IWarehouseRepository _WarehouseRepository;
         public WarehouseController(
-            IWarehouseManager warehouseManager,
-            IWarehouseRepository warehouseRepository)
+            IWarehouseManager WarehouseManager,
+            IWarehouseRepository WarehuoseRepository
+          )
         {
-            _WarehouseManager = warehouseManager;
-            _WarehouseRepository = warehouseRepository;
+            _WarehouseManager = WarehouseManager;
+            _WarehouseRepository = WarehuoseRepository;               
         }
         // GET: api/Warehouse
+        // 데이터를 받아오면 싱글톤으로 기억을 한 다음에 다음 Get을 할 때 이용할 수 있도록 한다.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Warehouse>>> GetWarehouses()
         {
-            return await _WarehouseRepository.GetToListAsync();
+            return  await _WarehouseRepository.GetToListAsync();
         }
         // GET: api/Warehouses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Warehouse>> GetWarehouse(string id)
         {
-            var warehouse = await _WarehouseRepository.GetByIdAsync(id);
+            var Warehouse = await _WarehouseRepository.GetByIdAsync(id);
 
-            if (warehouse == null)
+            if (Warehouse == null)
             {
                 return NotFound();
             }
 
-            return warehouse;
+            return Warehouse;
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateWarehouse(string id, Warehouse warehouse)
         {
+            // 역직렬화 코드
             if (id != warehouse.Id)
             {
                 return BadRequest();
@@ -51,8 +54,8 @@ namespace WarehouseServer.Controllers
                 return NotFound();
             }
 
-            warehouse.Name = warehouse.Name;
-             await _WarehouseRepository.UpdateAsync(warehouse);
+            Warehouse.Name = Warehouse.Name;
+             await _WarehouseRepository.UpdateAsync(Warehouse);
 
 
             return NoContent();
@@ -60,14 +63,15 @@ namespace WarehouseServer.Controllers
         // POST: api/Warehouses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Warehouse>> CreateWarehouse(Warehouse Warehouse)
+        public async Task<ActionResult<Warehouse>> CreateWarehouse(Warehouse warehouse)
         {
-            var warehouse = new Warehouse
+
+            var Warehouse = new Warehouse
             {
-                Name = Warehouse.Name
+                Name = warehouse.Name
             };
 
-            var newWarehouse = await _WarehouseManager.CreateAsync(warehouse);
+            var newWarehouse = await _WarehouseManager.CreateAsync(Warehouse);
 
             return newWarehouse;
         }

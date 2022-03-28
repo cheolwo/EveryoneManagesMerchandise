@@ -106,11 +106,10 @@ namespace BusinessData
         }
         public void SetRelation(Type type, string Code)
         {
-            RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(Entity));
-            if (rescopeAttribute != null)
+            RelationAttribute RelationAttribute = (RelationAttribute)Attribute.GetCustomAttribute(type, typeof(Entity));
+            if (RelationAttribute != null)
             {
-                rescopeAttribute.SetEntityCode(Code);
-                rescopeAttribute.SetEntityType(type);
+                RelationAttribute.SetRelation(type, Code);
             }
             throw new ArgumentException("Not Defined Rescope");
         }
@@ -122,27 +121,27 @@ namespace BusinessData
         }
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, CreateTime, ChangedUsers);
+            return HashCode.Combine(Id);
         }
         public virtual int GetHashCodeById()
         {
             return HashCode.Combine(Id);
         }
-        public string GetRelationCode(Type t)
+        public virtual string GetRelationCode(Type t)
         {
-            RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(t, typeof(Entity));
-            if (rescopeAttribute != null)
+            RelationAttribute RelationAttribute = t.GetCustomAttribute<RelationAttribute>();
+            if (RelationAttribute != null)
             {
-                rescopeAttribute.GetEntityCode();
+                return RelationAttribute.GetEntityRelation();
             }
             throw new ArgumentException("Not Defined Relation Code");
         }
-        public virtual Type GetRelationType()
+        public virtual Type GetRelationType(Type t)
         {
-            RescopeAttribute rescopeAttribute = (RescopeAttribute)Attribute.GetCustomAttribute(this.GetType(), typeof(Entity));
-            if (rescopeAttribute != null)
+            RelationAttribute RelationAttribute = t.GetCustomAttribute<RelationAttribute>();
+            if (RelationAttribute != null)
             {
-                rescopeAttribute.GetEntityType();
+                return RelationAttribute.GetRelationType();
             }
             throw new ArgumentException("Not Defined Relation Type");
         }
@@ -314,6 +313,7 @@ namespace BusinessData
         public RelationAttribute(Type RelationType, string entityRelation)
         {
             EntityRelation = entityRelation;
+            t = RelationType;
         }
         public RelationAttribute()
         {

@@ -8,6 +8,9 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 
 namespace BusinessLogic.ofManager.ofWarehouse
 {
@@ -34,7 +37,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
         Task<bool> WarehouseLoginAsync(string LoginId, string Password);
         Task<Warehouse> CreateByKAptAndGOC(KAptBasicInfo kAptBasicInfo, GOC groupOrderCenter);
     }
-    public class WarehouseManager : CenterManager<Warehouse>
+    public class WarehouseManager : CenterManager<Warehouse>, IEmployerWarehouseManager, IEmployeeWarehouseManager, IPlatformWarehouseManager
     {
         private readonly IWarehouseRepository _WarehouseRepository;
         private readonly IWarehouseIdFactory _WarehouseIdFactory;

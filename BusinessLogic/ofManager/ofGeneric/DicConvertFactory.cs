@@ -21,7 +21,7 @@ namespace BusinessLogic.ofManager.ofGeneric
                 }
                 return Dictionary;
             }
-            throw new ArgumentException("Error Code : 0");
+            throw new ArgumentException("entities is null");
         }
         public void Dispose()
         {

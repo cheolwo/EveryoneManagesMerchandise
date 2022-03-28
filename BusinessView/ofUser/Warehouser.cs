@@ -1,26 +1,56 @@
 ﻿using BusinessData.ofWarehouse.Model;
-using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofUser
 {
-    public interface IWarehouser : IAuthorizeUser
+    public interface IWarehouser 
     {
         
     }
-    public class Warehouser : Employer,  IWarehouser, IDisposable
+    public interface IEmployeeWarehouser : IWarehouser
     {
-        public HttpClient HttpClient { get; set; }
-        private bool IsRoleCheck { get; set; }
+
+    }
+    public interface IEmployerWarehouser : IWarehouser
+    {
+
+    }
+    public interface IPlatformWarehosuer : IWarehouser
+    {
+
+    }
+    
+    public class Warehouser : AuthenticateUser, IAuthorizeUser, IEmployeeWarehouser, IEmployerWarehouser, IPlatformWarehosuer
+    {
+        protected HttpClient WarehouserHttpClient;
         public Warehouser()
         {
-            HttpClient = new HttpClient();
-            HttpClient.BaseAddress = new Uri("https://warehouseserver.azurewebsites.net");
+            WarehouserHttpClient = new HttpClient
+            {
+                BaseAddress = new Uri(ServerUrl.WarehouseServer)
+            };
         }
-        //public async Task<IEnumerable<Warehouse>> GetToListWarehouse()
-        //{
+        public async Task Test(Warehouse warehouse)
+        {
+            StringContent stringContent = new StringContent(JsonSerializer.Serialize(warehouse),
+        Encoding.UTF8,
+        Application.Json);
 
-        //}
+            await WarehouserHttpClient.PostAsync("/api", stringContent);
+        }
+        public async Task<HttpResponseMessage> CreateWarehouse()
+        {
+            Warehouse warehouse = new Warehouse();
+            warehouse.Id = "TestWarehouse";
+            warehouse.Name = "TestWarehouse";
 
+            StringContent stringContent = new StringContent(JsonSerializer.Serialize(warehouse),
+        Encoding.UTF8,
+        Application.Json);
+            return await WarehouserHttpClient.PostAsync("/api/Warehouse", stringContent);
+        }
         public virtual bool CheckRoles(string IdentityUserId)
         {
             throw new NotImplementedException();
@@ -28,7 +58,7 @@ namespace BusinessView.ofUser
 
         public void Dispose()
         {
-            HttpClient = null;
+            WarehouserHttpClient = null;
         }
     }
 }

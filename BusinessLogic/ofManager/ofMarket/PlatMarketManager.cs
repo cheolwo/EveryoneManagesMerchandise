@@ -21,7 +21,11 @@ namespace BusinessLogic.ofManager.ofMarket
     {
 
     }
-    public class PlatMarketManager : CenterManager<PlatMarket>
+    public interface IPlatMarketManager : ICenterManager<PlatMarket>
+    {
+
+    }
+    public class PlatMarketManager : CenterManager<PlatMarket>, IPlatMarketManager
     {
         private readonly PlatMarketPasswordHasher _platMarketPasswordHasher;
         public PlatMarketManager(IPlatMarketRepository PlatMarketDataRepository,

@@ -4,6 +4,9 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofTradeCenter.ofBlobStorage;
 using BusinessLogic.ofManager.ofTradeCenter.ofFileFactory;
 using BusinessLogic.ofManager.ofTradeCenter.ofIdFactory;
+using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofPlatform;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.ofManager.ofTradeCenter
@@ -13,7 +16,7 @@ namespace BusinessLogic.ofManager.ofTradeCenter
         Task<TradeCenter> LoginWithDataAsync(string LoginId, string Password);
         Task<bool> TradeCenterLoginAsync(string LoginId, string Password);
     }
-    public class TradeCenterManager : CenterManager<TradeCenter>, ITradeCenterManager
+    public class TradeCenterManager : CenterManager<TradeCenter>, IEmployerTradeCenterManager, IEmployeeTradeCenterManager, IPlatformTradeCenterManager
     {
         private readonly ITradeCenterRepository _TradeCenterRepository;
         public TradeCenterManager(ITradeCenterRepository TradeCenterRepository,

@@ -93,7 +93,7 @@ namespace BusinessData.ofDeliveryCenter
     [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(SDCommodity), "DDS")]
-    public class SDCommodity : Status, IRelatedCenter, IRelatedRoles
+    public class SDCommodity : SStatus, IRelatedCenter, IRelatedRoles
     {
         [Detail]public bool IsRightArrived {get; set;}
         [Detail]public string EWCommodityId {get; set;}
@@ -124,7 +124,7 @@ namespace BusinessData.ofDeliveryCenter
     [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(MDCommodity), "DDM")] 
-    public class MDCommodity : Status, IRelatedRoles
+    public class MDCommodity : MStatus, IRelatedRoles
     {
         [One(ViewNameofDeliveryCenter.SDCommodity)]public SDCommodity SDCommodity {get; set;}
         [One(ViewNameofDeliveryCenter.SDCommodity)]public DCommodity DCommodity {get; set;}
@@ -142,7 +142,7 @@ namespace BusinessData.ofDeliveryCenter
     [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(EDCommodity), "DDE")]
-    public class EDCommodity : Status,  IRelatedRoles
+    public class EDCommodity : EStatus,  IRelatedRoles
     {
         [One(ViewNameofDeliveryCenter.DeliveryCenter)]public DeliveryCenter DeliveryCenter { get; set; }
         [One(ViewNameofDeliveryCenter.DCommodity)]public DCommodity DCommodity {get; set;}

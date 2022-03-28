@@ -8,15 +8,31 @@
         public const string Role_Forwarder = "Forwarder";
         public const string Role_Seller = "Seller";
     }
+    public static class ServerUrl
+    {
+        public const string OrderServer = "https://ordercontractserver.azurewebsites.net";
+        public const string GroupOrderServer = "https://groupordercontractserver.azurewebsites.net";
+        public const string ProductServer = "https://productionserver.azurewebsites.net";
+        public const string TradeServer = "https://tradeserver.azurewebsites.net"; 
+        public const string WarehouseServer = "https://warehouseserver.azurewebsites.net";
+        public const string HRServer = "https://hrserver.azurewebsites.net";
+        public const string JournalServer = "https://journalserver.azurewebsites.net";
+        public const string IdentityServer = "https://identityserverpl.azurewebsites.net";
+        // TradeServer의 경우 ContractServer로 생각을 바꿔야 되지 않을까... 생각이 드네.
+    }
     
     // 계정관리서버로 데이터를 전달한다.
-    public class AuthenticateUser
+    public interface IAuthenticateUser
     {
-        public HttpClient HttpClient { get; set; }
+
+    }
+    public class AuthenticateUser : IAuthenticateUser
+    {
+        protected HttpClient IdentityHttpClient { get; set; }
         public AuthenticateUser()
         {
-            HttpClient = new HttpClient();
-            HttpClient.BaseAddress = new Uri("https://identityserverinplanlogistcs.azurewebsites.net/");
+            IdentityHttpClient = new HttpClient();
+            IdentityHttpClient.BaseAddress = new Uri(ServerUrl.IdentityServer);       
         }
         public async Task Login(string id, string password)
         {

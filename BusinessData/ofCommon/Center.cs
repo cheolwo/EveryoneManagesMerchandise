@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace BusinessData
 {
-    public class Center : Entity, IEnumerable<Center>
+    public class Center : Entity
     {
         public string LoginId { get; set; }
         public string Password { get; set; }
@@ -23,7 +23,16 @@ namespace BusinessData
         public List<CenterMacAddress> CenterMacAddresses { get; set; }
         public List<CenterIPAddress> CenterIPAddresses { get; set; }
         public List<CenterRole> CenterRoles { get; set; }
-
+        public Center()
+        {
+            Commodities = new();
+            EStatuses = new();
+            MStatuses = new();
+            SStatuses = new();
+            CenterMacAddresses = new(); 
+            CenterIPAddresses = new();
+            CenterRoles = new();
+        }
         public override bool Equals(object obj)
         {
             return base.Equals(obj) && obj is Center center &&
@@ -31,10 +40,6 @@ namespace BusinessData
                    UserId == center.UserId;
         }
 
-        public IEnumerator<Center> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
 
         public override int GetHashCode()
         {
@@ -44,11 +49,6 @@ namespace BusinessData
         public virtual Center GetRelatedCenter()
         {
             return this;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

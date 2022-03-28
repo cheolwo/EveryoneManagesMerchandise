@@ -3277,7 +3277,8 @@
     "net6.0": [
       "BusinessData >= 1.0.0",
       "FluentValidation >= 10.4.0",
-      "Microsoft.AspNetCore.Components >= 6.0.3"
+      "Microsoft.AspNetCore.Components >= 6.0.3",
+      "Newtonsoft.Json >= 13.0.1"
     ]
   },
   "packageFolders": {
@@ -3335,6 +3336,10 @@
           "Microsoft.AspNetCore.Components": {
             "target": "Package",
             "version": "[6.0.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
           }
         },
         "imports": [

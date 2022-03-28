@@ -114,7 +114,7 @@ namespace BusinessData.ofMarket.ofModel
     [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(SMCommodity), "MMS")]
-    public class SMCommodity : Status, IRelatedCenter
+    public class SMCommodity : SStatus, IRelatedCenter
     {
         public MCommodity MCommodity {get; set;}
         public List<MMCommodity> MMCommodities {get; set;}
@@ -151,7 +151,7 @@ namespace BusinessData.ofMarket.ofModel
     [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(MMCommodity), "MMM")]
-    public class MMCommodity : Status, IRelatedCenter
+    public class MMCommodity : MStatus, IRelatedCenter
     {
         public PlatMarket PlatMarket {get; set;}
         public Market Market {get; set;}
@@ -189,7 +189,7 @@ namespace BusinessData.ofMarket.ofModel
     [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(EMCommodity), "MME")]
-    public class EMCommodity : Status,  IRelatedCenter
+    public class EMCommodity : EStatus,  IRelatedCenter
     {
         public MCommodity MCommodity {get; set;}
         public MMCommodity MMCommodity {get; set;}

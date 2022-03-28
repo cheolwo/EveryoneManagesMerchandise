@@ -39,6 +39,58 @@ namespace BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage
             return await base.CreateNameofContainer(entity);
         }
     }
+    public class GOCCBlobContainerFactory : EntityContainerFactory<GOCC>, IGOCCBlobContainerFactory
+    {
+        private readonly IGOCCRepository _GOCCRepository;
+        public GOCCBlobContainerFactory(IGOCCRepository GOCCRepository)
+                : base(GOCCRepository)
+        {
+            _GOCCRepository = GOCCRepository;
+        }
+        public override async Task<string> CreateNameofContainer(GOCC entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class SGOCBlobContainerFactory : EntityContainerFactory<SGOC>, ISGOCBlobContainerFactory
+    {
+        private readonly ISGOCRepository _SGOCRepository;
+        public SGOCBlobContainerFactory(ISGOCRepository SGOCRepository)
+                : base(SGOCRepository)
+        {
+            _SGOCRepository = SGOCRepository;
+        }
+        public override async Task<string> CreateNameofContainer(SGOC entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class MGOCBlobContainerFactory : EntityContainerFactory<MGOC>, IMGOCBlobContainerFactory
+    {
+        private readonly IMGOCRepository _MGOCRepository;
+        public MGOCBlobContainerFactory(IMGOCRepository MGOCRepository)
+                : base(MGOCRepository)
+        {
+            _MGOCRepository = MGOCRepository;
+        }
+        public override async Task<string> CreateNameofContainer(MGOC entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
+    public class EGOCBlobContainerFactory : EntityContainerFactory<EGOC>, IEGOCBlobContainerFactory
+    {
+        private readonly IEGOCRepository _EGOCRepository;
+        public EGOCBlobContainerFactory(IEGOCRepository EGOCRepository)
+                : base(EGOCRepository)
+        {
+            _EGOCRepository = EGOCRepository;
+        }
+        public override async Task<string> CreateNameofContainer(EGOC entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
     public interface IGOCCBlobStorage : IEntityBlobStorage<GOCC>
     {
 

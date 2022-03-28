@@ -21,13 +21,13 @@ namespace BusinessData.ofGeneric.ofIdFactory
         public EntityIdFactory(IEntityDataRepository<TEntity> entityDataRepository)
         {
             _entityDataRepository = entityDataRepository;
-            RelationCode = Entity.GetRelationCode(typeof(Entity));
+            RelationCode = Entity.GetRelationCode(typeof(TEntity));
         }
         // 이거 하다가 Error 발생하면 쓰레드 부분에서 발생할 가능성이 있음.
         public virtual async Task<string> CreateAsync(TEntity entity)
         {
             StringBuilder stringBuilder = new();
-            stringBuilder.Append(entity.GetRelationCode(typeof(TEntity))); ;
+            stringBuilder.Append(RelationCode); ;
             stringBuilder.Append('-');
             int Count = await _entityDataRepository.GetCountAsync();
             stringBuilder.Append(Count);

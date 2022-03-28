@@ -34,7 +34,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
-    public class STCommodity : Status
+    public class STCommodity : SStatus
     {
         public string BuyerId {get; set;} 
         public string Message {get; set;}
@@ -50,7 +50,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
-    public class MTCommodity  : Status
+    public class MTCommodity  : MStatus
     {
         public bool IsAccecptBillofLading {get; set;}
         public bool IsAcceptCerticificateofOrigin {get; set;}
@@ -65,7 +65,7 @@ namespace BusinessData.ofTrade.ofModel
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
     [Origin(typeof(TCommodity))]
-    public class ETCommodity  : Status
+    public class ETCommodity  : EStatus
     {
         public string MTCommodityId {get; set;}
         public string SWCommodityId {get; set;}

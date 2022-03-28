@@ -6,6 +6,9 @@ using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
 using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
 using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofPlatform;
 
 namespace BusinessLogic.ofManager.ofGroupOrder
 {
@@ -15,7 +18,7 @@ namespace BusinessLogic.ofManager.ofGroupOrder
         Task<bool> GOCLoginAsync(string LoginId, string Password);
         Task<GOC> CreateByKAptBasicInfo(KAptBasicInfo kAptBasicInfo);
     }
-    public class GOCManager : CenterManager<GOC>, IGOCManager
+    public class GOCManager : CenterManager<GOC>, IEmployerGOCManager, IEmployeeGOCManager, IPlatformGOCManager
     {
         private readonly IGOCRepository _GOCRepository;
         private readonly IGOCIdFactory _GroupCenterIdFactory;

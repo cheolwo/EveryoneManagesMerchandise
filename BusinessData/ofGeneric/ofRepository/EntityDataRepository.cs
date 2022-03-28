@@ -19,7 +19,6 @@ namespace BusinessData
         Task AddEntities(IList<TEntity> entities);
         Task AddEntitiesByAttach(IList<TEntity> entities);
         Task UpdateAttachAsync(TEntity entity);
-
         // 특정 By
         Task<TEntity> GetByUserAsync(IdentityUser identityUser);
         Task<List<TEntity>> GetToListByUserId(string UserId);
@@ -29,10 +28,7 @@ namespace BusinessData
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
         Task<TEntity> GetByCodeAsync(string Code);
         Task<TEntity> GetByUserId(string UserId);
-
         Task<int> GetCountAsync();
-
-        
     }
     
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()

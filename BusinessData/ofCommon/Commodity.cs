@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BusinessData
 {
-    public class Commodity : Entity, IRelatedCenter, IEnumerable<Commodity>
+    public class Commodity : Entity, IRelatedCenter
     {
         public string HsCode {get; set;}
         public string OpponentBusinessUserId { get; set; }
@@ -21,12 +21,7 @@ namespace BusinessData
                    Barcode == commodity.Barcode;
         }
 
-        public IEnumerator<Commodity> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override int GetHashCode()
+       public override int GetHashCode()
         {
             return HashCode.Combine(base.GetHashCode(), Name, Barcode);
         }
@@ -34,11 +29,6 @@ namespace BusinessData
         public virtual Center GetRelatedCenter()
         {
             return Center;
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

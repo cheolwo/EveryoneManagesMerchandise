@@ -16,8 +16,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Busi
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net6.0\BusinessLogic.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\bin\Debug\net6.0\BusinessLogic.runtimeconfig.json
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net6.0\BusinessLogic.genruntimeconfig.cache
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\bin\Debug\net6.0\appsettings.json
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net6.0\refint\BusinessLogic.dll
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net6.0\BusinessLogic.dll
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessLogic\obj\Debug\net6.0\refint\BusinessLogic.dll

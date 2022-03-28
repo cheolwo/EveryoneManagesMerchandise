@@ -33,18 +33,18 @@ namespace BusinessView.ofWarehouse
     }
     public class V_WCommodity : V_Commodity
     {
-        [Get]public string Type {get; set;}
-        [Get]public string PakcingBarcode {get; set;}
+        [Get]public string? Type {get; set;}
+        [Get]public string? PakcingBarcode {get; set;}
         [Detail]public double? Width { get; set; }
         [Detail]public double? height { get; set; }
         [Detail]public double? length { get; set; }
         [Get]public int Quantity {get; set;}
-        [Get]public string MCommodityId {get; set;}
-        [Get]public string TCommodityId {get; set;}    
-        [Detail][Many(ViewNameofWarehouse.SWCommodity)] public List<SWCommodity> SWCommodities {get; set;}  // 입고
-        [Detail][Many(ViewNameofWarehouse.EWCommodity)] public List<EWCommodity> EWCommodities {get; set;}  // 출고
-        [Detail][Many(ViewNameofWarehouse.MWCommodity)] public List<MWCommodity> MWCommodities {get; set;}  // 적재
-        [Detail][One(ViewNameofWarehouse.Warehouse)] public Warehouse Warehouse { get; set; }
+        [Get]public string? MCommodityId {get; set;}
+        [Get]public string? TCommodityId {get; set;}    
+        [Detail][Many(ViewNameofWarehouse.SWCommodity)] public List<SWCommodity>? SWCommodities {get; set;}  // 입고
+        [Detail][Many(ViewNameofWarehouse.EWCommodity)] public List<EWCommodity>? EWCommodities {get; set;}  // 출고
+        [Detail][Many(ViewNameofWarehouse.MWCommodity)] public List<MWCommodity>? MWCommodities {get; set;}  // 적재
+        [Detail][One(ViewNameofWarehouse.Warehouse)] public Warehouse? Warehouse { get; set; }
     }
     public class V_SWCommodity : V_SStatus
     {

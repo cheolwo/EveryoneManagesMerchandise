@@ -6,6 +6,29 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Components\ofGroupOrderer\**" />
+    <Compile Remove="Components\ofMarketer\**" />
+    <Compile Remove="Components\ofOrderer\**" />
+    <Compile Remove="Components\ofProducter\**" />
+    <Compile Remove="Components\ofTrader\**" />
+    <Content Remove="Components\ofGroupOrderer\**" />
+    <Content Remove="Components\ofMarketer\**" />
+    <Content Remove="Components\ofOrderer\**" />
+    <Content Remove="Components\ofProducter\**" />
+    <Content Remove="Components\ofTrader\**" />
+    <EmbeddedResource Remove="Components\ofGroupOrderer\**" />
+    <EmbeddedResource Remove="Components\ofMarketer\**" />
+    <EmbeddedResource Remove="Components\ofOrderer\**" />
+    <EmbeddedResource Remove="Components\ofProducter\**" />
+    <EmbeddedResource Remove="Components\ofTrader\**" />
+    <None Remove="Components\ofGroupOrderer\**" />
+    <None Remove="Components\ofMarketer\**" />
+    <None Remove="Components\ofOrderer\**" />
+    <None Remove="Components\ofProducter\**" />
+    <None Remove="Components\ofTrader\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -17,12 +40,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\ofGroupOrderer\ofTable\" />
-    <Folder Include="Components\ofMarketer\ofTable\" />
-    <Folder Include="Components\ofOrderer\ofTable\" />
-    <Folder Include="Components\ofProducter\ofTable\" />
-    <Folder Include="Components\ofTrader\ofTable\" />
-    <Folder Include="Components\ofWarehouser\ofTable\ofManager\" />
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
 </Project>
