@@ -16,7 +16,7 @@ namespace BusinessLogic.ofManager.ofDeliveryCenter
 
     }
     [DataManager(typeof(DeliveryCenter))]
-    public class DeliveryCenterManager : CenterManager<DeliveryCenter>, IEmployerDeliveryCenterManager, IEmployeeDeliveryCenterManager, IPlatformDeliveryCenterManager
+    public class DeliveryCenterManager : CenterManager<DeliveryCenter>, IEmployerDeliveryCenterManager, IEmployeeDeliveryCenterManager, IPlatformDeliveryCenterManager, IDeliveryCenterManager
     {   
         public DeliveryCenterManager(IDeliveryCenterRepository deliveryCenterRepository, 
             IDeliveryCenterIdFactory deliveryCenterIdFactory,

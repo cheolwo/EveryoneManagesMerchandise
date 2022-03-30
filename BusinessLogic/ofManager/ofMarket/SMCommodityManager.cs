@@ -15,7 +15,7 @@ namespace BusinessLogic.ofManager.ofMarket
 
     }
     [DataManager(typeof(SMCommodity))]
-    public class SMCommodityManager : SStatusManager<SMCommodity>, IEmployerSMCommodityManager, IEmployeeSMCommodityManager, IPaltformSMCommodityManager
+    public class SMCommodityManager : SStatusManager<SMCommodity>, IEmployerSMCommodityManager, IEmployeeSMCommodityManager, IPaltformSMCommodityManager, ISMCommodityManager
     {
         public SMCommodityManager(ISMCommodityRepository statusDataRepository,
             ISMCommodityIdFactory sMCommodityIdFactory,

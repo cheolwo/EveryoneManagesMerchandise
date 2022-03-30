@@ -5,27 +5,30 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofUser
 {
-    public interface IWarehouser 
+    public class AuthorizationUser : AuthenticateUser, IAuthorizeUser
+    {
+        private HttpClient AuthorizeHttpClient;
+        public AuthorizationUser()
+            :base()
+        {
+            AuthorizeHttpClient = new();
+            AuthorizeHttpClient.BaseAddress = new Uri(ServerUrl.IdentityServer);
+        }
+
+        public Task<bool> AuthorizeUserRole(string role, string userName)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    // 여기서는 Employee가 Employer HR 의 소속되어 있는지를 확인해야됨.
+    public class EmployeeWarehouserService : AuthenticateUser
     {
         
     }
-    public interface IEmployeeWarehouser : IWarehouser
-    {
-
-    }
-    public interface IEmployerWarehouser : IWarehouser
-    {
-
-    }
-    public interface IPlatformWarehosuer : IWarehouser
-    {
-
-    }
-    
-    public class Warehouser : AuthenticateUser, IAuthorizeUser, IEmployeeWarehouser, IEmployerWarehouser, IPlatformWarehosuer
+    public class EmployerWarehouserService : AuthorizationUser, IAuthorizeUser, IEmployeeWarehouser, IEmployerWarehouser, IPlatformWarehosuer
     {
         protected HttpClient WarehouserHttpClient;
-        public Warehouser()
+        public EmployerWarehouserService()
         {
             WarehouserHttpClient = new HttpClient
             {
@@ -60,5 +63,25 @@ namespace BusinessView.ofUser
         {
             WarehouserHttpClient = null;
         }
+    }
+    public interface IWarehouser 
+    {
+        
+    }
+    public interface IEmployeeWarehouser : IWarehouser
+    {
+
+    }
+    public interface IEmployerWarehouser : IWarehouser
+    {
+
+    }
+    public interface IPlatformWarehosuer : IWarehouser
+    {
+
+    }
+    public interface IEmployeeWarehouseDTOService
+    {
+       
     }
 }

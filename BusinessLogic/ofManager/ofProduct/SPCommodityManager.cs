@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofProduct
     {
 
     }
-    public class SPCommodityManager : SStatusManager<SPCommodity>, IEmployerSPCommodityManager, IEmployeeSPCommodityManager, IPlatformSPCommodityManager
+    public class SPCommodityManager : SStatusManager<SPCommodity>, IEmployerSPCommodityManager, IEmployeeSPCommodityManager, IPlatformSPCommodityManager, ISPCommodityManager
     {
         private readonly ISPCommodityRepository _SPCommodityRepository;
         public SPCommodityManager(ISPCommodityRepository SPCommodityRepository,

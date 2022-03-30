@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using BusinessData.ofWarehouse.Model;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofWarehouse.ofDbContext;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 namespace BusinessData.ofWarehouse.ofRepository
 {
-    public class WCommodityRepository : CommodityDataRepository<WCommodity>, IWCommodityRepository
+    public class WCommodityRepository : CommodityDataRepository<WCommodity>, IWCommodityRepository, IEmployeeWCommodityRepository, IEmployerWCommodityRepository, IPlatformWCommodityRepository
     {
         public WCommodityRepository(WarehouseDbContext BusinessDataContext)
                 : base(BusinessDataContext)

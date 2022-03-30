@@ -2,6 +2,9 @@ using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofOrder.ofDbContext;
+using BusinessData.ofOrder.ofInterface.ofEmployee;
+using BusinessData.ofOrder.ofInterface.ofEmployer;
+using BusinessData.ofOrder.ofInterface.ofPlatform;
 using BusinessData.ofOrder.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
@@ -84,6 +87,24 @@ builder.Services.AddScoped<IOCommodityRepository, OCommodityRepository>();
 builder.Services.AddScoped<ISOCommodityRepository, SOCommodityRepository>();
 builder.Services.AddScoped<IMOCommodityRepository, MOCommodityRepository>();
 builder.Services.AddScoped<IEOCommodityRepository, EOCommodityRepository>();
+
+builder.Services.AddScoped<IEmployeeOrderCenterRepository, OrderCenterRepository>();
+builder.Services.AddScoped<IEmployeeOCommodityRepository, OCommodityRepository>();
+builder.Services.AddScoped<IEmployeeSOCommodityRepository, SOCommodityRepository>();
+builder.Services.AddScoped<IEmployeeMOCommodityRepository, MOCommodityRepository>();
+builder.Services.AddScoped<IEmployeeEOCommodityRepository, EOCommodityRepository>();
+
+builder.Services.AddScoped<IEmployerOrderCenterRepository, OrderCenterRepository>();
+builder.Services.AddScoped<IEmployerOCommodityRepository, OCommodityRepository>();
+builder.Services.AddScoped<IEmployerSOCommodityRepository, SOCommodityRepository>();
+builder.Services.AddScoped<IEmployerMOCommodityRepository, MOCommodityRepository>();
+builder.Services.AddScoped<IEmployerEOCommodityRepository, EOCommodityRepository>();
+
+builder.Services.AddScoped<IPlatformOrderCenterRepository, OrderCenterRepository>();
+builder.Services.AddScoped<IPlatformOCommodityRepository, OCommodityRepository>();
+builder.Services.AddScoped<IPlatformSOCommodityRepository, SOCommodityRepository>();
+builder.Services.AddScoped<IPlatformMOCommodityRepository, MOCommodityRepository>();
+builder.Services.AddScoped<IPlatformEOCommodityRepository, EOCommodityRepository>();
 
 builder.Services.AddScoped<IOrderCenterFileFactory, OrderCenterFileFactory>();
 builder.Services.AddScoped<IOCommodityFileFactory, OCommodityFileFactory>();

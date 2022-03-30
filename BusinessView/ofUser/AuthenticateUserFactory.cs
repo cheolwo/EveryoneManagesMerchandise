@@ -1,4 +1,6 @@
-﻿namespace BusinessView.ofUser
+﻿using BusinessView.ofWarehouse.ofEmployer;
+
+namespace BusinessView.ofUser
 {
     public static class SystemRole
     {
@@ -15,6 +17,7 @@
         public const string ProductServer = "https://productionserver.azurewebsites.net";
         public const string TradeServer = "https://tradeserver.azurewebsites.net"; 
         public const string WarehouseServer = "https://warehouseserver.azurewebsites.net";
+        public const string MarketServer = "";
         public const string HRServer = "https://hrserver.azurewebsites.net";
         public const string JournalServer = "https://journalserver.azurewebsites.net";
         public const string IdentityServer = "https://identityserverpl.azurewebsites.net";
@@ -78,7 +81,7 @@
     }
     public interface IAuthorizeUser
     {
-        bool CheckRoles(string IdentityUserId);
+        Task<bool> AuthorizeUserRole(string role, string userName);
     }
 
     public class AuthorizeUserFactory
@@ -95,13 +98,13 @@
                 switch (Role)
                 {
                     case SystemRole.Role_Warehouser:
-                        AuthorizeUsers.Add(new Warehouser());
+                        //AuthorizeUsers.Add(new EmployerWarehouse());
                         break;
                     case SystemRole.Role_Orderer:
                         AuthorizeUsers.Add(new Orderer());
                         break;
                     case SystemRole.Role_Seller:
-                        AuthorizeUsers.Add(new Seller());
+                        AuthorizeUsers.Add(new Marketer());
                         break;
                     case SystemRole.Role_Producter:
                         AuthorizeUsers.Add(new Producter());

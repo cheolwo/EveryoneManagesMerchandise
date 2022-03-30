@@ -5,6 +5,14 @@ using System;
 
 namespace BusinessView.ofCommon
 {
+    public class DTOEntity
+    {
+
+    }
+    public interface IDTO
+    {
+
+    }
     public class V_Entity
     {
         [Get] public string Id { get; set; }

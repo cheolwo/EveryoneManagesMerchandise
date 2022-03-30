@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofProduct
     {
 
     }
-    public class ProductCenterManager : CenterManager<ProductCenter>, IEmployerProductCenterManager, IEmployeeProductCenterManager, IPlatformProductCenterManager
+    public class ProductCenterManager : CenterManager<ProductCenter>, IEmployerProductCenterManager, IEmployeeProductCenterManager, IPlatformProductCenterManager, IProductCenterManager
     {
         private readonly IProductCenterRepository _ProductCenterRepository;
         public ProductCenterManager(IProductCenterRepository ProductCenterRepository,

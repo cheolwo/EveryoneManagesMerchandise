@@ -1,5 +1,8 @@
 using BusinessData.ofDeliveryCenter;
 using BusinessData.ofDeliveryCenter.ofDbContext;
+using BusinessData.ofDeliveryCenter.ofInterface.ofEmployee;
+using BusinessData.ofDeliveryCenter.ofInterface.ofEmployer;
+using BusinessData.ofDeliveryCenter.ofInterface.ofPlatform;
 using BusinessData.ofGenericRepository;
 
 namespace BusinessData.ofRepository
@@ -24,7 +27,7 @@ namespace BusinessData.ofRepository
     {
 
     }
-    public class DeliveryCenterRepository : CenterDataRepository<DeliveryCenter>, IDeliveryCenterRepository
+    public class DeliveryCenterRepository : CenterDataRepository<DeliveryCenter>, IDeliveryCenterRepository, IEmployeeDeliveryCenterRepository, IEmployerDeliveryCenterRepository, IPlatformDeliveryCenterRepository
     {
         public DeliveryCenterRepository(DeliveryDbContext DeliveryDbContext)
             :base(DeliveryDbContext)
@@ -32,7 +35,7 @@ namespace BusinessData.ofRepository
             
         }
     }
-    public class DCommodityRepository : CommodityDataRepository<DCommodity>, IDCommodityRepository
+    public class DCommodityRepository : CommodityDataRepository<DCommodity>, IDCommodityRepository, IEmployeeDCommodityRepository, IEmployerDCommodityRepository, IPlatformDCommodityRepository
     {
         public DCommodityRepository(DeliveryDbContext DeliveryDbContext)
                 : base(DeliveryDbContext)
@@ -40,7 +43,7 @@ namespace BusinessData.ofRepository
 
         }
     }
-    public class SDCommodityRepository : StatusDataRepository<SDCommodity>, ISDCommodityRepository
+    public class SDCommodityRepository : StatusDataRepository<SDCommodity>, ISDCommodityRepository, IEmployeeSDCommodityRepository, IEmployerSDCommodityRepository, IPlatformSDCommodityRepository
     {
         public SDCommodityRepository(DeliveryDbContext DeliveryDbContext)
                 : base(DeliveryDbContext)
@@ -48,7 +51,7 @@ namespace BusinessData.ofRepository
 
         }
     }
-    public class MDCommodityRepository : StatusDataRepository<MDCommodity>, IMDCommodityRepository
+    public class MDCommodityRepository : StatusDataRepository<MDCommodity>, IMDCommodityRepository, IEmployeeMDCommodityRepository, IEmployerMDCommodityRepository, IPlatformMDCommodityRepository
     {
         public MDCommodityRepository(DeliveryDbContext DeliveryDbContext)
                 : base(DeliveryDbContext)
@@ -56,7 +59,7 @@ namespace BusinessData.ofRepository
 
         }
     }
-    public class EDCommodityRepository : StatusDataRepository<EDCommodity>, IEDCommodityRepository
+    public class EDCommodityRepository : StatusDataRepository<EDCommodity>, IEDCommodityRepository, IEmployeeEDCommodityRepository, IEmployerEDCommodityRepository, IPlatformEDCommodityRepository
     {
         public EDCommodityRepository(DeliveryDbContext DeliveryDbContext)
                 : base(DeliveryDbContext)

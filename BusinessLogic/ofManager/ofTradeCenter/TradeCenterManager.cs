@@ -16,7 +16,7 @@ namespace BusinessLogic.ofManager.ofTradeCenter
         Task<TradeCenter> LoginWithDataAsync(string LoginId, string Password);
         Task<bool> TradeCenterLoginAsync(string LoginId, string Password);
     }
-    public class TradeCenterManager : CenterManager<TradeCenter>, IEmployerTradeCenterManager, IEmployeeTradeCenterManager, IPlatformTradeCenterManager
+    public class TradeCenterManager : CenterManager<TradeCenter>, IEmployerTradeCenterManager, IEmployeeTradeCenterManager, IPlatformTradeCenterManager, ITradeCenterManager
     {
         private readonly ITradeCenterRepository _TradeCenterRepository;
         public TradeCenterManager(ITradeCenterRepository TradeCenterRepository,

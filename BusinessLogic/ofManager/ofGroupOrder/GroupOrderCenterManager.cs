@@ -18,7 +18,7 @@ namespace BusinessLogic.ofManager.ofGroupOrder
         Task<bool> GOCLoginAsync(string LoginId, string Password);
         Task<GOC> CreateByKAptBasicInfo(KAptBasicInfo kAptBasicInfo);
     }
-    public class GOCManager : CenterManager<GOC>, IEmployerGOCManager, IEmployeeGOCManager, IPlatformGOCManager
+    public class GOCManager : CenterManager<GOC>, IEmployerGOCManager, IEmployeeGOCManager, IPlatformGOCManager, IGOCManager
     {
         private readonly IGOCRepository _GOCRepository;
         private readonly IGOCIdFactory _GroupCenterIdFactory;

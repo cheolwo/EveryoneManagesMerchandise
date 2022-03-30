@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IEGOCManager : IEStatusManager<EGOC>
     {
     }
-    public class EGOCManager : EStatusManager<EGOC>, IEmployerEGOCManager, IEmployeeEGOCManager, IPlatformEGOCManager
+    public class EGOCManager : EStatusManager<EGOC>, IEmployerEGOCManager, IEmployeeEGOCManager, IPlatformEGOCManager, IEGOCManager
     {
         private readonly IEGOCRepository _EGOCRepository;
         public EGOCManager(IEGOCRepository EGOCRepository,

@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofDeliveryCenter
     {
 
     }
-    public class DCommodityManager : CommodityManager<DCommodity>, IEmployerDCommodityManager, IEmployeeDCommodityManager, IPlatformDCommodityManager
+    public class DCommodityManager : CommodityManager<DCommodity>, IEmployerDCommodityManager, IEmployeeDCommodityManager, IPlatformDCommodityManager, IDCommodityManager
     {
         public DCommodityManager(IDCommodityRepository dcommodityDataRepository,
             IDCommodityIdFactory dCommodityIdFactory,

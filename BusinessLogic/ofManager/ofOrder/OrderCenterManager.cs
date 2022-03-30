@@ -16,7 +16,7 @@ namespace BusinessLogic.ofManager.ofOrder
         Task<OrderCenter> LoginWithDataAsync(string LoginId, string Password);
         Task<bool> OrderCenterLoginAsync(string LoginId, string Password);
     }
-    public class OrderCenterManager : CenterManager<OrderCenter>, IEmployerOrderCenterManager, IEmployeeOrderCenterManager, IPlatformOrderCenterManager
+    public class OrderCenterManager : CenterManager<OrderCenter>, IEmployerOrderCenterManager, IEmployeeOrderCenterManager, IPlatformOrderCenterManager, IOrderCenterManager
     {
         private readonly IOrderCenterRepository _OrderCenterRepository;
         public OrderCenterManager(IOrderCenterRepository OrderCenterRepository,

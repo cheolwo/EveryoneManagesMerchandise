@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface ISOCommodityManager : ISStatusManager<SOCommodity>
     {
     }
-    public class SOCommodityManager : SStatusManager<SOCommodity>, IEmployerSOCommodityManager, IEmployeeSOCommodityManager, IPlatformSOCommodityManager
+    public class SOCommodityManager : SStatusManager<SOCommodity>, IEmployerSOCommodityManager, IEmployeeSOCommodityManager, IPlatformSOCommodityManager, ISOCommodityManager
     {
         private readonly ISOCommodityRepository _SOCommodityRepository;
         public SOCommodityManager(ISOCommodityRepository SOCommodityRepository,

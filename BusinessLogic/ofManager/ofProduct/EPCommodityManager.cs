@@ -15,7 +15,7 @@ namespace BusinessLogic.ofManager.ofProduct
         
     }
 
-    public class EPCommodityManager : EStatusManager<EPCommodity>, IEmployerEPCommodityManager, IEmployeeEPCommodityManager, IPlatformEPCommodityManager
+    public class EPCommodityManager : EStatusManager<EPCommodity>, IEmployerEPCommodityManager, IEmployeeEPCommodityManager, IPlatformEPCommodityManager, IEPCommodityManager
     {
         private readonly IEPCommodityRepository _EPCommodityRepository;
         public EPCommodityManager(IEPCommodityRepository EPCommodityRepository,

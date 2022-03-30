@@ -2,6 +2,9 @@ using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofHRCenter.ofRepository;
 using BusinessData.ofHumanResouce.ofIdFactory;
+using BusinessData.ofHumanResource.ofInterface.ofEmployee;
+using BusinessData.ofHumanResource.ofInterface.ofEmployer;
+using BusinessData.ofHumanResource.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
@@ -55,6 +58,21 @@ builder.Services.AddScoped<IHRCenterRepository, HRCenterRepository>();
 builder.Services.AddScoped<IHREmployeeRepository, HREmployeeRepository>();
 builder.Services.AddScoped<IHRRoleRepository, HRRoleRepository>();
 builder.Services.AddScoped<IEmployeeRoleRepository, EmployeeRoleRepository>();
+
+builder.Services.AddScoped<IEmployeeHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IEmployeeHREmployeeRepository, HREmployeeRepository>();
+builder.Services.AddScoped<IEmployeeHRRoleRepository, HRRoleRepository>();
+builder.Services.AddScoped<IEmployeeEmployeeRoleRepository, EmployeeRoleRepository>();
+
+builder.Services.AddScoped<IEmployerHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IEmployerHREmployeeRepository, HREmployeeRepository>();
+builder.Services.AddScoped<IEmployerHRRoleRepository, HRRoleRepository>();
+builder.Services.AddScoped<IEmployerEmployeeRoleRepository, EmployeeRoleRepository>();
+
+builder.Services.AddScoped<IPlatformHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IPlatformHREmployeeRepository, HREmployeeRepository>();
+builder.Services.AddScoped<IPlatformHRRoleRepository, HRRoleRepository>();
+builder.Services.AddScoped<IPlatformEmployeeRoleRepository, EmployeeRoleRepository>();
 
 builder.Services.AddScoped<IHRCenterIdFactory, HRCenterIdFactory>();
 builder.Services.AddScoped<IHREmployeeIdFactory, HREmployeeIdFactory>();

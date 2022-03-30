@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
     {
 
     }
-    public class ETCommodityManager : EStatusManager<ETCommodity>, IEmployerETCommodityManager, IEmployeeETCommodityManager, IPlatformETCommodityManager
+    public class ETCommodityManager : EStatusManager<ETCommodity>, IEmployerETCommodityManager, IEmployeeETCommodityManager, IPlatformETCommodityManager, IETCommodityManager
     {
         public ETCommodityManager(IETCommodityRepository StatusDataRepository,
             IETCommodityIdFactory eTCommodityIdFactory,

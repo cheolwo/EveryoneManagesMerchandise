@@ -2,6 +2,9 @@ using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofWarehouse.ofDbContext;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 using BusinessData.ofWarehouse.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
@@ -17,6 +20,8 @@ using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 // Add services to the container.
 var WarehouseDbConnectionString = builder.Configuration.GetConnectionString("WarehouseDbConnection");
@@ -84,6 +89,24 @@ builder.Services.AddScoped<IWCommodityRepository, WCommodityRepository>();
 builder.Services.AddScoped<ISWCommodityRepository, SWCommodityRepository>();
 builder.Services.AddScoped<IMWCommodityRepository, MWCommodityRepository>();
 builder.Services.AddScoped<IEWCommodityRepository, EWCommodityRepository>();
+
+builder.Services.AddScoped<IEmployeeWarehouseRepository, WarehouseRepository>();
+builder.Services.AddScoped<IEmployeeWCommodityRepository, WCommodityRepository>();
+builder.Services.AddScoped<IEmployeeSWCommodityRepository, SWCommodityRepository>();
+builder.Services.AddScoped<IEmployeeMWCommodityRepository, MWCommodityRepository>();
+builder.Services.AddScoped<IEmployeeEWCommodityRepository, EWCommodityRepository>();
+
+builder.Services.AddScoped<IEmployerWarehouseRepository, WarehouseRepository>();
+builder.Services.AddScoped<IEmployerWCommodityRepository, WCommodityRepository>();
+builder.Services.AddScoped<IEmployerSWCommodityRepository, SWCommodityRepository>();
+builder.Services.AddScoped<IEmployerMWCommodityRepository, MWCommodityRepository>();
+builder.Services.AddScoped<IEmployerEWCommodityRepository, EWCommodityRepository>();
+
+builder.Services.AddScoped<IPlatformWarehouseRepository, WarehouseRepository>();
+builder.Services.AddScoped<IPlatformWCommodityRepository, WCommodityRepository>();
+builder.Services.AddScoped<IPlatformSWCommodityRepository, SWCommodityRepository>();
+builder.Services.AddScoped<IPlatformMWCommodityRepository, MWCommodityRepository>();
+builder.Services.AddScoped<IPlatformEWCommodityRepository, EWCommodityRepository>();
 
 builder.Services.AddScoped<IWarehouseFileFactory, WarehouseFileFactory>();
 builder.Services.AddScoped<IWCommodityFileFactory, WCommodityFileFactory>();

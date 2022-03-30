@@ -4,7 +4,7 @@
     {
         public HttpClient HttpClient { get; set; }
 
-        public bool CheckRoles(string IdentityUserId)
+        public Task<bool> AuthorizeUserRole(string role, string userName)
         {
             throw new NotImplementedException();
         }

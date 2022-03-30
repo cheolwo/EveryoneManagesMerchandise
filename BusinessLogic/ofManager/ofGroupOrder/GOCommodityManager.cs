@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IGOCCManager : ICommodityManager<GOCC>
     {
     }
-    public class GOCCManager : CommodityManager<GOCC>, IEmployerGOCCManager, IEmployeeGOCCManager, IPlatformGOCCManager
+    public class GOCCManager : CommodityManager<GOCC>, IEmployerGOCCManager, IEmployeeGOCCManager, IPlatformGOCCManager, IGOCCManager
     {
         private readonly IGOCCRepository _GOCCRepository;
         public GOCCManager(IGOCCRepository GOCCRepository,

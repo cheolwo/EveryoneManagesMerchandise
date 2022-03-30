@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IMGOCManager : IMStatusManager<MGOC>
     {
     }
-    public class MGOCManager : MStatusManager<MGOC>, IEmployerMGOCManager, IEmployeeMGOCManager, IPlatformMGOCManager
+    public class MGOCManager : MStatusManager<MGOC>, IEmployerMGOCManager, IEmployeeMGOCManager, IPlatformMGOCManager, IMGOCManager
     {
         private readonly IMGOCRepository _MGOCRepository;
         public MGOCManager(IMGOCRepository MGOCRepository,

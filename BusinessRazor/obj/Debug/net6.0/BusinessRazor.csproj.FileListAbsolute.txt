@@ -34,3 +34,10 @@ C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessRazor\obj\Debug
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\scopedcss\bundle\BusinessRazor.styles.css
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\scopedcss\projectbundle\BusinessRazor.bundle.scp.css
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\ref\BusinessRazor.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessData.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessView.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\bin\Debug\net6.0\BusinessData.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\BusinessRazor.csproj.CopyComplete

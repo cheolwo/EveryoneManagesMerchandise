@@ -3,6 +3,9 @@ using BusinessData.ofFinancial;
 using BusinessData.ofFinancial.ofRepository;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
+using BusinessData.ofJournal.ofInterface.ofEmployee;
+using BusinessData.ofJournal.ofInterface.ofEmployer;
+using BusinessData.ofJournal.ofInterface.ofPlatform;
 using BusinessLogic.ofManager;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
@@ -61,6 +64,18 @@ builder.Services.AddScoped<IPlatformJournalManager, JournalManager>();
 builder.Services.AddScoped<IJournalCenterRepository, JournalCenterRepository>();
 builder.Services.AddScoped<IJCommodityRepository, JCommodityRepository>();
 builder.Services.AddScoped<IJournalRepository, JournalRepository>();
+
+builder.Services.AddScoped<IEmployeeJournalCenterRepository, JournalCenterRepository>();
+builder.Services.AddScoped<IEmployeeJCommodityRepository, JCommodityRepository>();
+builder.Services.AddScoped<IEmployeeJournalRepository, JournalRepository>();
+
+builder.Services.AddScoped<IEmployerJournalCenterRepository, JournalCenterRepository>();
+builder.Services.AddScoped<IEmployerJCommodityRepository, JCommodityRepository>();
+builder.Services.AddScoped<IEmployerJournalRepository, JournalRepository>();
+
+builder.Services.AddScoped<IPlatformJournalCenterRepository, JournalCenterRepository>();
+builder.Services.AddScoped<IPlatformJCommodityRepository, JCommodityRepository>();
+builder.Services.AddScoped<IPlatformJournalRepository, JournalRepository>();
 
 builder.Services.AddScoped<IJournalCenterIdFactory, JournalCenterIdFactory>();
 builder.Services.AddScoped<IJCommodityIdFactory, JCommodityIdFactory>();

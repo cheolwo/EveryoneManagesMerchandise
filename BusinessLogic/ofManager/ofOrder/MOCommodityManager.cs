@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IMOCommodityManager : IMStatusManager<MOCommodity>
     {
     }
-    public class MOCommodityManager : MStatusManager<MOCommodity>, IEmployerMOCommodityManager, IEmployeeMOCommodityManager, IPlatformMOCommodityManager
+    public class MOCommodityManager : MStatusManager<MOCommodity>, IEmployerMOCommodityManager, IEmployeeMOCommodityManager, IPlatformMOCommodityManager, IMOCommodityManager
     {
         private readonly IMOCommodityRepository _MOCommodityRepository;
         public MOCommodityManager(IMOCommodityRepository MOCommodityRepository,

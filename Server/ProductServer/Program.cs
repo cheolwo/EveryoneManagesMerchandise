@@ -3,6 +3,9 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofMarket.ofRepository.ofIdFactory;
 using BusinessData.ofProduct.ofDbContext;
+using BusinessData.ofProduct.ofInterface.ofEmployee;
+using BusinessData.ofProduct.ofInterface.ofEmployer;
+using BusinessData.ofProduct.ofInterface.ofPlatform;
 using BusinessData.ofProduct.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
@@ -86,6 +89,24 @@ builder.Services.AddScoped<IPCommodityRepository, PCommodityRepository>();
 builder.Services.AddScoped<ISPCommodityRepository, SPCommodityRepository>();
 builder.Services.AddScoped<IMPCommodityRepository, MPCommodityRepository>();
 builder.Services.AddScoped<IEPCommodityRepository, EPCommodityRepository>();
+
+builder.Services.AddScoped<IEmployeeProductCenterRepository, ProductCenterRepository>();
+builder.Services.AddScoped<IEmployeePCommodityRepository, PCommodityRepository>();
+builder.Services.AddScoped<IEmployeeSPCommodityRepository, SPCommodityRepository>();
+builder.Services.AddScoped<IEmployeeMPCommodityRepository, MPCommodityRepository>();
+builder.Services.AddScoped<IEmployeeEPCommodityRepository, EPCommodityRepository>();
+
+builder.Services.AddScoped<IEmployerProductCenterRepository, ProductCenterRepository>();
+builder.Services.AddScoped<IEmployerPCommodityRepository, PCommodityRepository>();
+builder.Services.AddScoped<IEmployerSPCommodityRepository, SPCommodityRepository>();
+builder.Services.AddScoped<IEmployerMPCommodityRepository, MPCommodityRepository>();
+builder.Services.AddScoped<IEmployerEPCommodityRepository, EPCommodityRepository>();
+
+builder.Services.AddScoped<IPlatformProductCenterRepository, ProductCenterRepository>();
+builder.Services.AddScoped<IPlatformPCommodityRepository, PCommodityRepository>();
+builder.Services.AddScoped<IPlatformSPCommodityRepository, SPCommodityRepository>();
+builder.Services.AddScoped<IPlatformMPCommodityRepository, MPCommodityRepository>();
+builder.Services.AddScoped<IPlatformEPCommodityRepository, EPCommodityRepository>();
 
 builder.Services.AddScoped<IProductCenterFileFactory, ProductCenterFileFactory>();
 builder.Services.AddScoped<IPCommodityFileFactory, PCommodityFileFactory>();

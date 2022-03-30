@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofProduct
     {
 
     }
-    public class PCommodityManager : CommodityManager<PCommodity>, IEmployerPCommodityManager, IEmployeePCommodityManager, IPlatformPCommodityManager
+    public class PCommodityManager : CommodityManager<PCommodity>, IEmployerPCommodityManager, IEmployeePCommodityManager, IPlatformPCommodityManager, IPCommodityManager
     {
         private readonly IPCommodityRepository _PCommodityRepository;
         public PCommodityManager(IPCommodityRepository PCommodityRepository,

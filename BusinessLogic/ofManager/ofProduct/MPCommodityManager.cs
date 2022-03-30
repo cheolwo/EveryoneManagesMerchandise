@@ -17,7 +17,7 @@ namespace BusinessLogic.ofManager.ofProduct
     {
 
     }
-    public class MPCommodityManager : MStatusManager<MPCommodity>, IEmployerMPCommodityManager, IEmployeeMPCommodityManager, IPlatformMPCommodityManager
+    public class MPCommodityManager : MStatusManager<MPCommodity>, IEmployerMPCommodityManager, IEmployeeMPCommodityManager, IPlatformMPCommodityManager, IMPCommodityManager
     {
         private readonly IMPCommodityRepository _MPCommodityRepository;
         public MPCommodityManager(IMPCommodityRepository MPCommodityRepository,

@@ -28,7 +28,7 @@ namespace BusinessLogic.ofManager
     {
        
     }
-    public class JournalCenterManager : CenterManager<JournalCenter>, IEmployerJournalCenterManager, IEmployeeJournalCenterManager, IPlatformJournalCenterManager
+    public class JournalCenterManager : CenterManager<JournalCenter>, IEmployerJournalCenterManager, IEmployeeJournalCenterManager, IPlatformJournalCenterManager, IJournalCenterManager
     {
        public JournalCenterManager(IJournalCenterRepository centerDataRepository,
                                IJournalCenterIdFactory journalCenterIdFactory,
@@ -41,7 +41,7 @@ namespace BusinessLogic.ofManager
 
        }
     }
-    public class JCommodityManager : CommodityManager<JCommodity>, IEmployerJCommodityManager, IEmployeeJCommodityManager, IPlatformJCommodityManager
+    public class JCommodityManager : CommodityManager<JCommodity>, IEmployerJCommodityManager, IEmployeeJCommodityManager, IPlatformJCommodityManager, IJCommodityManager
     {
        public JCommodityManager(IJCommodityRepository CommodityDataRepository,
            IJCommodityIdFactory jCommodityIdFactory,
@@ -53,7 +53,7 @@ namespace BusinessLogic.ofManager
 
        }
     }
-    public class JournalManager : EntityManager<Journal>, IEmployerJournalManager, IEmployeeJournalManager, IPlatformJournalManager
+    public class JournalManager : EntityManager<Journal>, IEmployerJournalManager, IEmployeeJournalManager, IPlatformJournalManager, IJournalManager
     {
        public JournalManager(IJournalRepository CommodityDataRepository,
                                IJournalIdFactory journalIdFactory,

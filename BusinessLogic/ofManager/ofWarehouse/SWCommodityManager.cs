@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
     {
 
     }
-    public class SWCommodityManager : StatusManager<SWCommodity>, IEmployerSWCommodityManager, IEmployeeSWCommodityManager, IPlatformSWCommodityManager
+    public class SWCommodityManager : StatusManager<SWCommodity>, IEmployerSWCommodityManager, IEmployeeSWCommodityManager, IPlatformSWCommodityManager, ISWCommodityManager
     {
         public SWCommodityManager(ISWCommodityRepository StatusDataRepository,
             ISWCommodityIdFactory sWCommodityIdFactory,

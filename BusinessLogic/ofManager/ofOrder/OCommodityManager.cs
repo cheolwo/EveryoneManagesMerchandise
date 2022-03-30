@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IOCommodityManager : ICommodityManager<OCommodity>
     {
     }
-    public class OCommodityManager : CommodityManager<OCommodity>, IEmployerOCommodityManager, IEmployeeOCommodityManager, IPlatformOCommodityManager
+    public class OCommodityManager : CommodityManager<OCommodity>, IEmployerOCommodityManager, IEmployeeOCommodityManager, IPlatformOCommodityManager, IOCommodityManager
     {
         public readonly IOCommodityRepository _OCommodityRepository;
         public OCommodityManager(IOCommodityRepository OCommodityRepository,

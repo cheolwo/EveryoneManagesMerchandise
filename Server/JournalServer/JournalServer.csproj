@@ -14,4 +14,10 @@
     <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\ofEmployee\" />
+    <Folder Include="Controllers\ofEmployer\" />
+    <Folder Include="Controllers\ofPlatform\" />
+  </ItemGroup>
+
 </Project>

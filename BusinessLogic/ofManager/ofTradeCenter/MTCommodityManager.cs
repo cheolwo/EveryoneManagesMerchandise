@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofWarehouse
     {
 
     }
-    public class MTCommodityManager : MStatusManager<MTCommodity>, IEmployerMTCommodityManager, IEmployeeMTCommodityManager, IPlatformMTCommodityManager
+    public class MTCommodityManager : MStatusManager<MTCommodity>, IEmployerMTCommodityManager, IEmployeeMTCommodityManager, IPlatformMTCommodityManager, IMTCommodityManager
     {
         public MTCommodityManager(IMTCommodityRepository StatusDataRepository,
             IMTCommodityIdFactory mTCommodityIdFactory,

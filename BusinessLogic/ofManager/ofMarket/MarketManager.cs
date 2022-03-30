@@ -15,7 +15,7 @@ namespace BusinessLogic.ofManager.ofMarket
 
     }
     [DataManager(typeof(Market))]
-    public class MarketManager : CenterManager<Market>, IEmployerMarketManager, IEmployeeMarketManager, IPaltformMarketManager
+    public class MarketManager : CenterManager<Market>, IEmployerMarketManager, IEmployeeMarketManager, IPaltformMarketManager, IMarketManager
     {
         public MarketManager(IMarketRepository CenterDataRepository,
                                IMarketIdFactory marketIdFactory,

@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofTradeCenter
     {
 
     }
-    public class TCommodityManager : CommodityManager<TCommodity>, IEmployerTCommodityManager, IEmployeeTCommodityManager, IPlatformTCommodityManager
+    public class TCommodityManager : CommodityManager<TCommodity>, IEmployerTCommodityManager, IEmployeeTCommodityManager, IPlatformTCommodityManager, ITCommodityManager
     {
         public TCommodityManager(ITCommodityRepository CommodityDataRepository,
             ITCommodityIdFactory TCommodityIdFactory,

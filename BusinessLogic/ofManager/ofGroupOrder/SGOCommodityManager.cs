@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface ISGOCManager : ISStatusManager<SGOC>
     {
     }
-    public class SGOCManager : SStatusManager<SGOC>, IEmployerSGOCManager, IEmployeeSGOCManager, IPlatformSGOCManager
+    public class SGOCManager : SStatusManager<SGOC>, IEmployerSGOCManager, IEmployeeSGOCManager, IPlatformSGOCManager, ISGOCManager
     {
         private readonly ISGOCRepository _SGOCRepository;
         public SGOCManager(ISGOCRepository SGOCRepository,

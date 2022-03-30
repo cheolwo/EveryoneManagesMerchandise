@@ -13,7 +13,7 @@ namespace BusinessLogic.ofManager.ofOrder
     public interface IEOCommodityManager : IEStatusManager<EOCommodity>
     {
     }
-    public class EOCommodityManager : EStatusManager<EOCommodity>, IEmployerEOCommodityManager, IEmployeeEOCommodityManager, IPlatformEOCommodityManager
+    public class EOCommodityManager : EStatusManager<EOCommodity>, IEmployerEOCommodityManager, IEmployeeEOCommodityManager, IPlatformEOCommodityManager, IEOCommodityManager
     {
         private readonly IEOCommodityRepository _EOCommodityRepository;
         public EOCommodityManager(IEOCommodityRepository EOCommodityRepository,

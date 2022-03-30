@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -67,29 +67,11 @@
     <Folder Include="Migrations\SmartFarmDb\" />
     <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
-    <Folder Include="ofDeliveryCenter\ofInterface\ofEmployee\" />
-    <Folder Include="ofDeliveryCenter\ofInterface\ofEmployer\" />
-    <Folder Include="ofDeliveryCenter\ofInterface\ofPlatform\" />
-    <Folder Include="ofFinancial\Migrations\" />
-    <Folder Include="ofFinancial\Configuration\" />
-    <Folder Include="ofGroupOrder\ofInterface\ofEmployee\" />
-    <Folder Include="ofGroupOrder\ofInterface\ofEmployer\" />
-    <Folder Include="ofGroupOrder\ofInterface\ofPlatform\" />
+    <Folder Include="ofJournal\Migrations\" />
+    <Folder Include="ofJournal\Configuration\" />
     <Folder Include="ofHRMarket\ofInterface\ofEmployee\" />
     <Folder Include="ofHRMarket\ofInterface\ofEmployer\" />
     <Folder Include="ofHRMarket\ofInterface\ofPlatform\" />
-    <Folder Include="ofHumanResource\ofInterface\ofEmployee\" />
-    <Folder Include="ofHumanResource\ofInterface\ofEmployer\" />
-    <Folder Include="ofHumanResource\ofInterface\ofPlatform\" />
-    <Folder Include="ofMarket\ofInterface\ofEmployee\" />
-    <Folder Include="ofMarket\ofInterface\ofEmployer\" />
-    <Folder Include="ofMarket\ofInterface\ofPlatform\" />
-    <Folder Include="ofOrder\ofInterface\ofEmployee\" />
-    <Folder Include="ofOrder\ofInterface\ofEmployer\" />
-    <Folder Include="ofOrder\ofInterface\ofPlatform\" />
-    <Folder Include="ofProduct\ofInterface\ofEmployee\" />
-    <Folder Include="ofProduct\ofInterface\ofEmployer\" />
-    <Folder Include="ofProduct\ofInterface\ofPlatform\" />
     <Folder Include="ofSmartFarm\ofInterface\ofEmployee\" />
     <Folder Include="ofSmartFarm\ofInterface\ofEmployer\" />
     <Folder Include="ofSmartFarm\ofInterface\ofPlatform\" />
@@ -100,9 +82,6 @@
     <Folder Include="ofTraditionalMarket\ofInterface\ofPlatform\" />
     <Folder Include="ofViewModel\ofSystem\" />
     <Folder Include="ofWarehouse\Migrations\" />
-    <Folder Include="ofWarehouse\ofInterface\ofEmployee\" />
-    <Folder Include="ofWarehouse\ofInterface\ofEmployer\" />
-    <Folder Include="ofWarehouse\ofInterface\ofPlatform\" />
   </ItemGroup>
 
   <ItemGroup>

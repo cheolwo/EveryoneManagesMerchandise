@@ -15,7 +15,7 @@ namespace BusinessLogic.ofManager.ofDeliveryCenter
 
     }
     [DataManager(typeof(SDCommodity))]
-    public class SDCommodityManager : SStatusManager<SDCommodity>, IEmployerSDCommodityManager, IEmployeeSDCommodityManager, IPlatformSDCommodityManager
+    public class SDCommodityManager : SStatusManager<SDCommodity>, IEmployerSDCommodityManager, IEmployeeSDCommodityManager, IPlatformSDCommodityManager, ISDCommodityManager
     {
         public SDCommodityManager(ISDCommodityRepository statusDataRepository, 
             ISDCommodityIdFactory sDCommodityIdFactory,

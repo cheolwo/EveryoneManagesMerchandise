@@ -1,6 +1,9 @@
 using System.Threading.Tasks;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofTrade.ofDbContext;
+using BusinessData.ofTrade.ofinterface.ofEmployee;
+using BusinessData.ofTrade.ofinterface.ofEmployer;
+using BusinessData.ofTrade.ofinterface.ofPlatform;
 using BusinessData.ofTrade.ofModel;
 
 namespace BusinessData.ofTrade.ofRepository
@@ -25,7 +28,7 @@ namespace BusinessData.ofTrade.ofRepository
     {
 
     }   
-    public class TradeCenterRepository : CenterDataRepository<TradeCenter>, ITradeCenterRepository
+    public class TradeCenterRepository : CenterDataRepository<TradeCenter>, ITradeCenterRepository, IEmployeeTradeCenterRepository, IEmployerTradeCenterRepository, IPlatformTradeCenterRepository
     {
         public TradeCenterRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
@@ -33,7 +36,7 @@ namespace BusinessData.ofTrade.ofRepository
 
         }
     }
-    public class TCommodityRepository : CommodityDataRepository<TCommodity>, ITCommodityRepository
+    public class TCommodityRepository : CommodityDataRepository<TCommodity>, ITCommodityRepository, IEmployeeTCommodityRepository, IEmployerTCommodityRepository, IPlatformTCommodityRepository
     {
         public TCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
@@ -41,7 +44,7 @@ namespace BusinessData.ofTrade.ofRepository
 
         }
     }
-    public class STCommodityRepository : StatusDataRepository<STCommodity>, ISTCommodityRepository
+    public class STCommodityRepository : StatusDataRepository<STCommodity>, ISTCommodityRepository, IEmployeeSTCommodityRepository, IEmployerSTCommodityRepository, IPlatformSTCommodityRepository
     {
         public STCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
@@ -49,7 +52,7 @@ namespace BusinessData.ofTrade.ofRepository
 
         }
     }
-    public class MTCommodityRepository : StatusDataRepository<MTCommodity>, IMTCommodityRepository
+    public class MTCommodityRepository : StatusDataRepository<MTCommodity>, IMTCommodityRepository, IEmployeeMTCommodityRepository, IEmployerMTCommodityRepository, IPlatformMTCommodityRepository
     {
         public MTCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
@@ -57,7 +60,7 @@ namespace BusinessData.ofTrade.ofRepository
 
         }
     }
-    public class ETCommodityRepository : StatusDataRepository<ETCommodity>, IETCommodityRepository
+    public class ETCommodityRepository : StatusDataRepository<ETCommodity>, IETCommodityRepository, IEmployeeETCommodityRepository, IEmployerETCommodityRepository, IPlatformETCommodityRepository
     {
         public ETCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)

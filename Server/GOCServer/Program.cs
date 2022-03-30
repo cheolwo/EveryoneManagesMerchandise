@@ -3,6 +3,9 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofGO.ofRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
+using BusinessData.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessData.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessData.ofGroupOrder.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
@@ -85,6 +88,24 @@ builder.Services.AddScoped<IGOCCRepository, GOCCRepository>();
 builder.Services.AddScoped<ISGOCRepository, SGOCRepository>();
 builder.Services.AddScoped<IMGOCRepository, MGOCRepository>();
 builder.Services.AddScoped<IEGOCRepository, EGOCRepository>();
+
+builder.Services.AddScoped<IEmployeeGOCRepository, GOCRepository>();
+builder.Services.AddScoped<IEmployeeGOCCRepository, GOCCRepository>();
+builder.Services.AddScoped<IEmployeeSGOCRepository, SGOCRepository>();
+builder.Services.AddScoped<IEmployeeMGOCRepository, MGOCRepository>();
+builder.Services.AddScoped<IEmployeeEGOCRepository, EGOCRepository>();
+
+builder.Services.AddScoped<IEmployerGOCRepository, GOCRepository>();
+builder.Services.AddScoped<IEmployerGOCCRepository, GOCCRepository>();
+builder.Services.AddScoped<IEmployerSGOCRepository, SGOCRepository>();
+builder.Services.AddScoped<IEmployerMGOCRepository, MGOCRepository>();
+builder.Services.AddScoped<IEmployerEGOCRepository, EGOCRepository>();
+
+builder.Services.AddScoped<IPlatformGOCRepository, GOCRepository>();
+builder.Services.AddScoped<IPlatformGOCCRepository, GOCCRepository>();
+builder.Services.AddScoped<IPlatformSGOCRepository, SGOCRepository>();
+builder.Services.AddScoped<IPlatformMGOCRepository, MGOCRepository>();
+builder.Services.AddScoped<IPlatformEGOCRepository, EGOCRepository>();
 
 builder.Services.AddScoped<IGOCFileFactory, GOCFileFactory>();
 builder.Services.AddScoped<IGOCCFileFactory, GOCCFileFactory>();

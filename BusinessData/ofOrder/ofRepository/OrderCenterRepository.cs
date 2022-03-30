@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofOrder.ofDbContext;
+using BusinessData.ofOrder.ofInterface.ofEmployee;
+using BusinessData.ofOrder.ofInterface.ofEmployer;
+using BusinessData.ofOrder.ofInterface.ofPlatform;
 using BusinessData.ofOrder.ofModel;
 
 namespace BusinessData.ofOrder.ofRepository
@@ -24,7 +27,7 @@ namespace BusinessData.ofOrder.ofRepository
     {
 
     }
-    public class OrderCenterRepository : CenterDataRepository<OrderCenter>, IOrderCenterRepository
+    public class OrderCenterRepository : CenterDataRepository<OrderCenter>, IOrderCenterRepository, IEmployeeOrderCenterRepository, IEmployerOrderCenterRepository, IPlatformOrderCenterRepository
     {
         public OrderCenterRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
@@ -37,7 +40,7 @@ namespace BusinessData.ofOrder.ofRepository
             throw new System.NotImplementedException();
         }
     }
-    public class OCommodityRepository : CommodityDataRepository<OCommodity>, IOCommodityRepository
+    public class OCommodityRepository : CommodityDataRepository<OCommodity>, IOCommodityRepository, IEmployeeOCommodityRepository, IEmployerOCommodityRepository, IPlatformOCommodityRepository
     {
         public OCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
@@ -45,7 +48,7 @@ namespace BusinessData.ofOrder.ofRepository
 
         }
     }
-    public class SOCommodityRepository : StatusDataRepository<SOCommodity>, ISOCommodityRepository
+    public class SOCommodityRepository : StatusDataRepository<SOCommodity>, ISOCommodityRepository, IEmployeeSOCommodityRepository, IEmployerSOCommodityRepository, IPlatformSOCommodityRepository
     {
         public SOCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
@@ -53,7 +56,7 @@ namespace BusinessData.ofOrder.ofRepository
 
         }
     }
-    public class MOCommodityRepository : StatusDataRepository<MOCommodity>, IMOCommodityRepository
+    public class MOCommodityRepository : StatusDataRepository<MOCommodity>, IMOCommodityRepository, IEmployeeMOCommodityRepository, IEmployerMOCommodityRepository, IPlatformMOCommodityRepository
     {
         public MOCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
@@ -61,7 +64,7 @@ namespace BusinessData.ofOrder.ofRepository
 
         }
     }
-    public class EOCommodityRepository : StatusDataRepository<EOCommodity>, IEOCommodityRepository
+    public class EOCommodityRepository : StatusDataRepository<EOCommodity>, IEOCommodityRepository, IEmployeeEOCommodityRepository, IEmployerEOCommodityRepository, IPlatformEOCommodityRepository
     {
         public EOCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)

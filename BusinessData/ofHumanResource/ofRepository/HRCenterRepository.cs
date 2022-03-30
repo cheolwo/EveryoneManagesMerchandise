@@ -1,5 +1,7 @@
 using BusinessData.ofHR.ofDbContext;
-using BusinessData.ofHumanResouce.ofIdFactory;
+using BusinessData.ofHumanResource.ofInterface.ofEmployee;
+using BusinessData.ofHumanResource.ofInterface.ofEmployer;
+using BusinessData.ofHumanResource.ofInterface.ofPlatform;
 using BusinessData.ofHumanResource.ofRepository;
 
 namespace BusinessData.ofHRCenter.ofRepository
@@ -8,7 +10,7 @@ namespace BusinessData.ofHRCenter.ofRepository
     {
     }
 
-    public class HRCenterRepository : CenterDataRepository<HRCenter>, IHRCenterRepository
+    public class HRCenterRepository : CenterDataRepository<HRCenter>, IHRCenterRepository, IEmployeeHRCenterRepository, IEmployerHRCenterRepository, IPlatformHRCenterRepository
     {
         public HRCenterRepository(HRDbContext HRDbContext)
             :base(HRDbContext)
@@ -19,7 +21,7 @@ namespace BusinessData.ofHRCenter.ofRepository
     {
     }
 
-    public class HREmployeeRepository : EntityDataRepository<HREmployee>, IHREmployeeRepository
+    public class HREmployeeRepository : EntityDataRepository<HREmployee>, IHREmployeeRepository, IEmployeeHREmployeeRepository, IEmployerHREmployeeRepository, IPlatformHREmployeeRepository
     {
         public HREmployeeRepository(HRDbContext HRDbContext)
             :base(HRDbContext)
@@ -30,7 +32,7 @@ namespace BusinessData.ofHRCenter.ofRepository
     {
     }
 
-    public class HRRoleRepository : EntityDataRepository<HRRole>, IHRRoleRepository
+    public class HRRoleRepository : EntityDataRepository<HRRole>, IHRRoleRepository, IEmployeeHRRoleRepository, IEmployerHRRoleRepository, IPlatformHRRoleRepository
     {
         public HRRoleRepository(HRDbContext HRDbContext)
             :base(HRDbContext)
@@ -41,7 +43,7 @@ namespace BusinessData.ofHRCenter.ofRepository
     {
     }
 
-    public class EmployeeRoleRepository : EntityDataRepository<EmployeeRole>, IEmployeeRoleRepository
+    public class EmployeeRoleRepository : EntityDataRepository<EmployeeRole>, IEmployeeRoleRepository, IEmployeeEmployeeRoleRepository, IEmployerEmployeeRoleRepository, IPlatformEmployeeRoleRepository
     {
         public EmployeeRoleRepository(HRDbContext HRDbContext)
             :base(HRDbContext)

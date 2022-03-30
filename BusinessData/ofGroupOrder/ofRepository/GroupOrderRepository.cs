@@ -1,6 +1,9 @@
 using System.Threading.Tasks;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofGroupOrder.ofDbContext;
+using BusinessData.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessData.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessData.ofGroupOrder.ofInterface.ofPlatform;
 using BusinessData.ofGroupOrder.ofModel;
 
 namespace BusinessData.ofGO.ofRepository
@@ -25,7 +28,7 @@ namespace BusinessData.ofGO.ofRepository
     {
 
     }
-    public class GOCRepository : CenterDataRepository<GOC>, IGOCRepository
+    public class GOCRepository : CenterDataRepository<GOC>, IGOCRepository, IEmployeeGOCRepository, IEmployerGOCRepository, IPlatformGOCRepository
     {
         public GOCRepository(GODbContext GODbContext)
             :base(GODbContext)
@@ -38,7 +41,7 @@ namespace BusinessData.ofGO.ofRepository
             throw new System.NotImplementedException();
         }
     }
-    public class GOCCRepository : CommodityDataRepository<GOCC>, IGOCCRepository
+    public class GOCCRepository : CommodityDataRepository<GOCC>, IGOCCRepository, IEmployeeGOCCRepository, IEmployerGOCCRepository, IPlatformGOCCRepository
     {
         public GOCCRepository(GODbContext GODbContext)
             :base(GODbContext)
@@ -46,7 +49,7 @@ namespace BusinessData.ofGO.ofRepository
 
         }
     }
-    public class SGOCRepository : StatusDataRepository<SGOC>, ISGOCRepository
+    public class SGOCRepository : StatusDataRepository<SGOC>, ISGOCRepository, IEmployeeSGOCRepository, IEmployerSGOCRepository, IPlatformSGOCRepository
     {
         public SGOCRepository(GODbContext GODbContext)
             :base(GODbContext)
@@ -54,7 +57,7 @@ namespace BusinessData.ofGO.ofRepository
 
         }
     }
-    public class MGOCRepository : StatusDataRepository<MGOC>, IMGOCRepository
+    public class MGOCRepository : StatusDataRepository<MGOC>, IMGOCRepository, IEmployeeMGOCRepository, IEmployerMGOCRepository, IPlatformMGOCRepository
     {
         public MGOCRepository(GODbContext GODbContext)
             :base(GODbContext)
@@ -62,7 +65,7 @@ namespace BusinessData.ofGO.ofRepository
 
         }
     }
-    public class EGOCRepository : StatusDataRepository<EGOC>, IEGOCRepository
+    public class EGOCRepository : StatusDataRepository<EGOC>, IEGOCRepository, IEmployeeEGOCRepository, IEmployerEGOCRepository, IPlatformEGOCRepository
     {
         public EGOCRepository(GODbContext GODbContext)
             :base(GODbContext)

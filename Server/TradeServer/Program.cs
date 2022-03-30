@@ -2,6 +2,9 @@ using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
 using BusinessData.ofTrade.ofDbContext;
+using BusinessData.ofTrade.ofinterface.ofEmployee;
+using BusinessData.ofTrade.ofinterface.ofEmployer;
+using BusinessData.ofTrade.ofinterface.ofPlatform;
 using BusinessData.ofTrade.ofRepository;
 using BusinessLogic.ofManager.ofGeneric;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
@@ -85,6 +88,24 @@ builder.Services.AddScoped<ITCommodityRepository, TCommodityRepository>();
 builder.Services.AddScoped<ISTCommodityRepository, STCommodityRepository>();
 builder.Services.AddScoped<IMTCommodityRepository, MTCommodityRepository>();
 builder.Services.AddScoped<IETCommodityRepository, ETCommodityRepository>();
+
+builder.Services.AddScoped<IEmployeeTradeCenterRepository, TradeCenterRepository>();
+builder.Services.AddScoped<IEmployeeTCommodityRepository, TCommodityRepository>();
+builder.Services.AddScoped<IEmployeeSTCommodityRepository, STCommodityRepository>();
+builder.Services.AddScoped<IEmployeeMTCommodityRepository, MTCommodityRepository>();
+builder.Services.AddScoped<IEmployeeETCommodityRepository, ETCommodityRepository>();
+
+builder.Services.AddScoped<IEmployerTradeCenterRepository, TradeCenterRepository>();
+builder.Services.AddScoped<IEmployerTCommodityRepository, TCommodityRepository>();
+builder.Services.AddScoped<IEmployerSTCommodityRepository, STCommodityRepository>();
+builder.Services.AddScoped<IEmployerMTCommodityRepository, MTCommodityRepository>();
+builder.Services.AddScoped<IEmployerETCommodityRepository, ETCommodityRepository>();
+
+builder.Services.AddScoped<IPlatformTradeCenterRepository, TradeCenterRepository>();
+builder.Services.AddScoped<IPlatformTCommodityRepository, TCommodityRepository>();
+builder.Services.AddScoped<IPlatformSTCommodityRepository, STCommodityRepository>();
+builder.Services.AddScoped<IPlatformMTCommodityRepository, MTCommodityRepository>();
+builder.Services.AddScoped<IPlatformETCommodityRepository, ETCommodityRepository>();
 
 builder.Services.AddScoped<ITradeCenterFileFactory, TradeCenterFileFactory>();
 builder.Services.AddScoped<ITCommodityFileFactory, TCommodityFileFactory>();

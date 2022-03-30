@@ -6,6 +6,9 @@ using BusinessData.ofWarehouse.Model;
 using BusinessData.ofWarehouse.ofDbContext;
 using BusinessData.ofGenericRepository;
 using System;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 namespace BusinessData.ofWarehouse.ofRepository
 {
@@ -29,7 +32,7 @@ namespace BusinessData.ofWarehouse.ofRepository
     {
 
     }
-    public class WarehouseRepository : CenterDataRepository<Warehouse>, IWarehouseRepository
+    public class WarehouseRepository : CenterDataRepository<Warehouse>, IWarehouseRepository, IEmployeeWarehouseRepository, IEmployerWarehouseRepository, IPlatformWarehouseRepository 
     {
         public WarehouseRepository(WarehouseDbContext WarehouseDbContext)
                 : base(WarehouseDbContext)
@@ -76,7 +79,7 @@ namespace BusinessData.ofWarehouse.ofRepository
         }
     }
 
-    public class SWCommodityRepository : StatusDataRepository<SWCommodity>, ISWCommodityRepository
+    public class SWCommodityRepository : StatusDataRepository<SWCommodity>, ISWCommodityRepository, IEmployeeSWCommodityRepository, IEmployerSWCommodityRepository, IPlatformSWCommodityRepository
     {
         public SWCommodityRepository(WarehouseDbContext WarehouseDbContext)
                 : base(WarehouseDbContext)
@@ -100,7 +103,7 @@ namespace BusinessData.ofWarehouse.ofRepository
 
     }
 
-    public class MWCommodityRepository : StatusDataRepository<MWCommodity>, IMWCommodityRepository
+    public class MWCommodityRepository : StatusDataRepository<MWCommodity>, IMWCommodityRepository, IEmployeeMWCommodityRepository, IEmployerMWCommodityRepository, IPlatformMWCommodityRepository
     {
         public MWCommodityRepository(WarehouseDbContext WarehouseDbContext)
                 : base(WarehouseDbContext)
@@ -114,7 +117,7 @@ namespace BusinessData.ofWarehouse.ofRepository
 
     }
 
-    public class EWCommodityRepository : StatusDataRepository<EWCommodity>, IEWCommodityRepository
+    public class EWCommodityRepository : StatusDataRepository<EWCommodity>, IEWCommodityRepository, IEmployeeEWCommodityRepository, IEmployerEWCommodityRepository, IPlatformEWCommodityRepository
     {
         public EWCommodityRepository(WarehouseDbContext WarehouseDbContext)
                 : base(WarehouseDbContext)
@@ -130,7 +133,7 @@ namespace BusinessData.ofWarehouse.ofRepository
     {
 
     }
-    public class WorkingDeskRepository : EntityDataRepository<WorkingDesk>
+    public class WorkingDeskRepository : EntityDataRepository<WorkingDesk>, IWorkingDeskRepository/*, IEmployeeWorkingDeskRepository, IEmployerWorkingDeskRepository, IPlatformWorkingDeskRepository*/
     {
         public WorkingDeskRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)
@@ -142,7 +145,7 @@ namespace BusinessData.ofWarehouse.ofRepository
     {
 
     }
-    public class DotBarcodeRepository : EntityDataRepository<DotBarcode>
+    public class DotBarcodeRepository : EntityDataRepository<DotBarcode>, IDotBarcodeRepository/*, IEmployeeDotBarcodeRepository, IEmployerDotBarcodeRepository, IPlatformDotBarcodeRepository*/
     {
         public DotBarcodeRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)

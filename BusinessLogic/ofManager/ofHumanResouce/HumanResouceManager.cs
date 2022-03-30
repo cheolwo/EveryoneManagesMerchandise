@@ -14,7 +14,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HRCenterManager : CenterManager<HRCenter>, IEmployerHRCenterManager, IEmployeeHRCenterManager, IPlatformHRCenterManager
+    public class HRCenterManager : CenterManager<HRCenter>, IEmployerHRCenterManager, IEmployeeHRCenterManager, IPlatformHRCenterManager, IHRCenterManager
     {
         public HRCenterManager(IHRCenterRepository HRCenterRepository, 
         IHRCenterIdFactory hRCenterIdFactory, 
@@ -30,7 +30,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HREmployeeManager : EntityManager<HREmployee>, IEmployerHREmployeeManager, IEmployeeHREmployeeManager, IPlatformHREmployeeManager
+    public class HREmployeeManager : EntityManager<HREmployee>, IEmployerHREmployeeManager, IEmployeeHREmployeeManager, IPlatformHREmployeeManager, IHREmployeeManager
     {
         public HREmployeeManager(IHREmployeeRepository HREmployeeRepository, IHREmployeeIdFactory hREmployeeIdFactory, IHREmployeeFileFactory HREmployeeFileFactory,
         IHREmployeeBlobStorage entityBlobStorage, DicConvertFactory<HREmployee> dicConvertFactory)
@@ -43,7 +43,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class HRRoleManager : EntityManager<HRRole>, IEmployerHRRoleManager, IEmployeeHRRoleManager, IPlatformHRRoleManager
+    public class HRRoleManager : EntityManager<HRRole>, IEmployerHRRoleManager, IEmployeeHRRoleManager, IPlatformHRRoleManager, IHRRoleManager
     {
         public HRRoleManager(IHRRoleRepository HRRoleRepository, IHRRoleIdFactory hRRoleIdFactory, IHRRoleFileFactory HRRoleFileFactory,
         IHRRoleBlobStorage entityBlobStorage, DicConvertFactory<HRRole> dicConvertFactory)
@@ -56,7 +56,7 @@ namespace BusinessLogic.ofManager.ofHumanResouce
     {
 
     }
-    public class EmployeeRoleManager : EntityManager<EmployeeRole>, IEmployerEmployeeRoleManager, IEmployeeEmployeeRoleManager, IPlatformEmployeeRoleManager
+    public class EmployeeRoleManager : EntityManager<EmployeeRole>, IEmployerEmployeeRoleManager, IEmployeeEmployeeRoleManager, IPlatformEmployeeRoleManager, IEmployeeRoleManager
     {
         public EmployeeRoleManager(IEmployeeRoleRepository EmployeeRoleRepository, IEmployeeRoleIdFactory employeeRoleIdFactory, IEmployeeRoleFileFactory EmployeeRoleFileFactory,
         IEmployeeRoleBlobStorage entityBlobStorage, DicConvertFactory<EmployeeRole> dicConvertFactory)
