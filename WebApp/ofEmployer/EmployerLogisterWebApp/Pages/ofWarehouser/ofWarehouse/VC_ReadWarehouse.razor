@@ -1,0 +1,13 @@
+﻿@page "/user/warehouse"
+@using Microsoft.AspNetCore.Identity
+<h3>VC_ReadWarehouse</h3>
+
+@code {
+    [Inject] public IHttpContextAccessor? _httpContextAccessor { get; set; }
+    [Inject] public UserManager<IdentityUser>? _userManager { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var User = _httpContextAccessor?.HttpContext?.User;
+        var CurrentUser =  await _userManager.GetUserAsync(User);
+    }
+}

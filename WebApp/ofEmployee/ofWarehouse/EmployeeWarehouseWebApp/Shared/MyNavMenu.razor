@@ -1,0 +1,36 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">EmployeeWarehouse</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <MudNavLink Href="/servers" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
+    <MudNavGroup Title="UserSetting" Expanded="false">
+        <MudNavLink Href="/user/info"  Match="NavLinkMatch.Prefix">Info</MudNavLink>
+        <MudNavLink Href="/user/role"  Match="NavLinkMatch.Prefix">Role</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Warehouser" Expanded="false">
+        <MudNavLink Href="/user/warehouse"  Match="NavLinkMatch.Prefix">Warehouse</MudNavLink>
+        <MudNavLink Href="/user/wcommodity"  Match="NavLinkMatch.Prefix">WC</MudNavLink>
+        <MudNavLink Href="/user/swcommodity"  Match="NavLinkMatch.Prefix">SWC</MudNavLink>
+        <MudNavLink Href="/user/mwcommodity"  Match="NavLinkMatch.Prefix">MWC</MudNavLink>
+        <MudNavLink Href="/user/ewcommodity"  Match="NavLinkMatch.Prefix">EWC</MudNavLink>
+    </MudNavGroup>
+</MudNavMenu>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
+

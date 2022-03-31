@@ -26,7 +26,13 @@ namespace BusinessData.ofGeneric.ofTypeConfiguration
                 new ValueComparer<List<CenterMacAddress>>((c1, c2) => c1.SequenceEqual(c2),
                  c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
             c => c.ToList()));
-            
+            builder.Property(c => c.CenterCards).HasConversion(
+                v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                v => JsonConvert.DeserializeObject<List<CenterCard>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                new ValueComparer<List<CenterCard>>((c1, c2) => c1.SequenceEqual(c2),
+                 c => c.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
+            c => c.ToList()));
+
         }
     }
 }

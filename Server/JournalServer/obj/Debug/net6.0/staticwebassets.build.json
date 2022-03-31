@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YBHC1fLn3O0MK+NwEL8bjpRjlVGKo6piIjnpkN6bv/4=",
+  "Source": "JournalServer",
+  "BasePath": "_content/JournalServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

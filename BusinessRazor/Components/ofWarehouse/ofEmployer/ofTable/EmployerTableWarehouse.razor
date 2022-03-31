@@ -1,4 +1,4 @@
-﻿@using BusinessView.ofDTO.ofWarehouseDTO.ofEmployee.ofWarehouse
+﻿@*@using BusinessView.ofDTO.ofWarehouseDTO.ofEmployee.ofWarehouse
 <h3>EmployeeTableForWarehouse</h3>
 
 <MudTable Items="@employeeWarehouseDTOs" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped" Filter="new Func<EmployeeWarehouseDTO,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
@@ -73,8 +73,5 @@
     [Parameter] public bool IsManagerModel { get; set; }
     public EmployeeWarehouseDTO? EmployeeWarehouseDTO { get; set; }
     
-    protected override Task OnInitializedAsync()
-    {
-            
-    }
 }
+*@

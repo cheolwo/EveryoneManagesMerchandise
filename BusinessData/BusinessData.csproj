@@ -61,6 +61,7 @@
   <ItemGroup>
     <Folder Include="Migrations\BusinessUserDb\" />
     <Folder Include="Migrations\FisheriesDb\" />
+    <Folder Include="Migrations\GODb\" />
     <Folder Include="Migrations\HsDb\" />
     <Folder Include="Migrations\KamisDb\" />
     <Folder Include="Migrations\KAptDb\" />

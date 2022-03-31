@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofWarehouse.ofInterface.ofEmployee
 {
-    public interface IEmployeeWarehouseRepository : IWarehouseRepository
+    public interface IEmployeeWarehouseRepository
     {
-
+        
     }
-    public interface IEmployeeWCommodityRepository : IWCommodityRepository
+    public interface IEmployeeWCommodityRepository 
     { 
 
     }
-    public interface IEmployeeSWCommodityRepository : ISWCommodityRepository
+    public interface IEmployeeSWCommodityRepository 
     {
 
     }
-    public interface IEmployeeMWCommodityRepository : IMWCommodityRepository
+    public interface IEmployeeMWCommodityRepository 
     {
 
     }
-    public interface IEmployeeEWCommodityRepository : IEWCommodityRepository
-    {
+    public interface IEmployeeEWCommodityRepository
+    { 
 
     }
 }

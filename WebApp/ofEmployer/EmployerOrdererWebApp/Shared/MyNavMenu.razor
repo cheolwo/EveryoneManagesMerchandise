@@ -1,0 +1,70 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">OrdererWebApp</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <MudNavLink Href="/servers" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
+    <MudNavGroup Title="UserSetting" Expanded="false">
+        <MudNavLink Href="/user/info"  Match="NavLinkMatch.Prefix">Info</MudNavLink>
+        <MudNavLink Href="/user/role"  Match="NavLinkMatch.Prefix">Role</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Orderer" Expanded="false">
+        <MudNavLink Href="/user/ordercenter"  Match="NavLinkMatch.Prefix">OrderCenter</MudNavLink>
+        <MudNavLink Href="/user/ocommodity"  Match="NavLinkMatch.Prefix">OC</MudNavLink>
+        <MudNavLink Href="/user/socommodity"  Match="NavLinkMatch.Prefix">SOC</MudNavLink>
+        <MudNavLink Href="/user/mocommodity"  Match="NavLinkMatch.Prefix">MOC</MudNavLink>
+        <MudNavLink Href="/user/eocommodity"  Match="NavLinkMatch.Prefix">EOC</MudNavLink>
+    </MudNavGroup>
+    <MudNavGroup Title="GroupOrderer" Expanded="false">
+        <MudNavLink Href="/user/goc"  Match="NavLinkMatch.Prefix">GroupOrder</MudNavLink>
+        <MudNavLink Href="/user/gocc"  Match="NavLinkMatch.Prefix">GOCC</MudNavLink>
+        <MudNavLink Href="/user/sgoc"  Match="NavLinkMatch.Prefix">SGOC</MudNavLink>
+        <MudNavLink Href="/user/mgoc"  Match="NavLinkMatch.Prefix">MGOC</MudNavLink>
+        <MudNavLink Href="/user/egoc"  Match="NavLinkMatch.Prefix">EGOC</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Trader" Expanded="false">
+        <MudNavLink Href="/user/tradecenter"  Match="NavLinkMatch.Prefix">TradeCenter</MudNavLink>
+        <MudNavLink Href="/user/tcommodity"  Match="NavLinkMatch.Prefix">TC</MudNavLink>
+        <MudNavLink Href="/user/stcommodity"  Match="NavLinkMatch.Prefix">STC</MudNavLink>
+        <MudNavLink Href="/user/mtcommodity"  Match="NavLinkMatch.Prefix">MTC</MudNavLink>
+        <MudNavLink Href="/user/etcommodity"  Match="NavLinkMatch.Prefix">ETC</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Marketer" Expanded="false">
+        <MudNavLink Href="/user/market"  Match="NavLinkMatch.Prefix">Market</MudNavLink>
+        <MudNavLink Href="/user/mcommodity"  Match="NavLinkMatch.Prefix">MC</MudNavLink>
+        <MudNavLink Href="/user/smcommodity"  Match="NavLinkMatch.Prefix">SMC</MudNavLink>
+        <MudNavLink Href="/user/mmcommodity"  Match="NavLinkMatch.Prefix">MMC</MudNavLink>
+        <MudNavLink Href="/user/emcommodity"  Match="NavLinkMatch.Prefix">EMC</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Producter" Expanded="false">
+        <MudNavLink Href="/user/productcenter"  Match="NavLinkMatch.Prefix">ProductCenter</MudNavLink>
+        <MudNavLink Href="/user/pcommodity"  Match="NavLinkMatch.Prefix">PC</MudNavLink>
+        <MudNavLink Href="/user/spcommodity"  Match="NavLinkMatch.Prefix">SPC</MudNavLink>
+        <MudNavLink Href="/user/mpcommodity"  Match="NavLinkMatch.Prefix">MPC</MudNavLink>
+        <MudNavLink Href="/user/epcommodity"  Match="NavLinkMatch.Prefix">EPC</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Warehouser" Expanded="false">
+        <MudNavLink Href="/user/warehouse"  Match="NavLinkMatch.Prefix">Warehouse</MudNavLink>
+        <MudNavLink Href="/user/wcommodity"  Match="NavLinkMatch.Prefix">WC</MudNavLink>
+        <MudNavLink Href="/user/swcommodity"  Match="NavLinkMatch.Prefix">SWC</MudNavLink>
+        <MudNavLink Href="/user/mwcommodity"  Match="NavLinkMatch.Prefix">MWC</MudNavLink>
+        <MudNavLink Href="/user/ewcommodity"  Match="NavLinkMatch.Prefix">EWC</MudNavLink>
+    </MudNavGroup>
+</MudNavMenu>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

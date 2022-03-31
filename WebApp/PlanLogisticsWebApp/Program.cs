@@ -11,8 +11,6 @@ using BusinessData.ofWarehouse.ofDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMudServices();
-
 // Add services to the container.
 var IdentityConnectionString = builder.Configuration.GetConnectionString("IdentityDbConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -22,6 +20,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddRazorPages();
