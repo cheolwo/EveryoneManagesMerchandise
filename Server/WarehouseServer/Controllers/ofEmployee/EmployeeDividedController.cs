@@ -29,8 +29,7 @@ namespace WarehouseServer.Controllers.ofEmployee
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployeeDividedTag>>> Get()
         {
-            // Reposirory 를 3등분 해야됨.
-            return await _employeeDividedTagRepository.GetToListAsync();
+            throw new NotImplementedException();
         }
 
         // GET api/<EmployeeDividedController>/5
