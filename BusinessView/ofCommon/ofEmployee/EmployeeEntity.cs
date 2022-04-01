@@ -208,10 +208,10 @@ namespace BusinessView.ofCommon.ofEmployee
         [Get] public string CardPassword {get; set;}
         [Get] public string PhoneNumber {get; set;}
         [Get] public string FaxNumber {get; set;}
-        [Get][Many] public List<Commodity> Commodities { get; set; }
-        [Get][Many] public List<EStatus> EStatuses { get; set; }
-        [Get][Many] public List<MStatus> MStatuses { get; set; }
-        [Get][Many] public List<SStatus> SStatuses { get; set; }
+        [Get][Many] public string Commodities { get; set; }
+        [Get][Many] public string EStatuses { get; set; }
+        [Get][Many] public string MStatuses { get; set; }
+        [Get][Many] public string SStatuses { get; set; }
         [Detail] public List<CenterMacAddress> CenterMacAddresses { get; set; }
         [Detail] public List<CenterIPAddress> CenterIPAddresses { get; set; }
         [Detail] public List<CenterRole> CenterRoles {get; set;}
@@ -223,30 +223,30 @@ namespace BusinessView.ofCommon.ofEmployee
         [Detail]public string Barcode {get; set;}
         public string CenterId {get; set;}
         [One][Get]public Center Center { get; set; }
-        [Many][Get]public List<EStatus> EStatuses { get; set; }
-        [Many][Get]public List<MStatus> MStatuses { get; set; }
-        [Many][Get]public List<SStatus> SStatuses { get; set; }
+        [Many][Get]public string EStatuses { get; set; }
+        [Many][Get]public string MStatuses { get; set; }
+        [Many][Get]public string SStatuses { get; set; }
     }
     public class EmployeeStatus : EmployeeEntity
     {
         public string CommodityId {get; set;}
         public string CenterId {get; set;}
         public string Quantity { get; set; }
-        [Get][One] public Commodity Commodity { get; set; }
-        [Get][One] public Center Center {get; set;}
+        [Get][One] public string Commodity { get; set; }
+        [Get][One] public string Center {get; set;}
     }
     public class EmployeeSStatus : EmployeeStatus
     {
-        [Get][Many]public List<MStatus> MStatuses { get; set; }
+        [Get][Many]public string MStatuses { get; set; }
     }
     public class EmployeeMStatus : EmployeeStatus
     {
-        [Get][One] public SStatus SStatus { get; set; }
-        [Get][Many] public List<EStatus> EStatuses { get; set; }
+        [Get][One] public string SStatus { get; set; }
+        [Get][Many] public string EStatuses { get; set; }
     }
     public class EmployeeEStatus : EmployeeStatus
     {
         public string MStatusId {get; set;}
-        [Get][One] public MStatus MStatus { get; set; }
+        [Get][One] public string MStatus { get; set; }
     }
 }

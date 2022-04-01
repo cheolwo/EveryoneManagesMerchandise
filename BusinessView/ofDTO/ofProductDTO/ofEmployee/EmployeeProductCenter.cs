@@ -20,22 +20,22 @@ namespace BusinessView.ofProduct.ofEmployee
     }
     public class EmployeeProductCenter : EmployeeCenter
     {
-        public List<Producter> Producters {get; set;}
+        public string Producters {get; set;}
         public string CoprNumber {get; set;}
-        [Detail][Many(ViewNameofProductCenter.ProductCenter)] public List<ProductLand> ProductLands {get; set;}
-        [Detail][Many(ViewNameofProductCenter.PCommodity)] public List<PCommodity> PCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.SPCommodity)] public List<SPCommodity> SPCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public List<MPCommodity> MPCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.EPCommodity)] public List<EPCommodity> EPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.ProductCenter)] public string ProductLands {get; set;}
+        [Detail][Many(ViewNameofProductCenter.PCommodity)] public string PCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.SPCommodity)] public string SPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public string MPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.EPCommodity)] public string EPCommodities {get; set;}
     }
 
     public class EmployeeProducter : EmployeeCenter
     {
         public ProductCenter ProductCenter { get; set; } 
-        public List<PCommodity> PCommodity { get; set; }
-        public List<SPCommodity> SPCommodity { get; set; }
-        public List<MPCommodity> MPCommodities { get; set; }    
-        public List<EPCommodity> EPCommodity { get; set;}
+        public string PCommodity { get; set; }
+        public string SPCommodity { get; set; }
+        public string MPCommodities { get; set; }    
+        public string EPCommodity { get; set;}
     }
     public class EmployeeProductLand : EmployeeEntity
     {
@@ -45,21 +45,21 @@ namespace BusinessView.ofProduct.ofEmployee
         [Get]public float AnticipatingQuantity {get; set;}
         public bool IsTablable {get; set;}
         [Get]public List<string> OrderGroups {get; set;}
-        [Detail][One(ViewNameofProductCenter.PCommodity)] public PCommodity PCommodity { get; set; }
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public ProductLand ProductLand {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductCenter)] public Producter Producter { get; set;}
-        public ProductCenter ProductCenter {get; set;}
-        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public List<MPCommodity> MPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.PCommodity)] public string PCommodity { get; set; }
+        [Detail][One(ViewNameofProductCenter.ProductLand)] public string ProductLand {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductCenter)] public string Producter { get; set;}
+        public string ProductCenter {get; set;}
+        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public string MPCommodities {get; set;}
     }
     public class EmployeePCommodity : EmployeeCommodity
     {
         [Detail]public string Category {get; set;}
         [Detail] public string Brand {get; set;}
-        [Many] public List<SPCommodity> SPCommodities {get; set;}
-        [Many] public List<MPCommodity> MPCommodities {get; set;}
-        [Many] public List<EPCommodity> EPCommodities {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public ProductLand ProductLand {get; set;}
-        public Producter Producter {get; set;}  
+        [Many] public string SPCommodities {get; set;}
+        [Many] public string MPCommodities {get; set;}
+        [Many] public string EPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductLand)] public string ProductLand {get; set;}
+        public string Producter {get; set;}  
     }
     public class EmployeeSPCommodity : EmployeeSStatus
     {
@@ -69,25 +69,25 @@ namespace BusinessView.ofProduct.ofEmployee
         [Get]public float AnticipatingQuantity {get; set;}
         public bool IsTablable {get; set;}
         [Get]public List<string> OrderGroups {get; set;}
-        [Detail][One(ViewNameofProductCenter.PCommodity)] public PCommodity PCommodity { get; set; }
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public ProductLand ProductLand {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductCenter)] public Producter Producter { get; set;}
-        public ProductCenter ProductCenter {get; set;}
-        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public List<MPCommodity> MPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.PCommodity)] public string PCommodity { get; set; }
+        [Detail][One(ViewNameofProductCenter.ProductLand)] public string ProductLand {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductCenter)] public string Producter { get; set;}
+        public string ProductCenter {get; set;}
+        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public string MPCommodities {get; set;}
     }   
     public class EmployeeMPCommodity : EmployeeMStatus
     {   
-        [Detail][One(ViewNameofProductCenter.PCommodity)] public PCommodity PCommodity { get; set; }
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public ProductLand ProductLand {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductCenter)] public Producter Producter { get; set;}
-        [Detail][One(ViewNameofProductCenter.SPCommodity)] public SPCommodity SPCommodity {get; set;}
-        [Detail][Many(ViewNameofProductCenter.EPCommodity)] public List<EPCommodity> EPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.PCommodity)] public string PCommodity { get; set; }
+        [Detail][One(ViewNameofProductCenter.ProductLand)] public string ProductLand {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductCenter)] public string Producter { get; set;}
+        [Detail][One(ViewNameofProductCenter.SPCommodity)] public string SPCommodity {get; set;}
+        [Detail][Many(ViewNameofProductCenter.EPCommodity)] public string EPCommodities {get; set;}
     }
     public class EmployeeEPCommodity : EmployeeEStatus
     {   
-        [Many][One(ViewNameofProductCenter.PCommodity)] public PCommodity PCommodity { get; set; }
-        [Many][One(ViewNameofProductCenter.ProductLand)] public ProductLand ProductLand {get; set;}
-        [Many][One(ViewNameofProductCenter.ProductCenter)] public Producter Producter { get; set;}
-        [Many][One(ViewNameofProductCenter.MPCommodity)] public MPCommodity MPCommodity {get; set;}
+        [Many][One(ViewNameofProductCenter.PCommodity)] public string PCommodity { get; set; }
+        [Many][One(ViewNameofProductCenter.ProductLand)] public string ProductLand {get; set;}
+        [Many][One(ViewNameofProductCenter.ProductCenter)] public string Producter { get; set;}
+        [Many][One(ViewNameofProductCenter.MPCommodity)] public string MPCommodity {get; set;}
     }
 }
