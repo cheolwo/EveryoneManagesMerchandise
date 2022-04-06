@@ -56,6 +56,7 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Popbill" Version="1.14.0" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,11 +64,13 @@
     <Folder Include="Migrations\FisheriesDb\" />
     <Folder Include="Migrations\GODb\" />
     <Folder Include="Migrations\HsDb\" />
+    <Folder Include="Migrations\IotDb\" />
     <Folder Include="Migrations\KamisDb\" />
     <Folder Include="Migrations\KAptDb\" />
     <Folder Include="Migrations\SmartFarmDb\" />
     <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
+    <Folder Include="ofGeneric\ofStorage\" />
     <Folder Include="ofJournal\Migrations\" />
     <Folder Include="ofJournal\Configuration\" />
     <Folder Include="ofHRMarket\ofInterface\ofEmployee\" />

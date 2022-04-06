@@ -8,6 +8,13 @@ using PlanLogisticsWebApp.Areas.Identity;
 using PlanLogisticsWebApp.Data;
 using MudBlazor.Services;
 using BusinessData.ofWarehouse.ofDbContext;
+using BusinessData;
+using BusinessData.ofIot;
+using BusinessLogic.ofManager.ofGeneric;
+using BusinessData.ofGeneric.ofIdFactory;
+using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +23,22 @@ var IdentityConnectionString = builder.Configuration.GetConnectionString("Identi
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(IdentityConnectionString));
 
+var IotConnectionString = DevelopmentDbConnetionString.IotDbConnection;
+builder.Services.AddDbContext<IotDbContext>(options =>
+    options.UseSqlServer(IotConnectionString));
+
+builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
+builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
+builder.Services.AddScoped(typeof(IEntityDataRepository<>), typeof(EntityDataRepository<>));
+builder.Services.AddScoped(typeof(IEntityFileFactory<>), typeof(EntityFileFactory<>));
+builder.Services.AddScoped(typeof(IEntityContainerFactory<>), typeof(EntityContainerFactory<>));
+builder.Services.AddScoped(typeof(IEntityBlobStorage<>), typeof(EntityBlobStorage<>));
+builder.Services.AddScoped(typeof(DicConvertFactory<>));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();

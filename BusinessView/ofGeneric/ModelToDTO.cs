@@ -15,7 +15,7 @@ namespace BusinessView.ofGeneric
     {
         IDTO CreateDTOByNameAndValue(Dictionary<string, object> nameAndValue);
     }
-    public class ModelToDTO<Model, DTO> where Model : class where DTO : class
+    public static class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
         public static DTO ConvertToDTO(Model model, DTO dto)
         {
@@ -33,6 +33,26 @@ namespace BusinessView.ofGeneric
                 }
             }
             return dto;
+        }
+    }
+    public static class DTOToModel<DTO, Model> where DTO : class where Model : class
+    {
+        public static Model ConvertToModel(DTO dto, Model model)
+        {
+            var ModelProps = typeof(Model).GetProperties();
+            var DTOProps = typeof(DTO).GetProperties();
+            foreach (var dtoprop in DTOProps)
+            {
+                var dtovalue = dtoprop.GetValue(dto);
+                foreach (var modelprop in ModelProps)
+                {
+                    if (dtoprop.Name.Equals(modelprop.Name))
+                    {
+                        modelprop.SetValue(model, dtovalue);
+                    }
+                }
+            }
+            return model;
         }
     }
 }

@@ -1,0 +1,14 @@
+﻿@using BusinessData.ofIot.Model
+@using BusinessLogic.ofIOT
+@page "/iot/led"
+<h3>LedOnOff</h3>
+<MudButton OnClick=ledManager.LedOn>On</MudButton>
+<MudButton OnClick=ledManager.LedOff>OFF</MudButton>
+@code {
+    public LedManager ledManager = new("COM4");
+    
+    protected override void OnInitialized()
+    {
+
+    }
+}

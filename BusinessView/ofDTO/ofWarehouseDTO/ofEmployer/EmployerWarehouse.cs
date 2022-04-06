@@ -1,5 +1,4 @@
 ﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofCommon.ofEmployer;
 
 namespace BusinessView.ofWarehouse.ofEmployer

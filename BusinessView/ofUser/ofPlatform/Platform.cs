@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessView.ofUser.ofPlatformer
 {
-    public class Platformer
+    public class Platformer : User
     {
         private HttpClient HttpClient { get; set; }
 		public Platformer()

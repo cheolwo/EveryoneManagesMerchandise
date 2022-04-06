@@ -5,7 +5,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofUser
 {
-    public class AuthorizationUser : AuthenticateUser, IAuthorizeUser
+    public class AuthorizationUser : User, IAuthorizeUser
     {
         private HttpClient AuthorizeHttpClient;
         public AuthorizationUser()
@@ -21,7 +21,7 @@ namespace BusinessView.ofUser
         }
     }
     // 여기서는 Employee가 Employer HR 의 소속되어 있는지를 확인해야됨.
-    public class EmployeeWarehouserService : AuthenticateUser
+    public class EmployeeWarehouserService : User
     {
         
     }

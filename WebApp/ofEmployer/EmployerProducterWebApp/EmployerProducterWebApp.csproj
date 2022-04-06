@@ -17,4 +17,8 @@
     <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BusinessData\BusinessData.csproj" />
+  </ItemGroup>
+
 </Project>

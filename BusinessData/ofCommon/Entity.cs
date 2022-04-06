@@ -29,8 +29,28 @@ namespace BusinessData
         public const string OrderDbconnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=OrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
         public const string SmartFarmDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=SmartFarmDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=8462846f!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
     }
-    public class OneAttribute : Attribute
+    public static class DevelopmentDbConnetionString
     {
+        public const string WarehouseDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=WarehouseDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string HRDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=HRDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string DeliveryDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=DeliveryDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string MarketDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=MarketDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string JournalDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=JournalDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string OrderDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=OrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string GroupOrderDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=GroupOrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string ProductDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=ProductDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string TradeDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=TradeDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string HsDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=HsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string KamisDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=KamisDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string KAptDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=KAptDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string FisheriesDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=FisheriesDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BusinessUserDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BusinessUserDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string OrderDbconnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=OrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string SmartFarmDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string IotDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+    }
+    public class OneAttribute : Attribute
+    {     
         public string Name { get; set; }
         public OneAttribute(string name)
         {

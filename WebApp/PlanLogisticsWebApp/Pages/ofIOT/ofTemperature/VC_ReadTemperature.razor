@@ -1,0 +1,60 @@
+﻿@page "/iot/temp"
+@using BusinessData.ofIot
+@using BusinessData.ofIot.Model
+@using BusinessLogic.ofManager.ofGeneric
+
+<h3>Temperature</h3>
+<MudButton OnClick=SwitchCollect>Switch</MudButton>
+<MudButton OnClick=CollectHumidityData>DataCollect</MudButton>
+
+<MudTable Items="@Datas" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>CreateTime</MudTh>
+        <MudTh>Temperature</MudTh>
+        <MudTh>Humidity</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="CreateTime">@context.CreateTime</MudTd>
+        <MudTd DataLabel="Temperature">@context.Temperature</MudTd>
+        <MudTd DataLabel="Humidity" HideSmall="_hidePosition">@context.Humidity</MudTd>
+    </RowTemplate>
+</MudTable>
+
+<MudSwitch @bind-Checked="_hidePosition">Hide <b>position</b> when Breakpoint=Xs</MudSwitch>
+<MudSwitch @bind-Checked="_loading">Show Loading</MudSwitch>
+
+@code {
+    [Inject] public IEntityDataRepository<TemperatureHumidity> _entityDataRepository { get; set; }
+    [Inject] public IEntityManager<TemperatureHumidity> _entityManager { get; set; }
+    public TempHumiditySerialManager TempHumiditySerialManager = new("COM4");
+    public List<TemperatureHumidity> Datas = new();
+    private string ValTemperature;
+    private string ValHumidity;
+    private bool Switch = false;
+    private bool _hidePosition;
+    private bool _loading;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Datas = await _entityDataRepository.GetToListAsync();
+    }
+    public async Task CollectHumidityData()
+    {
+        while(Switch)
+        {
+            ValHumidity = TempHumiditySerialManager.ReadHumidityLineDataToString();
+            ValTemperature = TempHumiditySerialManager.ReadTempLineDataToString();
+            TemperatureHumidity temperatureHumidity = new();
+            temperatureHumidity.Temperature = ValTemperature;
+            temperatureHumidity.Humidity = ValHumidity;
+            await _entityManager.CreateAsync(temperatureHumidity);
+            await Task.Delay(6000);
+        }
+    }
+    public void SwitchCollect()
+    {
+        Switch = !Switch;
+    }
+}

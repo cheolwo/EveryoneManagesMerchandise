@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 namespace BusinessView.ofStorage
 {
     // Web과 App및 Mobile에 따라 달리 구현된다.
+    public interface IStorageService<in T> where T : class
+    {
+
+    }
     public class ApplicationStorage
     {
         public ApplicationStorage()

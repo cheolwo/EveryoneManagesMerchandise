@@ -29,10 +29,10 @@ namespace BusinessView.ofUser
     {
 
     }
-    public class AuthenticateUser : IAuthenticateUser
+    public class User : IAuthenticateUser
     {
         protected HttpClient IdentityHttpClient { get; set; }
-        public AuthenticateUser()
+        public User()
         {
             IdentityHttpClient = new HttpClient();
             IdentityHttpClient.BaseAddress = new Uri(ServerUrl.IdentityServer);       

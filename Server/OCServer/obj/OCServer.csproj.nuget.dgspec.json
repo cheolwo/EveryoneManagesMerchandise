@@ -93,6 +93,10 @@
             "Popbill": {
               "target": "Package",
               "version": "[1.14.0, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -193,6 +197,10 @@
             "NLog": {
               "target": "Package",
               "version": "[5.0.0-rc1, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [

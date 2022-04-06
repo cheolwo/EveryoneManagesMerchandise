@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessView.ofUser.ofEmployee
 {
-    public class Employee
+    public class Employee : User
     {
         private HttpClient HttpClient { get; set; }
 		public Employee()

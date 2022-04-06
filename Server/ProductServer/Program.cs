@@ -1,6 +1,7 @@
 using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofGenericRepository;
+using BusinessData.ofIot;
 using BusinessData.ofMarket.ofRepository.ofIdFactory;
 using BusinessData.ofProduct.ofDbContext;
 using BusinessData.ofProduct.ofInterface.ofEmployee;
@@ -16,8 +17,6 @@ using BusinessLogic.ofManager.ofProduct.ofBlobStorage;
 using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployee;
 using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployer;
 using BusinessLogic.ofManager.ofProduct.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofTradeCenter;
-using BusinessLogic.ofManager.ofWarehouse;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,6 +26,10 @@ var builder = WebApplication.CreateBuilder(args);
 var ProductDbConnectionString = builder.Configuration.GetConnectionString("ProductDbConnection");
 builder.Services.AddDbContext<ProductDbContext>(options =>
     options.UseSqlServer(ProductDbConnectionString));
+
+var TemperatureDbConnectionString = DevelopmentDbConnetionString.IotDbConnection;
+builder.Services.AddDbContext<IotDbContext>(options =>
+    options.UseSqlServer(TemperatureDbConnectionString));
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
