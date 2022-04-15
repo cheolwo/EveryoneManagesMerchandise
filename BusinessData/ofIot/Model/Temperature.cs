@@ -22,4 +22,22 @@ namespace BusinessData.ofIot.Model
             builder.Ignore(e => e.ImageofInfos);
         }
     }
+    [DataContext(typeof(IotDbContext), DevelopmentDbConnetionString.IotDbConnection)]
+    [Relation(typeof(TemperatureHumidity), "BankInfo")]
+    public class BankInfo : Entity
+    {
+       public int Money { get; set; }
+    }
+    public class BaknInfoConfiguration : EntityConfiguration<BankInfo>
+    {
+        public override void Configure(EntityTypeBuilder<BankInfo> builder)
+        {
+            base.Configure(builder);
+            builder.Ignore(e => e.ChangedUsers);
+            builder.Ignore(e => e.Code);
+            builder.Ignore(e => e.Container);
+            builder.Ignore(e => e.Docs);
+            builder.Ignore(e => e.ImageofInfos);
+        }
+    }
 }

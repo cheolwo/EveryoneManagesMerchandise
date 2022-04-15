@@ -1,0 +1,49 @@
+﻿@page "/get/bankinfo"
+@using BusinessData.ofIot.Model
+@using BusinessLogic.ofManager.ofGeneric
+<h3>계좌조회 화면</h3>
+<MudButton OnClick=NaviagateToAddPage>Add</MudButton>
+
+<MudTable Items="@BankInfos" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>CreateTime</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Money</MudTh>
+        <MudTh>Manager</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="CreateTime">@context.CreateTime</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Money">@context.Money</MudTd>
+        <MudTd DataLabel="Delete"><MudButton OnClick="()=>Delete(context.Id)">Delete</MudButton></MudTd>
+        <MudTd DataLabel="Delete"><MudButton OnClick="()=>Update(context.Id)">Update</MudButton></MudTd>
+    </RowTemplate>
+</MudTable>
+
+
+@code {
+    [Inject] public IEntityManager<BankInfo> _EntityManager { get; set; }
+    [Inject] public NavigationManager NavigationManager { get; set; } 
+    private bool _hidePosition;
+    private bool _loading;
+    public List<BankInfo> BankInfos = new();
+    protected override async Task OnInitializedAsync()
+    {
+        BankInfos = await _EntityManager.GetToListAsync();
+    }
+    public void NaviagateToAddPage()
+    {
+        NavigationManager.NavigateTo("/create/bankinfo");
+    }
+    public async Task Delete(string id)
+    {
+        await _EntityManager.DeleteByIdAsync(id);
+        NavigationManager.NavigateTo("/get/bankinfo", true);
+    }
+    public void Update(string id)
+    {
+        NavigationManager.NavigateTo($"/update/bankinfo/{id}");
+    }
+}

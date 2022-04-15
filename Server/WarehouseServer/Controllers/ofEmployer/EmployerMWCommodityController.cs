@@ -16,14 +16,14 @@ namespace WarehouseServer.Controllers.ofEmployer
         private readonly ILogger<EmployerMWCommodityController> _logger;
         private readonly IEmployerMWCommodityManager _employerMWCommodityManager;
         private readonly IEmployerMWCommodityRepository _employerMWCommodityRepository;
-        private readonly ModelToDTO<MWCommodity, EmployerMWCommodity> _modelToDTO;
 
-        public EmployerMWCommodityController(ILogger<EmployerMWCommodityController> logger, IEmployerMWCommodityManager employerMWCommodityManager, IEmployerMWCommodityRepository employerMWCommodityRepository, ModelToDTO<MWCommodity, EmployerMWCommodity> modelToDTO)
+        public EmployerMWCommodityController(ILogger<EmployerMWCommodityController> logger, 
+            IEmployerMWCommodityManager employerMWCommodityManager,
+            IEmployerMWCommodityRepository employerMWCommodityRepository)
         {
             _logger = logger;
             _employerMWCommodityManager = employerMWCommodityManager;
             _employerMWCommodityRepository = employerMWCommodityRepository;
-            _modelToDTO = modelToDTO;
         }
         // GET: api/<EmployerMWCommodityController>
         [HttpGet]

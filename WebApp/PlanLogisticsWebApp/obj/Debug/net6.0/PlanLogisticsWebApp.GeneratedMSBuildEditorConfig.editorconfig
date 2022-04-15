@@ -115,6 +115,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1RcTGVkT25PZmYucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/PlanLogisticsWebApp/Pages/ofIOT/ofBank/VC_CreateBankInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1Rcb2ZCYW5rXFZDX0NyZWF0ZUJhbmtJbmZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/PlanLogisticsWebApp/Pages/ofIOT/ofBank/VC_DeleteBankInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1Rcb2ZCYW5rXFZDX0RlbGV0ZUJhbmtJbmZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/PlanLogisticsWebApp/Pages/ofIOT/ofBank/VC_ReadBankInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1Rcb2ZCYW5rXFZDX1JlYWRCYW5rSW5mby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/PlanLogisticsWebApp/Pages/ofIOT/ofBank/VC_UpdateBankInfo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1Rcb2ZCYW5rXFZDX1VwZGF0ZUJhbmtJbmZvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/PlanLogisticsWebApp/Pages/ofIOT/ofTemperature/VC_DeletaTemperature.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZJT1Rcb2ZUZW1wZXJhdHVyZVxWQ19EZWxldGFUZW1wZXJhdHVyZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

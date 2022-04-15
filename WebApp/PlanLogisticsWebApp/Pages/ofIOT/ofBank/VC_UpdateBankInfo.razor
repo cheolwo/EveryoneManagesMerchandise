@@ -1,0 +1,60 @@
+﻿@page "/update/bankinfo/{text}"
+@using System.ComponentModel.DataAnnotations
+@using BusinessData.ofIot.Model
+@using BusinessLogic.ofManager.ofGeneric
+<EditForm Model="@bankInfo" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="AccountNumber" HelperText="Max. 8 characters"
+                              @bind-Value="bankInfo.Id"/>
+                <MudTextField Label="AccountNumber" HelperText="Max. 8 characters"
+                              @bind-Value="bankInfo.Name"/>
+                <MudNumericField Label="Money" Class="mt-3"
+                              @bind-Value="bankInfo.Money"/>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton OnClick="UpdateAsync" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Update</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudText Typo="Typo.body2" Align="Align.Center">
+            Fill out the form correctly to see the success message.
+        </MudText>
+    </MudItem>
+</MudGrid>
+</EditForm>
+
+@code {
+    [Inject] public IEntityManager<BankInfo> EntityManager { get; set; }
+    [Inject] public NavigationManager _NavigationManager {get; set;}
+    [Parameter]
+    public string? Text { get; set; }
+    public string? id {get; set;}
+    public BankInfo bankInfo = new();
+    bool success;
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        Text = Text ?? "fantastic";
+        id = Text;
+        bankInfo = await EntityManager.GetByIdAsync(id);
+    }
+    public async Task UpdateAsync()
+    {
+        await EntityManager.UpdateAsync(bankInfo);
+        _NavigationManager.NavigateTo("/get/bankinfo", true);
+    }
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
+}

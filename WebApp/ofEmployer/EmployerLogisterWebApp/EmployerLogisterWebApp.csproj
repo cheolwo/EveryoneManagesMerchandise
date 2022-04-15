@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
@@ -15,6 +16,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2" />
     <PackageReference Include="MudBlazor" Version="6.0.9" />
     <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BusinessData\BusinessData.csproj" />
+    <ProjectReference Include="..\..\..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\..\BusinessRazor\BusinessRazor.csproj" />
   </ItemGroup>
 
 </Project>

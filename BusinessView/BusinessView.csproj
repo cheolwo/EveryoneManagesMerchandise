@@ -520,6 +520,8 @@
     <Folder Include="ofUser\ofPlatform\ofInterface\ofProduct\" />
     <Folder Include="ofUser\ofPlatform\ofInterface\ofTrade\" />
     <Folder Include="ofUser\ofPlatform\ofInterface\ofWarehouse\" />
+    <Folder Include="ofView\ofPlatform\" />
+    <Folder Include="ofView\ofEmploye\" />
   </ItemGroup>
 
 </Project>

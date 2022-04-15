@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployee
 
         // POST api/<EmployeeWarehouseController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] EmployeeWarehouse value)
         {
         }
 

@@ -156,6 +156,15 @@ namespace BusinessData
             }
             throw new ArgumentException("Not Defined Relation Code");
         }
+        public virtual string GetRelationCodeToLower(Type t)
+        {
+            RelationAttribute RelationAttribute = t.GetCustomAttribute<RelationAttribute>();
+            if (RelationAttribute != null)
+            {
+                return RelationAttribute.GetEntityRelation().ToLower();
+            }
+            throw new ArgumentException("Not Defined Relation Code");
+        }
         public virtual Type GetRelationType(Type t)
         {
             RelationAttribute RelationAttribute = t.GetCustomAttribute<RelationAttribute>();

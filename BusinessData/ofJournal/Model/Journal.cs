@@ -84,7 +84,7 @@ namespace BusinessData.ofFinancial.Model
         public string KindsofAccount {get; set;}
         public JournalCenter JournalCenter {get; set;}
     }
-
+    [Relation(typeof(JournalCenter), "JournalCenter")]
     [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
     public class JournalCenter : Center
     {

@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
-    <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

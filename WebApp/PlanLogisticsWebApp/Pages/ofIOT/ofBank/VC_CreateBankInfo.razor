@@ -1,0 +1,46 @@
+﻿@page "/create/bankinfo"
+@using System.ComponentModel.DataAnnotations
+@using BusinessData.ofIot.Model
+@using BusinessLogic.ofManager.ofGeneric
+
+<EditForm Model="@bankInfo" OnValidSubmit="OnValidSubmit">
+<DataAnnotationsValidator/>
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="AccountNumber" HelperText="Max. 8 characters"
+                              @bind-Value="bankInfo.Name"/>
+                <MudNumericField Label="Money" Class="mt-3"
+                              @bind-Value="bankInfo.Money"/>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton OnClick="CreateAsync" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudText Typo="Typo.body2" Align="Align.Center">
+            Fill out the form correctly to see the success message.
+        </MudText>
+    </MudItem>
+</MudGrid>
+</EditForm>
+@code {
+    bool success;
+    public BankInfo  bankInfo = new();
+    [Inject] public IEntityManager<BankInfo> _EntityManager { get; set; }
+    [Inject] public NavigationManager NavigationManager { get; set; }
+
+    private void OnValidSubmit(EditContext context)
+    {
+        success = true;
+        StateHasChanged();
+    }
+    public async Task CreateAsync()
+    {
+        await _EntityManager.CreateAsync(bankInfo);
+        NavigationManager.NavigateTo("/get/bankinfo");
+    }
+
+}

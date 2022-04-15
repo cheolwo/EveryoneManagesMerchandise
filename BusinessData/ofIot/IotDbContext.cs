@@ -23,6 +23,7 @@ namespace BusinessData.ofIot
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new TemperatureHumidityConfiguration());
+            modelBuilder.ApplyConfiguration(new BaknInfoConfiguration());
         }
     }
 }

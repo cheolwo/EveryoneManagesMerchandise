@@ -17,6 +17,7 @@ namespace ProductServer.Controllers.ofEmployer
         private readonly IEntityDataRepository<TemperatureHumidity> _entityDataRepository;
        
         private Dictionary<int, TempHumidityDTO> DicDtos;
+        private List<TempHumidityDTO> tempHumidityDTOs = new();
 
         public TempHumidityDTOController(IEntityManager<TemperatureHumidity> entityManager, IEntityDataRepository<TemperatureHumidity> entityDataRepository)
         {
@@ -39,7 +40,7 @@ namespace ProductServer.Controllers.ofEmployer
                 }
                 else {DicDtos.Add(Dto.GetHashCode(), Dto); }
             }
-            return DtoDatas;
+            return tempHumidityDTOs;
         }
 
         // GET api/<TempHumidityController>/5

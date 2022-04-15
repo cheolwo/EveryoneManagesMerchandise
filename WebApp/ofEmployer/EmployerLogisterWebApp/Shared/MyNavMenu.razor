@@ -1,4 +1,5 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using Microsoft.AspNetCore.Identity
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">LogisterWebApp</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -11,11 +12,15 @@
     <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
     <MudNavLink Href="/servers" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
     <MudNavGroup Title="UserSetting" Expanded="false">
-        <MudNavLink Href="/user/info"  Match="NavLinkMatch.Prefix">Info</MudNavLink>
+        <MudNavLink Href="/user/info/Id"  Match="NavLinkMatch.Prefix">Info</MudNavLink>
         <MudNavLink Href="/user/role"  Match="NavLinkMatch.Prefix">Role</MudNavLink>
     </MudNavGroup>
+    <MudNavGroup Title="Journal" Expanded="false">
+        <MudNavLink Href= "/user/journalcenter"Match="NavLinkMatch.Prefix">JournalCenter</MudNavLink>
+        <MudNavLink Href="/user/jcommodity"  Match="NavLinkMatch.Prefix">JCommodity</MudNavLink>
+    </MudNavGroup>
      <MudNavGroup Title="Producte" Expanded="false">
-        <MudNavLink Href="/user/productcenter"  Match="NavLinkMatch.Prefix">ProductCenter</MudNavLink>
+        <MudNavLink Href= "/user/productcenter"Match="NavLinkMatch.Prefix">ProductCenter</MudNavLink>
         <MudNavLink Href="/user/pcommodity"  Match="NavLinkMatch.Prefix">PC</MudNavLink>
         <MudNavLink Href="/user/spcommodity"  Match="NavLinkMatch.Prefix">SPC</MudNavLink>
         <MudNavLink Href="/user/mpcommodity"  Match="NavLinkMatch.Prefix">MPC</MudNavLink>
@@ -29,7 +34,7 @@
         <MudNavLink Href="/user/etcommodity"  Match="NavLinkMatch.Prefix">ETC</MudNavLink>
     </MudNavGroup>
      <MudNavGroup Title="Warehouse" Expanded="false">
-        <MudNavLink Href="/user/warehouse"  Match="NavLinkMatch.Prefix">Warehouse</MudNavLink>
+        <MudNavLink Href="/user/warehouse" Match="NavLinkMatch.Prefix">Warehouse</MudNavLink>
         <MudNavLink Href="/user/wcommodity"  Match="NavLinkMatch.Prefix">WC</MudNavLink>
         <MudNavLink Href="/user/swcommodity"  Match="NavLinkMatch.Prefix">SWC</MudNavLink>
         <MudNavLink Href="/user/mwcommodity"  Match="NavLinkMatch.Prefix">MWC</MudNavLink>
@@ -38,8 +43,14 @@
 </MudNavMenu>
 
 @code {
+    //[Inject] public UserManager<IdentityUser> _userManager { get; set; }
+    //[Inject] public IHttpContextAccessor _httpContextAccessor { get; set; }
+    //public IdentityUser User { get; set; }
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    User = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+    //}
     private bool collapseNavMenu = true;
-
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()

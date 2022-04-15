@@ -1,0 +1,14 @@
+﻿@page "/user/role"
+@using BusinessData.ofFinancial.Model
+@using BusinessView.ofCommon
+<MudButton Variant="Variant.Filled" Color=Color.Primary OnClick="NavigateToCreatePage">Register Role</MudButton>
+
+
+@code {
+    [Inject] public NavigationManager NavigationManager { get; set; }
+    public NavigateFactory<JournalCenter> NavigateFactory = new();
+    void NavigateToCreatePage()
+    {
+        NavigationManager.NavigateTo(NavigateFactory.CreateRoleNavigationString(RoleView.Register));
+    }
+}

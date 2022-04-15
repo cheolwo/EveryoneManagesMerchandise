@@ -123,11 +123,11 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authorization/6.0.3": {
+      "Microsoft.AspNetCore.Authorization/6.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "6.0.3",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.1",
+          "Microsoft.AspNetCore.Metadata": "6.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0"
         },
         "compile": {
@@ -137,11 +137,11 @@
           "lib/net6.0/Microsoft.AspNetCore.Authorization.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components/6.0.3": {
+      "Microsoft.AspNetCore.Components/6.0.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "6.0.3",
-          "Microsoft.AspNetCore.Components.Analyzers": "6.0.3"
+          "Microsoft.AspNetCore.Authorization": "6.0.2",
+          "Microsoft.AspNetCore.Components.Analyzers": "6.0.2"
         },
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
@@ -150,7 +150,7 @@
           "lib/net6.0/Microsoft.AspNetCore.Components.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/6.0.3": {
+      "Microsoft.AspNetCore.Components.Analyzers/6.0.2": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
@@ -345,7 +345,7 @@
           "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Metadata/6.0.3": {
+      "Microsoft.AspNetCore.Metadata/6.0.2": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.AspNetCore.Metadata.dll": {}
@@ -638,7 +638,7 @@
           "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
+      "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
@@ -852,6 +852,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "NLog/5.0.0-rc1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {}
+        }
+      },
       "Popbill/1.14.0": {
         "type": "package",
         "dependencies": {
@@ -862,6 +871,61 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/Popbill.dll": {}
+        }
+      },
+      "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          }
+        }
+      },
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          }
+        }
+      },
+      "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "runtime.linux-arm.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.linux-x64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.osx-arm64.runtime.native.System.IO.Ports": "6.0.0",
+          "runtime.osx-x64.runtime.native.System.IO.Ports": "6.0.0"
+        }
+      },
+      "runtime.osx-arm64.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          }
+        }
+      },
+      "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          }
         }
       },
       "System.Buffers/4.5.1": {
@@ -962,6 +1026,31 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "System.IO.Ports/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "runtime.native.System.IO.Ports": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.IO.Ports.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/System.IO.Ports.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/net6.0/System.IO.Ports.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net6.0/System.IO.Ports.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.Memory/4.5.4": {
@@ -1214,7 +1303,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.2",
           "Microsoft.Extensions.Identity.Core": "6.0.2",
           "Newtonsoft.Json": "13.0.1",
-          "Popbill": "1.14.0"
+          "Popbill": "1.14.0",
+          "System.IO.Ports": "6.0.0"
         },
         "compile": {
           "bin/placeholder/BusinessData.dll": {}
@@ -1223,20 +1313,24 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessView/1.0.0": {
+      "BusinessLogic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Azure.Storage.Blobs": "12.10.0",
           "BusinessData": "1.0.0",
-          "FluentValidation": "10.4.0",
-          "Microsoft.AspNetCore.Components": "6.0.3",
-          "Newtonsoft.Json": "13.0.1"
+          "Microsoft.AspNetCore.Authorization": "6.0.2",
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2",
+          "Microsoft.EntityFrameworkCore": "6.0.2",
+          "NLog": "5.0.0-rc1",
+          "System.IO.Ports": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/BusinessView.dll": {}
+          "bin/placeholder/BusinessLogic.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessView.dll": {}
+          "bin/placeholder/BusinessLogic.dll": {}
         }
       }
     }
@@ -1381,10 +1475,10 @@
         "microsoft.aspnetcore.authentication.core.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/6.0.3": {
-      "sha512": "eWgsWE7IY7Az2lGBvoYk20290ZqTI0Y9ATyprrwfaC7w8MvBXu2jU+tv90Zt6lbEE3RP55XL+dFydGExcunHbw==",
+    "Microsoft.AspNetCore.Authorization/6.0.2": {
+      "sha512": "AjwO1PjN75weiC0KzznybEZh5rr+VjH3c2wvuRT6Qmd8cv2+/6hBn/peelGkZUzYBY0l7QA22jwmjKKeeNYsIQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/6.0.3",
+      "path": "microsoft.aspnetcore.authorization/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1396,14 +1490,14 @@
         "lib/net6.0/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.6.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.6.0.2.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/6.0.3": {
-      "sha512": "Mqk/tAA+RWBnaz8uhn18VaEqVIY/G6LTpBX+Ap65/3vq4RwFZIDFK8gYMrV3JSQXkBYk3rYxPtwgEutCt4ZGww==",
+    "Microsoft.AspNetCore.Components/6.0.2": {
+      "sha512": "UXojpKtmaJkGRUzGgGY2LcmAqWaubEJ0ewEm/wmchn89hQPuqMG/Zm+Matl1pSMCDIbxuGegYzUs9zIqbS1VNA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/6.0.3",
+      "path": "microsoft.aspnetcore.components/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1411,14 +1505,14 @@
         "THIRD-PARTY-NOTICES.txt",
         "lib/net6.0/Microsoft.AspNetCore.Components.dll",
         "lib/net6.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.6.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.components.6.0.2.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/6.0.3": {
-      "sha512": "zM6GIzF9bAnjVhiXNFQ2viF7W9FPASHjiDmV53M+ArRKBS8LFvzTfC4sgGYDoaikxm+zdx9mH7x98I1Dh3/INQ==",
+    "Microsoft.AspNetCore.Components.Analyzers/6.0.2": {
+      "sha512": "jHMdjIrlqm1T6BqBzCpuMAdj1mSpmcEF0wNXIKh7xS6jKAdKOy8aWKTbFI022dW8ZgjC4UNpp9UTuMDVu9/T/w==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/6.0.3",
+      "path": "microsoft.aspnetcore.components.analyzers/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1427,7 +1521,7 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.6.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.6.0.2.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
@@ -1631,10 +1725,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/6.0.3": {
-      "sha512": "I3FVSfaLdSLs4XmBq5DbK7PuVF/aSf0Xc63/AeNIJFt6/chYvcJaxnKbd4yZo9OXGw5OT9KOIxGWZ/2CucvgJw==",
+    "Microsoft.AspNetCore.Metadata/6.0.2": {
+      "sha512": "SE6xWyaY2n9LsfwNwppyqwVIRtS1RcYPaIFoqyTi8HA6l2Zze40lIvdTSTtDQC+EZpdDRmQY3CPQi9ZlCqOwTg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/6.0.3",
+      "path": "microsoft.aspnetcore.metadata/6.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1646,7 +1740,7 @@
         "lib/net6.0/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.6.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.6.0.2.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
@@ -2104,10 +2198,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/6.0.1": {
-      "sha512": "dzB2Cgg+JmrouhjkcQGzSFjjvpwlq353i8oBQO2GWNjCXSzhbtBRUf28HSauWe7eib3wYOdb3tItdjRwAdwCSg==",
+    "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
+      "sha512": "/HggWBbTwy8TgebGSX5DBZ24ndhzi93sHUBDvP1IxbZD7FDokYzdAr6+vbWGjw2XAfR2EJ1sfKUotpjHnFWPxA==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/6.0.1",
+      "path": "microsoft.extensions.logging.abstractions/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2151,7 +2245,7 @@
         "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.6.0.1.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -2509,6 +2603,30 @@
         "packageIcon.png"
       ]
     },
+    "NLog/5.0.0-rc1": {
+      "sha512": "+ce3zuXplax1HLxFieqA7BwxLjdmZacYblz6AcfrqxfFWytMz9SHBwUas45aamVrQhTKUA4m5la464/RxnCZPg==",
+      "type": "package",
+      "path": "nlog/5.0.0-rc1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "N.png",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "nlog.5.0.0-rc1.nupkg.sha512",
+        "nlog.nuspec"
+      ]
+    },
     "Popbill/1.14.0": {
       "sha512": "h3Z6GRVwCGFp6ud2ogE3B7LKjSiYGN4Gdjdo8VPumF6x5ZT9A/dycWV04sq0mQQ6vGbUSFmQRaRRreeoG7Awtg==",
       "type": "package",
@@ -2519,6 +2637,101 @@
         "lib/netcoreapp2.0/Popbill.dll",
         "popbill.1.14.0.nupkg.sha512",
         "popbill.nuspec"
+      ]
+    },
+    "runtime.linux-arm.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "75q52H7CSpgIoIDwXb9o833EvBZIXJ0mdPhz1E6jSisEXUBlSCPalC29cj3EXsjpuDwr0dj1LRXZepIQH/oL4Q==",
+      "type": "package",
+      "path": "runtime.linux-arm.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.linux-arm.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "xn2bMThmXr3CsvOYmS8ex2Yz1xo+kcnhVg2iVhS9PlmqjZPAkrEo/I40wjrBZH/tU4kvH0s1AE8opAvQ3KIS8g==",
+      "type": "package",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.linux-arm64.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.linux-x64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "16nbNXwv0sC+gLGIuecri0skjuh6R1maIJggsaNP7MQBcbVcEfWFUOkEnsnvoLEjy0XerfibuRptfQ8AmdIcWA==",
+      "type": "package",
+      "path": "runtime.linux-x64.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.linux-x64.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "KaaXlpOcuZjMdmyF5wzzx3b+PRKIzt6A5Ax9dKenPDQbVJAFpev+casD0BIig1pBcbs3zx7CqWemzUJKAeHdSQ==",
+      "type": "package",
+      "path": "runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.native.system.io.ports.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.osx-arm64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "fXG12NodG1QrCdoaeSQ1gVnk/koi4WYY4jZtarMkZeQMyReBm1nZlSRoPnUjLr2ZR36TiMjpcGnQfxymieUe7w==",
+      "type": "package",
+      "path": "runtime.osx-arm64.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.osx-arm64.runtime.native.system.io.ports.nuspec",
+        "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.osx-x64.runtime.native.System.IO.Ports/6.0.0": {
+      "sha512": "/As+zPY49+dSUXkh+fTUbyPhqrdGN//evLxo4Vue88pfh1BHZgF7q4kMblTkxYvwR6Vi03zSYxysSFktO8/SDQ==",
+      "type": "package",
+      "path": "runtime.osx-x64.runtime.native.system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+        "runtime.osx-x64.runtime.native.system.io.ports.nuspec",
+        "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -2701,6 +2914,39 @@
         "lib/netstandard2.0/System.IO.Pipelines.xml",
         "system.io.pipelines.6.0.2.nupkg.sha512",
         "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.IO.Ports/6.0.0": {
+      "sha512": "dRyGI7fUESar5ZLIpiBOaaNLW7YyOBGftjj5Of+xcduC/Rjl7RjhEnWDvvNBmHuF3d0tdXoqdVI/yrVA8f00XA==",
+      "type": "package",
+      "path": "system.io.ports/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.IO.Ports.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.IO.Ports.dll",
+        "lib/net461/System.IO.Ports.xml",
+        "lib/net6.0/System.IO.Ports.dll",
+        "lib/net6.0/System.IO.Ports.xml",
+        "lib/netstandard2.0/System.IO.Ports.dll",
+        "lib/netstandard2.0/System.IO.Ports.xml",
+        "runtimes/unix/lib/net6.0/System.IO.Ports.dll",
+        "runtimes/unix/lib/net6.0/System.IO.Ports.xml",
+        "runtimes/unix/lib/netstandard2.0/System.IO.Ports.dll",
+        "runtimes/unix/lib/netstandard2.0/System.IO.Ports.xml",
+        "runtimes/win/lib/net461/System.IO.Ports.dll",
+        "runtimes/win/lib/net461/System.IO.Ports.xml",
+        "runtimes/win/lib/net6.0/System.IO.Ports.dll",
+        "runtimes/win/lib/net6.0/System.IO.Ports.xml",
+        "runtimes/win/lib/netstandard2.0/System.IO.Ports.dll",
+        "runtimes/win/lib/netstandard2.0/System.IO.Ports.xml",
+        "system.io.ports.6.0.0.nupkg.sha512",
+        "system.io.ports.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -3288,16 +3534,17 @@
       "path": "../BusinessData/BusinessData.csproj",
       "msbuildProject": "../BusinessData/BusinessData.csproj"
     },
-    "BusinessView/1.0.0": {
+    "BusinessLogic/1.0.0": {
       "type": "project",
-      "path": "../BusinessView/BusinessView.csproj",
-      "msbuildProject": "../BusinessView/BusinessView.csproj"
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessData >= 1.0.0",
-      "BusinessView >= 1.0.0"
+      "BusinessLogic >= 1.0.0",
+      "FluentValidation >= 10.4.0"
     ]
   },
   "packageFolders": {
@@ -3335,8 +3582,8 @@
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
             }
           }
         }
@@ -3350,6 +3597,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[10.4.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

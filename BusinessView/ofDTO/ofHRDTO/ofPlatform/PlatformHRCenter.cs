@@ -1,4 +1,8 @@
-namespace BusinessView.ofDTO.ofHRDTO
+using BusinessData;
+using BusinessData.ofHumanResource.ofRepository;
+using BusinessView.ofCommon.ofPlatform;
+
+namespace BusinessView.ofDTO.ofHRDTO.ofPlatform
 {
     public class PlatformHRCenter : PlatformCenter
     {

@@ -1,3 +1,7 @@
+using BusinessData;
+using BusinessData.ofHumanResource.ofRepository;
+using BusinessView.ofCommon.ofEmployer;
+
 namespace BusinessView.ofDTO.ofHRDTO
 {
     public class EmployerHRCenter : EmployerCenter

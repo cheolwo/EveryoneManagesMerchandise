@@ -15,7 +15,7 @@ namespace BusinessView.ofGeneric
     {
         IDTO CreateDTOByNameAndValue(Dictionary<string, object> nameAndValue);
     }
-    public static class ModelToDTO<Model, DTO> where Model : class where DTO : class
+    public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
         public static DTO ConvertToDTO(Model model, DTO dto)
         {
@@ -35,7 +35,7 @@ namespace BusinessView.ofGeneric
             return dto;
         }
     }
-    public static class DTOToModel<DTO, Model> where DTO : class where Model : class
+    public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
         public static Model ConvertToModel(DTO dto, Model model)
         {
