@@ -4,6 +4,8 @@ using BusinessData.ofWarehouse.Model;
 using FluentValidation;
 
 UserActor actor = new UserActor();
+SampleViewModelValidator ValidationRules = new SampleViewModelValidator();
+
 public class SampleViewModelValidator : AbstractValidator<SampleViewModel>
 {
     public SampleViewModelValidator()

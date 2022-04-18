@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\..\BusinessRazor\BusinessRazor.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\popup\" />
+  </ItemGroup>
+
 </Project>

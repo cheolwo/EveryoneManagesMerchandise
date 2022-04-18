@@ -41,48 +41,12 @@ namespace BusinessView.ofUser
         {
             
         }
-//        public async Task<IEnumerable<WeatherForecast>> WeatherforecastGet()
-////        {
-////            var httpResponseMessage = await HttpClient.GetFromJsonAsync<IEnumerable<WeatherForecast>>("weatherforecast");
-////            return httpResponseMessage;
-////        }
-//        public async Task CreateItemAsync(TodoItem todoItem)
-//        {
-//            var todoItemJson = new StringContent(
-//                JsonSerializer.Serialize(todoItem),
-//                Encoding.UTF8,
-//                Application.Json); // using static System.Net.Mime.MediaTypeNames;
-
-//            using var httpResponseMessage =
-//                await _httpClient.PostAsync("/api/TodoItems", todoItemJson);
-
-//            httpResponseMessage.EnsureSuccessStatusCode();
-//        }
-//        public async Task SaveItemAsync(TodoItem todoItem)
-//        {
-//            var todoItemJson = new StringContent(
-//                JsonSerializer.Serialize(todoItem),
-//                Encoding.UTF8,
-//                Application.Json);
-
-//            using var httpResponseMessage =
-//                await _httpClient.PutAsync($"/api/TodoItems/{todoItem.Id}", todoItemJson);
-
-//            httpResponseMessage.EnsureSuccessStatusCode();
-//        }
-//        public async Task DeleteItemAsync(long itemId)
-//        {
-//            using var httpResponseMessage =
-//                await _httpClient.DeleteAsync($"/api/TodoItems/{itemId}");
-
-//            httpResponseMessage.EnsureSuccessStatusCode();
-//        }
-
     }
     public interface IAuthorizeUser
     {
         Task<bool> AuthorizeUserRole(string role, string userName);
     }
+
 
     public class AuthorizeUserFactory
     {

@@ -501,6 +501,7 @@
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofGet\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofPost\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofPut\" />
+    <Folder Include="ofUser\ofCommon\" />
     <Folder Include="ofUser\ofEmployee\ofInterface\ofMarket\" />
     <Folder Include="ofUser\ofEmployee\ofInterface\ofTrade\" />
     <Folder Include="ofUser\ofEmployee\ofInterface\ofProduct\" />
