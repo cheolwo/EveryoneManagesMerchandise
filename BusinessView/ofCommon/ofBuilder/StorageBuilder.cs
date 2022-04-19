@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofUser.ofWebApp
+namespace BusinessView.ofUser.ofCommon
 {
-    public class WebAppUserActor
+    public class StorageBuilder
     {
-        
     }
 }

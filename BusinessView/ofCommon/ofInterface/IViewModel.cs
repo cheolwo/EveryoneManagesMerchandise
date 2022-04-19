@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofUser
+namespace BusinessView.ofUser.ofCommon
 {
-    internal class GroupOrderer
+    public interface IViewModel
     {
     }
 }

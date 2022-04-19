@@ -1,6 +1,10 @@
-﻿namespace BusinessView.ofUser
+﻿using BusinessView.ofUser.ofCommon;
+using BusinessView.ofUser.ofInterface;
+using BusinessView.ofUser.ofViewModel;
+
+namespace BusinessView.ofUser
 {
-    public class UserActor : Actor
+    public class UserActor : Actor, IUserActorViewService<RoleBaseViewModel>
     {
         public UserActor()
         {
