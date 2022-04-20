@@ -6,6 +6,18 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessData.ofMarket.ofModel
 {
+    public static class ViewNameofMarket
+    {
+        public const string PlatMarket = "HRCenter";
+        public const string MCommodity = "MCommodity";
+        public const string SMCommodity = "SMCommodity";
+        public const string MMCommodity = "MMCommodity";
+        public const string EMCommodity = "EMCommodity";
+        public const string PMMCommodity = "PMMCommodity";
+        public const string Market = "Market";
+        public const string DetailofMCommodity = "DetailofMCommodity";
+        public const string Option = "Option";
+    }
     [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
     [Authorize(Roles = "Admin_Market")]
     [Relation(typeof(Market), "M")]

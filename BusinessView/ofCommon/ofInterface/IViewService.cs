@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofView.ofEmployer.ofWarehouse
+namespace BusinessView.ofUser.ofCommon.ofInterface
 {
-    
-    public class BaseViewEmployerWarehouse
+    public interface IViewService
     {
-        
     }
 }

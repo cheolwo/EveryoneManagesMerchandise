@@ -1446,6 +1446,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BusinessData": "1.0.0",
+          "BusinessLogic": "1.0.0",
           "FluentValidation": "10.4.0",
           "Microsoft.AspNetCore.Components": "6.0.3",
           "Newtonsoft.Json": "13.0.1"

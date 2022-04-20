@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YbwYCyLpWypNCUlq0mip6EwctObJtoIqY9RLm//OR7v8nvn7BkYcqwuAxKTvJUAd9j4osmXLnyKWMVyV/+pXGQ==",
+  "dgSpecHash": "Mcky/+X9yexcRNoFSNDQQbuo4DT+meqgBhmODH/VOmepKMioFM5QYNgX+WbEUpter5f8kj6ydNpINwPhd7y89w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\nlog\\5.0.0-rc1\\nlog.5.0.0-rc1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\popbill\\1.14.0\\popbill.1.14.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",

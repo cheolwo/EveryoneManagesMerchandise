@@ -1,7 +1,7 @@
 ﻿using BusinessData;
 using BusinessData.ofMarket.ofModel;
 using BusinessView.ofCommon.ofEmployer;
-using BusinessView.ofMarekt;
+using BusinessView.ofMarket;
 
 namespace BusinessView.ofMarket.ofEmployer
 {

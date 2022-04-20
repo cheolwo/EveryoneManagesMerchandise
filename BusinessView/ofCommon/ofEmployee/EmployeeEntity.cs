@@ -1,6 +1,7 @@
 ﻿using BusinessData;
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
+using System.Text.Json;
 
 namespace BusinessView.ofCommon.ofEmployee
 {
@@ -195,7 +196,17 @@ namespace BusinessView.ofCommon.ofEmployee
             keyValuePairs.Add(TableMetaInfo.DetailOne, DetailOneInfos);
             return keyValuePairs;
         }
-    }
+        public IEnumerable<T> ConvertJsonToManyObject<T>(string JsonString) where T : class
+        {
+            IEnumerable<T>? ManyObject = JsonSerializer.Deserialize<IEnumerable<T>>(JsonString);
+            return ManyObject;
+        }
+        public T ConvertJsonToOneObject<T>(string jsonString) where T : class
+        {
+            T? OneObject = JsonSerializer.Deserialize<T>(jsonString);
+            return OneObject;
+        }
+      }
     public class EmployeeCenter : EmployeeEntity
     {
         [Get] public string LoginId { get; set; }

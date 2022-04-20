@@ -68151,6 +68151,3293 @@
         }
       },
       {
+        "HashCode": 585348098,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableSOCommodity"
+        }
+      },
+      {
+        "HashCode": -2076002600,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableSOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1999913395,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOCommodity"
+        }
+      },
+      {
+        "HashCode": -776757508,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1382785867,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableEOCommodity"
+        }
+      },
+      {
+        "HashCode": -338017561,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableEOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1067916201,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableMOCommodity"
+        }
+      },
+      {
+        "HashCode": 396228971,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableMOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1701257034,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOrderCenter"
+        }
+      },
+      {
+        "HashCode": -2120902115,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployer.ofTable.EmployerTableOrderCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -742970017,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableEOCommodity"
+        }
+      },
+      {
+        "HashCode": 1529824320,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableEOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1093354024,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableSOCommodity"
+        }
+      },
+      {
+        "HashCode": -1046687932,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableSOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -54686025,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableMOCommodity"
+        }
+      },
+      {
+        "HashCode": -974160301,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableMOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 417364045,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOCommodity"
+        }
+      },
+      {
+        "HashCode": -1326049540,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1212844054,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOrderCenter"
+        }
+      },
+      {
+        "HashCode": 789683915,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofPlatform.ofTable.PlatformTableOrderCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1889622718,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOCommodity"
+        }
+      },
+      {
+        "HashCode": -975731332,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1680281101,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableEOCommodity"
+        }
+      },
+      {
+        "HashCode": -1333128061,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableEOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableEOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableEOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 731757864,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableMOCommodity"
+        }
+      },
+      {
+        "HashCode": -867792371,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableMOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableMOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableMOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1344079466,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOrderCenter"
+        }
+      },
+      {
+        "HashCode": -457074652,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOrderCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOrderCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableOrderCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2040167309,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableSOCommodity"
+        }
+      },
+      {
+        "HashCode": 1445384835,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableSOCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableSOCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofOrder.ofEmployee.ofTable.EmployeeTableSOCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -987124283,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableEPCommodity"
+        }
+      },
+      {
+        "HashCode": -1919941864,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableEPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 933912556,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableMPCommodity"
+        }
+      },
+      {
+        "HashCode": -1614993329,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableMPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -790696042,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTablePCommodity"
+        }
+      },
+      {
+        "HashCode": 1930522896,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTablePCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1771218707,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableSPCommodity"
+        }
+      },
+      {
+        "HashCode": 669432289,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableSPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 736821177,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableProductCenter"
+        }
+      },
+      {
+        "HashCode": -1654831468,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofPlatform.ofTable.PlatformTableProductCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1686356107,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTablePCommodity"
+        }
+      },
+      {
+        "HashCode": 1434647932,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTablePCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -907543665,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableSPCommodity"
+        }
+      },
+      {
+        "HashCode": -2083699664,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableSPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -607383277,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableEPCommodity"
+        }
+      },
+      {
+        "HashCode": -1739648139,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableEPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2098237591,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableProductCenter"
+        }
+      },
+      {
+        "HashCode": 2041715528,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableProductCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1672629252,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableMPCommodity"
+        }
+      },
+      {
+        "HashCode": 1784361227,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployer.ofTable.EmployerTableMPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1710121302,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableEPCommodity"
+        }
+      },
+      {
+        "HashCode": 628409078,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableEPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableEPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableEPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2130288480,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTablePCommodity"
+        }
+      },
+      {
+        "HashCode": 1731448151,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTablePCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTablePCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTablePCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1948924383,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableProductCenter"
+        }
+      },
+      {
+        "HashCode": -1282689563,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableProductCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableProductCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableProductCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 418697522,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableSPCommodity"
+        }
+      },
+      {
+        "HashCode": -227707542,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableSPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableSPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableSPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -907494431,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableMPCommodity"
+        }
+      },
+      {
+        "HashCode": 396372759,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableMPCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableMPCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofProduct.ofEmployee.ofTable.EmployeeTableMPCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1218148945,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableEGOC"
+        }
+      },
+      {
+        "HashCode": -409520254,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableEGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1114518812,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOCC"
+        }
+      },
+      {
+        "HashCode": -1914072249,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOCC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 500768334,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableMGOC"
+        }
+      },
+      {
+        "HashCode": -1292274156,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableMGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 34489877,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOC"
+        }
+      },
+      {
+        "HashCode": 2083824125,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2132045840,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableSGOC"
+        }
+      },
+      {
+        "HashCode": 881551061,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployee.ofTable.EmployeeTableSGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 583841367,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableSGOC"
+        }
+      },
+      {
+        "HashCode": 1505821506,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableSGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -668797527,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableMGOC"
+        }
+      },
+      {
+        "HashCode": -1018874700,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableMGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2097530560,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOC"
+        }
+      },
+      {
+        "HashCode": 1580961464,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1503787648,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOCC"
+        }
+      },
+      {
+        "HashCode": 1532228409,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableGOCC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -16814401,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableEGOC"
+        }
+      },
+      {
+        "HashCode": 2094700384,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofEmployer.ofTable.EmployerTableEGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2050129356,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOCC"
+        }
+      },
+      {
+        "HashCode": 496389568,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOCC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOCC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOCC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 327731425,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableMGOC"
+        }
+      },
+      {
+        "HashCode": -753470162,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableMGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableMGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableMGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2107271402,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOC"
+        }
+      },
+      {
+        "HashCode": 725944574,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1834562355,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableSGOC"
+        }
+      },
+      {
+        "HashCode": -1130480735,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableSGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableSGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableSGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 395289454,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableEGOC"
+        }
+      },
+      {
+        "HashCode": 101778977,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableEGOC",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableEGOC"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofGOC.ofPlatform.ofTable.PlatformTableEGOC",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1488649888,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableMWCommodity"
+        }
+      },
+      {
+        "HashCode": -1217529584,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableMWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1672193790,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWCommodity"
+        }
+      },
+      {
+        "HashCode": -1688152724,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2042891084,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableWarehouse"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWarehouse"
+        }
+      },
+      {
+        "HashCode": -1362935567,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWarehouse"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableWarehouse",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -183603165,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableSWCommodity"
+        }
+      },
+      {
+        "HashCode": -699945313,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableSWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1283758525,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableEWCommodity"
+        }
+      },
+      {
+        "HashCode": 1655428017,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofPlatform.ofTable.PlatformTableEWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 111029193,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableWarehouse"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IsCrudMode",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "IsCrudMode"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWarehouse"
+        }
+      },
+      {
+        "HashCode": -450803316,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWarehouse"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IsCrudMode",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "IsCrudMode"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWarehouse",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1903989997,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableSWCommodity"
+        }
+      },
+      {
+        "HashCode": -2031972986,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableSWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 813877944,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableMWCommodity"
+        }
+      },
+      {
+        "HashCode": 1400765315,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableMWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -838462198,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWCommodity"
+        }
+      },
+      {
+        "HashCode": 1714717840,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 712297421,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableEWCommodity"
+        }
+      },
+      {
+        "HashCode": -944397202,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployee.ofTable.EmployeeTableEWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1117520563,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableMWCommodity"
+        }
+      },
+      {
+        "HashCode": -241686521,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableMWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableMWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableMWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -316938979,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableWarehouse"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWarehouse"
+        }
+      },
+      {
+        "HashCode": -200294737,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWarehouse",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWarehouse"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWarehouse",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -736021595,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWCommodity"
+        }
+      },
+      {
+        "HashCode": -1781476307,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 994491810,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableEWCommodity"
+        }
+      },
+      {
+        "HashCode": 1940334556,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableEWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableEWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableEWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1506555202,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableSWCommodity"
+        }
+      },
+      {
+        "HashCode": 1233720096,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableSWCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableSWCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofWarehouse.ofEmployer.ofTable.EmployerTableSWCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -729839352,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHREmployee"
+        }
+      },
+      {
+        "HashCode": 1824965416,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHREmployee",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1656505017,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableEmployeeRole"
+        }
+      },
+      {
+        "HashCode": -784706736,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableEmployeeRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -896975922,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRCenter"
+        }
+      },
+      {
+        "HashCode": -861801808,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2034101590,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRRole"
+        }
+      },
+      {
+        "HashCode": -1939200049,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployee.ofTable.EmployeeTableHRRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 689981579,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRRole"
+        }
+      },
+      {
+        "HashCode": 1145823238,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1431629977,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableEmployeeRole"
+        }
+      },
+      {
+        "HashCode": -2123815780,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableEmployeeRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1538575071,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHREmployee"
+        }
+      },
+      {
+        "HashCode": -1155631042,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHREmployee",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -858975593,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRCenter"
+        }
+      },
+      {
+        "HashCode": -1336634775,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofEmployer.ofTable.EmployerTableHRCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1077108134,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableEmployeeRole"
+        }
+      },
+      {
+        "HashCode": -48471317,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableEmployeeRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableEmployeeRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableEmployeeRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 301415254,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRCenter"
+        }
+      },
+      {
+        "HashCode": -1236737716,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1807985672,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHREmployee"
+        }
+      },
+      {
+        "HashCode": 935896270,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHREmployee",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHREmployee"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHREmployee",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1965921576,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRRole"
+        }
+      },
+      {
+        "HashCode": -1354100286,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofHR.ofPlatform.ofTable.PlatformTableHRRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1155843143,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJCommodity"
+        }
+      },
+      {
+        "HashCode": 853981616,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -744651093,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournal"
+        }
+      },
+      {
+        "HashCode": 866508315,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournal",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1116068388,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournalCenter"
+        }
+      },
+      {
+        "HashCode": -1560839338,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployee.ofTable.EmployeeTableJournalCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1386897396,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJCommodity"
+        }
+      },
+      {
+        "HashCode": 1968728956,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1422572759,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournalCenter"
+        }
+      },
+      {
+        "HashCode": -788903044,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournalCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 491331222,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournal"
+        }
+      },
+      {
+        "HashCode": 2012115961,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofEmployer.ofTable.EmployerTableJournal",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 653893750,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJournalCenter"
+        }
+      },
+      {
+        "HashCode": 1751666313,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJournalCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJournalCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJournalCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1049397986,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJCommodity"
+        }
+      },
+      {
+        "HashCode": 331240686,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableJCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1833661920,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableForJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableForJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableForJournal"
+        }
+      },
+      {
+        "HashCode": 1458525081,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableForJournal",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableForJournal"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofJournal.ofPlatform.ofTable.PlatformTableForJournal",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1616564838,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableMTCommodity"
+        }
+      },
+      {
+        "HashCode": -1855047803,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableMTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1906662948,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTradeCenter"
+        }
+      },
+      {
+        "HashCode": 31632484,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTradeCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1336036334,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableSTCommodity"
+        }
+      },
+      {
+        "HashCode": 1494998298,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableSTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1488962260,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTCommodity"
+        }
+      },
+      {
+        "HashCode": 2107194130,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 898218480,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableETCommodity"
+        }
+      },
+      {
+        "HashCode": 432756134,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployer.ofTable.EmployerTableETCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1776145182,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableSTCommodity"
+        }
+      },
+      {
+        "HashCode": 59804073,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableSTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1349013765,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTradeCenter"
+        }
+      },
+      {
+        "HashCode": -1359222469,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTradeCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -703838096,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableETCommodity"
+        }
+      },
+      {
+        "HashCode": 1961185983,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableETCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1320620352,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableMTCommodity"
+        }
+      },
+      {
+        "HashCode": -1682743867,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableMTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2086979708,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployeeTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTCommodity"
+        }
+      },
+      {
+        "HashCode": 446735175,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofEmployee.ofTable.EmployeeTableTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -805234994,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableMTCommodity"
+        }
+      },
+      {
+        "HashCode": -1863037043,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableMTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableMTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableMTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1418380767,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableSTCommodity"
+        }
+      },
+      {
+        "HashCode": -1091652616,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableSTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableSTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableSTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -406994081,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTCommodity"
+        }
+      },
+      {
+        "HashCode": -97768513,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 636000732,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableETCommodity"
+        }
+      },
+      {
+        "HashCode": 749988797,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableETCommodity",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableETCommodity"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableETCommodity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1720356793,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PlatformTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter"
+        }
+      },
+      {
+        "HashCode": 1149018268,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -431930132,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.RegisterRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RegisterRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.RegisterRole"
+        }
+      },
+      {
+        "HashCode": -1594726230,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.RegisterRole",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofRole.RegisterRole"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.RegisterRole",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2140917230,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Component2",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Component2"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Component2"
+        }
+      },
+      {
+        "HashCode": 420914756,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Component2",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Component2"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Component2",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -313122966,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Component1",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Component1"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Component1"
+        }
+      },
+      {
+        "HashCode": -336038860,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Component1",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Component1"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Component1",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 186592043,
         "Kind": "Components.EventHandler",
         "Name": "onfocus",

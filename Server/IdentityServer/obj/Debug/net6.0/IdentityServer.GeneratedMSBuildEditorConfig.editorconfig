@@ -8,25 +8,25 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IdentityServer
 build_property.RootNamespace = IdentityServer
-build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\IdentityServer\
+build_property.ProjectDir = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\IdentityServer\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\IdentityServer
+build_property.MSBuildProjectDirectory = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\IdentityServer
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/Account/Login.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/_ViewImports.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/_ViewStart.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/Server/IdentityServer/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

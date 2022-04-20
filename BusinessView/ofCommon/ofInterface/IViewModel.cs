@@ -8,5 +8,6 @@ namespace BusinessView.ofUser.ofCommon
 {
     public interface IViewModel
     {
+        
     }
 }
