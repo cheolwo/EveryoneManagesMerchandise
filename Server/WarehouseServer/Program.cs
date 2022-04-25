@@ -23,10 +23,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
-// Add services to the container.
-var WarehouseDbConnectionString = builder.Configuration.GetConnectionString("WarehouseDbConnection");
+bool IsProduct = false;
+string WarehouseDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   WarehouseDbConnectionString = builder.Configuration.GetConnectionString("WarehouseDbConnection");
+}
+else
+{
+    WarehouseDbConnectionString = DevelopmentDbConnetionString.WarehouseDbConnection;
+}
 builder.Services.AddDbContext<WarehouseDbContext>(options =>
-    options.UseSqlServer(WarehouseDbConnectionString));
+       options.UseSqlServer(WarehouseDbConnectionString));
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

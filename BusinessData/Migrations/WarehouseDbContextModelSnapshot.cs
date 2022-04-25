@@ -515,9 +515,6 @@ namespace BusinessData.Migrations
                     b.Property<string>("CenterCards")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CenterIPAddresses")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("CenterMacAddresses")
                         .HasColumnType("nvarchar(max)");
 
@@ -547,9 +544,6 @@ namespace BusinessData.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MCommodityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PakcingBarcode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")

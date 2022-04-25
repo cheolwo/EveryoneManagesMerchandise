@@ -1,5 +1,6 @@
 ﻿using BusinessData;
 using BusinessView.ofCommon.ofEmployer;
+using BusinessView.ofGeneric;
 
 namespace BusinessView.ofWarehouse.ofEmployer
 {
@@ -12,7 +13,7 @@ namespace BusinessView.ofWarehouse.ofEmployer
     C#
     byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
      */
-    public class EmployerWarehouse : EmployerCenter
+    public class EmployerWarehouse : EmployerCenter, IDTO
     {
         [Detail][Many(ViewNameofWarehouse.WCommodity)] public string WCommodities { get; set; }
         [Detail][Many(ViewNameofWarehouse.EWCommodity)] public string EWCommodities { get; set; }
@@ -23,6 +24,11 @@ namespace BusinessView.ofWarehouse.ofEmployer
         [Detail][Many(ViewNameofWarehouse.WorkingDesk)] public string WorkingDesks { get; set; }
         [Detail][Many(ViewNameofWarehouse.DividedTag)] public string DividedTags { get; set; }
         [Detail][Many(ViewNameofWarehouse.IncomingTag)] public string IncomingTags { get; set; }
+
+        public string GetServerUrl(bool IsProduct)
+        {
+            throw new NotImplementedException();
+        }
     }
     public class EmployerWCommodity : EmployerCommodity
     {

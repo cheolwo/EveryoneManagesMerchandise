@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Reflection;
-using BusinessData.ofCommon.ofInterface;
 using BusinessData.ofWarehouse.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
@@ -16,7 +13,7 @@ namespace BusinessData.ofWarehouse.Model
     public class WCommodity : Commodity, IRelatedCenter, IRelatedRoles, IBarcodable
     {
         public string Type {get; set;}
-        public string PakcingBarcode {get; set;}
+        [NotMapped]public string PakcingBarcode {get; set;}
         public double? Width { get; set; }
         public double? height { get; set; }
         public double? length { get; set; }
@@ -30,10 +27,6 @@ namespace BusinessData.ofWarehouse.Model
         
         public WCommodity()
         {
-            SWCommodities = new();
-            EWCommodities = new();
-            MWCommodities = new();
-            Warehouse = new();
         }
         public override Center GetRelatedCenter()
         {

@@ -15,6 +15,8 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
+using Quartz;
+using PlanLogisticsWebApp.ofJob;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +49,31 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
+
+// 유용한 부분
+builder.Services.AddQuartz(q =>
+{
+    //q.UseMicrosoftDependencyInjectionScopedJobFactory();
+    // Create a "key" for the job
+    var jobKey = new JobKey("HelloWorldJob");
+
+    // Register the job with the DI container
+    q.AddJob<HelloWorldJob>(opts => opts.WithIdentity(jobKey));
+
+    // Create a trigger for the job
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey) // link to the HelloWorldJob
+        .WithIdentity("HelloWorldJob-trigger")
+        .WithSimpleSchedule(x => x.WithIntervalInSeconds(1)
+        .WithRepeatCount(10)));// give the trigger a unique name
+});
+
+// ASP.NET Core hosting
+builder.Services.AddQuartzServer(options =>
+{
+    // when shutting down we want jobs to complete gracefully
+    options.WaitForJobsToComplete = true;
+});
 
 var app = builder.Build();
 

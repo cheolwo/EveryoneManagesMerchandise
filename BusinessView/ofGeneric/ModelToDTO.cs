@@ -1,24 +1,26 @@
 ﻿using BusinessData;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BusinessView.ofGeneric
 {
-    public interface INameAndValue
+    public interface IDTO 
     {
-        Dictionary<string, object> GetNameAndValue();
+        string GetServerUrl(bool IsProduct);
     }
-    public interface IDTO : INameAndValue
-    {
-        IDTO CreateDTOByNameAndValue(Dictionary<string, object> nameAndValue);
-    }
+    // 직렬화가 주요 개념
     public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
         public static DTO ConvertToDTO(Model model, DTO dto)
         {
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = false;
             var ModelProps = typeof(Model).GetProperties();
             var DTOProps = typeof(DTO).GetProperties();
             foreach (var prop in ModelProps)
@@ -28,13 +30,26 @@ namespace BusinessView.ofGeneric
                 {
                     if(dtoprop.Name.Equals(prop.Name))
                     {
-                        dtoprop.SetValue(dto, modelvalue);
+                        var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
+                        var One = dtoprop.GetCustomAttribute<OneAttribute>();
+                        if (Many is not null || One is not null)
+                        {
+                            var dtovalue = JsonConvert.SerializeObject(modelvalue, Formatting.Indented);
+                            dtoprop.SetValue(dto, dtovalue);
+                            break;
+                        }
+                        else
+                        {
+                            dtoprop.SetValue(dto, modelvalue);
+                            break;
+                        }
                     }
                 }
             }
             return dto;
         }
     }
+    // 역직렬화가 주요 개념
     public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
         public static Model ConvertToModel(DTO dto, Model model)
@@ -44,11 +59,27 @@ namespace BusinessView.ofGeneric
             foreach (var dtoprop in DTOProps)
             {
                 var dtovalue = dtoprop.GetValue(dto);
-                foreach (var modelprop in ModelProps)
+                if (dtovalue != null)
                 {
-                    if (dtoprop.Name.Equals(modelprop.Name))
+                    foreach (var modelprop in ModelProps)
                     {
-                        modelprop.SetValue(model, dtovalue);
+                        if (dtoprop.Name.Equals(modelprop.Name))
+                        {
+                            var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
+                            var One = dtoprop.GetCustomAttribute<OneAttribute>();
+                            if (Many is not null || One is not null)
+                            {
+                                string JsonDtoValue = (string)dtovalue;
+                                var DeserialObject = JsonConvert.DeserializeObject(JsonDtoValue, modelprop.PropertyType);
+                                modelprop.SetValue(model, DeserialObject);
+                                break;
+                            }
+                            else
+                            {
+                                modelprop.SetValue(model, dtovalue);
+                                break;
+                            }
+                        }
                     }
                 }
             }

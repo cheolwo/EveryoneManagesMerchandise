@@ -5,21 +5,45 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\BusinessUserDb\**" />
+    <Compile Remove="Migrations\FisheriesDb\**" />
+    <Compile Remove="Migrations\GODb\**" />
+    <Compile Remove="Migrations\HsDb\**" />
+    <Compile Remove="Migrations\KamisDb\**" />
+    <Compile Remove="Migrations\KAptDb\**" />
     <Compile Remove="Migrations\OrderDb\**" />
+    <Compile Remove="Migrations\SmartFarmDb\**" />
+    <Compile Remove="Migrations\WarehouseDb\**" />
     <Compile Remove="ofAccount\NewFolder\**" />
     <Compile Remove="ofAccount\ofIdentityDbContext\**" />
     <Compile Remove="ofHRMarket\Migrations\**" />
     <Compile Remove="ofMarket\DataManager\**" />
     <Compile Remove="ofMarket\Migrations\**" />
     <Compile Remove="ofWarehouse\DataManager\**" />
+    <EmbeddedResource Remove="Migrations\BusinessUserDb\**" />
+    <EmbeddedResource Remove="Migrations\FisheriesDb\**" />
+    <EmbeddedResource Remove="Migrations\GODb\**" />
+    <EmbeddedResource Remove="Migrations\HsDb\**" />
+    <EmbeddedResource Remove="Migrations\KamisDb\**" />
+    <EmbeddedResource Remove="Migrations\KAptDb\**" />
     <EmbeddedResource Remove="Migrations\OrderDb\**" />
+    <EmbeddedResource Remove="Migrations\SmartFarmDb\**" />
+    <EmbeddedResource Remove="Migrations\WarehouseDb\**" />
     <EmbeddedResource Remove="ofAccount\NewFolder\**" />
     <EmbeddedResource Remove="ofAccount\ofIdentityDbContext\**" />
     <EmbeddedResource Remove="ofHRMarket\Migrations\**" />
     <EmbeddedResource Remove="ofMarket\DataManager\**" />
     <EmbeddedResource Remove="ofMarket\Migrations\**" />
     <EmbeddedResource Remove="ofWarehouse\DataManager\**" />
+    <None Remove="Migrations\BusinessUserDb\**" />
+    <None Remove="Migrations\FisheriesDb\**" />
+    <None Remove="Migrations\GODb\**" />
+    <None Remove="Migrations\HsDb\**" />
+    <None Remove="Migrations\KamisDb\**" />
+    <None Remove="Migrations\KAptDb\**" />
     <None Remove="Migrations\OrderDb\**" />
+    <None Remove="Migrations\SmartFarmDb\**" />
+    <None Remove="Migrations\WarehouseDb\**" />
     <None Remove="ofAccount\NewFolder\**" />
     <None Remove="ofAccount\ofIdentityDbContext\**" />
     <None Remove="ofHRMarket\Migrations\**" />
@@ -60,15 +84,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\BusinessUserDb\" />
-    <Folder Include="Migrations\FisheriesDb\" />
-    <Folder Include="Migrations\GODb\" />
-    <Folder Include="Migrations\HsDb\" />
     <Folder Include="Migrations\IotDb\" />
-    <Folder Include="Migrations\KamisDb\" />
-    <Folder Include="Migrations\KAptDb\" />
-    <Folder Include="Migrations\SmartFarmDb\" />
-    <Folder Include="Migrations\WarehouseDb\" />
     <Folder Include="ofCommon\ofFactory\" />
     <Folder Include="ofGeneric\ofStorage\" />
     <Folder Include="ofJournal\Migrations\" />

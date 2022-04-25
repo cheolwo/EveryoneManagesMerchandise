@@ -34,7 +34,7 @@ namespace BusinessData.ofWarehouse.ofDbContext
         public DbSet<IncomingTag> IncomingTags {get; set;}
         public DbSet<LoadFrame> LoadFrames {get; set;}
         public DbSet<WorkingDesk> WorkingDesks {get; set;}
-        public DbSet<DotBarcode> DotBarcodes {get; set;}
+        public DbSet<DotBarcode> DotBarcodes { get; set; }
         // DbSet 부분이 생성이 되면 WarehosueDbContext 부분에서 Code를 변경할 필요가 있어.
     }
     public class WorkingDeskConfiguraion : EntityConfiguration<WorkingDesk>
@@ -56,6 +56,7 @@ namespace BusinessData.ofWarehouse.ofDbContext
         public override void Configure(EntityTypeBuilder<Warehouse> builder)
         {
             base.Configure(builder);
+            builder.Ignore(c => c.CenterIPAddresses);
             builder.ToTable("Warehose");
         }
     }

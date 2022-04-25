@@ -6,11 +6,9 @@ namespace BusinessView.ofUser
 {
     public class UserActor : Actor, IUserActorViewService<RoleBaseViewModel>
     {
-        public UserActor()
+        public UserActor(ActorOption actorOption)
+            :base(actorOption)
         {
-            OnServiceBuilder(ServiceBuilder);
-            OnStrorageBuilder(StorageBuilder);
-            OnValidatorBuilder(ValidatorBuilder);
         }
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder)
         {

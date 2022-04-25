@@ -28,3 +28,5 @@ C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessView\obj\Debug\
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.csproj.CoreCompileInputs.cache
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\BusinessView.csproj.CopyComplete
 C:\Users\409\Documents\GitHub\EveryoneManagesMerchandise\BusinessView\obj\Debug\net6.0\ref\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessLogic.pdb

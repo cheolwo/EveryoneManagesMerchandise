@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <Compile Remove="ofArea\**" />
+    <Compile Remove="ofCommon\ofEmployee\ofValidate\**" />
+    <Compile Remove="ofCommon\ofEmployer\ofValidate\**" />
     <Compile Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofEGOC\**" />
     <Compile Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOCC\**" />
     <Compile Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOC\**" />
@@ -64,7 +66,20 @@
     <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWarehouse\**" />
     <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWCommodity\**" />
     <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWorkingDesk\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofValidate\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\**" />
+    <Compile Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\**" />
     <EmbeddedResource Remove="ofArea\**" />
+    <EmbeddedResource Remove="ofCommon\ofEmployee\ofValidate\**" />
+    <EmbeddedResource Remove="ofCommon\ofEmployer\ofValidate\**" />
     <EmbeddedResource Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofEGOC\**" />
     <EmbeddedResource Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOCC\**" />
     <EmbeddedResource Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOC\**" />
@@ -120,7 +135,20 @@
     <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWarehouse\**" />
     <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWCommodity\**" />
     <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWorkingDesk\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofValidate\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\**" />
+    <EmbeddedResource Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\**" />
     <None Remove="ofArea\**" />
+    <None Remove="ofCommon\ofEmployee\ofValidate\**" />
+    <None Remove="ofCommon\ofEmployer\ofValidate\**" />
     <None Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofEGOC\**" />
     <None Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOCC\**" />
     <None Remove="ofDTO\ofGroupOrderDTO\ofEmployee\ofGOC\**" />
@@ -176,6 +204,17 @@
     <None Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWarehouse\**" />
     <None Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWCommodity\**" />
     <None Remove="ofDTO\ofWarehouseDTO\ofEmployee\ofWorkingDesk\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofValidate\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\**" />
+    <None Remove="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -190,8 +229,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ofCommon\ofEmployee\ofValidate\" />
-    <Folder Include="ofCommon\ofEmployer\ofValidate\" />
     <Folder Include="ofCommon\ofPlatform\ofValidate\" />
     <Folder Include="ofDTO\ofGeneric\" />
     <Folder Include="ofDTO\ofMarketDTO\ofEmployee\ofEMCommodity\ofDelete\" />
@@ -407,47 +444,6 @@
     <Folder Include="ofDTO\ofProductDTO\ofPlatform\ofSPCommodity\ofPost\" />
     <Folder Include="ofDTO\ofProductDTO\ofPlatform\ofSPCommodity\ofPut\" />
     <Folder Include="ofDTO\ofProductDTO\ofPlatform\ofValidate\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDividedTag\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofDotBarcode\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofEWCommodity\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofIncomingTag\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofLoadFrame\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofMWCommodity\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofSWCommodity\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofValidate\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWarehouse\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWCommodity\ofPut\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\ofDelete\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\ofGet\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\ofPost\" />
-    <Folder Include="ofDTO\ofWarehouseDTO\ofEmployer\ofWorkingDesk\ofPut\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofDividedTag\ofDelete\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofDividedTag\ofPut\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofDividedTag\ofPost\" />
@@ -492,6 +488,8 @@
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofGet\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofPost\" />
     <Folder Include="ofDTO\ofWarehouseDTO\ofPlatform\ofWorkingDesk\ofPut\" />
+    <Folder Include="ofViewModels\ofWebApp\ofCommon\" />
+    <Folder Include="ofViewModels\ofWebApp\ofLogister\" />
   </ItemGroup>
 
 </Project>

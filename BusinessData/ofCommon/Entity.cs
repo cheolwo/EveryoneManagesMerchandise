@@ -120,9 +120,6 @@ namespace BusinessData
         public List<Doc> Docs { get; set; }
         public Entity()
         {
-            ChangedUsers = new();
-            ImageofInfos = new();
-            Docs = new();
         }
         public void SetRelation(Type type, string Code)
         {

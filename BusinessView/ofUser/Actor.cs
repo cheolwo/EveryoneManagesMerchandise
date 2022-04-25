@@ -2,11 +2,29 @@
 
 namespace BusinessView.ofUser
 {
+    public class ActorOption
+    {
+        public bool IsUseStorage = false;
+    }
     public class Actor
     {
         protected ServiceBuilder ServiceBuilder = new();
         protected StorageBuilder StorageBuilder = new();
         protected ValidatorBuilder ValidatorBuilder = new();
+        public Actor(ActorOption actorOption)
+        {
+            if(actorOption.IsUseStorage)
+            {
+                OnServiceBuilder(ServiceBuilder);
+                OnStrorageBuilder(StorageBuilder);
+                OnValidatorBuilder(ValidatorBuilder);
+            }
+            else
+            {
+                OnServiceBuilder(ServiceBuilder);
+                OnValidatorBuilder(ValidatorBuilder);
+            }
+        }
         protected virtual void OnServiceBuilder(ServiceBuilder serviceBuilder) { }
         protected virtual void OnStrorageBuilder(StorageBuilder storageBuilder) { }
         protected virtual void OnValidatorBuilder(ValidatorBuilder validatorBuilde) { }

@@ -1,4 +1,5 @@
-﻿using BusinessView.ofUser.ofCommon.ofInterface;
+﻿using BusinessView.ofCommon.ofInterface;
+using BusinessView.ofUser.ofCommon.ofInterface;
 
 namespace BusinessView.ofUser.ofCommon
 {

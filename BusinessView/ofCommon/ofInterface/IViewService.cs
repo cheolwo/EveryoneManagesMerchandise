@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessView.ofGeneric;
 
-namespace BusinessView.ofUser.ofCommon.ofInterface
+namespace BusinessView.ofCommon.ofInterface
 {
+    public interface IViewService<T> where T : IDTO
+    {
+        Task<IEnumerable<T>> GetAll();
+        Task<T> GetById(string id);
+    }
     public interface IViewService
     {
+
     }
+
 }
