@@ -1,25 +1,25 @@
 ﻿using BusinessView.ofCommon.ofInterface;
-using BusinessView.ofUser.ofCommon.ofInterface;
+using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofUser.ofCommon
 {
     public class ServiceBuilder
     {
-        private Dictionary<IViewModel, IViewService> DicViewService { get; set; }
+        private Dictionary<int, DTOService> DicViewService { get; set; }
         public ServiceBuilder()
         {
             DicViewService = new();
         }
         // Using // Actor : virtual void OnConfigureViewService(ServiceBuilder serviceBuilder)
-        public void Add(IViewModel viewModel, IViewService viewService)
+        public void Add(string nameofDTO, DTOService viewService)
         {
-            DicViewService.Add(viewModel, viewService);
+            DicViewService.Add(nameofDTO.GetHashCode(), viewService);
         }
         // Using // Actor : virtaul Add<T> (T t) where T : IViewModel
         // This Method Purpose is to Get ViewService In Dictionay of ViewServices
-        public IViewService Get(IViewModel viewModel)
+        public DTOService Get(string nameofDTO)
         {
-            return DicViewService[viewModel]
+            return DicViewService[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include ViewService For ViewModel");
         }
     }

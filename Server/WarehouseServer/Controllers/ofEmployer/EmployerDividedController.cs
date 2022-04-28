@@ -25,12 +25,12 @@ namespace WarehouseServer.Controllers.ofEmployer
             _employerDividedTagRepository = employerDividedTagRepository;
             _modelToDTO = modelToDTO;
         }
-        // GET: api/<EmployerDividedController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //// GET: api/<EmployerDividedController>
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<EmployerDividedTag>> GetTodoItem(long id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         // GET api/<EmployerDividedController>/5
         [HttpGet("{id}")]

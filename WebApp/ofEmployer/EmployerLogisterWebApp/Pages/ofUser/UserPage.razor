@@ -1,0 +1,47 @@
+﻿@page "/userpage"
+@using BusinessView.ofViewModels.ofWebApp.ofCommon;
+@using System.ComponentModel
+@inject UsersViewModel _usersViewModel
+@implements IDisposable
+
+@if(_usersViewModel == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+ <CascadingValue Value=@_usersViewModel Name="UsersViewModel">
+    <UserListComponent></UserListComponent>
+    <UserFormComponent></UserFormComponent>
+</CascadingValue>
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {      
+        if(_usersViewModel.IdentityUserDTOs.Count == 0)
+        {
+            _usersViewModel.ExecuteLoadIdentityUserDTOCommand();
+        }
+        _usersViewModel.PropertyChanged += async (sender, e) => {
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+        };
+        await base.OnInitializedAsync();
+    }
+
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        _usersViewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+}

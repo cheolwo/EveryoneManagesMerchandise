@@ -51,17 +51,4 @@ namespace BusinessView.ofDTO.ofJournalDTO.ofEmployer
         public string HeadOfficeNumber {get; set;}
         public string HeadOfficeFax {get; set;}
     }
-    public class EmployerJournal : EmployerEntity
-    {
-        public string Debits { get; set; }         // Json 으로 처리한다.
-        public string Credits {get; set; }       // Json 으로 처리한다.
-        public string AwesomeInfo {get; set;}
-        public string JCommodity {get; set;}
-    }
-    public class EmployerJCommodity : EmployerCommodity
-    {
-        public string OCommodityNo { get; set; }
-        public string Journals { get; set; }
-        public string JournalCenter { get; set; }
-    }
 }

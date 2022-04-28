@@ -51,17 +51,4 @@ namespace BusinessView.ofDTO.ofJournalDTO.ofPlatform
         public string HeadOfficeNumber {get; set;}
         public string HeadOfficeFax {get; set;}
     }
-    public class PlatformJournal : PlatformEntity
-    {
-        public string Debits { get; set; }         // Json 으로 처리한다.
-        public string Credits {get; set; }       // Json 으로 처리한다.
-        public string AwesomeInfo {get; set;}
-        public string JCommodity {get; set;}
-    }
-    public class PlatformJCommodity : PlatformCommodity
-    {
-        public string OCommodityNo { get; set; }
-        public string Journals { get; set; }
-        public string JournalCenter { get; set; }
-    }
 }

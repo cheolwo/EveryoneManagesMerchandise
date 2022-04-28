@@ -8,145 +8,145 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EmployeeWarehouseWebApp
 build_property.RootNamespace = EmployeeWarehouseWebApp
-build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployee\ofWarehouse\EmployeeWarehouseWebApp\
+build_property.ProjectDir = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployee\ofWarehouse\EmployeeWarehouseWebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployee\ofWarehouse\EmployeeWarehouseWebApp
+build_property.MSBuildProjectDirectory = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployee\ofWarehouse\EmployeeWarehouseWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/App.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Counter.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/FetchData.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Index.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_CreateEWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_CreateEWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZFV0NvbW1vZGl0eVxWQ19DcmVhdGVFV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_DeleteEWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_DeleteEWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZFV0NvbW1vZGl0eVxWQ19EZWxldGVFV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_ReadEWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_ReadEWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZFV0NvbW1vZGl0eVxWQ19SZWFkRVdDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_UpdateEWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofEWCommodity/VC_UpdateEWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZFV0NvbW1vZGl0eVxWQ19VcGRhdGVFV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_CreateMWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_CreateMWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZNV0NvbW1vZGl0eVxWQ19DcmVhdGVNV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_DeleteMWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_DeleteMWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZNV0NvbW1vZGl0eVxWQ19EZWxldGVNV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_ReadMWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_ReadMWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZNV0NvbW1vZGl0eVxWQ19SZWFkTVdDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_UpdateMWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofMWCommodity/VC_UpdateMWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZNV0NvbW1vZGl0eVxWQ19VcGRhdGVNV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_CreateSWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_CreateSWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZTV0NvbW1vZGl0eVxWQ19DcmVhdGVTV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_DeleteSWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_DeleteSWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZTV0NvbW1vZGl0eVxWQ19EZWxldGVTV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_ReadSWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_ReadSWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZTV0NvbW1vZGl0eVxWQ19SZWFkU1dDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_UpdateSWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofSWCommodity/VC_UpdateSWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZTV0NvbW1vZGl0eVxWQ19VcGRhdGVTV0NvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_CreateWarehouse.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_CreateWarehouse.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXYXJlaG91c2VcVkNfQ3JlYXRlV2FyZWhvdXNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_DeleteWarehouse.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_DeleteWarehouse.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXYXJlaG91c2VcVkNfRGVsZXRlV2FyZWhvdXNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_ReadWarehouse.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_ReadWarehouse.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXYXJlaG91c2VcVkNfUmVhZFdhcmVob3VzZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_UpdateWarehouse.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWarehouse/VC_UpdateWarehouse.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXYXJlaG91c2VcVkNfVXBkYXRlV2FyZWhvdXNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_CreateWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_CreateWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXQ29tbW9kaXR5XFZDX0NyZWF0ZVdDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_DeleteWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_DeleteWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXQ29tbW9kaXR5XFZDX0RlbGV0ZVdDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_ReadWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_ReadWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXQ29tbW9kaXR5XFZDX1JlYWRXQ29tbW9kaXR5LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_UpdateWCommodity.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/ofWCommodity/VC_UpdateWCommodity.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZXQ29tbW9kaXR5XFZDX1VwZGF0ZVdDb21tb2RpdHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/LoginDisplay.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/SurveyPrompt.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/_Imports.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/MainLayout.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ti9zhno770
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/MyNavMenu.razor]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Shared/MyNavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE15TmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-c6bdtnuqap
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Error.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/_Host.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/_Layout.cshtml]
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployee/ofWarehouse/EmployeeWarehouseWebApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

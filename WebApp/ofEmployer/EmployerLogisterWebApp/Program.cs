@@ -1,3 +1,10 @@
+using BusinessView.ofCommon.ofServices;
+using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofGeneric;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse;
+using BusinessView.ofWarehouse.ofEmployer;
 using EmployerLogisterWebApp.Areas.Identity;
 using EmployerLogisterWebApp.Data;
 using Microsoft.AspNetCore.Components;
@@ -24,6 +31,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.Password.RequireUppercase = false;
 
 }).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<IActorViewService<IdentityUserDTO>, UserActor>();
+builder.Services.AddScoped<BaseUserViewModel>();
+builder.Services.AddScoped<UsersViewModel>();
+
+builder.Services.AddScoped<EmployerWarehouseViewModel>();
+builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, LogisterActor>();
 
 builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();

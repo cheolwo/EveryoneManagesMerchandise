@@ -48,6 +48,7 @@ namespace BusinessData
         public const string OrderDbconnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=OrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public const string SmartFarmDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public const string IotDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string IdentityDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=IdentityDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
     public class OneAttribute : Attribute
     {     

@@ -1,0 +1,59 @@
+﻿using BusinessView.ofWarehouse.ofPlatform;
+using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+{
+    public class PlatformWCommodityService : WarehouseService, IDTOService<PlatformWCommodity>
+    {
+        public PlatformWCommodityService(Action<DTOServiceOptions> options)
+            : base(options)
+        {
+
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            var Response = await _httpClient.DeleteAsync($"api/PlatformWCommodity/{id}");
+            Response.EnsureSuccessStatusCode();
+        }
+
+        public async Task<PlatformWCommodity?> GetAsync(string id)
+        {
+            return await _httpClient.GetFromJsonAsync<PlatformWCommodity>($"/api/PlatformWCommodity/{id}");
+        }
+
+        public async Task<IEnumerable<PlatformWCommodity>?> GetsAsync()
+        {
+            return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformWCommodity>>("/api/PlatformWCommodity");
+        }
+
+        public async Task PostAsync(PlatformWCommodity entity)
+        {
+            var entityJson = new StringContent(
+            JsonSerializer.Serialize(entity),
+            Encoding.UTF8,
+            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+
+            using var httpResponseMessage =
+                await _httpClient.PostAsync("/api/PlatformWCommodity", entityJson);
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+        }
+
+        public async Task UpdateAsync(PlatformWCommodity entity)
+        {
+            var entityJson = new StringContent(
+            JsonSerializer.Serialize(entity),
+            Encoding.UTF8,
+            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+
+            using var httpResponseMessage =
+                await _httpClient.PutAsync("/api/PlatformWCommodity", entityJson);
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+        }
+    }
+}

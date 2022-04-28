@@ -12,20 +12,4 @@ namespace BusinessView.ofGroupOrder.ofPlatform
         public List<string> OrderCenters { get; set; }
         public string WarehouseId { get; set; }
     }
-    public class PlatformGOCC : PlatformCommodity
-    {
-
-    }
-    public class PlatformSGOC : PlatformSStatus
-    {
-
-    }
-    public class PlatformMGOC : PlatformMStatus
-    {
-
-    }
-    public class PlatformEGOC : PlatformEStatus
-    {
-
-    }
 }

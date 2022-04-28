@@ -1,0 +1,24 @@
+﻿using BusinessView.ofUser.ofCommon;
+
+namespace BusinessView.ofUser.ofPlatform
+{
+    public class PlatformProducter : PlatformActor
+    {
+        public PlatformProducter()
+        {
+
+        }
+        protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
+        {
+
+        }
+        protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
+        {
+
+        }
+        protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde) 
+        {
+
+        }
+    }
+}

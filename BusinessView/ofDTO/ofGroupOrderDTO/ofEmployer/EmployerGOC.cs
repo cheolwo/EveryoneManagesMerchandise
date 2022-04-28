@@ -12,20 +12,4 @@ namespace BusinessView.ofGroupOrder.ofEmployer
         public List<string> OrderCenters { get; set; }
         public string WarehouseId { get; set; }
     }
-    public class EmployerGOCC : EmployerCommodity
-    {
-
-    }
-    public class EmployerSGOC : EmployerSStatus
-    {
-
-    }
-    public class EmployerMGOC : EmployerMStatus
-    {
-
-    }
-    public class EmployerEGOC : EmployerEStatus
-    {
-
-    }
 }
