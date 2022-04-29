@@ -1,13 +1,10 @@
-﻿using BusinessData.ofHumanResource.ofInterface.ofEmployer;
-using BusinessData.ofJournal.ofInterface.ofEmployer;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofJournal.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
-using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployer;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessView.ofWarehouse.ofEmployer;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,57 +15,71 @@ namespace WarehouseServer.Controllers.ofEmployer
     public class EmployerWarehouseController : ControllerBase
     {
         private readonly ILogger<EmployerWarehouseController> _logger;
-        private readonly IEmployerWarehouseManager _employerWarehouseManager;
-        private readonly IEmployerJournalCenterManager _employerJournalCenterManager;
-        private readonly IEmployerHRCenterManager _employerHRCenterManager;
+        private readonly IEmployerWarehouseManager _EmployerWarehouseManager;
+        private readonly IEmployerWarehouseRepository _EmployerWarehouseRepository;
 
-        private readonly IEmployerWarehouseRepository _employerWarehouseRepository;
-        private readonly IEmployerHRCenterRepository _employerHRCenterRepository;
-        private readonly IEmployerJournalCenterRepository _employerJounralCenterRepository;
-
-        private readonly ModelToDTO<Warehouse, EmployerWarehouse> _modelToDTO;
-
-        public EmployerWarehouseController(ILogger<EmployerWarehouseController> logger, IEmployerWarehouseManager employerWarehouseManager, IEmployerJournalCenterManager employerJournalCenterManager, IEmployerHRCenterManager employerHRCenterManager, IEmployerWarehouseRepository employerWarehouseRepository, IEmployerHRCenterRepository employerHRCenterRepository, IEmployerJournalCenterRepository employerJounralCenterRepository, ModelToDTO<Warehouse, EmployerWarehouse> modelToDTO)
+        public EmployerWarehouseController(ILogger<EmployerWarehouseController> logger,
+            IEmployerWarehouseManager EmployerWarehouseManager, 
+            IEmployerWarehouseRepository EmployerWarehouseRepository)
         {
             _logger = logger;
-            _employerWarehouseManager = employerWarehouseManager;
-            _employerJournalCenterManager = employerJournalCenterManager;
-            _employerHRCenterManager = employerHRCenterManager;
-            _employerWarehouseRepository = employerWarehouseRepository;
-            _employerHRCenterRepository = employerHRCenterRepository;
-            _employerJounralCenterRepository = employerJounralCenterRepository;
-            _modelToDTO = modelToDTO;
+            _EmployerWarehouseRepository = EmployerWarehouseRepository;
+            _EmployerWarehouseManager = EmployerWarehouseManager;
         }
         // GET: api/<EmployerWarehouseController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployerWarehouseController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployerWarehouse>> GetWarehouse(string id)
         {
-            return "value";
+            var Warehouse = await _EmployerWarehouseRepository.GetByIdAsync(id);
+
+            if (Warehouse == null)
+            {
+                return NotFound();
+            }
+            var GetEmployerWarehouse = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(Warehouse, new EmployerWarehouse());
+            return GetEmployerWarehouse;
         }
 
-        // POST api/<EmployerWarehouseController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployerWarehouse>> PostWarehouse(EmployerWarehouse EmployerWarehouse)
         {
+            var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
+            var newWarehouse = await _EmployerWarehouseManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetWarehouse", new { id = Warehouse.Id }, Warehouse);
+            return CreatedAtAction(nameof(GetWarehouse), new { id = newWarehouse.Id }, newWarehouse);
         }
 
-        // PUT api/<EmployerWarehouseController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutWarehouse(string id, EmployerWarehouse EmployerWarehouse)
         {
+            var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployerWarehouseManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployerWarehouseController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteWarehouse(string id)
         {
+            var Warehouse = await _EmployerWarehouseRepository.GetByIdAsync(id);
+            if (Warehouse == null)
+            {
+                return NotFound();
+            }
+            await _EmployerWarehouseRepository.DeleteByIdAsync(Warehouse.Id);
+
+            return NoContent();
         }
     }
 }

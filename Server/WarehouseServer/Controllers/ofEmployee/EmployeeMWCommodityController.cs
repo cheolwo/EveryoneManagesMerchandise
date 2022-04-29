@@ -4,57 +4,82 @@ using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessView.ofGeneric;
 using BusinessView.ofWarehouse.ofEmployee;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployee
+namespace MWCommodityServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeMWCommodityController : ControllerBase
     {
         private readonly ILogger<EmployeeMWCommodityController> _logger;
-        private readonly IEmployeeMWCommodityManager _employeeMWCommodityManager;
-        private readonly IEmployeeMWCommodityRepository _employeeMWCommodityRepository;
-        private readonly ModelToDTO<MWCommodity, EmployeeMWCommodity> _modelToDTO;
+        private readonly IEmployeeMWCommodityManager _EmployeeMWCommodityManager;
+        private readonly IEmployeeMWCommodityRepository _EmployeeMWCommodityRepository;
 
-        public EmployeeMWCommodityController(ILogger<EmployeeMWCommodityController> logger, IEmployeeMWCommodityManager employeeMWCommodityManager, IEmployeeMWCommodityRepository employeeMWCommodityRepository, ModelToDTO<MWCommodity, EmployeeMWCommodity> modelToDTO)
+        public EmployeeMWCommodityController(ILogger<EmployeeMWCommodityController> logger,
+            IEmployeeMWCommodityManager EmployeeMWCommodityManager, 
+            IEmployeeMWCommodityRepository EmployeeMWCommodityRepository)
         {
             _logger = logger;
-            _employeeMWCommodityManager = employeeMWCommodityManager;
-            _employeeMWCommodityRepository = employeeMWCommodityRepository;
-            _modelToDTO = modelToDTO;
+            _EmployeeMWCommodityRepository = EmployeeMWCommodityRepository;
+            _EmployeeMWCommodityManager = EmployeeMWCommodityManager;
         }
         // GET: api/<EmployeeMWCommodityController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployeeMWCommodityController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployeeMWCommodity>> GetMWCommodity(string id)
         {
-            return "value";
+            var MWCommodity = await _EmployeeMWCommodityRepository.GetByIdAsync(id);
+
+            if (MWCommodity == null)
+            {
+                return NotFound();
+            }
+            var GetEmployeeMWCommodity = ModelToDTO<MWCommodity, EmployeeMWCommodity>.ConvertToDTO(MWCommodity, new EmployeeMWCommodity());
+            return GetEmployeeMWCommodity;
         }
 
-        // POST api/<EmployeeMWCommodityController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployeeMWCommodity>> PostMWCommodity(EmployeeMWCommodity EmployeeMWCommodity)
         {
+            var model = DTOToModel<EmployeeMWCommodity, MWCommodity>.ConvertToModel(EmployeeMWCommodity, new());
+            var newMWCommodity = await _EmployeeMWCommodityManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetMWCommodity", new { id = MWCommodity.Id }, MWCommodity);
+            return CreatedAtAction(nameof(GetMWCommodity), new { id = newMWCommodity.Id }, newMWCommodity);
         }
 
-        // PUT api/<EmployeeMWCommodityController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutMWCommodity(string id, EmployeeMWCommodity EmployeeMWCommodity)
         {
+            var model = DTOToModel<EmployeeMWCommodity, MWCommodity>.ConvertToModel(EmployeeMWCommodity, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployeeMWCommodityManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployeeMWCommodityController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteMWCommodity(string id)
         {
+            var MWCommodity = await _EmployeeMWCommodityRepository.GetByIdAsync(id);
+            if (MWCommodity == null)
+            {
+                return NotFound();
+            }
+            await _EmployeeMWCommodityRepository.DeleteByIdAsync(MWCommodity.Id);
+
+            return NoContent();
         }
     }
 }

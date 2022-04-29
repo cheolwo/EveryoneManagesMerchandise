@@ -4,57 +4,82 @@ using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessView.ofGeneric;
 using BusinessView.ofWarehouse.ofEmployee;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployee
+namespace SWCommodityServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeSWCommodityController : ControllerBase
     {
         private readonly ILogger<EmployeeSWCommodityController> _logger;
-        private readonly IEmployeeSWCommodityManager _employeeSWCommodityManager;
-        private readonly IEmployeeSWCommodityRepository _employeeSWCommodityRepository;
-        private readonly ModelToDTO<SWCommodity, EmployeeSWCommodity> _modelToDTO;
+        private readonly IEmployeeSWCommodityManager _EmployeeSWCommodityManager;
+        private readonly IEmployeeSWCommodityRepository _EmployeeSWCommodityRepository;
 
-        public EmployeeSWCommodityController(ILogger<EmployeeSWCommodityController> logger, IEmployeeSWCommodityManager employeeSWCommodityManager, IEmployeeSWCommodityRepository employeeSWCommodityRepository, ModelToDTO<SWCommodity, EmployeeSWCommodity> modelToDTO)
+        public EmployeeSWCommodityController(ILogger<EmployeeSWCommodityController> logger,
+            IEmployeeSWCommodityManager EmployeeSWCommodityManager, 
+            IEmployeeSWCommodityRepository EmployeeSWCommodityRepository)
         {
             _logger = logger;
-            _employeeSWCommodityManager = employeeSWCommodityManager;
-            _employeeSWCommodityRepository = employeeSWCommodityRepository;
-            _modelToDTO = modelToDTO;
+            _EmployeeSWCommodityRepository = EmployeeSWCommodityRepository;
+            _EmployeeSWCommodityManager = EmployeeSWCommodityManager;
         }
         // GET: api/<EmployeeSWCommodityController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployeeSWCommodityController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployeeSWCommodity>> GetSWCommodity(string id)
         {
-            return "value";
+            var SWCommodity = await _EmployeeSWCommodityRepository.GetByIdAsync(id);
+
+            if (SWCommodity == null)
+            {
+                return NotFound();
+            }
+            var GetEmployeeSWCommodity = ModelToDTO<SWCommodity, EmployeeSWCommodity>.ConvertToDTO(SWCommodity, new EmployeeSWCommodity());
+            return GetEmployeeSWCommodity;
         }
 
-        // POST api/<EmployeeSWCommodityController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployeeSWCommodity>> PostSWCommodity(EmployeeSWCommodity EmployeeSWCommodity)
         {
+            var model = DTOToModel<EmployeeSWCommodity, SWCommodity>.ConvertToModel(EmployeeSWCommodity, new());
+            var newSWCommodity = await _EmployeeSWCommodityManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetSWCommodity", new { id = SWCommodity.Id }, SWCommodity);
+            return CreatedAtAction(nameof(GetSWCommodity), new { id = newSWCommodity.Id }, newSWCommodity);
         }
 
-        // PUT api/<EmployeeSWCommodityController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutSWCommodity(string id, EmployeeSWCommodity EmployeeSWCommodity)
         {
+            var model = DTOToModel<EmployeeSWCommodity, SWCommodity>.ConvertToModel(EmployeeSWCommodity, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployeeSWCommodityManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployeeSWCommodityController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteSWCommodity(string id)
         {
+            var SWCommodity = await _EmployeeSWCommodityRepository.GetByIdAsync(id);
+            if (SWCommodity == null)
+            {
+                return NotFound();
+            }
+            await _EmployeeSWCommodityRepository.DeleteByIdAsync(SWCommodity.Id);
+
+            return NoContent();
         }
     }
 }

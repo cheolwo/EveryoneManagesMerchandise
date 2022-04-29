@@ -7,24 +7,44 @@ using System.Threading.Tasks;
 
 namespace BusinessData.ofWarehouse.ofInterface.ofEmployee
 {
-    public interface IEmployeeWarehouseRepository
+    public interface IEmployeeWarehouseRepository : IWarehouseRepository
     {
         
     }
-    public interface IEmployeeWCommodityRepository 
+    public interface IEmployeeWCommodityRepository : IWCommodityRepository
     { 
 
     }
-    public interface IEmployeeSWCommodityRepository 
+    public interface IEmployeeSWCommodityRepository : ISWCommodityRepository
     {
 
     }
-    public interface IEmployeeMWCommodityRepository 
+    public interface IEmployeeMWCommodityRepository : IMWCommodityRepository
     {
 
     }
-    public interface IEmployeeEWCommodityRepository
+    public interface IEmployeeEWCommodityRepository : IEWCommodityRepository
     { 
+
+    }
+    public interface IEmployeeDividedTagRepository : IDividedTagRepository
+    {
+
+    }
+    public interface IEmployeeIncomingTagRepository : IIncomingTagRepository
+    {
+
+    }
+    public interface IEmployeeLoadFrameRepository : ILoadFrameRepository
+    {
+
+    }
+    public interface IEmployeeWorkingDeskRepository : IWorkingDeskRepository
+    {
+
+    }
+    public interface IEmployeeDotBarcodeRepository : IDotBarcodeRepository
+    {
 
     }
 }

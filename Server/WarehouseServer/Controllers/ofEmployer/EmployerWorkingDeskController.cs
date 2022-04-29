@@ -1,60 +1,85 @@
-﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployer;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessView.ofWarehouse.ofEmployer;
+using BusinessData.ofWarehouse.Model;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployer
+namespace WorkingDeskServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerWorkingDeskController : ControllerBase
     {
         private readonly ILogger<EmployerWorkingDeskController> _logger;
-        private readonly IEntityManager<WorkingDesk> _employerWorkingDeskManager;
-        private readonly IEntityDataRepository<WorkingDesk> _employerWorkingDeskRepository;
-        private readonly ModelToDTO<WorkingDesk, EmployerWorkingDesk> _modelToDTO;
+        private readonly IEmployerWorkingDeskManager _EmployerWorkingDeskManager;
+        private readonly IEmployerWorkingDeskRepository _EmployerWorkingDeskRepository;
 
-        public EmployerWorkingDeskController(ILogger<EmployerWorkingDeskController> logger, IEntityManager<WorkingDesk> employerWorkingDeskManager, IEntityDataRepository<WorkingDesk> employerWorkingDeskRepository, ModelToDTO<WorkingDesk, EmployerWorkingDesk> modelToDTO)
+        public EmployerWorkingDeskController(ILogger<EmployerWorkingDeskController> logger,
+            IEmployerWorkingDeskManager EmployerWorkingDeskManager, 
+            IEmployerWorkingDeskRepository EmployerWorkingDeskRepository)
         {
             _logger = logger;
-            _employerWorkingDeskManager = employerWorkingDeskManager;
-            _employerWorkingDeskRepository = employerWorkingDeskRepository;
-            _modelToDTO = modelToDTO;
+            _EmployerWorkingDeskRepository = EmployerWorkingDeskRepository;
+            _EmployerWorkingDeskManager = EmployerWorkingDeskManager;
         }
         // GET: api/<EmployerWorkingDeskController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployerWorkingDeskController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployerWorkingDesk>> GetWorkingDesk(string id)
         {
-            return "value";
+            var WorkingDesk = await _EmployerWorkingDeskRepository.GetByIdAsync(id);
+
+            if (WorkingDesk == null)
+            {
+                return NotFound();
+            }
+            var GetEmployerWorkingDesk = ModelToDTO<WorkingDesk, EmployerWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployerWorkingDesk());
+            return GetEmployerWorkingDesk;
         }
 
-        // POST api/<EmployerWorkingDeskController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployerWorkingDesk>> PostWorkingDesk(EmployerWorkingDesk EmployerWorkingDesk)
         {
+            var model = DTOToModel<EmployerWorkingDesk, WorkingDesk>.ConvertToModel(EmployerWorkingDesk, new());
+            var newWorkingDesk = await _EmployerWorkingDeskManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetWorkingDesk", new { id = WorkingDesk.Id }, WorkingDesk);
+            return CreatedAtAction(nameof(GetWorkingDesk), new { id = newWorkingDesk.Id }, newWorkingDesk);
         }
 
-        // PUT api/<EmployerWorkingDeskController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutWorkingDesk(string id, EmployerWorkingDesk EmployerWorkingDesk)
         {
+            var model = DTOToModel<EmployerWorkingDesk, WorkingDesk>.ConvertToModel(EmployerWorkingDesk, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployerWorkingDeskManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployerWorkingDeskController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteWorkingDesk(string id)
         {
+            var WorkingDesk = await _EmployerWorkingDeskRepository.GetByIdAsync(id);
+            if (WorkingDesk == null)
+            {
+                return NotFound();
+            }
+            await _EmployerWorkingDeskRepository.DeleteByIdAsync(WorkingDesk.Id);
+
+            return NoContent();
         }
     }
 }

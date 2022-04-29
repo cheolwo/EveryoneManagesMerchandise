@@ -7,6 +7,7 @@ using BusinessData.ofWarehouse.ofDbContext;
 namespace BusinessData.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(WorkingDesk), "WD")]
     public class WorkingDesk : Entity
     {
         public WorkingDesk()

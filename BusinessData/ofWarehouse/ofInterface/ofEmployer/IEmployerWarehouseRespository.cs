@@ -12,7 +12,7 @@ namespace BusinessData.ofWarehouse.ofInterface.ofEmployer
 
     }
     public interface IEmployerWCommodityRepository : IWCommodityRepository
-    { 
+    {
 
     }
     public interface IEmployerSWCommodityRepository : ISWCommodityRepository
@@ -24,6 +24,26 @@ namespace BusinessData.ofWarehouse.ofInterface.ofEmployer
 
     }
     public interface IEmployerEWCommodityRepository : IEWCommodityRepository
+    {
+
+    }
+    public interface IEmployerDividedTagRepository : IDividedTagRepository
+    {
+
+    }
+    public interface IEmployerIncomingTagRepository : IIncomingTagRepository
+    {
+
+    }
+    public interface IEmployerLoadFrameRepository : ILoadFrameRepository
+    {
+
+    }
+    public interface IEmployerWorkingDeskRepository : IWorkingDeskRepository
+    {
+
+    }
+    public interface IEmployerDotBarcodeRepository : IDotBarcodeRepository
     {
 
     }

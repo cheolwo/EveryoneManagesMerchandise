@@ -9,6 +9,7 @@ using BusinessData.ofWarehouse.ofDbContext;
 namespace BusinessData.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(IncomingTag), "IT")]
     public class IncomingTag : Entity
     {
          public string SWCommodityId { get; set; }

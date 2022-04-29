@@ -1,60 +1,85 @@
-﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployer;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessView.ofWarehouse.ofEmployer;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployer
+namespace LoadFrameServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerLoadFrameController : ControllerBase
     {
         private readonly ILogger<EmployerLoadFrameController> _logger;
-        private readonly IEntityManager<LoadFrame> _employerLoadFrameManager;
-        private readonly IEntityDataRepository<LoadFrame> _employerLoadFrameRepository;
-        private readonly ModelToDTO<LoadFrame, EmployerLoadFrame> _modelToDTO;
+        private readonly IEmployerLoadFrameManager _EmployerLoadFrameManager;
+        private readonly IEmployerLoadFrameRepository _EmployerLoadFrameRepository;
 
-        public EmployerLoadFrameController(ILogger<EmployerLoadFrameController> logger, IEntityManager<LoadFrame> employerLoadFrameManager, IEntityDataRepository<LoadFrame> employerLoadFrameRepository, ModelToDTO<LoadFrame, EmployerLoadFrame> modelToDTO)
+        public EmployerLoadFrameController(ILogger<EmployerLoadFrameController> logger,
+            IEmployerLoadFrameManager EmployerLoadFrameManager, 
+            IEmployerLoadFrameRepository EmployerLoadFrameRepository)
         {
             _logger = logger;
-            _employerLoadFrameManager = employerLoadFrameManager;
-            _employerLoadFrameRepository = employerLoadFrameRepository;
-            _modelToDTO = modelToDTO;
+            _EmployerLoadFrameRepository = EmployerLoadFrameRepository;
+            _EmployerLoadFrameManager = EmployerLoadFrameManager;
         }
         // GET: api/<EmployerLoadFrameController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployerLoadFrameController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployerLoadFrame>> GetLoadFrame(string id)
         {
-            return "value";
+            var LoadFrame = await _EmployerLoadFrameRepository.GetByIdAsync(id);
+
+            if (LoadFrame == null)
+            {
+                return NotFound();
+            }
+            var GetEmployerLoadFrame = ModelToDTO<LoadFrame, EmployerLoadFrame>.ConvertToDTO(LoadFrame, new EmployerLoadFrame());
+            return GetEmployerLoadFrame;
         }
 
-        // POST api/<EmployerLoadFrameController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployerLoadFrame>> PostLoadFrame(EmployerLoadFrame EmployerLoadFrame)
         {
+            var model = DTOToModel<EmployerLoadFrame, LoadFrame>.ConvertToModel(EmployerLoadFrame, new());
+            var newLoadFrame = await _EmployerLoadFrameManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetLoadFrame", new { id = LoadFrame.Id }, LoadFrame);
+            return CreatedAtAction(nameof(GetLoadFrame), new { id = newLoadFrame.Id }, newLoadFrame);
         }
 
-        // PUT api/<EmployerLoadFrameController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutLoadFrame(string id, EmployerLoadFrame EmployerLoadFrame)
         {
+            var model = DTOToModel<EmployerLoadFrame, LoadFrame>.ConvertToModel(EmployerLoadFrame, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployerLoadFrameManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployerLoadFrameController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteLoadFrame(string id)
         {
+            var LoadFrame = await _EmployerLoadFrameRepository.GetByIdAsync(id);
+            if (LoadFrame == null)
+            {
+                return NotFound();
+            }
+            await _EmployerLoadFrameRepository.DeleteByIdAsync(LoadFrame.Id);
+
+            return NoContent();
         }
     }
 }

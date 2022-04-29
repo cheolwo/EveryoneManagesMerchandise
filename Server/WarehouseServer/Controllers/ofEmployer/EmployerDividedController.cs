@@ -1,60 +1,85 @@
-﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployer;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessData.ofWarehouse.Model;
+using BusinessView.ofWarehouse.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployer
+namespace DividedTagServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerDividedTagController : ControllerBase
     {
         private readonly ILogger<EmployerDividedTagController> _logger;
-        private readonly IEntityManager<DividedTag> _employerDividedTagManager;
-        private readonly IEntityDataRepository<DividedTag> _employerDividedTagRepository;
-        private readonly ModelToDTO<DividedTag, EmployerDividedTag> _modelToDTO;
+        private readonly IEmployerDividedTagManager _EmployerDividedTagManager;
+        private readonly IEmployerDividedTagRepository _EmployerDividedTagRepository;
 
-        public EmployerDividedTagController(ILogger<EmployerDividedTagController> logger, IEntityManager<DividedTag> employerDividedTagManager, IEntityDataRepository<DividedTag> employerDividedTagRepository, ModelToDTO<DividedTag, EmployerDividedTag> modelToDTO)
+        public EmployerDividedTagController(ILogger<EmployerDividedTagController> logger,
+            IEmployerDividedTagManager EmployerDividedTagManager, 
+            IEmployerDividedTagRepository EmployerDividedTagRepository)
         {
             _logger = logger;
-            _employerDividedTagManager = employerDividedTagManager;
-            _employerDividedTagRepository = employerDividedTagRepository;
-            _modelToDTO = modelToDTO;
+            _EmployerDividedTagRepository = EmployerDividedTagRepository;
+            _EmployerDividedTagManager = EmployerDividedTagManager;
         }
-        //// GET: api/<EmployerDividedController>
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<EmployerDividedTag>> GetTodoItem(long id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        // GET api/<EmployerDividedController>/5
+        // GET: api/<EmployerDividedTagController>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployerDividedTag>> GetDividedTag(string id)
         {
-            return "value";
+            var DividedTag = await _EmployerDividedTagRepository.GetByIdAsync(id);
+
+            if (DividedTag == null)
+            {
+                return NotFound();
+            }
+            var GetEmployerDividedTag = ModelToDTO<DividedTag, EmployerDividedTag>.ConvertToDTO(DividedTag, new EmployerDividedTag());
+            return GetEmployerDividedTag;
         }
 
-        // POST api/<EmployerDividedController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployerDividedTag>> PostDividedTag(EmployerDividedTag EmployerDividedTag)
         {
+            var model = DTOToModel<EmployerDividedTag, DividedTag>.ConvertToModel(EmployerDividedTag, new());
+            var newDividedTag = await _EmployerDividedTagManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetDividedTag", new { id = DividedTag.Id }, DividedTag);
+            return CreatedAtAction(nameof(GetDividedTag), new { id = newDividedTag.Id }, newDividedTag);
         }
 
-        // PUT api/<EmployerDividedController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutDividedTag(string id, EmployerDividedTag EmployerDividedTag)
         {
+            var model = DTOToModel<EmployerDividedTag, DividedTag>.ConvertToModel(EmployerDividedTag, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployerDividedTagManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployerDividedController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteDividedTag(string id)
         {
+            var DividedTag = await _EmployerDividedTagRepository.GetByIdAsync(id);
+            if (DividedTag == null)
+            {
+                return NotFound();
+            }
+            await _EmployerDividedTagRepository.DeleteByIdAsync(DividedTag.Id);
+
+            return NoContent();
         }
     }
 }

@@ -10,20 +10,4 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform
     {
 
     }
-    public interface IPlatformWCommodityManager : IWCommodityManager
-    { 
-
-    }
-    public interface IPlatformSWCommodityManager : ISWCommodityManager
-    {
-
-    }
-    public interface IPlatformMWCommodityManager : IMWCommodityManager
-    {
-
-    }
-    public interface IPlatformEWCommodityManager : IEWCommodityManager
-    {
-
-    }
 }

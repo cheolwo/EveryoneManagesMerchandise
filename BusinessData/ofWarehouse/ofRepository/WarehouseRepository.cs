@@ -12,26 +12,6 @@ using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 namespace BusinessData.ofWarehouse.ofRepository
 {
-    public interface IWarehouseRepository : ICenterDataRepository<Warehouse>
-    {
-        Task<Warehouse> GetRelatedData(Warehouse warehouse);
-    }
-    public interface IWCommodityRepository : ICommodityDataRepository<WCommodity>
-    {
-
-    }
-    public interface ISWCommodityRepository : IStatusDataRepository<SWCommodity>
-    {
-
-    }
-    public interface IMWCommodityRepository : IStatusDataRepository<MWCommodity>
-    {
-
-    }
-    public interface IEWCommodityRepository : IStatusDataRepository<EWCommodity>
-    {
-
-    }
     public class WarehouseRepository : CenterDataRepository<Warehouse>, IWarehouseRepository, IEmployeeWarehouseRepository, IEmployerWarehouseRepository, IPlatformWarehouseRepository 
     {
         public WarehouseRepository(WarehouseDbContext WarehouseDbContext)
@@ -133,7 +113,7 @@ namespace BusinessData.ofWarehouse.ofRepository
     {
 
     }
-    public class WorkingDeskRepository : EntityDataRepository<WorkingDesk>, IWorkingDeskRepository/*, IEmployeeWorkingDeskRepository, IEmployerWorkingDeskRepository, IPlatformWorkingDeskRepository*/
+    public class WorkingDeskRepository : EntityDataRepository<WorkingDesk>, IWorkingDeskRepository, IEmployeeWorkingDeskRepository, IEmployerWorkingDeskRepository, IPlatformWorkingDeskRepository
     {
         public WorkingDeskRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)
@@ -145,7 +125,7 @@ namespace BusinessData.ofWarehouse.ofRepository
     {
 
     }
-    public class DotBarcodeRepository : EntityDataRepository<DotBarcode>, IDotBarcodeRepository/*, IEmployeeDotBarcodeRepository, IEmployerDotBarcodeRepository, IPlatformDotBarcodeRepository*/
+    public class DotBarcodeRepository : EntityDataRepository<DotBarcode>, IDotBarcodeRepository, IEmployeeDotBarcodeRepository, IEmployerDotBarcodeRepository, IPlatformDotBarcodeRepository
     {
         public DotBarcodeRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)
@@ -153,5 +133,40 @@ namespace BusinessData.ofWarehouse.ofRepository
 
         }
     }
+    public interface IIncomingTagRepository : IEntityDataRepository<IncomingTag>
+    {
 
+    }
+    public class IncomingTagRepository : EntityDataRepository<IncomingTag>, IIncomingTagRepository, IEmployeeIncomingTagRepository, IEmployerIncomingTagRepository, IPlatformIncomingTagRepository
+    {
+        public IncomingTagRepository(WarehouseDbContext warehouseDbContext)
+            : base(warehouseDbContext)
+        {
+
+        }
+    }
+    public interface IDividedTagRepository : IEntityDataRepository<DividedTag>
+    {
+
+    }
+    public class DividedTagRepository : EntityDataRepository<DividedTag>, IDividedTagRepository, IEmployeeDividedTagRepository, IEmployerDividedTagRepository, IPlatformDividedTagRepository
+    {
+        public DividedTagRepository(WarehouseDbContext warehouseDbContext)
+            : base(warehouseDbContext)
+        {
+
+        }
+    }
+    public interface ILoadFrameRepository : IEntityDataRepository<LoadFrame>
+    {
+
+    }
+    public class LoadFrameRepository : EntityDataRepository<LoadFrame>, ILoadFrameRepository, IEmployeeLoadFrameRepository, IEmployerLoadFrameRepository, IPlatformLoadFrameRepository
+    {
+        public LoadFrameRepository(WarehouseDbContext warehouseDbContext)
+            : base(warehouseDbContext)
+        {
+
+        }
+    }
 }

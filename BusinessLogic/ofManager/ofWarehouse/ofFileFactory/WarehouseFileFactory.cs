@@ -60,4 +60,28 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofFileFactory
     {
 
     }
+    public interface IIncomingTagFileFactory : IEntityFileFactory<IncomingTag>
+    {
+
+    }
+    public class IncomingTagFileFactory : EntityFileFactory<IncomingTag>, IIncomingTagFileFactory
+    {
+
+    }
+    public interface ILoadFrameFileFactory : IEntityFileFactory<LoadFrame>
+    {
+
+    }
+    public class LoadFrameFileFactory : EntityFileFactory<LoadFrame>, ILoadFrameFileFactory
+    {
+
+    }
+    public interface IDividedTagFileFactory : IEntityFileFactory<DividedTag>
+    {
+
+    }
+    public class DividedTagFileFactory : EntityFileFactory<DividedTag>, IDividedTagFileFactory
+    {
+
+    }
 }

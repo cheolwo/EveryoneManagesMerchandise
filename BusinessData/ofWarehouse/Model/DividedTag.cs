@@ -3,6 +3,7 @@
 namespace BusinessData.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(DividedTag), "DT")]
     public class DividedTag : Entity
     {
         public bool Attached { get; set; }

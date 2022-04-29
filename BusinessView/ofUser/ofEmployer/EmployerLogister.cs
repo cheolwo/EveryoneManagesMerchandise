@@ -1,4 +1,6 @@
-﻿using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofCommon.ofServices.ofWarehouse;
+using BusinessView.ofUser.ofCommon;
+using BusinessView.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofUser.ofEmployer
 {
@@ -10,7 +12,16 @@ namespace BusinessView.ofUser.ofEmployer
         }
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
         {
-            
+            serviceBuilder.Add(nameof(EmployerWarehouse), new EmployerWarehouseService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerWCommodity), new EmployerWCommodityService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerSWCommodity), new EmployerSWCommodityService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerMWCommodity), new EmployerMWCommodityService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerEWCommodity), new EmployerEWCommodityService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerDividedTag), new EmployerDividedTagService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerDotBarcode), new EmployerDotBarcodeService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskService(e=>e.IsDevelopment = true));
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {

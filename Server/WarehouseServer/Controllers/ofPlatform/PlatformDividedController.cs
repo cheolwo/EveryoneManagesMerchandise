@@ -1,43 +1,85 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessView.ofGeneric;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessData.ofWarehouse.Model;
+using BusinessView.ofWarehouse.ofPlatform;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofPlatform
+namespace DividedTagServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PlatformDividedController : ControllerBase
+    public class PlatformDividedTagController : ControllerBase
     {
-        // GET: api/<PlatformDividedController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly ILogger<PlatformDividedTagController> _logger;
+        private readonly IPlatformDividedTagManager _PlatformDividedTagManager;
+        private readonly IPlatformDividedTagRepository _PlatformDividedTagRepository;
 
-        // GET api/<PlatformDividedController>/5
+        public PlatformDividedTagController(ILogger<PlatformDividedTagController> logger,
+            IPlatformDividedTagManager PlatformDividedTagManager, 
+            IPlatformDividedTagRepository PlatformDividedTagRepository)
+        {
+            _logger = logger;
+            _PlatformDividedTagRepository = PlatformDividedTagRepository;
+            _PlatformDividedTagManager = PlatformDividedTagManager;
+        }
+        // GET: api/<PlatformDividedTagController>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<PlatformDividedTag>> GetDividedTag(string id)
         {
-            return "value";
+            var DividedTag = await _PlatformDividedTagRepository.GetByIdAsync(id);
+
+            if (DividedTag == null)
+            {
+                return NotFound();
+            }
+            var GetPlatformDividedTag = ModelToDTO<DividedTag, PlatformDividedTag>.ConvertToDTO(DividedTag, new PlatformDividedTag());
+            return GetPlatformDividedTag;
         }
 
-        // POST api/<PlatformDividedController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<PlatformDividedTag>> PostDividedTag(PlatformDividedTag PlatformDividedTag)
         {
+            var model = DTOToModel<PlatformDividedTag, DividedTag>.ConvertToModel(PlatformDividedTag, new());
+            var newDividedTag = await _PlatformDividedTagManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetDividedTag", new { id = DividedTag.Id }, DividedTag);
+            return CreatedAtAction(nameof(GetDividedTag), new { id = newDividedTag.Id }, newDividedTag);
         }
 
-        // PUT api/<PlatformDividedController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutDividedTag(string id, PlatformDividedTag PlatformDividedTag)
         {
+            var model = DTOToModel<PlatformDividedTag, DividedTag>.ConvertToModel(PlatformDividedTag, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _PlatformDividedTagManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<PlatformDividedController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteDividedTag(string id)
         {
+            var DividedTag = await _PlatformDividedTagRepository.GetByIdAsync(id);
+            if (DividedTag == null)
+            {
+                return NotFound();
+            }
+            await _PlatformDividedTagRepository.DeleteByIdAsync(DividedTag.Id);
+
+            return NoContent();
         }
     }
 }

@@ -102,5 +102,41 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
 
         }
     }
+    public interface IDividedTagIdFactory : IEntityIdFactory<DividedTag>
+    {
+
+    }
+    public class DividedTagIdFactory : EntityIdFactory<DividedTag>, IDividedTagIdFactory
+    {
+        public DividedTagIdFactory(IDividedTagRepository DividedTagRepository)
+            : base(DividedTagRepository)
+        {
+
+        }
+    }
+    public interface IIncomingTagIdFactory : IEntityIdFactory<IncomingTag>
+    {
+
+    }
+    public class IncomingTagIdFactory : EntityIdFactory<IncomingTag>, IIncomingTagIdFactory
+    {
+        public IncomingTagIdFactory(IIncomingTagRepository IncomingTagRepository)
+            : base(IncomingTagRepository)
+        {
+
+        }
+    }
+    public interface ILoadFrameIdFactory : IEntityIdFactory<LoadFrame>
+    {
+
+    }
+    public class LoadFrameIdFactory : EntityIdFactory<LoadFrame>, ILoadFrameIdFactory
+    {
+        public LoadFrameIdFactory(ILoadFrameRepository LoadFrameRepository)
+            : base(LoadFrameRepository)
+        {
+
+        }
+    }
 
 }

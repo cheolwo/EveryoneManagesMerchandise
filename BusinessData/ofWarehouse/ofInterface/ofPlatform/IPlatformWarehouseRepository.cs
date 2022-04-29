@@ -1,9 +1,4 @@
 ﻿using BusinessData.ofWarehouse.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessData.ofWarehouse.ofInterface.ofPlatform
 {
@@ -12,7 +7,7 @@ namespace BusinessData.ofWarehouse.ofInterface.ofPlatform
 
     }
     public interface IPlatformWCommodityRepository : IWCommodityRepository
-    { 
+    {
 
     }
     public interface IPlatformSWCommodityRepository : ISWCommodityRepository
@@ -24,6 +19,26 @@ namespace BusinessData.ofWarehouse.ofInterface.ofPlatform
 
     }
     public interface IPlatformEWCommodityRepository : IEWCommodityRepository
+    {
+
+    }
+    public interface IPlatformDividedTagRepository : IDividedTagRepository
+    {
+
+    }
+    public interface IPlatformIncomingTagRepository : IIncomingTagRepository
+    {
+
+    }
+    public interface IPlatformLoadFrameRepository : ILoadFrameRepository
+    {
+
+    }
+    public interface IPlatformWorkingDeskRepository : IWorkingDeskRepository
+    {
+
+    }
+    public interface IPlatformDotBarcodeRepository : IDotBarcodeRepository
     {
 
     }

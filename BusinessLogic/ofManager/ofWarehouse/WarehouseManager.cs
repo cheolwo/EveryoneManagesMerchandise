@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using BusinessData.ofCommon.ofKapt;
 using BusinessData.ofGroupOrder.ofModel;
@@ -30,12 +29,6 @@ namespace BusinessLogic.ofManager.ofWarehouse
             this.CountMWCommodity = CountMWCommmodity;
             this.CountEWCommodity = CountEWCommodity;
         }
-    }
-    public interface IWarehouseManager : ICenterManager<Warehouse>
-    {
-        Task<Warehouse> LoginWithDataAsync(string LoginId, string Password);
-        Task<bool> WarehouseLoginAsync(string LoginId, string Password);
-        Task<Warehouse> CreateByKAptAndGOC(KAptBasicInfo kAptBasicInfo, GOC groupOrderCenter);
     }
     public class WarehouseManager : CenterManager<Warehouse>, IEmployerWarehouseManager, IEmployeeWarehouseManager, IPlatformWarehouseManager, IWarehouseManager
     {

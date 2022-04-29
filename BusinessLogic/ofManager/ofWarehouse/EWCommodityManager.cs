@@ -10,10 +10,6 @@ using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 
 namespace BusinessLogic.ofManager.ofWarehouse
 {
-    public interface IEWCommodityManager : IEStatusManager<EWCommodity>
-    {
-
-    }
     public class EWCommodityManager : StatusManager<EWCommodity>, IEmployerEWCommodityManager, IEmployeeEWCommodityManager, IPlatformEWCommodityManager, IEWCommodityManager
     {
         public EWCommodityManager(IEWCommodityRepository StatusDataRepository,

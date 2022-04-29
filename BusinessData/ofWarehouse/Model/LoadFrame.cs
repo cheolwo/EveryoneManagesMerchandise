@@ -8,6 +8,7 @@ using BusinessData.ofWarehouse.ofDbContext;
 namespace BusinessData.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [Relation(typeof(LoadFrame), "LF")]
     public class LoadFrame : Entity
     {
         public List<MWCommodity> MWCommodities { get; set; }

@@ -1,60 +1,85 @@
-﻿using BusinessData;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployee;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessData.ofWarehouse.Model;
+using BusinessView.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WarehouseServer.Controllers.ofEmployee
+namespace DotBarcodeServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeDotBarcodeController : ControllerBase
     {
         private readonly ILogger<EmployeeDotBarcodeController> _logger;
-        private readonly IEntityManager<DotBarcode> _employeeDotBarcodeManager;
-        private readonly IEntityDataRepository<DotBarcode> _employeeDotBarcodeRepository;
-        private readonly ModelToDTO<DotBarcode, EmployeeDotBarcode> _modelToDTO;
+        private readonly IEmployeeDotBarcodeManager _EmployeeDotBarcodeManager;
+        private readonly IEmployeeDotBarcodeRepository _EmployeeDotBarcodeRepository;
 
-        public EmployeeDotBarcodeController(ILogger<EmployeeDotBarcodeController> logger, IEntityManager<DotBarcode> employeeDotBarcodeManager, IEntityDataRepository<DotBarcode> employeeDotBarcodeRepository, ModelToDTO<DotBarcode, EmployeeDotBarcode> modelToDTO)
+        public EmployeeDotBarcodeController(ILogger<EmployeeDotBarcodeController> logger,
+            IEmployeeDotBarcodeManager EmployeeDotBarcodeManager, 
+            IEmployeeDotBarcodeRepository EmployeeDotBarcodeRepository)
         {
             _logger = logger;
-            _employeeDotBarcodeManager = employeeDotBarcodeManager;
-            _employeeDotBarcodeRepository = employeeDotBarcodeRepository;
-            _modelToDTO = modelToDTO;
+            _EmployeeDotBarcodeRepository = EmployeeDotBarcodeRepository;
+            _EmployeeDotBarcodeManager = EmployeeDotBarcodeManager;
         }
         // GET: api/<EmployeeDotBarcodeController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<EmployeeDotBarcodeController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<EmployeeDotBarcode>> GetDotBarcode(string id)
         {
-            return "value";
+            var DotBarcode = await _EmployeeDotBarcodeRepository.GetByIdAsync(id);
+
+            if (DotBarcode == null)
+            {
+                return NotFound();
+            }
+            var GetEmployeeDotBarcode = ModelToDTO<DotBarcode, EmployeeDotBarcode>.ConvertToDTO(DotBarcode, new EmployeeDotBarcode());
+            return GetEmployeeDotBarcode;
         }
 
-        // POST api/<EmployeeDotBarcodeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<EmployeeDotBarcode>> PostDotBarcode(EmployeeDotBarcode EmployeeDotBarcode)
         {
+            var model = DTOToModel<EmployeeDotBarcode, DotBarcode>.ConvertToModel(EmployeeDotBarcode, new());
+            var newDotBarcode = await _EmployeeDotBarcodeManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetDotBarcode", new { id = DotBarcode.Id }, DotBarcode);
+            return CreatedAtAction(nameof(GetDotBarcode), new { id = newDotBarcode.Id }, newDotBarcode);
         }
 
-        // PUT api/<EmployeeDotBarcodeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutDotBarcode(string id, EmployeeDotBarcode EmployeeDotBarcode)
         {
+            var model = DTOToModel<EmployeeDotBarcode, DotBarcode>.ConvertToModel(EmployeeDotBarcode, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _EmployeeDotBarcodeManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<EmployeeDotBarcodeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteDotBarcode(string id)
         {
+            var DotBarcode = await _EmployeeDotBarcodeRepository.GetByIdAsync(id);
+            if (DotBarcode == null)
+            {
+                return NotFound();
+            }
+            await _EmployeeDotBarcodeRepository.DeleteByIdAsync(DotBarcode.Id);
+
+            return NoContent();
         }
     }
 }

@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessView.ofGeneric;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using BusinessData.ofWarehouse.Model;
+using BusinessView.ofWarehouse.ofPlatform;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +15,72 @@ namespace WarehouseServer.Controllers.ofPlatform
     [ApiController]
     public class PlatformSWCommodityController : ControllerBase
     {
+        private readonly ILogger<PlatformSWCommodityController> _logger;
+        private readonly IPlatformSWCommodityManager _PlatformSWCommodityManager;
+        private readonly IPlatformSWCommodityRepository _PlatformSWCommodityRepository;
+
+        public PlatformSWCommodityController(ILogger<PlatformSWCommodityController> logger,
+            IPlatformSWCommodityManager PlatformSWCommodityManager, 
+            IPlatformSWCommodityRepository PlatformSWCommodityRepository)
+        {
+            _logger = logger;
+            _PlatformSWCommodityRepository = PlatformSWCommodityRepository;
+            _PlatformSWCommodityManager = PlatformSWCommodityManager;
+        }
         // GET: api/<PlatformSWCommodityController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<PlatformSWCommodityController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult<PlatformSWCommodity>> GetSWCommodity(string id)
         {
-            return "value";
+            var SWCommodity = await _PlatformSWCommodityRepository.GetByIdAsync(id);
+
+            if (SWCommodity == null)
+            {
+                return NotFound();
+            }
+            var GetPlatformSWCommodity = ModelToDTO<SWCommodity, PlatformSWCommodity>.ConvertToDTO(SWCommodity, new PlatformSWCommodity());
+            return GetPlatformSWCommodity;
         }
 
-        // POST api/<PlatformSWCommodityController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<PlatformSWCommodity>> PostSWCommodity(PlatformSWCommodity PlatformSWCommodity)
         {
+            var model = DTOToModel<PlatformSWCommodity, SWCommodity>.ConvertToModel(PlatformSWCommodity, new());
+            var newSWCommodity = await _PlatformSWCommodityManager.CreateAsync(model);
+
+            //return CreatedAtAction("GetSWCommodity", new { id = SWCommodity.Id }, SWCommodity);
+            return CreatedAtAction(nameof(GetSWCommodity), new { id = newSWCommodity.Id }, newSWCommodity);
         }
 
-        // PUT api/<PlatformSWCommodityController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> PutSWCommodity(string id, PlatformSWCommodity PlatformSWCommodity)
         {
+            var model = DTOToModel<PlatformSWCommodity, SWCommodity>.ConvertToModel(PlatformSWCommodity, new());
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await _PlatformSWCommodityManager.UpdateAsync(model);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
         }
 
-        // DELETE api/<PlatformSWCommodityController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteSWCommodity(string id)
         {
+            var SWCommodity = await _PlatformSWCommodityRepository.GetByIdAsync(id);
+            if (SWCommodity == null)
+            {
+                return NotFound();
+            }
+            await _PlatformSWCommodityRepository.DeleteByIdAsync(SWCommodity.Id);
+
+            return NoContent();
         }
     }
 }

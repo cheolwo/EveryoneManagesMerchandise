@@ -70,6 +70,68 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
             
         }
     }
+
+    public interface IDividedTagBlobContainerFactory : IEntityContainerFactory<DividedTag>
+    {
+
+    }
+    public class DividedTagBlobContainerFactory : EntityContainerFactory<DividedTag>, IDividedTagBlobContainerFactory
+    {
+        public DividedTagBlobContainerFactory(IDividedTagRepository DividedTagRepository)
+                :base(DividedTagRepository)
+        {
+            
+        }
+    }
+    public interface IDotBarcodeBlobContainerFactory : IEntityContainerFactory<DotBarcode>
+    {
+
+    }
+    public class DotBarcodeBlobContainerFactory : EntityContainerFactory<DotBarcode>, IDotBarcodeBlobContainerFactory
+    {
+        public DotBarcodeBlobContainerFactory(IDotBarcodeRepository DotBarcodeRepository)
+                :base(DotBarcodeRepository)
+        {
+            
+        }
+    }
+    public interface IIncomingTagBlobContainerFactory : IEntityContainerFactory<IncomingTag>
+    {
+
+    }
+    public class IncomingTagBlobContainerFactory : EntityContainerFactory<IncomingTag>, IIncomingTagBlobContainerFactory
+    {
+        public IncomingTagBlobContainerFactory(IIncomingTagRepository IncomingTagRepository)
+                :base(IncomingTagRepository)
+        {
+            
+        }
+    }
+    public interface ILoadFrameBlobContainerFactory : IEntityContainerFactory<LoadFrame>
+    {
+
+    }
+    public class LoadFrameBlobContainerFactory : EntityContainerFactory<LoadFrame>, ILoadFrameBlobContainerFactory
+    {
+        public LoadFrameBlobContainerFactory(ILoadFrameRepository LoadFrameRepository)
+                :base(LoadFrameRepository)
+        {
+            
+        }
+    }
+    public interface IWorkingDeskBlobContainerFactory : IEntityContainerFactory<WorkingDesk>
+    {
+
+    }
+    public class WorkingDeskBlobContainerFactory : EntityContainerFactory<WorkingDesk>, IWorkingDeskBlobContainerFactory
+    {
+        public WorkingDeskBlobContainerFactory(IWorkingDeskRepository WorkingDeskRepository)
+                :base(WorkingDeskRepository)
+        {
+            
+        }
+    }
+
     public interface IWCommodityBlobStorage : IEntityBlobStorage<WCommodity>
     {
 
@@ -127,6 +189,66 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
     {
         public WarehouseBlobStorage(IWarehouseBlobContainerFactory WarehouseBlobContainerFactory)
             : base(WarehouseBlobContainerFactory)
+        {
+
+        }
+    }
+    public interface IDividedTagBlobStorage : IEntityBlobStorage<DividedTag>
+    {
+
+    }
+    public class DividedTagBlobStorage : EntityBlobStorage<DividedTag>, IDividedTagBlobStorage
+    {
+        public DividedTagBlobStorage(IDividedTagBlobContainerFactory DividedTagBlobContainerFactory)
+            : base(DividedTagBlobContainerFactory)
+        {
+
+        }
+    }
+    public interface IDotBarcodeBlobStorage : IEntityBlobStorage<DotBarcode>
+    {
+
+    }
+    public class DotBarcodeBlobStorage : EntityBlobStorage<DotBarcode>, IDotBarcodeBlobStorage
+    {
+        public DotBarcodeBlobStorage(IDotBarcodeBlobContainerFactory DotBarcodeBlobContainerFactory)
+            : base(DotBarcodeBlobContainerFactory)
+        {
+
+        }
+    }
+    public interface IIncomingTagBlobStorage : IEntityBlobStorage<IncomingTag>
+    {
+
+    }
+    public class IncomingTagBlobStorage : EntityBlobStorage<IncomingTag>, IIncomingTagBlobStorage
+    {
+        public IncomingTagBlobStorage(IIncomingTagBlobContainerFactory IncomingTagBlobContainerFactory)
+            : base(IncomingTagBlobContainerFactory)
+        {
+
+        }
+    }
+    public interface ILoadFrameBlobStorage : IEntityBlobStorage<LoadFrame>
+    {
+
+    }
+    public class LoadFrameBlobStorage : EntityBlobStorage<LoadFrame>, ILoadFrameBlobStorage
+    {
+        public LoadFrameBlobStorage(ILoadFrameBlobContainerFactory LoadFrameBlobContainerFactory)
+            : base(LoadFrameBlobContainerFactory)
+        {
+
+        }
+    }
+    public interface IWorkingDeskBlobStorage : IEntityBlobStorage<WorkingDesk>
+    {
+
+    }
+    public class WorkingDeskBlobStorage : EntityBlobStorage<WorkingDesk>, IWorkingDeskBlobStorage
+    {
+        public WorkingDeskBlobStorage(IWorkingDeskBlobContainerFactory WorkingDeskBlobContainerFactory)
+            : base(WorkingDeskBlobContainerFactory)
         {
 
         }
