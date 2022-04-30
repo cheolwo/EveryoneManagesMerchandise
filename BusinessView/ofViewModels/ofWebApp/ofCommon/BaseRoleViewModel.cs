@@ -6,13 +6,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     public class BaseRoleViewModel : BaseViewModel
     {
         protected readonly IActorViewService<IdentityRoleDTO> _actorViewService;
-        protected IdentityRoleDTO? identityRoleDTO = new();
+        protected IdentityRoleDTO? _identityRoleDTO = new();
         public IdentityRoleDTO? IdentityRoleDTO
         {
-            get => identityRoleDTO;
+            get => _identityRoleDTO;
             set
             {
-                SetValue(ref identityRoleDTO, value);
+                SetValue(ref _identityRoleDTO, value);
             }
         }
         public BaseRoleViewModel(IActorViewService<IdentityRoleDTO> actorViewService)
@@ -26,23 +26,23 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     }
     public class PostRoleViewModel : BaseRoleViewModel
     {
-        private bool isPost = false;
+        private bool _isPost = false;
         public bool IsPost
         {
-            get => isPost;
+            get => _isPost;
             set
             {
-                isPost = value;
+                _isPost = value;
                 OnPropertyChanged();
             }
         }
-        private IdentityRoleDTO? postIdentityRoleDTO = new();
+        private IdentityRoleDTO? _postIdentityRoleDTO = new();
         public IdentityRoleDTO? PostIdentityRoleDTO
         {
-            get => postIdentityRoleDTO;
+            get => _postIdentityRoleDTO;
             set
             {
-                SetValue(ref postIdentityRoleDTO, value);
+                SetValue(ref _postIdentityRoleDTO, value);
             }
         }
         public PostRoleViewModel(IActorViewService<IdentityRoleDTO> actorViewService)
@@ -62,30 +62,30 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         public void Reset()
         {
             IsPost = false;
-            identityRoleDTO = new();
-            postIdentityRoleDTO = new();
+            _identityRoleDTO = new();
+            _postIdentityRoleDTO = new();
             OnPropertyChanged();
         }
     }
     public class PutRoleViewModel : BaseRoleViewModel
     {
-        private bool isPut = false;
+        private bool _isPut = false;
         public bool IsPut
         {
-            get => isPut;
+            get => _isPut;
             set
             {
-                isPut = value;
+                _isPut = value;
                 OnPropertyChanged();
             }
         }
-        private IdentityRoleDTO? putIdentityRoleDTO = new();
+        private IdentityRoleDTO? _putIdentityRoleDTO = new();
         public IdentityRoleDTO? PutIdentityRoleDTO
         {
-            get => putIdentityRoleDTO;
+            get => _putIdentityRoleDTO;
             set
             {
-                SetValue(ref putIdentityRoleDTO, value);
+                SetValue(ref _putIdentityRoleDTO, value);
             }
         }
         public PutRoleViewModel(IActorViewService<IdentityRoleDTO> actorViewService)
@@ -105,8 +105,8 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         public void Reset()
         {
             isPut = false;
-            identityRoleDTO = new();
-            putIdentityRoleDTO = new();
+            _identityRoleDTO = new();
+            _putIdentityRoleDTO = new();
             OnPropertyChanged();
         }
     }
@@ -128,13 +128,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     }
     public class GetsRoleViewModel : BaseRoleViewModel
     {
-        private List<IdentityRoleDTO> identityRoleDTOs = new();
+        private List<IdentityRoleDTO> _identityRoleDTOs = new();
         public List<IdentityRoleDTO> IdentityRoleDTOs
         {
-            get=> identityRoleDTOs;
+            get=> _identityRoleDTOs;
             set
             {
-                SetValue(ref identityRoleDTOs, value);   
+                SetValue(ref _identityRoleDTOs, value);   
             }
         }
         public GetsRoleViewModel(IActorViewService<IdentityRoleDTO> actorViewService)
@@ -149,7 +149,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             {
                 foreach(var dto in dtos)
                 {
-                    identityRoleDTOs.Add(dto);
+                    _identityRoleDTOs.Add(dto);
                 }
             }
             OnPropertyChanged();
