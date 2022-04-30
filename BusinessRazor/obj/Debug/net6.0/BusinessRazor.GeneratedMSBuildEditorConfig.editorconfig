@@ -283,8 +283,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlByb2R1Y3Rcb2ZQbGF0Zm9ybVxvZlRhYmxlXFBsYXRmb3JtVGFibGVTUENvbW1vZGl0eS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/RegisterRole.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcUmVnaXN0ZXJSb2xlLnJhem9y
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/DeleteComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcRGVsZXRlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/GetRoleComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcR2V0Um9sZUNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/GetsRoleComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcR2V0c1JvbGVDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/PostRoleComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcUG9zdFJvbGVDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofRole/PutRoleComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlJvbGVcUHV0Um9sZUNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofTrade/ofEmployee/ofTable/EmployeeTableETCommodity.razor]
@@ -345,6 +361,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofTrade/ofPlatform/ofTable/PlatformTableTradeCenter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlRyYWRlXG9mUGxhdGZvcm1cb2ZUYWJsZVxQbGF0Zm9ybVRhYmxlVHJhZGVDZW50ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofUser/EmployerUserComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlVzZXJcRW1wbG95ZXJVc2VyQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofUser/UserComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlVzZXJcVXNlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofUser/UserFormComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlVzZXJcVXNlckZvcm1Db21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofWarehouse/ofEmployee/ofTable/EmployeeTableEWCommodity.razor]

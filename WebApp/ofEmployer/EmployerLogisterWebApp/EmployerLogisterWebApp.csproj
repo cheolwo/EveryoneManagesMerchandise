@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Components\ofUser\" />
     <Folder Include="wwwroot\popup\" />
   </ItemGroup>
 

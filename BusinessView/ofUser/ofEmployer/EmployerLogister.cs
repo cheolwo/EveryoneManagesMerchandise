@@ -1,15 +1,27 @@
 ﻿using BusinessView.ofCommon.ofServices.ofWarehouse;
+using BusinessView.ofGeneric;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofUser.ofEmployer
 {
-    public class EmployerLogister: EmployerActor
+    public class EmployerLogister: EmployerActor, IActorViewService<EmployerWarehouse>
     {
         public EmployerLogister()
         {
 
         }
+
+        public Task<EmployerWarehouse> Post(EmployerWarehouse t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<EmployerWarehouse> Update(string Id, EmployerWarehouse t)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
         {
             serviceBuilder.Add(nameof(EmployerWarehouse), new EmployerWarehouseService(e=>e.IsDevelopment = true));
@@ -30,6 +42,16 @@ namespace BusinessView.ofUser.ofEmployer
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde) 
         {
 
+        }
+
+        Task<IEnumerable<EmployerWarehouse>?> IActorViewService<EmployerWarehouse>.Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<EmployerWarehouse> IActorViewService<EmployerWarehouse>.GetById(string Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

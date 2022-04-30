@@ -2219,35 +2219,255 @@
         }
       },
       {
-        "HashCode": -431930132,
+        "HashCode": 637672990,
         "Kind": "Components.Component",
-        "Name": "BusinessRazor.Components.ofRole.RegisterRole",
+        "Name": "BusinessRazor.Components.ofRole.DeleteComponent",
         "AssemblyName": "BusinessRazor",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "RegisterRole"
+            "TagName": "DeleteComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "deleteRoleViewmodel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.DeleteRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "deleteRoleViewmodel"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "getsRoleViewModel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.GetsRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "getsRoleViewModel"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BusinessRazor.Components.ofRole.RegisterRole"
+          "Common.TypeName": "BusinessRazor.Components.ofRole.DeleteComponent"
         }
       },
       {
-        "HashCode": -1594726230,
+        "HashCode": 296297056,
         "Kind": "Components.Component",
-        "Name": "BusinessRazor.Components.ofRole.RegisterRole",
+        "Name": "BusinessRazor.Components.ofRole.DeleteComponent",
         "AssemblyName": "BusinessRazor",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "BusinessRazor.Components.ofRole.RegisterRole"
+            "TagName": "BusinessRazor.Components.ofRole.DeleteComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "deleteRoleViewmodel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.DeleteRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "deleteRoleViewmodel"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "getsRoleViewModel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.GetsRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "getsRoleViewModel"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BusinessRazor.Components.ofRole.RegisterRole",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.DeleteComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -765939751,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.GetRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GetRoleComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "model",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.BaseRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.GetRoleComponent"
+        }
+      },
+      {
+        "HashCode": 1473473825,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.GetRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofRole.GetRoleComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "model",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.BaseRoleViewModel",
+            "Metadata": {
+              "Common.PropertyName": "model"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.GetRoleComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1934834709,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.GetsRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GetsRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.GetsRoleComponent"
+        }
+      },
+      {
+        "HashCode": -186007601,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.GetsRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofRole.GetsRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.GetsRoleComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 2033612312,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.PostRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PostRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.PostRoleComponent"
+        }
+      },
+      {
+        "HashCode": -1183721791,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.PostRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofRole.PostRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.PostRoleComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -559220955,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.PutRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PutRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.PutRoleComponent"
+        }
+      },
+      {
+        "HashCode": -1518220203,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofRole.PutRoleComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofRole.PutRoleComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofRole.PutRoleComponent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -2743,6 +2963,145 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "BusinessRazor.Components.ofTrade.ofPlatform.ofTable.PlatformTableTradeCenter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 994777432,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.EmployerUserComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EmployerUserComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.EmployerUserComponent"
+        }
+      },
+      {
+        "HashCode": -671442507,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.EmployerUserComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofUser.EmployerUserComponent"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.EmployerUserComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 51369875,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.UserComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "UserComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "model",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.GetUserViewModel",
+            "Metadata": {
+              "Common.PropertyName": "model"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.UserComponent"
+        }
+      },
+      {
+        "HashCode": -933011381,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.UserComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofUser.UserComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "model",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.GetUserViewModel",
+            "Metadata": {
+              "Common.PropertyName": "model"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.UserComponent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2120449714,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.UserFormComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "UserFormComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "newUserViewModel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.PostUserViewModel",
+            "Metadata": {
+              "Common.PropertyName": "newUserViewModel"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.UserFormComponent"
+        }
+      },
+      {
+        "HashCode": -328267755,
+        "Kind": "Components.Component",
+        "Name": "BusinessRazor.Components.ofUser.UserFormComponent",
+        "AssemblyName": "BusinessRazor",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BusinessRazor.Components.ofUser.UserFormComponent"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "newUserViewModel",
+            "TypeName": "BusinessView.ofViewModels.ofWebApp.ofCommon.PostUserViewModel",
+            "Metadata": {
+              "Common.PropertyName": "newUserViewModel"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BusinessRazor.Components.ofUser.UserFormComponent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -87349,6 +87708,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofUser\\UserComponent.razor",
+      "TargetPath": "Components\\ofUser\\UserComponent.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofWarehouse\\ofPlatform\\ofTable\\PlatformTableMWCommodity.razor",
       "TargetPath": "Components\\ofWarehouse\\ofPlatform\\ofTable\\PlatformTableMWCommodity.razor",
       "FileKind": "component"
@@ -87479,6 +87843,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\DeleteComponent.razor",
+      "TargetPath": "Components\\ofRole\\DeleteComponent.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofTrade\\ofEmployer\\ofTable\\EmployerTableSTCommodity.razor",
       "TargetPath": "Components\\ofTrade\\ofEmployer\\ofTable\\EmployerTableSTCommodity.razor",
       "FileKind": "component"
@@ -87486,6 +87855,11 @@
     {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofProduct\\ofEmployee\\ofTable\\EmployeeTableEPCommodity.razor",
       "TargetPath": "Components\\ofProduct\\ofEmployee\\ofTable\\EmployeeTableEPCommodity.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofUser\\UserFormComponent.razor",
+      "TargetPath": "Components\\ofUser\\UserFormComponent.razor",
       "FileKind": "component"
     },
     {
@@ -87569,6 +87943,11 @@
       "FileKind": "componentImport"
     },
     {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\PutRoleComponent.razor",
+      "TargetPath": "Components\\ofRole\\PutRoleComponent.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofOrder\\ofEmployee\\ofTable\\EmployeeTableEOCommodity.razor",
       "TargetPath": "Components\\ofOrder\\ofEmployee\\ofTable\\EmployeeTableEOCommodity.razor",
       "FileKind": "component"
@@ -87586,11 +87965,6 @@
     {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofGOC\\ofPlatform\\ofTable\\PlatformTableMGOC.razor",
       "TargetPath": "Components\\ofGOC\\ofPlatform\\ofTable\\PlatformTableMGOC.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\RegisterRole.razor",
-      "TargetPath": "Components\\ofRole\\RegisterRole.razor",
       "FileKind": "component"
     },
     {
@@ -87629,6 +88003,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\GetRoleComponent.razor",
+      "TargetPath": "Components\\ofRole\\GetRoleComponent.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofOrder\\ofEmployee\\ofTable\\EmployeeTableMOCommodity.razor",
       "TargetPath": "Components\\ofOrder\\ofEmployee\\ofTable\\EmployeeTableMOCommodity.razor",
       "FileKind": "component"
@@ -87641,6 +88020,11 @@
     {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofJournal\\ofPlatform\\ofTable\\PlatformTableJCommodity.razor",
       "TargetPath": "Components\\ofJournal\\ofPlatform\\ofTable\\PlatformTableJCommodity.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\GetsRoleComponent.razor",
+      "TargetPath": "Components\\ofRole\\GetsRoleComponent.razor",
       "FileKind": "component"
     },
     {
@@ -87749,6 +88133,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofRole\\PostRoleComponent.razor",
+      "TargetPath": "Components\\ofRole\\PostRoleComponent.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofWarehouse\\ofEmployer\\ofTable\\EmployerTableSWCommodity.razor",
       "TargetPath": "Components\\ofWarehouse\\ofEmployer\\ofTable\\EmployerTableSWCommodity.razor",
       "FileKind": "component"
@@ -87831,6 +88220,11 @@
     {
       "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofTrade\\ofPlatform\\ofTable\\PlatformTableTradeCenter.razor",
       "TargetPath": "Components\\ofTrade\\ofPlatform\\ofTable\\PlatformTableTradeCenter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\Components\\ofUser\\EmployerUserComponent.razor",
+      "TargetPath": "Components\\ofUser\\EmployerUserComponent.razor",
       "FileKind": "component"
     }
   ],

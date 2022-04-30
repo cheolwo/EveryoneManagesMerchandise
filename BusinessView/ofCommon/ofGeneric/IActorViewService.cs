@@ -6,11 +6,11 @@ namespace BusinessView.ofGeneric
 {
     public interface IActorViewService<T> where T : class
     {
-        Task<IEnumerable<T>?> Get();
-        Task<T> GetById(string Id);
-        Task<T> Post(T t);
-        Task Delete(string Id);
-        Task<T> Update(string Id, T t);
+        Task<IEnumerable<T>?> GetAsync();
+        Task<T> GetByIdAsync(string Id);
+        Task<T> PostAsync(T t);
+        Task DeleteAsync(string Id);
+        Task<T> PutAsync(T t);
     }
     public interface IEmployerViewService<T> where T : EmployerEntity
     {

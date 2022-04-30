@@ -1,41 +1,83 @@
 ﻿using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {
     // 단순 유저 CRUD 용 BaseUserViewModel
-    public class BaseUserViewModel : INotifyPropertyChanged
+    public class BaseUserViewModel : BaseViewModel
     {
         protected IActorViewService<IdentityUserDTO> _actorViewService;
+        private IdentityUserDTO identityUserDTO = new();
+        public IdentityUserDTO IdentityUserDTO
+        {
+            get => identityUserDTO;
+            set
+            {
+                SetValue(ref identityUserDTO, value);
+            }
+        }
         public BaseUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
         {
             _actorViewService = actorViewService;
         }
-        private bool isBusy = false;
-        public bool IsBusy
+    }
+    public class GetUserViewModel  : BaseUserViewModel
+    {
+        protected IHttpContextAccessor _httpContextAccessor;      
+        public GetUserViewModel(IActorViewService<IdentityUserDTO> actorViewService,
+            IHttpContextAccessor httpContextAccessor) : base(actorViewService)
         {
-            get => isBusy;
-            set
-            {
-                SetValue(ref isBusy, value);
-            }
+            _httpContextAccessor = httpContextAccessor;
         }
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public async Task<IdentityUserDTO> GetCurrentUserAsync(UserManager<IdentityUser> userManager)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var CurrentUser = await userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+            return ModelToDTO<IdentityUser, IdentityUserDTO>.ConvertToDTO(CurrentUser, new IdentityUserDTO());
         }
-        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName = null)
+        public async Task<IdentityUser> GetCurrentIdentityUserAsync(UserManager<IdentityUser> userManager)
         {
-            if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
-            backingFiled = value;
-            OnPropertyChanged(propertyName);
+            return await userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
         }
     }
-    // Gets
-    public class UsersViewModel : BaseUserViewModel
+    public class PostUserViewModel : BaseUserViewModel
+    {      
+        public PostUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
+            :base(actorViewService)
+        {
+
+        }
+        public async Task Create(IdentityUserDTO identityUserDTO)
+        {
+            await _actorViewService.Post(identityUserDTO);
+        }
+    }
+    public class PutUserViewModel : BaseUserViewModel
+    {
+        public PutUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
+            :base(actorViewService)
+        {
+
+        }
+        public async Task Update(IdentityUserDTO identityUserDTO)
+        {
+            await _actorViewService.Put(identityUserDTO);
+        }
+    }
+    public class DeleteUserViewModel : BaseUserViewModel
+    {
+        public DeleteUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
+            :base(actorViewService)
+        {
+
+        }
+        public async Task Delete(string id)
+        {
+            await _actorViewService.Delete(id);
+        }
+    }
+    public class GetsUserViewModel : BaseUserViewModel
     {
         private List<IdentityUserDTO> identityUserDTOs = new();
         public List<IdentityUserDTO> IdentityUserDTOs
@@ -57,7 +99,8 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                 OnPropertyChanged();
             }
         }
-        public UsersViewModel(IActorViewService<IdentityUserDTO> actorViewService) : base(actorViewService)
+        public GetsUserViewModel(IActorViewService<IdentityUserDTO> actorViewService,
+            IHttpContextAccessor httpContextAccessor) : base(actorViewService)
         {
         }
         public async Task ExecuteLoadIdentityUserDTOCommand()

@@ -1,7 +1,9 @@
+using BusinessRazor.Components.ofUser;
 using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
 using BusinessView.ofUser;
+using BusinessView.ofUser.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse;
 using BusinessView.ofWarehouse.ofEmployer;
@@ -35,9 +37,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 builder.Services.AddScoped<IActorViewService<IdentityUserDTO>, UserActor>();
 builder.Services.AddScoped<BaseUserViewModel>();
 builder.Services.AddScoped<UsersViewModel>();
+builder.Services.AddScoped<GetUserViewModel>();
+builder.Services.AddScoped<PostUserViewModel>();
+builder.Services.AddScoped<PutUserViewModel>();
+builder.Services.AddScoped<DeleteUserViewModel>();
+builder.Services.AddScoped<GetsUserViewModel>();
 
 builder.Services.AddScoped<EmployerWarehouseViewModel>();
-builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, LogisterActor>();
+builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, EmployerLogister>();
 
 builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();

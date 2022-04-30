@@ -1,33 +1,41 @@
 ﻿@page "/userpage"
 @using BusinessView.ofViewModels.ofWebApp.ofCommon;
 @using System.ComponentModel
-@inject UsersViewModel _usersViewModel
+@using Microsoft.AspNetCore.Identity
+@using BusinessRazor.Components.ofUser
+@inject GetUserViewModel _userViewModel
+@inject UserManager<IdentityUser> _userManager
+@inject NavigationManager _navigationManager
+@inject PostUserViewModel _newUserViewModel
+
 @implements IDisposable
 
-@if(_usersViewModel == null)
+@if(_userViewModel == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
- <CascadingValue Value=@_usersViewModel Name="UsersViewModel">
-    <UserListComponent></UserListComponent>
-    <UserFormComponent></UserFormComponent>
+<CascadingValue Value=@_userManager Name="UserManager">
+    <CascadingValue Value=@_navigationManager Name="NavigationManager">
+        <UserComponent model=@_userViewModel></UserComponent>
+    </CascadingValue>
 </CascadingValue>
+
+<UserFormComponent newUserViewModel=@_newUserViewModel>
+                
+</UserFormComponent>
 }
 
 @code {
     protected override async Task OnInitializedAsync()
     {      
-        if(_usersViewModel.IdentityUserDTOs.Count == 0)
+        _userViewModel.PropertyChanged += async (sender, e) =>
         {
-            _usersViewModel.ExecuteLoadIdentityUserDTOCommand();
-        }
-        _usersViewModel.PropertyChanged += async (sender, e) => {
             await InvokeAsync(() =>
-            {
-                StateHasChanged();
-            });
+           {
+               StateHasChanged();
+           });
         };
         await base.OnInitializedAsync();
     }
@@ -42,6 +50,6 @@ else
 
     public void Dispose()
     {
-        _usersViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _userViewModel.PropertyChanged -= OnPropertyChangedHandler;
     }
 }
