@@ -1,4 +1,3 @@
-using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
 using BusinessView.ofGeneric;
 using BusinessView.ofMarket.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;

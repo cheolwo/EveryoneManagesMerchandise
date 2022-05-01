@@ -1,32 +1,32 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployee;
+using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
-    public class BaseEmployeeDotBarcodeViewModel : BaseViewModel
+    public class BaseEmployerDotBarcodeViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeDotBarcode> _actorViewService;
-        protected EmployeeDotBarcode? _EmployeeDotBarcode = new();
-        public EmployeeDotBarcode? EmployeeDotBarcode
+        protected readonly IActorViewService<EmployerDotBarcode> _actorViewService;
+        protected EmployerDotBarcode? _EmployerDotBarcode = new();
+        public EmployerDotBarcode? EmployerDotBarcode
         {
-            get => _EmployeeDotBarcode;
+            get => _EmployerDotBarcode;
             set
             {
-                SetValue(ref _EmployeeDotBarcode, value);
+                SetValue(ref _EmployerDotBarcode, value);
             }
         }
-        public BaseEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public BaseEmployerDotBarcodeViewModel(IActorViewService<EmployerDotBarcode> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeDotBarcode = await _actorViewService.GetByIdAsync(id);
+            _EmployerDotBarcode = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
+    public class PostEmployerDotBarcodeViewModel : BaseEmployerDotBarcodeViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -38,38 +38,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeDotBarcode? _postEmployeeDotBarcode = new();
-        public EmployeeDotBarcode? PostEmployeeDotBarcode
+        private EmployerDotBarcode? _postEmployerDotBarcode = new();
+        public EmployerDotBarcode? PostEmployerDotBarcode
         {
-            get => _postEmployeeDotBarcode;
+            get => _postEmployerDotBarcode;
             set
             {
-                SetValue(ref _postEmployeeDotBarcode, value);
+                SetValue(ref _postEmployerDotBarcode, value);
             }
         }
-        public PostEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public PostEmployerDotBarcodeViewModel(IActorViewService<EmployerDotBarcode> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeDotBarcode EmployeeDotBarcode)
+        public async Task PostAsync(EmployerDotBarcode EmployerDotBarcode)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeDotBarcode);
+            var PostValue = await _actorViewService.PostAsync(EmployerDotBarcode);
             if (PostValue != null)
             {
-                PostEmployeeDotBarcode = PostValue;
+                PostEmployerDotBarcode = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeDotBarcode = new();
-            _postEmployeeDotBarcode = new();
+            _EmployerDotBarcode = new();
+            _postEmployerDotBarcode = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
+    public class PutEmployerDotBarcodeViewModel : BaseEmployerDotBarcodeViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -81,40 +81,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeDotBarcode? _putEmployeeDotBarcode = new();
-        public EmployeeDotBarcode? PutEmployeeDotBarcode
+        private EmployerDotBarcode? _putEmployerDotBarcode = new();
+        public EmployerDotBarcode? PutEmployerDotBarcode
         {
-            get => _putEmployeeDotBarcode;
+            get => _putEmployerDotBarcode;
             set
             {
-                SetValue(ref _putEmployeeDotBarcode, value);
+                SetValue(ref _putEmployerDotBarcode, value);
             }
         }
-        public PutEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public PutEmployerDotBarcodeViewModel(IActorViewService<EmployerDotBarcode> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeDotBarcode EmployeeDotBarcode)
+        public async Task PutAsync(EmployerDotBarcode EmployerDotBarcode)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeDotBarcode);
+            var PutValue = await _actorViewService.PutAsync(EmployerDotBarcode);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeDotBarcode = PutValue;
+                PutEmployerDotBarcode = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeDotBarcode = new();
-            _putEmployeeDotBarcode = new();
+            _EmployerDotBarcode = new();
+            _putEmployerDotBarcode = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
+    public class DeleteEmployerDotBarcodeViewModel : BaseEmployerDotBarcodeViewModel
     {
-        public DeleteEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public DeleteEmployerDotBarcodeViewModel(IActorViewService<EmployerDotBarcode> actorViewService)
             :base(actorViewService)
         {
 
@@ -125,41 +125,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeDotBarcode = new();
+            EmployerDotBarcode = new();
         }
     }
-    public class GetsEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
+    public class GetsEmployerDotBarcodeViewModel : BaseEmployerDotBarcodeViewModel
     {
-        private List<EmployeeDotBarcode> _EmployeeDotBarcodes = new();
-        public List<EmployeeDotBarcode> EmployeeDotBarcodes
+        private List<EmployerDotBarcode> _EmployerDotBarcodes = new();
+        public List<EmployerDotBarcode> EmployerDotBarcodes
         {
-            get=> _EmployeeDotBarcodes;
+            get=> _EmployerDotBarcodes;
             set
             {
-                SetValue(ref _EmployeeDotBarcodes, value);   
+                SetValue(ref _EmployerDotBarcodes, value);   
             }
         }
-        public GetsEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public GetsEmployerDotBarcodeViewModel(IActorViewService<EmployerDotBarcode> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeDotBarcode>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerDotBarcode>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeDotBarcodes.Add(dto);
+                    _EmployerDotBarcodes.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeDotBarcodes.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeDotBarcodes.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerDotBarcodes.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerDotBarcodes.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

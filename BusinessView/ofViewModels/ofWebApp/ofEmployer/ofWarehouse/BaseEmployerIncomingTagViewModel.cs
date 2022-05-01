@@ -1,32 +1,32 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployee;
+using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
-    public class BaseEmployeeIncomingTagViewModel : BaseViewModel
+    public class BaseEmployerIncomingTagViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeIncomingTag> _actorViewService;
-        protected EmployeeIncomingTag? _EmployeeIncomingTag = new();
-        public EmployeeIncomingTag? EmployeeIncomingTag
+        protected readonly IActorViewService<EmployerIncomingTag> _actorViewService;
+        protected EmployerIncomingTag? _EmployerIncomingTag = new();
+        public EmployerIncomingTag? EmployerIncomingTag
         {
-            get => _EmployeeIncomingTag;
+            get => _EmployerIncomingTag;
             set
             {
-                SetValue(ref _EmployeeIncomingTag, value);
+                SetValue(ref _EmployerIncomingTag, value);
             }
         }
-        public BaseEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public BaseEmployerIncomingTagViewModel(IActorViewService<EmployerIncomingTag> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeIncomingTag = await _actorViewService.GetByIdAsync(id);
+            _EmployerIncomingTag = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
+    public class PostEmployerIncomingTagViewModel : BaseEmployerIncomingTagViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -38,38 +38,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeIncomingTag? _postEmployeeIncomingTag = new();
-        public EmployeeIncomingTag? PostEmployeeIncomingTag
+        private EmployerIncomingTag? _postEmployerIncomingTag = new();
+        public EmployerIncomingTag? PostEmployerIncomingTag
         {
-            get => _postEmployeeIncomingTag;
+            get => _postEmployerIncomingTag;
             set
             {
-                SetValue(ref _postEmployeeIncomingTag, value);
+                SetValue(ref _postEmployerIncomingTag, value);
             }
         }
-        public PostEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public PostEmployerIncomingTagViewModel(IActorViewService<EmployerIncomingTag> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeIncomingTag EmployeeIncomingTag)
+        public async Task PostAsync(EmployerIncomingTag EmployerIncomingTag)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeIncomingTag);
+            var PostValue = await _actorViewService.PostAsync(EmployerIncomingTag);
             if (PostValue != null)
             {
-                PostEmployeeIncomingTag = PostValue;
+                PostEmployerIncomingTag = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeIncomingTag = new();
-            _postEmployeeIncomingTag = new();
+            _EmployerIncomingTag = new();
+            _postEmployerIncomingTag = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
+    public class PutEmployerIncomingTagViewModel : BaseEmployerIncomingTagViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -81,40 +81,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeIncomingTag? _putEmployeeIncomingTag = new();
-        public EmployeeIncomingTag? PutEmployeeIncomingTag
+        private EmployerIncomingTag? _putEmployerIncomingTag = new();
+        public EmployerIncomingTag? PutEmployerIncomingTag
         {
-            get => _putEmployeeIncomingTag;
+            get => _putEmployerIncomingTag;
             set
             {
-                SetValue(ref _putEmployeeIncomingTag, value);
+                SetValue(ref _putEmployerIncomingTag, value);
             }
         }
-        public PutEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public PutEmployerIncomingTagViewModel(IActorViewService<EmployerIncomingTag> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeIncomingTag EmployeeIncomingTag)
+        public async Task PutAsync(EmployerIncomingTag EmployerIncomingTag)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeIncomingTag);
+            var PutValue = await _actorViewService.PutAsync(EmployerIncomingTag);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeIncomingTag = PutValue;
+                PutEmployerIncomingTag = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeIncomingTag = new();
-            _putEmployeeIncomingTag = new();
+            _EmployerIncomingTag = new();
+            _putEmployerIncomingTag = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
+    public class DeleteEmployerIncomingTagViewModel : BaseEmployerIncomingTagViewModel
     {
-        public DeleteEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public DeleteEmployerIncomingTagViewModel(IActorViewService<EmployerIncomingTag> actorViewService)
             :base(actorViewService)
         {
 
@@ -125,41 +125,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeIncomingTag = new();
+            EmployerIncomingTag = new();
         }
     }
-    public class GetsEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
+    public class GetsEmployerIncomingTagViewModel : BaseEmployerIncomingTagViewModel
     {
-        private List<EmployeeIncomingTag> _EmployeeIncomingTags = new();
-        public List<EmployeeIncomingTag> EmployeeIncomingTags
+        private List<EmployerIncomingTag> _EmployerIncomingTags = new();
+        public List<EmployerIncomingTag> EmployerIncomingTags
         {
-            get=> _EmployeeIncomingTags;
+            get=> _EmployerIncomingTags;
             set
             {
-                SetValue(ref _EmployeeIncomingTags, value);   
+                SetValue(ref _EmployerIncomingTags, value);   
             }
         }
-        public GetsEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public GetsEmployerIncomingTagViewModel(IActorViewService<EmployerIncomingTag> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeIncomingTag>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerIncomingTag>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeIncomingTags.Add(dto);
+                    _EmployerIncomingTags.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeIncomingTags.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeIncomingTags.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerIncomingTags.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerIncomingTags.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

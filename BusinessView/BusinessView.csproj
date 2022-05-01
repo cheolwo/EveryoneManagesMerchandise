@@ -446,8 +446,27 @@
 
   <ItemGroup>
     <Folder Include="ofCommon\ofPlatform\ofValidate\" />
-    <Folder Include="ofViewModels\ofWebApp\ofPlatform\" />
-    <Folder Include="ofViewModels\ofWebApp\ofEmployee\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofHR\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofJournal\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofMarket\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofOrder\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofProduct\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofTrade\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployee\ofWarehouse\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofHR\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofJournal\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofMarket\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofOrder\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofProduct\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofTrade\" />
+    <Folder Include="ofViewModels\ofWebApp\ofEmployer\ofWarehouse\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofHR\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofJournal\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofMarket\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofOrder\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofProduct\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofTrade\" />
+    <Folder Include="ofViewModels\ofWebApp\ofPlatform\ofWarehouse\" />
   </ItemGroup>
 
 </Project>

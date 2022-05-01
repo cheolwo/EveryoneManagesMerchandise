@@ -1,7 +1,4 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofMarket.ofPlatform;
-using BusinessView.ofOrder.ofPlatform;
-using BusinessView.ofProduct.ofPlatform;
 using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
@@ -28,7 +25,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
             _PlatformTradeCenter = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployerTradeCenterViewModel : BaseEmployerTradeCenterViewModel
+    public class PostPlatformTradeCenterViewModel : BasePlatformTradeCenterViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -40,8 +37,8 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployerTradeCenter? _postEmployerTradeCenter = new();
-        public EmployerTradeCenter? PostEmployerTradeCenter
+        private PlatformTradeCenter? _postPlatformTradeCenter = new();
+        public PlatformTradeCenter? PostPlatformTradeCenter
         {
             get => _postPlatformTradeCenter;
             set

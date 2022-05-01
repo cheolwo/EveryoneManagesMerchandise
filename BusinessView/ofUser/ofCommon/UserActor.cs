@@ -23,7 +23,7 @@ namespace BusinessView.ofUser
         {
         }
 
-        public async Task<IEnumerable<IdentityUserDTO>?> Get()
+        public async Task<IEnumerable<IdentityUserDTO>?> GetAsync()
         {
             var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
             if(DTOService != null)
@@ -34,20 +34,20 @@ namespace BusinessView.ofUser
             }
             throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
         }
-        public Task Delete(string Id)
+        public Task DeleteAsync(string Id)
         {
             throw new NotImplementedException();
         }
-        public Task<IdentityUserDTO> GetById(string Id)
+        public Task<IdentityUserDTO> GetByIdAsync(string Id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IdentityUserDTO> Post(IdentityUserDTO t)
+        public Task<IdentityUserDTO> PostAsync(IdentityUserDTO t)
         {
             throw new NotImplementedException();
         }
-        Task<IdentityUserDTO> IActorViewService<IdentityUserDTO>.Update(string Id, IdentityUserDTO t)
+        Task<IdentityUserDTO> IActorViewService<IdentityUserDTO>.PutAsync(IdentityUserDTO t)
         {
             throw new NotImplementedException();
         }

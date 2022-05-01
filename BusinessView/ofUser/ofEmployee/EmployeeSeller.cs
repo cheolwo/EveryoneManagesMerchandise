@@ -1,8 +1,4 @@
-﻿using BusinessView.ofCommon.ofServices.ofHR.ofEmployee;
-using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
-using BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee;
-using BusinessView.ofDTO.ofHRDTO.ofEmployee;
-using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
+﻿using BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployee;
 

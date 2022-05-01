@@ -1,5 +1,4 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofWarehouse.ofPlatform;
 

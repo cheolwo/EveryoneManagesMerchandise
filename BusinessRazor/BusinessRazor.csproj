@@ -44,8 +44,4 @@
     <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\ofWarehouse\ofTable\" />
-  </ItemGroup>
-
 </Project>

@@ -1,32 +1,32 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployee;
+using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
-    public class BaseEmployeeWarehouseViewModel : BaseViewModel
+    public class BaseEmployerWarehouseViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeWarehouse> _actorViewService;
-        protected EmployeeWarehouse? _EmployeeWarehouse = new();
-        public EmployeeWarehouse? EmployeeWarehouse
+        protected readonly IActorViewService<EmployerWarehouse> _actorViewService;
+        protected EmployerWarehouse? _EmployerWarehouse = new();
+        public EmployerWarehouse? EmployerWarehouse
         {
-            get => _EmployeeWarehouse;
+            get => _EmployerWarehouse;
             set
             {
-                SetValue(ref _EmployeeWarehouse, value);
+                SetValue(ref _EmployerWarehouse, value);
             }
         }
-        public BaseEmployeeWarehouseViewModel(IActorViewService<EmployeeWarehouse> actorViewService)
+        public BaseEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeWarehouse = await _actorViewService.GetByIdAsync(id);
+            _EmployerWarehouse = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeWarehouseViewModel : BaseEmployeeWarehouseViewModel
+    public class PostEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -38,38 +38,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeWarehouse? _postEmployeeWarehouse = new();
-        public EmployeeWarehouse? PostEmployeeWarehouse
+        private EmployerWarehouse? _postEmployerWarehouse = new();
+        public EmployerWarehouse? PostEmployerWarehouse
         {
-            get => _postEmployeeWarehouse;
+            get => _postEmployerWarehouse;
             set
             {
-                SetValue(ref _postEmployeeWarehouse, value);
+                SetValue(ref _postEmployerWarehouse, value);
             }
         }
-        public PostEmployeeWarehouseViewModel(IActorViewService<EmployeeWarehouse> actorViewService)
+        public PostEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeWarehouse EmployeeWarehouse)
+        public async Task PostAsync(EmployerWarehouse EmployerWarehouse)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeWarehouse);
+            var PostValue = await _actorViewService.PostAsync(EmployerWarehouse);
             if (PostValue != null)
             {
-                PostEmployeeWarehouse = PostValue;
+                PostEmployerWarehouse = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeWarehouse = new();
-            _postEmployeeWarehouse = new();
+            _EmployerWarehouse = new();
+            _postEmployerWarehouse = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeWarehouseViewModel : BaseEmployeeWarehouseViewModel
+    public class PutEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -81,40 +81,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeWarehouse? _putEmployeeWarehouse = new();
-        public EmployeeWarehouse? PutEmployeeWarehouse
+        private EmployerWarehouse? _putEmployerWarehouse = new();
+        public EmployerWarehouse? PutEmployerWarehouse
         {
-            get => _putEmployeeWarehouse;
+            get => _putEmployerWarehouse;
             set
             {
-                SetValue(ref _putEmployeeWarehouse, value);
+                SetValue(ref _putEmployerWarehouse, value);
             }
         }
-        public PutEmployeeWarehouseViewModel(IActorViewService<EmployeeWarehouse> actorViewService)
+        public PutEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeWarehouse EmployeeWarehouse)
+        public async Task PutAsync(EmployerWarehouse EmployerWarehouse)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeWarehouse);
+            var PutValue = await _actorViewService.PutAsync(EmployerWarehouse);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeWarehouse = PutValue;
+                PutEmployerWarehouse = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeWarehouse = new();
-            _putEmployeeWarehouse = new();
+            _EmployerWarehouse = new();
+            _putEmployerWarehouse = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeWarehouseViewModel : BaseEmployeeWarehouseViewModel
+    public class DeleteEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
-        public DeleteEmployeeWarehouseViewModel(IActorViewService<EmployeeWarehouse> actorViewService)
+        public DeleteEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
             :base(actorViewService)
         {
 
@@ -125,41 +125,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeWarehouse = new();
+            EmployerWarehouse = new();
         }
     }
-    public class GetsEmployeeWarehouseViewModel : BaseEmployeeWarehouseViewModel
+    public class GetsEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
-        private List<EmployeeWarehouse> _EmployeeWarehouses = new();
-        public List<EmployeeWarehouse> EmployeeWarehouses
+        private List<EmployerWarehouse> _EmployerWarehouses = new();
+        public List<EmployerWarehouse> EmployerWarehouses
         {
-            get=> _EmployeeWarehouses;
+            get=> _EmployerWarehouses;
             set
             {
-                SetValue(ref _EmployeeWarehouses, value);   
+                SetValue(ref _EmployerWarehouses, value);   
             }
         }
-        public GetsEmployeeWarehouseViewModel(IActorViewService<EmployeeWarehouse> actorViewService)
+        public GetsEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeWarehouse>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerWarehouse>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeWarehouses.Add(dto);
+                    _EmployerWarehouses.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeWarehouses.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeWarehouses.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerWarehouses.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerWarehouses.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

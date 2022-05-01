@@ -1,31 +1,31 @@
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
-    public class BaseEmployeeWorkingDeskViewModel : BaseViewModel
+    public class BaseEmployerWorkingDeskViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeWorkingDesk> _actorViewService;
-        protected EmployeeWorkingDesk? _EmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? EmployeeWorkingDesk
+        protected readonly IActorViewService<EmployerWorkingDesk> _actorViewService;
+        protected EmployerWorkingDesk? _EmployerWorkingDesk = new();
+        public EmployerWorkingDesk? EmployerWorkingDesk
         {
-            get => _EmployeeWorkingDesk;
+            get => _EmployerWorkingDesk;
             set
             {
-                SetValue(ref _EmployeeWorkingDesk, value);
+                SetValue(ref _EmployerWorkingDesk, value);
             }
         }
-        public BaseEmployeeWorkingDeskViewModel(IActorViewService<EmployeeWorkingDesk> actorViewService)
+        public BaseEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeWorkingDesk = await _actorViewService.GetByIdAsync(id);
+            _EmployerWorkingDesk = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class PostEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -37,38 +37,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeWorkingDesk? _postEmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? PostEmployeeWorkingDesk
+        private EmployerWorkingDesk? _postEmployerWorkingDesk = new();
+        public EmployerWorkingDesk? PostEmployerWorkingDesk
         {
-            get => _postEmployeeWorkingDesk;
+            get => _postEmployerWorkingDesk;
             set
             {
-                SetValue(ref _postEmployeeWorkingDesk, value);
+                SetValue(ref _postEmployerWorkingDesk, value);
             }
         }
-        public PostEmployeeWorkingDeskViewModel(IActorViewService<EmployeeWorkingDesk> actorViewService)
+        public PostEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeWorkingDesk EmployeeWorkingDesk)
+        public async Task PostAsync(EmployerWorkingDesk EmployerWorkingDesk)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeWorkingDesk);
+            var PostValue = await _actorViewService.PostAsync(EmployerWorkingDesk);
             if (PostValue != null)
             {
-                PostEmployeeWorkingDesk = PostValue;
+                PostEmployerWorkingDesk = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeWorkingDesk = new();
-            _postEmployeeWorkingDesk = new();
+            _EmployerWorkingDesk = new();
+            _postEmployerWorkingDesk = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class PutEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -80,40 +80,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeWorkingDesk? _putEmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? PutEmployeeWorkingDesk
+        private EmployerWorkingDesk? _putEmployerWorkingDesk = new();
+        public EmployerWorkingDesk? PutEmployerWorkingDesk
         {
-            get => _putEmployeeWorkingDesk;
+            get => _putEmployerWorkingDesk;
             set
             {
-                SetValue(ref _putEmployeeWorkingDesk, value);
+                SetValue(ref _putEmployerWorkingDesk, value);
             }
         }
-        public PutEmployeeWorkingDeskViewModel(IActorViewService<EmployeeWorkingDesk> actorViewService)
+        public PutEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeWorkingDesk EmployeeWorkingDesk)
+        public async Task PutAsync(EmployerWorkingDesk EmployerWorkingDesk)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeWorkingDesk);
+            var PutValue = await _actorViewService.PutAsync(EmployerWorkingDesk);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeWorkingDesk = PutValue;
+                PutEmployerWorkingDesk = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeWorkingDesk = new();
-            _putEmployeeWorkingDesk = new();
+            _EmployerWorkingDesk = new();
+            _putEmployerWorkingDesk = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class DeleteEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
     {
-        public DeleteEmployeeWorkingDeskViewModel(IActorViewService<EmployeeWorkingDesk> actorViewService)
+        public DeleteEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
             :base(actorViewService)
         {
 
@@ -124,41 +124,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeWorkingDesk = new();
+            EmployerWorkingDesk = new();
         }
     }
-    public class GetsEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class GetsEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
     {
-        private List<EmployeeWorkingDesk> _EmployeeWorkingDesks = new();
-        public List<EmployeeWorkingDesk> EmployeeWorkingDesks
+        private List<EmployerWorkingDesk> _EmployerWorkingDesks = new();
+        public List<EmployerWorkingDesk> EmployerWorkingDesks
         {
-            get=> _EmployeeWorkingDesks;
+            get=> _EmployerWorkingDesks;
             set
             {
-                SetValue(ref _EmployeeWorkingDesks, value);   
+                SetValue(ref _EmployerWorkingDesks, value);   
             }
         }
-        public GetsEmployeeWorkingDeskViewModel(IActorViewService<EmployeeWorkingDesk> actorViewService)
+        public GetsEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeWorkingDesk>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerWorkingDesk>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeWorkingDesks.Add(dto);
+                    _EmployerWorkingDesks.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeWorkingDesks.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeWorkingDesks.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerWorkingDesks.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerWorkingDesks.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

@@ -50,7 +50,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
         public async Task Create(IdentityUserDTO identityUserDTO)
         {
-            await _actorViewService.Post(identityUserDTO);
+            await _actorViewService.PostAsync(identityUserDTO);
         }
     }
     public class PutUserViewModel : BaseUserViewModel
@@ -62,7 +62,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
         public async Task Update(IdentityUserDTO identityUserDTO)
         {
-            await _actorViewService.Put(identityUserDTO);
+            await _actorViewService.PutAsync(identityUserDTO);
         }
     }
     public class DeleteUserViewModel : BaseUserViewModel
@@ -74,7 +74,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
         public async Task Delete(string id)
         {
-            await _actorViewService.Delete(id);
+            await _actorViewService.DeleteAsync(id);
         }
     }
     public class GetsUserViewModel : BaseUserViewModel
@@ -89,16 +89,6 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                 OnPropertyChanged();
             }
         }
-        private IdentityUserDTO identityUserDTO = new();
-        public IdentityUserDTO IdentityUserDTO
-        {
-            get => identityUserDTO;
-            set
-            {
-                identityUserDTO = value;
-                OnPropertyChanged();
-            }
-        }
         public GetsUserViewModel(IActorViewService<IdentityUserDTO> actorViewService,
             IHttpContextAccessor httpContextAccessor) : base(actorViewService)
         {
@@ -108,7 +98,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             IsBusy = true;
             try
             {
-                var identityUserDTOs = await _actorViewService.Get();
+                var identityUserDTOs = await _actorViewService.GetAsync();
                 if (identityUserDTOs != null)
                 {
                     foreach (var identityUserDTO in identityUserDTOs)

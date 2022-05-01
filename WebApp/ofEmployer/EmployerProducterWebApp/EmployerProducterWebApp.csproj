@@ -21,4 +21,16 @@
     <ProjectReference Include="..\..\..\BusinessData\BusinessData.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\ofRole\" />
+    <Folder Include="Pages\ofJournal\" />
+    <Folder Include="Pages\ofHR\" />
+    <Folder Include="Pages\ofGroupOrder\" />
+    <Folder Include="Pages\ofOrder\" />
+    <Folder Include="Pages\ofProduct\" />
+    <Folder Include="Pages\ofMarket\" />
+    <Folder Include="Pages\ofTrade\" />
+    <Folder Include="Pages\ofWarehouse\" />
+  </ItemGroup>
+
 </Project>

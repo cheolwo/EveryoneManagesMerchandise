@@ -1,0 +1,55 @@
+﻿@page "/userpage"
+@using BusinessView.ofViewModels.ofWebApp.ofCommon;
+@using System.ComponentModel
+@using Microsoft.AspNetCore.Identity
+@using BusinessRazor.Components.ofUser
+@inject GetUserViewModel _userViewModel
+@inject UserManager<IdentityUser> _userManager
+@inject NavigationManager _navigationManager
+@inject PostUserViewModel _newUserViewModel
+
+@implements IDisposable
+
+@if(_userViewModel == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<CascadingValue Value=@_userManager Name="UserManager">
+    <CascadingValue Value=@_navigationManager Name="NavigationManager">
+        <UserComponent model=@_userViewModel></UserComponent>
+    </CascadingValue>
+</CascadingValue>
+
+<UserFormComponent newUserViewModel=@_newUserViewModel>
+                
+</UserFormComponent>
+}
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {      
+        _userViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        await base.OnInitializedAsync();
+    }
+
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        _userViewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+}

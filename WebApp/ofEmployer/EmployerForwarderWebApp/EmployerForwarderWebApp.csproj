@@ -17,4 +17,10 @@
     <PackageReference Include="MudBlazor.ThemeManager" Version="1.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ofHR\" />
+    <Folder Include="ofJournal\" />
+    <Folder Include="ofTrade\" />
+  </ItemGroup>
+
 </Project>

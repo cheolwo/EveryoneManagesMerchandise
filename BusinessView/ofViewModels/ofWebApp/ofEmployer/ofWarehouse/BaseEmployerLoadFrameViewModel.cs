@@ -1,32 +1,32 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployee;
+using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
-    public class BaseEmployeeLoadFrameViewModel : BaseViewModel
+    public class BaseEmployerLoadFrameViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeLoadFrame> _actorViewService;
-        protected EmployeeLoadFrame? _EmployeeLoadFrame = new();
-        public EmployeeLoadFrame? EmployeeLoadFrame
+        protected readonly IActorViewService<EmployerLoadFrame> _actorViewService;
+        protected EmployerLoadFrame? _EmployerLoadFrame = new();
+        public EmployerLoadFrame? EmployerLoadFrame
         {
-            get => _EmployeeLoadFrame;
+            get => _EmployerLoadFrame;
             set
             {
-                SetValue(ref _EmployeeLoadFrame, value);
+                SetValue(ref _EmployerLoadFrame, value);
             }
         }
-        public BaseEmployeeLoadFrameViewModel(IActorViewService<EmployeeLoadFrame> actorViewService)
+        public BaseEmployerLoadFrameViewModel(IActorViewService<EmployerLoadFrame> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeLoadFrame = await _actorViewService.GetByIdAsync(id);
+            _EmployerLoadFrame = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeLoadFrameViewModel : BaseEmployeeLoadFrameViewModel
+    public class PostEmployerLoadFrameViewModel : BaseEmployerLoadFrameViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -38,38 +38,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeLoadFrame? _postEmployeeLoadFrame = new();
-        public EmployeeLoadFrame? PostEmployeeLoadFrame
+        private EmployerLoadFrame? _postEmployerLoadFrame = new();
+        public EmployerLoadFrame? PostEmployerLoadFrame
         {
-            get => _postEmployeeLoadFrame;
+            get => _postEmployerLoadFrame;
             set
             {
-                SetValue(ref _postEmployeeLoadFrame, value);
+                SetValue(ref _postEmployerLoadFrame, value);
             }
         }
-        public PostEmployeeLoadFrameViewModel(IActorViewService<EmployeeLoadFrame> actorViewService)
+        public PostEmployerLoadFrameViewModel(IActorViewService<EmployerLoadFrame> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeLoadFrame EmployeeLoadFrame)
+        public async Task PostAsync(EmployerLoadFrame EmployerLoadFrame)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeLoadFrame);
+            var PostValue = await _actorViewService.PostAsync(EmployerLoadFrame);
             if (PostValue != null)
             {
-                PostEmployeeLoadFrame = PostValue;
+                PostEmployerLoadFrame = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeLoadFrame = new();
-            _postEmployeeLoadFrame = new();
+            _EmployerLoadFrame = new();
+            _postEmployerLoadFrame = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeLoadFrameViewModel : BaseEmployeeLoadFrameViewModel
+    public class PutEmployerLoadFrameViewModel : BaseEmployerLoadFrameViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -81,40 +81,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeLoadFrame? _putEmployeeLoadFrame = new();
-        public EmployeeLoadFrame? PutEmployeeLoadFrame
+        private EmployerLoadFrame? _putEmployerLoadFrame = new();
+        public EmployerLoadFrame? PutEmployerLoadFrame
         {
-            get => _putEmployeeLoadFrame;
+            get => _putEmployerLoadFrame;
             set
             {
-                SetValue(ref _putEmployeeLoadFrame, value);
+                SetValue(ref _putEmployerLoadFrame, value);
             }
         }
-        public PutEmployeeLoadFrameViewModel(IActorViewService<EmployeeLoadFrame> actorViewService)
+        public PutEmployerLoadFrameViewModel(IActorViewService<EmployerLoadFrame> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeLoadFrame EmployeeLoadFrame)
+        public async Task PutAsync(EmployerLoadFrame EmployerLoadFrame)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeLoadFrame);
+            var PutValue = await _actorViewService.PutAsync(EmployerLoadFrame);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeLoadFrame = PutValue;
+                PutEmployerLoadFrame = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeLoadFrame = new();
-            _putEmployeeLoadFrame = new();
+            _EmployerLoadFrame = new();
+            _putEmployerLoadFrame = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeLoadFrameViewModel : BaseEmployeeLoadFrameViewModel
+    public class DeleteEmployerLoadFrameViewModel : BaseEmployerLoadFrameViewModel
     {
-        public DeleteEmployeeLoadFrameViewModel(IActorViewService<EmployeeLoadFrame> actorViewService)
+        public DeleteEmployerLoadFrameViewModel(IActorViewService<EmployerLoadFrame> actorViewService)
             :base(actorViewService)
         {
 
@@ -125,41 +125,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeLoadFrame = new();
+            EmployerLoadFrame = new();
         }
     }
-    public class GetsEmployeeLoadFrameViewModel : BaseEmployeeLoadFrameViewModel
+    public class GetsEmployerLoadFrameViewModel : BaseEmployerLoadFrameViewModel
     {
-        private List<EmployeeLoadFrame> _EmployeeLoadFrames = new();
-        public List<EmployeeLoadFrame> EmployeeLoadFrames
+        private List<EmployerLoadFrame> _EmployerLoadFrames = new();
+        public List<EmployerLoadFrame> EmployerLoadFrames
         {
-            get=> _EmployeeLoadFrames;
+            get=> _EmployerLoadFrames;
             set
             {
-                SetValue(ref _EmployeeLoadFrames, value);   
+                SetValue(ref _EmployerLoadFrames, value);   
             }
         }
-        public GetsEmployeeLoadFrameViewModel(IActorViewService<EmployeeLoadFrame> actorViewService)
+        public GetsEmployerLoadFrameViewModel(IActorViewService<EmployerLoadFrame> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeLoadFrame>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerLoadFrame>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeLoadFrames.Add(dto);
+                    _EmployerLoadFrames.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeLoadFrames.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeLoadFrames.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerLoadFrames.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerLoadFrames.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

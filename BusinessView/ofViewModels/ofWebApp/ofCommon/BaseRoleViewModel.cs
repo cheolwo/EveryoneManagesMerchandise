@@ -26,38 +26,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     }
     // ViewModel 이 프론트 단 기능쪽이랑 관련이 있어서 
     // 이 부분을 잘 해결하면 프론트 단 추상화도 어느정도 가능하지 않을까 싶다.
-    public class AbstractBaseViewModel<TEntity> : BaseViewModel where TEntity : IViewModel, new()
-    {
-        protected readonly IActorViewService<TEntity> _actorViewService;
-        private List<string> stringPropertyForGet = new();
-        public List<string> StringPropertyForGet
-        {
-            get => stringPropertyForGet;
-            set
-            {
-                SetValue(ref stringPropertyForGet, value);
-            }
-        }
+    //public class AbstractBaseViewModel<TEntity> : BaseViewModel where TEntity : IViewModel, new()
+    //{
+    //    protected readonly IActorViewService<TEntity> _actorViewService;
+    //    private List<string> stringPropertyForGet = new();
+    //    public List<string> StringPropertyForGet
+    //    {
+    //        get => stringPropertyForGet;
+    //        set
+    //        {
+    //            SetValue(ref stringPropertyForGet, value);
+    //        }
+    //    }
         
         
-        public AbstractBaseViewModel(IActorViewService<TEntity> actorViewService)
-        {
-            _actorViewService = actorViewService;
-        }
-        private TEntity _DTO = new();
-        public TEntity DTO
-        {
-            get=> _DTO;
-            set
-            {
-                SetValue(ref _DTO, value);
-            }
-        }
-        public virtual async Task GetByIdAsync(string id)
-        {
-            DTO = await _actorViewService.GetByIdAsync(id);
-        }
-    }
+    //    public AbstractBaseViewModel(IActorViewService<TEntity> actorViewService)
+    //    {
+    //        _actorViewService = actorViewService;
+    //    }
+    //    private TEntity _DTO = new();
+    //    public TEntity DTO
+    //    {
+    //        get=> _DTO;
+    //        set
+    //        {
+    //            SetValue(ref _DTO, value);
+    //        }
+    //    }
+    //    public virtual async Task GetByIdAsync(string id)
+    //    {
+    //        DTO = await _actorViewService.GetByIdAsync(id);
+    //    }
+    //}
     public class PostRoleViewModel : BaseRoleViewModel
     {
         private bool _isPost = false;
@@ -132,13 +132,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             var PutRole = await _actorViewService.PutAsync(identityRoleDTO);
             if(PutRole != null)
             {
-                isPut = true;
+                _isPut = true;
                 PutIdentityRoleDTO = PutRole;
             }
         }
         public void Reset()
         {
-            isPut = false;
+            _isPut = false;
             _identityRoleDTO = new();
             _putIdentityRoleDTO = new();
             OnPropertyChanged();

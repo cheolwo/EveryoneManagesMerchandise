@@ -1,0 +1,24 @@
+﻿@page "/user/warehouse"
+@using Microsoft.AspNetCore.Identity
+@if(User == null)
+{
+    <MudButton Href="Identity/Account/Login">Authentication</MudButton>
+}
+else
+{
+    <h3>VC_ReadWarehouse</h3>
+}
+
+@code {
+    [Inject] public IHttpContextAccessor? _httpContextAccessor { get; set; }
+    [Inject] public NavigationManager NavigationManager { get; set; } 
+    [Inject] public UserManager<IdentityUser> _userManager { get; set; }
+    [Inject] public RoleManager<IdentityRole> _RoleManager { get; set; }
+    
+    public IdentityUser User { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var user = _httpContextAccessor?.HttpContext?.User;
+        User =  await _userManager.GetUserAsync(user);
+    }
+}

@@ -1,32 +1,32 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployee;
+using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
+using BusinessView.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
-    public class BaseEmployeeMWCommodityViewModel : BaseViewModel
+    public class BaseEmployerMWCommodityViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeMWCommodity> _actorViewService;
-        protected EmployeeMWCommodity? _EmployeeMWCommodity = new();
-        public EmployeeMWCommodity? EmployeeMWCommodity
+        protected readonly IActorViewService<EmployerMWCommodity> _actorViewService;
+        protected EmployerMWCommodity? _EmployerMWCommodity = new();
+        public EmployerMWCommodity? EmployerMWCommodity
         {
-            get => _EmployeeMWCommodity;
+            get => _EmployerMWCommodity;
             set
             {
-                SetValue(ref _EmployeeMWCommodity, value);
+                SetValue(ref _EmployerMWCommodity, value);
             }
         }
-        public BaseEmployeeMWCommodityViewModel(IActorViewService<EmployeeMWCommodity> actorViewService)
+        public BaseEmployerMWCommodityViewModel(IActorViewService<EmployerMWCommodity> actorViewService)
         {
             _actorViewService = actorViewService;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeMWCommodity = await _actorViewService.GetByIdAsync(id);
+            _EmployerMWCommodity = await _actorViewService.GetByIdAsync(id);
         }
     }
-    public class PostEmployeeMWCommodityViewModel : BaseEmployeeMWCommodityViewModel
+    public class PostEmployerMWCommodityViewModel : BaseEmployerMWCommodityViewModel
     {
         private bool _isPost = false;
         public bool IsPost
@@ -38,38 +38,38 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeMWCommodity? _postEmployeeMWCommodity = new();
-        public EmployeeMWCommodity? PostEmployeeMWCommodity
+        private EmployerMWCommodity? _postEmployerMWCommodity = new();
+        public EmployerMWCommodity? PostEmployerMWCommodity
         {
-            get => _postEmployeeMWCommodity;
+            get => _postEmployerMWCommodity;
             set
             {
-                SetValue(ref _postEmployeeMWCommodity, value);
+                SetValue(ref _postEmployerMWCommodity, value);
             }
         }
-        public PostEmployeeMWCommodityViewModel(IActorViewService<EmployeeMWCommodity> actorViewService)
+        public PostEmployerMWCommodityViewModel(IActorViewService<EmployerMWCommodity> actorViewService)
             : base(actorViewService)
         {
 
         }
-        public async Task PostAsync(EmployeeMWCommodity EmployeeMWCommodity)
+        public async Task PostAsync(EmployerMWCommodity EmployerMWCommodity)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeMWCommodity);
+            var PostValue = await _actorViewService.PostAsync(EmployerMWCommodity);
             if (PostValue != null)
             {
-                PostEmployeeMWCommodity = PostValue;
+                PostEmployerMWCommodity = PostValue;
                 IsPost = true;
             }
         }
         public void Reset()
         {
             IsPost = false;
-            _EmployeeMWCommodity = new();
-            _postEmployeeMWCommodity = new();
+            _EmployerMWCommodity = new();
+            _postEmployerMWCommodity = new();
             OnPropertyChanged();
         }
     }
-    public class PutEmployeeMWCommodityViewModel : BaseEmployeeMWCommodityViewModel
+    public class PutEmployerMWCommodityViewModel : BaseEmployerMWCommodityViewModel
     {
         private bool _isPut = false;
         public bool IsPut
@@ -81,40 +81,40 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 OnPropertyChanged();
             }
         }
-        private EmployeeMWCommodity? _putEmployeeMWCommodity = new();
-        public EmployeeMWCommodity? PutEmployeeMWCommodity
+        private EmployerMWCommodity? _putEmployerMWCommodity = new();
+        public EmployerMWCommodity? PutEmployerMWCommodity
         {
-            get => _putEmployeeMWCommodity;
+            get => _putEmployerMWCommodity;
             set
             {
-                SetValue(ref _putEmployeeMWCommodity, value);
+                SetValue(ref _putEmployerMWCommodity, value);
             }
         }
-        public PutEmployeeMWCommodityViewModel(IActorViewService<EmployeeMWCommodity> actorViewService)
+        public PutEmployerMWCommodityViewModel(IActorViewService<EmployerMWCommodity> actorViewService)
             :base(actorViewService)
         {
 
         }
-        public async Task PutAsync(EmployeeMWCommodity EmployeeMWCommodity)
+        public async Task PutAsync(EmployerMWCommodity EmployerMWCommodity)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeMWCommodity);
+            var PutValue = await _actorViewService.PutAsync(EmployerMWCommodity);
             if(PutValue != null)
             {
                 _isPut = true;
-                PutEmployeeMWCommodity = PutValue;
+                PutEmployerMWCommodity = PutValue;
             }
         }
         public void Reset()
         {
             _isPut = false;
-            _EmployeeMWCommodity = new();
-            _putEmployeeMWCommodity = new();
+            _EmployerMWCommodity = new();
+            _putEmployerMWCommodity = new();
             OnPropertyChanged();
         }
     }
-    public class DeleteEmployeeMWCommodityViewModel : BaseEmployeeMWCommodityViewModel
+    public class DeleteEmployerMWCommodityViewModel : BaseEmployerMWCommodityViewModel
     {
-        public DeleteEmployeeMWCommodityViewModel(IActorViewService<EmployeeMWCommodity> actorViewService)
+        public DeleteEmployerMWCommodityViewModel(IActorViewService<EmployerMWCommodity> actorViewService)
             :base(actorViewService)
         {
 
@@ -125,41 +125,41 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public void Reset()
         {
-            EmployeeMWCommodity = new();
+            EmployerMWCommodity = new();
         }
     }
-    public class GetsEmployeeMWCommodityViewModel : BaseEmployeeMWCommodityViewModel
+    public class GetsEmployerMWCommodityViewModel : BaseEmployerMWCommodityViewModel
     {
-        private List<EmployeeMWCommodity> _EmployeeMWCommoditys = new();
-        public List<EmployeeMWCommodity> EmployeeMWCommoditys
+        private List<EmployerMWCommodity> _EmployerMWCommoditys = new();
+        public List<EmployerMWCommodity> EmployerMWCommoditys
         {
-            get=> _EmployeeMWCommoditys;
+            get=> _EmployerMWCommoditys;
             set
             {
-                SetValue(ref _EmployeeMWCommoditys, value);   
+                SetValue(ref _EmployerMWCommoditys, value);   
             }
         }
-        public GetsEmployeeMWCommodityViewModel(IActorViewService<EmployeeMWCommodity> actorViewService)
+        public GetsEmployerMWCommodityViewModel(IActorViewService<EmployerMWCommodity> actorViewService)
             :base(actorViewService)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeMWCommodity>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployerMWCommodity>? dtos = await _actorViewService.GetAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
                 {
-                    _EmployeeMWCommoditys.Add(dto);
+                    _EmployerMWCommoditys.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
         public void DelteAsync(string id)
         {
-            var obj = EmployeeMWCommoditys.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeMWCommoditys.Remove(obj); OnPropertyChanged(); }
+            var obj = EmployerMWCommoditys.Find(e => e.Id.Equals(id));
+            if(obj != null) { EmployerMWCommoditys.Remove(obj); OnPropertyChanged(); }
         }
     }
 }
