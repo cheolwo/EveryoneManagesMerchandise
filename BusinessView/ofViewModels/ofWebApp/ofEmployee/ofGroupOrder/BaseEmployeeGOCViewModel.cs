@@ -1,5 +1,6 @@
-using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
+using BusinessView.ofGroupOrder.ofEmployee;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
@@ -52,10 +53,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task PostAsync(EmployeeGOC EmployeeGOC)
         {
-            var PostEmployeeGOC = await _actorViewService.PostAsync(EmployeeGOC);
-            if (PostEmployeeGOC != null)
+            var PostValue = await _actorViewService.PostAsync(EmployeeGOC);
+            if (PostValue != null)
             {
-                PostEmployeeGOC = PostEmployeeGOC;
+                PostEmployeeGOC = PostValue;
                 IsPost = true;
             }
         }
@@ -95,16 +96,16 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task PutAsync(EmployeeGOC EmployeeGOC)
         {
-            var PutEmployeeGOC = await _actorViewService.PutAsync(EmployeeGOC);
-            if(PutEmployeeGOC != null)
+            var PutValue = await _actorViewService.PutAsync(EmployeeGOC);
+            if(PutValue != null)
             {
-                isPut = true;
-                PutEmployeeGOC = PutEmployeeGOC;
+                _isPut = true;
+                PutEmployeeGOC = PutValue;
             }
         }
         public void Reset()
         {
-            isPut = false;
+            _isPut = false;
             _EmployeeGOC = new();
             _putEmployeeGOC = new();
             OnPropertyChanged();

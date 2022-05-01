@@ -1,5 +1,7 @@
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
+using BusinessView.ofGroupOrder.ofEmployee;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
@@ -21,7 +23,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task GetByIdAsync(string id)
         {
-            EmployeeEGOC = await _actorViewService.GetByIdAsync(id);
+            _EmployeeEGOC = await _actorViewService.GetByIdAsync(id);
         }
     }
     public class PostEmployeeEGOCViewModel : BaseEmployeeEGOCViewModel
@@ -52,10 +54,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task PostAsync(EmployeeEGOC EmployeeEGOC)
         {
-            var PostEmployeeEGOC = await _actorViewService.PostAsync(EmployeeEGOC);
-            if (PostEmployeeEGOC != null)
+            var PostValue = await _actorViewService.PostAsync(EmployeeEGOC);
+            if (PostValue != null)
             {
-                PostEmployeeEGOC = PostEmployeeEGOC;
+                PostEmployeeEGOC = PostValue;
                 IsPost = true;
             }
         }
@@ -95,16 +97,16 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task PutAsync(EmployeeEGOC EmployeeEGOC)
         {
-            var PutEmployeeEGOC = await _actorViewService.PutAsync(EmployeeEGOC);
-            if(PutEmployeeEGOC != null)
+            var PutValue = await _actorViewService.PutAsync(EmployeeEGOC);
+            if(PutValue != null)
             {
-                isPut = true;
-                PutEmployeeEGOC = PutEmployeeEGOC;
+                _isPut = true;
+                PutEmployeeEGOC = PutValue;
             }
         }
         public void Reset()
         {
-            isPut = false;
+            _isPut = false;
             _EmployeeEGOC = new();
             _putEmployeeEGOC = new();
             OnPropertyChanged();
