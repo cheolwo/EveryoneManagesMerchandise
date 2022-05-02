@@ -5,7 +5,7 @@ using BusinessView.ofProduct.ofEmployee;
 using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
 {
     public class BaseEmployeeSTCommodityViewModel : BaseViewModel
     {

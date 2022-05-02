@@ -5,7 +5,7 @@ using BusinessView.ofProduct.ofPlatform;
 using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
 {
     public class BasePlatformTCommodityViewModel : BaseViewModel
     {

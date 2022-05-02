@@ -1,4 +1,8 @@
-﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
+﻿using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee;
+using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
+using BusinessView.ofGroupOrder.ofEmployee;
+using BusinessView.ofOrder.ofEmployee;
+using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployee;
 
@@ -21,7 +25,24 @@ namespace BusinessView.ofUser.ofEmployee
             serviceBuilder.Add(nameof(EmployeeDotBarcode), new EmployeeDotBarcodeService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployeeIncomingTag), new EmployeeIncomingTagService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployeeLoadFrame), new EmployeeLoadFrameService(e => e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployeeWorkingDesk), new EmployeeWorkingDeskService(e => e.IsDevelopment = true));
+
+            serviceBuilder.Add(nameof(EmployeeGOC), new EmployeeGOCService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeGOCC), new EmployeeGOCCService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeSGOC), new EmployeeSGOCService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeMGOC), new EmployeeMGOCService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeEGOC), new EmployeeEGOCService(e => e.IsDevelopment = true));
+
+            serviceBuilder.Add(nameof(EmployeeTradeCenter), new EmployeeTradeCenterService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeTCommodity), new EmployeeTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeSTCommodity), new EmployeeSTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeMTCommodity), new EmployeeMTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeETCommodity), new EmployeeETCommodityService(e => e.IsDevelopment = true));
+
+            serviceBuilder.Add(nameof(EmployeeOrderCenter), new EmployeeOrderCenterService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeOCommodity), new EmployeeOCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeSOCommodity), new EmployeeSOCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeMOCommodity), new EmployeeMOCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeEOCommodity), new EmployeeEOCommodityService(e => e.IsDevelopment = true));
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {

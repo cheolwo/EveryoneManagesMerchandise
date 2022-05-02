@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofOrder.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
 {
     public class BasePlatformOrderCenterViewModel : BaseViewModel
     {

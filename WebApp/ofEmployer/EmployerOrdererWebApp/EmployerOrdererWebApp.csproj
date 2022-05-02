@@ -24,4 +24,8 @@
     <Folder Include="Pages\ofWarehouse\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BusinessView\BusinessView.csproj" />
+  </ItemGroup>
+
 </Project>

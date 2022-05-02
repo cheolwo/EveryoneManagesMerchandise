@@ -23,6 +23,7 @@ namespace BusinessView.ofUser.ofEmployer
             serviceBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagService(e=>e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameService(e=>e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskService(e=>e.IsDevelopment = true));
+
             serviceBuilder.Add(nameof(EmployerEMCommodity), new EmployerEMCommodityService(e=>e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerSMCommodity), new EmployerSMCommodityService(e=>e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerMMCommodity), new EmployerMMCommodityService(e=>e.IsDevelopment = true));

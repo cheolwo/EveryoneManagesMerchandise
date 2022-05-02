@@ -21,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName = null)
+        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName =null)
         {
             if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
             backingFiled = value;

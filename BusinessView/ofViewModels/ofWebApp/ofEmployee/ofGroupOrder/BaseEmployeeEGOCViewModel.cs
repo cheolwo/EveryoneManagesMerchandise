@@ -21,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         {
             _actorViewService = actorViewService;
         }
-        public async Task GetByIdAsync(string id)
+        public virtual async Task GetByIdAsync(string id)
         {
             _EmployeeEGOC = await _actorViewService.GetByIdAsync(id);
         }
@@ -160,6 +160,15 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         {
             var obj = EmployeeEGOCs.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeEGOCs.Remove(obj); OnPropertyChanged(); }
+        }
+        public override async Task GetByIdAsync(string id)
+        {
+            EmployeeEGOC obj = EmployeeEGOCs.Find(e => e.Id.Equals(id));
+            if(obj != null)
+            {
+                EmployeeEGOC = obj;
+            }
+            throw new ArgumentException("Not Include Data By Id");
         }
     }
 }

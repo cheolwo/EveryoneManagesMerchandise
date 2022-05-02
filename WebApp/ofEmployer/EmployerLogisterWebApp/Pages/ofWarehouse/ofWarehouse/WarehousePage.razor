@@ -1,0 +1,21 @@
+﻿@page "/Warehouse"
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofWarehouse.ofEmployer
+@inject GetsEmployerWarehouseViewModel _GetsEmployerWarehouseViewModel 
+@inject PostEmployerWarehouseViewModel _PostEmployerWarehouseViewModel
+@inject PutEmployerWarehouseViewModel _PutEmployerWarehouseViewModel
+@inject DeleteEmployerWarehouseViewModel _DeleteEmployerWarehouseViewModel
+@inject BaseEmployerWarehouseViewModel _BaseEmployerWarehouseViewModel
+
+<h3>WarehousePage</h3>
+
+<EmployerGetsWarehouseComponent></EmployerGetsWarehouseComponent>
+<EmployerGetWarehouseComponent ViewModel=_BaseEmployerWarehouseViewModel></EmployerGetWarehouseComponent>
+<EmployerPostWarehouseComponent></EmployerPostWarehouseComponent>
+<EmployerDeleteWarehouseComponent></EmployerDeleteWarehouseComponent>
+<EmployerPutWarehouseComponent></EmployerPutWarehouseComponent>
+
+@code {
+
+}

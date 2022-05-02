@@ -2,7 +2,7 @@ using BusinessView.ofDTO.ofJournalDTO.ofEmployer;
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
 {
     public class BaseEmployerJCommodityViewModel : BaseViewModel
     {

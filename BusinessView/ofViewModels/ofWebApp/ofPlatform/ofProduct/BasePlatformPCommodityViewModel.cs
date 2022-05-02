@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofProduct.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
 {
     public class BasePlatformPCommodityViewModel : BaseViewModel
     {

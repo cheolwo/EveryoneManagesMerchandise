@@ -26,9 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\ofTrade\" />
-    <Folder Include="Pages\ofJournal\" />
-    <Folder Include="Pages\ofHR\" />
     <Folder Include="wwwroot\popup\" />
   </ItemGroup>
 

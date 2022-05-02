@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 {
     public class BaseEmployerETCommodityViewModel : BaseViewModel
     {

@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofMarket.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
 {
     public class BaseEmployeeMMCommodityViewModel : BaseViewModel
     {

@@ -1,4 +1,5 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
+using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployee;
 
@@ -22,6 +23,12 @@ namespace BusinessView.ofUser.ofEmployee
             serviceBuilder.Add(nameof(EmployeeIncomingTag), new EmployeeIncomingTagService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployeeLoadFrame), new EmployeeLoadFrameService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployeeWorkingDesk), new EmployeeWorkingDeskService(e => e.IsDevelopment = true));
+
+            serviceBuilder.Add(nameof(EmployeeTradeCenter), new EmployeeTradeCenterService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeTCommodity), new EmployeeTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeSTCommodity), new EmployeeSTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeMTCommodity), new EmployeeMTCommodityService(e => e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployeeETCommodity), new EmployeeETCommodityService(e => e.IsDevelopment = true));
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {

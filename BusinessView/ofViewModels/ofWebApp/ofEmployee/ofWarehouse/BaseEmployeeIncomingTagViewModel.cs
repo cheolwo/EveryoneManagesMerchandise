@@ -3,7 +3,7 @@ using BusinessView.ofProduct.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofWarehouse.ofEmployee;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
 {
     public class BaseEmployeeIncomingTagViewModel : BaseViewModel
     {

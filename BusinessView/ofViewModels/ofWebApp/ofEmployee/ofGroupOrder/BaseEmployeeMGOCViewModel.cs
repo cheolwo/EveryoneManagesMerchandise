@@ -4,7 +4,7 @@ using BusinessView.ofGroupOrder.ofEmployee;
 using BusinessView.ofGroupOrder.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
     public class BaseEmployeeMGOCViewModel : BaseViewModel
     {

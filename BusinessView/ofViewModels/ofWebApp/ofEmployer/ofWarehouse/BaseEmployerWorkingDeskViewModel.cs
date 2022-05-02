@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofWarehouse.ofEmployer;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployerWorkingDeskViewModel : BaseViewModel
     {

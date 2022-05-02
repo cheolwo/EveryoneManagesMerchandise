@@ -4,7 +4,7 @@ using BusinessView.ofOrder.ofEmployer;
 using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 {
     public class BaseEmployerProductLandViewModel : BaseViewModel
     {

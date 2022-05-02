@@ -2,7 +2,7 @@ using BusinessView.ofGeneric;
 using BusinessView.ofGroupOrder.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
     public class BaseEmployerEGOCViewModel : BaseViewModel
     {

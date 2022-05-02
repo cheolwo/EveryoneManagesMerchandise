@@ -3,7 +3,7 @@ using BusinessView.ofProduct.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofWarehouse.ofPlatform;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformSWCommodityViewModel : BaseViewModel
     {

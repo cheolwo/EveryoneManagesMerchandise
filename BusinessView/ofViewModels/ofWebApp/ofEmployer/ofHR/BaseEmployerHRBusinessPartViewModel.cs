@@ -2,7 +2,7 @@ using BusinessView.ofDTO.ofHRDTO.ofEmployer;
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
     public class BaseEmployerHRBusinessPartViewModel : BaseViewModel
     {

@@ -19,8 +19,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50Mi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofCommon/ofRole/DeleteComponent.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZkNvbW1vblxvZlJvbGVcRGVsZXRlQ29tcG9uZW50LnJhem9y
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofCommon/ofRole/DeleteRoleComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZkNvbW1vblxvZlJvbGVcRGVsZXRlUm9sZUNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/BusinessRazor/Components/ofCommon/ofRole/GetRoleComponent.razor]

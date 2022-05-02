@@ -2,7 +2,7 @@ using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal
 {
     public class BaseEmployeeJournalViewModel : BaseViewModel
     {

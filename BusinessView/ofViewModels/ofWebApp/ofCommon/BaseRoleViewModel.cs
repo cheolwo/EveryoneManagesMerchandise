@@ -188,7 +188,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public void Delte(string id)
         {
             var obj = IdentityRoleDTOs.Find(e => e.Id.Equals(id));
             if(obj != null) { IdentityRoleDTOs.Remove(obj); OnPropertyChanged(); }

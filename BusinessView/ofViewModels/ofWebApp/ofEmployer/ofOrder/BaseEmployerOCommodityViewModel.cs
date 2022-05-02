@@ -3,7 +3,7 @@ using BusinessView.ofMarket.ofEmployer;
 using BusinessView.ofOrder.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 {
     public class BaseEmployerOCommodityViewModel : BaseViewModel
     {
