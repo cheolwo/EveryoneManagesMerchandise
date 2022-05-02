@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformIncomingTagService : WarehouseService, IDTOService<PlatformIncomingTag>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformIncomingTag?> GetAsync(string id)
+        public async Task<PlatformIncomingTag?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformIncomingTag>($"/api/PlatformIncomingTag/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformIncomingTag>>("/api/PlatformIncomingTag");
         }
 
-        public async Task PostAsync(PlatformIncomingTag entity)
+        public async Task<PlatformIncomingTag?> PostAsync(PlatformIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformIncomingTag? PlatformIncomingTag = JsonSerializer.Deserialize<PlatformIncomingTag>(JsonPlatformIncomingTag);
+            return PlatformIncomingTag;
         }
 
-        public async Task UpdateAsync(PlatformIncomingTag entity)
+        public async Task<PlatformIncomingTag?> PutAsync(PlatformIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformIncomingTag? PlatformIncomingTag = JsonSerializer.Deserialize<PlatformIncomingTag>(JsonPlatformIncomingTag);
+
+            return PlatformIncomingTag;
         }
     }
 }

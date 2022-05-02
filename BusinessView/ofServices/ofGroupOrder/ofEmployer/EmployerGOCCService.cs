@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerGOCC?> GetAsync(string id)
+        public async Task<EmployerGOCC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerGOCC>($"/api/EmployerGOCC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerGOCC>>("/api/EmployerGOCC");
         }
 
-        public async Task PostAsync(EmployerGOCC entity)
+        public async Task<EmployerGOCC?> PostAsync(EmployerGOCC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerGOCC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerGOCC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerGOCC? EmployerGOCC = JsonSerializer.Deserialize<EmployerGOCC>(JsonEmployerGOCC);
+            return EmployerGOCC;
         }
 
-        public async Task UpdateAsync(EmployerGOCC entity)
+        public async Task<EmployerGOCC?> PutAsync(EmployerGOCC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerGOCC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerGOCC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerGOCC? EmployerGOCC = JsonSerializer.Deserialize<EmployerGOCC>(JsonEmployerGOCC);
+
+            return EmployerGOCC;
         }
     }
 }

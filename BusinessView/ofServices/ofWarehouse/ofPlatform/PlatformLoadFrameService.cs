@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformLoadFrameService : WarehouseService, IDTOService<PlatformLoadFrame>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformLoadFrame?> GetAsync(string id)
+        public async Task<PlatformLoadFrame?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformLoadFrame>($"/api/PlatformLoadFrame/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformLoadFrame>>("/api/PlatformLoadFrame");
         }
 
-        public async Task PostAsync(PlatformLoadFrame entity)
+        public async Task<PlatformLoadFrame?> PostAsync(PlatformLoadFrame entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformLoadFrame", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformLoadFrame = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformLoadFrame? PlatformLoadFrame = JsonSerializer.Deserialize<PlatformLoadFrame>(JsonPlatformLoadFrame);
+            return PlatformLoadFrame;
         }
 
-        public async Task UpdateAsync(PlatformLoadFrame entity)
+        public async Task<PlatformLoadFrame?> PutAsync(PlatformLoadFrame entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformLoadFrame", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformLoadFrame = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformLoadFrame? PlatformLoadFrame = JsonSerializer.Deserialize<PlatformLoadFrame>(JsonPlatformLoadFrame);
+
+            return PlatformLoadFrame;
         }
     }
 }

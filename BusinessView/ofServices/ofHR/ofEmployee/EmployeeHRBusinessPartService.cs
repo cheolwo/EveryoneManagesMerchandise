@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeHRBusinessPart?> GetAsync(string id)
+        public async Task<EmployeeHRBusinessPart?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeHRBusinessPart>($"/api/EmployeeHRBusinessPart/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeHRBusinessPart>>("/api/EmployeeHRBusinessPart");
         }
 
-        public async Task PostAsync(EmployeeHRBusinessPart entity)
+        public async Task<EmployeeHRBusinessPart?> PostAsync(EmployeeHRBusinessPart entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeHRBusinessPart", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRBusinessPart = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeHRBusinessPart? EmployeeHRBusinessPart = JsonSerializer.Deserialize<EmployeeHRBusinessPart>(JsonEmployeeHRBusinessPart);
+            return EmployeeHRBusinessPart;
         }
 
-        public async Task UpdateAsync(EmployeeHRBusinessPart entity)
+        public async Task<EmployeeHRBusinessPart?> PutAsync(EmployeeHRBusinessPart entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeHRBusinessPart", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRBusinessPart = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeHRBusinessPart? EmployeeHRBusinessPart = JsonSerializer.Deserialize<EmployeeHRBusinessPart>(JsonEmployeeHRBusinessPart);
+
+            return EmployeeHRBusinessPart;
         }
     }
 }

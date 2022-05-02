@@ -23,33 +23,72 @@ namespace BusinessView.ofUser
         {
         }
 
-        public async Task<IEnumerable<IdentityUserDTO>?> GetAsync()
+        public async Task<IEnumerable<IdentityUserDTO>?> GetsAsync()
         {
             var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if(DTOService != null)
+            if (DTOService != null)
             {
                 IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
                 IEnumerable<IdentityUserDTO>? IdentityUserDTOs = await identityUserDTOService.GetsAsync();
                 return IdentityUserDTOs;
             }
-            throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            else
+            {
+                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            }
         }
-        public Task DeleteAsync(string Id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
+            if (DTOService != null)
+            {
+                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
+                await identityUserDTOService.DeleteAsync(id);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            }
         }
-        public Task<IdentityUserDTO> GetByIdAsync(string Id)
+        public async Task<IdentityUserDTO?> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
+            if (DTOService != null)
+            {
+                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
+                return await identityUserDTOService.GetByIdAsync(id);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            }
         }
 
-        public Task<IdentityUserDTO> PostAsync(IdentityUserDTO t)
+        public async Task<IdentityUserDTO?> PostAsync(IdentityUserDTO entity)
         {
-            throw new NotImplementedException();
+            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
+            if (DTOService != null)
+            {
+                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
+                return await identityUserDTOService.PostAsync(entity);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            }
         }
-        Task<IdentityUserDTO> IActorViewService<IdentityUserDTO>.PutAsync(IdentityUserDTO t)
+        public async Task<IdentityUserDTO?> PutAsync(IdentityUserDTO entity)
         {
-            throw new NotImplementedException();
+            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
+            if (DTOService != null)
+            {
+                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
+                return await identityUserDTOService.PutAsync(entity);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+            }
         }
     }
 }

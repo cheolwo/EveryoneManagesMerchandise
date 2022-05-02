@@ -1,5 +1,4 @@
-﻿using BusinessView.ofGroupOrder.ofEmployer;
-using BusinessView.ofGroupOrder.ofPlatform;
+﻿using BusinessView.ofGroupOrder.ofPlatform;
 using BusinessView.ofServices.ofGroupOrder;
 using System.Net.Http.Json;
 using System.Text;
@@ -22,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformEGOC?> GetAsync(string id)
+        public async Task<PlatformEGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformEGOC>($"/api/PlatformEGOC/{id}");
         }
@@ -32,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformEGOC>>("/api/PlatformEGOC");
         }
 
-        public async Task PostAsync(PlatformEGOC entity)
+        public async Task<PlatformEGOC?> PostAsync(PlatformEGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -41,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformEGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformEGOC? PlatformEGOC = JsonSerializer.Deserialize<PlatformEGOC>(JsonPlatformEGOC);
+            return PlatformEGOC;
         }
 
-        public async Task UpdateAsync(PlatformEGOC entity)
+        public async Task<PlatformEGOC?> PutAsync(PlatformEGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -54,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformEGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformEGOC? PlatformEGOC = JsonSerializer.Deserialize<PlatformEGOC>(JsonPlatformEGOC);
+
+            return PlatformEGOC;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformWarehouseService : WarehouseService, IDTOService<PlatformWarehouse>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformWarehouse?> GetAsync(string id)
+        public async Task<PlatformWarehouse?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformWarehouse>($"/api/PlatformWarehouse/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformWarehouse>>("/api/PlatformWarehouse");
         }
 
-        public async Task PostAsync(PlatformWarehouse entity)
+        public async Task<PlatformWarehouse?> PostAsync(PlatformWarehouse entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformWarehouse", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformWarehouse = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformWarehouse? PlatformWarehouse = JsonSerializer.Deserialize<PlatformWarehouse>(JsonPlatformWarehouse);
+            return PlatformWarehouse;
         }
 
-        public async Task UpdateAsync(PlatformWarehouse entity)
+        public async Task<PlatformWarehouse?> PutAsync(PlatformWarehouse entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformWarehouse", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformWarehouse = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformWarehouse? PlatformWarehouse = JsonSerializer.Deserialize<PlatformWarehouse>(JsonPlatformWarehouse);
+
+            return PlatformWarehouse;
         }
     }
 }

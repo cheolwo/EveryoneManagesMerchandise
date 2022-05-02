@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeIncomingTagService : WarehouseService, IDTOService<EmployeeIncomingTag>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeIncomingTag?> GetAsync(string id)
+        public async Task<EmployeeIncomingTag?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeIncomingTag>($"/api/EmployeeIncomingTag/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeIncomingTag>>("/api/EmployeeIncomingTag");
         }
 
-        public async Task PostAsync(EmployeeIncomingTag entity)
+        public async Task<EmployeeIncomingTag?> PostAsync(EmployeeIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeIncomingTag? EmployeeIncomingTag = JsonSerializer.Deserialize<EmployeeIncomingTag>(JsonEmployeeIncomingTag);
+            return EmployeeIncomingTag;
         }
 
-        public async Task UpdateAsync(EmployeeIncomingTag entity)
+        public async Task<EmployeeIncomingTag?> PutAsync(EmployeeIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeIncomingTag? EmployeeIncomingTag = JsonSerializer.Deserialize<EmployeeIncomingTag>(JsonEmployeeIncomingTag);
+
+            return EmployeeIncomingTag;
         }
     }
 }

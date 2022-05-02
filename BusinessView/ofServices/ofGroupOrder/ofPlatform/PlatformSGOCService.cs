@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformSGOC?> GetAsync(string id)
+        public async Task<PlatformSGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformSGOC>($"/api/PlatformSGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformSGOC>>("/api/PlatformSGOC");
         }
 
-        public async Task PostAsync(PlatformSGOC entity)
+        public async Task<PlatformSGOC?> PostAsync(PlatformSGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformSGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformSGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformSGOC? PlatformSGOC = JsonSerializer.Deserialize<PlatformSGOC>(JsonPlatformSGOC);
+            return PlatformSGOC;
         }
 
-        public async Task UpdateAsync(PlatformSGOC entity)
+        public async Task<PlatformSGOC?> PutAsync(PlatformSGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformSGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformSGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformSGOC? PlatformSGOC = JsonSerializer.Deserialize<PlatformSGOC>(JsonPlatformSGOC);
+
+            return PlatformSGOC;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformEOCommodityService : OrderService, IDTOService<PlatformEOCommodity>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformEOCommodity?> GetAsync(string id)
+        public async Task<PlatformEOCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformEOCommodity>($"/api/PlatformEOCommodity/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformEOCommodity>>("/api/PlatformEOCommodity");
         }
 
-        public async Task PostAsync(PlatformEOCommodity entity)
+        public async Task<PlatformEOCommodity?> PostAsync(PlatformEOCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformEOCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEOCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformEOCommodity? PlatformEOCommodity = JsonSerializer.Deserialize<PlatformEOCommodity>(JsonPlatformEOCommodity);
+            return PlatformEOCommodity;
         }
 
-        public async Task UpdateAsync(PlatformEOCommodity entity)
+        public async Task<PlatformEOCommodity?> PutAsync(PlatformEOCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformEOCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEOCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformEOCommodity? PlatformEOCommodity = JsonSerializer.Deserialize<PlatformEOCommodity>(JsonPlatformEOCommodity);
+
+            return PlatformEOCommodity;
         }
     }
 }

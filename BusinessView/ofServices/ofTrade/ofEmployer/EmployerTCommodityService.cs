@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployer
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerTCommodityService : TradeService, IDTOService<EmployerTCommodity>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerTCommodity?> GetAsync(string id)
+        public async Task<EmployerTCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerTCommodity>($"/api/EmployerTCommodity/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerTCommodity>>("/api/EmployerTCommodity");
         }
 
-        public async Task PostAsync(EmployerTCommodity entity)
+        public async Task<EmployerTCommodity?> PostAsync(EmployerTCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerTCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerTCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerTCommodity? EmployerTCommodity = JsonSerializer.Deserialize<EmployerTCommodity>(JsonEmployerTCommodity);
+            return EmployerTCommodity;
         }
 
-        public async Task UpdateAsync(EmployerTCommodity entity)
+        public async Task<EmployerTCommodity?> PutAsync(EmployerTCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerTCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerTCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerTCommodity? EmployerTCommodity = JsonSerializer.Deserialize<EmployerTCommodity>(JsonEmployerTCommodity);
+
+            return EmployerTCommodity;
         }
     }
 }

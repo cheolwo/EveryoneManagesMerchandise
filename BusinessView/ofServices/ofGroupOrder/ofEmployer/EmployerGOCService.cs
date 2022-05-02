@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerGOC?> GetAsync(string id)
+        public async Task<EmployerGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerGOC>($"/api/EmployerGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerGOC>>("/api/EmployerGOC");
         }
 
-        public async Task PostAsync(EmployerGOC entity)
+        public async Task<EmployerGOC?> PostAsync(EmployerGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerGOC? EmployerGOC = JsonSerializer.Deserialize<EmployerGOC>(JsonEmployerGOC);
+            return EmployerGOC;
         }
 
-        public async Task UpdateAsync(EmployerGOC entity)
+        public async Task<EmployerGOC?> PutAsync(EmployerGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerGOC? EmployerGOC = JsonSerializer.Deserialize<EmployerGOC>(JsonEmployerGOC);
+
+            return EmployerGOC;
         }
     }
 }

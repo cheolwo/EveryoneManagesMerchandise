@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofProduct.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeProductLandService : ProductService, IDTOService<EmployeeProductLand>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeProductLand?> GetAsync(string id)
+        public async Task<EmployeeProductLand?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeProductLand>($"/api/EmployeeProductLand/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeProductLand>>("/api/EmployeeProductLand");
         }
 
-        public async Task PostAsync(EmployeeProductLand entity)
+        public async Task<EmployeeProductLand?> PostAsync(EmployeeProductLand entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeProductLand", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeProductLand = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeProductLand? EmployeeProductLand = JsonSerializer.Deserialize<EmployeeProductLand>(JsonEmployeeProductLand);
+            return EmployeeProductLand;
         }
 
-        public async Task UpdateAsync(EmployeeProductLand entity)
+        public async Task<EmployeeProductLand?> PutAsync(EmployeeProductLand entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeProductLand", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeProductLand = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeProductLand? EmployeeProductLand = JsonSerializer.Deserialize<EmployeeProductLand>(JsonEmployeeProductLand);
+
+            return EmployeeProductLand;
         }
     }
 }

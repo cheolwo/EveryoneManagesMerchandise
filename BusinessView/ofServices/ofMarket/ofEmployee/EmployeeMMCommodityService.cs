@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeMMCommodityService : MarketService, IDTOService<EmployeeMMCommodity>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeMMCommodity?> GetAsync(string id)
+        public async Task<EmployeeMMCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeMMCommodity>($"/api/EmployeeMMCommodity/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeMMCommodity>>("/api/EmployeeMMCommodity");
         }
 
-        public async Task PostAsync(EmployeeMMCommodity entity)
+        public async Task<EmployeeMMCommodity?> PostAsync(EmployeeMMCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeMMCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeMMCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeMMCommodity? EmployeeMMCommodity = JsonSerializer.Deserialize<EmployeeMMCommodity>(JsonEmployeeMMCommodity);
+            return EmployeeMMCommodity;
         }
 
-        public async Task UpdateAsync(EmployeeMMCommodity entity)
+        public async Task<EmployeeMMCommodity?> PutAsync(EmployeeMMCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeMMCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeMMCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeMMCommodity? EmployeeMMCommodity = JsonSerializer.Deserialize<EmployeeMMCommodity>(JsonEmployeeMMCommodity);
+
+            return EmployeeMMCommodity;
         }
     }
 }

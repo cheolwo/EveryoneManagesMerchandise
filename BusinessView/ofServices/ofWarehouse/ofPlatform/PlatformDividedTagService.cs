@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformDividedTagService : WarehouseService, IDTOService<PlatformDividedTag>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformDividedTag?> GetAsync(string id)
+        public async Task<PlatformDividedTag?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformDividedTag>($"/api/PlatformDividedTag/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformDividedTag>>("/api/PlatformDividedTag");
         }
 
-        public async Task PostAsync(PlatformDividedTag entity)
+        public async Task<PlatformDividedTag?> PostAsync(PlatformDividedTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformDividedTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformDividedTag = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformDividedTag? PlatformDividedTag = JsonSerializer.Deserialize<PlatformDividedTag>(JsonPlatformDividedTag);
+            return PlatformDividedTag;
         }
 
-        public async Task UpdateAsync(PlatformDividedTag entity)
+        public async Task<PlatformDividedTag?> PutAsync(PlatformDividedTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformDividedTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformDividedTag = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformDividedTag? PlatformDividedTag = JsonSerializer.Deserialize<PlatformDividedTag>(JsonPlatformDividedTag);
+
+            return PlatformDividedTag;
         }
     }
 }

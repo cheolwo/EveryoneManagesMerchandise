@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
+namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {
     public class EmployerHRCenterService : HRService, IDTOService<EmployerHRCenter>
     {
@@ -22,7 +22,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerHRCenter?> GetAsync(string id)
+        public async Task<EmployerHRCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerHRCenter>($"/api/EmployerHRCenter/{id}");
         }
@@ -32,7 +32,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerHRCenter>>("/api/EmployerHRCenter");
         }
 
-        public async Task PostAsync(EmployerHRCenter entity)
+        public async Task<EmployerHRCenter?> PostAsync(EmployerHRCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -41,11 +41,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerHRCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerHRCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerHRCenter? EmployerHRCenter = JsonSerializer.Deserialize<EmployerHRCenter>(JsonEmployerHRCenter);
+            return EmployerHRCenter;
         }
 
-        public async Task UpdateAsync(EmployerHRCenter entity)
+        public async Task<EmployerHRCenter?> PutAsync(EmployerHRCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -54,8 +57,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerHRCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerHRCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerHRCenter? EmployerHRCenter = JsonSerializer.Deserialize<EmployerHRCenter>(JsonEmployerHRCenter);
+
+            return EmployerHRCenter;
         }
     }
 }

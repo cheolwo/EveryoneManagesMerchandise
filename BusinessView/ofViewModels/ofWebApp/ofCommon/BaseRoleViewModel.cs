@@ -178,7 +178,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
         public async Task GetsAsync()
         {
-            IEnumerable<IdentityRoleDTO>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<IdentityRoleDTO>? dtos = await _actorViewService.GetsAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)

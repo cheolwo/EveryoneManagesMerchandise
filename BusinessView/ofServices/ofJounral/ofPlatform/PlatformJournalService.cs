@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformJournal?> GetAsync(string id)
+        public async Task<PlatformJournal?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformJournal>($"/api/PlatformJournal/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformJournal>>("/api/PlatformJournal");
         }
 
-        public async Task PostAsync(PlatformJournal entity)
+        public async Task<PlatformJournal?> PostAsync(PlatformJournal entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformJournal", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformJournal = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformJournal? PlatformJournal = JsonSerializer.Deserialize<PlatformJournal>(JsonPlatformJournal);
+            return PlatformJournal;
         }
 
-        public async Task UpdateAsync(PlatformJournal entity)
+        public async Task<PlatformJournal?> PutAsync(PlatformJournal entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformJournal", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformJournal = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformJournal? PlatformJournal = JsonSerializer.Deserialize<PlatformJournal>(JsonPlatformJournal);
+
+            return PlatformJournal;
         }
     }
 }

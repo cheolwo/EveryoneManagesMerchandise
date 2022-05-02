@@ -1,12 +1,11 @@
-﻿using BusinessView.ofMarket.ofEmployer;
-using BusinessView.ofMarket.ofPlatform;
+﻿using BusinessView.ofMarket.ofPlatform;
 using BusinessView.ofServices.ofMarket;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofMarket.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformEMCommodityService : MarketService, IDTOService<PlatformEMCommodity>
     {
@@ -22,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformEMCommodity?> GetAsync(string id)
+        public async Task<PlatformEMCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformEMCommodity>($"/api/PlatformEMCommodity/{id}");
         }
@@ -32,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformEMCommodity>>("/api/PlatformEMCommodity");
         }
 
-        public async Task PostAsync(PlatformEMCommodity entity)
+        public async Task<PlatformEMCommodity?> PostAsync(PlatformEMCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -41,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformEMCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEMCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformEMCommodity? PlatformEMCommodity = JsonSerializer.Deserialize<PlatformEMCommodity>(JsonPlatformEMCommodity);
+            return PlatformEMCommodity;
         }
 
-        public async Task UpdateAsync(PlatformEMCommodity entity)
+        public async Task<PlatformEMCommodity?> PutAsync(PlatformEMCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -54,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformEMCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformEMCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformEMCommodity? PlatformEMCommodity = JsonSerializer.Deserialize<PlatformEMCommodity>(JsonPlatformEMCommodity);
+
+            return PlatformEMCommodity;
         }
     }
 }

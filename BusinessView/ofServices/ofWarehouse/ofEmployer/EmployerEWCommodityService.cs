@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerEWCommodityService : WarehouseService, IDTOService<EmployerEWCommodity>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerEWCommodity?> GetAsync(string id)
+        public async Task<EmployerEWCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerEWCommodity>($"/api/EmployerEWCommodity/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerEWCommodity>>("/api/EmployerEWCommodity");
         }
 
-        public async Task PostAsync(EmployerEWCommodity entity)
+        public async Task<EmployerEWCommodity?> PostAsync(EmployerEWCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerEWCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerEWCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerEWCommodity? EmployerEWCommodity = JsonSerializer.Deserialize<EmployerEWCommodity>(JsonEmployerEWCommodity);
+            return EmployerEWCommodity;
         }
 
-        public async Task UpdateAsync(EmployerEWCommodity entity)
+        public async Task<EmployerEWCommodity?> PutAsync(EmployerEWCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerEWCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerEWCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerEWCommodity? EmployerEWCommodity = JsonSerializer.Deserialize<EmployerEWCommodity>(JsonEmployerEWCommodity);
+
+            return EmployerEWCommodity;
         }
     }
 }

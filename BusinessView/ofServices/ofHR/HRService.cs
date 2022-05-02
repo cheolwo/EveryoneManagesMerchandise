@@ -3,7 +3,7 @@ using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofHR
 {
-    public class HRService : DTOService
+    public class HRService : DTOService 
     {
         public HRService(Action<DTOServiceOptions> options)
         {

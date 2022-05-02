@@ -146,7 +146,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeMWCommodity>? dtos = await _actorViewService.GetAsync();
+            IEnumerable<EmployeeMWCommodity>? dtos = await _actorViewService.GetsAsync();
             if(dtos != null)
             {
                 foreach(var dto in dtos)

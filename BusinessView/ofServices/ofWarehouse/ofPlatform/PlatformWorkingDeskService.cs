@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformWorkingDeskService : WarehouseService, IDTOService<PlatformWorkingDesk>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformWorkingDesk?> GetAsync(string id)
+        public async Task<PlatformWorkingDesk?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformWorkingDesk>($"/api/PlatformWorkingDesk/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformWorkingDesk>>("/api/PlatformWorkingDesk");
         }
 
-        public async Task PostAsync(PlatformWorkingDesk entity)
+        public async Task<PlatformWorkingDesk?> PostAsync(PlatformWorkingDesk entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformWorkingDesk", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformWorkingDesk = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformWorkingDesk? PlatformWorkingDesk = JsonSerializer.Deserialize<PlatformWorkingDesk>(JsonPlatformWorkingDesk);
+            return PlatformWorkingDesk;
         }
 
-        public async Task UpdateAsync(PlatformWorkingDesk entity)
+        public async Task<PlatformWorkingDesk?> PutAsync(PlatformWorkingDesk entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformWorkingDesk", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformWorkingDesk = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformWorkingDesk? PlatformWorkingDesk = JsonSerializer.Deserialize<PlatformWorkingDesk>(JsonPlatformWorkingDesk);
+
+            return PlatformWorkingDesk;
         }
     }
 }

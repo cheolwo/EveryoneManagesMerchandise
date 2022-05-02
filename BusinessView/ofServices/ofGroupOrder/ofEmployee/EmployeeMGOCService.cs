@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeMGOC?> GetAsync(string id)
+        public async Task<EmployeeMGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeMGOC>($"/api/EmployeeMGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeMGOC>>("/api/EmployeeMGOC");
         }
 
-        public async Task PostAsync(EmployeeMGOC entity)
+        public async Task<EmployeeMGOC?> PostAsync(EmployeeMGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeMGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeMGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeMGOC? employeeMGOC = JsonSerializer.Deserialize<EmployeeMGOC>(JsonEmployeeMGOC);
+            return employeeMGOC;
         }
 
-        public async Task UpdateAsync(EmployeeMGOC entity)
+        public async Task<EmployeeMGOC?> PutAsync(EmployeeMGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeMGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeMGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeMGOC? employeeMGOC = JsonSerializer.Deserialize<EmployeeMGOC>(JsonEmployeeMGOC);
+
+            return employeeMGOC;
         }
     }
 }

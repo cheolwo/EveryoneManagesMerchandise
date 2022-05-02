@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeJCommodity?> GetAsync(string id)
+        public async Task<EmployeeJCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeJCommodity>($"/api/EmployeeJCommodity/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeJCommodity>>("/api/EmployeeJCommodity");
         }
 
-        public async Task PostAsync(EmployeeJCommodity entity)
+        public async Task<EmployeeJCommodity?> PostAsync(EmployeeJCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeJCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeJCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeJCommodity? EmployeeJCommodity = JsonSerializer.Deserialize<EmployeeJCommodity>(JsonEmployeeJCommodity);
+            return EmployeeJCommodity;
         }
 
-        public async Task UpdateAsync(EmployeeJCommodity entity)
+        public async Task<EmployeeJCommodity?> PutAsync(EmployeeJCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeJCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeJCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeJCommodity? EmployeeJCommodity = JsonSerializer.Deserialize<EmployeeJCommodity>(JsonEmployeeJCommodity);
+
+            return EmployeeJCommodity;
         }
     }
 }

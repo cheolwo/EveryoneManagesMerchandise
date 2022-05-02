@@ -98,7 +98,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             IsBusy = true;
             try
             {
-                var identityUserDTOs = await _actorViewService.GetAsync();
+                var identityUserDTOs = await _actorViewService.GetsAsync();
                 if (identityUserDTOs != null)
                 {
                     foreach (var identityUserDTO in identityUserDTOs)

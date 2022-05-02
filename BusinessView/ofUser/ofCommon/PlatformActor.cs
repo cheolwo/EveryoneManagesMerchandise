@@ -1,5 +1,7 @@
-﻿using BusinessView.ofCommon.ofServices.ofHR.ofPlatform;
+﻿using BusinessView.ofCommon.ofServices.ofHR.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
+using BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee;
+using BusinessView.ofCommon.ofServices.ofJournalCenter.ofPlatform;
 using BusinessView.ofDTO.ofHRDTO.ofPlatform;
 using BusinessView.ofDTO.ofJournalDTO.ofPlatform;
 using BusinessView.ofUser.ofCommon;

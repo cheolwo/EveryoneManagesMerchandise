@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeTradeCenterService : TradeService, IDTOService<EmployeeTradeCenter>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeTradeCenter?> GetAsync(string id)
+        public async Task<EmployeeTradeCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeTradeCenter>($"/api/EmployeeTradeCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeTradeCenter>>("/api/EmployeeTradeCenter");
         }
 
-        public async Task PostAsync(EmployeeTradeCenter entity)
+        public async Task<EmployeeTradeCenter?> PostAsync(EmployeeTradeCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeTradeCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeTradeCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeTradeCenter? EmployeeTradeCenter = JsonSerializer.Deserialize<EmployeeTradeCenter>(JsonEmployeeTradeCenter);
+            return EmployeeTradeCenter;
         }
 
-        public async Task UpdateAsync(EmployeeTradeCenter entity)
+        public async Task<EmployeeTradeCenter?> PutAsync(EmployeeTradeCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeTradeCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeTradeCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeTradeCenter? EmployeeTradeCenter = JsonSerializer.Deserialize<EmployeeTradeCenter>(JsonEmployeeTradeCenter);
+
+            return EmployeeTradeCenter;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeHRCenter?> GetAsync(string id)
+        public async Task<EmployeeHRCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeHRCenter>($"/api/EmployeeHRCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeHRCenter>>("/api/EmployeeHRCenter");
         }
 
-        public async Task PostAsync(EmployeeHRCenter entity)
+        public async Task<EmployeeHRCenter?> PostAsync(EmployeeHRCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeHRCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeHRCenter? employeeHRCenter = JsonSerializer.Deserialize<EmployeeHRCenter>(JsonEmployeeHRCenter);
+            return employeeHRCenter;
         }
 
-        public async Task UpdateAsync(EmployeeHRCenter entity)
+        public async Task<EmployeeHRCenter?> PutAsync(EmployeeHRCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeHRCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeHRCenter? employeeHRCenter = JsonSerializer.Deserialize<EmployeeHRCenter>(JsonEmployeeHRCenter);
+
+            return employeeHRCenter;
         }
     }
 }

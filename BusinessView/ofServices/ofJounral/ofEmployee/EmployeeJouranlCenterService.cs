@@ -1,12 +1,11 @@
 ﻿using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
-using BusinessView.ofServices.ofHR;
 using BusinessView.ofServices.ofJournal;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee
 {
     public class EmployeeJournalCenterService : JournalService, IDTOService<EmployeeJournalCenter>
     {
@@ -22,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeJournalCenter?> GetAsync(string id)
+        public async Task<EmployeeJournalCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeJournalCenter>($"/api/EmployeeJournalCenter/{id}");
         }
@@ -32,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeJournalCenter>>("/api/EmployeeJournalCenter");
         }
 
-        public async Task PostAsync(EmployeeJournalCenter entity)
+        public async Task<EmployeeJournalCenter?> PostAsync(EmployeeJournalCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -41,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeJournalCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeJournalCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeJournalCenter? EmployeeJournalCenter = JsonSerializer.Deserialize<EmployeeJournalCenter>(JsonEmployeeJournalCenter);
+            return EmployeeJournalCenter;
         }
 
-        public async Task UpdateAsync(EmployeeJournalCenter entity)
+        public async Task<EmployeeJournalCenter?> PutAsync(EmployeeJournalCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -54,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeJournalCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeJournalCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeJournalCenter? EmployeeJournalCenter = JsonSerializer.Deserialize<EmployeeJournalCenter>(JsonEmployeeJournalCenter);
+
+            return EmployeeJournalCenter;
         }
     }
 }

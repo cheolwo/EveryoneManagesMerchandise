@@ -34,13 +34,6 @@ using BusinessView.ofCommon.ofServices;
 //UserActor userActor = new UserActor(new ActorOption { IsUseStorage = false});
 //LogisterActor LogisterActor = new LogisterActor(new ActorOption { IsUseStorage = false });
 
-IdentityUserDTOService IdentityUserDTOService = new();
-
-var identityUserDTOs = await IdentityUserDTOService.Gets();
-foreach(var user in identityUserDTOs)
-{
-    Console.WriteLine(user.UserName);
-}
 
 
 

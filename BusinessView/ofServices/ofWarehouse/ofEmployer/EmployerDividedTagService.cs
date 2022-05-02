@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerDividedTagService : WarehouseService, IDTOService<EmployerDividedTag>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerDividedTag?> GetAsync(string id)
+        public async Task<EmployerDividedTag?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerDividedTag>($"/api/EmployerDividedTag/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerDividedTag>>("/api/EmployerDividedTag");
         }
 
-        public async Task PostAsync(EmployerDividedTag entity)
+        public async Task<EmployerDividedTag?> PostAsync(EmployerDividedTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerDividedTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerDividedTag = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerDividedTag? EmployerDividedTag = JsonSerializer.Deserialize<EmployerDividedTag>(JsonEmployerDividedTag);
+            return EmployerDividedTag;
         }
 
-        public async Task UpdateAsync(EmployerDividedTag entity)
+        public async Task<EmployerDividedTag?> PutAsync(EmployerDividedTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerDividedTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerDividedTag = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerDividedTag? EmployerDividedTag = JsonSerializer.Deserialize<EmployerDividedTag>(JsonEmployerDividedTag);
+
+            return EmployerDividedTag;
         }
     }
 }

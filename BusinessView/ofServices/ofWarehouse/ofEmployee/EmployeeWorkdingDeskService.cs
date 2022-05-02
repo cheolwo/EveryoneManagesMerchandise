@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeWorkingDeskService : WarehouseService, IDTOService<EmployeeWorkingDesk>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeWorkingDesk?> GetAsync(string id)
+        public async Task<EmployeeWorkingDesk?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeWorkingDesk>($"/api/EmployeeWorkingDesk/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeWorkingDesk>>("/api/EmployeeWorkingDesk");
         }
 
-        public async Task PostAsync(EmployeeWorkingDesk entity)
+        public async Task<EmployeeWorkingDesk?> PostAsync(EmployeeWorkingDesk entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeWorkingDesk", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeWorkingDesk = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeWorkingDesk? EmployeeWorkingDesk = JsonSerializer.Deserialize<EmployeeWorkingDesk>(JsonEmployeeWorkingDesk);
+            return EmployeeWorkingDesk;
         }
 
-        public async Task UpdateAsync(EmployeeWorkingDesk entity)
+        public async Task<EmployeeWorkingDesk?> PutAsync(EmployeeWorkingDesk entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeWorkingDesk", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeWorkingDesk = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeWorkingDesk? EmployeeWorkingDesk = JsonSerializer.Deserialize<EmployeeWorkingDesk>(JsonEmployeeWorkingDesk);
+
+            return EmployeeWorkingDesk;
         }
     }
 }

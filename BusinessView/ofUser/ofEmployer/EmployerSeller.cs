@@ -1,5 +1,4 @@
-﻿using BusinessView.ofCommon.ofServices.ofMarket.ofEmployer;
-using BusinessView.ofCommon.ofServices.ofWarehouse;
+﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofMarket.ofEmployer;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployer;

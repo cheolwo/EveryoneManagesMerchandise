@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformOrderCenterService : OrderService, IDTOService<PlatformOrderCenter>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformOrderCenter?> GetAsync(string id)
+        public async Task<PlatformOrderCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformOrderCenter>($"/api/PlatformOrderCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformOrderCenter>>("/api/PlatformOrderCenter");
         }
 
-        public async Task PostAsync(PlatformOrderCenter entity)
+        public async Task<PlatformOrderCenter?> PostAsync(PlatformOrderCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformOrderCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformOrderCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformOrderCenter? PlatformOrderCenter = JsonSerializer.Deserialize<PlatformOrderCenter>(JsonPlatformOrderCenter);
+            return PlatformOrderCenter;
         }
 
-        public async Task UpdateAsync(PlatformOrderCenter entity)
+        public async Task<PlatformOrderCenter?> PutAsync(PlatformOrderCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformOrderCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformOrderCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformOrderCenter? PlatformOrderCenter = JsonSerializer.Deserialize<PlatformOrderCenter>(JsonPlatformOrderCenter);
+
+            return PlatformOrderCenter;
         }
     }
 }

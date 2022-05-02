@@ -1,5 +1,3 @@
-using BusinessRazor.Components.ofUser;
-using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
 using BusinessView.ofUser;
@@ -7,15 +5,11 @@ using BusinessView.ofUser.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse;
 using BusinessView.ofWarehouse.ofEmployer;
 using EmployerLogisterWebApp.Areas.Identity;
 using EmployerLogisterWebApp.Data;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 
@@ -97,11 +91,83 @@ builder.Services.AddScoped<PutEmployerWorkingDeskViewModel>();
 builder.Services.AddScoped<DeleteEmployerWorkingDeskViewModel>();
 builder.Services.AddScoped<GetsEmployerWorkingDeskViewModel>();
 
-builder.Services.AddScoped<GetsEmployerWCommodityViewModel>();
-builder.Services.AddScoped<PostEmployerWCommodityViewModel>();
-builder.Services.AddScoped<PutEmployerWCommodityViewModel>();
-builder.Services.AddScoped<DeleteEmployerWCommodityViewModel>();
-builder.Services.AddScoped<GetsEmployerWCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerEmployeeRoleViewModel>();
+builder.Services.AddScoped<PostEmployerEmployeeRoleViewModel>();
+builder.Services.AddScoped<PutEmployerEmployeeRoleViewModel>();
+builder.Services.AddScoped<DeleteEmployerEmployeeRoleViewModel>();
+builder.Services.AddScoped<GetsEmployerEmployeeRoleViewModel>();
+
+builder.Services.AddScoped<GetsEmployerHRBusinessPartViewModel>();
+builder.Services.AddScoped<PostEmployerHRBusinessPartViewModel>();
+builder.Services.AddScoped<PutEmployerHRBusinessPartViewModel>();
+builder.Services.AddScoped<DeleteEmployerHRBusinessPartViewModel>();
+builder.Services.AddScoped<GetsEmployerHRBusinessPartViewModel>();
+
+builder.Services.AddScoped<GetsEmployerHRCenterViewModel>();
+builder.Services.AddScoped<PostEmployerHRCenterViewModel>();
+builder.Services.AddScoped<PutEmployerHRCenterViewModel>();
+builder.Services.AddScoped<DeleteEmployerHRCenterViewModel>();
+builder.Services.AddScoped<GetsEmployerHRCenterViewModel>();
+
+builder.Services.AddScoped<GetsEmployerHREmployeeViewModel>();
+builder.Services.AddScoped<PostEmployerHREmployeeViewModel>();
+builder.Services.AddScoped<PutEmployerHREmployeeViewModel>();
+builder.Services.AddScoped<DeleteEmployerHREmployeeViewModel>();
+builder.Services.AddScoped<GetsEmployerHREmployeeViewModel>();
+
+builder.Services.AddScoped<GetsEmployerHRRoleViewModel>();
+builder.Services.AddScoped<PostEmployerHRRoleViewModel>();
+builder.Services.AddScoped<PutEmployerHRRoleViewModel>();
+builder.Services.AddScoped<DeleteEmployerHRRoleViewModel>();
+builder.Services.AddScoped<GetsEmployerHRRoleViewModel>();
+
+builder.Services.AddScoped<GetsEmployerJCommodityViewModel>();
+builder.Services.AddScoped<PostEmployerJCommodityViewModel>();
+builder.Services.AddScoped<PutEmployerJCommodityViewModel>();
+builder.Services.AddScoped<DeleteEmployerJCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerJCommodityViewModel>();
+
+builder.Services.AddScoped<GetsEmployerJournalViewModel>();
+builder.Services.AddScoped<PostEmployerJournalViewModel>();
+builder.Services.AddScoped<PutEmployerJournalViewModel>();
+builder.Services.AddScoped<DeleteEmployerJournalViewModel>();
+builder.Services.AddScoped<GetsEmployerJournalViewModel>();
+
+builder.Services.AddScoped<GetsEmployerJournalCenterViewModel>();
+builder.Services.AddScoped<PostEmployerJournalCenterViewModel>();
+builder.Services.AddScoped<PutEmployerJournalCenterViewModel>();
+builder.Services.AddScoped<DeleteEmployerJournalCenterViewModel>();
+builder.Services.AddScoped<GetsEmployerJournalCenterViewModel>();
+
+builder.Services.AddScoped<GetsEmployerTradeCenterViewModel>();
+builder.Services.AddScoped<PostEmployerTradeCenterViewModel>();
+builder.Services.AddScoped<PutEmployerTradeCenterViewModel>();
+builder.Services.AddScoped<DeleteEmployerTradeCenterViewModel>();
+builder.Services.AddScoped<GetsEmployerTradeCenterViewModel>();
+
+builder.Services.AddScoped<GetsEmployerTCommodityViewModel>();
+builder.Services.AddScoped<PostEmployerTCommodityViewModel>();
+builder.Services.AddScoped<PutEmployerTCommodityViewModel>();
+builder.Services.AddScoped<DeleteEmployerTCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerTCommodityViewModel>();
+
+builder.Services.AddScoped<GetsEmployerSTCommodityViewModel>();
+builder.Services.AddScoped<PostEmployerSTCommodityViewModel>();
+builder.Services.AddScoped<PutEmployerSTCommodityViewModel>();
+builder.Services.AddScoped<DeleteEmployerSTCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerSTCommodityViewModel>();
+
+builder.Services.AddScoped<GetsEmployerMTCommodityViewModel>();
+builder.Services.AddScoped<PostEmployerMTCommodityViewModel>();
+builder.Services.AddScoped<PutEmployerMTCommodityViewModel>();
+builder.Services.AddScoped<DeleteEmployerMTCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerMTCommodityViewModel>();
+
+builder.Services.AddScoped<GetsEmployerETCommodityViewModel>();
+builder.Services.AddScoped<PostEmployerETCommodityViewModel>();
+builder.Services.AddScoped<PutEmployerETCommodityViewModel>();
+builder.Services.AddScoped<DeleteEmployerETCommodityViewModel>();
+builder.Services.AddScoped<GetsEmployerETCommodityViewModel>();
 
 builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, EmployerLogister>();
 builder.Services.AddScoped<IActorViewService<EmployerDividedTag>, EmployerLogister>();

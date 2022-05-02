@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofTrade.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformTradeCenterService : TradeService, IDTOService<PlatformTradeCenter>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformTradeCenter?> GetAsync(string id)
+        public async Task<PlatformTradeCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformTradeCenter>($"/api/PlatformTradeCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformTradeCenter>>("/api/PlatformTradeCenter");
         }
 
-        public async Task PostAsync(PlatformTradeCenter entity)
+        public async Task<PlatformTradeCenter?> PostAsync(PlatformTradeCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformTradeCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformTradeCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformTradeCenter? PlatformTradeCenter = JsonSerializer.Deserialize<PlatformTradeCenter>(JsonPlatformTradeCenter);
+            return PlatformTradeCenter;
         }
 
-        public async Task UpdateAsync(PlatformTradeCenter entity)
+        public async Task<PlatformTradeCenter?> PutAsync(PlatformTradeCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofTrade.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformTradeCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformTradeCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformTradeCenter? PlatformTradeCenter = JsonSerializer.Deserialize<PlatformTradeCenter>(JsonPlatformTradeCenter);
+
+            return PlatformTradeCenter;
         }
     }
 }

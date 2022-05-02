@@ -1,13 +1,11 @@
-﻿using BusinessView.ofDTO.ofHRDTO;
-using BusinessView.ofDTO.ofHRDTO.ofEmployee;
-using BusinessView.ofDTO.ofHRDTO.ofPlatform;
+﻿using BusinessView.ofDTO.ofHRDTO.ofPlatform;
 using BusinessView.ofServices.ofHR;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {
     public class PlatformHREmployeeService : HRService, IDTOService<PlatformHREmployee>
     {
@@ -23,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformHREmployee?> GetAsync(string id)
+        public async Task<PlatformHREmployee?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformHREmployee>($"/api/PlatformHREmployee/{id}");
         }
@@ -33,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformHREmployee>>("/api/PlatformHREmployee");
         }
 
-        public async Task PostAsync(PlatformHREmployee entity)
+        public async Task<PlatformHREmployee?> PostAsync(PlatformHREmployee entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -42,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformHREmployee", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformHREmployee = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformHREmployee? PlatformHREmployee = JsonSerializer.Deserialize<PlatformHREmployee>(JsonPlatformHREmployee);
+            return PlatformHREmployee;
         }
 
-        public async Task UpdateAsync(PlatformHREmployee entity)
+        public async Task<PlatformHREmployee?> PutAsync(PlatformHREmployee entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -55,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformHREmployee", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformHREmployee = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformHREmployee? PlatformHREmployee = JsonSerializer.Deserialize<PlatformHREmployee>(JsonPlatformHREmployee);
+
+            return PlatformHREmployee;
         }
     }
 }

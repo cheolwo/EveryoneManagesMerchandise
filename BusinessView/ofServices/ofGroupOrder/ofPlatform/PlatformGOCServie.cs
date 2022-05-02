@@ -1,5 +1,4 @@
-﻿using BusinessView.ofGroupOrder.ofEmployer;
-using BusinessView.ofGroupOrder.ofPlatform;
+﻿using BusinessView.ofGroupOrder.ofPlatform;
 using BusinessView.ofServices.ofGroupOrder;
 using System.Net.Http.Json;
 using System.Text;
@@ -22,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformGOC?> GetAsync(string id)
+        public async Task<PlatformGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformGOC>($"/api/PlatformGOC/{id}");
         }
@@ -32,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformGOC>>("/api/PlatformGOC");
         }
 
-        public async Task PostAsync(PlatformGOC entity)
+        public async Task<PlatformGOC?> PostAsync(PlatformGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -41,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformGOC? PlatformGOC = JsonSerializer.Deserialize<PlatformGOC>(JsonPlatformGOC);
+            return PlatformGOC;
         }
 
-        public async Task UpdateAsync(PlatformGOC entity)
+        public async Task<PlatformGOC?> PutAsync(PlatformGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -54,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformGOC? PlatformGOC = JsonSerializer.Deserialize<PlatformGOC>(JsonPlatformGOC);
+
+            return PlatformGOC;
         }
     }
 }

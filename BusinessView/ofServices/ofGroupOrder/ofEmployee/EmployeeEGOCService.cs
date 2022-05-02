@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeEGOC?> GetAsync(string id)
+        public async Task<EmployeeEGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeEGOC>($"/api/EmployeeEGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeEGOC>>("/api/EmployeeEGOC");
         }
 
-        public async Task PostAsync(EmployeeEGOC entity)
+        public async Task<EmployeeEGOC?> PostAsync(EmployeeEGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeEGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeEGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeEGOC? employeeEGOC = JsonSerializer.Deserialize<EmployeeEGOC>(JsonEmployeeEGOC);
+            return employeeEGOC;
         }
 
-        public async Task UpdateAsync(EmployeeEGOC entity)
+        public async Task<EmployeeEGOC?> PutAsync(EmployeeEGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeEGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeEGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeEGOC? employeeEGOC = JsonSerializer.Deserialize<EmployeeEGOC>(JsonEmployeeEGOC);
+
+            return employeeEGOC;
         }
     }
 }

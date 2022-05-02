@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeHREmployee?> GetAsync(string id)
+        public async Task<EmployeeHREmployee?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeHREmployee>($"/api/EmployeeHREmployee/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeHREmployee>>("/api/EmployeeHREmployee");
         }
 
-        public async Task PostAsync(EmployeeHREmployee entity)
+        public async Task<EmployeeHREmployee?> PostAsync(EmployeeHREmployee entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeHREmployee", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHREmployee = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeHREmployee? employeeHREmployee = JsonSerializer.Deserialize<EmployeeHREmployee>(JsonEmployeeHREmployee);
+            return employeeHREmployee;
         }
 
-        public async Task UpdateAsync(EmployeeHREmployee entity)
+        public async Task<EmployeeHREmployee?> PutAsync(EmployeeHREmployee entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeHREmployee", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHREmployee = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeHREmployee? employeeHREmployee = JsonSerializer.Deserialize<EmployeeHREmployee>(JsonEmployeeHREmployee);
+
+            return employeeHREmployee;
         }
     }
 }

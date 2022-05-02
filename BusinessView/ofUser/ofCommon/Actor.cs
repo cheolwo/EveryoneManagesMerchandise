@@ -20,24 +20,36 @@ namespace BusinessView.ofUser
         protected virtual void OnServiceBuilder(ServiceBuilder serviceBuilder) { }
         protected virtual void OnStrorageBuilder(StorageBuilder storageBuilder) { }
         protected virtual void OnValidatorBuilder(ValidatorBuilder validatorBuilde) { }
-        public virtual Task<T> CreateAsync<T>(T t) where T : IViewModel 
-        {
-            throw new NotImplementedException(); 
-        }
-        public virtual Task<T> UpdateAsync<T>(T t) where T : IViewModel 
-        { 
-            throw new NotImplementedException(); 
-        }
-        public virtual Task<T> GetById<T>(string userId, string id) where T : IViewModel 
-        {
-            throw new NotImplementedException(); 
-        }
-        public virtual Task DeleteById<T>(string UuserId, string id) where T : IViewModel {
-            throw new ArgumentNullException(); 
-        }
-        public virtual Task<IEnumerable<T>> GetAlls<T>(string userId) where T : IViewModel 
-        {
-            throw new NotImplementedException();
-        }
+
+        // public async Task<IEnumerable<IdentityUserDTO>?> GetsAsync()
+        // {
+        //     var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
+        //     if (DTOService != null)
+        //     {
+        //         IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
+        //         IEnumerable<IdentityUserDTO>? IdentityUserDTOs = await identityUserDTOService.GetsAsync();
+        //         return IdentityUserDTOs;
+        //     }
+        //     else
+        //     {
+        //         throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+        //     }
+        // }
+
+        // public virtual Task<T> CreateAsync<T>(T t) where T : IViewModel 
+        // {
+        //     throw new NotImplementedException(); 
+        // }
+        // public virtual Task<T> UpdateAsync<T>(T t) where T : IViewModel 
+        // { 
+        //     throw new NotImplementedException(); 
+        // }
+        // public virtual Task<T> GetById<T>(string userId, string id) where T : IViewModel 
+        // {
+        //     throw new NotImplementedException(); 
+        // }
+        // public virtual Task DeleteById<T>(string UuserId, string id) where T : IViewModel {
+        //     throw new ArgumentNullException(); 
+        // }
     }
 }

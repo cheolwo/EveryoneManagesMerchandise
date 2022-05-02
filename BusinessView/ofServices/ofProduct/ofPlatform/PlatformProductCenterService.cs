@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformProductCenterService : ProductService, IDTOService<PlatformProductCenter>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformProductCenter?> GetAsync(string id)
+        public async Task<PlatformProductCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformProductCenter>($"/api/PlatformProductCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformProductCenter>>("/api/PlatformProductCenter");
         }
 
-        public async Task PostAsync(PlatformProductCenter entity)
+        public async Task<PlatformProductCenter?> PostAsync(PlatformProductCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformProductCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformProductCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformProductCenter? PlatformProductCenter = JsonSerializer.Deserialize<PlatformProductCenter>(JsonPlatformProductCenter);
+            return PlatformProductCenter;
         }
 
-        public async Task UpdateAsync(PlatformProductCenter entity)
+        public async Task<PlatformProductCenter?> PutAsync(PlatformProductCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformProductCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformProductCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformProductCenter? PlatformProductCenter = JsonSerializer.Deserialize<PlatformProductCenter>(JsonPlatformProductCenter);
+
+            return PlatformProductCenter;
         }
     }
 }

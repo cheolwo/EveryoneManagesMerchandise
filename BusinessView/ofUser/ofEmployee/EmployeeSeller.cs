@@ -1,4 +1,4 @@
-﻿using BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee;
+﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofWarehouse.ofEmployee;
 

@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeDotBarcodeService : WarehouseService, IDTOService<EmployeeDotBarcode>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeDotBarcode?> GetAsync(string id)
+        public async Task<EmployeeDotBarcode?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeDotBarcode>($"/api/EmployeeDotBarcode/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeDotBarcode>>("/api/EmployeeDotBarcode");
         }
 
-        public async Task PostAsync(EmployeeDotBarcode entity)
+        public async Task<EmployeeDotBarcode?> PostAsync(EmployeeDotBarcode entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeDotBarcode", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeDotBarcode = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeDotBarcode? EmployeeDotBarcode = JsonSerializer.Deserialize<EmployeeDotBarcode>(JsonEmployeeDotBarcode);
+            return EmployeeDotBarcode;
         }
 
-        public async Task UpdateAsync(EmployeeDotBarcode entity)
+        public async Task<EmployeeDotBarcode?> PutAsync(EmployeeDotBarcode entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeDotBarcode", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeDotBarcode = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeDotBarcode? EmployeeDotBarcode = JsonSerializer.Deserialize<EmployeeDotBarcode>(JsonEmployeeDotBarcode);
+
+            return EmployeeDotBarcode;
         }
     }
 }

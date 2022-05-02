@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeEmployeeRole?> GetAsync(string id)
+        public async Task<EmployeeEmployeeRole?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeEmployeeRole>($"/api/EmployeeEmployeeRole/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeEmployeeRole>>("/api/EmployeeEmployeeRole");
         }
 
-        public async Task PostAsync(EmployeeEmployeeRole entity)
+        public async Task<EmployeeEmployeeRole?> PostAsync(EmployeeEmployeeRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeEmployeeRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeEmployeeRole = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeEmployeeRole? employeeEmployeeRole = JsonSerializer.Deserialize<EmployeeEmployeeRole>(JsonEmployeeEmployeeRole);
+            return employeeEmployeeRole;
         }
 
-        public async Task UpdateAsync(EmployeeEmployeeRole entity)
+        public async Task<EmployeeEmployeeRole?> PutAsync(EmployeeEmployeeRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeEmployeeRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeEmployeeRole = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeEmployeeRole? employeeEmployeeRole = JsonSerializer.Deserialize<EmployeeEmployeeRole>(JsonEmployeeEmployeeRole);
+
+            return employeeEmployeeRole;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeHRRole?> GetAsync(string id)
+        public async Task<EmployeeHRRole?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeHRRole>($"/api/EmployeeHRRole/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeHRRole>>("/api/EmployeeHRRole");
         }
 
-        public async Task PostAsync(EmployeeHRRole entity)
+        public async Task<EmployeeHRRole?> PostAsync(EmployeeHRRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeHRRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeHRRole? employeeHRRole = JsonSerializer.Deserialize<EmployeeHRRole>(JsonEmployeeHRRole);
+            return employeeHRRole;
         }
 
-        public async Task UpdateAsync(EmployeeHRRole entity)
+        public async Task<EmployeeHRRole?> PutAsync(EmployeeHRRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeHRRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeHRRole? employeeHRRole = JsonSerializer.Deserialize<EmployeeHRRole>(JsonEmployeeHRRole);
+
+            return employeeHRRole;
         }
     }
 }

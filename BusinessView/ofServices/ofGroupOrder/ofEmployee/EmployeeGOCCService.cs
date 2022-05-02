@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeGOCC?> GetAsync(string id)
+        public async Task<EmployeeGOCC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeGOCC>($"/api/EmployeeGOCC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeGOCC>>("/api/EmployeeGOCC");
         }
 
-        public async Task PostAsync(EmployeeGOCC entity)
+        public async Task<EmployeeGOCC?> PostAsync(EmployeeGOCC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeGOCC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeGOCC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeGOCC? employeeGOCC = JsonSerializer.Deserialize<EmployeeGOCC>(JsonEmployeeGOCC);
+            return employeeGOCC;
         }
 
-        public async Task UpdateAsync(EmployeeGOCC entity)
+        public async Task<EmployeeGOCC?> PutAsync(EmployeeGOCC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeGOCC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeGOCC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeGOCC? employeeGOCC = JsonSerializer.Deserialize<EmployeeGOCC>(JsonEmployeeGOCC);
+
+            return employeeGOCC;
         }
     }
 }

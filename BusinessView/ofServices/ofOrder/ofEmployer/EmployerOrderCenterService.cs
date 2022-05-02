@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofOrder.ofEmployer
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerOrderCenterService : OrderService, IDTOService<EmployerOrderCenter>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerOrderCenter?> GetAsync(string id)
+        public async Task<EmployerOrderCenter?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerOrderCenter>($"/api/EmployerOrderCenter/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerOrderCenter>>("/api/EmployerOrderCenter");
         }
 
-        public async Task PostAsync(EmployerOrderCenter entity)
+        public async Task<EmployerOrderCenter?> PostAsync(EmployerOrderCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerOrderCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerOrderCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerOrderCenter? EmployerOrderCenter = JsonSerializer.Deserialize<EmployerOrderCenter>(JsonEmployerOrderCenter);
+            return EmployerOrderCenter;
         }
 
-        public async Task UpdateAsync(EmployerOrderCenter entity)
+        public async Task<EmployerOrderCenter?> PutAsync(EmployerOrderCenter entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerOrderCenter", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerOrderCenter = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerOrderCenter? EmployerOrderCenter = JsonSerializer.Deserialize<EmployerOrderCenter>(JsonEmployerOrderCenter);
+
+            return EmployerOrderCenter;
         }
     }
 }

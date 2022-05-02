@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerIncomingTagService : WarehouseService, IDTOService<EmployerIncomingTag>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerIncomingTag?> GetAsync(string id)
+        public async Task<EmployerIncomingTag?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerIncomingTag>($"/api/EmployerIncomingTag/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerIncomingTag>>("/api/EmployerIncomingTag");
         }
 
-        public async Task PostAsync(EmployerIncomingTag entity)
+        public async Task<EmployerIncomingTag?> PostAsync(EmployerIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerIncomingTag? EmployerIncomingTag = JsonSerializer.Deserialize<EmployerIncomingTag>(JsonEmployerIncomingTag);
+            return EmployerIncomingTag;
         }
 
-        public async Task UpdateAsync(EmployerIncomingTag entity)
+        public async Task<EmployerIncomingTag?> PutAsync(EmployerIncomingTag entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerIncomingTag", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerIncomingTag = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerIncomingTag? EmployerIncomingTag = JsonSerializer.Deserialize<EmployerIncomingTag>(JsonEmployerIncomingTag);
+
+            return EmployerIncomingTag;
         }
     }
 }

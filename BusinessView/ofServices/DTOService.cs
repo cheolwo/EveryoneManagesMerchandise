@@ -3,10 +3,10 @@
     public interface IDTOService<T> where T : class
     {
         Task<IEnumerable<T>?> GetsAsync();
-        Task<T?> GetAsync(string id);
-        Task PostAsync(T entity);
-        Task UpdateAsync(T entity);
+        Task<T?> GetByIdAsync(string id);
+        Task<T?> PostAsync(T entity);
         Task DeleteAsync(string id);
+        Task<T?> PutAsync(T entity);
     }
     public class DTOServiceOptions
     {

@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerSGOC?> GetAsync(string id)
+        public async Task<EmployerSGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerSGOC>($"/api/EmployerSGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerSGOC>>("/api/EmployerSGOC");
         }
 
-        public async Task PostAsync(EmployerSGOC entity)
+        public async Task<EmployerSGOC?> PostAsync(EmployerSGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerSGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerSGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerSGOC? EmployerSGOC = JsonSerializer.Deserialize<EmployerSGOC>(JsonEmployerSGOC);
+            return EmployerSGOC;
         }
 
-        public async Task UpdateAsync(EmployerSGOC entity)
+        public async Task<EmployerSGOC?> PutAsync(EmployerSGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerSGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerSGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerSGOC? EmployerSGOC = JsonSerializer.Deserialize<EmployerSGOC>(JsonEmployerSGOC);
+
+            return EmployerSGOC;
         }
     }
 }

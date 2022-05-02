@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeePlatMarketService : MarketService, IDTOService<EmployeePlatMarket>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeePlatMarket?> GetAsync(string id)
+        public async Task<EmployeePlatMarket?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeePlatMarket>($"/api/EmployeePlatMarket/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeePlatMarket>>("/api/EmployeePlatMarket");
         }
 
-        public async Task PostAsync(EmployeePlatMarket entity)
+        public async Task<EmployeePlatMarket?> PostAsync(EmployeePlatMarket entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeePlatMarket", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeePlatMarket = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeePlatMarket? EmployeePlatMarket = JsonSerializer.Deserialize<EmployeePlatMarket>(JsonEmployeePlatMarket);
+            return EmployeePlatMarket;
         }
 
-        public async Task UpdateAsync(EmployeePlatMarket entity)
+        public async Task<EmployeePlatMarket?> PutAsync(EmployeePlatMarket entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofMarket.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeePlatMarket", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeePlatMarket = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeePlatMarket? EmployeePlatMarket = JsonSerializer.Deserialize<EmployeePlatMarket>(JsonEmployeePlatMarket);
+
+            return EmployeePlatMarket;
         }
     }
 }

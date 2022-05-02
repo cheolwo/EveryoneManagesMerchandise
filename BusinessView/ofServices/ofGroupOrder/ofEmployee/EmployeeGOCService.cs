@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployeeGOC?> GetAsync(string id)
+        public async Task<EmployeeGOC?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployeeGOC>($"/api/EmployeeGOC/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeGOC>>("/api/EmployeeGOC");
         }
 
-        public async Task PostAsync(EmployeeGOC entity)
+        public async Task<EmployeeGOC?> PostAsync(EmployeeGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployeeGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployeeGOC? employeeGOC = JsonSerializer.Deserialize<EmployeeGOC>(JsonEmployeeGOC);
+            return employeeGOC;
         }
 
-        public async Task UpdateAsync(EmployeeGOC entity)
+        public async Task<EmployeeGOC?> PutAsync(EmployeeGOC entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployeeGOC", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployeeGOC = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployeeGOC? employeeGOC = JsonSerializer.Deserialize<EmployeeGOC>(JsonEmployeeGOC);
+
+            return employeeGOC;
         }
     }
 }

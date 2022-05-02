@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformMPCommodityService : ProductService, IDTOService<PlatformMPCommodity>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformMPCommodity?> GetAsync(string id)
+        public async Task<PlatformMPCommodity?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformMPCommodity>($"/api/PlatformMPCommodity/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformMPCommodity>>("/api/PlatformMPCommodity");
         }
 
-        public async Task PostAsync(PlatformMPCommodity entity)
+        public async Task<PlatformMPCommodity?> PostAsync(PlatformMPCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformMPCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformMPCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformMPCommodity? PlatformMPCommodity = JsonSerializer.Deserialize<PlatformMPCommodity>(JsonPlatformMPCommodity);
+            return PlatformMPCommodity;
         }
 
-        public async Task UpdateAsync(PlatformMPCommodity entity)
+        public async Task<PlatformMPCommodity?> PutAsync(PlatformMPCommodity entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofProduct.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformMPCommodity", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformMPCommodity = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformMPCommodity? PlatformMPCommodity = JsonSerializer.Deserialize<PlatformMPCommodity>(JsonPlatformMPCommodity);
+
+            return PlatformMPCommodity;
         }
     }
 }

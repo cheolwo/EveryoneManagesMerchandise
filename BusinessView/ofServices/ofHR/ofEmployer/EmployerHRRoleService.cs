@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
+namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {
     public class EmployerHRRoleService : HRService, IDTOService<EmployerHRRole>
     {
@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerHRRole?> GetAsync(string id)
+        public async Task<EmployerHRRole?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerHRRole>($"/api/EmployerHRRole/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerHRRole>>("/api/EmployerHRRole");
         }
 
-        public async Task PostAsync(EmployerHRRole entity)
+        public async Task<EmployerHRRole?> PostAsync(EmployerHRRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerHRRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerHRRole? EmployerHRRole = JsonSerializer.Deserialize<EmployerHRRole>(JsonEmployerHRRole);
+            return EmployerHRRole;
         }
 
-        public async Task UpdateAsync(EmployerHRRole entity)
+        public async Task<EmployerHRRole?> PutAsync(EmployerHRRole entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerHRRole", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerHRRole? EmployerHRRole = JsonSerializer.Deserialize<EmployerHRRole>(JsonEmployerHRRole);
+
+            return EmployerHRRole;
         }
     }
 }

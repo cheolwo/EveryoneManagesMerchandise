@@ -21,7 +21,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<EmployerJournal?> GetAsync(string id)
+        public async Task<EmployerJournal?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<EmployerJournal>($"/api/EmployerJournal/{id}");
         }
@@ -31,7 +31,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
             return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerJournal>>("/api/EmployerJournal");
         }
 
-        public async Task PostAsync(EmployerJournal entity)
+        public async Task<EmployerJournal?> PostAsync(EmployerJournal entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -40,11 +40,14 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/EmployerJournal", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerJournal = await httpResponseMessage.Content.ReadAsStringAsync();
+            EmployerJournal? EmployerJournal = JsonSerializer.Deserialize<EmployerJournal>(JsonEmployerJournal);
+            return EmployerJournal;
         }
 
-        public async Task UpdateAsync(EmployerJournal entity)
+        public async Task<EmployerJournal?> PutAsync(EmployerJournal entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -53,8 +56,13 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/EmployerJournal", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonEmployerJournal = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            EmployerJournal? EmployerJournal = JsonSerializer.Deserialize<EmployerJournal>(JsonEmployerJournal);
+
+            return EmployerJournal;
         }
     }
 }

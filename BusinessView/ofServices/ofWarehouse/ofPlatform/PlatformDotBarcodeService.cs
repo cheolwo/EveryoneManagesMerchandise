@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
+namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformDotBarcodeService : WarehouseService, IDTOService<PlatformDotBarcode>
     {
@@ -20,7 +20,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             Response.EnsureSuccessStatusCode();
         }
 
-        public async Task<PlatformDotBarcode?> GetAsync(string id)
+        public async Task<PlatformDotBarcode?> GetByIdAsync(string id)
         {
             return await _httpClient.GetFromJsonAsync<PlatformDotBarcode>($"/api/PlatformDotBarcode/{id}");
         }
@@ -30,7 +30,7 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
             return await _httpClient.GetFromJsonAsync<IEnumerable<PlatformDotBarcode>>("/api/PlatformDotBarcode");
         }
 
-        public async Task PostAsync(PlatformDotBarcode entity)
+        public async Task<PlatformDotBarcode?> PostAsync(PlatformDotBarcode entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -39,11 +39,14 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PostAsync("/api/PlatformDotBarcode", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformDotBarcode = await httpResponseMessage.Content.ReadAsStringAsync();
+            PlatformDotBarcode? PlatformDotBarcode = JsonSerializer.Deserialize<PlatformDotBarcode>(JsonPlatformDotBarcode);
+            return PlatformDotBarcode;
         }
 
-        public async Task UpdateAsync(PlatformDotBarcode entity)
+        public async Task<PlatformDotBarcode?> PutAsync(PlatformDotBarcode entity)
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(entity),
@@ -52,8 +55,13 @@ namespace BusinessView.ofCommon.ofServices.ofWarehouse.ofPlatform
 
             using var httpResponseMessage =
                 await _httpClient.PutAsync("/api/PlatformDotBarcode", entityJson);
-
             httpResponseMessage.EnsureSuccessStatusCode();
+
+            string JsonPlatformDotBarcode = await httpResponseMessage.Content.ReadAsStringAsync();
+
+            PlatformDotBarcode? PlatformDotBarcode = JsonSerializer.Deserialize<PlatformDotBarcode>(JsonPlatformDotBarcode);
+
+            return PlatformDotBarcode;
         }
     }
 }
