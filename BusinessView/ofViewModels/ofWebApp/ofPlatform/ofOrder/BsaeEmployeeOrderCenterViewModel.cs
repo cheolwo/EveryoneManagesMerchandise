@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofDTO.ofOrder.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofDTO.ofOrder.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
 {
     public class BasePlatformOrderCenterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformOrderCenter> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformOrderCenter? _PlatformOrderCenter = new();
         public PlatformOrderCenter? PlatformOrderCenter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
                 SetValue(ref _PlatformOrderCenter, value);
             }
         }
-        public BasePlatformOrderCenterViewModel(IActorViewService<PlatformOrderCenter> actorViewService)
+        public BasePlatformOrderCenterViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformOrderCenter = await _actorViewService.GetByIdAsync(id);
+            PlatformOrderCenter = await _PlatformActorContext.GetByIdAsync<PlatformOrderCenter>(id);
         }
     }
     public class PostPlatformOrderCenterViewModel : BasePlatformOrderCenterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
                 SetValue(ref _postPlatformOrderCenter, value);
             }
         }
-        public PostPlatformOrderCenterViewModel(IActorViewService<PlatformOrderCenter> actorViewService)
-            : base(actorViewService)
+        public PostPlatformOrderCenterViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformOrderCenter PlatformOrderCenter)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformOrderCenter);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformOrderCenter>(PlatformOrderCenter);
             if (PostValue != null)
             {
                 PostPlatformOrderCenter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
                 SetValue(ref _putPlatformOrderCenter, value);
             }
         }
-        public PutPlatformOrderCenterViewModel(IActorViewService<PlatformOrderCenter> actorViewService)
-            :base(actorViewService)
+        public PutPlatformOrderCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformOrderCenter PlatformOrderCenter)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformOrderCenter);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformOrderCenter>(PlatformOrderCenter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
     }
     public class DeletePlatformOrderCenterViewModel : BasePlatformOrderCenterViewModel
     {
-        public DeletePlatformOrderCenterViewModel(IActorViewService<PlatformOrderCenter> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformOrderCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformOrderCenter>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
                 SetValue(ref _PlatformOrderCenters, value);   
             }
         }
-        public GetsPlatformOrderCenterViewModel(IActorViewService<PlatformOrderCenter> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformOrderCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformOrderCenter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformOrderCenter>? dtos = await _PlatformActorContext.GetsAsync<PlatformOrderCenter>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformOrderCenter>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformOrderCenter>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformOrderCenters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformOrderCenters.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformOrderCenters.Remove(obj); OnPropertyChanged(); }

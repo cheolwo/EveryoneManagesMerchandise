@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformDotBarcodeViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformDotBarcode> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformDotBarcode? _PlatformDotBarcode = new();
         public PlatformDotBarcode? PlatformDotBarcode
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformDotBarcode, value);
             }
         }
-        public BasePlatformDotBarcodeViewModel(IActorViewService<PlatformDotBarcode> actorViewService)
+        public BasePlatformDotBarcodeViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformDotBarcode = await _actorViewService.GetByIdAsync(id);
+            PlatformDotBarcode = await _PlatformActorContext.GetByIdAsync<PlatformDotBarcode>(id);
         }
     }
     public class PostPlatformDotBarcodeViewModel : BasePlatformDotBarcodeViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformDotBarcode, value);
             }
         }
-        public PostPlatformDotBarcodeViewModel(IActorViewService<PlatformDotBarcode> actorViewService)
-            : base(actorViewService)
+        public PostPlatformDotBarcodeViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformDotBarcode PlatformDotBarcode)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformDotBarcode);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformDotBarcode>(PlatformDotBarcode);
             if (PostValue != null)
             {
                 PostPlatformDotBarcode = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformDotBarcode, value);
             }
         }
-        public PutPlatformDotBarcodeViewModel(IActorViewService<PlatformDotBarcode> actorViewService)
-            :base(actorViewService)
+        public PutPlatformDotBarcodeViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformDotBarcode PlatformDotBarcode)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformDotBarcode);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformDotBarcode>(PlatformDotBarcode);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformDotBarcodeViewModel : BasePlatformDotBarcodeViewModel
     {
-        public DeletePlatformDotBarcodeViewModel(IActorViewService<PlatformDotBarcode> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformDotBarcodeViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformDotBarcode>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformDotBarcodes, value);   
             }
         }
-        public GetsPlatformDotBarcodeViewModel(IActorViewService<PlatformDotBarcode> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformDotBarcodeViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformDotBarcode>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformDotBarcode>? dtos = await _PlatformActorContext.GetsAsync<PlatformDotBarcode>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformDotBarcode>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformDotBarcode>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformDotBarcodes.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformDotBarcodes.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformDotBarcodes.Remove(obj); OnPropertyChanged(); }

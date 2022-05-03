@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofDTO.ofMarket.ofEmployee;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
 {
     public class BaseEmployeeMarketViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeMarket> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeMarket? _EmployeeMarket = new();
         public EmployeeMarket? EmployeeMarket
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
                 SetValue(ref _EmployeeMarket, value);
             }
         }
-        public BaseEmployeeMarketViewModel(IActorViewService<EmployeeMarket> actorViewService)
+        public BaseEmployeeMarketViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeMarket = await _actorViewService.GetByIdAsync(id);
+            EmployeeMarket = await _EmployeeActorContext.GetByIdAsync<EmployeeMarket>(id);
         }
     }
     public class PostEmployeeMarketViewModel : BaseEmployeeMarketViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
                 SetValue(ref _postEmployeeMarket, value);
             }
         }
-        public PostEmployeeMarketViewModel(IActorViewService<EmployeeMarket> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeMarketViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeMarket EmployeeMarket)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeMarket);
+            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeMarket>(EmployeeMarket);
             if (PostValue != null)
             {
                 PostEmployeeMarket = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
                 SetValue(ref _putEmployeeMarket, value);
             }
         }
-        public PutEmployeeMarketViewModel(IActorViewService<EmployeeMarket> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeMarketViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeMarket EmployeeMarket)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeMarket);
+            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeMarket>(EmployeeMarket);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
     }
     public class DeleteEmployeeMarketViewModel : BaseEmployeeMarketViewModel
     {
-        public DeleteEmployeeMarketViewModel(IActorViewService<EmployeeMarket> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeMarketViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeMarket>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
                 SetValue(ref _EmployeeMarkets, value);   
             }
         }
-        public GetsEmployeeMarketViewModel(IActorViewService<EmployeeMarket> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeMarketViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeMarket>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeMarket>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeMarket>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeMarket>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeMarket>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployeeMarkets.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployeeMarkets.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeMarkets.Remove(obj); OnPropertyChanged(); }

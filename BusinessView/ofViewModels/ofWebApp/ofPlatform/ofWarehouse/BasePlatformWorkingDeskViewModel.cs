@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformWorkingDeskViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformWorkingDesk> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformWorkingDesk? _PlatformWorkingDesk = new();
         public PlatformWorkingDesk? PlatformWorkingDesk
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformWorkingDesk, value);
             }
         }
-        public BasePlatformWorkingDeskViewModel(IActorViewService<PlatformWorkingDesk> actorViewService)
+        public BasePlatformWorkingDeskViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformWorkingDesk = await _actorViewService.GetByIdAsync(id);
+            PlatformWorkingDesk = await _PlatformActorContext.GetByIdAsync<PlatformWorkingDesk>(id);
         }
     }
     public class PostPlatformWorkingDeskViewModel : BasePlatformWorkingDeskViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformWorkingDesk, value);
             }
         }
-        public PostPlatformWorkingDeskViewModel(IActorViewService<PlatformWorkingDesk> actorViewService)
-            : base(actorViewService)
+        public PostPlatformWorkingDeskViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformWorkingDesk PlatformWorkingDesk)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformWorkingDesk);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformWorkingDesk>(PlatformWorkingDesk);
             if (PostValue != null)
             {
                 PostPlatformWorkingDesk = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformWorkingDesk, value);
             }
         }
-        public PutPlatformWorkingDeskViewModel(IActorViewService<PlatformWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public PutPlatformWorkingDeskViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformWorkingDesk PlatformWorkingDesk)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformWorkingDesk);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformWorkingDesk>(PlatformWorkingDesk);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformWorkingDeskViewModel : BasePlatformWorkingDeskViewModel
     {
-        public DeletePlatformWorkingDeskViewModel(IActorViewService<PlatformWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformWorkingDeskViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformWorkingDesk>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformWorkingDesks, value);   
             }
         }
-        public GetsPlatformWorkingDeskViewModel(IActorViewService<PlatformWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformWorkingDeskViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformWorkingDesk>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformWorkingDesk>? dtos = await _PlatformActorContext.GetsAsync<PlatformWorkingDesk>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformWorkingDesk>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformWorkingDesk>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformWorkingDesks.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformWorkingDesks.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformWorkingDesks.Remove(obj); OnPropertyChanged(); }

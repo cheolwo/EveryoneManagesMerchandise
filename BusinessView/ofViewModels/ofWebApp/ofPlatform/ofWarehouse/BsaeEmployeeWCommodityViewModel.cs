@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformWCommodityViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformWCommodity> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformWCommodity? _PlatformWCommodity = new();
         public PlatformWCommodity? PlatformWCommodity
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformWCommodity, value);
             }
         }
-        public BasePlatformWCommodityViewModel(IActorViewService<PlatformWCommodity> actorViewService)
+        public BasePlatformWCommodityViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformWCommodity = await _actorViewService.GetByIdAsync(id);
+            PlatformWCommodity = await _PlatformActorContext.GetByIdAsync<PlatformWCommodity>(id);
         }
     }
     public class PostPlatformWCommodityViewModel : BasePlatformWCommodityViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformWCommodity, value);
             }
         }
-        public PostPlatformWCommodityViewModel(IActorViewService<PlatformWCommodity> actorViewService)
-            : base(actorViewService)
+        public PostPlatformWCommodityViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformWCommodity PlatformWCommodity)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformWCommodity);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformWCommodity>(PlatformWCommodity);
             if (PostValue != null)
             {
                 PostPlatformWCommodity = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformWCommodity, value);
             }
         }
-        public PutPlatformWCommodityViewModel(IActorViewService<PlatformWCommodity> actorViewService)
-            :base(actorViewService)
+        public PutPlatformWCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformWCommodity PlatformWCommodity)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformWCommodity);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformWCommodity>(PlatformWCommodity);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformWCommodityViewModel : BasePlatformWCommodityViewModel
     {
-        public DeletePlatformWCommodityViewModel(IActorViewService<PlatformWCommodity> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformWCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformWCommodity>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformWCommoditys, value);   
             }
         }
-        public GetsPlatformWCommodityViewModel(IActorViewService<PlatformWCommodity> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformWCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformWCommodity>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformWCommodity>? dtos = await _PlatformActorContext.GetsAsync<PlatformWCommodity>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformWCommodity>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformWCommodity>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformWCommoditys.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformWCommoditys.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformWCommoditys.Remove(obj); OnPropertyChanged(); }

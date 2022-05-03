@@ -1,12 +1,12 @@
 using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
 {
     public class BaseEmployeeHRCenterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeHRCenter> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeHRCenter? _EmployeeHRCenter = new();
         public EmployeeHRCenter? EmployeeHRCenter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
                 SetValue(ref _EmployeeHRCenter, value);
             }
         }
-        public BaseEmployeeHRCenterViewModel(IActorViewService<EmployeeHRCenter> actorViewService)
+        public BaseEmployeeHRCenterViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
-        public async Task GetByIdAsync(string id)
+        public virtual async Task GetByIdAsync(string id)
         {
-            EmployeeHRCenter = await _actorViewService.GetByIdAsync(id);
+            _EmployeeHRCenter = await _EmployeeActorContext.GetByIdAsync<EmployeeHRCenter>(id);
         }
     }
     public class PostEmployeeHRCenterViewModel : BaseEmployeeHRCenterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
                 SetValue(ref _postEmployeeHRCenter, value);
             }
         }
-        public PostEmployeeHRCenterViewModel(IActorViewService<EmployeeHRCenter> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeHRCenterViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeHRCenter EmployeeHRCenter)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeHRCenter);
+            var PostValue = await _EmployeeActorContext.PostAsync(EmployeeHRCenter);
             if (PostValue != null)
             {
                 PostEmployeeHRCenter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
                 SetValue(ref _putEmployeeHRCenter, value);
             }
         }
-        public PutEmployeeHRCenterViewModel(IActorViewService<EmployeeHRCenter> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeHRCenterViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeHRCenter EmployeeHRCenter)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeHRCenter);
+            var PutValue = await _EmployeeActorContext.PutAsync(EmployeeHRCenter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
     }
     public class DeleteEmployeeHRCenterViewModel : BaseEmployeeHRCenterViewModel
     {
-        public DeleteEmployeeHRCenterViewModel(IActorViewService<EmployeeHRCenter> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeHRCenterViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeHRCenter>(id);
         }
         public void Reset()
         {
@@ -138,16 +138,30 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
                 SetValue(ref _EmployeeHRCenters, value);   
             }
         }
-        public GetsEmployeeHRCenterViewModel(IActorViewService<EmployeeHRCenter> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeHRCenterViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeHRCenter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeHRCenter>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeHRCenter>();
             if(dtos != null)
             {
+                if(_EmployeeHRCenters.Count > 0) {return;}
+                foreach(var dto in dtos)
+                {
+                    _EmployeeHRCenters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeHRCenter>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeHRCenter>(userid);
+            if(dtos != null)
+            {
+                if(_EmployeeHRCenters.Count > 0) {return;}
                 foreach(var dto in dtos)
                 {
                     _EmployeeHRCenters.Add(dto);

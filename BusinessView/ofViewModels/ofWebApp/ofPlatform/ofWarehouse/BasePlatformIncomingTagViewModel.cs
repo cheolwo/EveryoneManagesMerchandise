@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformIncomingTagViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformIncomingTag> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformIncomingTag? _PlatformIncomingTag = new();
         public PlatformIncomingTag? PlatformIncomingTag
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformIncomingTag, value);
             }
         }
-        public BasePlatformIncomingTagViewModel(IActorViewService<PlatformIncomingTag> actorViewService)
+        public BasePlatformIncomingTagViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformIncomingTag = await _actorViewService.GetByIdAsync(id);
+            PlatformIncomingTag = await _PlatformActorContext.GetByIdAsync<PlatformIncomingTag>(id);
         }
     }
     public class PostPlatformIncomingTagViewModel : BasePlatformIncomingTagViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformIncomingTag, value);
             }
         }
-        public PostPlatformIncomingTagViewModel(IActorViewService<PlatformIncomingTag> actorViewService)
-            : base(actorViewService)
+        public PostPlatformIncomingTagViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformIncomingTag PlatformIncomingTag)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformIncomingTag);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformIncomingTag>(PlatformIncomingTag);
             if (PostValue != null)
             {
                 PostPlatformIncomingTag = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformIncomingTag, value);
             }
         }
-        public PutPlatformIncomingTagViewModel(IActorViewService<PlatformIncomingTag> actorViewService)
-            :base(actorViewService)
+        public PutPlatformIncomingTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformIncomingTag PlatformIncomingTag)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformIncomingTag);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformIncomingTag>(PlatformIncomingTag);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformIncomingTagViewModel : BasePlatformIncomingTagViewModel
     {
-        public DeletePlatformIncomingTagViewModel(IActorViewService<PlatformIncomingTag> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformIncomingTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformIncomingTag>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformIncomingTags, value);   
             }
         }
-        public GetsPlatformIncomingTagViewModel(IActorViewService<PlatformIncomingTag> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformIncomingTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformIncomingTag>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformIncomingTag>? dtos = await _PlatformActorContext.GetsAsync<PlatformIncomingTag>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformIncomingTag>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformIncomingTag>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformIncomingTags.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformIncomingTags.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformIncomingTags.Remove(obj); OnPropertyChanged(); }

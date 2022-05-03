@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofTrade.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
 {
     public class BasePlatformTradeCenterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformTradeCenter> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformTradeCenter? _PlatformTradeCenter = new();
         public PlatformTradeCenter? PlatformTradeCenter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _PlatformTradeCenter, value);
             }
         }
-        public BasePlatformTradeCenterViewModel(IActorViewService<PlatformTradeCenter> actorViewService)
+        public BasePlatformTradeCenterViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformTradeCenter = await _actorViewService.GetByIdAsync(id);
+            PlatformTradeCenter = await _PlatformActorContext.GetByIdAsync<PlatformTradeCenter>(id);
         }
     }
     public class PostPlatformTradeCenterViewModel : BasePlatformTradeCenterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _postPlatformTradeCenter, value);
             }
         }
-        public PostPlatformTradeCenterViewModel(IActorViewService<PlatformTradeCenter> actorViewService)
-            : base(actorViewService)
+        public PostPlatformTradeCenterViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformTradeCenter PlatformTradeCenter)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformTradeCenter);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformTradeCenter>(PlatformTradeCenter);
             if (PostValue != null)
             {
                 PostPlatformTradeCenter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _putPlatformTradeCenter, value);
             }
         }
-        public PutPlatformTradeCenterViewModel(IActorViewService<PlatformTradeCenter> actorViewService)
-            :base(actorViewService)
+        public PutPlatformTradeCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformTradeCenter PlatformTradeCenter)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformTradeCenter);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformTradeCenter>(PlatformTradeCenter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
     }
     public class DeletePlatformTradeCenterViewModel : BasePlatformTradeCenterViewModel
     {
-        public DeletePlatformTradeCenterViewModel(IActorViewService<PlatformTradeCenter> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformTradeCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformTradeCenter>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _PlatformTradeCenters, value);   
             }
         }
-        public GetsPlatformTradeCenterViewModel(IActorViewService<PlatformTradeCenter> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformTradeCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformTradeCenter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformTradeCenter>? dtos = await _PlatformActorContext.GetsAsync<PlatformTradeCenter>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformTradeCenter>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformTradeCenter>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformTradeCenters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformTradeCenters.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformTradeCenters.Remove(obj); OnPropertyChanged(); }

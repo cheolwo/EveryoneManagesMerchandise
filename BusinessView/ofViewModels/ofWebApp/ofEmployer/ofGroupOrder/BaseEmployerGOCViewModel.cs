@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
     public class BaseEmployerGOCViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerGOC> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerGOC? _EmployerGOC = new();
         public EmployerGOC? EmployerGOC
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
                 SetValue(ref _EmployerGOC, value);
             }
         }
-        public BaseEmployerGOCViewModel(IActorViewService<EmployerGOC> actorViewService)
+        public BaseEmployerGOCViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            EmployerGOC = await _actorViewService.GetByIdAsync(id);
+            EmployerGOC = await _EmployerActorContext.GetByIdAsync<EmployerGOC>(id);
         }
     }
     public class PostEmployerGOCViewModel : BaseEmployerGOCViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
                 SetValue(ref _postEmployerGOC, value);
             }
         }
-        public PostEmployerGOCViewModel(IActorViewService<EmployerGOC> actorViewService)
-            : base(actorViewService)
+        public PostEmployerGOCViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerGOC EmployerGOC)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerGOC);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerGOC>(EmployerGOC);
             if (PostValue != null)
             {
                 PostEmployerGOC = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
                 SetValue(ref _putEmployerGOC, value);
             }
         }
-        public PutEmployerGOCViewModel(IActorViewService<EmployerGOC> actorViewService)
-            :base(actorViewService)
+        public PutEmployerGOCViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerGOC EmployerGOC)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerGOC);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerGOC>(EmployerGOC);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
     }
     public class DeleteEmployerGOCViewModel : BaseEmployerGOCViewModel
     {
-        public DeleteEmployerGOCViewModel(IActorViewService<EmployerGOC> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerGOCViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerGOC>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
                 SetValue(ref _EmployerGOCs, value);   
             }
         }
-        public GetsEmployerGOCViewModel(IActorViewService<EmployerGOC> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerGOCViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerGOC>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerGOC>? dtos = await _EmployerActorContext.GetsAsync<EmployerGOC>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerGOC>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerGOC>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerGOCs.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerGOCs.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerGOCs.Remove(obj); OnPropertyChanged(); }

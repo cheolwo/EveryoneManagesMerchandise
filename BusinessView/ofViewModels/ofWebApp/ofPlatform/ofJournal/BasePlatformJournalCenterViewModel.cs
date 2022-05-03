@@ -1,12 +1,12 @@
-using BusinessView.ofDTO.ofJournal.ofPlatform;
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofDTO.ofJournal.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
 {
     public class BasePlatformJournalCenterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformJournalCenter> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformJournalCenter? _PlatformJournalCenter = new();
         public PlatformJournalCenter? PlatformJournalCenter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
                 SetValue(ref _PlatformJournalCenter, value);
             }
         }
-        public BasePlatformJournalCenterViewModel(IActorViewService<PlatformJournalCenter> actorViewService)
+        public BasePlatformJournalCenterViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformJournalCenter = await _actorViewService.GetByIdAsync(id);
+            PlatformJournalCenter = await _PlatformActorContext.GetByIdAsync<PlatformJournalCenter>(id);
         }
     }
     public class PostPlatformJournalCenterViewModel : BasePlatformJournalCenterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
                 SetValue(ref _postPlatformJournalCenter, value);
             }
         }
-        public PostPlatformJournalCenterViewModel(IActorViewService<PlatformJournalCenter> actorViewService)
-            : base(actorViewService)
+        public PostPlatformJournalCenterViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformJournalCenter PlatformJournalCenter)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformJournalCenter);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformJournalCenter>(PlatformJournalCenter);
             if (PostValue != null)
             {
                 PostPlatformJournalCenter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
                 SetValue(ref _putPlatformJournalCenter, value);
             }
         }
-        public PutPlatformJournalCenterViewModel(IActorViewService<PlatformJournalCenter> actorViewService)
-            :base(actorViewService)
+        public PutPlatformJournalCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformJournalCenter PlatformJournalCenter)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformJournalCenter);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformJournalCenter>(PlatformJournalCenter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
     }
     public class DeletePlatformJournalCenterViewModel : BasePlatformJournalCenterViewModel
     {
-        public DeletePlatformJournalCenterViewModel(IActorViewService<PlatformJournalCenter> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformJournalCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformJournalCenter>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
                 SetValue(ref _PlatformJournalCenters, value);   
             }
         }
-        public GetsPlatformJournalCenterViewModel(IActorViewService<PlatformJournalCenter> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformJournalCenterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformJournalCenter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformJournalCenter>? dtos = await _PlatformActorContext.GetsAsync<PlatformJournalCenter>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformJournalCenter>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformJournalCenter>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformJournalCenters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformJournalCenters.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformJournalCenters.Remove(obj); OnPropertyChanged(); }

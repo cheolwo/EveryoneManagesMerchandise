@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformDividedTagViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformDividedTag> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformDividedTag? _PlatformDividedTag = new();
         public PlatformDividedTag? PlatformDividedTag
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformDividedTag, value);
             }
         }
-        public BasePlatformDividedTagViewModel(IActorViewService<PlatformDividedTag> actorViewService)
+        public BasePlatformDividedTagViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformDividedTag = await _actorViewService.GetByIdAsync(id);
+            PlatformDividedTag = await _PlatformActorContext.GetByIdAsync<PlatformDividedTag>(id);
         }
     }
     public class PostPlatformDividedTagViewModel : BasePlatformDividedTagViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformDividedTag, value);
             }
         }
-        public PostPlatformDividedTagViewModel(IActorViewService<PlatformDividedTag> actorViewService)
-            : base(actorViewService)
+        public PostPlatformDividedTagViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformDividedTag PlatformDividedTag)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformDividedTag);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformDividedTag>(PlatformDividedTag);
             if (PostValue != null)
             {
                 PostPlatformDividedTag = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformDividedTag, value);
             }
         }
-        public PutPlatformDividedTagViewModel(IActorViewService<PlatformDividedTag> actorViewService)
-            :base(actorViewService)
+        public PutPlatformDividedTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformDividedTag PlatformDividedTag)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformDividedTag);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformDividedTag>(PlatformDividedTag);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformDividedTagViewModel : BasePlatformDividedTagViewModel
     {
-        public DeletePlatformDividedTagViewModel(IActorViewService<PlatformDividedTag> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformDividedTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformDividedTag>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformDividedTags, value);   
             }
         }
-        public GetsPlatformDividedTagViewModel(IActorViewService<PlatformDividedTag> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformDividedTagViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformDividedTag>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformDividedTag>? dtos = await _PlatformActorContext.GetsAsync<PlatformDividedTag>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformDividedTag>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformDividedTag>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformDividedTags.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformDividedTags.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformDividedTags.Remove(obj); OnPropertyChanged(); }

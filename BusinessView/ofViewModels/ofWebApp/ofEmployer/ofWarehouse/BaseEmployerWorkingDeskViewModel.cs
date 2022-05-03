@@ -1,4 +1,4 @@
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 
@@ -6,7 +6,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployerWorkingDeskViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerWorkingDesk> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerWorkingDesk? _EmployerWorkingDesk = new();
         public EmployerWorkingDesk? EmployerWorkingDesk
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerWorkingDesk, value);
             }
         }
-        public BaseEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
+        public BaseEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerWorkingDesk = await _actorViewService.GetByIdAsync(id);
+            EmployerWorkingDesk = await _EmployerActorContext.GetByIdAsync<EmployerWorkingDesk>(id);
         }
     }
     public class PostEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _postEmployerWorkingDesk, value);
             }
         }
-        public PostEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
-            : base(actorViewService)
+        public PostEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerWorkingDesk EmployerWorkingDesk)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerWorkingDesk);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerWorkingDesk>(EmployerWorkingDesk);
             if (PostValue != null)
             {
                 PostEmployerWorkingDesk = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _putEmployerWorkingDesk, value);
             }
         }
-        public PutEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public PutEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerWorkingDesk EmployerWorkingDesk)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerWorkingDesk);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerWorkingDesk>(EmployerWorkingDesk);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
     }
     public class DeleteEmployerWorkingDeskViewModel : BaseEmployerWorkingDeskViewModel
     {
-        public DeleteEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerWorkingDesk>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerWorkingDesks, value);   
             }
         }
-        public GetsEmployerWorkingDeskViewModel(IActorViewService<EmployerWorkingDesk> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerWorkingDesk>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerWorkingDesk>? dtos = await _EmployerActorContext.GetsAsync<EmployerWorkingDesk>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerWorkingDesk>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerWorkingDesk>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerWorkingDesks.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerWorkingDesks.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerWorkingDesks.Remove(obj); OnPropertyChanged(); }

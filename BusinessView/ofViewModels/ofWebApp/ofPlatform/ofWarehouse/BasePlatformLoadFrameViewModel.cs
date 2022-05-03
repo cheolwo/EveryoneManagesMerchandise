@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
 {
     public class BasePlatformLoadFrameViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformLoadFrame> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformLoadFrame? _PlatformLoadFrame = new();
         public PlatformLoadFrame? PlatformLoadFrame
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformLoadFrame, value);
             }
         }
-        public BasePlatformLoadFrameViewModel(IActorViewService<PlatformLoadFrame> actorViewService)
+        public BasePlatformLoadFrameViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformLoadFrame = await _actorViewService.GetByIdAsync(id);
+            PlatformLoadFrame = await _PlatformActorContext.GetByIdAsync<PlatformLoadFrame>(id);
         }
     }
     public class PostPlatformLoadFrameViewModel : BasePlatformLoadFrameViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _postPlatformLoadFrame, value);
             }
         }
-        public PostPlatformLoadFrameViewModel(IActorViewService<PlatformLoadFrame> actorViewService)
-            : base(actorViewService)
+        public PostPlatformLoadFrameViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformLoadFrame PlatformLoadFrame)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformLoadFrame);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformLoadFrame>(PlatformLoadFrame);
             if (PostValue != null)
             {
                 PostPlatformLoadFrame = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _putPlatformLoadFrame, value);
             }
         }
-        public PutPlatformLoadFrameViewModel(IActorViewService<PlatformLoadFrame> actorViewService)
-            :base(actorViewService)
+        public PutPlatformLoadFrameViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformLoadFrame PlatformLoadFrame)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformLoadFrame);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformLoadFrame>(PlatformLoadFrame);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
     }
     public class DeletePlatformLoadFrameViewModel : BasePlatformLoadFrameViewModel
     {
-        public DeletePlatformLoadFrameViewModel(IActorViewService<PlatformLoadFrame> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformLoadFrameViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformLoadFrame>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
                 SetValue(ref _PlatformLoadFrames, value);   
             }
         }
-        public GetsPlatformLoadFrameViewModel(IActorViewService<PlatformLoadFrame> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformLoadFrameViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformLoadFrame>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformLoadFrame>? dtos = await _PlatformActorContext.GetsAsync<PlatformLoadFrame>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformLoadFrame>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformLoadFrame>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformLoadFrames.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformLoadFrames.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformLoadFrames.Remove(obj); OnPropertyChanged(); }

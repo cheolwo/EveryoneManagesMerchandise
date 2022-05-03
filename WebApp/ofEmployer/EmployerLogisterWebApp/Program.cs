@@ -42,7 +42,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 }).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddScoped<IActorViewService<IdentityUserDTO>, UserActor>();
+builder.Services.AddScoped<IActorViewService<IdentityUserDTO>, UserActorContext>();
 
 builder.Services.AddScoped<GetUserViewModel>();
 builder.Services.AddScoped<PostUserViewModel>();
@@ -242,43 +242,43 @@ builder.Services.AddScoped<PutEmployerEOCommodityViewModel>();
 builder.Services.AddScoped<DeleteEmployerEOCommodityViewModel>();
 builder.Services.AddScoped<BaseEmployerEOCommodityViewModel>();
 
-builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerDividedTag>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerDotBarcode>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerEWCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerIncomingTag>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerLoadFrame>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerMWCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerSWCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerWorkingDesk>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerWCommodity>, EmployerLogister>();
+builder.Services.AddScoped<IActorViewService<EmployerWarehouse>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerDividedTag>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerDotBarcode>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerEWCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerIncomingTag>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerLoadFrame>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerMWCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerSWCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerWorkingDesk>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerWCommodity>, EmployerLogisterContext>();
 
-builder.Services.AddScoped<IActorViewService<EmployerTradeCenter>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerTCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerSTCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerMTCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerETCommodity>, EmployerLogister>();
+builder.Services.AddScoped<IActorViewService<EmployerTradeCenter>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerTCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerSTCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerMTCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerETCommodity>, EmployerLogisterContext>();
 
-builder.Services.AddScoped<IActorViewService<EmployerOrderCenter>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerOCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerSOCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerMOCommodity>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerEOCommodity>, EmployerLogister>();
+builder.Services.AddScoped<IActorViewService<EmployerOrderCenter>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerOCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerSOCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerMOCommodity>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerEOCommodity>, EmployerLogisterContext>();
 
-builder.Services.AddScoped<IActorViewService<EmployerGOC>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerGOCC>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerSGOC>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerMGOC>, EmployerLogister>();
-builder.Services.AddScoped<IActorViewService<EmployerEGOC>, EmployerLogister>();
+builder.Services.AddScoped<IActorViewService<EmployerGOC>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerGOCC>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerSGOC>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerMGOC>, EmployerLogisterContext>();
+builder.Services.AddScoped<IActorViewService<EmployerEGOC>, EmployerLogisterContext>();
 
-builder.Services.AddScoped<IActorViewService<EmployerEmployeeRole>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerHRBusinessPart>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerHRCenter>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerHREmployee>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerHRRole>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerJCommodity>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerJournal>, EmployerActor>();
-builder.Services.AddScoped<IActorViewService<EmployerJournalCenter>, EmployerActor>();
+builder.Services.AddScoped<IActorViewService<EmployerEmployeeRole>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerHRBusinessPart>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerHRCenter>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerHREmployee>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerHRRole>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerJCommodity>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerJournal>, EmployerActorContext>();
+builder.Services.AddScoped<IActorViewService<EmployerJournalCenter>, EmployerActorContext>();
 
 builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();

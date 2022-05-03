@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofTrade.ofEmployee;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 {
     public class BaseEmployeeMTCommodityViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeMTCommodity> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeMTCommodity? _EmployeeMTCommodity = new();
         public EmployeeMTCommodity? EmployeeMTCommodity
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
                 SetValue(ref _EmployeeMTCommodity, value);
             }
         }
-        public BaseEmployeeMTCommodityViewModel(IActorViewService<EmployeeMTCommodity> actorViewService)
+        public BaseEmployeeMTCommodityViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeMTCommodity = await _actorViewService.GetByIdAsync(id);
+            EmployeeMTCommodity = await _EmployeeActorContext.GetByIdAsync<EmployeeMTCommodity>(id);
         }
     }
     public class PostEmployeeMTCommodityViewModel : BaseEmployeeMTCommodityViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
                 SetValue(ref _postEmployeeMTCommodity, value);
             }
         }
-        public PostEmployeeMTCommodityViewModel(IActorViewService<EmployeeMTCommodity> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeMTCommodityViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeMTCommodity EmployeeMTCommodity)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeMTCommodity);
+            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeMTCommodity>(EmployeeMTCommodity);
             if (PostValue != null)
             {
                 PostEmployeeMTCommodity = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
                 SetValue(ref _putEmployeeMTCommodity, value);
             }
         }
-        public PutEmployeeMTCommodityViewModel(IActorViewService<EmployeeMTCommodity> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeMTCommodityViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeMTCommodity EmployeeMTCommodity)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeMTCommodity);
+            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeMTCommodity>(EmployeeMTCommodity);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
     }
     public class DeleteEmployeeMTCommodityViewModel : BaseEmployeeMTCommodityViewModel
     {
-        public DeleteEmployeeMTCommodityViewModel(IActorViewService<EmployeeMTCommodity> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeMTCommodityViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeMTCommodity>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
                 SetValue(ref _EmployeeMTCommoditys, value);   
             }
         }
-        public GetsEmployeeMTCommodityViewModel(IActorViewService<EmployeeMTCommodity> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeMTCommodityViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeMTCommodity>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeMTCommodity>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeMTCommodity>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeMTCommodity>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeMTCommodity>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployeeMTCommoditys.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployeeMTCommoditys.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeMTCommoditys.Remove(obj); OnPropertyChanged(); }

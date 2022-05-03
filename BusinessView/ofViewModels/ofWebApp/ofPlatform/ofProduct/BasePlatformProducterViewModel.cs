@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofDTO.ofProduct.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
 {
     public class BasePlatformProducterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformProducter> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformProducter? _PlatformProducter = new();
         public PlatformProducter? PlatformProducter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
                 SetValue(ref _PlatformProducter, value);
             }
         }
-        public BasePlatformProducterViewModel(IActorViewService<PlatformProducter> actorViewService)
+        public BasePlatformProducterViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformProducter = await _actorViewService.GetByIdAsync(id);
+            PlatformProducter = await _PlatformActorContext.GetByIdAsync<PlatformProducter>(id);
         }
     }
     public class PostPlatformProducterViewModel : BasePlatformProducterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
                 SetValue(ref _postPlatformProducter, value);
             }
         }
-        public PostPlatformProducterViewModel(IActorViewService<PlatformProducter> actorViewService)
-            : base(actorViewService)
+        public PostPlatformProducterViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformProducter PlatformProducter)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformProducter);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformProducter>(PlatformProducter);
             if (PostValue != null)
             {
                 PostPlatformProducter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
                 SetValue(ref _putPlatformProducter, value);
             }
         }
-        public PutPlatformProducterViewModel(IActorViewService<PlatformProducter> actorViewService)
-            :base(actorViewService)
+        public PutPlatformProducterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformProducter PlatformProducter)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformProducter);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformProducter>(PlatformProducter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
     }
     public class DeletePlatformProducterViewModel : BasePlatformProducterViewModel
     {
-        public DeletePlatformProducterViewModel(IActorViewService<PlatformProducter> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformProducterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformProducter>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
                 SetValue(ref _PlatformProducters, value);   
             }
         }
-        public GetsPlatformProducterViewModel(IActorViewService<PlatformProducter> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformProducterViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformProducter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformProducter>? dtos = await _PlatformActorContext.GetsAsync<PlatformProducter>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformProducter>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformProducter>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformProducters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformProducters.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformProducters.Remove(obj); OnPropertyChanged(); }

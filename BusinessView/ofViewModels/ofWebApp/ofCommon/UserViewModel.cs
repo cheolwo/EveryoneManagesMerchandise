@@ -1,5 +1,6 @@
 ﻿using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
@@ -8,7 +9,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     // 단순 유저 CRUD 용 BaseUserViewModel
     public class BaseUserViewModel : BaseViewModel
     {
-        protected IActorViewService<IdentityUserDTO> _actorViewService;
+        protected UserActorContext _userActor;
         private IdentityUserDTO identityUserDTO = new();
         public IdentityUserDTO IdentityUserDTO
         {
@@ -18,16 +19,16 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                 SetValue(ref identityUserDTO, value);
             }
         }
-        public BaseUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
+        public BaseUserViewModel(UserActorContext userActor)
         {
-            _actorViewService = actorViewService;
+            _userActor = userActor;
         }
     }
-    public class GetUserViewModel  : BaseUserViewModel
+    public class GetUserViewModel : BaseUserViewModel
     {
-        protected IHttpContextAccessor _httpContextAccessor;      
-        public GetUserViewModel(IActorViewService<IdentityUserDTO> actorViewService,
-            IHttpContextAccessor httpContextAccessor) : base(actorViewService)
+        protected IHttpContextAccessor _httpContextAccessor;
+        public GetUserViewModel(UserActorContext userActor,
+            IHttpContextAccessor httpContextAccessor) : base(userActor)
         {
             _httpContextAccessor = httpContextAccessor;
         }
@@ -42,39 +43,39 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
     }
     public class PostUserViewModel : BaseUserViewModel
-    {      
-        public PostUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
-            :base(actorViewService)
+    {
+        public PostUserViewModel(UserActorContext userActor)
+            : base(userActor)
         {
 
         }
         public async Task Create(IdentityUserDTO identityUserDTO)
         {
-            await _actorViewService.PostAsync(identityUserDTO);
+            await _userActor.PostAsync<IdentityUserDTO>(identityUserDTO);
         }
     }
     public class PutUserViewModel : BaseUserViewModel
     {
-        public PutUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
-            :base(actorViewService)
+        public PutUserViewModel(UserActorContext userActor)
+            : base(userActor)
         {
 
         }
         public async Task Update(IdentityUserDTO identityUserDTO)
         {
-            await _actorViewService.PutAsync(identityUserDTO);
+            await _userActor.PutAsync<IdentityUserDTO>(identityUserDTO);
         }
     }
     public class DeleteUserViewModel : BaseUserViewModel
     {
-        public DeleteUserViewModel(IActorViewService<IdentityUserDTO> actorViewService)
-            :base(actorViewService)
+        public DeleteUserViewModel(UserActorContext userActor)
+            : base(userActor)
         {
 
         }
         public async Task Delete(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _userActor.DeleteByIdAsync<IdentityUserDTO>(id);
         }
     }
     public class GetsUserViewModel : BaseUserViewModel
@@ -89,34 +90,23 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                 OnPropertyChanged();
             }
         }
-        public GetsUserViewModel(IActorViewService<IdentityUserDTO> actorViewService,
-            IHttpContextAccessor httpContextAccessor) : base(actorViewService)
+        public GetsUserViewModel(UserActorContext userActor,
+            IHttpContextAccessor httpContextAccessor) : base(userActor)
         {
         }
         public async Task ExecuteLoadIdentityUserDTOCommand()
         {
             IsBusy = true;
-            try
+            var identityUserDTOs = await _userActor.GetsAsync<IdentityUserDTO>();
+            if (identityUserDTOs != null)
             {
-                var identityUserDTOs = await _actorViewService.GetsAsync();
-                if (identityUserDTOs != null)
+                foreach (var identityUserDTO in identityUserDTOs)
                 {
-                    foreach (var identityUserDTO in identityUserDTOs)
-                    {
-                        IdentityUserDTOs.Add(identityUserDTO);
-                    }
-                    IdentityUserDTO = IdentityUserDTOs.FirstOrDefault();
+                    IdentityUserDTOs.Add(identityUserDTO);
                 }
+                IdentityUserDTO = IdentityUserDTOs.FirstOrDefault();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                IsBusy = false;
-                
-            }
+            IsBusy = false;
         }
     }
 }

@@ -1,4 +1,4 @@
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 
@@ -6,7 +6,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployerDividedTagViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerDividedTag> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerDividedTag? _EmployerDividedTag = new();
         public EmployerDividedTag? EmployerDividedTag
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerDividedTag, value);
             }
         }
-        public BaseEmployerDividedTagViewModel(IActorViewService<EmployerDividedTag> actorViewService)
+        public BaseEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerDividedTag = await _actorViewService.GetByIdAsync(id);
+            EmployerDividedTag = await _EmployerActorContext.GetByIdAsync<EmployerDividedTag>(id);
         }
     }
     public class PostEmployerDividedTagViewModel : BaseEmployerDividedTagViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _postEmployerDividedTag, value);
             }
         }
-        public PostEmployerDividedTagViewModel(IActorViewService<EmployerDividedTag> actorViewService)
-            : base(actorViewService)
+        public PostEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerDividedTag EmployerDividedTag)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerDividedTag);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerDividedTag>(EmployerDividedTag);
             if (PostValue != null)
             {
                 PostEmployerDividedTag = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _putEmployerDividedTag, value);
             }
         }
-        public PutEmployerDividedTagViewModel(IActorViewService<EmployerDividedTag> actorViewService)
-            :base(actorViewService)
+        public PutEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerDividedTag EmployerDividedTag)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerDividedTag);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerDividedTag>(EmployerDividedTag);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
     }
     public class DeleteEmployerDividedTagViewModel : BaseEmployerDividedTagViewModel
     {
-        public DeleteEmployerDividedTagViewModel(IActorViewService<EmployerDividedTag> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerDividedTag>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerDividedTags, value);   
             }
         }
-        public GetsEmployerDividedTagViewModel(IActorViewService<EmployerDividedTag> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerDividedTag>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerDividedTag>? dtos = await _EmployerActorContext.GetsAsync<EmployerDividedTag>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerDividedTag>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerDividedTag>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerDividedTags.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerDividedTags.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerDividedTags.Remove(obj); OnPropertyChanged(); }

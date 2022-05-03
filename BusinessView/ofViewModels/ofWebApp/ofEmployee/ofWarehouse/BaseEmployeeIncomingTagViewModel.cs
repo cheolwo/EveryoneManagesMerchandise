@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployeeIncomingTagViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeIncomingTag> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeIncomingTag? _EmployeeIncomingTag = new();
         public EmployeeIncomingTag? EmployeeIncomingTag
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _EmployeeIncomingTag, value);
             }
         }
-        public BaseEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
+        public BaseEmployeeIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeIncomingTag = await _actorViewService.GetByIdAsync(id);
+            EmployeeIncomingTag = await _EmployeeActorContext.GetByIdAsync<EmployeeIncomingTag>(id);
         }
     }
     public class PostEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _postEmployeeIncomingTag, value);
             }
         }
-        public PostEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeIncomingTag EmployeeIncomingTag)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeIncomingTag);
+            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeIncomingTag>(EmployeeIncomingTag);
             if (PostValue != null)
             {
                 PostEmployeeIncomingTag = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _putEmployeeIncomingTag, value);
             }
         }
-        public PutEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeIncomingTag EmployeeIncomingTag)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeIncomingTag);
+            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeIncomingTag>(EmployeeIncomingTag);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
     }
     public class DeleteEmployeeIncomingTagViewModel : BaseEmployeeIncomingTagViewModel
     {
-        public DeleteEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeIncomingTag>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _EmployeeIncomingTags, value);   
             }
         }
-        public GetsEmployeeIncomingTagViewModel(IActorViewService<EmployeeIncomingTag> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeIncomingTag>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeIncomingTag>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeIncomingTag>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeIncomingTag>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeIncomingTag>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployeeIncomingTags.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployeeIncomingTags.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeIncomingTags.Remove(obj); OnPropertyChanged(); }

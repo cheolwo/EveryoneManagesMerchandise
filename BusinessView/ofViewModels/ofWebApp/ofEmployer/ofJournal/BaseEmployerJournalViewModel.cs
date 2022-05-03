@@ -1,12 +1,12 @@
 using BusinessView.ofDTO.ofJournal.ofEmployer;
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
 {
     public class BaseEmployerJournalViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerJournal> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerJournal? _EmployerJournal = new();
         public EmployerJournal? EmployerJournal
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
                 SetValue(ref _EmployerJournal, value);
             }
         }
-        public BaseEmployerJournalViewModel(IActorViewService<EmployerJournal> actorViewService)
+        public BaseEmployerJournalViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerJournal = await _actorViewService.GetByIdAsync(id);
+            EmployerJournal = await _EmployerActorContext.GetByIdAsync<EmployerJournal>(id);
         }
     }
     public class PostEmployerJournalViewModel : BaseEmployerJournalViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
                 SetValue(ref _postEmployerJournal, value);
             }
         }
-        public PostEmployerJournalViewModel(IActorViewService<EmployerJournal> actorViewService)
-            : base(actorViewService)
+        public PostEmployerJournalViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerJournal EmployerJournal)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerJournal);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerJournal>(EmployerJournal);
             if (PostValue != null)
             {
                 PostEmployerJournal = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
                 SetValue(ref _putEmployerJournal, value);
             }
         }
-        public PutEmployerJournalViewModel(IActorViewService<EmployerJournal> actorViewService)
-            :base(actorViewService)
+        public PutEmployerJournalViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerJournal EmployerJournal)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerJournal);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerJournal>(EmployerJournal);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
     }
     public class DeleteEmployerJournalViewModel : BaseEmployerJournalViewModel
     {
-        public DeleteEmployerJournalViewModel(IActorViewService<EmployerJournal> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerJournalViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerJournal>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
                 SetValue(ref _EmployerJournals, value);   
             }
         }
-        public GetsEmployerJournalViewModel(IActorViewService<EmployerJournal> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerJournalViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerJournal>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerJournal>? dtos = await _EmployerActorContext.GetsAsync<EmployerJournal>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerJournal>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerJournal>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerJournals.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerJournals.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerJournals.Remove(obj); OnPropertyChanged(); }

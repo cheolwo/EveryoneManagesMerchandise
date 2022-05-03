@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
     public class BaseEmployeeEGOCViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeEGOC> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeEGOC? _EmployeeEGOC = new();
         public EmployeeEGOC? EmployeeEGOC
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 SetValue(ref _EmployeeEGOC, value);
             }
         }
-        public BaseEmployeeEGOCViewModel(IActorViewService<EmployeeEGOC> actorViewService)
+        public BaseEmployeeEGOCViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public virtual async Task GetByIdAsync(string id)
         {
-            _EmployeeEGOC = await _actorViewService.GetByIdAsync(id);
+            _EmployeeEGOC = await _EmployeeActorContext.GetByIdAsync<EmployeeEGOC>(id);
         }
     }
     public class PostEmployeeEGOCViewModel : BaseEmployeeEGOCViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 SetValue(ref _postEmployeeEGOC, value);
             }
         }
-        public PostEmployeeEGOCViewModel(IActorViewService<EmployeeEGOC> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeEGOCViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeEGOC EmployeeEGOC)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeEGOC);
+            var PostValue = await _EmployeeActorContext.PostAsync(EmployeeEGOC);
             if (PostValue != null)
             {
                 PostEmployeeEGOC = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 SetValue(ref _putEmployeeEGOC, value);
             }
         }
-        public PutEmployeeEGOCViewModel(IActorViewService<EmployeeEGOC> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeEGOCViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeEGOC EmployeeEGOC)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeEGOC);
+            var PutValue = await _EmployeeActorContext.PutAsync(EmployeeEGOC);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
     }
     public class DeleteEmployeeEGOCViewModel : BaseEmployeeEGOCViewModel
     {
-        public DeleteEmployeeEGOCViewModel(IActorViewService<EmployeeEGOC> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeEGOCViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeEGOC>(id);
         }
         public void Reset()
         {
@@ -138,16 +138,30 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
                 SetValue(ref _EmployeeEGOCs, value);   
             }
         }
-        public GetsEmployeeEGOCViewModel(IActorViewService<EmployeeEGOC> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeEGOCViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeEGOC>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeEGOC>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeEGOC>();
             if(dtos != null)
             {
+                if(_EmployeeEGOCs.Count > 0) {return;}
+                foreach(var dto in dtos)
+                {
+                    _EmployeeEGOCs.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeEGOC>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeEGOC>(userid);
+            if(dtos != null)
+            {
+                if(_EmployeeEGOCs.Count > 0) {return;}
                 foreach(var dto in dtos)
                 {
                     _EmployeeEGOCs.Add(dto);
@@ -159,15 +173,6 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
         {
             var obj = EmployeeEGOCs.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeEGOCs.Remove(obj); OnPropertyChanged(); }
-        }
-        public override async Task GetByIdAsync(string id)
-        {
-            EmployeeEGOC obj = EmployeeEGOCs.Find(e => e.Id.Equals(id));
-            if(obj != null)
-            {
-                EmployeeEGOC = obj;
-            }
-            throw new ArgumentException("Not Include Data By Id");
         }
     }
 }

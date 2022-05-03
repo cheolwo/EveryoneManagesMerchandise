@@ -1,4 +1,4 @@
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 
@@ -6,7 +6,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployerWarehouseViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerWarehouse> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerWarehouse? _EmployerWarehouse = new();
         public EmployerWarehouse? EmployerWarehouse
         {
@@ -16,15 +16,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerWarehouse, value);
             }
         }
-        public BaseEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
+        public BaseEmployerWarehouseViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerWarehouse = await _actorViewService.GetByIdAsync(id);
+            EmployerWarehouse = await _EmployerActorContext.GetByIdAsync<EmployerWarehouse>(id);
         }
-        
     }
     public class PostEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
@@ -47,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _postEmployerWarehouse, value);
             }
         }
-        public PostEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
-            : base(actorViewService)
+        public PostEmployerWarehouseViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerWarehouse EmployerWarehouse)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerWarehouse);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerWarehouse>(EmployerWarehouse);
             if (PostValue != null)
             {
                 PostEmployerWarehouse = PostValue;
@@ -90,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _putEmployerWarehouse, value);
             }
         }
-        public PutEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
-            :base(actorViewService)
+        public PutEmployerWarehouseViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerWarehouse EmployerWarehouse)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerWarehouse);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerWarehouse>(EmployerWarehouse);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -114,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
     }
     public class DeleteEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
-        public DeleteEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerWarehouseViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerWarehouse>(id);
         }
         public void Reset()
         {
@@ -139,24 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
                 SetValue(ref _EmployerWarehouses, value);   
             }
         }
-        private ModeView _ModeView { get; set; } 
-        public ModeView ModeView
-        {
-            get=> _ModeView;  
-            set
-            {
-                ModeView = value;
-                OnPropertyChanged();
-            }
-        }
-        public GetsEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerWarehouseViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerWarehouse>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerWarehouse>? dtos = await _EmployerActorContext.GetsAsync<EmployerWarehouse>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -166,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerWarehouse>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerWarehouse>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerWarehouses.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerWarehouses.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerWarehouses.Remove(obj); OnPropertyChanged(); }

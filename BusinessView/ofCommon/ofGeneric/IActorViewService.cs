@@ -9,7 +9,7 @@ namespace BusinessView.ofGeneric
         Task<IEnumerable<T>?> GetsAsync();
         Task<T?> GetByIdAsync(string id);
         Task<T?> PostAsync(T entity);
-        Task DeleteAsync(string id);
+        Task DeleteAsync(string dtoname, string id);
         Task<T?> PutAsync(T entity);
     }
     public interface IEmployerViewService<T> where T : EmployerEntity

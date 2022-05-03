@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofTrade.ofEmployer;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofTrade.ofEmployer;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 {
     public class BaseEmployerTradeCenterViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerTradeCenter> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerTradeCenter? _EmployerTradeCenter = new();
         public EmployerTradeCenter? EmployerTradeCenter
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
                 SetValue(ref _EmployerTradeCenter, value);
             }
         }
-        public BaseEmployerTradeCenterViewModel(IActorViewService<EmployerTradeCenter> actorViewService)
+        public BaseEmployerTradeCenterViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerTradeCenter = await _actorViewService.GetByIdAsync(id);
+            EmployerTradeCenter = await _EmployerActorContext.GetByIdAsync<EmployerTradeCenter>(id);
         }
     }
     public class PostEmployerTradeCenterViewModel : BaseEmployerTradeCenterViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
                 SetValue(ref _postEmployerTradeCenter, value);
             }
         }
-        public PostEmployerTradeCenterViewModel(IActorViewService<EmployerTradeCenter> actorViewService)
-            : base(actorViewService)
+        public PostEmployerTradeCenterViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerTradeCenter EmployerTradeCenter)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerTradeCenter);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerTradeCenter>(EmployerTradeCenter);
             if (PostValue != null)
             {
                 PostEmployerTradeCenter = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
                 SetValue(ref _putEmployerTradeCenter, value);
             }
         }
-        public PutEmployerTradeCenterViewModel(IActorViewService<EmployerTradeCenter> actorViewService)
-            :base(actorViewService)
+        public PutEmployerTradeCenterViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerTradeCenter EmployerTradeCenter)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerTradeCenter);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerTradeCenter>(EmployerTradeCenter);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
     }
     public class DeleteEmployerTradeCenterViewModel : BaseEmployerTradeCenterViewModel
     {
-        public DeleteEmployerTradeCenterViewModel(IActorViewService<EmployerTradeCenter> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerTradeCenterViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerTradeCenter>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
                 SetValue(ref _EmployerTradeCenters, value);   
             }
         }
-        public GetsEmployerTradeCenterViewModel(IActorViewService<EmployerTradeCenter> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerTradeCenterViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerTradeCenter>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerTradeCenter>? dtos = await _EmployerActorContext.GetsAsync<EmployerTradeCenter>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerTradeCenter>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerTradeCenter>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerTradeCenters.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerTradeCenters.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerTradeCenters.Remove(obj); OnPropertyChanged(); }

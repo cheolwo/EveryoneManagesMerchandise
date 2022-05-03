@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofTrade.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
 {
     public class BasePlatformETCommodityViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformETCommodity> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformETCommodity? _PlatformETCommodity = new();
         public PlatformETCommodity? PlatformETCommodity
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _PlatformETCommodity, value);
             }
         }
-        public BasePlatformETCommodityViewModel(IActorViewService<PlatformETCommodity> actorViewService)
+        public BasePlatformETCommodityViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformETCommodity = await _actorViewService.GetByIdAsync(id);
+            PlatformETCommodity = await _PlatformActorContext.GetByIdAsync<PlatformETCommodity>(id);
         }
     }
     public class PostPlatformETCommodityViewModel : BasePlatformETCommodityViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _postPlatformETCommodity, value);
             }
         }
-        public PostPlatformETCommodityViewModel(IActorViewService<PlatformETCommodity> actorViewService)
-            : base(actorViewService)
+        public PostPlatformETCommodityViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformETCommodity PlatformETCommodity)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformETCommodity);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformETCommodity>(PlatformETCommodity);
             if (PostValue != null)
             {
                 PostPlatformETCommodity = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _putPlatformETCommodity, value);
             }
         }
-        public PutPlatformETCommodityViewModel(IActorViewService<PlatformETCommodity> actorViewService)
-            :base(actorViewService)
+        public PutPlatformETCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformETCommodity PlatformETCommodity)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformETCommodity);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformETCommodity>(PlatformETCommodity);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
     }
     public class DeletePlatformETCommodityViewModel : BasePlatformETCommodityViewModel
     {
-        public DeletePlatformETCommodityViewModel(IActorViewService<PlatformETCommodity> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformETCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformETCommodity>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
                 SetValue(ref _PlatformETCommoditys, value);   
             }
         }
-        public GetsPlatformETCommodityViewModel(IActorViewService<PlatformETCommodity> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformETCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformETCommodity>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformETCommodity>? dtos = await _PlatformActorContext.GetsAsync<PlatformETCommodity>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformETCommodity>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformETCommodity>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformETCommoditys.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformETCommoditys.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformETCommoditys.Remove(obj); OnPropertyChanged(); }

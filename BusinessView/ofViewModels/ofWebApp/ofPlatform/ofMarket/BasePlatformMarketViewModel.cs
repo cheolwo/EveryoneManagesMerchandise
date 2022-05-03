@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofDTO.ofMarket.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofDTO.ofMarket.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
 {
     public class BasePlatformMarketViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformMarket> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformMarket? _PlatformMarket = new();
         public PlatformMarket? PlatformMarket
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
                 SetValue(ref _PlatformMarket, value);
             }
         }
-        public BasePlatformMarketViewModel(IActorViewService<PlatformMarket> actorViewService)
+        public BasePlatformMarketViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _PlatformMarket = await _actorViewService.GetByIdAsync(id);
+            PlatformMarket = await _PlatformActorContext.GetByIdAsync<PlatformMarket>(id);
         }
     }
     public class PostPlatformMarketViewModel : BasePlatformMarketViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
                 SetValue(ref _postPlatformMarket, value);
             }
         }
-        public PostPlatformMarketViewModel(IActorViewService<PlatformMarket> actorViewService)
-            : base(actorViewService)
+        public PostPlatformMarketViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformMarket PlatformMarket)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformMarket);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformMarket>(PlatformMarket);
             if (PostValue != null)
             {
                 PostPlatformMarket = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
                 SetValue(ref _putPlatformMarket, value);
             }
         }
-        public PutPlatformMarketViewModel(IActorViewService<PlatformMarket> actorViewService)
-            :base(actorViewService)
+        public PutPlatformMarketViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformMarket PlatformMarket)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformMarket);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformMarket>(PlatformMarket);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
     }
     public class DeletePlatformMarketViewModel : BasePlatformMarketViewModel
     {
-        public DeletePlatformMarketViewModel(IActorViewService<PlatformMarket> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformMarketViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformMarket>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
                 SetValue(ref _PlatformMarkets, value);   
             }
         }
-        public GetsPlatformMarketViewModel(IActorViewService<PlatformMarket> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformMarketViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformMarket>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformMarket>? dtos = await _PlatformActorContext.GetsAsync<PlatformMarket>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformMarket>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformMarket>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformMarkets.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformMarkets.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformMarkets.Remove(obj); OnPropertyChanged(); }

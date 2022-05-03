@@ -1,12 +1,12 @@
-using BusinessView.ofDTO.ofHR.ofPlatform;
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofDTO.ofHR.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
 {
     public class BasePlatformHRBusinessPartViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformHRBusinessPart> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformHRBusinessPart? _PlatformHRBusinessPart = new();
         public PlatformHRBusinessPart? PlatformHRBusinessPart
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
                 SetValue(ref _PlatformHRBusinessPart, value);
             }
         }
-        public BasePlatformHRBusinessPartViewModel(IActorViewService<PlatformHRBusinessPart> actorViewService)
+        public BasePlatformHRBusinessPartViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            PlatformHRBusinessPart = await _actorViewService.GetByIdAsync(id);
+            PlatformHRBusinessPart = await _PlatformActorContext.GetByIdAsync<PlatformHRBusinessPart>(id);
         }
     }
     public class PostPlatformHRBusinessPartViewModel : BasePlatformHRBusinessPartViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
                 SetValue(ref _postPlatformHRBusinessPart, value);
             }
         }
-        public PostPlatformHRBusinessPartViewModel(IActorViewService<PlatformHRBusinessPart> actorViewService)
-            : base(actorViewService)
+        public PostPlatformHRBusinessPartViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformHRBusinessPart PlatformHRBusinessPart)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformHRBusinessPart);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformHRBusinessPart>(PlatformHRBusinessPart);
             if (PostValue != null)
             {
                 PostPlatformHRBusinessPart = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
                 SetValue(ref _putPlatformHRBusinessPart, value);
             }
         }
-        public PutPlatformHRBusinessPartViewModel(IActorViewService<PlatformHRBusinessPart> actorViewService)
-            :base(actorViewService)
+        public PutPlatformHRBusinessPartViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformHRBusinessPart PlatformHRBusinessPart)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformHRBusinessPart);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformHRBusinessPart>(PlatformHRBusinessPart);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
     }
     public class DeletePlatformHRBusinessPartViewModel : BasePlatformHRBusinessPartViewModel
     {
-        public DeletePlatformHRBusinessPartViewModel(IActorViewService<PlatformHRBusinessPart> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformHRBusinessPartViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformHRBusinessPart>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
                 SetValue(ref _PlatformHRBusinessParts, value);   
             }
         }
-        public GetsPlatformHRBusinessPartViewModel(IActorViewService<PlatformHRBusinessPart> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformHRBusinessPartViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformHRBusinessPart>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformHRBusinessPart>? dtos = await _PlatformActorContext.GetsAsync<PlatformHRBusinessPart>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformHRBusinessPart>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformHRBusinessPart>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformHRBusinessParts.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformHRBusinessParts.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformHRBusinessParts.Remove(obj); OnPropertyChanged(); }

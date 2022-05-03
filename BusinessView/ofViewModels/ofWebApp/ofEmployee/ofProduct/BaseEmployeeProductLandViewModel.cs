@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
 using BusinessView.ofDTO.ofProduct.ofEmployee;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 {
     public class BaseEmployeeProductLandViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeProductLand> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeProductLand? _EmployeeProductLand = new();
         public EmployeeProductLand? EmployeeProductLand
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
                 SetValue(ref _EmployeeProductLand, value);
             }
         }
-        public BaseEmployeeProductLandViewModel(IActorViewService<EmployeeProductLand> actorViewService)
+        public BaseEmployeeProductLandViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeProductLand = await _actorViewService.GetByIdAsync(id);
+            EmployeeProductLand = await _EmployeeActorContext.GetByIdAsync<EmployeeProductLand>(id);
         }
     }
     public class PostEmployeeProductLandViewModel : BaseEmployeeProductLandViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
                 SetValue(ref _postEmployeeProductLand, value);
             }
         }
-        public PostEmployeeProductLandViewModel(IActorViewService<EmployeeProductLand> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeProductLandViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeProductLand EmployeeProductLand)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeProductLand);
+            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeProductLand>(EmployeeProductLand);
             if (PostValue != null)
             {
                 PostEmployeeProductLand = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
                 SetValue(ref _putEmployeeProductLand, value);
             }
         }
-        public PutEmployeeProductLandViewModel(IActorViewService<EmployeeProductLand> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeProductLandViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeProductLand EmployeeProductLand)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeProductLand);
+            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeProductLand>(EmployeeProductLand);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
     }
     public class DeleteEmployeeProductLandViewModel : BaseEmployeeProductLandViewModel
     {
-        public DeleteEmployeeProductLandViewModel(IActorViewService<EmployeeProductLand> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeProductLandViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeProductLand>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
                 SetValue(ref _EmployeeProductLands, value);   
             }
         }
-        public GetsEmployeeProductLandViewModel(IActorViewService<EmployeeProductLand> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeProductLandViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeProductLand>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeProductLand>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeProductLand>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeProductLand>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeProductLand>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployeeProductLands.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployeeProductLands.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeProductLands.Remove(obj); OnPropertyChanged(); }

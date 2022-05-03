@@ -2,8 +2,6 @@ using BusinessData.ofHR.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace BusinessData.ofHumanResource.ofRepository
 {

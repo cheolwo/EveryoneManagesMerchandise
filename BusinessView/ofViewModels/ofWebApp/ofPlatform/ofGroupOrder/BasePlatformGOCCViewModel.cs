@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
 {
     public class BasePlatformGOCCViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<PlatformGOCC> _actorViewService;
+        protected readonly PlatformActorContext _PlatformActorContext;
         protected PlatformGOCC? _PlatformGOCC = new();
         public PlatformGOCC? PlatformGOCC
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
                 SetValue(ref _PlatformGOCC, value);
             }
         }
-        public BasePlatformGOCCViewModel(IActorViewService<PlatformGOCC> actorViewService)
+        public BasePlatformGOCCViewModel(PlatformActorContext PlatformActorContext)
         {
-            _actorViewService = actorViewService;
+            _PlatformActorContext = PlatformActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            PlatformGOCC = await _actorViewService.GetByIdAsync(id);
+            PlatformGOCC = await _PlatformActorContext.GetByIdAsync<PlatformGOCC>(id);
         }
     }
     public class PostPlatformGOCCViewModel : BasePlatformGOCCViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
                 SetValue(ref _postPlatformGOCC, value);
             }
         }
-        public PostPlatformGOCCViewModel(IActorViewService<PlatformGOCC> actorViewService)
-            : base(actorViewService)
+        public PostPlatformGOCCViewModel(PlatformActorContext PlatformActorContext)
+            : base(PlatformActorContext)
         {
 
         }
         public async Task PostAsync(PlatformGOCC PlatformGOCC)
         {
-            var PostValue = await _actorViewService.PostAsync(PlatformGOCC);
+            var PostValue = await _PlatformActorContext.PostAsync<PlatformGOCC>(PlatformGOCC);
             if (PostValue != null)
             {
                 PostPlatformGOCC = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
                 SetValue(ref _putPlatformGOCC, value);
             }
         }
-        public PutPlatformGOCCViewModel(IActorViewService<PlatformGOCC> actorViewService)
-            :base(actorViewService)
+        public PutPlatformGOCCViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task PutAsync(PlatformGOCC PlatformGOCC)
         {
-            var PutValue = await _actorViewService.PutAsync(PlatformGOCC);
+            var PutValue = await _PlatformActorContext.PutAsync<PlatformGOCC>(PlatformGOCC);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
     }
     public class DeletePlatformGOCCViewModel : BasePlatformGOCCViewModel
     {
-        public DeletePlatformGOCCViewModel(IActorViewService<PlatformGOCC> actorViewService)
-            :base(actorViewService)
+        public DeletePlatformGOCCViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _PlatformActorContext.DeleteByIdAsync<PlatformGOCC>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
                 SetValue(ref _PlatformGOCCs, value);   
             }
         }
-        public GetsPlatformGOCCViewModel(IActorViewService<PlatformGOCC> actorViewService)
-            :base(actorViewService)
+        public GetsPlatformGOCCViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<PlatformGOCC>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<PlatformGOCC>? dtos = await _PlatformActorContext.GetsAsync<PlatformGOCC>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<PlatformGOCC>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformGOCC>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _PlatformGOCCs.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = PlatformGOCCs.Find(e => e.Id.Equals(id));
             if(obj != null) { PlatformGOCCs.Remove(obj); OnPropertyChanged(); }

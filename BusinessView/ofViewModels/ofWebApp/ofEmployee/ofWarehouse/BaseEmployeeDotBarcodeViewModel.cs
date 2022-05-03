@@ -1,12 +1,12 @@
-using BusinessView.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessView.ofUser;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
     public class BaseEmployeeDotBarcodeViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployeeDotBarcode> _actorViewService;
+        protected readonly EmployeeActorContext _EmployeeActorContext;
         protected EmployeeDotBarcode? _EmployeeDotBarcode = new();
         public EmployeeDotBarcode? EmployeeDotBarcode
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _EmployeeDotBarcode, value);
             }
         }
-        public BaseEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
+        public BaseEmployeeDotBarcodeViewModel(EmployeeActorContext EmployeeActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployeeActorContext = EmployeeActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployeeDotBarcode = await _actorViewService.GetByIdAsync(id);
+            EmployeeDotBarcode = await _EmployeeActorContext.GetByIdAsync<EmployeeDotBarcode>(id);
         }
     }
     public class PostEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _postEmployeeDotBarcode, value);
             }
         }
-        public PostEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
-            : base(actorViewService)
+        public PostEmployeeDotBarcodeViewModel(EmployeeActorContext EmployeeActorContext)
+            : base(EmployeeActorContext)
         {
 
         }
         public async Task PostAsync(EmployeeDotBarcode EmployeeDotBarcode)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployeeDotBarcode);
+            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeDotBarcode>(EmployeeDotBarcode);
             if (PostValue != null)
             {
                 PostEmployeeDotBarcode = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _putEmployeeDotBarcode, value);
             }
         }
-        public PutEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
-            :base(actorViewService)
+        public PutEmployeeDotBarcodeViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task PutAsync(EmployeeDotBarcode EmployeeDotBarcode)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployeeDotBarcode);
+            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeDotBarcode>(EmployeeDotBarcode);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
     }
     public class DeleteEmployeeDotBarcodeViewModel : BaseEmployeeDotBarcodeViewModel
     {
-        public DeleteEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployeeDotBarcodeViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployeeActorContext.DeleteByIdAsync<EmployeeDotBarcode>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
                 SetValue(ref _EmployeeDotBarcodes, value);   
             }
         }
-        public GetsEmployeeDotBarcodeViewModel(IActorViewService<EmployeeDotBarcode> actorViewService)
-            :base(actorViewService)
+        public GetsEmployeeDotBarcodeViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployeeDotBarcode>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployeeDotBarcode>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeDotBarcode>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployeeDotBarcode>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeDotBarcode>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployeeDotBarcodes.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployeeDotBarcodes.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployeeDotBarcodes.Remove(obj); OnPropertyChanged(); }

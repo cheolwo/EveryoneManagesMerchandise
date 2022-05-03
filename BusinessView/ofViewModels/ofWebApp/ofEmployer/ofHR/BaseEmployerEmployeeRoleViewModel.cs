@@ -1,12 +1,12 @@
 using BusinessView.ofDTO.ofHR.ofEmployer;
-using BusinessView.ofGeneric;
+using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
     public class BaseEmployerEmployeeRoleViewModel : BaseViewModel
     {
-        protected readonly IActorViewService<EmployerEmployeeRole> _actorViewService;
+        protected readonly EmployerActorContext _EmployerActorContext;
         protected EmployerEmployeeRole? _EmployerEmployeeRole = new();
         public EmployerEmployeeRole? EmployerEmployeeRole
         {
@@ -16,13 +16,13 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
                 SetValue(ref _EmployerEmployeeRole, value);
             }
         }
-        public BaseEmployerEmployeeRoleViewModel(IActorViewService<EmployerEmployeeRole> actorViewService)
+        public BaseEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
         {
-            _actorViewService = actorViewService;
+            _EmployerActorContext = EmployerActorContext;
         }
         public async Task GetByIdAsync(string id)
         {
-            _EmployerEmployeeRole = await _actorViewService.GetByIdAsync(id);
+            EmployerEmployeeRole = await _EmployerActorContext.GetByIdAsync<EmployerEmployeeRole>(id);
         }
     }
     public class PostEmployerEmployeeRoleViewModel : BaseEmployerEmployeeRoleViewModel
@@ -46,14 +46,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
                 SetValue(ref _postEmployerEmployeeRole, value);
             }
         }
-        public PostEmployerEmployeeRoleViewModel(IActorViewService<EmployerEmployeeRole> actorViewService)
-            : base(actorViewService)
+        public PostEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
+            : base(EmployerActorContext)
         {
 
         }
         public async Task PostAsync(EmployerEmployeeRole EmployerEmployeeRole)
         {
-            var PostValue = await _actorViewService.PostAsync(EmployerEmployeeRole);
+            var PostValue = await _EmployerActorContext.PostAsync<EmployerEmployeeRole>(EmployerEmployeeRole);
             if (PostValue != null)
             {
                 PostEmployerEmployeeRole = PostValue;
@@ -89,14 +89,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
                 SetValue(ref _putEmployerEmployeeRole, value);
             }
         }
-        public PutEmployerEmployeeRoleViewModel(IActorViewService<EmployerEmployeeRole> actorViewService)
-            :base(actorViewService)
+        public PutEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task PutAsync(EmployerEmployeeRole EmployerEmployeeRole)
         {
-            var PutValue = await _actorViewService.PutAsync(EmployerEmployeeRole);
+            var PutValue = await _EmployerActorContext.PutAsync<EmployerEmployeeRole>(EmployerEmployeeRole);
             if(PutValue != null)
             {
                 _isPut = true;
@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
     }
     public class DeleteEmployerEmployeeRoleViewModel : BaseEmployerEmployeeRoleViewModel
     {
-        public DeleteEmployerEmployeeRoleViewModel(IActorViewService<EmployerEmployeeRole> actorViewService)
-            :base(actorViewService)
+        public DeleteEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            await _EmployerActorContext.DeleteByIdAsync<EmployerEmployeeRole>(id);
         }
         public void Reset()
         {
@@ -138,14 +138,14 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
                 SetValue(ref _EmployerEmployeeRoles, value);   
             }
         }
-        public GetsEmployerEmployeeRoleViewModel(IActorViewService<EmployerEmployeeRole> actorViewService)
-            :base(actorViewService)
+        public GetsEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
+            :base(EmployerActorContext)
         {
 
         }
         public async Task GetsAsync()
         {
-            IEnumerable<EmployerEmployeeRole>? dtos = await _actorViewService.GetsAsync();
+            IEnumerable<EmployerEmployeeRole>? dtos = await _EmployerActorContext.GetsAsync<EmployerEmployeeRole>();
             if(dtos != null)
             {
                 foreach(var dto in dtos)
@@ -155,7 +155,19 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
             }
             OnPropertyChanged();
         }
-        public void DelteAsync(string id)
+        public async Task GetsAsyncByUserId(string userid)
+        {
+            IEnumerable<EmployerEmployeeRole>? dtos = await _EmployerActorContext.GetsAsyncByUserId<EmployerEmployeeRole>(userid);
+            if(dtos != null)
+            {
+                foreach(var dto in dtos)
+                {
+                    _EmployerEmployeeRoles.Add(dto);
+                }
+            }
+            OnPropertyChanged();
+        }
+        public void Delte(string id)
         {
             var obj = EmployerEmployeeRoles.Find(e => e.Id.Equals(id));
             if(obj != null) { EmployerEmployeeRoles.Remove(obj); OnPropertyChanged(); }
