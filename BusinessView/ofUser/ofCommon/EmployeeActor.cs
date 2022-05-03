@@ -1,8 +1,8 @@
 ﻿using BusinessView.ofCommon.ofServices.ofHR.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee;
-using BusinessView.ofDTO.ofHRDTO.ofEmployee;
-using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
+using BusinessView.ofDTO.ofHR.ofEmployee;
+using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 
 namespace BusinessView.ofUser

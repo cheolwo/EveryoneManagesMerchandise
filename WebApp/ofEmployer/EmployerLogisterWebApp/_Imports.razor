@@ -1,4 +1,5 @@
 ﻿@using System.Net.Http
+@using System.Reflection
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -13,5 +14,51 @@
 @using BusinessLogic
 @using BusinessView.ofViewModels.ofWebApp.ofCommon
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
+
 @using BusinessRazor
 @using BusinessRazor.Components.ofWarehouse.ofEmployer.ofWarehouse
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofDividedTag
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofDotBarcode
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofIncomingTag
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofLoadFrame
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofWorkingDesk
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofWCommodity
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofSWCommodity
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofMWCommodity
+@using BusinessRazor.Components.ofWarehouse.ofEmployer.ofEWCommodity
+
+@using BusinessRazor.Components.ofTrade.ofEmployer.ofTCommodity
+@using BusinessRazor.Components.ofTrade.ofEmployer.ofSTCommodity
+@using BusinessRazor.Components.ofTrade.ofEmployer.ofMTCommodity
+@using BusinessRazor.Components.ofTrade.ofEmployer.ofETCommodity
+@using BusinessRazor.Components.ofTrade.ofEmployer.ofTradeCenter
+
+@using BusinessRazor.Components.ofJournal.ofEmployer.ofJCommodity
+@using BusinessRazor.Components.ofJournal.ofEmployer.ofJournalCenter
+@using BusinessRazor.Components.ofJournal.ofEmployer.ofJournal
+
+@using BusinessRazor.Components.ofGOC.ofEmployer.ofGOCC
+@using BusinessRazor.Components.ofGOC.ofEmployer.ofGOC
+@using BusinessRazor.Components.ofGOC.ofEmployer.ofSGOC
+@using BusinessRazor.Components.ofGOC.ofEmployer.ofMGOC
+@using BusinessRazor.Components.ofGOC.ofEmployer.ofEGOC
+
+@using BusinessRazor.Components.ofOrder.ofEmployer.ofOrderCenter
+@using BusinessRazor.Components.ofOrder.ofEmployer.ofEOCommodity
+@using BusinessRazor.Components.ofOrder.ofEmployer.ofMOCommodity
+@using BusinessRazor.Components.ofOrder.ofEmployer.ofSOCommodity
+@using BusinessRazor.Components.ofOrder.ofEmployer.ofOCommodity
+
+@using BusinessRazor.Components.ofHR.ofEmployer.ofEmployeeRole
+@using BusinessRazor.Components.ofHR.ofEmployer.ofHRBusinessPart
+@using BusinessRazor.Components.ofHR.ofEmployer.ofHRCenter
+@using BusinessRazor.Components.ofHR.ofEmployer.ofHREmployee
+@using BusinessRazor.Components.ofHR.ofEmployer.ofHRRole
+
+

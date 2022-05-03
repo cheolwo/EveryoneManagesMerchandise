@@ -1,4 +1,4 @@
-﻿using BusinessView.ofGroupOrder.ofPlatform;
+﻿using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
 using BusinessView.ofServices.ofGroupOrder;
 using System.Net.Http.Json;
 using System.Text;

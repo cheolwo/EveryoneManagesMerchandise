@@ -5,6 +5,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {
     // IsBusy 같은 경우에는 Post 하는 동안 화면을 제어하지 못하도록
     // 만드는데 이용할만 하다.
+    public enum ModeView { Table, Card, Dashboard}
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

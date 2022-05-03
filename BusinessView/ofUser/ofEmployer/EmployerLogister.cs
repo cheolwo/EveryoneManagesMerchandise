@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofGeneric;
-using BusinessView.ofGroupOrder.ofEmployer;
-using BusinessView.ofOrder.ofEmployer;
+using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofDTO.ofOrder.ofEmployer;
 using BusinessView.ofTrade.ofEmployer;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofUser.ofCommon;
-using BusinessView.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofUser.ofEmployer
 {
@@ -45,24 +45,28 @@ namespace BusinessView.ofUser.ofEmployer
             serviceBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskService(e => e.IsDevelopment = true));
-
             serviceBuilder.Add(nameof(EmployerTradeCenter), new EmployerTradeCenterService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerTCommodity), new EmployerTCommodityService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerSTCommodity), new EmployerSTCommodityService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerMTCommodity), new EmployerMTCommodityService(e => e.IsDevelopment = true));
             serviceBuilder.Add(nameof(EmployerETCommodity), new EmployerETCommodityService(e => e.IsDevelopment = true));
         }
-        
+        protected override void OnStrorageBuilder(StorageBuilder storageBuilder)
+        {
+
+        }
+        protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde)
+        {
+
+        }
         public new Task<IEnumerable<EmployerWarehouse>?> GetsAsync()
         {
             throw new NotImplementedException();
         }
-
         public Task<EmployerWarehouse?> PostAsync(EmployerWarehouse entity)
         {
             throw new NotImplementedException();
         }
-
         public Task<EmployerDividedTag?> PostAsync(EmployerDividedTag entity)
         {
             throw new NotImplementedException();
@@ -72,21 +76,10 @@ namespace BusinessView.ofUser.ofEmployer
         {
             throw new NotImplementedException();
         }
-
         public Task<EmployerDividedTag?> PutAsync(EmployerDividedTag entity)
         {
             throw new NotImplementedException();
         }
-
-        protected override void OnStrorageBuilder(StorageBuilder storageBuilder)
-        {
-
-        }
-        protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde)
-        {
-
-        }
-
         Task<EmployerWarehouse?> IActorViewService<EmployerWarehouse>.GetByIdAsync(string id)
         {
             throw new NotImplementedException();

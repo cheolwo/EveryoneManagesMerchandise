@@ -1,5 +1,10 @@
 ﻿<h3>EmployeeGetsEGOCCOmponent</h3>
 
 @code {
+    [Parameter] public GetsEmployerEGOCViewModel? ViewModel { get; set; }
 
+    [Parameter] public EventCallback EventPost { get; set; }
+    [Parameter] public EventCallback<string> EventPut { get; set; }
+    [Parameter] public EventCallback<string> EventDelete { get; set; }
+    [Parameter] public EventCallback<string>EventDetail { get; set; }
 }

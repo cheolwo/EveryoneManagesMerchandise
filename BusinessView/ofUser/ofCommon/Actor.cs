@@ -6,7 +6,8 @@ namespace BusinessView.ofUser
     {
         public bool IsUseStorage = false;
     }
-    public class Actor
+    // Get 및 Gets는 관련 데이터까지 로드하는 것을 의미한다.
+    public abstract class Actor
     {
         protected ServiceBuilder ServiceBuilder = new();
         protected StorageBuilder StorageBuilder = new();
@@ -21,35 +22,11 @@ namespace BusinessView.ofUser
         protected virtual void OnStrorageBuilder(StorageBuilder storageBuilder) { }
         protected virtual void OnValidatorBuilder(ValidatorBuilder validatorBuilde) { }
 
-        // public async Task<IEnumerable<IdentityUserDTO>?> GetsAsync()
-        // {
-        //     var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-        //     if (DTOService != null)
-        //     {
-        //         IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-        //         IEnumerable<IdentityUserDTO>? IdentityUserDTOs = await identityUserDTOService.GetsAsync();
-        //         return IdentityUserDTOs;
-        //     }
-        //     else
-        //     {
-        //         throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
-        //     }
-        // }
-
-        // public virtual Task<T> CreateAsync<T>(T t) where T : IViewModel 
-        // {
-        //     throw new NotImplementedException(); 
-        // }
-        // public virtual Task<T> UpdateAsync<T>(T t) where T : IViewModel 
-        // { 
-        //     throw new NotImplementedException(); 
-        // }
-        // public virtual Task<T> GetById<T>(string userId, string id) where T : IViewModel 
-        // {
-        //     throw new NotImplementedException(); 
-        // }
-        // public virtual Task DeleteById<T>(string UuserId, string id) where T : IViewModel {
-        //     throw new ArgumentNullException(); 
-        // }
+        public abstract Task<T> PostAsync<T>(T t) where T : class;
+        public abstract Task<T> PutAsync<T>(T t) where T : class;
+        public abstract Task<T> GetById<T>(string id) where T : class;
+        public abstract Task DeleteById<T>(string id) where T : class;
+        public abstract Task<IEnumerable<T>> GetsAsync<T>() where T : class;
+        public abstract Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid) where T : class;
     }
 }

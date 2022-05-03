@@ -1,4 +1,4 @@
-﻿using BusinessView.ofMarket.ofPlatform;
+﻿using BusinessView.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofServices.ofMarket;
 using System.Net.Http.Json;
 using System.Text;

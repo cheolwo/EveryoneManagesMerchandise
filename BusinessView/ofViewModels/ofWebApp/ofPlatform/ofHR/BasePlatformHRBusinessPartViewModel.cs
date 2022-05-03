@@ -1,4 +1,4 @@
-using BusinessView.ofDTO.ofHRDTO.ofPlatform;
+using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 

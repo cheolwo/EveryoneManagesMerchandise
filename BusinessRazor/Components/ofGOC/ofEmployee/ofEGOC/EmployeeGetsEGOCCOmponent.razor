@@ -1,4 +1,7 @@
-﻿<h3>GetsEmployeeEGOCComponent</h3>
+﻿@using System
+@using System.Reflection
+@using BusinessView.ofDTO.ofGroupOrder.ofEmployee
+<h3>GetsEmployeeEGOCComponent</h3>
 // Routing Page 에서 GetMode를 조정할 수 있다.
 // GetMode로 테이블, 카드, Dashboard를 포함할 수 있다.
 
@@ -12,43 +15,42 @@
 // Detail Page는 관련 데이터 로드가 가능하다.
 // 상기 로드 데이터 항목 클릭 시 관련 페이지로 이동한다.
 
-@using MudBlazor
-@if (_GetsEmployeeEGOCViewModel == null || _GetUserViewModel)
-{
+@*@using MudBlazor
+    @if (_GetsEmployeeEGOCViewModel == null || _GetUserViewModel == null)
+    {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-}
-else
-{
+    }
+    else
+    {
     <MudTable Items=_GetsEmployeeEGOCViewModel._EmployeeEGOCs Hover="true">
-        <HeaderContent>
-            <MudTh>Nr</MudTh>
-            <MudTh>Sign</MudTh>
-            <MudTh>Name</MudTh>
-            <MudTh>Position</MudTh>
-            <MudTh>Molar mass</MudTh>
-        </HeaderContent>
-        <RowTemplate>
-            <MudTd DataLabel="Nr">@context.Number</MudTd>
-            <MudTd DataLabel="Sign">@context.Sign</MudTd>
-            <MudTd DataLabel="Name">@context.Name</MudTd>
-            <MudTd DataLabel="Position" HideSmall="_hidePosition">@context.Position</MudTd>
-            <MudTd DataLabel="Molar mass">@context.Molar</MudTd>
-        </RowTemplate>
+    <HeaderContent>
+    <MudTh>Nr</MudTh>
+    <MudTh>Sign</MudTh>
+    <MudTh>Name</MudTh>
+    <MudTh>Position</MudTh>
+    <MudTh>Molar mass</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+    <MudTd DataLabel="Nr">@context.Number</MudTd>
+    <MudTd DataLabel="Sign">@context.Sign</MudTd>
+    <MudTd DataLabel="Name">@context.Name</MudTd>
+    <MudTd DataLabel="Position" HideSmall="_hidePosition">@context.Position</MudTd>
+    <MudTd DataLabel="Molar mass">@context.Molar</MudTd>
+    </RowTemplate>
     </MudTable>
-}
+    }*@
 
 @code {
-    [CascadingParameter(Name = "GetUserViewMModel")] public GetUserViewModel _GetUserViewModel { get; set; }
+    //[CascadingParameter(Name = "GetUserViewMModel")] public GetUserViewModel _GetUserViewModel { get; set; }
     [Parameter] public EventCallback<string>? EventPut { get; set; }
     [Parameter] public EventCallback? EventPost { get; set; }
     [Parameter] public EventCallback<string>? EventDelete { get; set; }
     [Parameter] public EventCallback<string>? EventDetail { get; set; }
     [Parameter] public GetsEmployeeEGOCViewModel? _GetsEmployeeEGOCViewModel { get; set; }
-    public Dictionary<string, List<PropertyInfo>> DicClassifiedByRelationAttribute = new(); 
+    public Dictionary<string, List<PropertyInfo>> DicClassifiedByRelationAttribute = new();
     // String is TableMetaInfo.Get, GetMany, Detail, DetailMany, GetOne, DetailOne...
-protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
-        DicClassifiedByRelationAttribute =
         _GetsEmployeeEGOCViewModel.EmployeeEGOC.GetToDictionaryforClassifiedPropertyByAttribute(typeof(EmployeeEGOC));
     }
 }

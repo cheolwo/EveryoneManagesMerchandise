@@ -1,27 +1,10 @@
 ﻿<h3>GetsRoleComponent</h3>
 @using MudBlazor
-// 여기서는 Mud Table 이 오는 것이지.
-@if(_getsRoleViewModel == null)
-{
-    <MudProgressCircular Color="Color.Primary" Indeterminate="true"/>
-}
-else
-{
-    if(EventPost == null || EventPut == null || EventDelete == null)
-    {
-        // 테이블만 표시한다.
-    }
-    else
-    {
 
-    }
-}
 
 @code {
     //개발자 및 프로덕트 모드를 서비스 컨테이너에서 람다식으로 제어할 수 있도록 만들 필요가 있어.
-    [CascadingParameter(Name="GetUserViewMModel")] public GetUserViewModel _GetUserViewModel {get; set;}
     [Parameter] public EventCallback<string>? EventPut {get; set;}
     [Parameter] public EventCallback? EventPost {get; set;}
     [Parameter] public EventCallback<string>? EventDelete {get; set;}
-    [Parameter] public GetsRoleViewModel? _GetsRoleViewModel {get; set;}
 }

@@ -9,6 +9,7 @@
 @code {
     [Parameter] public BaseEmployerWarehouseViewModel? ViewModel { get; set; }
     [Parameter] public string? id { get; set; }
+    [Parameter] public EventCallback DetailToGets {get; set;}
     protected override async Task OnInitializedAsync()
     {
         if(id != null)

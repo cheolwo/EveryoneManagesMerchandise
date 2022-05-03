@@ -1,4 +1,4 @@
-﻿using BusinessView.ofProduct.ofEmployer;
+﻿using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofServices.ofProduct;
 using System.Net.Http.Json;
 using System.Text;

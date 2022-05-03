@@ -1,4 +1,4 @@
-using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
+using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 

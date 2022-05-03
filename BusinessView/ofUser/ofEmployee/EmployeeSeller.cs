@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
-using BusinessView.ofMarket.ofEmployee;
+using BusinessView.ofDTO.ofMarket.ofEmployee;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofUser.ofCommon;
-using BusinessView.ofWarehouse.ofEmployee;
 
 namespace BusinessView.ofUser.ofEmployee
 {

@@ -1,7 +1,4 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofMarket.ofEmployee;
-using BusinessView.ofOrder.ofEmployee;
-using BusinessView.ofProduct.ofEmployee;
 using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 

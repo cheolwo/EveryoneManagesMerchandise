@@ -1,4 +1,4 @@
-﻿using BusinessView.ofGroupOrder.ofEmployee;
+﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofServices.ofGroupOrder;
 using System.Net.Http.Json;
 using System.Text;

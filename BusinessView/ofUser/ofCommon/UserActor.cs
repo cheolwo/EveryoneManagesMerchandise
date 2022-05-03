@@ -1,11 +1,10 @@
 ﻿using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofGeneric;
 using BusinessView.ofUser.ofCommon;
 
 namespace BusinessView.ofUser
 {
-    public class UserActor : Actor, IActorViewService<IdentityUserDTO>
+    public class UserActor : Actor
     {
         public UserActor()
         {
@@ -22,73 +21,104 @@ namespace BusinessView.ofUser
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilder)
         {
         }
-
-        public async Task<IEnumerable<IdentityUserDTO>?> GetsAsync()
+        public override async Task<T> PostAsync<T>(T t)
         {
-            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if (DTOService != null)
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if(service != null)
             {
-                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-                IEnumerable<IdentityUserDTO>? IdentityUserDTOs = await identityUserDTOService.GetsAsync();
-                return IdentityUserDTOs;
+                T? Value = await service.PostAsync<T>(t);
+                if(Value != null)
+                {
+                    return Value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
+                }
             }
-            else
-            {
-                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
-            }
-        }
-        public async Task DeleteAsync(string id)
-        {
-            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if (DTOService != null)
-            {
-                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-                await identityUserDTOService.DeleteAsync(id);
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
-            }
-        }
-        public async Task<IdentityUserDTO?> GetByIdAsync(string id)
-        {
-            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if (DTOService != null)
-            {
-                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-                return await identityUserDTOService.GetByIdAsync(id);
-            }
-            else
-            {
-                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
-            }
+            throw new ArgumentNullException("Not Register Service On Builder");
         }
 
-        public async Task<IdentityUserDTO?> PostAsync(IdentityUserDTO entity)
+        public override async Task<T> PutAsync<T>(T t)
         {
-            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if (DTOService != null)
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if(service != null)
             {
-                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-                return await identityUserDTOService.PostAsync(entity);
+                T? Value = await service.PutAsync<T>(t);
+                if (Value != null)
+                {
+                    return Value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
+                }
             }
-            else
-            {
-                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
-            }
+            throw new ArgumentNullException("Not Register Service On Builder");
         }
-        public async Task<IdentityUserDTO?> PutAsync(IdentityUserDTO entity)
+
+        public override async Task<T> GetById<T>(string id)
         {
-            var DTOService = ServiceBuilder.Get(nameof(IdentityUserDTO));
-            if (DTOService != null)
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if (service != null)
             {
-                IdentityUserDTOService identityUserDTOService = (IdentityUserDTOService)DTOService;
-                return await identityUserDTOService.PutAsync(entity);
+                T? Value = await service.GetByIdAsync<T>(id);
+                if (Value != null)
+                {
+                    return Value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
+                }
             }
-            else
+            throw new ArgumentNullException("Not Register Service On Builder");
+        }
+
+        public override async Task DeleteById<T>(string id)
+        {
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if (service != null)
             {
-                throw new ArgumentNullException(nameof(DTOService) + "Is Not Exist");
+                await service.DeleteAsync<T>(id);           
             }
+            throw new ArgumentNullException("Not Register Service On Builder");
+        }
+
+        public override async Task<IEnumerable<T>> GetsAsync<T>()
+        {
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if (service != null)
+            {
+                IEnumerable<T>? Value = await service.GetsAsync<T>();
+                if(Value != null)
+                {
+                    return Value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
+                }
+            }
+            throw new ArgumentNullException("Not Register Service On Builder");
+        }
+
+        public override async Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid)
+        {
+            DTOService service = ServiceBuilder.Get(nameof(T));
+            if (service != null)
+            {
+                IEnumerable<T>? Value = await service.GetsAsyncByUserId<T>(userid);
+                if (Value != null)
+                {
+                    return Value;
+                }
+                else
+                {
+                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
+                }
+            }
+            throw new ArgumentNullException("Not Register Service On Builder");
         }
     }
 }

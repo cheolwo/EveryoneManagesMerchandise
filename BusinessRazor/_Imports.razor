@@ -1,6 +1,63 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@using System.Reflection
+@using System
+@using Microsoft.AspNetCore.Components.Web
 @using MudBlazor
 @using System.Threading.Tasks
 @using BusinessLogic
 @using BusinessView
 @using BusinessView.ofUser
+@using BusinessView.ofDTO.ofCommon
+
+@using BusinessView.ofDTO.ofGroupOrder.ofEmployee 
+@using BusinessView.ofDTO.ofJournal.ofEmployee
+@using BusinessView.ofDTO.ofHR.ofEmployee
+@using BusinessView.ofDTO.ofProduct.ofEmployee
+@using BusinessView.ofDTO.ofMarket.ofEmployee
+@using BusinessView.ofDTO.ofOrder.ofEmployee
+@using BusinessView.ofDTO.ofWarehouse.ofEmployee
+@using BusinessView.ofTrade.ofEmployee
+
+@using BusinessView.ofDTO.ofGroupOrder.ofEmployer
+@using BusinessView.ofDTO.ofJournal.ofEmployer
+@using BusinessView.ofDTO.ofHR.ofEmployer
+@using BusinessView.ofDTO.ofProduct.ofEmployer
+@using BusinessView.ofDTO.ofMarket.ofEmployer
+@using BusinessView.ofDTO.ofOrder.ofEmployer
+@using BusinessView.ofDTO.ofWarehouse.ofEmployer
+@using BusinessView.ofTrade.ofEmployer
+
+@using BusinessView.ofDTO.ofGroupOrder.ofPlatform
+@using BusinessView.ofDTO.ofJournal.ofPlatform
+@using BusinessView.ofDTO.ofHR.ofPlatform
+@using BusinessView.ofDTO.ofProduct.ofPlatform
+@using BusinessView.ofDTO.ofMarket.ofPlatform
+@using BusinessView.ofDTO.ofOrder.ofPlatform
+@using BusinessView.ofDTO.ofWarehouse.ofPlatform
+@using BusinessView.ofTrade.ofPlatform
+
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
+
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct
+@using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse

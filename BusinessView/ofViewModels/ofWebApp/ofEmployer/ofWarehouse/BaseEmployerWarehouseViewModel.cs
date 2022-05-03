@@ -1,7 +1,6 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofWarehouse.ofEmployer;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
@@ -25,6 +24,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
         {
             _EmployerWarehouse = await _actorViewService.GetByIdAsync(id);
         }
+        
     }
     public class PostEmployerWarehouseViewModel : BaseEmployerWarehouseViewModel
     {
@@ -137,6 +137,16 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
             set
             {
                 SetValue(ref _EmployerWarehouses, value);   
+            }
+        }
+        private ModeView _ModeView { get; set; } 
+        public ModeView ModeView
+        {
+            get=> _ModeView;  
+            set
+            {
+                ModeView = value;
+                OnPropertyChanged();
             }
         }
         public GetsEmployerWarehouseViewModel(IActorViewService<EmployerWarehouse> actorViewService)

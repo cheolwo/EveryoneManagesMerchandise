@@ -1,12 +1,12 @@
 ﻿using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
-using BusinessView.ofGroupOrder.ofEmployer;
-using BusinessView.ofMarket.ofEmployer;
-using BusinessView.ofOrder.ofEmployer;
-using BusinessView.ofProduct.ofEmployer;
+using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofDTO.ofMarket.ofEmployer;
+using BusinessView.ofDTO.ofOrder.ofEmployer;
+using BusinessView.ofDTO.ofProduct.ofEmployer;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofUser.ofCommon;
-using BusinessView.ofWarehouse.ofEmployer;
 
 namespace BusinessView.ofUser.ofEmployer
 {

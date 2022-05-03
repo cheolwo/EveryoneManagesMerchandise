@@ -1,5 +1,5 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofGroupOrder.ofEmployee;
+using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder

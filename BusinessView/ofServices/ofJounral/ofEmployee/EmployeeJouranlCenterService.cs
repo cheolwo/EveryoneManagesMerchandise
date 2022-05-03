@@ -1,4 +1,4 @@
-﻿using BusinessView.ofDTO.ofJournalDTO.ofEmployee;
+﻿using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofServices.ofJournal;
 using System.Net.Http.Json;
 using System.Text;

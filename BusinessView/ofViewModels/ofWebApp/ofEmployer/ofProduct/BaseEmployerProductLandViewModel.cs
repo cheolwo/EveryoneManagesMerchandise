@@ -1,10 +1,8 @@
 using BusinessView.ofGeneric;
-using BusinessView.ofMarket.ofEmployer;
-using BusinessView.ofOrder.ofEmployer;
-using BusinessView.ofProduct.ofEmployer;
+using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 {
     public class BaseEmployerProductLandViewModel : BaseViewModel
     {

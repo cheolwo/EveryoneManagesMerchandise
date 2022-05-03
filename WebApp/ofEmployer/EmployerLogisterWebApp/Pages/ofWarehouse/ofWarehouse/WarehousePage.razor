@@ -1,21 +1,144 @@
 ﻿@page "/Warehouse"
-@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+@using BusinessRazor.Components.ofUser
+@using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
-@using BusinessView.ofWarehouse.ofEmployer
-@inject GetsEmployerWarehouseViewModel _GetsEmployerWarehouseViewModel 
-@inject PostEmployerWarehouseViewModel _PostEmployerWarehouseViewModel
-@inject PutEmployerWarehouseViewModel _PutEmployerWarehouseViewModel
+@using Microsoft.AspNetCore.Identity
 @inject DeleteEmployerWarehouseViewModel _DeleteEmployerWarehouseViewModel
 @inject BaseEmployerWarehouseViewModel _BaseEmployerWarehouseViewModel
+@inject GetsEmployerWarehouseViewModel _GetsEmployerWarehouseViewModel
+@inject PostEmployerWarehouseViewModel _PostEmployerWarehouseViewModel
+@inject PutEmployerWarehouseViewModel _PutEmployerWarehouseViewModel
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
 
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+else
+{
+<CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
+    @if (IsGets)
+    {
+        <EmployerGetsWarehouseComponent ViewModel=_GetsEmployerWarehouseViewModel EventPost="ClickPost" EventPut="ClickPut" EventDelete="ClickDelete" EventDetail="ClickDetail">
+        </EmployerGetsWarehouseComponent>
+    }
+    @if (IsPost)
+    {
+        <EmployerPostWarehouseComponent ViewModel=_PostEmployerWarehouseViewModel PostToGets=ClickPostToGets>
+        </EmployerPostWarehouseComponent>
+    }
+    @if (IsPut)
+    {
+        <EmployerPutWarehouseComponent ViewModel=_PutEmployerWarehouseViewModel PutToGets=ClickPutToGets>
+        </EmployerPutWarehouseComponent>
+    }
+    @if (IsDelete)
+    {
+        <EmployerDeleteWarehouseComponent ViewModel=_DeleteEmployerWarehouseViewModel DeleteToGets=ClickDeleteToGets>
+        </EmployerDeleteWarehouseComponent>
+    }
+    @if (IsDetail)
+    {
+        <EmployerGetWarehouseComponent ViewModel=_BaseEmployerWarehouseViewModel DetailToGets=ClickDetailToGets>
+        </EmployerGetWarehouseComponent>
+    }
+</CascadingValue>
+}
 <h3>WarehousePage</h3>
 
-<EmployerGetsWarehouseComponent></EmployerGetsWarehouseComponent>
-<EmployerGetWarehouseComponent ViewModel=_BaseEmployerWarehouseViewModel></EmployerGetWarehouseComponent>
-<EmployerPostWarehouseComponent></EmployerPostWarehouseComponent>
-<EmployerDeleteWarehouseComponent></EmployerDeleteWarehouseComponent>
-<EmployerPutWarehouseComponent></EmployerPutWarehouseComponent>
 
 @code {
+    private bool IsDetail = false;
+    private bool IsPost = false;
+    private bool IsPut = false;
+    private bool IsDelete = false;
+    private bool IsGets = false;
+    private IdentityUserDTO IdentityUserDTO = new();
+    protected override async Task OnInitializedAsync()
+    {
+        if (_GetsEmployerWarehouseViewModel.EmployerWarehouses.Count == 0)
+        {
+            await _GetsEmployerWarehouseViewModel.GetsAsync();
+            IsGets = true;
+        }
+        IdentityUserDTO = _GetUserViewModel.IdentityUserDTO;
+    }
+    private async Task ClickPut(string id)
+    {
+        IsPut = true;
+        IsGets = false;
+        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
+        if (EmployerWarehouse != null)
+        {
+            _PutEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
+        }
+        else
+        {
+            await _PutEmployerWarehouseViewModel.GetByIdAsync(id);
+        }
+    }
+    private async Task ClickDelete(string id)
+    {
+        IsDelete = true;
+        IsGets = false;
+        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
+        if (EmployerWarehouse != null)
+        {
+            _DeleteEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
+        }
+        else
+        {
+            await _DeleteEmployerWarehouseViewModel.GetByIdAsync(id);
+        }
+    }
+    private void ClickPost()
+    {
+        IsPost = true;
+        IsGets = false;
+    }
+    private async Task ClickDetail(string id)
+    {
+        IsDetail = true;
+        IsGets = false;
+        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
+        if (EmployerWarehouse != null)
+        {
+            _BaseEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
+        }
+        else
+        {
+            await _BaseEmployerWarehouseViewModel.GetByIdAsync(id);
+        }
+    }
 
+    private void ClickPutToGets()
+    {
+        IsGets = true;
+        IsPut = false;
+        _PutEmployerWarehouseViewModel.EmployerWarehouse = new();
+    }
+    private void ClickPostToGets()
+    {
+        IsGets = true;
+        IsPost = false;
+        _PostEmployerWarehouseViewModel.EmployerWarehouse = new();
+    }
+    private void ClickDetailToGets()
+    {
+        IsGets = true;
+        IsDetail = false;
+        _BaseEmployerWarehouseViewModel.EmployerWarehouse = new();
+    }
+    private void ClickDeleteToGets()
+    {
+        IsGets = true;
+        IsDelete = false;
+        _DeleteEmployerWarehouseViewModel.EmployerWarehouse = new();
+    }
 }

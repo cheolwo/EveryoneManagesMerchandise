@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
+using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofUser.ofCommon;
-using BusinessView.ofWarehouse.ofPlatform;
 
 namespace BusinessView.ofUser.ofPlatform
 {
