@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerEMCommodityService : MarketService, IDTOService<EmployerEMCommodity>
     {
-        public EmployerEMCommodityService(Action<DTOServiceOptions> options)
+        public EmployerEMCommodityService(MarketServiceOptions options)
             : base(options)
         {
 

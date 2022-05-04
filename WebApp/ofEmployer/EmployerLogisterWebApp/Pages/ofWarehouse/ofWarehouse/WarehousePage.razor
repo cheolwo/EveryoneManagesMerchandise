@@ -3,6 +3,8 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 @using Microsoft.AspNetCore.Identity
+@using BusinessView.ofDTO.ofWarehouse.ofEmployer
+@using System.ComponentModel
 @inject DeleteEmployerWarehouseViewModel _DeleteEmployerWarehouseViewModel
 @inject BaseEmployerWarehouseViewModel _BaseEmployerWarehouseViewModel
 @inject GetsEmployerWarehouseViewModel _GetsEmployerWarehouseViewModel
@@ -11,6 +13,8 @@
 @inject GetUserViewModel _GetUserViewModel
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerWarehouse> _Logger
+@implements IDisposable
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
@@ -22,7 +26,7 @@
 }
 else
 {
-<CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
+    <CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
     @if (IsGets)
     {
         <EmployerGetsWarehouseComponent ViewModel=_GetsEmployerWarehouseViewModel EventPost="ClickPost" EventPut="ClickPut" EventDelete="ClickDelete" EventDetail="ClickDetail">
@@ -62,12 +66,64 @@ else
     private IdentityUserDTO IdentityUserDTO = new();
     protected override async Task OnInitializedAsync()
     {
+        _DeleteEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        _PostEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        _GetsEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        _PutEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        _BaseEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        _GetUserViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
         if (_GetsEmployerWarehouseViewModel.EmployerWarehouses.Count == 0)
         {
-            await _GetsEmployerWarehouseViewModel.GetsAsync();
-            IsGets = true;
+            try
+            {
+                await _GetsEmployerWarehouseViewModel.GetsAsyncByUserId(_GetUserViewModel.IdentityUserDTO.Id);
+            }
+            catch (Exception ex)
+            {
+                _Logger.LogError(ex.Message);
+            }
+            finally
+            {
+                IsGets = false;
+                IsPost = true;
+            }
         }
-        IdentityUserDTO = _GetUserViewModel.IdentityUserDTO;
     }
     private async Task ClickPut(string id)
     {
@@ -140,5 +196,22 @@ else
         IsGets = true;
         IsDelete = false;
         _DeleteEmployerWarehouseViewModel.EmployerWarehouse = new();
+    }
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        _GetUserViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _BaseEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _PostEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _PutEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _DeleteEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        _GetsEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
     }
 }

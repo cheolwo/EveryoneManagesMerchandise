@@ -1,8 +1,8 @@
 ﻿using BusinessData.ofWarehouse.Model;
 using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofGeneric;
-using BusinessView.ofWarehouse.ofEmployee;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

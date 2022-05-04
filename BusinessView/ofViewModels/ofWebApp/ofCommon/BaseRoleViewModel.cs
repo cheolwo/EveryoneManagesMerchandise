@@ -153,7 +153,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         }
         public async Task DeleteAsync(string id)
         {
-            await _actorViewService.DeleteAsync(id);
+            throw new NotImplementedException();
         }
         public void Reset()
         {

@@ -6,10 +6,12 @@
     }
     public class WarehouseService : DTOService
     {
-        public WarehouseService(Action<DTOServiceOptions> options)
+        protected WarehouseServiceOptions _WarehouseServiceOptions;
+        public WarehouseService(WarehouseServiceOptions options)
+                :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _WarehouseServiceOptions = options;
+            if (_WarehouseServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.WarehouseWebAPIServerURL);
             }

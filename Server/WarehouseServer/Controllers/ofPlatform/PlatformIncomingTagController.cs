@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessData.ofWarehouse.Model;
-using BusinessView.ofWarehouse.ofPlatform;
+using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 

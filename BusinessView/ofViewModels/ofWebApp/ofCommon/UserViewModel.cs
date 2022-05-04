@@ -32,10 +32,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<IdentityUserDTO> GetCurrentUserAsync(UserManager<IdentityUser> userManager)
+        public async Task GetCurrentUserAsync(UserManager<IdentityUser> userManager)
         {
             var CurrentUser = await userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
-            return ModelToDTO<IdentityUser, IdentityUserDTO>.ConvertToDTO(CurrentUser, new IdentityUserDTO());
+            IdentityUserDTO = ModelToDTO<IdentityUser, IdentityUserDTO>.ConvertToDTO(CurrentUser, new IdentityUserDTO());
         }
         public async Task<IdentityUser> GetCurrentIdentityUserAsync(UserManager<IdentityUser> userManager)
         {

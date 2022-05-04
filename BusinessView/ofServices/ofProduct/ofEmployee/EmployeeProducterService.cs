@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeProducterService : ProductService, IDTOService<EmployeeProducter>
     {
-        public EmployeeProducterService(Action<DTOServiceOptions> options)
+        public EmployeeProducterService(ProductServiceOptions options)
             : base(options)
         {
 

@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformSWCommodityService : WarehouseService, IDTOService<PlatformSWCommodity>
     {
-        public PlatformSWCommodityService(Action<DTOServiceOptions> options)
+        public PlatformSWCommodityService(WarehouseServiceOptions options)
             : base(options)
         {
 

@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformEPCommodityService : ProductService, IDTOService<PlatformEPCommodity>
     {
-        public PlatformEPCommodityService(Action<DTOServiceOptions> options)
+        public PlatformEPCommodityService(ProductServiceOptions options)
             : base(options)
         {
 

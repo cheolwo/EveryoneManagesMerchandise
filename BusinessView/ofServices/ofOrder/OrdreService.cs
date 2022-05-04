@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessView.ofCommon;
+﻿using BusinessView.ofCommon;
 using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofOrder
 {
+    public class OrderServiceOptions : DTOServiceOptions
+    {
+
+    }
     public class OrderService : DTOService
     {
-        public OrderService(Action<DTOServiceOptions> options)
+        protected OrderServiceOptions _OrderServiceOptions;
+        public OrderService(OrderServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _OrderServiceOptions = options;
+            if (_OrderServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.OrderWebAPIServerURL);
             }

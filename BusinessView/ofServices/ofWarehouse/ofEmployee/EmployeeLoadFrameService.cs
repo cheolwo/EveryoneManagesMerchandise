@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeLoadFrameService : WarehouseService, IDTOService<EmployeeLoadFrame>
     {
-        public EmployeeLoadFrameService(Action<DTOServiceOptions> options)
+        public EmployeeLoadFrameService(WarehouseServiceOptions options)
             : base(options)
         {
 

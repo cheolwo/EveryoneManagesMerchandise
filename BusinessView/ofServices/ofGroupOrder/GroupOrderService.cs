@@ -3,12 +3,18 @@ using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofGroupOrder
 {
+    public class GroupOrderServiceOptions : DTOServiceOptions
+    {
+
+    }
     public class GroupOrderService : DTOService
     {
-        public GroupOrderService(Action<DTOServiceOptions> options)
+        protected GroupOrderServiceOptions _GroupOrderServiceOptions;
+        public GroupOrderService(GroupOrderServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _GroupOrderServiceOptions = options;
+            if (_GroupOrderServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.GroupOrderWebAPIServerURL);
             }

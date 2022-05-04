@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofWarehouse.ofEmployer;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
 using BusinessData.ofWarehouse.ofInterface.ofEmployer;
@@ -38,6 +38,36 @@ namespace WarehouseServer.Controllers.ofEmployer
             }
             var GetEmployerWarehouse = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(Warehouse, new EmployerWarehouse());
             return GetEmployerWarehouse;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> Gets()
+        {
+            var Warehouses = await _EmployerWarehouseRepository.GetToListAsync();
+            if (Warehouses.Count == 0)
+            {
+                return NotFound();
+            }
+            List<EmployerWarehouse> EmployerWarehouses = new List<EmployerWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                EmployerWarehouses.Add(ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(Warehouse, new EmployerWarehouse()));
+            }
+            return EmployerWarehouses;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> GetsAsyncByUserId(string userid)
+        {
+            var Warehouses = await _EmployerWarehouseRepository.GetToListByUserId(userid);
+            if (Warehouses.Count == 0)
+            {
+                return NotFound();
+            }
+            List<EmployerWarehouse> EmployerWarehouses = new List<EmployerWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                EmployerWarehouses.Add(ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(Warehouse, new EmployerWarehouse()));
+            }
+            return EmployerWarehouses;
         }
 
         [HttpPost]

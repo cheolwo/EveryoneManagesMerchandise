@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerWorkingDeskService : WarehouseService, IDTOService<EmployerWorkingDesk>
     {
-        public EmployerWorkingDeskService(Action<DTOServiceOptions> options)
+        public EmployerWorkingDeskService(WarehouseServiceOptions options)
             : base(options)
         {
 

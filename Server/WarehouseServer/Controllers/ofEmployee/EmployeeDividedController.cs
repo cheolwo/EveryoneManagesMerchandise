@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofWarehouse.ofEmployee;
 using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessData.ofWarehouse.ofInterface.ofEmployee;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -39,7 +39,36 @@ namespace DividedTagServer.Controllers.ofEmployee
             var GetEmployeeDividedTag = ModelToDTO<DividedTag, EmployeeDividedTag>.ConvertToDTO(DividedTag, new EmployeeDividedTag());
             return GetEmployeeDividedTag;
         }
-
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeDividedTag>>> Gets()
+        {
+            var DividedTags = await _EmployeeDividedTagRepository.GetToListAsync();
+            if(DividedTags.Count == 0)
+            {
+                return NotFound();
+            }
+            List<EmployeeDividedTag> employeeDividedTags = new List<EmployeeDividedTag>();
+            foreach (var dividedtag in DividedTags)
+            {
+                employeeDividedTags.Add(ModelToDTO<DividedTag, EmployeeDividedTag>.ConvertToDTO(dividedtag, new EmployeeDividedTag()));
+            }
+            return employeeDividedTags;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeDividedTag>>> GetsAsyncByUserId(string userid)
+        {
+            var DividedTags = await _EmployeeDividedTagRepository.GetToListByUserId(userid);
+            if (DividedTags.Count == 0)
+            {
+                return NotFound();
+            }
+            List<EmployeeDividedTag> employeeDividedTags = new List<EmployeeDividedTag>();
+            foreach (var dividedtag in DividedTags)
+            {
+                employeeDividedTags.Add(ModelToDTO<DividedTag, EmployeeDividedTag>.ConvertToDTO(dividedtag, new EmployeeDividedTag()));
+            }
+            return employeeDividedTags;
+        }
         [HttpPost]
         public async Task<ActionResult<EmployeeDividedTag>> PostDividedTag(EmployeeDividedTag EmployeeDividedTag)
         {

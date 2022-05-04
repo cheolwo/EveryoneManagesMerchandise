@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee
 {
     public class PlatformJCommodityService : JournalService, IDTOService<PlatformJCommodity>
     {
-        public PlatformJCommodityService(Action<DTOServiceOptions> options)
+        public PlatformJCommodityService(JournalServiceOptions options)
             : base(options)
         {
 

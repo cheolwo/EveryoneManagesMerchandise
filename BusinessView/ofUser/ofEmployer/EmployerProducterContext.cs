@@ -1,10 +1,13 @@
-﻿using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofActorService;
+using BusinessView.ofUser.ofCommon;
+using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofEmployer
 {
     public class EmployerProducterContext: EmployerActorContext
     {
-        public EmployerProducterContext()
+        public EmployerProducterContext(ActorServiceOption options)
+            :base(options)
         {
 
         }

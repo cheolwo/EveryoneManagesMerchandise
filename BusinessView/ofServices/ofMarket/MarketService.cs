@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessView.ofCommon;
+﻿using BusinessView.ofCommon;
 using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofMarket
 {
+    public class MarketServiceOptions : DTOServiceOptions
+    {
+        
+    }
     public class MarketService : DTOService
     {
-        public MarketService(Action<DTOServiceOptions> options)
+        protected MarketServiceOptions _MarketServiceOptions;
+        public MarketService(MarketServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _MarketServiceOptions = options;
+            if (_MarketServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.MarketWebAPIServerURL);
             }

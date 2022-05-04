@@ -2,7 +2,7 @@ using BusinessView.ofDTO.ofOrder.ofEmployee;
 using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder
 {
     public class BaseEmployeeOrderCenterViewModel : BaseViewModel
     {

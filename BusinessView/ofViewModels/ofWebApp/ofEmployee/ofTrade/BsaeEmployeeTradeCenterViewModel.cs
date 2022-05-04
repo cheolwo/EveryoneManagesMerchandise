@@ -2,7 +2,7 @@ using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
+namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade
 {
     public class BaseEmployeeTradeCenterViewModel : BaseViewModel
     {

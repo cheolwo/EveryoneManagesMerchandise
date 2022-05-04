@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 {
     public class PlatformSGOCService : GroupOrderService, IDTOService<PlatformSGOC>
     {
-        public PlatformSGOCService(Action<DTOServiceOptions> options)
+        public PlatformSGOCService(GroupOrderServiceOptions options)
             : base(options)
         {
 

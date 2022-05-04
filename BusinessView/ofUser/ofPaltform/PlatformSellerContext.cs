@@ -1,35 +1,38 @@
-﻿using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
+﻿using BusinessView.ofActorService;
+using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
 using BusinessView.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessView.ofUser.ofCommon;
+using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofPlatform
 {
     public class PlatformSellerContext : PlatformActorContext
     {
-        public PlatformSellerContext()
+        public PlatformSellerContext(ActorServiceOption options)
+            :base(options)
         {
 
         }
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
         {
-            serviceBuilder.Add(nameof(PlatformWarehouse), new PlatformWarehouseService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformWCommodity), new PlatformWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformSWCommodity), new PlatformSWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformMWCommodity), new PlatformMWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformEWCommodity), new PlatformEWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformDividedTag), new PlatformDividedTagService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformDotBarcode), new PlatformDotBarcodeService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformIncomingTag), new PlatformIncomingTagService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformLoadFrame), new PlatformLoadFrameService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformWorkingDesk), new PlatformWorkingDeskService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(PlatformWarehouse), new PlatformWarehouseService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformWCommodity), new PlatformWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformSWCommodity), new PlatformSWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformMWCommodity), new PlatformMWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformEWCommodity), new PlatformEWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformDividedTag), new PlatformDividedTagService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformDotBarcode), new PlatformDotBarcodeService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformIncomingTag), new PlatformIncomingTagService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformLoadFrame), new PlatformLoadFrameService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(PlatformWorkingDesk), new PlatformWorkingDeskService(_options.WarehouseServiceOptions));
 
-            serviceBuilder.Add(nameof(PlatformEMCommodity), new PlatformEMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformSMCommodity), new PlatformSMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformMMCommodity), new PlatformMMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformMCommodity), new PlatformMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformPlatMarket), new PlatformPlatMarketService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(PlatformMarket), new PlatformMarketService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(PlatformEMCommodity), new PlatformEMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(PlatformSMCommodity), new PlatformSMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(PlatformMMCommodity), new PlatformMMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(PlatformMCommodity), new PlatformMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(PlatformPlatMarket), new PlatformPlatMarketService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(PlatformMarket), new PlatformMarketService(_options.MarketServiceOptions));
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {

@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformDividedTagService : WarehouseService, IDTOService<PlatformDividedTag>
     {
-        public PlatformDividedTagService(Action<DTOServiceOptions> options)
+        public PlatformDividedTagService(WarehouseServiceOptions options)
             : base(options)
         {
 

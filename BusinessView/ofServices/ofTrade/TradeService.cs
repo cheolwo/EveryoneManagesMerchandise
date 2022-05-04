@@ -3,12 +3,18 @@ using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofTrade
 {
+    public class TradeServiceOptions : DTOServiceOptions
+    {
+
+    }
     public class TradeService : DTOService
     {
-        public TradeService(Action<DTOServiceOptions> options)
+        protected TradeServiceOptions _TradeServiceOptions;
+        public TradeService(TradeServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _TradeServiceOptions = options;
+            if (_TradeServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.TradeWebAPIServerURL);
             }

@@ -3,12 +3,18 @@ using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofJournal
 {
+    public class JournalServiceOptions : DTOServiceOptions
+    {
+
+    }
     public class JournalService : DTOService
     {
-        public JournalService(Action<DTOServiceOptions> options)
+        protected JournalServiceOptions _JournalServiceOptions;
+        public JournalService(JournalServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _JournalServiceOptions = options;
+            if (_JournalServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.JournalWebAPIServerURL);
             }

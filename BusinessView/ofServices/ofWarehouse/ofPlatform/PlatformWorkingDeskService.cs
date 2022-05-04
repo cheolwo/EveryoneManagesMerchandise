@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformWorkingDeskService : WarehouseService, IDTOService<PlatformWorkingDesk>
     {
-        public PlatformWorkingDeskService(Action<DTOServiceOptions> options)
+        public PlatformWorkingDeskService(WarehouseServiceOptions options)
             : base(options)
         {
 

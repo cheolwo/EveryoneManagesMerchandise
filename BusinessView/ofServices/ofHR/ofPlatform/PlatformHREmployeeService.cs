@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {
     public class PlatformHREmployeeService : HRService, IDTOService<PlatformHREmployee>
     {
-        public PlatformHREmployeeService(Action<DTOServiceOptions> options)
+        public PlatformHREmployeeService(HRServiceOptions options)
             : base(options)
         {
 

@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformDotBarcodeService : WarehouseService, IDTOService<PlatformDotBarcode>
     {
-        public PlatformDotBarcodeService(Action<DTOServiceOptions> options)
+        public PlatformDotBarcodeService(WarehouseServiceOptions options)
             : base(options)
         {
 

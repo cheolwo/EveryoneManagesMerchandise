@@ -1,35 +1,38 @@
-﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
+﻿using BusinessView.ofActorService;
+using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofDTO.ofMarket.ofEmployer;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofUser.ofCommon;
+using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofEmployer
 {
     public class EmployerSellerContext: EmployerActorContext
     {
-        public EmployerSellerContext()
+        public EmployerSellerContext(ActorServiceOption options)
+            :base(options)
         {
 
         }
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
         {
-            serviceBuilder.Add(nameof(EmployerWarehouse), new EmployerWarehouseService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerWCommodity), new EmployerWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerSWCommodity), new EmployerSWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerMWCommodity), new EmployerMWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerEWCommodity), new EmployerEWCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerDividedTag), new EmployerDividedTagService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerDotBarcode), new EmployerDotBarcodeService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerWarehouse), new EmployerWarehouseService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerWCommodity), new EmployerWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerSWCommodity), new EmployerSWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerMWCommodity), new EmployerMWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerEWCommodity), new EmployerEWCommodityService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerDividedTag), new EmployerDividedTagService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerDotBarcode), new EmployerDotBarcodeService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameService(_options.WarehouseServiceOptions));
+            serviceBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskService(_options.WarehouseServiceOptions));
 
-            serviceBuilder.Add(nameof(EmployerEMCommodity), new EmployerEMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerSMCommodity), new EmployerSMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerMMCommodity), new EmployerMMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerMCommodity), new EmployerMCommodityService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerPlatMarket), new EmployerPlatMarketService(e=>e.IsDevelopment = true));
-            serviceBuilder.Add(nameof(EmployerMarket), new EmployerMarketService(e=>e.IsDevelopment = true));
+            serviceBuilder.Add(nameof(EmployerEMCommodity), new EmployerEMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(EmployerSMCommodity), new EmployerSMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(EmployerMMCommodity), new EmployerMMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(EmployerMCommodity), new EmployerMCommodityService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(EmployerPlatMarket), new EmployerPlatMarketService(_options.MarketServiceOptions));
+            serviceBuilder.Add(nameof(EmployerMarket), new EmployerMarketService(_options.MarketServiceOptions));
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {

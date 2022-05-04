@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerDividedTagService : WarehouseService, IDTOService<EmployerDividedTag>
     {
-        public EmployerDividedTagService(Action<DTOServiceOptions> options)
+        public EmployerDividedTagService(WarehouseServiceOptions options)
             : base(options)
         {
 

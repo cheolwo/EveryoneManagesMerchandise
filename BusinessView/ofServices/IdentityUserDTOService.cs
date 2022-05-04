@@ -8,10 +8,10 @@ namespace BusinessView.ofCommon.ofServices
 {
     public class IdentityService : DTOService
     {
-        public IdentityService(Action<DTOServiceOptions> options)
+        public IdentityService(DTOServiceOptions options)
+              :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            if (_DTOServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.IdentityWebAPIServerURL);
             }
@@ -23,7 +23,7 @@ namespace BusinessView.ofCommon.ofServices
     }
     public class IdentityUserDTOService : IdentityService, IDTOService<IdentityUserDTO>
     {
-        public IdentityUserDTOService(Action<DTOServiceOptions> options)
+        public IdentityUserDTOService(DTOServiceOptions options)
             : base(options)
         {
 

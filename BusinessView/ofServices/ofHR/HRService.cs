@@ -3,12 +3,18 @@ using BusinessView.ofCommon.ofServices;
 
 namespace BusinessView.ofServices.ofHR
 {
+    public class HRServiceOptions : DTOServiceOptions
+    {
+
+    }
     public class HRService : DTOService 
     {
-        public HRService(Action<DTOServiceOptions> options)
+        protected HRServiceOptions _HRServiceOptions;
+        public HRService(HRServiceOptions options)
+            :base(options)
         {
-            options.Invoke(_options);
-            if (_options.IsDevelopment)
+            _HRServiceOptions = options;
+            if (_HRServiceOptions.IsDevelopment)
             {
                 _httpClient.BaseAddress = new Uri(DevelopmentServerBaseAddress.HRWebAPIServerURL);
             }

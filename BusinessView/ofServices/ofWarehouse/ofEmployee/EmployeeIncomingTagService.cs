@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeIncomingTagService : WarehouseService, IDTOService<EmployeeIncomingTag>
     {
-        public EmployeeIncomingTagService(Action<DTOServiceOptions> options)
+        public EmployeeIncomingTagService(WarehouseServiceOptions options)
             : base(options)
         {
 

@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
     public class EmployerEWCommodityService : WarehouseService, IDTOService<EmployerEWCommodity>
     {
-        public EmployerEWCommodityService(Action<DTOServiceOptions> options)
+        public EmployerEWCommodityService(WarehouseServiceOptions options)
             : base(options)
         {
 

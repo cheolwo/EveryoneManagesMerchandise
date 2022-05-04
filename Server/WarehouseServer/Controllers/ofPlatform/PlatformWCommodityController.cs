@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 using BusinessData.ofWarehouse.ofInterface.ofPlatform;
-using BusinessView.ofWarehouse.ofPlatform;
+using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessData.ofWarehouse.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860

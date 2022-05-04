@@ -1,5 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using BusinessView.ofCommon.ofServices;
+using BusinessView.ofActorService;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofUser;
+
+EmployerActorContext employerActorContext = new(new ActorServiceOption());
+await employerActorContext.GetsAsync<EmployerWarehouse>();
 
 //List<WCommodity> wCommodities = new List<WCommodity>();
 //wCommodities.Add(new WCommodity { Name = "First"});
@@ -33,7 +38,6 @@ using BusinessView.ofCommon.ofServices;
 
 //UserActor userActor = new UserActor(new ActorOption { IsUseStorage = false});
 //LogisterActor LogisterActor = new LogisterActor(new ActorOption { IsUseStorage = false });
-
 
 
 

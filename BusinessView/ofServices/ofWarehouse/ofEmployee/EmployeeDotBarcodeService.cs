@@ -8,7 +8,7 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
 {
     public class EmployeeDotBarcodeService : WarehouseService, IDTOService<EmployeeDotBarcode>
     {
-        public EmployeeDotBarcodeService(Action<DTOServiceOptions> options)
+        public EmployeeDotBarcodeService(WarehouseServiceOptions options)
             : base(options)
         {
 

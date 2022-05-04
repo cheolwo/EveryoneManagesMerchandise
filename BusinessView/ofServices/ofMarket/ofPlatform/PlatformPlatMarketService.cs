@@ -9,11 +9,11 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
 {
     public class PlatformPlatMarketService : MarketService, IDTOService<PlatformPlatMarket>
     {
-        public PlatformPlatMarketService(Action<DTOServiceOptions> options)
+        public PlatformPlatMarketService(MarketServiceOptions options)
             : base(options)
         {
 
-        }
+        } 
 
         public async Task DeleteAsync(string id)
         {

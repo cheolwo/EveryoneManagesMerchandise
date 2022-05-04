@@ -9,7 +9,7 @@ namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer
 {
     public class EmployerMGOCService : GroupOrderService, IDTOService<EmployerMGOC>
     {
-        public EmployerMGOCService(Action<DTOServiceOptions> options)
+        public EmployerMGOCService(GroupOrderServiceOptions options)
             : base(options)
         {
 
