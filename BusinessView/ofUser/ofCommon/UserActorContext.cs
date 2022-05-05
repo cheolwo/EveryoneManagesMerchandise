@@ -3,7 +3,7 @@ using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
 
-namespace BusinessView.ofUser
+namespace BusinessView.ofCommon.ofUser
 {
     public class UserActorContext : ActorContext
     {

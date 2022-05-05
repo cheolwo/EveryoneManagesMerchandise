@@ -15,7 +15,7 @@ using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofUser.ofCommon;
 using Microsoft.Extensions.Options;
 
-namespace BusinessView.ofUser
+namespace BusinessView.ofCommon.ofUser
 {
     public class EmployerActorContext : UserActorContext
     {

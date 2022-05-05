@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofActorService;
 using BusinessView.ofUser.ofCommon;
 
-namespace BusinessView.ofUser
+namespace BusinessView.ofCommon.ofUser
 {
     public class ActorOption
     {
