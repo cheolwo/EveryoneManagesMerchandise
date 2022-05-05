@@ -1,4 +1,5 @@
 ﻿using BusinessView.ofCommon.ofServices;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofServices.ofGroupOrder;
 using BusinessView.ofServices.ofHR;
 using BusinessView.ofServices.ofJournal;

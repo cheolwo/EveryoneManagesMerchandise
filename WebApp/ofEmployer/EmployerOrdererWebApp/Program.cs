@@ -1,6 +1,9 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse;
 using EmployerOrdererWebApp.Areas.Identity;
 using EmployerOrdererWebApp.Data;
 using Microsoft.AspNetCore.Components;

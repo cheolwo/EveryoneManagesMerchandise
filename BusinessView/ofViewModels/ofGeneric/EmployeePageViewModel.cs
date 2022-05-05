@@ -2,7 +2,7 @@ using BusinessView.ofCommon.ofUser;
 using BusinessView.ofCommon.ofEmployee;
 namespace BusinessView.ofViewModels.ofGeneric
 {
-    public class EmployeePageViewModel<TEntity> : PaegViewModel<TEntity> where TEntity : EmployeeEntity
+    public class EmployeePageViewModel<TEntity> : PaegViewModel<TEntity> where TEntity : EmployeeEntity, new()
     {
         public EmployeePageViewModel(EmployeePostViewModel<TEntity> postViewModel, EmployeePutViewModel<TEntity> putViewModel, 
                                 EmployeeDeleteViewModel<TEntity> deleteViewModel, EmployeeGetsViewModel<TEntity> getsViewModel)
@@ -11,7 +11,7 @@ namespace BusinessView.ofViewModels.ofGeneric
 
         }
     }
-    public class EmployeePostViewModel<TEntity> : PostViewModel<TEntity> where TEntity : EmployeeEntity
+    public class EmployeePostViewModel<TEntity> : PostViewModel<TEntity> where TEntity : EmployeeEntity, new()
     {
         protected readonly EmployeeActorContext _EmployeeActorContext;
         public EmployeePostViewModel(EmployeeActorContext EmployeeActorContext)
@@ -20,7 +20,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployeeActorContext = EmployeeActorContext;
         }
     }
-    public class EmployeePutViewModel<TEntity> : PutViewModel<TEntity> where TEntity : EmployeeEntity
+    public class EmployeePutViewModel<TEntity> : PutViewModel<TEntity> where TEntity : EmployeeEntity, new()
     {
         protected readonly EmployeeActorContext _EmployeeActorContext;
         public EmployeePutViewModel(EmployeeActorContext EmployeeActorContext)
@@ -29,7 +29,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployeeActorContext = EmployeeActorContext;
         }
     }
-    public class EmployeeGetsViewModel<TEntity> : GetsViewModel<TEntity> where TEntity : EmployeeEntity
+    public class EmployeeGetsViewModel<TEntity> : GetsViewModel<TEntity> where TEntity : EmployeeEntity, new()
     {
         protected readonly EmployeeActorContext _EmployeeActorContext;
         public EmployeeGetsViewModel(EmployeeActorContext EmployeeActorContext)
@@ -38,7 +38,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployeeActorContext = EmployeeActorContext;
         }
     }
-    public class EmployeeDeleteViewModel<TEntity> : DeleteViewModel<TEntity> where TEntity : EmployeeEntity
+    public class EmployeeDeleteViewModel<TEntity> : DeleteViewModel<TEntity> where TEntity : EmployeeEntity, new()
     {
         protected readonly EmployeeActorContext _EmployeeActorContext;
         public EmployeeDeleteViewModel(EmployeeActorContext EmployeeActorContext)

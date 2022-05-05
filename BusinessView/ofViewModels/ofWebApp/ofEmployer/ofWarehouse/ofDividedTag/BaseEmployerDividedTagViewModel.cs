@@ -1,4 +1,4 @@
-using BusinessView.ofUser;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 

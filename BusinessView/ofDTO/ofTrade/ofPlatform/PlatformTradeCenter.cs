@@ -5,6 +5,6 @@ namespace BusinessView.ofTrade.ofPlatform
 {
     public class PlatformTradeCenter : PlatformCenter
     {
-        public string TCommodities {get; set;}
+        public string? TCommodities {get; set;}
     }
 }

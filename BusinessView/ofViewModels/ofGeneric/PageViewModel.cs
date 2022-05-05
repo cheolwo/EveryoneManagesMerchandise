@@ -1,6 +1,6 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofUser.ofCommon;
-using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using BusinessView.ofCommon.ofUser;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
@@ -8,7 +8,7 @@ namespace BusinessView.ofViewModels.ofGeneric
     {
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
-        public TEntity? TEntity
+        public TEntity? Entity
         {
             get=>_TEntity;
             set
@@ -22,7 +22,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         }    
         public async Task GetByIdAsync(string id)
         {
-            TEntity = await _ActorContext.GetByIdAsync<TEntity>(id);
+            Entity = await _ActorContext.GetByIdAsync<TEntity>(id);
         }   
     }
     public abstract class PostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
@@ -75,6 +75,16 @@ namespace BusinessView.ofViewModels.ofGeneric
         {
 
         }
+        private bool _isPut = false;
+        public bool IsPut
+        {
+            get => _isPut;
+            set
+            {
+                _isPut = value;
+                OnPropertyChanged();
+            }
+        }
         private TEntity? _putTEntity = new();
         public TEntity? PutTEntity
         {
@@ -114,7 +124,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
         public void Reset()
         {
-            TEntity = new();
+            Entity = new();
         }
     }
     public abstract class GetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
@@ -157,11 +167,6 @@ namespace BusinessView.ofViewModels.ofGeneric
             }
             OnPropertyChanged();
         }
-        public void Delte(string id)
-        {
-            var obj = TEntitys.Find(e => e.Id.Equals(id));
-            if(obj != null) { TEntitys.Remove(obj); OnPropertyChanged(); }
-        }
     }
     public abstract class PaegViewModel<TEntity> : BaseViewModel where TEntity : new()
     {
@@ -178,11 +183,11 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
         public void SetPropertyChangedEventHandler(PropertyChangedEventHandler propertyChanged)
         {
-            _PostViewModel.PropertyChanged = propertyChanged;
-            _GetsViewModel.PropertyChanged = propertyChanged;
-            _PutViewModel.PropertyChanged = propertyChanged;
-            _DeleteViewModel.PropertyChanged = propertyChanged;
-            PropertyChanged = propertyChanged;
+            _PostViewModel.PropertyChanged += propertyChanged;
+            _GetsViewModel.PropertyChanged += propertyChanged;
+            _PutViewModel.PropertyChanged += propertyChanged;
+            _DeleteViewModel.PropertyChanged += propertyChanged;
+            PropertyChanged += propertyChanged;
         }
         public PostViewModel<TEntity> PosetViewModel {get=>_PostViewModel;}
         public GetsViewModel<TEntity> GetsViewModel {get => _GetsViewModel;}

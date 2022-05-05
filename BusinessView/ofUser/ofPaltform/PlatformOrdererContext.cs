@@ -7,6 +7,7 @@ using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofActorService;
 using Microsoft.Extensions.Options;
+using BusinessView.ofCommon.ofUser;
 
 namespace BusinessView.ofUser.ofPlatform
 {

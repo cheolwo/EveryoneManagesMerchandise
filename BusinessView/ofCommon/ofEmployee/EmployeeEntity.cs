@@ -7,15 +7,15 @@ namespace BusinessView.ofCommon.ofEmployee
 {
     public class EmployeeEntity
     {
-        [Get] public string Id { get; set; }
-        [Get] public string Code { get; set; }
-        [Get] public string Name { get; set; }
-        [Detail]public string Container {get; set;}
+        [Get] public string? Id { get; set; }
+        [Get] public string? Code { get; set; }
+        [Get] public string? Name { get; set; }
+        [Detail]public string? Container {get; set;}
         [Detail]public DateTime CreateTime { get; set; }
-        [Detail]public string UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
-        [Detail]public List<ChangeUser> ChangedUsers {get; set;}
-        [Detail]public List<ImageofInfo> ImageofInfos {get; set;}
-        [Detail]public List<Doc> Docs {get; set;}
+        [Detail]public string? UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
+        [Detail]public List<ChangeUser>? ChangedUsers {get; set;}
+        [Detail]public List<ImageofInfo>? ImageofInfos {get; set;}
+        [Detail]public List<Doc>? Docs {get; set;}
         public List<PropertyInfo> OnlyGetProperties(Type t)
         {
             List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
@@ -209,55 +209,55 @@ namespace BusinessView.ofCommon.ofEmployee
       }
     public class EmployeeCenter : EmployeeEntity
     {
-        [Get] public string LoginId { get; set; }
-        [Get] public string Password { get; set; }
+        [Get] public string? LoginId { get; set; }
+        [Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] public string Address {get; set;}
-        [Get] public string CountryCode {get; set;}
+        [Get] public string? Address {get; set;}
+        [Get] public string? CountryCode {get; set;}
         [Detail] public string CardNumber {get; set;}
-        [Get] public string Cvv {get; set;}
-        [Get] public string CardPassword {get; set;}
-        [Get] public string PhoneNumber {get; set;}
-        [Get] public string FaxNumber {get; set;}
-        [Get][Many] public string Commodities { get; set; }
-        [Get][Many] public string EStatuses { get; set; }
-        [Get][Many] public string MStatuses { get; set; }
-        [Get][Many] public string SStatuses { get; set; }
-        [Detail] public List<CenterMacAddress> CenterMacAddresses { get; set; }
-        [Detail] public List<CenterIPAddress> CenterIPAddresses { get; set; }
-        [Detail] public List<CenterRole> CenterRoles {get; set;}
+        [Get] public string? Cvv {get; set;}
+        [Get] public string? CardPassword {get; set;}
+        [Get] public string? PhoneNumber {get; set;}
+        [Get] public string? FaxNumber {get; set;}
+        [Get][Many] public string? Commodities { get; set; }
+        [Get][Many] public string? EStatuses { get; set; }
+        [Get][Many] public string? MStatuses { get; set; }
+        [Get][Many] public string? SStatuses { get; set; }
+        [Detail] public List<CenterMacAddress>? CenterMacAddresses { get; set; }
+        [Detail] public List<CenterIPAddress>? CenterIPAddresses { get; set; }
+        [Detail] public List<CenterRole>? CenterRoles {get; set;}
     }
     public class EmployeeCommodity : EmployeeEntity
     {
-        public string HsCode {get; set;}
-        public string OpponentBusinessUserId { get; set; }
-        [Detail]public string Barcode {get; set;}
-        public string CenterId {get; set;}
-        [One][Get]public Center Center { get; set; }
-        [Many][Get]public string EStatuses { get; set; }
-        [Many][Get]public string MStatuses { get; set; }
-        [Many][Get]public string SStatuses { get; set; }
+        public string? HsCode {get; set;}
+        public string? OpponentBusinessUserId { get; set; }
+        [Detail]public string? Barcode {get; set;}
+        public string? CenterId {get; set;}
+        [One][Get]public string? Center { get; set; }
+        [Many][Get]public string? EStatuses { get; set; }
+        [Many][Get]public string? MStatuses { get; set; }
+        [Many][Get]public string? SStatuses { get; set; }
     }
     public class EmployeeStatus : EmployeeEntity
     {
-        public string CommodityId {get; set;}
-        public string CenterId {get; set;}
-        public string Quantity { get; set; }
-        [Get][One] public string Commodity { get; set; }
-        [Get][One] public string Center {get; set;}
+        public string? CommodityId {get; set;}
+        public string? CenterId {get; set;}
+        public string? Quantity { get; set; }
+        [Get][One] public string? Commodity { get; set; }
+        [Get][One] public string? Center {get; set;}
     }
     public class EmployeeSStatus : EmployeeStatus
     {
-        [Get][Many]public string MStatuses { get; set; }
+        [Get][Many]public string? MStatuses { get; set; }
     }
     public class EmployeeMStatus : EmployeeStatus
     {
-        [Get][One] public string SStatus { get; set; }
-        [Get][Many] public string EStatuses { get; set; }
+        [Get][One] public string? SStatus { get; set; }
+        [Get][Many] public string? EStatuses { get; set; }
     }
     public class EmployeeEStatus : EmployeeStatus
     {
-        public string MStatusId {get; set;}
-        [Get][One] public string MStatus { get; set; }
+        public string? MStatusId {get; set;}
+        [Get][One] public string? MStatus { get; set; }
     }
 }

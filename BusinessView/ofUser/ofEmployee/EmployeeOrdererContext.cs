@@ -1,6 +1,7 @@
 ﻿using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofDTO.ofOrder.ofEmployee;
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;

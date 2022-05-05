@@ -1,6 +1,7 @@
 ﻿using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofDTO.ofMarket.ofEmployee;
 using BusinessView.ofDTO.ofOrder.ofEmployee;
@@ -57,7 +58,7 @@ namespace BusinessView.ofUser.ofEmployee
             serviceBuilder.Add(nameof(EmployeeMMCommodity), new EmployeeMMCommodityService(_options.MarketServiceOptions));
             serviceBuilder.Add(nameof(EmployeePlatMarket), new EmployeePlatMarketService(_options.MarketServiceOptions));
 
-            serviceBuilder.Add(nameof(EmployeeProducterContext), new EmployeeProducterService(_options.ProductServiceOptions));
+            serviceBuilder.Add(nameof(EmployeeProducter), new EmployeeProducterService(_options.ProductServiceOptions));
             serviceBuilder.Add(nameof(EmployeeEPCommodity), new EmployeeEPCommodityService(_options.ProductServiceOptions));
             serviceBuilder.Add(nameof(EmployeeSPCommodity), new EmployeeSPCommodityService(_options.ProductServiceOptions));
             serviceBuilder.Add(nameof(EmployeeMPCommodity), new EmployeeMPCommodityService(_options.ProductServiceOptions));

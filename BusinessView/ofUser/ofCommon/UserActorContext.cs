@@ -24,7 +24,7 @@ namespace BusinessView.ofCommon.ofUser
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilder)
         {
         }
-        public override async Task<T> PostAsync<T>(T t)
+        public override async Task<T> PostAsync<T>(T t) 
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             if(service != null)

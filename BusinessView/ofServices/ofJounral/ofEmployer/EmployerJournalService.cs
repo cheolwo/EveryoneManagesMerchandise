@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 {
-    public class EmployerJournalService : JournalService, IDTOService<EmployerJournal>
+    public class EmployerJournalService : JournalService
     {
         public EmployerJournalService(JournalServiceOptions options)
             : base(options)
@@ -15,54 +15,6 @@ namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
 
         }
 
-        public async Task DeleteAsync(string id)
-        {
-            var Response = await _httpClient.DeleteAsync($"api/EmployerJournal/{id}");
-            Response.EnsureSuccessStatusCode();
-        }
-
-        public async Task<EmployerJournal?> GetByIdAsync(string id)
-        {
-            return await _httpClient.GetFromJsonAsync<EmployerJournal>($"/api/EmployerJournal/{id}");
-        }
-
-        public async Task<IEnumerable<EmployerJournal>?> GetsAsync()
-        {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<EmployerJournal>>("/api/EmployerJournal");
-        }
-
-        public async Task<EmployerJournal?> PostAsync(EmployerJournal entity)
-        {
-            var entityJson = new StringContent(
-            JsonSerializer.Serialize(entity),
-            Encoding.UTF8,
-            Application.Json); // using static System.Net.Mime.MediaTypeNames;
-
-            using var httpResponseMessage =
-                await _httpClient.PostAsync("/api/EmployerJournal", entityJson);
-            httpResponseMessage.EnsureSuccessStatusCode();
-
-            string JsonEmployerJournal = await httpResponseMessage.Content.ReadAsStringAsync();
-            EmployerJournal? EmployerJournal = JsonSerializer.Deserialize<EmployerJournal>(JsonEmployerJournal);
-            return EmployerJournal;
-        }
-
-        public async Task<EmployerJournal?> PutAsync(EmployerJournal entity)
-        {
-            var entityJson = new StringContent(
-            JsonSerializer.Serialize(entity),
-            Encoding.UTF8,
-            Application.Json); // using static System.Net.Mime.MediaTypeNames;
-
-            using var httpResponseMessage =
-                await _httpClient.PutAsync("/api/EmployerJournal", entityJson);
-            httpResponseMessage.EnsureSuccessStatusCode();
-
-            string JsonEmployerJournal = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            EmployerJournal? EmployerJournal = JsonSerializer.Deserialize<EmployerJournal>(JsonEmployerJournal);
-
-            return EmployerJournal;
-        }
+       
     }
 }

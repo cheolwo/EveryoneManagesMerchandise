@@ -25,7 +25,7 @@ namespace BusinessView.ofCommon.ofServices
         {
             _DTOServiceOptions = options;
         }
-        public virtual async Task<T?> PostAsync<T>(T t) where T : class
+        public virtual async Task<T?> PostAsync<T>(T t) where T : new()
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(t),
@@ -39,7 +39,7 @@ namespace BusinessView.ofCommon.ofServices
             T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
             return dto;
         }
-        public virtual async Task<T?> PutAsync<T>(T t) where T : class
+        public virtual async Task<T?> PutAsync<T>(T t) where T : new()
         {
             var entityJson = new StringContent(
             JsonSerializer.Serialize(t),
@@ -53,20 +53,20 @@ namespace BusinessView.ofCommon.ofServices
             T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
             return dto;
         }
-        public virtual async Task DeleteAsync<T>(string id) where T : class
+        public virtual async Task DeleteAsync<T>(string id) where T : new()
         {
             var Response = await _httpClient.DeleteAsync($"api/{typeof(T).Name}/{id}");
             Response.EnsureSuccessStatusCode();
         }
-        public virtual async Task<T?> GetByIdAsync<T>(string id) where T : class
+        public virtual async Task<T?> GetByIdAsync<T>(string id) where T : new()
         {
             return await _httpClient.GetFromJsonAsync<T>($"/api/{typeof(T).Name}/{id}");
         }
-        public virtual async Task<IEnumerable<T>?> GetsAsync<T>() where T : class
+        public virtual async Task<IEnumerable<T>?> GetsAsync<T>() where T : new()
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}");
         }
-        public virtual async Task<IEnumerable<T>?> GetsAsyncByUserId<T>(string userid) where T : class
+        public virtual async Task<IEnumerable<T>?> GetsAsyncByUserId<T>(string userid) where T : new()
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}/User?{userid}");
         }

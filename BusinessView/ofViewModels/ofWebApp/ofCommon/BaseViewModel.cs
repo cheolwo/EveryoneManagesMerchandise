@@ -8,7 +8,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     public enum ModeView { Table, Card, Dashboard}
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
         private bool isBusy = false;
         public bool IsBusy
         {

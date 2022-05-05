@@ -7,7 +7,7 @@ namespace BusinessView.ofTrade.ofEmployee
         public bool IsAccecptBillofLading {get; set;}
         public bool IsAcceptCerticificateofOrigin {get; set;}
         public bool IsAcceptCredit {get; set;}
-        public string ETCommodityId {get; set;}
-        public string TCommodity {get; set;}
+        public string? ETCommodityId {get; set;}
+        public string? TCommodity {get; set;}
     }
 }

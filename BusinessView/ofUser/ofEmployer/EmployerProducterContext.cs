@@ -1,4 +1,5 @@
 ﻿using BusinessView.ofActorService;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
 using Microsoft.Extensions.Options;
 

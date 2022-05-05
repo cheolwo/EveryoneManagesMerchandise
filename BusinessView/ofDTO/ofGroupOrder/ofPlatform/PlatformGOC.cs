@@ -9,7 +9,7 @@ namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
 {
     public class PlatformGOC : PlatformCenter
     {
-        public List<string> OrderCenters { get; set; }
-        public string WarehouseId { get; set; }
+        public List<string>? OrderCenters { get; set; }
+        public string? WarehouseId { get; set; }
     }
 }

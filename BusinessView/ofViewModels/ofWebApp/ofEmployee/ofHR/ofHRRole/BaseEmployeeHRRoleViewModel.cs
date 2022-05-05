@@ -1,5 +1,5 @@
 using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofUser;
+using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR

@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {
-    public class EmployeeHRRoleService : HRService, IDTOService<EmployeeHRRole>
+    public class EmployeeHRRoleService : HRService
     {
         public EmployeeHRRoleService(HRServiceOptions options)
             : base(options)
@@ -15,54 +15,5 @@ namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 
         }
 
-        public async Task DeleteAsync(string id)
-        {
-            var Response = await _httpClient.DeleteAsync($"api/EmployeeHRRole/{id}");
-            Response.EnsureSuccessStatusCode();
-        }
-
-        public async Task<EmployeeHRRole?> GetByIdAsync(string id)
-        {
-            return await _httpClient.GetFromJsonAsync<EmployeeHRRole>($"/api/EmployeeHRRole/{id}");
-        }
-
-        public async Task<IEnumerable<EmployeeHRRole>?> GetsAsync()
-        {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeHRRole>>("/api/EmployeeHRRole");
-        }
-
-        public async Task<EmployeeHRRole?> PostAsync(EmployeeHRRole entity)
-        {
-            var entityJson = new StringContent(
-            JsonSerializer.Serialize(entity),
-            Encoding.UTF8,
-            Application.Json); // using static System.Net.Mime.MediaTypeNames;
-
-            using var httpResponseMessage =
-                await _httpClient.PostAsync("/api/EmployeeHRRole", entityJson);
-            httpResponseMessage.EnsureSuccessStatusCode();
-
-            string JsonEmployeeHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
-            EmployeeHRRole? employeeHRRole = JsonSerializer.Deserialize<EmployeeHRRole>(JsonEmployeeHRRole);
-            return employeeHRRole;
-        }
-
-        public async Task<EmployeeHRRole?> PutAsync(EmployeeHRRole entity)
-        {
-            var entityJson = new StringContent(
-            JsonSerializer.Serialize(entity),
-            Encoding.UTF8,
-            Application.Json); // using static System.Net.Mime.MediaTypeNames;
-
-            using var httpResponseMessage =
-                await _httpClient.PutAsync("/api/EmployeeHRRole", entityJson);
-            httpResponseMessage.EnsureSuccessStatusCode();
-
-            string JsonEmployeeHRRole = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            EmployeeHRRole? employeeHRRole = JsonSerializer.Deserialize<EmployeeHRRole>(JsonEmployeeHRRole);
-
-            return employeeHRRole;
-        }
     }
 }
