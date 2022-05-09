@@ -1,178 +1,46 @@
 using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofViewModels.ofGeneric.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 {
-    public class BaseEmployeeGOCViewModel : BaseViewModel
+    public class BaseEmployeeGOCViewModel : BaseCenterViewModel<EmployeeGOC>
     {
-        protected readonly EmployeeActorContext _EmployeeActorContext;
-        protected EmployeeGOC? _EmployeeGOC = new();
-        public EmployeeGOC? EmployeeGOC
-        {
-            get => _EmployeeGOC;
-            set
-            {
-                SetValue(ref _EmployeeGOC, value);
-            }
-        }
         public BaseEmployeeGOCViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
-            _EmployeeActorContext = EmployeeActorContext;
-        }
-        public virtual async Task GetByIdAsync(string id)
-        {
-            _EmployeeGOC = await _EmployeeActorContext.GetByIdAsync<EmployeeGOC>(id);
         }
     }
-    public class PostEmployeeGOCViewModel : BaseEmployeeGOCViewModel
+    public class EmployeePostGOCViewModel : CenterPostViewModel<EmployeeGOC>
     {
-        private bool _isPost = false;
-        public bool IsPost
-        {
-            get => _isPost;
-            set
-            {
-                _isPost = value;
-                OnPropertyChanged();
-            }
-        }
-        private EmployeeGOC? _postEmployeeGOC = new();
-        public EmployeeGOC? PostEmployeeGOC
-        {
-            get => _postEmployeeGOC;
-            set
-            {
-                SetValue(ref _postEmployeeGOC, value);
-            }
-        }
-        public PostEmployeeGOCViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePostGOCViewModel(EmployeeActorContext EmployeeActorContext)
             : base(EmployeeActorContext)
         {
 
         }
-        public async Task PostAsync(EmployeeGOC EmployeeGOC)
-        {
-            var PostValue = await _EmployeeActorContext.PostAsync(EmployeeGOC);
-            if (PostValue != null)
-            {
-                PostEmployeeGOC = PostValue;
-                IsPost = true;
-            }
-        }
-        public void Reset()
-        {
-            IsPost = false;
-            _EmployeeGOC = new();
-            _postEmployeeGOC = new();
-            OnPropertyChanged();
-        }
     }
-    public class PutEmployeeGOCViewModel : BaseEmployeeGOCViewModel
+    public class EmployeePutGOCViewModel : CenterPutViewModel<EmployeeGOC>
     {
-        private bool _isPut = false;
-        public bool IsPut
-        {
-            get => _isPut;
-            set
-            {
-                _isPut = value;
-                OnPropertyChanged();
-            }
-        }
-        private EmployeeGOC? _putEmployeeGOC = new();
-        public EmployeeGOC? PutEmployeeGOC
-        {
-            get => _putEmployeeGOC;
-            set
-            {
-                SetValue(ref _putEmployeeGOC, value);
-            }
-        }
-        public PutEmployeeGOCViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePutGOCViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
-        public async Task PutAsync(EmployeeGOC EmployeeGOC)
-        {
-            var PutValue = await _EmployeeActorContext.PutAsync(EmployeeGOC);
-            if(PutValue != null)
-            {
-                _isPut = true;
-                PutEmployeeGOC = PutValue;
-            }
-        }
-        public void Reset()
-        {
-            _isPut = false;
-            _EmployeeGOC = new();
-            _putEmployeeGOC = new();
-            OnPropertyChanged();
-        }
     }
-    public class DeleteEmployeeGOCViewModel : BaseEmployeeGOCViewModel
+    public class EmployeeDeleteGOCViewModel : CenterDeleteViewModel<EmployeeGOC>
     {
-        public DeleteEmployeeGOCViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeDeleteGOCViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
-        public async Task DeleteAsync(string id)
-        {
-            await _EmployeeActorContext.DeleteByIdAsync<EmployeeGOC>(id);
-        }
-        public void Reset()
-        {
-            EmployeeGOC = new();
-        }
     }
-    public class GetsEmployeeGOCViewModel : BaseEmployeeGOCViewModel
+    public class EmployeeGetsGOCViewModel : CenterGetsViewModel<EmployeeGOC>
     {
-        private List<EmployeeGOC> _EmployeeGOCs = new();
-        public List<EmployeeGOC> EmployeeGOCs
-        {
-            get=> _EmployeeGOCs;
-            set
-            {
-                SetValue(ref _EmployeeGOCs, value);   
-            }
-        }
-        public GetsEmployeeGOCViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeGetsGOCViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
-        }
-        public async Task GetsAsync()
-        {
-            IEnumerable<EmployeeGOC>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeGOC>();
-            if(dtos != null)
-            {
-                if(_EmployeeGOCs.Count > 0) {return;}
-                foreach(var dto in dtos)
-                {
-                    _EmployeeGOCs.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public async Task GetsAsyncByUserId(string userid)
-        {
-            IEnumerable<EmployeeGOC>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeGOC>(userid);
-            if(dtos != null)
-            {
-                if(_EmployeeGOCs.Count > 0) {return;}
-                foreach(var dto in dtos)
-                {
-                    _EmployeeGOCs.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public void DelteAsync(string id)
-        {
-            var obj = EmployeeGOCs.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeGOCs.Remove(obj); OnPropertyChanged(); }
         }
     }
 }

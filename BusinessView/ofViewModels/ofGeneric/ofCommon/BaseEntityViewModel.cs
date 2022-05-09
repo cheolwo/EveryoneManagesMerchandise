@@ -1,10 +1,9 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using System.ComponentModel;
 using BusinessView.ofCommon.ofUser;
 
-namespace BusinessView.ofViewModels.ofGeneric
+namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
-    public abstract class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : new()
+    public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : new()
     {
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
@@ -25,9 +24,9 @@ namespace BusinessView.ofViewModels.ofGeneric
             Entity = await _ActorContext.GetByIdAsync<TEntity>(id);
         }   
     }
-    public abstract class PostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-        public PostViewModel(ActorContext actorContext)
+        public EntityPostViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -68,9 +67,9 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public abstract class PutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-         public PutViewModel(ActorContext actorContext)
+         public EntityPutViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -111,9 +110,9 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public abstract class DeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-         public DeleteViewModel(ActorContext actorContext)
+         public EntityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -127,9 +126,9 @@ namespace BusinessView.ofViewModels.ofGeneric
             Entity = new();
         }
     }
-    public abstract class GetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-         public GetsViewModel(ActorContext actorContext)
+         public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -167,31 +166,5 @@ namespace BusinessView.ofViewModels.ofGeneric
             }
             OnPropertyChanged();
         }
-    }
-    public abstract class PaegViewModel<TEntity> : BaseViewModel where TEntity : new()
-    {
-        private readonly PostViewModel<TEntity> _PostViewModel;
-        private readonly GetsViewModel<TEntity> _GetsViewModel;
-        private readonly PutViewModel<TEntity> _PutViewModel;
-        private readonly DeleteViewModel<TEntity> _DeleteViewModel;  
-        public PaegViewModel(PostViewModel<TEntity> postViewModel, PutViewModel<TEntity> putViewModel, DeleteViewModel<TEntity> deleteViewModel, GetsViewModel<TEntity> getsViewModel)
-        {
-            _PostViewModel = postViewModel;
-            _GetsViewModel = getsViewModel;
-            _PutViewModel = putViewModel;
-            _DeleteViewModel = deleteViewModel;
-        }
-        public void SetPropertyChangedEventHandler(PropertyChangedEventHandler propertyChanged)
-        {
-            _PostViewModel.PropertyChanged += propertyChanged;
-            _GetsViewModel.PropertyChanged += propertyChanged;
-            _PutViewModel.PropertyChanged += propertyChanged;
-            _DeleteViewModel.PropertyChanged += propertyChanged;
-            PropertyChanged += propertyChanged;
-        }
-        public PostViewModel<TEntity> PosetViewModel {get=>_PostViewModel;}
-        public GetsViewModel<TEntity> GetsViewModel {get => _GetsViewModel;}
-        public PutViewModel<TEntity> PutViewModel {get => _PutViewModel;}
-        public DeleteViewModel<TEntity> DeleteViewModel {get => _DeleteViewModel;}
     }
 }

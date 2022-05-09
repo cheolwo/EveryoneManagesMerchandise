@@ -1,176 +1,46 @@
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofViewModels.ofGeneric.ofCommon;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
 {
-    public class BaseEmployeeWorkingDeskViewModel : BaseViewModel
+    public class BaseEmployeeWorkingDeskViewModel : BaseEntityViewModel<EmployeeWorkingDesk>
     {
-        protected readonly EmployeeActorContext _EmployeeActorContext;
-        protected EmployeeWorkingDesk? _EmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? EmployeeWorkingDesk
-        {
-            get => _EmployeeWorkingDesk;
-            set
-            {
-                SetValue(ref _EmployeeWorkingDesk, value);
-            }
-        }
         public BaseEmployeeWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
+            :base(EmployeeActorContext)
         {
-            _EmployeeActorContext = EmployeeActorContext;
-        }
-        public async Task GetByIdAsync(string id)
-        {
-            EmployeeWorkingDesk = await _EmployeeActorContext.GetByIdAsync<EmployeeWorkingDesk>(id);
         }
     }
-    public class PostEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class EmployeePostWorkingDeskommodityViewModel : EntityPostViewModel<EmployeeWorkingDesk>
     {
-        private bool _isPost = false;
-        public bool IsPost
-        {
-            get => _isPost;
-            set
-            {
-                _isPost = value;
-                OnPropertyChanged();
-            }
-        }
-        private EmployeeWorkingDesk? _postEmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? PostEmployeeWorkingDesk
-        {
-            get => _postEmployeeWorkingDesk;
-            set
-            {
-                SetValue(ref _postEmployeeWorkingDesk, value);
-            }
-        }
-        public PostEmployeeWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePostWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
             : base(EmployeeActorContext)
         {
 
         }
-        public async Task PostAsync(EmployeeWorkingDesk EmployeeWorkingDesk)
-        {
-            var PostValue = await _EmployeeActorContext.PostAsync<EmployeeWorkingDesk>(EmployeeWorkingDesk);
-            if (PostValue != null)
-            {
-                PostEmployeeWorkingDesk = PostValue;
-                IsPost = true;
-            }
-        }
-        public void Reset()
-        {
-            IsPost = false;
-            _EmployeeWorkingDesk = new();
-            _postEmployeeWorkingDesk = new();
-            OnPropertyChanged();
-        }
     }
-    public class PutEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class EmployeePutWorkingDeskommodityViewModel : EntityPutViewModel<EmployeeWorkingDesk>
     {
-        private bool _isPut = false;
-        public bool IsPut
-        {
-            get => _isPut;
-            set
-            {
-                _isPut = value;
-                OnPropertyChanged();
-            }
-        }
-        private EmployeeWorkingDesk? _putEmployeeWorkingDesk = new();
-        public EmployeeWorkingDesk? PutEmployeeWorkingDesk
-        {
-            get => _putEmployeeWorkingDesk;
-            set
-            {
-                SetValue(ref _putEmployeeWorkingDesk, value);
-            }
-        }
-        public PutEmployeeWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePutWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
-        public async Task PutAsync(EmployeeWorkingDesk EmployeeWorkingDesk)
-        {
-            var PutValue = await _EmployeeActorContext.PutAsync<EmployeeWorkingDesk>(EmployeeWorkingDesk);
-            if(PutValue != null)
-            {
-                _isPut = true;
-                PutEmployeeWorkingDesk = PutValue;
-            }
-        }
-        public void Reset()
-        {
-            _isPut = false;
-            _EmployeeWorkingDesk = new();
-            _putEmployeeWorkingDesk = new();
-            OnPropertyChanged();
-        }
     }
-    public class DeleteEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class EmployeeDeleteWorkingDeskommodityViewModel : EntityDeleteViewModel<EmployeeWorkingDesk>
     {
-        public DeleteEmployeeWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeDeleteWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
-        public async Task DeleteAsync(string id)
-        {
-            await _EmployeeActorContext.DeleteByIdAsync<EmployeeWorkingDesk>(id);
-        }
-        public void Reset()
-        {
-            EmployeeWorkingDesk = new();
-        }
     }
-    public class GetsEmployeeWorkingDeskViewModel : BaseEmployeeWorkingDeskViewModel
+    public class EmployeeGetsWorkingDeskommodityViewModel : EntityGetsViewModel<EmployeeWorkingDesk>
     {
-        private List<EmployeeWorkingDesk> _EmployeeWorkingDesks = new();
-        public List<EmployeeWorkingDesk> EmployeeWorkingDesks
-        {
-            get=> _EmployeeWorkingDesks;
-            set
-            {
-                SetValue(ref _EmployeeWorkingDesks, value);   
-            }
-        }
-        public GetsEmployeeWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeGetsWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
-        }
-        public async Task GetsAsync()
-        {
-            IEnumerable<EmployeeWorkingDesk>? dtos = await _EmployeeActorContext.GetsAsync<EmployeeWorkingDesk>();
-            if(dtos != null)
-            {
-                foreach(var dto in dtos)
-                {
-                    _EmployeeWorkingDesks.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public async Task GetsAsyncByUserId(string userid)
-        {
-            IEnumerable<EmployeeWorkingDesk>? dtos = await _EmployeeActorContext.GetsAsyncByUserId<EmployeeWorkingDesk>(userid);
-            if(dtos != null)
-            {
-                foreach(var dto in dtos)
-                {
-                    _EmployeeWorkingDesks.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public void Delte(string id)
-        {
-            var obj = EmployeeWorkingDesks.Find(e => e.Id.Equals(id));
-            if(obj != null) { EmployeeWorkingDesks.Remove(obj); OnPropertyChanged(); }
         }
     }
 }
