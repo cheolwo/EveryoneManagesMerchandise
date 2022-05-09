@@ -11,33 +11,33 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
         {
         }
     }
-    public class EmployeePostWorkingDeskommodityViewModel : EntityPostViewModel<EmployeeWorkingDesk>
+    public class EmployeePostWorkingDeskViewModel : EntityPostViewModel<EmployeeWorkingDesk>
     {
-        public EmployeePostWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePostWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
             : base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeePutWorkingDeskommodityViewModel : EntityPutViewModel<EmployeeWorkingDesk>
+    public class EmployeePutWorkingDeskViewModel : EntityPutViewModel<EmployeeWorkingDesk>
     {
-        public EmployeePutWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePutWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeDeleteWorkingDeskommodityViewModel : EntityDeleteViewModel<EmployeeWorkingDesk>
+    public class EmployeeDeleteWorkingDeskViewModel : EntityDeleteViewModel<EmployeeWorkingDesk>
     {
-        public EmployeeDeleteWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeDeleteWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeGetsWorkingDeskommodityViewModel : EntityGetsViewModel<EmployeeWorkingDesk>
+    public class EmployeeGetsWorkingDeskViewModel : EntityGetsViewModel<EmployeeWorkingDesk>
     {
-        public EmployeeGetsWorkingDeskommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeGetsWorkingDeskViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 

@@ -5,7 +5,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofEGOC
 {
     public class EmployeeEGOCPageViewModel : StatusPageViewModel<EmployeeEGOC> 
     {
-        public class EmployeeEGOCPageViewModel()
+        public EmployeeEGOCPageViewModel(EmployeePostEGOCViewModel employeePostEGOCViewModel, 
+                                        EmployeePutEGOCViewModel employeePutEGOCViewModel,
+                                        EmployeeDeleteEGOCViewModel employeeDeleteEGOCViewModel,
+                                        EmployeeGetsEGOCViewModel employeeGetsEGOCViewModel)
+                :base(employeePostEGOCViewModel, employeePutEGOCViewModel, employeeDeleteEGOCViewModel, employeeGetsEGOCViewModel)
+                    
         {
             
         }

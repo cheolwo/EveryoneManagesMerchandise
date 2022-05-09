@@ -11,33 +11,33 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
         {
         }
     }
-    public class EmployeePostLoadFrameommodityViewModel : EntityPostViewModel<EmployeeLoadFrame>
+    public class EmployeePostLoadFrameViewModel : EntityPostViewModel<EmployeeLoadFrame>
     {
-        public EmployeePostLoadFrameommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePostLoadFrameViewModel(EmployeeActorContext EmployeeActorContext)
             : base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeePutLoadFrameommodityViewModel : EntityPutViewModel<EmployeeLoadFrame>
+    public class EmployeePutLoadFrameViewModel : EntityPutViewModel<EmployeeLoadFrame>
     {
-        public EmployeePutLoadFrameommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePutLoadFrameViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeDeleteLoadFrameommodityViewModel : EntityDeleteViewModel<EmployeeLoadFrame>
+    public class EmployeeDeleteLoadFrameViewModel : EntityDeleteViewModel<EmployeeLoadFrame>
     {
-        public EmployeeDeleteLoadFrameommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeDeleteLoadFrameViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeGetsLoadFrameommodityViewModel : EntityGetsViewModel<EmployeeLoadFrame>
+    public class EmployeeGetsLoadFrameViewModel : EntityGetsViewModel<EmployeeLoadFrame>
     {
-        public EmployeeGetsLoadFrameommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeGetsLoadFrameViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 

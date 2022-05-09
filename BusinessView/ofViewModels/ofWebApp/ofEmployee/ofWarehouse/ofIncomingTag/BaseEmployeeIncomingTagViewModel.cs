@@ -11,33 +11,33 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse
         {
         }
     }
-    public class EmployeePostIncomingTagommodityViewModel : EntityPostViewModel<EmployeeIncomingTag>
+    public class EmployeePostIncomingTagViewModel : EntityPostViewModel<EmployeeIncomingTag>
     {
-        public EmployeePostIncomingTagommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePostIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
             : base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeePutIncomingTagommodityViewModel : EntityPutViewModel<EmployeeIncomingTag>
+    public class EmployeePutIncomingTagViewModel : EntityPutViewModel<EmployeeIncomingTag>
     {
-        public EmployeePutIncomingTagommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeePutIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeDeleteIncomingTagommodityViewModel : EntityDeleteViewModel<EmployeeIncomingTag>
+    public class EmployeeDeleteIncomingTagViewModel : EntityDeleteViewModel<EmployeeIncomingTag>
     {
-        public EmployeeDeleteIncomingTagommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeDeleteIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
         }
     }
-    public class EmployeeGetsIncomingTagommodityViewModel : EntityGetsViewModel<EmployeeIncomingTag>
+    public class EmployeeGetsIncomingTagViewModel : EntityGetsViewModel<EmployeeIncomingTag>
     {
-        public EmployeeGetsIncomingTagommodityViewModel(EmployeeActorContext EmployeeActorContext)
+        public EmployeeGetsIncomingTagViewModel(EmployeeActorContext EmployeeActorContext)
             :base(EmployeeActorContext)
         {
 
