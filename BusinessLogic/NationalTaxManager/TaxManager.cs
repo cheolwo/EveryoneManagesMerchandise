@@ -4,7 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessData.NationalTaxManager
+namespace BusinessLogic.NationalTaxManager
 {
+    public interface ICenterPageTaxService
+    {
 
+    }
+    public class TaxService : ICenterPageTaxService
+    {
+        public TaxService()
+        {
+            
+        }
+    }
 }

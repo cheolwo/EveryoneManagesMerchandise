@@ -1,176 +1,46 @@
-using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using BusinessView.ofViewModels.ofGeneric.ofCommon;
+using BusinessView.ofTrade.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade
 {
-    public class BasePlatformTCommodityViewModel : BaseViewModel
+    public class BasePlatformTCommodityViewModel : BaseCommodityViewModel<PlatformTCommodity>
     {
-        protected readonly PlatformActorContext _PlatformActorContext;
-        protected PlatformTCommodity? _PlatformTCommodity = new();
-        public PlatformTCommodity? PlatformTCommodity
-        {
-            get => _PlatformTCommodity;
-            set
-            {
-                SetValue(ref _PlatformTCommodity, value);
-            }
-        }
         public BasePlatformTCommodityViewModel(PlatformActorContext PlatformActorContext)
+            :base(PlatformActorContext)
         {
-            _PlatformActorContext = PlatformActorContext;
-        }
-        public async Task GetByIdAsync(string id)
-        {
-            PlatformTCommodity = await _PlatformActorContext.GetByIdAsync<PlatformTCommodity>(id);
         }
     }
-    public class PostPlatformTCommodityViewModel : BasePlatformTCommodityViewModel
+    public class PlatformPostTCommodityViewModel : CommodityPostViewModel<PlatformTCommodity>
     {
-        private bool _isPost = false;
-        public bool IsPost
-        {
-            get => _isPost;
-            set
-            {
-                _isPost = value;
-                OnPropertyChanged();
-            }
-        }
-        private PlatformTCommodity? _postPlatformTCommodity = new();
-        public PlatformTCommodity? PostPlatformTCommodity
-        {
-            get => _postPlatformTCommodity;
-            set
-            {
-                SetValue(ref _postPlatformTCommodity, value);
-            }
-        }
-        public PostPlatformTCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformPostTCommodityViewModel(PlatformActorContext PlatformActorContext)
             : base(PlatformActorContext)
         {
 
         }
-        public async Task PostAsync(PlatformTCommodity PlatformTCommodity)
-        {
-            var PostValue = await _PlatformActorContext.PostAsync<PlatformTCommodity>(PlatformTCommodity);
-            if (PostValue != null)
-            {
-                PostPlatformTCommodity = PostValue;
-                IsPost = true;
-            }
-        }
-        public void Reset()
-        {
-            IsPost = false;
-            _PlatformTCommodity = new();
-            _postPlatformTCommodity = new();
-            OnPropertyChanged();
-        }
     }
-    public class PutPlatformTCommodityViewModel : BasePlatformTCommodityViewModel
+    public class PlatformPutTCommodityViewModel : CommodityPutViewModel<PlatformTCommodity>
     {
-        private bool _isPut = false;
-        public bool IsPut
-        {
-            get => _isPut;
-            set
-            {
-                _isPut = value;
-                OnPropertyChanged();
-            }
-        }
-        private PlatformTCommodity? _putPlatformTCommodity = new();
-        public PlatformTCommodity? PutPlatformTCommodity
-        {
-            get => _putPlatformTCommodity;
-            set
-            {
-                SetValue(ref _putPlatformTCommodity, value);
-            }
-        }
-        public PutPlatformTCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformPutTCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
 
         }
-        public async Task PutAsync(PlatformTCommodity PlatformTCommodity)
-        {
-            var PutValue = await _PlatformActorContext.PutAsync<PlatformTCommodity>(PlatformTCommodity);
-            if(PutValue != null)
-            {
-                _isPut = true;
-                PutPlatformTCommodity = PutValue;
-            }
-        }
-        public void Reset()
-        {
-            _isPut = false;
-            _PlatformTCommodity = new();
-            _putPlatformTCommodity = new();
-            OnPropertyChanged();
-        }
     }
-    public class DeletePlatformTCommodityViewModel : BasePlatformTCommodityViewModel
+    public class PlatformDeleteTCommodityViewModel : CommodityDeleteViewModel<PlatformTCommodity>
     {
-        public DeletePlatformTCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformDeleteTCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
 
         }
-        public async Task DeleteAsync(string id)
-        {
-            await _PlatformActorContext.DeleteByIdAsync<PlatformTCommodity>(id);
-        }
-        public void Reset()
-        {
-            PlatformTCommodity = new();
-        }
     }
-    public class GetsPlatformTCommodityViewModel : BasePlatformTCommodityViewModel
+    public class PlatformGetsTCommodityViewModel : CommodityGetsViewModel<PlatformTCommodity>
     {
-        private List<PlatformTCommodity> _PlatformTCommoditys = new();
-        public List<PlatformTCommodity> PlatformTCommoditys
-        {
-            get=> _PlatformTCommoditys;
-            set
-            {
-                SetValue(ref _PlatformTCommoditys, value);   
-            }
-        }
-        public GetsPlatformTCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformGetsTCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
 
-        }
-        public async Task GetsAsync()
-        {
-            IEnumerable<PlatformTCommodity>? dtos = await _PlatformActorContext.GetsAsync<PlatformTCommodity>();
-            if(dtos != null)
-            {
-                foreach(var dto in dtos)
-                {
-                    _PlatformTCommoditys.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public async Task GetsAsyncByUserId(string userid)
-        {
-            IEnumerable<PlatformTCommodity>? dtos = await _PlatformActorContext.GetsAsyncByUserId<PlatformTCommodity>(userid);
-            if(dtos != null)
-            {
-                foreach(var dto in dtos)
-                {
-                    _PlatformTCommoditys.Add(dto);
-                }
-            }
-            OnPropertyChanged();
-        }
-        public void Delte(string id)
-        {
-            var obj = PlatformTCommoditys.Find(e => e.Id.Equals(id));
-            if(obj != null) { PlatformTCommoditys.Remove(obj); OnPropertyChanged(); }
         }
     }
 }
