@@ -58,7 +58,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             StatusDeleteViewModel<TStatus> StatusDeleteViewModel, 
             StatusGetsViewModel<TStatus> StatusGetViewModel)
                                             :base(StatusPostViewModel, StatusPutViewModel, StatusDeleteViewModel, StatusGetViewModel)
-        {;
+        {
         }
     }
 }

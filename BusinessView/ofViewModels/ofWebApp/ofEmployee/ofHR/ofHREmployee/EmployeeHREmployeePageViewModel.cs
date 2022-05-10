@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessView.ofDTO.ofHR.ofEmployee;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHREmployee
 {
-    internal class EmployeeHREmployeePageViewModel
+    public class EmployeeHREmployeePageViewModel : EntityPageViewModel<EmployeeHREmployee> 
     {
+        public EmployeeHREmployeePageViewModel(EmployeePostHREmployeeViewModel employeePostHREmployeeViewModel, 
+                                        EmployeePutHREmployeeViewModel employeePutHREmployeeViewModel,
+                                        EmployeeDeleteHREmployeeViewModel employeeDeleteHREmployeeViewModel,
+                                        EmployeeGetsHREmployeeViewModel employeeGetsHREmployeeViewModel)
+                :base(employeePostHREmployeeViewModel, employeePutHREmployeeViewModel, employeeDeleteHREmployeeViewModel, employeeGetsHREmployeeViewModel)
+                    
+        {
+            
+        }
     }
 }
