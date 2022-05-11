@@ -1,11 +1,13 @@
 ﻿using BusinessData;
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
-using System.Text.Json;
+using System;
+using System.Collections.Generic;
+using BusinessView.ofCommon.ofInterface;
 
 namespace BusinessView.ofCommon.ofEmployee
 {
-    public class EmployeeEntity
+    public class EmployeeEntity : IEntityDTO
     {
         [Get] public string? Id { get; set; }
         [Get] public string? Code { get; set; }
@@ -129,7 +131,7 @@ namespace BusinessView.ofCommon.ofEmployee
             }
             return DetailManyPropertyInfos;
         }
-        public Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute(Type t)
+        public Dictionary<string, List<PropertyInfo>> DictionaryforClassifiedPropertyByAttribute(Type t)
         {
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
             List<PropertyInfo> GetPropertyInfos = new List<PropertyInfo>();

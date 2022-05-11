@@ -24,8 +24,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             Entity = await _ActorContext.GetByIdAsync<TEntity>(id);
         }   
     }
+    /*
+    
+    */
     public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
+        public delegate void PostPageToGets();
+        
         public EntityPostViewModel(ActorContext actorContext)
             :base(actorContext)
         {
@@ -57,7 +62,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             {
                 PostTEntity = PostValue;
                 IsPost = true;
+                Back();
             }
+        }
+        public void Back()
+        {
+            Reset();
+            PostPageToGets();
         }
         public void Reset()
         {
@@ -69,6 +80,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
+        public delegate void PutPageToGets();
          public EntityPutViewModel(ActorContext actorContext)
             :base(actorContext)
         {
@@ -100,7 +112,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             {
                 _isPut = true;
                 PutTEntity = PutValue;
+                Back();
             }
+        }
+        public void Back()
+        {
+            Reset();
+            PutPageToGets();
         }
         public void Reset()
         {
@@ -112,6 +130,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
+        public delegate void DeletePageToGets();
          public EntityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
         {
@@ -120,6 +139,12 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public async Task DeleteAsync(string id)
         {
             await _ActorContext.DeleteByIdAsync<TEntity>(id);
+            Back();
+        }
+        public void Back()
+        {
+            Reset();
+            DeletePageToGets();
         }
         public void Reset()
         {
@@ -128,6 +153,9 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
+        public delegate Task GetsPageToPost(string id);
+        public delegate Task GetsPageToPut(string id);
+        public delegate Task GetsPageToDelete(string id);
          public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {

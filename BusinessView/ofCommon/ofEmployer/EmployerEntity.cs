@@ -1,10 +1,12 @@
 ﻿using BusinessData;
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
+using System.Collections.Generic;
+using System;
 
 namespace BusinessView.ofCommon.ofEmployer
 {
-    public class EmployerEntity
+    public class EmployerEntity : IEntityDTO
     {
         [Get] public string? Id { get; set; }
         [Get] public string? Code { get; set; }
