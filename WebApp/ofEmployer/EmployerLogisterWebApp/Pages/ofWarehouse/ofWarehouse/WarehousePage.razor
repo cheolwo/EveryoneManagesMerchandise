@@ -2,14 +2,11 @@
 @using BusinessRazor.Components.ofUser
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
 @using System.ComponentModel
-@inject DeleteEmployerWarehouseViewModel _DeleteEmployerWarehouseViewModel
-@inject BaseEmployerWarehouseViewModel _BaseEmployerWarehouseViewModel
-@inject GetsEmployerWarehouseViewModel _GetsEmployerWarehouseViewModel
-@inject PostEmployerWarehouseViewModel _PostEmployerWarehouseViewModel
-@inject PutEmployerWarehouseViewModel _PutEmployerWarehouseViewModel
+@inject EmployerWarehousePageViewModel _EmployerWarehousePageViewModel
 @inject GetUserViewModel _GetUserViewModel
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
@@ -26,7 +23,7 @@
 }
 else
 {
-    <CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
+   @* <CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
     @if (IsGets)
     {
         <EmployerGetsWarehouseComponent ViewModel=_GetsEmployerWarehouseViewModel EventPost="ClickPost" EventPut="ClickPut" EventDelete="ClickDelete" EventDetail="ClickDetail">
@@ -52,7 +49,7 @@ else
         <EmployerGetWarehouseComponent ViewModel=_BaseEmployerWarehouseViewModel DetailToGets=ClickDetailToGets>
         </EmployerGetWarehouseComponent>
     }
-</CascadingValue>
+</CascadingValue>*@
 }
 <h3>WarehousePage</h3>
 

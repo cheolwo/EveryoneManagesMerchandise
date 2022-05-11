@@ -7,17 +7,141 @@ using BusinessView.ofServices.ofMarket;
 using BusinessView.ofServices.ofOrder;
 using BusinessView.ofServices.ofProduct;
 using BusinessView.ofServices.ofTrade;
-using BusinessView.ofUser;
 using BusinessView.ofUser.ofEmployer;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade;
-using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse;
+using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOCC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofMGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofSGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofEmployeeRole;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRBusinessPart;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHREmployee;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRRole;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournal;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournalCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofEMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofMarket;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofMMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofPlatMarket;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofSMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofEOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofMOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofSOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofEPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofMPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProductCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProducter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProductLand;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofSPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofETCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofMTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofSTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofTradeCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDividedTag;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDotBarcode;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofEWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofIncomingTag;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofLoadFrame;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofMWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofSWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDesk;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOCC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofMGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofSGOC;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofEmployeeRole;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRBusinessPart;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHREmployee;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRRole;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournal;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournalCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofEMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMarket;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofPlatMarket;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofSMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofEOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofMOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofSOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofEPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofMPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProducter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductLand;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofSPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofETCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofMTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofSTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDividedTag;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDotBarcode;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofEWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofIncomingTag;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofLoadFrame;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofMWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofSWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWarehouse;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWorkingDesk;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOC;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOCC;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofMGOC;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofSGOC;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofEmployeeRole;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRBusinessPart;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRCenter;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHREmployee;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRRole;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJournal;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJournalCenter;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofEMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofMarket;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofMMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofPlatMarket;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofSMCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofEOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofMOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofSOCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofEPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofMPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProductCenter;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProducter;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProductLand;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofSPCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofETCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofMTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofSTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofTCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofTradeCenter;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofDividedTag;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofDotBarcode;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofEWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofIncomingTag;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofLoadFrame;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofMWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofSWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWarehouse;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWCommodity;
+using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWorkingDesk;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace BusinessView.ofActorService
 {
@@ -41,208 +165,203 @@ namespace BusinessView.ofActorService
         {
             services.AddScoped<UserActorContext>();
             services.AddScoped<EmployerActorContext>();
-            services.AddScoped<GetsEmployerEmployeeRoleViewModel>();
-            services.AddScoped<PostEmployerEmployeeRoleViewModel>();
-            services.AddScoped<PutEmployerEmployeeRoleViewModel>();
-            services.AddScoped<DeleteEmployerEmployeeRoleViewModel>();
-            services.AddScoped<BaseEmployerEmployeeRoleViewModel>();
+            services.AddScoped(typeof(EntityPageViewModel<>));
+            services.AddScoped(typeof(CenterPageViewModel<>));
+            services.AddScoped(typeof(CommodityPageViewModel<>));
+            services.AddScoped(typeof(StatusPageViewModel<>));
 
-            services.AddScoped<GetsEmployerHRBusinessPartViewModel>();
-            services.AddScoped<PostEmployerHRBusinessPartViewModel>();
-            services.AddScoped<PutEmployerHRBusinessPartViewModel>();
-            services.AddScoped<DeleteEmployerHRBusinessPartViewModel>();
-            services.AddScoped<BaseEmployerHRBusinessPartViewModel>();
+            services.AddScoped<EmployerGOCPageViewModel>();
+            services.AddScoped<EmployerGOCCPageViewModel>();
+            services.AddScoped<EmployerSGOCPageViewModel>();
+            services.AddScoped<EmployerMGOCPageViewModel>();
+            services.AddScoped<EmployerMGOCPageViewModel>();
 
-            services.AddScoped<GetsEmployerHRCenterViewModel>();
-            services.AddScoped<PostEmployerHRCenterViewModel>();
-            services.AddScoped<PutEmployerHRCenterViewModel>();
-            services.AddScoped<DeleteEmployerHRCenterViewModel>();
-            services.AddScoped<BaseEmployerHRCenterViewModel>();
+            services.AddScoped<EmployerEmployeeRolePageViewModel>();
+            services.AddScoped<EmployerHRBusinessPartPageViewModel>();
+            services.AddScoped<EmployerHRCenterPageViewModel>();
+            services.AddScoped<EmployerHREmployeePageViewModel>();
+            services.AddScoped<EmployerHRRolePageViewModel>();
 
-            services.AddScoped<GetsEmployerHREmployeeViewModel>();
-            services.AddScoped<PostEmployerHREmployeeViewModel>();
-            services.AddScoped<PutEmployerHREmployeeViewModel>();
-            services.AddScoped<DeleteEmployerHREmployeeViewModel>();
-            services.AddScoped<BaseEmployerHREmployeeViewModel>();
+            services.AddScoped<EmployerJCommodityPageViewModel>();
+            services.AddScoped<EmployerJournalPageViewModel>();
+            services.AddScoped<EmployerJournalCenterPageViewModel>();
 
-            services.AddScoped<GetsEmployerHRRoleViewModel>();
-            services.AddScoped<PostEmployerHRRoleViewModel>();
-            services.AddScoped<PutEmployerHRRoleViewModel>();
-            services.AddScoped<DeleteEmployerHRRoleViewModel>();
-            services.AddScoped<BaseEmployerHRRoleViewModel>();
+            services.AddScoped<EmployerEMCommodityPageViewModel>();
+            services.AddScoped<EmployerMarketPageViewModel>();
+            services.AddScoped<EmployerMCommodityPageViewModel>();
+            services.AddScoped<EmployerSMCommodityPageViewModel>();
+            services.AddScoped<EmployerMMCommodityPageViewModel>();
+            services.AddScoped<EmployerPlatMarketPageViewModel>();
 
-            services.AddScoped<GetsEmployerJCommodityViewModel>();
-            services.AddScoped<PostEmployerJCommodityViewModel>();
-            services.AddScoped<PutEmployerJCommodityViewModel>();
-            services.AddScoped<DeleteEmployerJCommodityViewModel>();
-            services.AddScoped<BaseEmployerJCommodityViewModel>();
+            services.AddScoped<EmployerEOCommodityPageViewModel>();
+            services.AddScoped<EmployerMOCommodityPageViewModel>();
+            services.AddScoped<EmployerSOCommodityPageViewModel>();
+            services.AddScoped<EmployerOCommodityPageViewModel>();
+            services.AddScoped<EmployerMGOCPageViewModel>();
 
-            services.AddScoped<GetsEmployerJournalViewModel>();
-            services.AddScoped<PostEmployerJournalViewModel>();
-            services.AddScoped<PutEmployerJournalViewModel>();
-            services.AddScoped<DeleteEmployerJournalViewModel>();
-            services.AddScoped<BaseEmployerJournalViewModel>();
+            services.AddScoped<EmployerEPCommodityPageViewModel>();
+            services.AddScoped<EmployerSPCommodityPageViewModel>();
+            services.AddScoped<EmployerMPCommodityPageViewModel>();
+            services.AddScoped<EmployerPCommodityPageViewModel>();
+            services.AddScoped<EmployerProductCenterPageViewModel>();
+            services.AddScoped<EmployerProductLandPageViewModel>();
+            services.AddScoped<EmployerProducterPageViewModel>();
 
-            services.AddScoped<GetsEmployerJournalCenterViewModel>();
-            services.AddScoped<PostEmployerJournalCenterViewModel>();
-            services.AddScoped<PutEmployerJournalCenterViewModel>();
-            services.AddScoped<DeleteEmployerJournalCenterViewModel>();
-            services.AddScoped<BaseEmployerJournalCenterViewModel>();
+            services.AddScoped<EmployerETCommodityPageViewModel>();
+            services.AddScoped<EmployerMTCommodityPageViewModel>();
+            services.AddScoped<EmployerSTCommodityPageViewModel>();
+            services.AddScoped<EmployerTCommodityPageViewModel>();
+            services.AddScoped<EmployerTradeCenterPageViewModel>();
+
+            services.AddScoped<EmployerDividedTagPageViewModel>();
+            services.AddScoped<EmployerDotBarcodePageViewModel>();
+            services.AddScoped<EmployerIncomingTagPageViewModel>();
+            services.AddScoped<EmployerWorkingDeskPageViewModel>();
+            services.AddScoped<EmployerLoadFramePageViewModel>();
+            services.AddScoped<EmployerWarehousePageViewModel>();
+            services.AddScoped<EmployerWCommodityPageViewModel>();
+            services.AddScoped<EmployerSWCommodityPageViewModel>();
+            services.AddScoped<EmployerMWCommodityPageViewModel>();
+            services.AddScoped<EmployerEWCommodityPageViewModel>();
+
+            return services;
+        }
+        public static IServiceCollection AddPlatformActorService(this IServiceCollection services)
+        {
+            services.AddScoped<UserActorContext>();
+            services.AddScoped<EmployerActorContext>();
+            services.AddScoped(typeof(EntityPageViewModel<>));
+            services.AddScoped(typeof(CenterPageViewModel<>));
+            services.AddScoped(typeof(CommodityPageViewModel<>));
+            services.AddScoped(typeof(StatusPageViewModel<>));
+
+            services.AddScoped<PlatformGOCPageViewModel>();
+            services.AddScoped<PlatformGOCCPageViewModel>();
+            services.AddScoped<PlatformSGOCPageViewModel>();
+            services.AddScoped<PlatformMGOCPageViewModel>();
+            services.AddScoped<PlatformMGOCPageViewModel>();
+
+            services.AddScoped<PlatformEmployeeRolePageViewModel>();
+            services.AddScoped<PlatformHRBusinessPartPageViewModel>();
+            services.AddScoped<PlatformHRCenterPageViewModel>();
+            services.AddScoped<PlatformHREmployeePageViewModel>();
+            services.AddScoped<PlatformHRRolePageViewModel>();
+
+            services.AddScoped<PlatformJCommodityPageViewModel>();
+            services.AddScoped<PlatformJournalPageViewModel>();
+            services.AddScoped<PlatformJournalCenterPageViewModel>();
+
+            services.AddScoped<PlatformEMCommodityPageViewModel>();
+            services.AddScoped<PlatformMarketPageViewModel>();
+            services.AddScoped<PlatformMCommodityPageViewModel>();
+            services.AddScoped<PlatformSMCommodityPageViewModel>();
+            services.AddScoped<PlatformMMCommodityPageViewModel>();
+            services.AddScoped<PlatformPlatMarketPageViewModel>();
+
+            services.AddScoped<PlatformEOCommodityPageViewModel>();
+            services.AddScoped<PlatformMOCommodityPageViewModel>();
+            services.AddScoped<PlatformSOCommodityPageViewModel>();
+            services.AddScoped<PlatformOCommodityPageViewModel>();
+            services.AddScoped<PlatformMGOCPageViewModel>();
+
+            services.AddScoped<PlatformEPCommodityPageViewModel>();
+            services.AddScoped<PlatformSPCommodityPageViewModel>();
+            services.AddScoped<PlatformMPCommodityPageViewModel>();
+            services.AddScoped<PlatformPCommodityPageViewModel>();
+            services.AddScoped<PlatformProductCenterPageViewModel>();
+            services.AddScoped<PlatformProductLandPageViewModel>();
+            services.AddScoped<PlatformProducterPageViewModel>();
+
+            services.AddScoped<PlatformETCommodityPageViewModel>();
+            services.AddScoped<PlatformMTCommodityPageViewModel>();
+            services.AddScoped<PlatformSTCommodityPageViewModel>();
+            services.AddScoped<PlatformTCommodityPageViewModel>();
+            services.AddScoped<PlatformTradeCenterPageViewModel>();
+
+            services.AddScoped<PlatformDividedTagPageViewModel>();
+            services.AddScoped<PlatformDotBarcodePageViewModel>();
+            services.AddScoped<PlatformIncomingTagPageViewModel>();
+            services.AddScoped<PlatformWorkingDeskPageViewModel>();
+            services.AddScoped<PlatformLoadFramePageViewModel>();
+            services.AddScoped<PlatformWarehousePageViewModel>();
+            services.AddScoped<PlatformWCommodityPageViewModel>();
+            services.AddScoped<PlatformSWCommodityPageViewModel>();
+            services.AddScoped<PlatformMWCommodityPageViewModel>();
+            services.AddScoped<PlatformEWCommodityPageViewModel>();
+            return services;
+        }
+        public static IServiceCollection AddEmployeeActorService(this IServiceCollection services)
+        {
+            services.AddScoped<UserActorContext>();
+            services.AddScoped<EmployeeActorContext>();
+            services.AddScoped(typeof(EntityPageViewModel<>));
+            services.AddScoped(typeof(CenterPageViewModel<>));
+            services.AddScoped(typeof(CommodityPageViewModel<>));
+            services.AddScoped(typeof(StatusPageViewModel<>));
+
+            services.AddScoped<EmployeeGOCPageViewModel>();
+            services.AddScoped<EmployeeGOCCPageViewModel>();
+            services.AddScoped<EmployeeSGOCPageViewModel>();
+            services.AddScoped<EmployeeMGOCPageViewModel>();
+            services.AddScoped<EmployeeMGOCPageViewModel>();
+
+            services.AddScoped<EmployeeEmployeeRolePageViewModel>();
+            services.AddScoped<EmployeeHRBusinessPartPageViewModel>();
+            services.AddScoped<EmployeeHRCenterPageViewModel>();
+            services.AddScoped<EmployeeHREmployeePageViewModel>();
+            services.AddScoped<EmployeeHRRolePageViewModel>();
+
+            services.AddScoped<EmployeeJCommodityPageViewModel>();
+            services.AddScoped<EmployeeJournalPageViewModel>();
+            services.AddScoped<EmployeeJournalCenterPageViewModel>();
+
+            services.AddScoped<EmployeeEMCommodityPageViewModel>();
+            services.AddScoped<EmployeeMarketPageViewModel>();
+            services.AddScoped<EmployeeMCommodityPageViewModel>();
+            services.AddScoped<EmployeeSMCommodityPageViewModel>();
+            services.AddScoped<EmployeeMMCommodityPageViewModel>();
+            services.AddScoped<EmployeePlatMarketPageViewModel>();
+
+            services.AddScoped<EmployeeEOCommodityPageViewModel>();
+            services.AddScoped<EmployeeMOCommodityPageViewModel>();
+            services.AddScoped<EmployeeSOCommodityPageViewModel>();
+            services.AddScoped<EmployeeOCommodityPageViewModel>();
+            services.AddScoped<EmployeeMGOCPageViewModel>();
+
+            services.AddScoped<EmployeeEPCommodityPageViewModel>();
+            services.AddScoped<EmployeeSPCommodityPageViewModel>();
+            services.AddScoped<EmployeeMPCommodityPageViewModel>();
+            services.AddScoped<EmployeePCommodityPageViewModel>();
+            services.AddScoped<EmployeeProductCenterPageViewModel>();
+            services.AddScoped<EmployeeProductLandPageViewModel>();
+            services.AddScoped<EmployeeProducterPageViewModel>();
+
+            services.AddScoped<EmployeeETCommodityPageViewModel>();
+            services.AddScoped<EmployeeMTCommodityPageViewModel>();
+            services.AddScoped<EmployeeSTCommodityPageViewModel>();
+            services.AddScoped<EmployeeTCommodityPageViewModel>();
+            services.AddScoped<EmployeeTradeCenterPageViewModel>();
+
+            services.AddScoped<EmployeeDividedTagPageViewModel>();
+            services.AddScoped<EmployeeDotBarcodePageViewModel>();
+            services.AddScoped<EmployeeIncomingTagPageViewModel>();
+            services.AddScoped<EmployeeWorkingDeskPageViewModel>();
+            services.AddScoped<EmployeeLoadFramePageViewModel>();
+            services.AddScoped<EmployeeWarehousePageViewModel>();
+            services.AddScoped<EmployeeWCommodityPageViewModel>();
+            services.AddScoped<EmployeeSWCommodityPageViewModel>();
+            services.AddScoped<EmployeeMWCommodityPageViewModel>();
+            services.AddScoped<EmployeeEWCommodityPageViewModel>();
             return services;
         }
         public static IServiceCollection AddEmployerLogisterService(this IServiceCollection services)
         {
             services.AddScoped<UserActorContext>();
             services.AddScoped<EmployerLogisterContext>();
-            services.AddScoped<GetUserViewModel>();
-            services.AddScoped<PostUserViewModel>();
-            services.AddScoped<PutUserViewModel>();
-            services.AddScoped<DeleteUserViewModel>();
-            services.AddScoped<GetsUserViewModel>();
-
-            services.AddScoped<GetsEmployerWarehouseViewModel>();
-            services.AddScoped<PostEmployerWarehouseViewModel>();
-            services.AddScoped<PutEmployerWarehouseViewModel>();
-            services.AddScoped<DeleteEmployerWarehouseViewModel>();
-            services.AddScoped<BaseEmployerWarehouseViewModel>();
-
-            services.AddScoped<GetsEmployerDividedTagViewModel>();
-            services.AddScoped<PostEmployerDividedTagViewModel>();
-            services.AddScoped<PutEmployerDividedTagViewModel>();
-            services.AddScoped<DeleteEmployerDividedTagViewModel>();
-            services.AddScoped<BaseEmployerDividedTagViewModel>();
-
-            services.AddScoped<GetsEmployerDotBarcodeViewModel>();
-            services.AddScoped<PostEmployerDotBarcodeViewModel>();
-            services.AddScoped<PutEmployerDotBarcodeViewModel>();
-            services.AddScoped<DeleteEmployerDotBarcodeViewModel>();
-            services.AddScoped<BaseEmployerDotBarcodeViewModel>();
-
-            services.AddScoped<GetsEmployerEWCommodityViewModel>();
-            services.AddScoped<PostEmployerEWCommodityViewModel>();
-            services.AddScoped<PutEmployerEWCommodityViewModel>();
-            services.AddScoped<DeleteEmployerEWCommodityViewModel>();
-            services.AddScoped<BaseEmployerEWCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerIncomingTagViewModel>();
-            services.AddScoped<PostEmployerIncomingTagViewModel>();
-            services.AddScoped<PutEmployerIncomingTagViewModel>();
-            services.AddScoped<DeleteEmployerIncomingTagViewModel>();
-            services.AddScoped<BaseEmployerIncomingTagViewModel>();
-
-            services.AddScoped<GetsEmployerLoadFrameViewModel>();
-            services.AddScoped<PostEmployerLoadFrameViewModel>();
-            services.AddScoped<PutEmployerLoadFrameViewModel>();
-            services.AddScoped<DeleteEmployerLoadFrameViewModel>();
-            services.AddScoped<BaseEmployerLoadFrameViewModel>();
-
-            services.AddScoped<GetsEmployerMWCommodityViewModel>();
-            services.AddScoped<PostEmployerMWCommodityViewModel>();
-            services.AddScoped<PutEmployerMWCommodityViewModel>();
-            services.AddScoped<DeleteEmployerMWCommodityViewModel>();
-            services.AddScoped<GetsEmployerMWCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerSWCommodityViewModel>();
-            services.AddScoped<PostEmployerSWCommodityViewModel>();
-            services.AddScoped<PutEmployerSWCommodityViewModel>();
-            services.AddScoped<DeleteEmployerSWCommodityViewModel>();
-            services.AddScoped<BaseEmployerSWCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerWorkingDeskViewModel>();
-            services.AddScoped<PostEmployerWorkingDeskViewModel>();
-            services.AddScoped<PutEmployerWorkingDeskViewModel>();
-            services.AddScoped<DeleteEmployerWorkingDeskViewModel>();
-            services.AddScoped<BaseEmployerWorkingDeskViewModel>();
-
-            services.AddScoped<GetsEmployerTradeCenterViewModel>();
-            services.AddScoped<PostEmployerTradeCenterViewModel>();
-            services.AddScoped<PutEmployerTradeCenterViewModel>();
-            services.AddScoped<DeleteEmployerTradeCenterViewModel>();
-            services.AddScoped<BaseEmployerTradeCenterViewModel>();
-
-            services.AddScoped<GetsEmployerTCommodityViewModel>();
-            services.AddScoped<PostEmployerTCommodityViewModel>();
-            services.AddScoped<PutEmployerTCommodityViewModel>();
-            services.AddScoped<DeleteEmployerTCommodityViewModel>();
-            services.AddScoped<BaseEmployerTCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerSTCommodityViewModel>();
-            services.AddScoped<PostEmployerSTCommodityViewModel>();
-            services.AddScoped<PutEmployerSTCommodityViewModel>();
-            services.AddScoped<DeleteEmployerSTCommodityViewModel>();
-            services.AddScoped<BaseEmployerSTCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerMTCommodityViewModel>();
-            services.AddScoped<PostEmployerMTCommodityViewModel>();
-            services.AddScoped<PutEmployerMTCommodityViewModel>();
-            services.AddScoped<DeleteEmployerMTCommodityViewModel>();
-            services.AddScoped<BaseEmployerMTCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerETCommodityViewModel>();
-            services.AddScoped<PostEmployerETCommodityViewModel>();
-            services.AddScoped<PutEmployerETCommodityViewModel>();
-            services.AddScoped<DeleteEmployerETCommodityViewModel>();
-            services.AddScoped<BaseEmployerETCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerGOCViewModel>();
-            services.AddScoped<PostEmployerGOCViewModel>();
-            services.AddScoped<PutEmployerGOCViewModel>();
-            services.AddScoped<DeleteEmployerGOCViewModel>();
-            services.AddScoped<BaseEmployerGOCViewModel>();
-
-            services.AddScoped<GetsEmployerGOCCViewModel>();
-            services.AddScoped<PostEmployerGOCCViewModel>();
-            services.AddScoped<PutEmployerGOCCViewModel>();
-            services.AddScoped<DeleteEmployerGOCCViewModel>();
-            services.AddScoped<BaseEmployerGOCCViewModel>();
-
-            services.AddScoped<GetsEmployerSGOCViewModel>();
-            services.AddScoped<PostEmployerSGOCViewModel>();
-            services.AddScoped<PutEmployerSGOCViewModel>();
-            services.AddScoped<DeleteEmployerSGOCViewModel>();
-            services.AddScoped<BaseEmployerSGOCViewModel>();
-
-            services.AddScoped<GetsEmployerMGOCViewModel>();
-            services.AddScoped<PostEmployerMGOCViewModel>();
-            services.AddScoped<PutEmployerMGOCViewModel>();
-            services.AddScoped<DeleteEmployerMGOCViewModel>();
-            services.AddScoped<BaseEmployerMGOCViewModel>();
-
-            services.AddScoped<GetsEmployerEGOCViewModel>();
-            services.AddScoped<PostEmployerEGOCViewModel>();
-            services.AddScoped<PutEmployerEGOCViewModel>();
-            services.AddScoped<DeleteEmployerEGOCViewModel>();
-            services.AddScoped<BaseEmployerEGOCViewModel>();
-
-            services.AddScoped<GetsEmployerOrderCenterViewModel>();
-            services.AddScoped<PostEmployerOrderCenterViewModel>();
-            services.AddScoped<PutEmployerOrderCenterViewModel>();
-            services.AddScoped<DeleteEmployerOrderCenterViewModel>();
-            services.AddScoped<BaseEmployerOrderCenterViewModel>();
-
-            services.AddScoped<GetsEmployerOCommodityViewModel>();
-            services.AddScoped<PostEmployerOCommodityViewModel>();
-            services.AddScoped<PutEmployerOCommodityViewModel>();
-            services.AddScoped<DeleteEmployerOCommodityViewModel>();
-            services.AddScoped<BaseEmployerOCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerSOCommodityViewModel>();
-            services.AddScoped<PostEmployerSOCommodityViewModel>();
-            services.AddScoped<PutEmployerSOCommodityViewModel>();
-            services.AddScoped<DeleteEmployerSOCommodityViewModel>();
-            services.AddScoped<BaseEmployerSOCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerMOCommodityViewModel>();
-            services.AddScoped<PostEmployerMOCommodityViewModel>();
-            services.AddScoped<PutEmployerMOCommodityViewModel>();
-            services.AddScoped<DeleteEmployerMOCommodityViewModel>();
-            services.AddScoped<BaseEmployerMOCommodityViewModel>();
-
-            services.AddScoped<GetsEmployerEOCommodityViewModel>();
-            services.AddScoped<PostEmployerEOCommodityViewModel>();
-            services.AddScoped<PutEmployerEOCommodityViewModel>();
-            services.AddScoped<DeleteEmployerEOCommodityViewModel>();
-            services.AddScoped<BaseEmployerEOCommodityViewModel>();
+            services.AddScoped(typeof(EntityPageViewModel<>));
+            services.AddScoped(typeof(CenterPageViewModel<>));
+            services.AddScoped(typeof(CommodityPageViewModel<>));
+            services.AddScoped(typeof(StatusPageViewModel<>));
             return services;
         }
     }

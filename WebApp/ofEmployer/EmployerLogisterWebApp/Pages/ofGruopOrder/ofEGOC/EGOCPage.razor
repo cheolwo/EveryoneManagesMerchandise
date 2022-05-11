@@ -1,14 +1,11 @@
 ﻿@page "/EGOC"
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
-@inject DeleteEmployerEGOCViewModel _DeleteEmployerEGOCViewModel
-@inject BaseEmployerEGOCViewModel _BaseEmployerEGOCViewModel
-@inject GetsEmployerEGOCViewModel _GetsEmployerEGOCViewModel
-@inject PostEmployerEGOCViewModel _PostEmployerEGOCViewModel
-@inject PutEmployerEGOCViewModel _PutEmployerEGOCViewModel
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofEGOC
+@inject EmployerEGOCPageViewModel _EmployerEGOCPageViewModel
 @inject GetUserViewModel _GetUserViewModel
 @inject NavigationManager _NavigationManager
 
-<CascadingValue Value=_GetUserViewModel Name="GetUserViewModel">
+@*<CascadingValue Value=_GetUserViewModel Name="GetUserViewModel">
     <CascadingValue Value=_NavigationManager Name="NavigationManager">
         @if (IsGets)
         {
@@ -42,93 +39,93 @@
         }
     </CascadingValue>
 </CascadingValue>
-<h3>EGOCPage</h3>
+<h3>EGOCPage</h3>*@
 
 
 @code {
-    private bool IsDetail = false;
-    private bool IsPost = false;
-    private bool IsPut = false;
-    private bool IsDelete = false;
-    private bool IsGets = false;
-    protected override async Task OnInitializedAsync()
-    {
-        if (_GetsEmployerEGOCViewModel.EmployerEGOCs.Count == 0)
-        {
-            await _GetsEmployerEGOCViewModel.GetsAsync();
-            IsGets = true;
-        }
-    }
-    private async Task ClickPut(string id)
-    {
-        IsPut = true;
-        IsGets = false;
-        var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
-        if (EmployerEGOC != null)
-        {
-            _PutEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
-        }
-        else
-        {
-            await _PutEmployerEGOCViewModel.GetByIdAsync(id);
-        }
-    }
-    private async Task ClickDelete(string id)
-    {
-        IsDelete = true;
-        IsGets = false;
-        var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
-        if (EmployerEGOC != null)
-        {
-            _DeleteEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
-        }
-        else
-        {
-            await _DeleteEmployerEGOCViewModel.GetByIdAsync(id);
-        }
-    }
-    private void ClickPost()
-    {
-        IsPost = true;
-        IsGets = false;
-    }
-    private async Task ClickDetail(string id)
-    {
-        IsDetail = true;
-        IsGets = false;
-        var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
-        if (EmployerEGOC != null)
-        {
-            _BaseEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
-        }
-        else
-        {
-            await _BaseEmployerEGOCViewModel.GetByIdAsync(id);
-        }
-    }
+    //private bool IsDetail = false;
+    //private bool IsPost = false;
+    //private bool IsPut = false;
+    //private bool IsDelete = false;
+    //private bool IsGets = false;
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    if (_GetsEmployerEGOCViewModel.EmployerEGOCs.Count == 0)
+    //    {
+    //        await _GetsEmployerEGOCViewModel.GetsAsync();
+    //        IsGets = true;
+    //    }
+    //}
+    //private async Task ClickPut(string id)
+    //{
+    //    IsPut = true;
+    //    IsGets = false;
+    //    var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
+    //    if (EmployerEGOC != null)
+    //    {
+    //        _PutEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
+    //    }
+    //    else
+    //    {
+    //        await _PutEmployerEGOCViewModel.GetByIdAsync(id);
+    //    }
+    //}
+    //private async Task ClickDelete(string id)
+    //{
+    //    IsDelete = true;
+    //    IsGets = false;
+    //    var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
+    //    if (EmployerEGOC != null)
+    //    {
+    //        _DeleteEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
+    //    }
+    //    else
+    //    {
+    //        await _DeleteEmployerEGOCViewModel.GetByIdAsync(id);
+    //    }
+    //}
+    //private void ClickPost()
+    //{
+    //    IsPost = true;
+    //    IsGets = false;
+    //}
+    //private async Task ClickDetail(string id)
+    //{
+    //    IsDetail = true;
+    //    IsGets = false;
+    //    var EmployerEGOC = _GetsEmployerEGOCViewModel.EmployerEGOCs.Find(e => e.Equals(id));
+    //    if (EmployerEGOC != null)
+    //    {
+    //        _BaseEmployerEGOCViewModel.EmployerEGOC = EmployerEGOC;
+    //    }
+    //    else
+    //    {
+    //        await _BaseEmployerEGOCViewModel.GetByIdAsync(id);
+    //    }
+    //}
 
-    private void ClickPutToGets()
-    {
-        IsGets = true;
-        IsPut = false;
-        _PutEmployerEGOCViewModel.EmployerEGOC = new();
-    }
-    private void ClickPostToGets()
-    {
-        IsGets = true;
-        IsPost = false;
-        _PostEmployerEGOCViewModel.EmployerEGOC = new();
-    }
-    private void ClickDetailToGets()
-    {
-        IsGets = true;
-        IsDetail = false;
-        _BaseEmployerEGOCViewModel.EmployerEGOC = new();
-    }
-    private void ClickDeleteToGets()
-    {
-        IsGets = true;
-        IsDelete = false;
-        _DeleteEmployerEGOCViewModel.EmployerEGOC = new();
-    }
+    //private void ClickPutToGets()
+    //{
+    //    IsGets = true;
+    //    IsPut = false;
+    //    _PutEmployerEGOCViewModel.EmployerEGOC = new();
+    //}
+    //private void ClickPostToGets()
+    //{
+    //    IsGets = true;
+    //    IsPost = false;
+    //    _PostEmployerEGOCViewModel.EmployerEGOC = new();
+    //}
+    //private void ClickDetailToGets()
+    //{
+    //    IsGets = true;
+    //    IsDetail = false;
+    //    _BaseEmployerEGOCViewModel.EmployerEGOC = new();
+    //}
+    //private void ClickDeleteToGets()
+    //{
+    //    IsGets = true;
+    //    IsDelete = false;
+    //    _DeleteEmployerEGOCViewModel.EmployerEGOC = new();
+    //}
 }
