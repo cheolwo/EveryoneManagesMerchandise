@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessData.ofMarket.ofModel;
-using BusinessView.ofCommon.ofEmployee;
+using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofDTO.ofMarket.ofEmployee
 {

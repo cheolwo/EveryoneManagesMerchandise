@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "czhiqvIr4J4lXoFhQ1Gg5MFvpwcCE5tNnKaWS1wC/l3pbr3LOk9X9vwHZD/XWQuqmRfk72AcP8E+TJvNte55Xg==",
+  "dgSpecHash": "vaiXXLJK9CRgM/z5zM5KLlYPWkp/Wbt8MiBo0nVVrZHIr41hqnP3Wremu3adO0u1scm+PyGv5GY+EY/UPnudPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\ModuleTest\\ModuleTest.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.common\\12.9.0\\azure.storage.common.12.9.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\linkhub\\1.4.1\\linkhub.1.4.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

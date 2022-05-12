@@ -1,5 +1,6 @@
 using FluentValidation;
-using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
+
 namespace BusinessView.ofValidator.ofCommon
 {
     public class EmployeeEntityValidator : AbstractValidator<EmployeeGOC>

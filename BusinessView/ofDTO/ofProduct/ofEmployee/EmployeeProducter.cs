@@ -1,5 +1,5 @@
 ﻿using BusinessData.ofProduct;
-using BusinessView.ofCommon.ofEmployee;
+using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofDTO.ofProduct.ofEmployee
 {

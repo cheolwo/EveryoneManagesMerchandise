@@ -1,4 +1,4 @@
-﻿using BusinessView.ofCommon.ofEmployer;
+﻿using BusinessView.ofDTO.ofCommon.ofEmployer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

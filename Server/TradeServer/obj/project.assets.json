@@ -47,7 +47,7 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
-      "FluentValidation/10.4.0": {
+      "FluentValidation/11.0.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/FluentValidation.dll": {}
@@ -1445,7 +1445,7 @@
         "dependencies": {
           "BusinessData": "1.0.0",
           "BusinessLogic": "1.0.0",
-          "FluentValidation": "10.4.0",
+          "FluentValidation": "11.0.1",
           "Microsoft.AspNetCore.Components": "6.0.3",
           "Newtonsoft.Json": "13.0.1"
         },
@@ -1513,16 +1513,16 @@
         "pkgicon.png"
       ]
     },
-    "FluentValidation/10.4.0": {
-      "sha512": "rVI1b5L3pq3layrRKIo3N7AT3PWey8ocPZhf6zeHYf6LBBvnP1KzW3bm7KmeazOWW8m1KXMD+shfviIcKSgQ0g==",
+    "FluentValidation/11.0.1": {
+      "sha512": "fcL5zF/glDwskUtpL0IfBupVWTChxOOvVs+dAA7Gme5NjIeJBiFKWq3eZV1O+AigucnBTr8SWG7wRRn+PgFnTw==",
       "type": "package",
-      "path": "fluentvalidation/10.4.0",
+      "path": "fluentvalidation/11.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.10.4.0.nupkg.sha512",
+        "fluentvalidation.11.0.1.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net5.0/FluentValidation.dll",
         "lib/net5.0/FluentValidation.xml",

@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "3r1XE8v/t2lMosY1gh+JADflCjZKwv+nbsA1lb4pfZwHz9W/+26xRSLEXrUiM9uwY6qrdM+x2hVzLxEbQS7mBA==",
+  "dgSpecHash": "nsJvpPZLyTM9JqnqABMCLG39K158ml4+KghrSgZBqtMbS895LvQ+0lR6183RgQDPJ69FBrwT5X2gwuKpnTum2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\ProductServer\\ProductServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.common\\12.9.0\\azure.storage.common.12.9.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\linkhub\\1.4.1\\linkhub.1.4.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -4,6 +4,7 @@ using System.Reflection;
 using System;
 using System.Collections.Generic;
 using BusinessView.ofCommon.ofInterface;
+using System.Text.Json;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployee
 {
@@ -56,7 +57,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
             }
             return OnlyDetailPropertyInfos;
         }
-        public List<PropertyInfo> GetManyProperties(Type t)
+        public List<PropertyInfo> OnlyGetManyProperties(Type t)
         {
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -75,7 +76,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
             return GetManyPropertyInfos;
         }
 
-        public List<PropertyInfo> GetOneProperties(Type t)
+        public List<PropertyInfo> OnlyGetOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -94,7 +95,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo> DetailOneProperties(Type t)
+        public List<PropertyInfo> OnlyDetailOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -113,7 +114,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo> DetailManyProperties(Type t)
+        public List<PropertyInfo> OnlyDetailManyProperties(Type t)
         {
             List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();

@@ -1,5 +1,5 @@
 ﻿using BusinessData;
-using BusinessView.ofCommon.ofPlatform;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofWarehouse;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform

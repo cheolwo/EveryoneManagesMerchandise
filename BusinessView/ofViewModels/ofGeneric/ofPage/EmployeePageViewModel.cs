@@ -1,6 +1,6 @@
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofCommon.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
+using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

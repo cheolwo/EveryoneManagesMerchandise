@@ -1,8 +1,7 @@
 ﻿using BusinessData;
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
-using System.Collections.Generic;
-using System;
+using BusinessView.ofCommon.ofInterface;
 
 namespace BusinessView.ofDTO.ofCommon.ofPlatform
 {
@@ -55,7 +54,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             }
             return OnlyDetailPropertyInfos;
         }
-        public List<PropertyInfo>? GetManyProperties(Type t)
+        public List<PropertyInfo>? OnlyGetManyProperties(Type t)
         {
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -74,7 +73,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetManyPropertyInfos;
         }
 
-        public List<PropertyInfo>? GetOneProperties(Type t)
+        public List<PropertyInfo>? OnlyGetOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -93,7 +92,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo>? DetailOneProperties(Type t)
+        public List<PropertyInfo>? OnlyDetailOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -112,7 +111,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo>? DetailManyProperties(Type t)
+        public List<PropertyInfo>? OnlyDetailManyProperties(Type t)
         {
             List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -130,7 +129,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             }
             return DetailManyPropertyInfos;
         }
-        public Dictionary<string, List<PropertyInfo>> GetToDictionaryforClassifiedPropertyByAttribute(Type t)
+        public Dictionary<string, List<PropertyInfo>> DictionaryforClassifiedPropertyByAttribute(Type t)
         {
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
             List<PropertyInfo> GetPropertyInfos = new List<PropertyInfo>();

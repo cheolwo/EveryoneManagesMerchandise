@@ -1,8 +1,10 @@
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofCommon.ofEmployer;
+using BusinessView.ofDTO.ofCommon.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric.ofCommon;
+
 namespace BusinessView.ofViewModels.ofGeneric
 {
-    public class EmployerPageViewModel<TEntity> : PaegViewModel<TEntity> where TEntity : EmployerEntity, new()
+    public class EmployerPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
         public EmployerPageViewModel(EmployerPostViewModel<TEntity> postViewModel, EmployerPutViewModel<TEntity> putViewModel, 
                                 EmployerDeleteViewModel<TEntity> deleteViewModel, EmployerGetsViewModel<TEntity> getsViewModel)
@@ -11,7 +13,7 @@ namespace BusinessView.ofViewModels.ofGeneric
 
         }
     }
-    public class EmployerPostViewModel<TEntity> : PostViewModel<TEntity> where TEntity : EmployerEntity, new()
+    public class EmployerPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
         protected readonly EmployerActorContext _employerActorContext;
         public EmployerPostViewModel(EmployerActorContext employerActorContext)
@@ -20,7 +22,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _employerActorContext = employerActorContext;
         }
     }
-    public class EmployerPutViewModel<TEntity> : PutViewModel<TEntity> where TEntity : EmployerEntity, new()
+    public class EmployerPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
         protected readonly EmployerActorContext _employerActorContext;
         public EmployerPutViewModel(EmployerActorContext employerActorContext)
@@ -29,7 +31,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _employerActorContext = employerActorContext;
         }
     }
-    public class EmployerGetsViewModel<TEntity> : GetsViewModel<TEntity> where TEntity : EmployerEntity, new()
+    public class EmployerGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
         protected readonly EmployerActorContext _employerActorContext;
         public EmployerGetsViewModel(EmployerActorContext employerActorContext)
@@ -38,7 +40,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _employerActorContext = employerActorContext;
         }
     }
-    public class EmployerDeleteViewModel<TEntity> : DeleteViewModel<TEntity> where TEntity : EmployerEntity, new()
+    public class EmployerDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
         protected readonly EmployerActorContext _employerActorContext;
         public EmployerDeleteViewModel(EmployerActorContext employerActorContext)

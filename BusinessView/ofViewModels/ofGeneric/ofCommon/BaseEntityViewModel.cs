@@ -3,6 +3,12 @@ using BusinessView.ofCommon.ofUser;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
+    public delegate void PostPageToGets();
+    public delegate void PutPageToGets();
+    public delegate void DeletePageToGets();
+    public delegate Task GetsPageToPost(string id);
+    public delegate Task GetsPageToPut(string id);
+    public delegate Task GetsPageToDelete(string id);
     public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : new()
     {
         protected readonly ActorContext _ActorContext;
@@ -29,8 +35,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     */
     public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-        public delegate void PostPageToGets();
-        
+        public PostPageToGets? postPageToGets {get; set;}
         public EntityPostViewModel(ActorContext actorContext)
             :base(actorContext)
         {
@@ -68,7 +73,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            PostPageToGets();
+            if(postPageToGets == null) { throw new ArgumentNullException("PostPageToGets Is Null");}
+            postPageToGets();
         }
         public void Reset()
         {
@@ -80,8 +86,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-        public delegate void PutPageToGets();
-         public EntityPutViewModel(ActorContext actorContext)
+        public PutPageToGets? putPageToGets {get; set;}
+        public EntityPutViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -118,7 +124,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            PutPageToGets();
+            if(putPageToGets == null ) {throw new ArgumentNullException("PutPageToGets == null");}
+            putPageToGets();
         }
         public void Reset()
         {
@@ -130,8 +137,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-        public delegate void DeletePageToGets();
-         public EntityDeleteViewModel(ActorContext actorContext)
+        public DeletePageToGets? deletePageToGets {get; set;}
+        public EntityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -144,7 +151,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            DeletePageToGets();
+            if(deletePageToGets == null) { throw new ArgumentNullException("DeletePageToGets Is Null");}
+            deletePageToGets();
         }
         public void Reset()
         {
@@ -153,10 +161,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
     {
-        public delegate Task GetsPageToPost(string id);
-        public delegate Task GetsPageToPut(string id);
-        public delegate Task GetsPageToDelete(string id);
-         public EntityGetsViewModel(ActorContext actorContext)
+        public GetsPageToPost? getsPageToPost {get; set;}
+        public GetsPageToPut? getsPageToPut {get; set;}
+        public GetsPageToDelete? getsPageToDelete {get; set;}
+        public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
@@ -193,6 +201,21 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 }
             }
             OnPropertyChanged();
+        }
+        public async Task GetsPageToPost(string id)
+        {
+            if(getsPageToPost == null ) {throw new ArgumentNullException("GetsPageToPost Is Null");}
+            await getsPageToPost(id);
+        }
+        public async Task GetsPageToPut(string id)
+        {
+            if(getsPageToPut == null ) {throw new ArgumentNullException("GetsPageToPut Is Null");}
+            await getsPageToPut(id);
+        }
+        public async Task GetsPageToDelete(string id)
+        {
+            if(getsPageToDelete == null ) {throw new ArgumentNullException("GetsPageToDelete Is Null");}
+            await getsPageToDelete(id);
         }
     }
 }
