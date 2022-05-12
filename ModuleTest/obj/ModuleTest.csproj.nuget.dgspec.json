@@ -259,7 +259,7 @@
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
-              "version": "[10.4.0, )"
+              "version": "[11.0.1, )"
             },
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
@@ -338,10 +338,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[10.4.0, )"
-            },
             "Quartz": {
               "target": "Package",
               "version": "[3.4.0, )"

@@ -1,6 +1,6 @@
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofCommon.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

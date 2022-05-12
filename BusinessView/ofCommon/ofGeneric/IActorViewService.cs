@@ -1,6 +1,6 @@
-﻿using BusinessView.ofCommon.ofEmployee;
-using BusinessView.ofCommon.ofEmployer;
-using BusinessView.ofCommon.ofPlatform;
+﻿using BusinessView.ofDTO.ofCommon.ofEmployee;
+using BusinessView.ofDTO.ofCommon.ofEmployer;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofGeneric
 {

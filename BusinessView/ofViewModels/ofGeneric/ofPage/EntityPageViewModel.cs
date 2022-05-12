@@ -2,12 +2,7 @@ using System.ComponentModel;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Reflection;
 using BusinessView.ofCommon.ofInterface;
-using System.Exception;
-using System;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
@@ -21,7 +16,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         // List<PropertyInfo> DetailManyProperties();
     }
     public enum ViewMode {Get, Detail}
-    public static class EntityPropManager<TEntity> : IPropManager where TEntity : IEntityDTO
+    public static class EntityPropManager<TEntity> where TEntity : IEntityDTO
     {   
         public static IEnumerable<string> GetStringProperties(ViewMode viewmode)
         {
@@ -42,7 +37,6 @@ namespace BusinessView.ofViewModels.ofGeneric
         private EntityPutViewModel<TEntity> _EntityPutViewModel;
         private EntityDeleteViewModel<TEntity> _EntityDeleteViewModel;
         private EntityGetsViewModel<TEntity> _EntityGetsViewModel;
-        public event PropertyChangedEventHandler? PropertyChanged;
         public EntityPageViewModel(EntityPostViewModel<TEntity> EntityPostViewModel, EntityPutViewModel<TEntity> EntityPutViewModel,
                                             EntityDeleteViewModel<TEntity> EntityDeleteViewModel, EntityGetsViewModel<TEntity> EntityGetViewModel)
         {
@@ -56,41 +50,58 @@ namespace BusinessView.ofViewModels.ofGeneric
             if(propertyChangedEventHandler != null)
             {
                  PropertyChanged += propertyChangedEventHandler;
-                _EntityDeleteViewModel += propertyChangedEventHandler;
-                _EntityPostViewModel += propertyChangedEventHandler;
-                _EntityPutViewModel += propertyChangedEventHandler;
-                _EntityGetsViewModel += propertyChangedEventHandler;
+                _EntityDeleteViewModel.PropertyChanged += propertyChangedEventHandler;
+                _EntityPostViewModel.PropertyChanged += propertyChangedEventHandler;
+                _EntityPutViewModel.PropertyChanged += propertyChangedEventHandler;
+                _EntityGetsViewModel.PropertyChanged += propertyChangedEventHandler;
             }
-            _EntityPostViewModel.PostPageToGets = OnClickDeleteToGets;
-            _EntityPutViewModel.PutPageToGets = OnClickPutToGets;
-            _EntityDeleteViewModel.DeletePageToGets = OnClickDeleteToGets;
-            _EntityGetsViewModel.GetsPageToPost = OnClickGetsToPost;
-            _EntityGetsViewModel.GetsPageToPut = OnClickGetsToPut;
-            _EntityGetsViewModel.GetsPageToDelete = OnClickGetsToDelete;
+            _EntityPostViewModel.postPageToGets = OnClickDeleteToGets;
+            _EntityPutViewModel.putPageToGets = OnClickPutToGets;
+            _EntityDeleteViewModel.deletePageToGets = OnClickDeleteToGets;
+            _EntityGetsViewModel.getsPageToPost = OnClickGetsToPost;
+            _EntityGetsViewModel.getsPageToPut = OnClickGetsToPut;
+            _EntityGetsViewModel.getsPageToDelete = OnClickGetsToDelete;
         }
         private bool isSelectPost {get; set;}
-        public bool isSelectPost
+        public bool IsSelectPost
         {
             get => isSelectPost;
-            set => SetValue(ref isSelectPost, value);
+            set
+            {
+                isSelectPost = value;
+                OnPropertyChanged();
+            }
+            
         }
         private bool isSelectPut {get; set;}
-        public bool isSelectPut
+        public bool IsSelectPut
         {
             get => isSelectPut;
-            set => SetValue(ref isSelectPut, value);
+            set
+            {
+                isSelectPut = value;
+                OnPropertyChanged();
+            }
         }
         private bool isSelectDelete {get; set;}
-        public bool isSelectDelete
+        public bool IsSelectDelete
         {
             get => isSelectDelete;
-            set => SetValue(ref isSelectDelete, value);
+            set
+            {
+                isSelectDelete = value;
+                OnPropertyChanged();
+            }
         }
         private bool isSelectGets {get; set;}
-        public bool isSelectGets
+        public bool IsSelectGets
         {
             get => isSelectGets;
-            set => SetValue(ref isSelectGets, value);
+            set
+            {
+                isSelectGets = value;
+                OnPropertyChanged();
+            }
         }
         public async Task OnClickGetsToPost(string id)
         {

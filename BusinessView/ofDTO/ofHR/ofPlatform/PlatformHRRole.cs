@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessData.ofHumanResource.ofRepository;
-using BusinessView.ofCommon.ofPlatform;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofDTO.ofHR.ofPlatform
 {

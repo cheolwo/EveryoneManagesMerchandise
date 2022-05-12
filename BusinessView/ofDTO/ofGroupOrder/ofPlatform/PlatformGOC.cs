@@ -1,4 +1,4 @@
-﻿using BusinessView.ofCommon.ofPlatform;
+﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
 using System;
 using System.Collections.Generic;
 using System.Linq;

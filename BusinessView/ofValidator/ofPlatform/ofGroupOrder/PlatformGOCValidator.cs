@@ -1,10 +1,11 @@
+using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
 using FluentValidation;
 
-namespace BusinessView.ofValidator.ofEmployee.ofGroupOrder
+namespace BusinessView.ofValidator.ofPlatform.ofGroupOrder
 {
-    public class EmployeeGOCValidator : AbstractValidator<EmployeeGOC>
+    public class PlatformGOCValidator : AbstractValidator<PlatformGOC>
     {
-        public EmployeeGOCValidator()
+        public PlatformGOCValidator()
         {
 
         }

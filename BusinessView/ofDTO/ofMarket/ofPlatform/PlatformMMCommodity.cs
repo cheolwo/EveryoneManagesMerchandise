@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessData.ofMarket.ofModel;
-using BusinessView.ofCommon.ofPlatform;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofDTO.ofMarket.ofPlatform
 {

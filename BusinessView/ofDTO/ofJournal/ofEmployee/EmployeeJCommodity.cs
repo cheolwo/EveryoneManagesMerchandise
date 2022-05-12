@@ -1,4 +1,4 @@
-﻿using BusinessView.ofCommon.ofEmployee;
+﻿using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofDTO.ofJournal.ofEmployee
 {
