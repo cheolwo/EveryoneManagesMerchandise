@@ -1,0 +1,30 @@
+﻿@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofWebApp.ofCommon
+
+@if (model?.IdentityUserDTOs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{ 
+    @if(model.IdentityUserDTO != null)
+    {
+        <EditForm Model="@model">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Id" HelperText="Max. 8 characters"
+                              @bind-Value="model.IdentityUserDTO.Id"/>
+                <MudTextField Label="User Name" HelperText="Max. 8 characters"
+                              @bind-Value="model.IdentityUserDTO.UserName"/>
+                <MudTextField Label="Email" Class="mt-3"
+                              @bind-Value="model.IdentityUserDTO.Email"/>
+            </MudCardContent>
+        </MudCard>
+        </EditForm>
+    }
+
+}
+@code {
+    [CascadingParameter(Name = "UsersViewModel")] 
+    UsersViewModel model { get; set; }
+}
