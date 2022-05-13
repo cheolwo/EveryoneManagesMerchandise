@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessView.ofUser.ofCommon
 {
+    
     public class StorageBuilder
     {
     }

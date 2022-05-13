@@ -13,7 +13,14 @@ using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
+using BusinessView.ofValidator.ofEmployer.ofGroupOrder;
+using BusinessView.ofValidator.ofEmployer.ofHR;
+using BusinessView.ofValidator.ofEmployer.ofJournal;
+using BusinessView.ofValidator.ofEmployer.ofMarket;
+using BusinessView.ofValidator.ofEmployer.ofOrder;
+using BusinessView.ofValidator.ofEmployer.ofProduct;
+using BusinessView.ofValidator.ofEmployer.ofTrade;
+using BusinessView.ofValidator.ofEmployer.ofWarehouse;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -88,7 +95,59 @@ namespace BusinessView.ofCommon.ofUser
         }
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde)
         {
+            ValidatorBuilder.Add(nameof(EmployerEmployeeRole), new EmployerEmployeeRoleValidator());
+            ValidatorBuilder.Add(nameof(EmployerHRBusinessPart), new EmployerHRBusinessPartValidator());
+            ValidatorBuilder.Add(nameof(EmployerHRCenter), new EmployerHRCenterValidator());
+            ValidatorBuilder.Add(nameof(EmployerHREmployee), new EmployerHREmployeeValidator());
+            ValidatorBuilder.Add(nameof(EmployerHRRole), new EmployerHRRoleValidator());
 
+            ValidatorBuilder.Add(nameof(EmployerJCommodity), new EmployerJCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerJournal), new EmployerJournalValidator());
+            ValidatorBuilder.Add(nameof(EmployerJournalCenter), new EmployerJournalCenterValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerWarehouse), new EmployerWarehouseValidator());
+            ValidatorBuilder.Add(nameof(EmployerWCommodity), new EmployerWCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerSWCommodity), new EmployerSWCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMWCommodity), new EmployerMWCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerEWCommodity), new EmployerEWCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerDividedTag), new EmployerDividedTagValidator());
+            ValidatorBuilder.Add(nameof(EmployerDotBarcode), new EmployerDotBarcodeValidator());
+            ValidatorBuilder.Add(nameof(EmployerIncomingTag), new EmployerIncomingTagValidator());
+            ValidatorBuilder.Add(nameof(EmployerLoadFrame), new EmployerLoadFrameValidator());
+            ValidatorBuilder.Add(nameof(EmployerWorkingDesk), new EmployerWorkingDeskValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerTradeCenter), new EmployerTradeCenterValidator());
+            ValidatorBuilder.Add(nameof(EmployerTCommodity), new EmployerTCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerSTCommodity), new EmployerSTCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMTCommodity), new EmployerMTCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerETCommodity), new EmployerETCommodityValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerGOC), new EmployerGOCValidator());
+            ValidatorBuilder.Add(nameof(EmployerGOCC), new EmployerGOCCValidator());
+            ValidatorBuilder.Add(nameof(EmployerSGOC), new EmployerSGOCValidator());
+            ValidatorBuilder.Add(nameof(EmployerMGOC), new EmployerMGOCValidator());
+            ValidatorBuilder.Add(nameof(EmployerEGOC), new EmployerEGOCValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerOrderCenter), new EmployerOrderCenterValidator());
+            ValidatorBuilder.Add(nameof(EmployerOCommodity), new EmployerOCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerSOCommodity), new EmployerSOCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMOCommodity), new EmployerMOCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerEOCommodity), new EmployerEOCommodityValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerEMCommodity), new EmployerEMCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerSMCommodity), new EmployerSMCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMMCommodity), new EmployerMMCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMCommodity), new EmployerMCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerPlatMarket), new EmployerPlatMarketValidator());
+            ValidatorBuilder.Add(nameof(EmployerMarket), new EmployerMarketValidator());
+
+            ValidatorBuilder.Add(nameof(EmployerProducter), new EmployerProducterValidator());
+            ValidatorBuilder.Add(nameof(EmployerEPCommodity), new EmployerEPCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerSPCommodity), new EmployerSPCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerMPCommodity), new EmployerMPCommodityValidator());
+            ValidatorBuilder.Add(nameof(EmployerProductCenter), new EmployerProductCenterValidator());
+            ValidatorBuilder.Add(nameof(EmployerProductLand), new EmployerProductLandValidator());
+            ValidatorBuilder.Add(nameof(EmployerPCommodity), new EmployerPCommodityValidator());
         }
     }
 }

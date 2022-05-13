@@ -13,7 +13,14 @@ using BusinessView.ofDTO.ofProduct.ofPlatform;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
+using BusinessView.ofValidator.ofPlatform.ofGroupOrder;
+using BusinessView.ofValidator.ofPlatform.ofHR;
+using BusinessView.ofValidator.ofPlatform.ofJournal;
+using BusinessView.ofValidator.ofPlatform.ofMarket;
+using BusinessView.ofValidator.ofPlatform.ofOrder;
+using BusinessView.ofValidator.ofPlatform.ofProduct;
+using BusinessView.ofValidator.ofPlatform.ofTrade;
+using BusinessView.ofValidator.ofPlatform.ofWarehouse;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -86,7 +93,59 @@ namespace BusinessView.ofCommon.ofUser
         }
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde) 
         {
+            ValidatorBuilder.Add(nameof(PlatformEmployeeRole), new PlatformEmployeeRoleValidator());
+            ValidatorBuilder.Add(nameof(PlatformHRBusinessPart), new PlatformHRBusinessPartValidator());
+            ValidatorBuilder.Add(nameof(PlatformHRCenter), new PlatformHRCenterValidator());
+            ValidatorBuilder.Add(nameof(PlatformHREmployee), new PlatformHREmployeeValidator());
+            ValidatorBuilder.Add(nameof(PlatformHRRole), new PlatformHRRoleValidator());
 
+            ValidatorBuilder.Add(nameof(PlatformJCommodity), new PlatformJCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformJournal), new PlatformJournalValidator());
+            ValidatorBuilder.Add(nameof(PlatformJournalCenter), new PlatformJournalCenterValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformWarehouse), new PlatformWarehouseValidator());
+            ValidatorBuilder.Add(nameof(PlatformWCommodity), new PlatformWCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformSWCommodity), new PlatformSWCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMWCommodity), new PlatformMWCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformEWCommodity), new PlatformEWCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformDividedTag), new PlatformDividedTagValidator());
+            ValidatorBuilder.Add(nameof(PlatformDotBarcode), new PlatformDotBarcodeValidator());
+            ValidatorBuilder.Add(nameof(PlatformIncomingTag), new PlatformIncomingTagValidator());
+            ValidatorBuilder.Add(nameof(PlatformLoadFrame), new PlatformLoadFrameValidator());
+            ValidatorBuilder.Add(nameof(PlatformWorkingDesk), new PlatformWorkingDeskValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformTradeCenter), new PlatformTradeCenterValidator());
+            ValidatorBuilder.Add(nameof(PlatformTCommodity), new PlatformTCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformSTCommodity), new PlatformSTCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMTCommodity), new PlatformMTCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformETCommodity), new PlatformETCommodityValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformGOC), new PlatformGOCValidator());
+            ValidatorBuilder.Add(nameof(PlatformGOCC), new PlatformGOCCValidator());
+            ValidatorBuilder.Add(nameof(PlatformSGOC), new PlatformSGOCValidator());
+            ValidatorBuilder.Add(nameof(PlatformMGOC), new PlatformMGOCValidator());
+            ValidatorBuilder.Add(nameof(PlatformEGOC), new PlatformEGOCValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformOrderCenter), new PlatformOrderCenterValidator());
+            ValidatorBuilder.Add(nameof(PlatformOCommodity), new PlatformOCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformSOCommodity), new PlatformSOCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMOCommodity), new PlatformMOCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformEOCommodity), new PlatformEOCommodityValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformEMCommodity), new PlatformEMCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformSMCommodity), new PlatformSMCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMMCommodity), new PlatformMMCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMCommodity), new PlatformMCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformPlatMarket), new PlatformPlatMarketValidator());
+            ValidatorBuilder.Add(nameof(PlatformMarket), new PlatformMarketValidator());
+
+            ValidatorBuilder.Add(nameof(PlatformProducter), new PlatformProducterValidator());
+            ValidatorBuilder.Add(nameof(PlatformEPCommodity), new PlatformEPCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformSPCommodity), new PlatformSPCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformMPCommodity), new PlatformMPCommodityValidator());
+            ValidatorBuilder.Add(nameof(PlatformProductCenter), new PlatformProductCenterValidator());
+            ValidatorBuilder.Add(nameof(PlatformProductLand), new PlatformProductLandValidator());
+            ValidatorBuilder.Add(nameof(PlatformPCommodity), new PlatformPCommodityValidator());
         }
     }
 }

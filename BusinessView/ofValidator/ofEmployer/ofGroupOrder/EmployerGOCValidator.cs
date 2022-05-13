@@ -1,9 +1,8 @@
-using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
-using FluentValidation;
+using BusinessView.ofValidator.ofCommon.ofEmployer;
 
-namespace BusinessView.ofValidator.ofEmployee.ofGroupOrder
+namespace BusinessView.ofValidator.ofEmployer.ofGroupOrder
 {
-    public class EmployerGOCValidator : AbstractValidator<EmployerGOC>
+    public class EmployerGOCValidator : EmployerCenterValidator
     {
         public EmployerGOCValidator()
         {
