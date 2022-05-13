@@ -22,11 +22,11 @@ namespace BusinessView.ofCommon.ofUser
         protected virtual void OnStrorageBuilder(StorageBuilder storageBuilder) { }
         protected virtual void OnValidatorBuilder(ValidatorBuilder validatorBuilde) { }
 
-        public abstract Task<T> PostAsync<T>(T t) where T : new();
-        public abstract Task<T> PutAsync<T>(T t) where T : new();
-        public abstract Task<T> GetByIdAsync<T>(string id) where T : new();
-        public abstract Task DeleteByIdAsync<T>(string id) where T : new();
-        public abstract Task<IEnumerable<T>> GetsAsync<T>() where T : new();
-        public abstract Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid) where T : new();
+        public abstract Task<T> PostAsync<T>(T t) where T : class, new();
+        public abstract Task<T> PutAsync<T>(T t) where T : class, new();
+        public abstract Task<T> GetByIdAsync<T>(string id) where T : class, new();
+        public abstract Task DeleteByIdAsync<T>(string id) where T : class, new();
+        public abstract Task<IEnumerable<T>> GetsAsync<T>() where T : class, new();
+        public abstract Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid) where T : class, new();
     }
 }

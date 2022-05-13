@@ -2,6 +2,7 @@
 using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
+using NMemory.Tables;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -27,6 +28,7 @@ namespace BusinessView.ofCommon.ofUser
         public override async Task<T> PostAsync<T>(T t) 
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
             if(service != null)
             {
                 T? Value = await service.PostAsync<T>(t);
