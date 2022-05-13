@@ -1,14 +1,17 @@
+using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofPlatform
 {
     public class PlatformGroupOrderNMemoryDatabase : Database
     {
         public PlatformGroupOrderNMemoryDatabase()
         {
-            var _PlatformGOCS = this.Tables.Create<PlatformGOCS, string>(x => x.Id, null);
-            var _PlatformGOCCS = this.Tables.Create<PlatformGOCCS, string>(x => x.Id, null);
-            var _PlatformSGOCS = this.Tables.Create<PlatformSGOCS, string>(x => x.Id, null);
-            var _PlatformMGOCS = this.Tables.Create<PlatformMGOCS, string>(x => x.Id, null);
-            var _PlatformEGOCS = this.Tables.Create<PlatformEGOCS, string>(x => x.Id, null);
+            var _PlatformGOCS = this.Tables.Create<PlatformGOC, string>(x => x.Id, null);
+            var _PlatformGOCCS = this.Tables.Create<PlatformGOCC, string>(x => x.Id, null);
+            var _PlatformSGOCS = this.Tables.Create<PlatformSGOC, string>(x => x.Id, null);
+            var _PlatformMGOCS = this.Tables.Create<PlatformMGOC, string>(x => x.Id, null);
+            var _PlatformEGOCS = this.Tables.Create<PlatformEGOC, string>(x => x.Id, null);
 
             PlatformGOCS = _PlatformGOCS;
             PlatformGOCCS = _PlatformGOCCS;

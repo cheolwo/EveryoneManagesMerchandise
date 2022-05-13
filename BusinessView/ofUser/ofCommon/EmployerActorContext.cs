@@ -11,6 +11,8 @@ using BusinessView.ofDTO.ofMarket.ofEmployer;
 using BusinessView.ofDTO.ofOrder.ofEmployer;
 using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofStorage.ofEmployer;
+using BusinessView.ofStorage.ofEmployer.ofGroupOrder;
 using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofValidator.ofEmployer.ofGroupOrder;
@@ -89,9 +91,70 @@ namespace BusinessView.ofCommon.ofUser
             serviceBuilder.Add(nameof(EmployerProductLand), new EmployerProductLandService(_options.ProductServiceOptions));
             serviceBuilder.Add(nameof(EmployerPCommodity), new EmployerPCommodityService(_options.ProductServiceOptions));
         }
-        protected override void OnStrorageBuilder(StorageBuilder storageBuilder)
+        protected override void OnStrorageBuilder(StorageBuilder StorageBuilder)
         {
+            EmployerGroupOrderNMemoryDatabase EmployerGroupOrderNMemoryDatabase = new();
+            EmployerHRNMemoryDatabase EmployerHRNMemoryDatabase = new();
+            EmployerJournalNMemoryDatabase EmployerJournalNMemoryDatabase = new();
+            EmployerMarketNMemoryDatabase EmployerMarketNMemoryDatabase = new();
+            EmployerOrderNMemoryDatabase EmployerOrderNMemoryDatabase = new();
+            EmployerProductNMemoryDatabase EmployerProductNMemoryDatabase = new();
+            EmployerTradeNMemoryDatabase EmployerTradeNMemoryDatabase = new();
+            EmployerWarehouseNMemoryDatabase EmployerWarehouseNMemoryDatabase = new();
 
+            StorageBuilder.Add(nameof(EmployerEmployeeRole), EmployerHRNMemoryDatabase.EmployerEmployeeRoles);
+            StorageBuilder.Add(nameof(EmployerHRBusinessPart), EmployerHRNMemoryDatabase.EmployerHRBusinessParts);
+            StorageBuilder.Add(nameof(EmployerHRCenter), EmployerHRNMemoryDatabase.EmployerHRCenters);
+            StorageBuilder.Add(nameof(EmployerHREmployee), EmployerHRNMemoryDatabase.EmployerHREmployees);
+            StorageBuilder.Add(nameof(EmployerHRRole), EmployerHRNMemoryDatabase.EmployerHRRoles);
+
+            StorageBuilder.Add(nameof(EmployerJCommodity), EmployerJournalNMemoryDatabase.EmployerJCommoditys);
+            StorageBuilder.Add(nameof(EmployerJournal), EmployerJournalNMemoryDatabase.EmployerJournals);
+            StorageBuilder.Add(nameof(EmployerJournalCenter), EmployerJournalNMemoryDatabase.EmployerJournalCenters);
+
+            StorageBuilder.Add(nameof(EmployerWarehouse), EmployerWarehouseNMemoryDatabase.EmployerWarehouses);
+            StorageBuilder.Add(nameof(EmployerWCommodity), EmployerWarehouseNMemoryDatabase.EmployerWCommoditys);
+            StorageBuilder.Add(nameof(EmployerSWCommodity), EmployerWarehouseNMemoryDatabase.EmployerSWCommoditys);
+            StorageBuilder.Add(nameof(EmployerMWCommodity), EmployerWarehouseNMemoryDatabase.EmployerMWCommoditys);
+            StorageBuilder.Add(nameof(EmployerEWCommodity), EmployerWarehouseNMemoryDatabase.EmployerEWCommoditys);
+            StorageBuilder.Add(nameof(EmployerDividedTag), EmployerWarehouseNMemoryDatabase.EmployerDividedTags);
+            StorageBuilder.Add(nameof(EmployerDotBarcode), EmployerWarehouseNMemoryDatabase.EmployerDotBarcodes);
+            StorageBuilder.Add(nameof(EmployerIncomingTag), EmployerWarehouseNMemoryDatabase.EmployerIncomingTags);
+            StorageBuilder.Add(nameof(EmployerLoadFrame), EmployerWarehouseNMemoryDatabase.EmployerLoadFrames);
+            StorageBuilder.Add(nameof(EmployerWorkingDesk), EmployerWarehouseNMemoryDatabase.EmployerWorkingDesks);
+
+            StorageBuilder.Add(nameof(EmployerTradeCenter), EmployerTradeNMemoryDatabase.EmployerTradeCenters);
+            StorageBuilder.Add(nameof(EmployerTCommodity), EmployerTradeNMemoryDatabase.EmployerTCommoditys);
+            StorageBuilder.Add(nameof(EmployerSTCommodity), EmployerTradeNMemoryDatabase.EmployerSTCommoditys);
+            StorageBuilder.Add(nameof(EmployerMTCommodity), EmployerTradeNMemoryDatabase.EmployerMTCommoditys);
+            StorageBuilder.Add(nameof(EmployerETCommodity), EmployerTradeNMemoryDatabase.EmployerETCommoditys);
+
+            StorageBuilder.Add(nameof(EmployerGOC), EmployerGroupOrderNMemoryDatabase.EmployerGOCS);
+            StorageBuilder.Add(nameof(EmployerGOCC), EmployerGroupOrderNMemoryDatabase.EmployerGOCCS);
+            StorageBuilder.Add(nameof(EmployerSGOC), EmployerGroupOrderNMemoryDatabase.EmployerSGOCS);
+            StorageBuilder.Add(nameof(EmployerMGOC), EmployerGroupOrderNMemoryDatabase.EmployerMGOCS);
+            StorageBuilder.Add(nameof(EmployerEGOC), EmployerGroupOrderNMemoryDatabase.EmployerEGOCS);
+
+            StorageBuilder.Add(nameof(EmployerOrderCenter), EmployerOrderNMemoryDatabase.EmployerOrderCenters);
+            StorageBuilder.Add(nameof(EmployerOCommodity), EmployerOrderNMemoryDatabase.EmployerOCommoditys);
+            StorageBuilder.Add(nameof(EmployerSOCommodity), EmployerOrderNMemoryDatabase.EmployerSOCommoditys);
+            StorageBuilder.Add(nameof(EmployerMOCommodity), EmployerOrderNMemoryDatabase.EmployerMOCommoditys);
+            StorageBuilder.Add(nameof(EmployerEOCommodity), EmployerOrderNMemoryDatabase.EmployerEOCommoditys);
+
+            StorageBuilder.Add(nameof(EmployerEMCommodity), EmployerMarketNMemoryDatabase.EmployerEMCommoditys);
+            StorageBuilder.Add(nameof(EmployerSMCommodity), EmployerMarketNMemoryDatabase.EmployerSMCommoditys);
+            StorageBuilder.Add(nameof(EmployerMMCommodity), EmployerMarketNMemoryDatabase.EmployerMMCommoditys);
+            StorageBuilder.Add(nameof(EmployerMCommodity), EmployerMarketNMemoryDatabase.EmployerMCommoditys);
+            StorageBuilder.Add(nameof(EmployerPlatMarket), EmployerMarketNMemoryDatabase.EmployerPlatMarkets);
+            StorageBuilder.Add(nameof(EmployerMarket), EmployerMarketNMemoryDatabase.EmployerMarkets);
+
+            StorageBuilder.Add(nameof(EmployerProducter), EmployerProductNMemoryDatabase.EmployerProducters);
+            StorageBuilder.Add(nameof(EmployerEPCommodity), EmployerProductNMemoryDatabase.EmployerEPCommoditys);
+            StorageBuilder.Add(nameof(EmployerSPCommodity), EmployerProductNMemoryDatabase.EmployerSPCommoditys);
+            StorageBuilder.Add(nameof(EmployerMPCommodity), EmployerProductNMemoryDatabase.EmployerMPCommoditys);
+            StorageBuilder.Add(nameof(EmployerProductCenter), EmployerProductNMemoryDatabase.EmployerProductCenters);
+            StorageBuilder.Add(nameof(EmployerProductLand), EmployerProductNMemoryDatabase.EmployerProductLands);
+            StorageBuilder.Add(nameof(EmployerPCommodity), EmployerProductNMemoryDatabase.EmployerPCommoditys);
         }
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde)
         {

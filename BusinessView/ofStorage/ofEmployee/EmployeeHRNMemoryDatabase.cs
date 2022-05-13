@@ -1,3 +1,7 @@
+using BusinessView.ofDTO.ofHR.ofEmployee;
+using NMemory;
+using NMemory.Tables;
+
 namespace BusinessView.ofStorage.ofEmployee
 {
     public class EmployeeHRNMemoryDatabase : Database
@@ -10,14 +14,14 @@ namespace BusinessView.ofStorage.ofEmployee
             var _EmployeeHRRoles = this.Tables.Create<EmployeeHRRole, string>(x=>x.Id, null);
             var _EmployeeEmployeeRoles = this.Tables.Create<EmployeeEmployeeRole, string>(x=>x.Id, null);
             
-            EmployeeHRCenters = _EmployeeHRCeners;
+            EmployeeHRCenters = _EmployeeHRCenters;
             EmployeeHRBusinessParts = _EmployeeHRBusinessParts;
             EmployeeHREmployees = _EmployeeHREmployees;
             EmployeeHRRoles = _EmployeeHRRoles;
-            EmployeeEmployeeRoles = _EmployeeHREmployees;
+            EmployeeEmployeeRoles = _EmployeeEmployeeRoles;
         }
         public ITable<EmployeeEmployeeRole> EmployeeEmployeeRoles {get; private set;}
-        public ITable<EmployeeHRCener> EmployeeHRCenters {get; private set;}
+        public ITable<EmployeeHRCenter> EmployeeHRCenters {get; private set;}
         public ITable<EmployeeHRRole> EmployeeHRRoles {get; private set;}
         public ITable<EmployeeHRBusinessPart> EmployeeHRBusinessParts {get; private set;}
         public ITable<EmployeeHREmployee> EmployeeHREmployees {get; private set;}

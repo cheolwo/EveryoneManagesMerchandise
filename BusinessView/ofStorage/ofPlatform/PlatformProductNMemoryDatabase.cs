@@ -1,3 +1,6 @@
+using BusinessView.ofDTO.ofProduct.ofPlatform;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofPlatform
 {
     public class PlatformProductNMemoryDatabase : Database

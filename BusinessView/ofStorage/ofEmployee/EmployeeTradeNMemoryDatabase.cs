@@ -1,3 +1,7 @@
+using BusinessView.ofTrade.ofEmployee;
+using NMemory;
+using NMemory.Tables;
+
 namespace BusinessView.ofStorage.ofEmployee
 {
     public class EmployeeTradeNMemoryDatabase : Database

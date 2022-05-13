@@ -265,6 +265,10 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
+            "NMemory": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"

@@ -1,3 +1,6 @@
+using BusinessView.ofDTO.ofProduct.ofEmployee;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofEmployee
 {
     public class EmployeeProductNMemoryDatabase : Database

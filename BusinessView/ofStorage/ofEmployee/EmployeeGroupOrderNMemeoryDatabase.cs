@@ -1,14 +1,18 @@
+using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
+using NMemory;
+using NMemory.Tables;
+
 namespace BusinessView.ofStorage.ofEmployee
 {
     public class EmployeeGroupOrderNMemoryDatabase : Database
     {
         public EmployeeGroupOrderNMemoryDatabase()
         {
-            var _EmployeeGOCS = this.Tables.Create<EmployeeGOCS, string>(x => x.Id, null);
-            var _EmployeeGOCCS = this.Tables.Create<EmployeeGOCCS, string>(x => x.Id, null);
-            var _EmployeeSGOCS = this.Tables.Create<EmployeeSGOCS, string>(x => x.Id, null);
-            var _EmployeeMGOCS = this.Tables.Create<EmployeeMGOCS, string>(x => x.Id, null);
-            var _EmployeeEGOCS = this.Tables.Create<EmployeeEGOCS, string>(x => x.Id, null);
+            var _EmployeeGOCS = this.Tables.Create<EmployeeGOC, string>(x => x.Id, null);
+            var _EmployeeGOCCS = this.Tables.Create<EmployeeGOCC, string>(x => x.Id, null);
+            var _EmployeeSGOCS = this.Tables.Create<EmployeeSGOC, string>(x => x.Id, null);
+            var _EmployeeMGOCS = this.Tables.Create<EmployeeMGOC, string>(x => x.Id, null);
+            var _EmployeeEGOCS = this.Tables.Create<EmployeeEGOC, string>(x => x.Id, null);
 
             EmployeeGOCS = _EmployeeGOCS;
             EmployeeGOCCS = _EmployeeGOCCS;

@@ -1,3 +1,6 @@
+using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofPlatform
 {
     public class PlatformWarehouseNMemoryDatabase : Database
@@ -10,7 +13,7 @@ namespace BusinessView.ofStorage.ofPlatform
             var _PlatformMWCommoditys = this.Tables.Create<PlatformMWCommodity, string>(x=>x.Id, null);
             var _PlatformEWCommoditys = this.Tables.Create<PlatformEWCommodity, string>(x=>x.Id, null);
             var _PlatformWorkingDesks = this.Tables.Create<PlatformWorkingDesk, string>(x=>x.Id, null);
-            var _PlatformLodaFrames = this.Tables.Create<PlatformLodaFrame, string>(x=>x.Id, null);
+            var _PlatformLoadFrames = this.Tables.Create<PlatformLoadFrame, string>(x=>x.Id, null);
             var _PlatformDividedTags = this.Tables.Create<PlatformDividedTag, string>(x=>x.Id, null);
             var _PlatformDotBarcodes = this.Tables.Create<PlatformDotBarcode, string>(x=>x.Id, null);
             var _PlatformIncomingTags = this.Tables.Create<PlatformIncomingTag, string>(x=>x.Id, null);
@@ -21,7 +24,7 @@ namespace BusinessView.ofStorage.ofPlatform
             PlatformMWCommoditys = _PlatformMWCommoditys;
             PlatformEWCommoditys = _PlatformEWCommoditys;
             PlatformWorkingDesks = _PlatformWorkingDesks;
-            PlatformLodaFrames = _PlatformLodaFrames;
+            PlatformLoadFrames = _PlatformLoadFrames;
             PlatformDividedTags = _PlatformDividedTags;
             PlatformDotBarcodes = _PlatformDotBarcodes;
             PlatformIncomingTags = _PlatformIncomingTags;
@@ -29,7 +32,7 @@ namespace BusinessView.ofStorage.ofPlatform
         public ITable<PlatformIncomingTag> PlatformIncomingTags {get; private set;}
         public ITable<PlatformDotBarcode> PlatformDotBarcodes {get; private set;}
         public ITable<PlatformDividedTag> PlatformDividedTags {get; private set;}
-        public ITable<PlatformLodaFrame> PlatformLodaFrames {get; private set;}
+        public ITable<PlatformLoadFrame> PlatformLoadFrames {get; private set;}
         public ITable<PlatformWorkingDesk> PlatformWorkingDesks {get; private set;}
         public ITable<PlatformWarehouse> PlatformWarehouses {get; private set;}
         public ITable<PlatformWCommodity> PlatformWCommoditys {get; private set;}

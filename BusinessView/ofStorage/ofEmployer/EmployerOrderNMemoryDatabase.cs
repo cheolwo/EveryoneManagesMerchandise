@@ -1,20 +1,23 @@
+using BusinessView.ofDTO.ofOrder.ofEmployer;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofEmployer
 {
     public class EmployerOrderNMemoryDatabase : Database
     {
         public EmployerOrderNMemoryDatabase()
         {
-            var employerOrderCenters = this.Tables.Create<EmployerOrderCenter, string>(x=>x.Id, null);
-            var employerOCommoditys = this.Tables.Create<EmployerOCommodity, string>(x=>x.Id, null);
-            var employerSOCommoditys = this.Tables.Create<EmployerSOCommodity, string>(x=>x.Id, null);
-            var employerMOCommoditys = this.Tables.Create<EmployerMOCommodity, string>(x=>x.Id, null);
-            var employerEOCommoditys = this.Tables.Create<EmployerEOCommodity, string>(x=>x.Id, null);
+            var  _EmployerOrderCenters = this.Tables.Create<EmployerOrderCenter, string>(x=>x.Id, null);
+            var  _EmployerOCommoditys = this.Tables.Create<EmployerOCommodity, string>(x=>x.Id, null);
+            var  _EmployerSOCommoditys = this.Tables.Create<EmployerSOCommodity, string>(x=>x.Id, null);
+            var  _EmployerMOCommoditys = this.Tables.Create<EmployerMOCommodity, string>(x=>x.Id, null);
+            var _EmployerEOCommoditys = this.Tables.Create<EmployerEOCommodity, string>(x=>x.Id, null);
 
-            employerOrderCenters = EmployerOrderCenters;
-            employerOCommoditys = EmployerOCommoditys;
-            employerSOCommoditys = EmployerSOCommoditys;
-            employerMOCommoditys = EmployerMOCommoditys;
-            employerEOCommoditys = EmployerEOCommoditys;
+            EmployerOrderCenters = _EmployerOrderCenters;
+            EmployerOCommoditys = _EmployerOCommoditys;
+            EmployerSOCommoditys = _EmployerSOCommoditys;
+            EmployerMOCommoditys = _EmployerMOCommoditys;
+            EmployerEOCommoditys = _EmployerEOCommoditys;
         }
         public ITable<EmployerOrderCenter> EmployerOrderCenters {get; private set;}
         public ITable<EmployerOCommodity> EmployerOCommoditys {get; private set;}

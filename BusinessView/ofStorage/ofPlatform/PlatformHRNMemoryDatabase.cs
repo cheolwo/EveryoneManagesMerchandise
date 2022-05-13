@@ -1,3 +1,6 @@
+using BusinessView.ofDTO.ofHR.ofPlatform;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofPlatform
 {
     public class PlatformHRNMemoryDatabase : Database
@@ -10,11 +13,11 @@ namespace BusinessView.ofStorage.ofPlatform
             var _PlatformHRRoles = this.Tables.Create<PlatformHRRole, string>(x=>x.Id, null);
             var _PlatformEmployeeRoles = this.Tables.Create<PlatformEmployeeRole, string>(x=>x.Id, null);
             
-            PlatformHRCenters = _PlatformHRCenter;
+            PlatformHRCenters = _PlatformHRCenters;
             PlatformHRBusinessParts = _PlatformHRBusinessParts;
             PlatformHREmployees = _PlatformHREmployees;
             PlatformHRRoles = _PlatformHRRoles;
-            PlatformEmployeeRoles = _PlatformHREmployees;
+            PlatformEmployeeRoles = _PlatformEmployeeRoles;
         }
         public ITable<PlatformEmployeeRole> PlatformEmployeeRoles {get; private set;}
         public ITable<PlatformHRCenter> PlatformHRCenters {get; private set;}

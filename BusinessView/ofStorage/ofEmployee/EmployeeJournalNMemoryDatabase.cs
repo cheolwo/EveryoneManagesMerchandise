@@ -1,3 +1,7 @@
+using BusinessView.ofDTO.ofJournal.ofEmployee;
+using NMemory;
+using NMemory.Tables;
+
 namespace BusinessView.ofStorage.ofEmployee
 {
     public class EmployeeJournalNMemoryDatabase : Database

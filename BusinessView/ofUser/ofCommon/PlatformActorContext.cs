@@ -21,6 +21,7 @@ using BusinessView.ofValidator.ofPlatform.ofOrder;
 using BusinessView.ofValidator.ofPlatform.ofProduct;
 using BusinessView.ofValidator.ofPlatform.ofTrade;
 using BusinessView.ofValidator.ofPlatform.ofWarehouse;
+using BusinessView.ofStorage.ofPlatform;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -89,7 +90,68 @@ namespace BusinessView.ofCommon.ofUser
         }
         protected override void OnStrorageBuilder(StorageBuilder storageBuilder) 
         {
+            PlatformGroupOrderNMemoryDatabase PlatformGroupOrderNMemoryDatabase = new();
+            PlatformHRNMemoryDatabase PlatformHRNMemoryDatabase = new();
+            PlatformJournalNMemoryDatabase PlatformJournalNMemoryDatabase = new();
+            PlatformMarketNMemoryDatabase PlatformMarketNMemoryDatabase = new();
+            PlatformOrderNMemoryDatabase PlatformOrderNMemoryDatabase = new();
+            PlatformProductNMemoryDatabase PlatformProductNMemoryDatabase = new();
+            PlatformTradeNMemoryDatabase PlatformTradeNMemoryDatabase = new();
+            PlatformWarehouseNMemoryDatabase PlatformWarehouseNMemoryDatabase = new();
 
+            StorageBuilder.Add(nameof(PlatformEmployeeRole), PlatformHRNMemoryDatabase.PlatformEmployeeRoles);
+            StorageBuilder.Add(nameof(PlatformHRBusinessPart), PlatformHRNMemoryDatabase.PlatformHRBusinessParts);
+            StorageBuilder.Add(nameof(PlatformHRCenter), PlatformHRNMemoryDatabase.PlatformHRCenters);
+            StorageBuilder.Add(nameof(PlatformHREmployee), PlatformHRNMemoryDatabase.PlatformHREmployees);
+            StorageBuilder.Add(nameof(PlatformHRRole), PlatformHRNMemoryDatabase.PlatformHRRoles);
+
+            StorageBuilder.Add(nameof(PlatformJCommodity), PlatformJournalNMemoryDatabase.PlatformJCommoditys);
+            StorageBuilder.Add(nameof(PlatformJournal), PlatformJournalNMemoryDatabase.PlatformJournals);
+            StorageBuilder.Add(nameof(PlatformJournalCenter), PlatformJournalNMemoryDatabase.PlatformJournalCenters);
+
+            StorageBuilder.Add(nameof(PlatformWarehouse), PlatformWarehouseNMemoryDatabase.PlatformWarehouses);
+            StorageBuilder.Add(nameof(PlatformWCommodity), PlatformWarehouseNMemoryDatabase.PlatformWCommoditys);
+            StorageBuilder.Add(nameof(PlatformSWCommodity), PlatformWarehouseNMemoryDatabase.PlatformSWCommoditys);
+            StorageBuilder.Add(nameof(PlatformMWCommodity), PlatformWarehouseNMemoryDatabase.PlatformMWCommoditys);
+            StorageBuilder.Add(nameof(PlatformEWCommodity), PlatformWarehouseNMemoryDatabase.PlatformEWCommoditys);
+            StorageBuilder.Add(nameof(PlatformDividedTag), PlatformWarehouseNMemoryDatabase.PlatformDividedTags);
+            StorageBuilder.Add(nameof(PlatformDotBarcode), PlatformWarehouseNMemoryDatabase.PlatformDotBarcodes);
+            StorageBuilder.Add(nameof(PlatformIncomingTag), PlatformWarehouseNMemoryDatabase.PlatformIncomingTags);
+            StorageBuilder.Add(nameof(PlatformLoadFrame), PlatformWarehouseNMemoryDatabase.PlatformLoadFrames);
+            StorageBuilder.Add(nameof(PlatformWorkingDesk), PlatformWarehouseNMemoryDatabase.PlatformWorkingDesks);
+
+            StorageBuilder.Add(nameof(PlatformTradeCenter), PlatformTradeNMemoryDatabase.PlatformTradeCenters);
+            StorageBuilder.Add(nameof(PlatformTCommodity), PlatformTradeNMemoryDatabase.PlatformTCommoditys);
+            StorageBuilder.Add(nameof(PlatformSTCommodity), PlatformTradeNMemoryDatabase.PlatformSTCommoditys);
+            StorageBuilder.Add(nameof(PlatformMTCommodity), PlatformTradeNMemoryDatabase.PlatformMTCommoditys);
+            StorageBuilder.Add(nameof(PlatformETCommodity), PlatformTradeNMemoryDatabase.PlatformETCommoditys);
+
+            StorageBuilder.Add(nameof(PlatformGOC), PlatformGroupOrderNMemoryDatabase.PlatformGOCS);
+            StorageBuilder.Add(nameof(PlatformGOCC), PlatformGroupOrderNMemoryDatabase.PlatformGOCCS);
+            StorageBuilder.Add(nameof(PlatformSGOC), PlatformGroupOrderNMemoryDatabase.PlatformSGOCS);
+            StorageBuilder.Add(nameof(PlatformMGOC), PlatformGroupOrderNMemoryDatabase.PlatformMGOCS);
+            StorageBuilder.Add(nameof(PlatformEGOC), PlatformGroupOrderNMemoryDatabase.PlatformEGOCS);
+
+            StorageBuilder.Add(nameof(PlatformOrderCenter), PlatformOrderNMemoryDatabase.PlatformOrderCenters);
+            StorageBuilder.Add(nameof(PlatformOCommodity), PlatformOrderNMemoryDatabase.PlatformOCommoditys);
+            StorageBuilder.Add(nameof(PlatformSOCommodity), PlatformOrderNMemoryDatabase.PlatformSOCommoditys);
+            StorageBuilder.Add(nameof(PlatformMOCommodity), PlatformOrderNMemoryDatabase.PlatformMOCommoditys);
+            StorageBuilder.Add(nameof(PlatformEOCommodity), PlatformOrderNMemoryDatabase.PlatformEOCommoditys);
+
+            StorageBuilder.Add(nameof(PlatformEMCommodity), PlatformMarketNMemoryDatabase.PlatformEMCommoditys);
+            StorageBuilder.Add(nameof(PlatformSMCommodity), PlatformMarketNMemoryDatabase.PlatformSMCommoditys);
+            StorageBuilder.Add(nameof(PlatformMMCommodity), PlatformMarketNMemoryDatabase.PlatformMMCommoditys);
+            StorageBuilder.Add(nameof(PlatformMCommodity), PlatformMarketNMemoryDatabase.PlatformMCommoditys);
+            StorageBuilder.Add(nameof(PlatformPlatMarket), PlatformMarketNMemoryDatabase.PlatformPlatMarkets);
+            StorageBuilder.Add(nameof(PlatformMarket), PlatformMarketNMemoryDatabase.PlatformMarkets);
+
+            StorageBuilder.Add(nameof(PlatformProducter), PlatformProductNMemoryDatabase.PlatformProducters);
+            StorageBuilder.Add(nameof(PlatformEPCommodity), PlatformProductNMemoryDatabase.PlatformEPCommoditys);
+            StorageBuilder.Add(nameof(PlatformSPCommodity), PlatformProductNMemoryDatabase.PlatformSPCommoditys);
+            StorageBuilder.Add(nameof(PlatformMPCommodity), PlatformProductNMemoryDatabase.PlatformMPCommoditys);
+            StorageBuilder.Add(nameof(PlatformProductCenter), PlatformProductNMemoryDatabase.PlatformProductCenters);
+            StorageBuilder.Add(nameof(PlatformProductLand), PlatformProductNMemoryDatabase.PlatformProductLands);
+            StorageBuilder.Add(nameof(PlatformPCommodity), PlatformProductNMemoryDatabase.PlatformPCommoditys);
         }
         protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde) 
         {

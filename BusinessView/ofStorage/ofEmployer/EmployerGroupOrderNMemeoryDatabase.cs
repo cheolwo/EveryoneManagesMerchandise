@@ -1,14 +1,17 @@
+using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using NMemory;
+using NMemory.Tables;
 namespace BusinessView.ofStorage.ofEmployer.ofGroupOrder
 {
     public class EmployerGroupOrderNMemoryDatabase : Database
     {
         public EmployerGroupOrderNMemoryDatabase()
         {
-            var _EmployerGOCS = this.Tables.Create<EmployerGOCS, string>(x => x.Id, null);
-            var _EmployerGOCCS = this.Tables.Create<EmployerGOCCS, string>(x => x.Id, null);
-            var _EmployerSGOCS = this.Tables.Create<EmployerSGOCS, string>(x => x.Id, null);
-            var _EmployerMGOCS = this.Tables.Create<EmployerMGOCS, string>(x => x.Id, null);
-            var _EmployerEGOCS = this.Tables.Create<EmployerEGOCS, string>(x => x.Id, null);
+            var _EmployerGOCS = this.Tables.Create<EmployerGOC, string>(x => x.Id, null);
+            var _EmployerGOCCS = this.Tables.Create<EmployerGOCC, string>(x => x.Id, null);
+            var _EmployerSGOCS = this.Tables.Create<EmployerSGOC, string>(x => x.Id, null);
+            var _EmployerMGOCS = this.Tables.Create<EmployerMGOC, string>(x => x.Id, null);
+            var _EmployerEGOCS = this.Tables.Create<EmployerEGOC, string>(x => x.Id, null);
 
             EmployerGOCS = _EmployerGOCS;
             EmployerGOCCS = _EmployerGOCCS;
