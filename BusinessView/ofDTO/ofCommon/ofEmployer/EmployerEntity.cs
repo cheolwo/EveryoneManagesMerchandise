@@ -2,6 +2,7 @@
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
 using BusinessView.ofCommon.ofInterface;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployer
 {
@@ -196,6 +197,12 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
             keyValuePairs.Add(TableMetaInfo.GetOne, GetOneInfos);
             keyValuePairs.Add(TableMetaInfo.DetailOne, DetailOneInfos);
             return keyValuePairs;
+        }
+
+        public bool EqualsById(object? obj)
+        {
+            return obj is EmployerEntity entity &&
+                  Id == entity.Id;
         }
     }
     public class EmployerCenter : EmployerEntity

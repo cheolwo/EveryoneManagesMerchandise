@@ -2,6 +2,7 @@
 using BusinessData.ofCommon.ofInterface;
 using System.Reflection;
 using BusinessView.ofCommon.ofInterface;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon.ofPlatform
 {
@@ -17,7 +18,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         [Detail]public List<ImageofInfo>? ImageofInfos {get; set;}
         [Detail]public List<Doc>? Docs {get; set;}
         [Detail] public IList<IBrowserFile> files {get; set;}
-        public List<PropertyInfo>? OnlyGetProperties(Type t)
+        public List<PropertyInfo> OnlyGetProperties(Type t)
         {
             List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -36,7 +37,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             }
             return OnlyGetPropertyInfos;
         }
-        public List<PropertyInfo>? OnlyDetailProperties(Type t)
+        public List<PropertyInfo> OnlyDetailProperties(Type t)
         {
             List<PropertyInfo> OnlyDetailPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -55,7 +56,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             }
             return OnlyDetailPropertyInfos;
         }
-        public List<PropertyInfo>? OnlyGetManyProperties(Type t)
+        public List<PropertyInfo> OnlyGetManyProperties(Type t)
         {
             List<PropertyInfo> GetManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -74,7 +75,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetManyPropertyInfos;
         }
 
-        public List<PropertyInfo>? OnlyGetOneProperties(Type t)
+        public List<PropertyInfo> OnlyGetOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -93,7 +94,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo>? OnlyDetailOneProperties(Type t)
+        public List<PropertyInfo> OnlyDetailOneProperties(Type t)
         {
             List<PropertyInfo> GetOnePropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -112,7 +113,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             return GetOnePropertyInfos;
         }
 
-        public List<PropertyInfo>? OnlyDetailManyProperties(Type t)
+        public List<PropertyInfo> OnlyDetailManyProperties(Type t)
         {
             List<PropertyInfo> DetailManyPropertyInfos = new List<PropertyInfo>();
             var props = t.GetProperties();
@@ -196,6 +197,11 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
             keyValuePairs.Add(TableMetaInfo.GetOne, GetOneInfos);
             keyValuePairs.Add(TableMetaInfo.DetailOne, DetailOneInfos);
             return keyValuePairs;
+        }
+        public bool EqualsById(object? obj)
+        {
+            return obj is PlatformEntity entity &&
+                  Id == entity.Id;
         }
     }
     public class PlatformCenter : PlatformEntity

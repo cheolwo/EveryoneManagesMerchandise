@@ -1,10 +1,9 @@
-﻿<h3>EmployeeGetsEGOCCOmponent</h3>
+﻿@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
+<h3>EmployeeGetsEGOCCOmponent</h3>
 
 @code {
     [Parameter] public EmployerGetsEGOCViewModel? ViewModel { get; set; }
-
-    [Parameter] public EventCallback EventPost { get; set; }
+    [Parameter] public EventCallback<string> EventDetail { get; set; }
     [Parameter] public EventCallback<string> EventPut { get; set; }
     [Parameter] public EventCallback<string> EventDelete { get; set; }
-    [Parameter] public EventCallback<string>EventDetail { get; set; }
 }

@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofCommon.ofInterface;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
@@ -9,7 +10,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     public delegate Task GetsPageToPost(string id);
     public delegate Task GetsPageToPut(string id);
     public delegate Task GetsPageToDelete(string id);
-    public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : class, new()
+    public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : class, IEntityDTO, new()
     {
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
@@ -33,7 +34,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     /*
     
     */
-    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, new()
+    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public PostPageToGets? postPageToGets {get; set;}
         public EntityPostViewModel(ActorContext actorContext)
@@ -84,7 +85,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             OnPropertyChanged();
         }
     }
-    public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, new()
+    public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public PutPageToGets? putPageToGets {get; set;}
         public EntityPutViewModel(ActorContext actorContext)
@@ -135,7 +136,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             OnPropertyChanged();
         }
     }
-    public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, new()
+    public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public DeletePageToGets? deletePageToGets {get; set;}
         public EntityDeleteViewModel(ActorContext actorContext)
@@ -159,7 +160,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             Entity = new();
         }
     }
-    public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, new()
+    public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public GetsPageToPost? getsPageToPost {get; set;}
         public GetsPageToPut? getsPageToPut {get; set;}

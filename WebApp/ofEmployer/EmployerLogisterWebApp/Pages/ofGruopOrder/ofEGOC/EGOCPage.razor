@@ -9,25 +9,26 @@
     <CascadingValue Value=_NavigationManager Name="NavigationManager">
         @if (_EmployerEGOCPageViewModel.IsSelectGets)
         {
-            <EmployerGetsEGOCCOmponent ViewModel=_EmployerEGOCPageViewModel._EntityGetsViewModel EventPost="ClickPost" EventPut="ClickPut" EventDelete="ClickDelete" EventDetail="ClickDetail">
+            <EmployerGetsEGOCCOmponent ViewModel=_EmployerEGOCPageViewModel._EmployerGetsEGOCViewModel EventPut=_EmployerEGOCPageViewModel.OnClickGetsToPut 
+                                                                                        EventDelete="_EmployerEGOCPageViewModel.OnClickGetsToDelete" EventDetail=_EmployerEGOCPageViewModel.OnClickGetsToDetail>
 
             </EmployerGetsEGOCCOmponent>
         }
         @if (_EmployerEGOCPageViewModel.IsSelectPost)
         {
-            <EmployerPostEGOCComponent ViewModel=_PostEmployerEGOCViewModel PostToGets=ClickPostToGets>
+            <EmployerPostEGOCComponent ViewModel=_EmployerEGOCPageViewModel._EmployerPostEGOCViewModel PostToGets=_EmployerEGOCPageViewModel.OnClickPostToGets>
 
             </EmployerPostEGOCComponent>
         }
         @if (_EmployerEGOCPageViewModel.IsSelectPut)
         {
-            <EmployerPutEGOCComponent ViewModel=_PutEmployerEGOCViewModel PutToGets=ClickPutToGets>
+            <EmployerPutEGOCComponent ViewModel=_EmployerEGOCPageViewModel._EmployerPutEGOCViewModel PutToGets=_EmployerEGOCPageViewModel.OnClickPutToGets>
 
             </EmployerPutEGOCComponent>
         }
         @if (_EmployerEGOCPageViewModel.IsSelectDelete)
         {
-            <EmployerDeleteEGOCComponent ViewModel=_DeleteEmployerEGOCViewModel DeleteToGets=ClickDeleteToGets>
+            <EmployerDeleteEGOCComponent ViewModel=_EmployerEGOCPageViewModel._EmployerDeleteEGOCViewModel DeleteToGets=_EmployerEGOCPageViewModel.OnClickDeleteToGets>
 
             </EmployerDeleteEGOCComponent>
         }

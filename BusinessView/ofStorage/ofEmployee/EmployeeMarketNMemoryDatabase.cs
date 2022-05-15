@@ -1,5 +1,6 @@
-
-
+using BusinessView.ofDTO.ofMarket.ofEmployee;
+using NMemory;
+using NMemory.Tables;
 
 namespace BusinessView.ofStorage.ofEmployee
 {

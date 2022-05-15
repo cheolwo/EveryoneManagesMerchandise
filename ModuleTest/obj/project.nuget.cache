@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vaiXXLJK9CRgM/z5zM5KLlYPWkp/Wbt8MiBo0nVVrZHIr41hqnP3Wremu3adO0u1scm+PyGv5GY+EY/UPnudPQ==",
+  "dgSpecHash": "V/+JL2o9rUeJR6KgnnipFB8I3RsmXvyYcTJuOoBsqMjeVvzKivuMP+Z8b6u/tEaYlOvv3vG5rgHzO6dUp6jqwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\ModuleTest\\ModuleTest.csproj",
   "expectedPackageFiles": [
@@ -79,6 +79,7 @@
     "C:\\Users\\user\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\nlog\\5.0.0-rc1\\nlog.5.0.0-rc1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\nmemory\\3.1.4\\nmemory.3.1.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\popbill\\1.14.0\\popbill.1.14.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\quartz\\3.4.0\\quartz.3.4.0.nupkg.sha512",

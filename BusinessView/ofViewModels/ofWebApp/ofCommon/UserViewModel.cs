@@ -1,7 +1,6 @@
 ﻿using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
-using BusinessView.ofUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 

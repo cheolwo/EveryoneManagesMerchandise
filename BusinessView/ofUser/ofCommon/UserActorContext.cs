@@ -4,8 +4,7 @@ using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
 using NMemory.Tables;
 using FluentValidation;
-
-
+using Microsoft.AspNetCore.Identity;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -46,33 +45,30 @@ namespace BusinessView.ofCommon.ofUser
                 PostValue를 InMemeoryDatabase 에 저장하는 단계
          */
 
-        public override async Task<T> PostAsync<T>(T t) 
+        public override async Task<T> PostAsync<T>(T t)
         {
+            if (t == null) { throw new ArgumentNullException(nameof(T)); }
+
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            IValidator validator = ValidatorBuilder.Get(typeof(T).Name);
-            
-            if(service == null) {throw new ArgumentNullException("Service Is Null So Register Service!");}
-            if(storage == null) {throw new ArgumentNullException("Storage Is Null So Register Storage!");}
-            if(validator == null) {throw new ArgumentNullException("Validator Is Null So Register Storage!");}
+            AbstractValidator<T> validator = (AbstractValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
 
-            if(t != null)
-            {
-                var Result = validator.Validate(t);
-            }
-            if(service != null)
+            if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
+            if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
+            if (validator == null) { throw new NullReferenceException(nameof(AbstractValidator<T>)); }
+
+            var Result = validator.Validate(t);
+
+            if (Result.IsValid)
             {
                 T? Value = await service.PostAsync<T>(t);
-                if(Value != null)
-                {
-                    return Value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
-                }
+                if(Value != null) { storage.Insert(Value); return Value; }
+                else { throw new NullReferenceException("PostService Value Is Null"); }
             }
-            throw new ArgumentNullException("Not Register Service On Builder");
+            else
+            {
+                throw new ValidationException("It is Not Validate");
+            }
         }
         /*
             1. Validate 단계
@@ -85,28 +81,33 @@ namespace BusinessView.ofCommon.ofUser
         */
         public override async Task<T> PutAsync<T>(T t)
         {
+            if (t == null) { throw new ArgumentNullException(nameof(T)); }
 
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            IValidator validator = ValidatorBuilder.Get(typeof(T).Name);
-            
-            if(service == null) {throw new ArgumentNullException("Service Is Null So Register Service!");}
-            if(storage == null) {throw new ArgumentNullException("Storage Is Null So Register Storage!");}
-            if(validator == null) {throw new ArgumentNullException("Validator Is Null So Register Storage!");}
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            if(service != null)
+            AbstractValidator<T> validator = (AbstractValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            if (validator == null) { throw new NullReferenceException("Validator Is Null So Register Storage!"); }
+
+            var Result = validator.Validate(t);
+            if (Result.IsValid)
             {
+                var StorageValue = storage.FirstOrDefault(e => e.Equals(t));
+                if (StorageValue != null) { storage.Delete(StorageValue); } 
                 T? Value = await service.PutAsync<T>(t);
                 if (Value != null)
                 {
+                    storage.Insert(Value); 
                     return Value;
                 }
-                else
-                {
-                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
-                }
+                else { throw new NullReferenceException("PutService Value Is Null"); }
             }
-            throw new ArgumentNullException("Not Register Service On Builder");
+            else
+            {
+                throw new ValidationException("It is Not Validate");
+            }
         }
         /*
             1. Storage Value 값 조회 단계
@@ -123,19 +124,19 @@ namespace BusinessView.ofCommon.ofUser
         public override async Task<T> GetByIdAsync<T>(string id)
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            if (service != null)
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+
+            var StorageValue = storage.FirstOrDefault(e => e.EqualsById(id));
+            if(StorageValue != null) { return StorageValue; }  
+            else
             {
-                T? Value = await service.GetByIdAsync<T>(id);
-                if (Value != null)
-                {
-                    return Value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
-                }
+                var ServiceValue = await service.GetByIdAsync<T>(id);
+                if(ServiceValue != null ) { return ServiceValue; }
+                else { throw new NullReferenceException("Service Value Is Null"); }
             }
-            throw new ArgumentNullException("Not Register Service On Builder");
         }
         /*
 
@@ -143,47 +144,47 @@ namespace BusinessView.ofCommon.ofUser
         public override async Task DeleteByIdAsync<T>(string id)
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            if (service != null)
-            {
-                await service.DeleteAsync<T>(id);           
-            }
-            throw new ArgumentNullException("Not Register Service On Builder");
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+
+            var StorageValue = storage.FirstOrDefault(e => e.EqualsById(id));
+            if (StorageValue != null) { storage.Delete(StorageValue); }
+
+            await service.DeleteAsync<T>(id);
         }
 
         public override async Task<IEnumerable<T>> GetsAsync<T>()
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            if (service != null)
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            if(storage.Count > 0 ) { return storage.ToList(); }
+            else
             {
-                IEnumerable<T>? Value = await service.GetsAsync<T>();
-                if(Value != null)
-                {
-                    return Value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
-                }
+                var ServiceValue = await service.GetsAsync<T>();
+                if(ServiceValue != null ) { return ServiceValue; }
+                else { throw new NullReferenceException("Service Value Is Null"); }
             }
-            throw new ArgumentNullException("Not Register Service On Builder");
         }
 
         public override async Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid)
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            if (service != null)
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            if (storage.Count > 0) { return storage.ToList(); }
+            else
             {
-                IEnumerable<T>? Value = await service.GetsAsyncByUserId<T>(userid);
-                if (Value != null)
-                {
-                    return Value;
-                }
-                else
-                {
-                    throw new ArgumentNullException("UserActor PostAsync's Return Value is Null");
-                }
+                var ServiceValue = await service.GetsAsyncByUserId<T>(userid);
+                if (ServiceValue != null) { return ServiceValue; }
+                else { throw new NullReferenceException("Service Value Is Null"); }
             }
-            throw new ArgumentNullException("Not Register Service On Builder");
         }
     }
 }

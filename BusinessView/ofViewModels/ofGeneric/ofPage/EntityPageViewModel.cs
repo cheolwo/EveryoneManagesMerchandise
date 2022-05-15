@@ -31,7 +31,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             throw new NotImplementedException();
         }
     }
-    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : new()
+    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : class, IEntityDTO, new()
     {
         public EntityPostViewModel<TEntity> _EntityPostViewModel;
         public EntityPutViewModel<TEntity> _EntityPutViewModel;
@@ -103,6 +103,22 @@ namespace BusinessView.ofViewModels.ofGeneric
                 OnPropertyChanged();
             }
         }
+        private bool isSelectDetail { get; set; }
+        public bool IsSelectDatail
+        {
+            get => isSelectDetail;
+            set
+            {
+                isSelectDetail = value;
+                OnPropertyChanged();
+            }
+        }
+        public async Task OnClickGetsToDetail(string id)
+        {
+            isSelectGets = false;
+            isSelectDetail = true;
+            await _EntityPostViewModel.GetByIdAsync(id);
+        }
         public async Task OnClickGetsToPost(string id)
         {
             isSelectGets = false;
@@ -140,7 +156,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : new()
+    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : class, IEntityDTO, new()
     {
         private readonly ICenterPageRoadAddressService _CenterPageRoadAddressService;
         private readonly ICenterPageTaxService _CenterPageTaxService;
@@ -159,7 +175,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _CenterPageRoadAddressService = centerPageRoadAddressService;
         }
     }
-    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : new()
+    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : class, IEntityDTO, new()
     {
         public CommodityPageViewModel(
             CommodityPostViewModel<TCommodity> CommodityPostViewModel, 
@@ -170,7 +186,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         {
         }
     }
-    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : new()
+    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : class, IEntityDTO, new()
     {
         public StatusPageViewModel(
             StatusPostViewModel<TStatus> StatusPostViewModel, 

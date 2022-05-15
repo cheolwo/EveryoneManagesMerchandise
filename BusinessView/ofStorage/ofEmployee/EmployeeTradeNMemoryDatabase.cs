@@ -13,7 +13,7 @@ namespace BusinessView.ofStorage.ofEmployee
             var _EmployeeSTCommoditys = this.Tables.Create<EmployeeSTCommodity, string>(x=>x.Id, null);
             var _EmployeeMTCommoditys = this.Tables.Create<EmployeeMTCommodity, string>(x=>x.Id, null);
             var _EmployeeETCommoditys = this.Tables.Create<EmployeeETCommodity, string>(x=>x.Id, null);
-            EmployeeTradeCenters = _EmployeeTradeCeters;
+            EmployeeTradeCenters = _EmployeeTradeCenters;
             EmployeeTCommoditys = _EmployeeTCommoditys;
             EmployeeSTCommoditys = _EmployeeSTCommoditys;
             EmployeeMTCommoditys = _EmployeeMTCommoditys;

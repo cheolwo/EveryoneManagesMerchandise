@@ -12,5 +12,6 @@ namespace BusinessView.ofCommon.ofInterface
         List<PropertyInfo> OnlyDetailOneProperties(Type t);
         List<PropertyInfo> OnlyDetailManyProperties(Type t);
         Dictionary<string, List<PropertyInfo>> DictionaryforClassifiedPropertyByAttribute(Type t);
+        bool EqualsById(object obj);
     }
 }

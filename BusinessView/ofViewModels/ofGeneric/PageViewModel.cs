@@ -1,10 +1,11 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.ComponentModel;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofCommon.ofInterface;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
-    public abstract class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : new()
+    public abstract class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : class, IEntityDTO, new()
     {
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
@@ -25,7 +26,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             Entity = await _ActorContext.GetByIdAsync<TEntity>(id);
         }   
     }
-    public abstract class PostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public abstract class PostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public PostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -68,7 +69,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public abstract class PutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public abstract class PutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
          public PutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -111,7 +112,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public abstract class DeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public abstract class DeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
          public DeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -127,7 +128,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             Entity = new();
         }
     }
-    public abstract class GetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public abstract class GetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
          public GetsViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -168,7 +169,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public abstract class PaegViewModel<TEntity> : BaseViewModel where TEntity : new()
+    public abstract class PaegViewModel<TEntity> : BaseViewModel where TEntity : class, IEntityDTO, new()
     {
         private readonly PostViewModel<TEntity> _PostViewModel;
         private readonly GetsViewModel<TEntity> _GetsViewModel;

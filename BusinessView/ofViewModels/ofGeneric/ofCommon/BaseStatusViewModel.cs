@@ -1,8 +1,9 @@
+using BusinessView.ofCommon.ofInterface;
 using BusinessView.ofCommon.ofUser;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
-    public class BaseStatusViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : new()
+    public class BaseStatusViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public BaseStatusViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -10,7 +11,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 
             }
     }
-    public class StatusPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : new()
+    public class StatusPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public StatusPostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -18,7 +19,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class StatusPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : new()
+    public class StatusPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public StatusPutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -26,7 +27,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class StatusDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : new()
+    public class StatusDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public StatusDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -34,7 +35,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class StatusGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : new()
+    public class StatusGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public StatusGetsViewModel(ActorContext actorContext)
             :base(actorContext)
