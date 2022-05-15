@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofSPCommodity
 {
     public class PlatformSPCommodityPageViewModel : StatusPageViewModel<PlatformSPCommodity> 
     {
+        public readonly PlatformPostSPCommodityViewModel _PlatformPostSPCommodityViewModel;
+        public readonly PlatformPutSPCommodityViewModel _PlatformPutSPCommodityViewModel;
+        public readonly PlatformDeleteSPCommodityViewModel _PlatformDeleteSPCommodityViewModel;
+        public readonly PlatformGetsSPCommodityViewModel _PlatformGetsSPCommodityViewModel;
         public PlatformSPCommodityPageViewModel(PlatformPostSPCommodityViewModel PlatformPostSPCommodityViewModel, 
                                         PlatformPutSPCommodityViewModel PlatformPutSPCommodityViewModel,
                                         PlatformDeleteSPCommodityViewModel PlatformDeleteSPCommodityViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofSPCommodity
                 :base(PlatformPostSPCommodityViewModel, PlatformPutSPCommodityViewModel, PlatformDeleteSPCommodityViewModel, PlatformGetsSPCommodityViewModel)
                     
         {
-            
+            _PlatformPostSPCommodityViewModel = PlatformPostSPCommodityViewModel;
+            _PlatformPutSPCommodityViewModel = PlatformPutSPCommodityViewModel;
+            _PlatformDeleteSPCommodityViewModel = PlatformDeleteSPCommodityViewModel;
+            _PlatformGetsSPCommodityViewModel = PlatformGetsSPCommodityViewModel;
         }
     }
 }

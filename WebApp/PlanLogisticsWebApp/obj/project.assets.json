@@ -2050,18 +2050,6 @@
           "lib/netstandard2.0/NLog.dll": {}
         }
       },
-      "NMemory/3.1.4": {
-        "type": "package",
-        "dependencies": {
-          "System.Reflection.Emit.Lightweight": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/NMemory.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NMemory.dll": {}
-        }
-      },
       "NuGet.Common/5.11.0": {
         "type": "package",
         "dependencies": {
@@ -3900,7 +3888,6 @@
           "BusinessLogic": "1.0.0",
           "FluentValidation": "11.0.1",
           "Microsoft.AspNetCore.Components": "6.0.3",
-          "NMemory": "3.1.4",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
@@ -6975,24 +6962,6 @@
         "lib/netstandard2.0/NLog.xml",
         "nlog.5.0.0-rc1.nupkg.sha512",
         "nlog.nuspec"
-      ]
-    },
-    "NMemory/3.1.4": {
-      "sha512": "Oj/Y2ro5L+vd+zwRWD2ZS9frfzru42IbD2ugGET9bsxqThExobEi/dSwp03X1Cq9EZNkTpPmvZeDw3iWR+3jPA==",
-      "type": "package",
-      "path": "nmemory/3.1.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/NMemory.dll",
-        "lib/net40/NMemory.xml",
-        "lib/net45/NMemory.dll",
-        "lib/net45/NMemory.xml",
-        "lib/netstandard2.0/NMemory.deps.json",
-        "lib/netstandard2.0/NMemory.dll",
-        "lib/netstandard2.0/NMemory.xml",
-        "nmemory.3.1.4.nupkg.sha512",
-        "nmemory.nuspec"
       ]
     },
     "NuGet.Common/5.11.0": {

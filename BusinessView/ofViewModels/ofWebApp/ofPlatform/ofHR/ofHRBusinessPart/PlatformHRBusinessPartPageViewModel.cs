@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRBusinessPart
 {
     public class PlatformHRBusinessPartPageViewModel : EntityPageViewModel<PlatformHRBusinessPart> 
     {
+        public readonly PlatformPostHRBusinessPartViewModel _PlatformPostHRBusinessPartViewModel;
+        public readonly PlatformPutHRBusinessPartViewModel _PlatformPutHRBusinessPartViewModel;
+        public readonly PlatformDeleteHRBusinessPartViewModel _PlatformDeleteHRBusinessPartViewModel;
+        public readonly PlatformGetsHRBusinessPartViewModel _PlatformGetsHRBusinessPartViewModel;
         public PlatformHRBusinessPartPageViewModel(PlatformPostHRBusinessPartViewModel PlatformPostHRBusinessPartViewModel, 
                                         PlatformPutHRBusinessPartViewModel PlatformPutHRBusinessPartViewModel,
                                         PlatformDeleteHRBusinessPartViewModel PlatformDeleteHRBusinessPartViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRBusinessPart
                 :base(PlatformPostHRBusinessPartViewModel, PlatformPutHRBusinessPartViewModel, PlatformDeleteHRBusinessPartViewModel, PlatformGetsHRBusinessPartViewModel)
                     
         {
-            
+            _PlatformPostHRBusinessPartViewModel = PlatformPostHRBusinessPartViewModel;
+            _PlatformPutHRBusinessPartViewModel = PlatformPutHRBusinessPartViewModel;
+            _PlatformDeleteHRBusinessPartViewModel = PlatformDeleteHRBusinessPartViewModel;
+            _PlatformGetsHRBusinessPartViewModel = PlatformGetsHRBusinessPartViewModel;
         }
     }
 }

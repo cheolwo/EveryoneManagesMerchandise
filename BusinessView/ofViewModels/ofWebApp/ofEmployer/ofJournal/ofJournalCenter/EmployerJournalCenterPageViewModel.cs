@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournalCente
 {
     public class EmployerJournalCenterPageViewModel : CenterPageViewModel<EmployerJournalCenter> 
     {
+        public readonly EmployerPostJournalCenterViewModel _EmployerPostJournalCenterViewModel;
+        public readonly EmployerPutJournalCenterViewModel _EmployerPutJournalCenterViewModel;
+        public readonly EmployerDeleteJournalCenterViewModel _EmployerDeleteJournalCenterViewModel;
+        public readonly EmployerGetsJournalCenterViewModel _EmployerGetsJournalCenterViewModel;
         public EmployerJournalCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournalCente
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostJournalCenterViewModel, EmployerPutJournalCenterViewModel, EmployerDeleteJournalCenterViewModel, EmployerGetsJournalCenterViewModel)
                     
         {
-            
+            _EmployerPostJournalCenterViewModel = EmployerPostJournalCenterViewModel;
+            _EmployerPutJournalCenterViewModel = EmployerPutJournalCenterViewModel;
+            _EmployerDeleteJournalCenterViewModel = EmployerDeleteJournalCenterViewModel;
+            _EmployerGetsJournalCenterViewModel = EmployerGetsJournalCenterViewModel;
         }
     }
 }

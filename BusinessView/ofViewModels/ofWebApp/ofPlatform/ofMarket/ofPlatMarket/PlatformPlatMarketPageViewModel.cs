@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofPlatMarket
 {
     public class PlatformPlatMarketPageViewModel : CenterPageViewModel<PlatformPlatMarket> 
     {
+        public readonly PlatformPostPlatMarketViewModel _PlatformPostPlatMarketViewModel;
+        public readonly PlatformPutPlatMarketViewModel _PlatformPutPlatMarketViewModel;
+        public readonly PlatformDeletePlatMarketViewModel _PlatformDeletePlatMarketViewModel;
+        public readonly PlatformGetsPlatMarketViewModel _PlatformGetsPlatMarketViewModel;
         public PlatformPlatMarketPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofPlatMarket
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostPlatMarketViewModel, PlatformPutPlatMarketViewModel, PlatformDeletePlatMarketViewModel, PlatformGetsPlatMarketViewModel)
                     
         {
-            
+            _PlatformPostPlatMarketViewModel = PlatformPostPlatMarketViewModel;
+            _PlatformPutPlatMarketViewModel = PlatformPutPlatMarketViewModel;
+            _PlatformDeletePlatMarketViewModel = PlatformDeletePlatMarketViewModel;
+            _PlatformGetsPlatMarketViewModel = PlatformGetsPlatMarketViewModel;
         }
     }
 }

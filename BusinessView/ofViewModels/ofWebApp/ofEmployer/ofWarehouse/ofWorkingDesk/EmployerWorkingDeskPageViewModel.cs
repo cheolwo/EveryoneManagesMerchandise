@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDes
 {
     public class EmployerWorkingDeskPageViewModel : EntityPageViewModel<EmployerWorkingDesk> 
     {
+        public readonly EmployerPostWorkingDeskViewModel _EmployerPostWorkingDeskViewModel;
+        public readonly EmployerPutWorkingDeskViewModel _EmployerPutWorkingDeskViewModel;
+        public readonly EmployerDeleteWorkingDeskViewModel _EmployerDeleteWorkingDeskViewModel;
+        public readonly EmployerGetsWorkingDeskViewModel _EmployerGetsWorkingDeskViewModel;
         public EmployerWorkingDeskPageViewModel(EmployerPostWorkingDeskViewModel EmployerPostWorkingDeskViewModel, 
                                         EmployerPutWorkingDeskViewModel EmployerPutWorkingDeskViewModel,
                                         EmployerDeleteWorkingDeskViewModel EmployerDeleteWorkingDeskViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDes
                 :base(EmployerPostWorkingDeskViewModel, EmployerPutWorkingDeskViewModel, EmployerDeleteWorkingDeskViewModel, EmployerGetsWorkingDeskViewModel)
                     
         {
-            
+            _EmployerPostWorkingDeskViewModel = EmployerPostWorkingDeskViewModel;
+            _EmployerPutWorkingDeskViewModel = EmployerPutWorkingDeskViewModel;
+            _EmployerDeleteWorkingDeskViewModel = EmployerDeleteWorkingDeskViewModel;
+            _EmployerGetsWorkingDeskViewModel = EmployerGetsWorkingDeskViewModel;
         }
     }
 }

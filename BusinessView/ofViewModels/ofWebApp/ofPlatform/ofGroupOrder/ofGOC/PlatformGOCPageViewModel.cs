@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOC
 {
     public class PlatformGOCPageViewModel : CenterPageViewModel<PlatformGOC> 
     {
+        public readonly PlatformPostGOCViewModel _PlatformPostGOCViewModel;
+        public readonly PlatformPutGOCViewModel _PlatformPutGOCViewModel;
+        public readonly PlatformDeleteGOCViewModel _PlatformDeleteGOCViewModel;
+        public readonly PlatformGetsGOCViewModel _PlatformGetsGOCViewModel;
         public PlatformGOCPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOC
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostGOCViewModel, PlatformPutGOCViewModel, PlatformDeleteGOCViewModel, PlatformGetsGOCViewModel)
                     
         {
-            
+            _PlatformPostGOCViewModel = PlatformPostGOCViewModel;
+            _PlatformPutGOCViewModel = PlatformPutGOCViewModel;
+            _PlatformDeleteGOCViewModel = PlatformDeleteGOCViewModel;
+            _PlatformGetsGOCViewModel = PlatformGetsGOCViewModel;
         }
     }
 }

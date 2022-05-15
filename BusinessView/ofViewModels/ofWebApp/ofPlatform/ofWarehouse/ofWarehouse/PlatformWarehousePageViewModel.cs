@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWarehouse
 {
     public class PlatformWarehousePageViewModel : CenterPageViewModel<PlatformWarehouse> 
     {
+        public readonly PlatformPostWarehouseViewModel _PlatformPostWarehouseViewModel;
+        public readonly PlatformPutWarehouseViewModel _PlatformPutWarehouseViewModel;
+        public readonly PlatformDeleteWarehouseViewModel _PlatformDeleteWarehouseViewModel;
+        public readonly PlatformGetsWarehouseViewModel _PlatformGetsWarehouseViewModel;
         public PlatformWarehousePageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWarehouse
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostWarehouseViewModel, PlatformPutWarehouseViewModel, PlatformDeleteWarehouseViewModel, PlatformGetsWarehouseViewModel)
                     
         {
-            
+            _PlatformPostWarehouseViewModel = PlatformPostWarehouseViewModel;
+            _PlatformPutWarehouseViewModel = PlatformPutWarehouseViewModel;
+            _PlatformDeleteWarehouseViewModel = PlatformDeleteWarehouseViewModel;
+            _PlatformGetsWarehouseViewModel = PlatformGetsWarehouseViewModel;
         }
     }
 }

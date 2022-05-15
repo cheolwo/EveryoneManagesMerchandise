@@ -33,10 +33,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : new()
     {
-        private EntityPostViewModel<TEntity> _EntityPostViewModel;
-        private EntityPutViewModel<TEntity> _EntityPutViewModel;
-        private EntityDeleteViewModel<TEntity> _EntityDeleteViewModel;
-        private EntityGetsViewModel<TEntity> _EntityGetsViewModel;
+        public EntityPostViewModel<TEntity> _EntityPostViewModel;
+        public EntityPutViewModel<TEntity> _EntityPutViewModel;
+        public EntityDeleteViewModel<TEntity> _EntityDeleteViewModel;
+        public EntityGetsViewModel<TEntity> _EntityGetsViewModel;
         public EntityPageViewModel(EntityPostViewModel<TEntity> EntityPostViewModel, EntityPutViewModel<TEntity> EntityPutViewModel,
                                             EntityDeleteViewModel<TEntity> EntityDeleteViewModel, EntityGetsViewModel<TEntity> EntityGetViewModel)
         {

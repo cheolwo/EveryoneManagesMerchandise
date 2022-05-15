@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWorkingDes
 {
     public class PlatformWorkingDeskPageViewModel : EntityPageViewModel<PlatformWorkingDesk> 
     {
+        public readonly PlatformPostWorkingDeskViewModel _PlatformPostWorkingDeskViewModel;
+        public readonly PlatformPutWorkingDeskViewModel _PlatformPutWorkingDeskViewModel;
+        public readonly PlatformDeleteWorkingDeskViewModel _PlatformDeleteWorkingDeskViewModel;
+        public readonly PlatformGetsWorkingDeskViewModel _PlatformGetsWorkingDeskViewModel;
         public PlatformWorkingDeskPageViewModel(PlatformPostWorkingDeskViewModel PlatformPostWorkingDeskViewModel, 
                                         PlatformPutWorkingDeskViewModel PlatformPutWorkingDeskViewModel,
                                         PlatformDeleteWorkingDeskViewModel PlatformDeleteWorkingDeskViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWorkingDes
                 :base(PlatformPostWorkingDeskViewModel, PlatformPutWorkingDeskViewModel, PlatformDeleteWorkingDeskViewModel, PlatformGetsWorkingDeskViewModel)
                     
         {
-            
+            _PlatformPostWorkingDeskViewModel = PlatformPostWorkingDeskViewModel;
+            _PlatformPutWorkingDeskViewModel = PlatformPutWorkingDeskViewModel;
+            _PlatformDeleteWorkingDeskViewModel = PlatformDeleteWorkingDeskViewModel;
+            _PlatformGetsWorkingDeskViewModel = PlatformGetsWorkingDeskViewModel;
         }
     }
 }

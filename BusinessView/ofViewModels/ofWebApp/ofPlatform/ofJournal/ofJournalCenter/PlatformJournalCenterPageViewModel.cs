@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJournalCente
 {
     public class PlatformJournalCenterPageViewModel : CenterPageViewModel<PlatformJournalCenter> 
     {
+        public readonly PlatformPostJournalCenterViewModel _PlatformPostJournalCenterViewModel;
+        public readonly PlatformPutJournalCenterViewModel _PlatformPutJournalCenterViewModel;
+        public readonly PlatformDeleteJournalCenterViewModel _PlatformDeleteJournalCenterViewModel;
+        public readonly PlatformGetsJournalCenterViewModel _PlatformGetsJournalCenterViewModel;
         public PlatformJournalCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJournalCente
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostJournalCenterViewModel, PlatformPutJournalCenterViewModel, PlatformDeleteJournalCenterViewModel, PlatformGetsJournalCenterViewModel)
                     
         {
-            
+            _PlatformPostJournalCenterViewModel = PlatformPostJournalCenterViewModel;
+            _PlatformPutJournalCenterViewModel = PlatformPutJournalCenterViewModel;
+            _PlatformDeleteJournalCenterViewModel = PlatformDeleteJournalCenterViewModel;
+            _PlatformGetsJournalCenterViewModel = PlatformGetsJournalCenterViewModel;
         }
     }
 }

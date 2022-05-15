@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofEOCommodity
 {
     public class EmployerEOCommodityPageViewModel : StatusPageViewModel<EmployerEOCommodity> 
     {
+        public readonly EmployerPostEOCommodityViewModel _EmployerPostEOCommodityViewModel;
+        public readonly EmployerPutEOCommodityViewModel _EmployerPutEOCommodityViewModel;
+        public readonly EmployerDeleteEOCommodityViewModel _EmployerDeleteEOCommodityViewModel;
+        public readonly EmployerGetsEOCommodityViewModel _EmployerGetsEOCommodityViewModel;
         public EmployerEOCommodityPageViewModel(EmployerPostEOCommodityViewModel EmployerPostEOCommodityViewModel, 
                                         EmployerPutEOCommodityViewModel EmployerPutEOCommodityViewModel,
                                         EmployerDeleteEOCommodityViewModel EmployerDeleteEOCommodityViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofEOCommodity
                 :base(EmployerPostEOCommodityViewModel, EmployerPutEOCommodityViewModel, EmployerDeleteEOCommodityViewModel, EmployerGetsEOCommodityViewModel)
                     
         {
-            
+            _EmployerPostEOCommodityViewModel = EmployerPostEOCommodityViewModel;
+            _EmployerPutEOCommodityViewModel = EmployerPutEOCommodityViewModel;
+            _EmployerDeleteEOCommodityViewModel = EmployerDeleteEOCommodityViewModel;
+            _EmployerGetsEOCommodityViewModel = EmployerGetsEOCommodityViewModel;
         }
     }
 }

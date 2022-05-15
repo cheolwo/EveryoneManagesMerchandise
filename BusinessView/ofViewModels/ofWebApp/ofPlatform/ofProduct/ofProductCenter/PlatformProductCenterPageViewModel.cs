@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProductCente
 {
     public class PlatformProductCenterPageViewModel : CenterPageViewModel<PlatformProductCenter> 
     {
+        public readonly PlatformPostProductCenterViewModel _PlatformPostProductCenterViewModel;
+        public readonly PlatformPutProductCenterViewModel _PlatformPutProductCenterViewModel;
+        public readonly PlatformDeleteProductCenterViewModel _PlatformDeleteProductCenterViewModel;
+        public readonly PlatformGetsProductCenterViewModel _PlatformGetsProductCenterViewModel;
         public PlatformProductCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProductCente
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostProductCenterViewModel, PlatformPutProductCenterViewModel, PlatformDeleteProductCenterViewModel, PlatformGetsProductCenterViewModel)
                     
         {
-            
+            _PlatformPostProductCenterViewModel = PlatformPostProductCenterViewModel;
+            _PlatformPutProductCenterViewModel = PlatformPutProductCenterViewModel;
+            _PlatformDeleteProductCenterViewModel = PlatformDeleteProductCenterViewModel;
+            _PlatformGetsProductCenterViewModel = PlatformGetsProductCenterViewModel;
         }
     }
 }

@@ -5,6 +5,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofEmployeeRole
 {
     public class EmployerEmployeeRolePageViewModel : EntityPageViewModel<EmployerEmployeeRole> 
     {
+        public readonly EmployerPostEmployeeRoleViewModel _EmployerPostEmployeeRoleViewModel;
+        public readonly EmployerPutEmployeeRoleViewModel _EmployerPutEmployeeRoleViewModel;
+        public readonly EmployerDeleteEmployeeRoleViewModel _EmployerDeleteEmployeeRoleViewModel;
+        public readonly EmployerGetsEmployeeRoleViewModel _EmployerGetsEmployeeRoleViewModel;
         public EmployerEmployeeRolePageViewModel(EmployerPostEmployeeRoleViewModel EmployerPostEmployeeRoleViewModel, 
                                         EmployerPutEmployeeRoleViewModel EmployerPutEmployeeRoleViewModel,
                                         EmployerDeleteEmployeeRoleViewModel EmployerDeleteEmployeeRoleViewModel,
@@ -12,7 +16,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofEmployeeRole
                 :base(EmployerPostEmployeeRoleViewModel, EmployerPutEmployeeRoleViewModel, EmployerDeleteEmployeeRoleViewModel, EmployerGetsEmployeeRoleViewModel)
                     
         {
-            
+            _EmployerPostEmployeeRoleViewModel = EmployerPostEmployeeRoleViewModel;
+            _EmployerPutEmployeeRoleViewModel = EmployerPutEmployeeRoleViewModel;
+            _EmployerDeleteEmployeeRoleViewModel = EmployerDeleteEmployeeRoleViewModel;
+            _EmployerGetsEmployeeRoleViewModel = EmployerGetsEmployeeRoleViewModel;
         }
     }
 }

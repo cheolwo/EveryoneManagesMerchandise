@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductCente
 {
     public class EmployeeProductCenterPageViewModel : CenterPageViewModel<EmployeeProductCenter> 
     {
+        public readonly EmployeePostProductCenterViewModel _EmployeePostProductCenterViewModel;
+        public readonly EmployeePutProductCenterViewModel _EmployeePutProductCenterViewModel;
+        public readonly EmployeeDeleteProductCenterViewModel _EmployeeDeleteProductCenterViewModel;
+        public readonly EmployeeGetsProductCenterViewModel _EmployeeGetsProductCenterViewModel;
         public EmployeeProductCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductCente
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostProductCenterViewModel, employeePutProductCenterViewModel, employeeDeleteProductCenterViewModel, employeeGetsProductCenterViewModel)
                     
         {
-            
+            _EmployeePostProductCenterViewModel = employeePostProductCenterViewModel;
+            _EmployeePutProductCenterViewModel = employeePutProductCenterViewModel;
+            _EmployeeDeleteProductCenterViewModel = employeeDeleteProductCenterViewModel;
+            _EmployeeGetsProductCenterViewModel = employeeGetsProductCenterViewModel;
         }
     }
 }

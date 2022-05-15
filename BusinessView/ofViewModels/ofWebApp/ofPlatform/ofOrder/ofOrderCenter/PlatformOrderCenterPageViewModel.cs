@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofOrderCenter
 {
     public class PlatformOrderCenterPageViewModel : CenterPageViewModel<PlatformOrderCenter> 
     {
+        public readonly PlatformPostOrderCenterViewModel _PlatformPostOrderCenterViewModel;
+        public readonly PlatformPutOrderCenterViewModel _PlatformPutOrderCenterViewModel;
+        public readonly PlatformDeleteOrderCenterViewModel _PlatformDeleteOrderCenterViewModel;
+        public readonly PlatformGetsOrderCenterViewModel _PlatformGetsOrderCenterViewModel;
         public PlatformOrderCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofOrderCenter
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostOrderCenterViewModel, PlatformPutOrderCenterViewModel, PlatformDeleteOrderCenterViewModel, PlatformGetsOrderCenterViewModel)
                     
         {
-            
+            _PlatformPostOrderCenterViewModel = PlatformPostOrderCenterViewModel;
+            _PlatformPutOrderCenterViewModel = PlatformPutOrderCenterViewModel;
+            _PlatformDeleteOrderCenterViewModel = PlatformDeleteOrderCenterViewModel;
+            _PlatformGetsOrderCenterViewModel = PlatformGetsOrderCenterViewModel;
         }
     }
 }

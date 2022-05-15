@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRCenter
 {
     public class EmployerHRCenterPageViewModel : CenterPageViewModel<EmployerHRCenter> 
     {
+        public readonly EmployerPostHRCenterViewModel _EmployerPostHRCenterViewModel;
+        public readonly EmployerPutHRCenterViewModel _EmployerPutHRCenterViewModel;
+        public readonly EmployerDeleteHRCenterViewModel _EmployerDeleteHRCenterViewModel;
+        public readonly EmployerGetsHRCenterViewModel _EmployerGetsHRCenterViewModel;
         public EmployerHRCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRCenter
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostHRCenterViewModel, EmployerPutHRCenterViewModel, EmployerDeleteHRCenterViewModel, EmployerGetsHRCenterViewModel)
                     
         {
-            
+            _EmployerPostHRCenterViewModel = EmployerPostHRCenterViewModel;
+            _EmployerPutHRCenterViewModel = EmployerPutHRCenterViewModel;
+            _EmployerDeleteHRCenterViewModel = EmployerDeleteHRCenterViewModel;
+            _EmployerGetsHRCenterViewModel = EmployerGetsHRCenterViewModel;
         }
     }
 }

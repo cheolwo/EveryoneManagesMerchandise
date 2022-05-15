@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProducter
 {
     public class EmployerProducterPageViewModel : CenterPageViewModel<EmployerProducter> 
     {
+        public readonly EmployerPostProducterViewModel _EmployerPostProducterViewModel;
+        public readonly EmployerPutProducterViewModel _EmployerPutProducterViewModel;
+        public readonly EmployerDeleteProducterViewModel _EmployerDeleteProducterViewModel;
+        public readonly EmployerGetsProducterViewModel _EmployerGetsProducterViewModel;
         public EmployerProducterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProducter
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostProducterViewModel, EmployerPutProducterViewModel, EmployerDeleteProducterViewModel, EmployerGetsProducterViewModel)
                     
         {
-            
+            _EmployerPostProducterViewModel = EmployerPostProducterViewModel;
+            _EmployerPutProducterViewModel = EmployerPutProducterViewModel;
+            _EmployerDeleteProducterViewModel = EmployerDeleteProducterViewModel;
+            _EmployerGetsProducterViewModel = EmployerGetsProducterViewModel;
         }
     }
 }

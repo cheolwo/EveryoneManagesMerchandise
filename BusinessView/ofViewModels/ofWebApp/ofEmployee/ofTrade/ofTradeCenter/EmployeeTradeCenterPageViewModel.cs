@@ -6,6 +6,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter
 {
     public class EmployeeTradeCenterPageViewModel : CenterPageViewModel<EmployeeTradeCenter> 
     {
+        public readonly EmployeePostTradeCenterViewModel _EmployeePostTradeCenterViewModel;
+        public readonly EmployeePutTradeCenterViewModel _EmployeePutTradeCenterViewModel;
+        public readonly EmployeeDeleteTradeCenterViewModel _EmployeeDeleteTradeCenterViewModel;
+        public readonly EmployeeGetsTradeCenterViewModel _EmployeeGetsTradeCenterViewModel;
         public EmployeeTradeCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
                                         ICenterPageIdentityRoleService centerPageIdentityRoleService,
@@ -16,7 +20,10 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter
                 :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostTradeCenterViewModel, employeePutTradeCenterViewModel, employeeDeleteTradeCenterViewModel, employeeGetsTradeCenterViewModel)
                     
         {
-            
+            _EmployeePostTradeCenterViewModel = employeePostTradeCenterViewModel;
+            _EmployeePutTradeCenterViewModel = employeePutTradeCenterViewModel;
+            _EmployeeDeleteTradeCenterViewModel = employeeDeleteTradeCenterViewModel;
+            _EmployeeGetsTradeCenterViewModel = employeeGetsTradeCenterViewModel;
         }
     }
 }

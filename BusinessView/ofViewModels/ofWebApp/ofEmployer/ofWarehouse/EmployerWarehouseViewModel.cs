@@ -16,7 +16,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
         {
             _actorViewService = actorViewService;
             _logger = logger;
-            TableProperties = employerWarehouse.GetToDictionaryforClassifiedPropertyByAttribute(typeof(EmployerWarehouse));
+            TableProperties = employerWarehouse.DictionaryforClassifiedPropertyByAttribute(typeof(EmployerWarehouse));
         }
         private EmployerWarehouse employerWarehouse = new();
         public EmployerWarehouse EmployeeWarehouse

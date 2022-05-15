@@ -1,6 +1,6 @@
 ﻿@using System
 @using System.Reflection
-@using BusinessView.ofDTO.ofGroupOrder.ofEmployee
+@using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder
 <h3>GetsEmployeeEGOCComponent</h3>
 // Routing Page 에서 GetMode를 조정할 수 있다.
 // GetMode로 테이블, 카드, Dashboard를 포함할 수 있다.
@@ -46,11 +46,11 @@
     [Parameter] public EventCallback? EventPost { get; set; }
     [Parameter] public EventCallback<string>? EventDelete { get; set; }
     [Parameter] public EventCallback<string>? EventDetail { get; set; }
-    [Parameter] public GetsEmployeeEGOCViewModel? _GetsEmployeeEGOCViewModel { get; set; }
+    [Parameter] public EmployeeGetsEGOCViewModel? _EmployeeGetsEGOCViewModel { get; set; }
     public Dictionary<string, List<PropertyInfo>> DicClassifiedByRelationAttribute = new();
     // String is TableMetaInfo.Get, GetMany, Detail, DetailMany, GetOne, DetailOne...
     protected override async Task OnInitializedAsync()
     {
-        _GetsEmployeeEGOCViewModel.EmployeeEGOC.GetToDictionaryforClassifiedPropertyByAttribute(typeof(EmployeeEGOC));
+        
     }
 }
