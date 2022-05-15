@@ -16,6 +16,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         [Detail]public List<ChangeUser>? ChangedUsers {get; set;}
         [Detail]public List<ImageofInfo>? ImageofInfos {get; set;}
         [Detail]public List<Doc>? Docs {get; set;}
+        [Detail] public IList<IBrowserFile> files {get; set;}
         public List<PropertyInfo>? OnlyGetProperties(Type t)
         {
             List<PropertyInfo> OnlyGetPropertyInfos = new List<PropertyInfo>();
