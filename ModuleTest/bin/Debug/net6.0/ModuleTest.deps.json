@@ -1109,6 +1109,17 @@
           }
         }
       },
+      "NMemory/3.1.4": {
+        "dependencies": {
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NMemory.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.4.0"
+          }
+        }
+      },
       "NuGet.Frameworks/5.0.0": {
         "runtime": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {
@@ -2050,6 +2061,7 @@
           "BusinessLogic": "1.0.0",
           "FluentValidation": "11.0.1",
           "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -2599,6 +2611,13 @@
       "sha512": "sha512-+ce3zuXplax1HLxFieqA7BwxLjdmZacYblz6AcfrqxfFWytMz9SHBwUas45aamVrQhTKUA4m5la464/RxnCZPg==",
       "path": "nlog/5.0.0-rc1",
       "hashPath": "nlog.5.0.0-rc1.nupkg.sha512"
+    },
+    "NMemory/3.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Oj/Y2ro5L+vd+zwRWD2ZS9frfzru42IbD2ugGET9bsxqThExobEi/dSwp03X1Cq9EZNkTpPmvZeDw3iWR+3jPA==",
+      "path": "nmemory/3.1.4",
+      "hashPath": "nmemory.3.1.4.nupkg.sha512"
     },
     "NuGet.Frameworks/5.0.0": {
       "type": "package",

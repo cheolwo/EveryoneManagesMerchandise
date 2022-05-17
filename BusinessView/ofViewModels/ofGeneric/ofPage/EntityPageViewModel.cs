@@ -47,14 +47,12 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
         public virtual void OnInitialized(PropertyChangedEventHandler propertyChangedEventHandler)
         {
-            if(propertyChangedEventHandler != null)
-            {
-                 PropertyChanged += propertyChangedEventHandler;
-                _EntityDeleteViewModel.PropertyChanged += propertyChangedEventHandler;
-                _EntityPostViewModel.PropertyChanged += propertyChangedEventHandler;
-                _EntityPutViewModel.PropertyChanged += propertyChangedEventHandler;
-                _EntityGetsViewModel.PropertyChanged += propertyChangedEventHandler;
-            }
+               PropertyChanged += propertyChangedEventHandler;
+             _EntityDeleteViewModel.PropertyChanged += propertyChangedEventHandler;
+             _EntityPostViewModel.PropertyChanged += propertyChangedEventHandler;
+             _EntityPutViewModel.PropertyChanged += propertyChangedEventHandler;
+             _EntityGetsViewModel.PropertyChanged += propertyChangedEventHandler;
+
             _EntityPostViewModel.postPageToGets = OnClickDeleteToGets;
             _EntityPutViewModel.putPageToGets = OnClickPutToGets;
             _EntityDeleteViewModel.deletePageToGets = OnClickDeleteToGets;

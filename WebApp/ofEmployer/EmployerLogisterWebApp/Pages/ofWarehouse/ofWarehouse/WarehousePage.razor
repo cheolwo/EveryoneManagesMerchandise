@@ -11,8 +11,9 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerWarehouse> _Logger
-@implements IDisposable
+@inject EntityPageViewModel<EmployerWarehouse> _EntityPageViewModel
 
+<EmployerLogisterWebApp.Pages.ofGeneric.EntityTableManager entityPageViewModel=_EntityPageViewModel></EmployerLogisterWebApp.Pages.ofGeneric.EntityTableManager>
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
     <CascadingValue Value=@_UserManager Name="UserManager">
@@ -51,164 +52,7 @@ else
     }
 </CascadingValue>*@
 }
-<h3>WarehousePage</h3>
 
 
 @code {
-    private bool IsDetail = false;
-    private bool IsPost = false;
-    private bool IsPut = false;
-    private bool IsDelete = false;
-    private bool IsGets = false;
-    private IdentityUserDTO IdentityUserDTO = new();
-    protected override async Task OnInitializedAsync()
-    {
-        _DeleteEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        _PostEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        _GetsEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        _PutEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        _BaseEmployerWarehouseViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        _GetUserViewModel.PropertyChanged += async (sender, e) =>
-        {
-            await InvokeAsync(() =>
-           {
-               StateHasChanged();
-           });
-        };
-        if (_GetsEmployerWarehouseViewModel.EmployerWarehouses.Count == 0)
-        {
-            try
-            {
-                await _GetsEmployerWarehouseViewModel.GetsAsyncByUserId(_GetUserViewModel.IdentityUserDTO.Id);
-            }
-            catch (Exception ex)
-            {
-                _Logger.LogError(ex.Message);
-            }
-            finally
-            {
-                IsGets = false;
-                IsPost = true;
-            }
-        }
-    }
-    private async Task ClickPut(string id)
-    {
-        IsPut = true;
-        IsGets = false;
-        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
-        if (EmployerWarehouse != null)
-        {
-            _PutEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
-        }
-        else
-        {
-            await _PutEmployerWarehouseViewModel.GetByIdAsync(id);
-        }
-    }
-    private async Task ClickDelete(string id)
-    {
-        IsDelete = true;
-        IsGets = false;
-        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
-        if (EmployerWarehouse != null)
-        {
-            _DeleteEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
-        }
-        else
-        {
-            await _DeleteEmployerWarehouseViewModel.GetByIdAsync(id);
-        }
-    }
-    private void ClickPost()
-    {
-        IsPost = true;
-        IsGets = false;
-    }
-    private async Task ClickDetail(string id)
-    {
-        IsDetail = true;
-        IsGets = false;
-        var EmployerWarehouse = _GetsEmployerWarehouseViewModel.EmployerWarehouses.Find(e => e.Equals(id));
-        if (EmployerWarehouse != null)
-        {
-            _BaseEmployerWarehouseViewModel.EmployerWarehouse = EmployerWarehouse;
-        }
-        else
-        {
-            await _BaseEmployerWarehouseViewModel.GetByIdAsync(id);
-        }
-    }
-
-    private void ClickPutToGets()
-    {
-        IsGets = true;
-        IsPut = false;
-        _PutEmployerWarehouseViewModel.EmployerWarehouse = new();
-    }
-    private void ClickPostToGets()
-    {
-        IsGets = true;
-        IsPost = false;
-        _PostEmployerWarehouseViewModel.EmployerWarehouse = new();
-    }
-    private void ClickDetailToGets()
-    {
-        IsGets = true;
-        IsDetail = false;
-        _BaseEmployerWarehouseViewModel.EmployerWarehouse = new();
-    }
-    private void ClickDeleteToGets()
-    {
-        IsGets = true;
-        IsDelete = false;
-        _DeleteEmployerWarehouseViewModel.EmployerWarehouse = new();
-    }
-    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
-    {
-        await InvokeAsync(() =>
-        {
-            StateHasChanged();
-        });
-    }
-
-    public void Dispose()
-    {
-        _GetUserViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        _BaseEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        _PostEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        _PutEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        _DeleteEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        _GetsEmployerWarehouseViewModel.PropertyChanged -= OnPropertyChangedHandler;
-    }
 }

@@ -12,15 +12,15 @@ namespace BusinessLogic.ofManager.ofDeliveryCenter
 {
     public interface ISDCommodityManager : ISStatusManager<SDCommodity>
     {
-
+        
     }
     [DataManager(typeof(SDCommodity))]
     public class SDCommodityManager : SStatusManager<SDCommodity>, IEmployerSDCommodityManager, IEmployeeSDCommodityManager, IPlatformSDCommodityManager, ISDCommodityManager
     {
         public SDCommodityManager(ISDCommodityRepository statusDataRepository, 
-            ISDCommodityIdFactory sDCommodityIdFactory,
-                               ISDCommodityFileFactory statusFileFactory,
-                               ISDCommodityBlobStorage blobStorage,
+                                ISDCommodityIdFactory sDCommodityIdFactory,
+                                ISDCommodityFileFactory statusFileFactory,
+                                ISDCommodityBlobStorage blobStorage,
                             DicConvertFactory<SDCommodity> dicConvertFactory)
             : base(statusDataRepository, sDCommodityIdFactory, statusFileFactory, blobStorage, dicConvertFactory)
         {

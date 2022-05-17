@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofCommon.ofInterface;
+using System.Reflection;
+using BusinessView.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
@@ -160,11 +162,33 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             Entity = new();
         }
     }
+    public enum TableMode { Get, Detail }
     public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
     {
         public GetsPageToPost? getsPageToPost {get; set;}
-        public GetsPageToPut? getsPageToPut {get; set;}
-        public GetsPageToDelete? getsPageToDelete {get; set;}
+        public GetsPageToPut? getsPageToPut {get; set; }
+        public GetsPageToDelete? getsPageToDelete { get; set; }
+
+        public List<PropertyInfo> OnlyGetProperties = new();
+        public List<PropertyInfo> OnlyDetailProperties = new();
+
+        public Dictionary<string, PropertyInfo> StringProp = new();
+        public Dictionary<string, PropertyInfo> IntProp = new();
+        public Dictionary<string, PropertyInfo> DateTimeProp = new();
+        public Dictionary<string, PropertyInfo> DetailStringProp = new();
+        public Dictionary<string, PropertyInfo> DetailIntProp = new();
+        public Dictionary<string, PropertyInfo> DetailDateTimeProp = new();
+        
+       private TableMode tableMode = new();
+        public TableMode TableMode
+        {
+            get => tableMode;
+            set
+            {
+                tableMode = value;
+                OnPropertyChanged();
+            }
+        }
         public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {
@@ -217,6 +241,41 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
             if(getsPageToDelete == null ) {throw new ArgumentNullException("GetsPageToDelete Is Null");}
             await getsPageToDelete(id);
+        }
+        public void OnInitialized()
+        {
+            InitializedDetailMode();
+            OnlyDetailProperties = Entity.OnlyDetailProperties(typeof(TEntity));
+            OnlyGetProperties = Entity.OnlyGetProperties(typeof(TEntity));
+        }
+        private void InitializedDetailMode()
+        {
+            StringProp.Clear();
+            IntProp.Clear();
+            DateTimeProp.Clear();
+            InitializedGetMode();
+            var DetailProperties = Entity.OnlyDetailProperties(typeof(TEntity));
+            DetailStringProp = PropertyClassification.ClassifyStringProperty(DetailProperties);
+            DetailIntProp = PropertyClassification.ClassifyStringProperty(DetailProperties);
+            DetailDateTimeProp = PropertyClassification.ClassifyStringProperty(DetailProperties);
+        }
+        private void InitializedGetMode()
+        {
+            StringProp.Clear();
+            IntProp.Clear();
+            DateTimeProp.Clear();
+            var GetProperties = Entity.OnlyGetProperties(typeof(TEntity));
+            StringProp = PropertyClassification.ClassifyStringProperty(GetProperties);
+            IntProp = PropertyClassification.ClassifyStringProperty(GetProperties);
+            DateTimeProp = PropertyClassification.ClassifyStringProperty(GetProperties);
+        }
+        public void SelectDetailMode()
+        {
+            TableMode = TableMode.Detail;
+        }
+        public void SelectGetMode()
+        {
+            TableMode = TableMode.Get;
         }
     }
 }

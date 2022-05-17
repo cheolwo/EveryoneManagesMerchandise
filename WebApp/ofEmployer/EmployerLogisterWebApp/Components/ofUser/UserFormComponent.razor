@@ -1,7 +1,7 @@
 ﻿@using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofWebApp.ofCommon
 
-@if (model?.IdentityUserDTOs == null)
+@*@if (model?.IdentityUserDTOs == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -23,8 +23,7 @@ else
         </EditForm>
     }
 
-}
+}*@
 @code {
-    [CascadingParameter(Name = "UsersViewModel")] 
-    UsersViewModel model { get; set; }
+
 }

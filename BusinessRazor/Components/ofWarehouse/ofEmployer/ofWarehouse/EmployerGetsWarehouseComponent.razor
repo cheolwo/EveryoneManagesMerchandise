@@ -57,7 +57,7 @@
     [Parameter] public EventCallback EventPost { get; set; }
     [Parameter] public EventCallback<string> EventDelete { get; set; }
     [Parameter] public EventCallback<string> EventDetail { get; set; }
-    [Parameter] public GetsEmployerWarehouseViewModel ViewModel { get; set; }
+    [Parameter] public EmployerGetsWarehouseViewModel ViewModel { get; set; }
     public Dictionary<string, List<PropertyInfo>> DicClassifiedByRelationAttribute = new();
     // String is TableMetaInfo.Get, GetMany, Detail, DetailMany, GetOne, DetailOne...
     protected override async Task OnInitializedAsync()

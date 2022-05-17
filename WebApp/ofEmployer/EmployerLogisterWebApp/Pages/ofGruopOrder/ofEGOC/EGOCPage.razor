@@ -7,7 +7,7 @@
 
 <CascadingValue Value=_GetUserViewModel Name="GetUserViewModel">
     <CascadingValue Value=_NavigationManager Name="NavigationManager">
-        @if (_EmployerEGOCPageViewModel.IsSelectGets)
+       @* @if (_EmployerEGOCPageViewModel.IsSelectGets)
         {
             <EmployerGetsEGOCCOmponent ViewModel=_EmployerEGOCPageViewModel._EmployerGetsEGOCViewModel EventPut=_EmployerEGOCPageViewModel.OnClickGetsToPut 
                                                                                         EventDelete="_EmployerEGOCPageViewModel.OnClickGetsToDelete" EventDetail=_EmployerEGOCPageViewModel.OnClickGetsToDetail>
@@ -31,7 +31,7 @@
             <EmployerDeleteEGOCComponent ViewModel=_EmployerEGOCPageViewModel._EmployerDeleteEGOCViewModel DeleteToGets=_EmployerEGOCPageViewModel.OnClickDeleteToGets>
 
             </EmployerDeleteEGOCComponent>
-        }
+        }*@
     </CascadingValue>
 </CascadingValue>
 <h3>EGOCPage</h3>

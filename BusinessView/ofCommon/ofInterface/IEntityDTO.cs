@@ -1,6 +1,4 @@
 using System.Reflection;
-using System;
-using System.Collections.Generic;
 namespace BusinessView.ofCommon.ofInterface
 {
     public interface IEntityDTO

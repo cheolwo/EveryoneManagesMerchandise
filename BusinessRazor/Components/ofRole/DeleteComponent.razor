@@ -1,4 +1,4 @@
-﻿@using BusinessView.ofViewModels.ofWebApp.ofCommon
+﻿@*@using BusinessView.ofViewModels.ofWebApp.ofCommon
 @using Microsoft.AspNetCore.Components.Forms
 
 <h3>Delete</h3>
@@ -38,7 +38,7 @@ else
     public async Task DeleteAsync(string id)
     {
         await deleteRoleViewmodel.DeleteAsync(id);
-        getsRoleViewModel.DelteAsync(id);
+        getsRoleViewModel.DeleteAsync(id);
         Back();
     }
     public void Back()
@@ -46,3 +46,4 @@ else
         navigationManager.NavigateTo("/Page/Role");   
     }
 }
+*@

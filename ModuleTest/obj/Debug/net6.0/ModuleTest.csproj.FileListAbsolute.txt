@@ -199,3 +199,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Modu
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\TestProject.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\TestProject.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\NMemory.dll

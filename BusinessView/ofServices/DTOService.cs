@@ -70,7 +70,6 @@ namespace BusinessView.ofCommon.ofServices
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}/User?{userid}");
         }
-
     }
     //public class DTOService
     //{

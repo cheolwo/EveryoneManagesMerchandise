@@ -107,3 +107,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebA
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\BusinessLogic.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\BusinessView.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\NMemory.dll

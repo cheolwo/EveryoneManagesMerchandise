@@ -1,0 +1,57 @@
+﻿@using BusinessView.ofCommon.ofInterface
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofGeneric.ofCommon
+@using MudBlazor
+@using System.ComponentModel
+@typeparam TEntity where TEntity : class, IEntityDTO, new()
+@if(entityPageViewModel._EntityGetsViewModel.TableMode == TableMode.Get)
+{
+    <MudTable Items=entityPageViewModel._EntityGetsViewModel.TEntitys>
+        <HeaderContent>
+             foreach(var prop in entityPageViewModel._EntityGetsViewModel.OnlyGetProperties)
+            {
+                <MudTh>prop.Name</MudTh>
+            }
+        </HeaderContent>
+        <RowTemplate>
+
+        </RowTemplate>
+    </MudTable>    
+}
+@if(entityPageViewModel._EntityGetsViewModel.TableMode == TableMode.Detail)
+{
+     <MudTable Items=entityPageViewModel._EntityGetsViewModel.TEntitys>
+        
+    </MudTable>    
+}
+
+
+@code {
+    [Parameter] public EntityPageViewModel<TEntity> entityPageViewModel { get; set; }
+    public List<PropertyInfo> OnlyGetProperties = new();
+    protected override Task OnInitializedAsync()
+    {
+        if (entityPageViewModel == null) { throw new NullReferenceException("EntityPageViewModel Is null"); }
+        entityPageViewModel.OnInitialized(async (sernder, e) =>
+        {
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+        });
+    OnlyGetProperties = entityPageViewModel._EntityGetsViewModel.Entity.OnlyGetProperties(typeof(TEntity));
+
+        return base.OnInitializedAsync();
+    }
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+    public void Dispose()
+    {
+        entityPageViewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+}
