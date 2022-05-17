@@ -3,7 +3,7 @@ using BusinessView.ofCommon.ofUser;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
-    public class BaseCommodityViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : class, IEntityDTO, new()
+    public class BaseCommodityViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : IEntityDTO, new()
     {
         public BaseCommodityViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -11,7 +11,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 
             }
     }
-    public class CommodityPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : class, IEntityDTO, new()
+    public class CommodityPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : IEntityDTO, new()
     {
         public CommodityPostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -19,7 +19,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CommodityPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : class, IEntityDTO, new()
+    public class CommodityPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : IEntityDTO, new()
     {
         public CommodityPutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -27,7 +27,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CommodityDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : class, IEntityDTO, new()
+    public class CommodityDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : IEntityDTO, new()
     {
         public CommodityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -35,7 +35,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CommodityGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : class, IEntityDTO, new()
+    public class CommodityGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : IEntityDTO, new()
     {
         public CommodityGetsViewModel(ActorContext actorContext)
             :base(actorContext)

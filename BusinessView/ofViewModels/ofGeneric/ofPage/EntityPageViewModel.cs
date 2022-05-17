@@ -31,7 +31,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             throw new NotImplementedException();
         }
     }
-    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : class, IEntityDTO, new()
+    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : class, new()
     {
         public EntityPostViewModel<TEntity> _EntityPostViewModel;
         public EntityPutViewModel<TEntity> _EntityPutViewModel;

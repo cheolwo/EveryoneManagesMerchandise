@@ -1,5 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Components.Forms;
+using System.Collections;
+using System.IO;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {
@@ -18,6 +21,27 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                 SetValue(ref isBusy, value);
             }
         }
+        public IList<IBrowserFile> Files = new List<IBrowserFile>();
+        private void UploadFiles(InputFileChangeEventArgs e)
+        {
+            foreach (var file in e.GetMultipleFiles())
+            {
+                files.Add(file);
+            }
+        }
+        public IDictionary<string, Stream> BrowserFileToDTO()
+        {
+            IDictionary<string, Stream> BrowserFileStreams = new Dictionary<string, Stream>();
+            if(Files.Count > 0)
+            {
+                foreach(var file in Files)
+                {
+                    BrowserFileStreams.Add(file.Name, file.OpenReadStream());
+                }
+            }
+            return BrowserFileStreams;
+        }
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
