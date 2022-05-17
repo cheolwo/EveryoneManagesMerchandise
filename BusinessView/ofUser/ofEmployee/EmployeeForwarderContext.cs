@@ -4,7 +4,6 @@ using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofEmployee
 {

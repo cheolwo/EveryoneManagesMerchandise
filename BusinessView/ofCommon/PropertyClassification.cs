@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using BusinessData;
+using BusinessData.ofCommon.ofInterface;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 namespace BusinessView.ofCommon
 {
@@ -51,10 +53,10 @@ namespace BusinessView.ofCommon
         }
         public static Dictionary<string, PropertyInfo> ClassifyDateTimeProperty(ComponentMode mode, Type t)
         {
+            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -70,7 +72,6 @@ namespace BusinessView.ofCommon
             if (mode == ComponentMode.Detail)
             {
                 var propertyInfos = OnlyDetailProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -83,13 +84,14 @@ namespace BusinessView.ofCommon
                 }
                 return result;
             }
+            return result;
         }
         public static Dictionary<string, PropertyInfo> ClassifyStringProperty(ComponentMode mode, Type t)
         {
+            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -105,7 +107,6 @@ namespace BusinessView.ofCommon
             if (mode == ComponentMode.Detail)
             {
                 var propertyInfos = OnlyDetailProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -118,13 +119,14 @@ namespace BusinessView.ofCommon
                 }
                 return result;
             }
+            return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyintProperty(ComponentMode mode, Type t)
+        public static Dictionary<string, PropertyInfo> ClassifyIntProperty(ComponentMode mode, Type t)
         {
+            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -140,7 +142,6 @@ namespace BusinessView.ofCommon
             if (mode == ComponentMode.Detail)
             {
                 var propertyInfos = OnlyDetailProperties(t);
-                Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
                 if (propertyInfos != null)
                 {
                     foreach (var prop in propertyInfos)
@@ -153,6 +154,7 @@ namespace BusinessView.ofCommon
                 }
                 return result;
             }
+            return result;
         }
         public static List<PropertyInfo> OnlyGetProperties(Type t)
         {
@@ -198,10 +200,7 @@ namespace BusinessView.ofCommon
             {
                 return OnlyGetProperties(t);
             }
-            if(componentMode ==  ComponentMode.Detail)
-            {
                 return OnlyDetailProperties(t);
-            }
         }
         
         public static List<PropertyInfo> OnlyGetManyProperties(Type t)

@@ -1,4 +1,5 @@
 using BusinessView.ofCommon.ofInterface;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon
 {
@@ -14,5 +15,15 @@ namespace BusinessView.ofDTO.ofCommon
         [Detail]public List<ImageofInfo>? ImageofInfos {get; set;}
         [Detail]public List<Doc>? Docs {get; set;}
         [Detail] public IDictionary<string, Stream> Files {get; set;}
+
+        public void BrowserFileToDTO(IList<IBrowserFile> files, EntityDTO entityDTO)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool EqualsById(object obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
