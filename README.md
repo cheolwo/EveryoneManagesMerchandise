@@ -450,6 +450,10 @@ Model 과 마찬가지로 DTO 또한 모든 DTO 개체는 모두 EntityDTO 개�
     }
     
 ## Model To DTO Example
+
+관계성에 속하는 개체를 포함해서 프론트 단이 백엔드 단에 Query 할 때 
+1 그리고 N에 해당하는 개체는 Json String 형식으로 직렬화해서 받아옵니다.
+
     // 직렬화가 주요 개념
     public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
@@ -487,6 +491,8 @@ Model 과 마찬가지로 DTO 또한 모든 DTO 개체는 모두 EntityDTO 개�
     }
     
 ## DTO To Model Example
+백엔드 서버가 프론트 단을 통해 DTO를 넘겨 받으면 DTOToModel을 통해 역직렬화하여 업무처리를 합니다.
+
     public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
         public static Model ConvertToModel(DTO dto, Model model)
