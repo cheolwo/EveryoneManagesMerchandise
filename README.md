@@ -30,7 +30,7 @@ BusinessView 프로젝트 안에 포함하는 모듈들은 주로 Asp.net Core B
 
 ## BusinessData
 ### BusinessData 프로젝트의 특징
-![image](https://user-images.githubusercontent.com/25167316/169031834-b4298c6f-c797-4623-b907-cce484e0c74f.png)
+![image](https://user-images.githubusercontent.com/25167316/169040024-f4517cb5-eb07-45f8-b73e-4048d361a068.png)
 1. Model을 Entity, Center, Commodity, Status 로 구분합니다.
 2. 모든 Model은 Entity 개체를 상속합니다.
 3. 사업장과 관련한 Model은 모두 Center 개체를 상속합니다.
@@ -371,6 +371,81 @@ MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 결론적으로 Ba
         public bool EqualsById(object obj)
         {
             throw new NotImplementedException();
+        }
+    }
+    
+## Model To DTO Example
+    // 직렬화가 주요 개념
+    public class ModelToDTO<Model, DTO> where Model : class where DTO : class
+    {
+        public static DTO ConvertToDTO(Model model, DTO dto)
+        {
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = false;
+            var ModelProps = typeof(Model).GetProperties();
+            var DTOProps = typeof(DTO).GetProperties();
+            foreach (var prop in ModelProps)
+            {
+                var modelvalue = prop.GetValue(model);
+                foreach(var dtoprop in DTOProps)
+                {
+                    if(dtoprop.Name.Equals(prop.Name))
+                    {
+                        var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
+                        var One = dtoprop.GetCustomAttribute<OneAttribute>();
+                        if (Many is not null || One is not null)
+                        {
+                            var dtovalue = JsonConvert.SerializeObject(modelvalue, Formatting.Indented);
+                            dtoprop.SetValue(dto, dtovalue);
+                            break;
+                        }
+                        else
+                        {
+                            dtoprop.SetValue(dto, modelvalue);
+                            break;
+                        }
+                    }
+                }
+            }
+            return dto;
+        }
+    }
+    
+## DTO To Model Example
+    public class DTOToModel<DTO, Model> where DTO : class where Model : class
+    {
+        public static Model ConvertToModel(DTO dto, Model model)
+        {
+            var ModelProps = typeof(Model).GetProperties();
+            var DTOProps = typeof(DTO).GetProperties();
+            foreach (var dtoprop in DTOProps)
+            {
+                var dtovalue = dtoprop.GetValue(dto);
+                if (dtovalue != null)
+                {
+                    foreach (var modelprop in ModelProps)
+                    {
+                        if (dtoprop.Name.Equals(modelprop.Name))
+                        {
+                            var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
+                            var One = dtoprop.GetCustomAttribute<OneAttribute>();
+                            if (Many is not null || One is not null)
+                            {
+                                string JsonDtoValue = (string)dtovalue;
+                                var DeserialObject = JsonConvert.DeserializeObject(JsonDtoValue, modelprop.PropertyType);
+                                modelprop.SetValue(model, DeserialObject);
+                                break;
+                            }
+                            else
+                            {
+                                modelprop.SetValue(model, dtovalue);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return model;
         }
     }
 
