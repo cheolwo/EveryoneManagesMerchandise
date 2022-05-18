@@ -247,6 +247,52 @@ Status 모델과 함께 주로 배치모듈을 이용할 생각입니다.
         public abstract Task<IEnumerable<T>> GetsAsync<T>() where T : EntityDTO, new();
         public abstract Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid) where T : EntityDTO, new();
     }
+    
+## UserActorContext PostAsycn Example
+        public override async Task<T> PostAsync<T>(T t)
+        {
+            if (t == null) { throw new ArgumentNullException(nameof(T)); }
+
+            DTOService service = ServiceBuilder.Get(typeof(T).Name);
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+            AbstractValidator<T> validator = (AbstractValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
+            if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
+            if (validator == null) { throw new NullReferenceException(nameof(AbstractValidator<T>)); }
+
+            var Result = validator.Validate(t);
+
+            if (Result.IsValid)
+            {
+                T? Value = await service.PostAsync<T>(t);
+                if(Value != null) { storage.Insert(Value); return Value; }
+                else { throw new NullReferenceException("PostService Value Is Null"); }
+            }
+            else
+            {
+                throw new ValidationException("It is Not Validate");
+            }
+        }
+
+## UserActorContext GetById Example
+        public override async Task<T> GetByIdAsync<T>(string id)
+        {
+            DTOService service = ServiceBuilder.Get(typeof(T).Name);
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+
+            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
+            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+
+            var StorageValue = storage.FirstOrDefault(e => e.EqualsById(id));
+            if(StorageValue != null) { return StorageValue; }  
+            else
+            {
+                var ServiceValue = await service.GetByIdAsync<T>(id);
+                if(ServiceValue != null ) { return ServiceValue; }
+                else { throw new NullReferenceException("Service Value Is Null"); }
+            }
+        }
 
 ### ViewModel의 역할
 ![image](https://user-images.githubusercontent.com/25167316/169030714-e659ed8d-1780-4ebc-add8-d0fb1e6a55c4.png)
