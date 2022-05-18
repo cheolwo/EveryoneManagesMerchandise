@@ -297,7 +297,7 @@ ViewMode와 DTO 프로퍼티를 분류하여 Dictionary에 저장해두는 역�
     }
     
 ## BaseViewModel
-MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 BaseViewModel을 상속하고 있습니다.
+MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 결론적으로 BaseViewModel을 상속하고 있습니다.
 
      public class BaseViewModel : INotifyPropertyChanged
      {
