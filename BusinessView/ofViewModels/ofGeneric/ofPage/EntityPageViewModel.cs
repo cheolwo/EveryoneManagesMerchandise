@@ -3,6 +3,7 @@ using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofCommon.ofInterface;
+using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
@@ -31,7 +32,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             throw new NotImplementedException();
         }
     }
-    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : class, new()
+    public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
         public EntityPostViewModel<TEntity> _EntityPostViewModel;
         public EntityPutViewModel<TEntity> _EntityPutViewModel;

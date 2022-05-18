@@ -107,7 +107,7 @@ namespace BusinessData
             }
         }
     }
-    [Rescope]
+    
     public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer
     {
         [Key] public string Id { get; set; }

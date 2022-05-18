@@ -17,6 +17,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     public enum ComponentMode { Get, Detail }
     public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
+        public BaseEntityViewModel(ActorContext ActorContext)
+        {
+            _ActorContext = ActorContext;
+            ComponentMode = ComponentMode.Get;
+            PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
+            InitializedByComponentMode(ComponentMode);
+        }    
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
         public TEntity? Entity
@@ -41,13 +48,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public IDictionary<string, PropertyInfo> IntProperty {get; private set;}
         public IDictionary<string, PropertyInfo> DateTimeProperty {get; private set;}
         public List<PropertyInfo> PropertiesByComponentMode {get; private set;}
-        public BaseEntityViewModel(ActorContext ActorContext)
-        {
-            _ActorContext = ActorContext;
-            ComponentMode = ComponentMode.Get;
-            PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode);
-            InitializedByComponentMode(ComponentMode);
-        }    
         private void InitializedByComponentMode(ComponentMode componentMode)
         {
             if(StringProperty != null) {StringProperty.Clear();}

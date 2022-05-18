@@ -49,19 +49,8 @@ namespace BusinessData
         }
         public virtual async Task<TEntity> AddAsync(TEntity tentity)
         {
-            try
-            {
-               await _DbContext.AddAsync(tentity);
-               await _DbContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-               
-            }
-            finally
-            {
-               
-            }
+            await _DbContext.AddAsync(tentity);
+            await _DbContext.SaveChangesAsync();
             return await GetByIdAsync(tentity.Id);
         }
         public async Task DeleteByIdAsync(string Id)
