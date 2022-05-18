@@ -270,6 +270,79 @@ Status 모델과 함께 주로 배치모듈을 이용할 생각입니다.
             _EntityGetsViewModel = EntityGetViewModel;
         }
     }
+    
+## EntityPostViewModel Example
+    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
+    {
+        public PostPageToGets? postPageToGets {get; set;}
+        public EntityPostViewModel(ActorContext actorContext)
+            :base(actorContext)
+        {
+
+        }
+    }
+    
+## BaseEntityVieWModel Example
+ViewMode와 DTO 프로퍼티를 분류하여 Dictionary에 저장해두는 역할을 담당합니다.
+    
+    public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
+    {
+        public BaseEntityViewModel(ActorContext ActorContext)
+        {
+            _ActorContext = ActorContext;
+            ComponentMode = ComponentMode.Get;
+            PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
+            InitializedByComponentMode(ComponentMode);
+        }   
+    }
+    
+## BaseViewModel
+MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 BaseViewModel을 상속하고 있습니다.
+
+     public class BaseViewModel : INotifyPropertyChanged
+     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private bool isBusy = false;
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                SetValue(ref isBusy, value);
+            }
+        }
+        public IList<IBrowserFile> Files = new List<IBrowserFile>();
+        private void UploadFiles(InputFileChangeEventArgs e)
+        {
+            foreach (var file in e.GetMultipleFiles())
+            {
+                files.Add(file);
+            }
+        }
+        public IDictionary<string, Stream> BrowserFileToDTO()
+        {
+            IDictionary<string, Stream> BrowserFileStreams = new Dictionary<string, Stream>();
+            if(Files.Count > 0)
+            {
+                foreach(var file in Files)
+                {
+                    BrowserFileStreams.Add(file.Name, file.OpenReadStream());
+                }
+            }
+            return BrowserFileStreams;
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName =null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
+            backingFiled = value;
+            OnPropertyChanged(propertyName);
+        }
+     }
 
 ### DTO 의 역할 (DataTransfer Object)
 1. 관계성에 속하는 데이터를 포함해서 Query 할 때 1 그리고 N에 해당하는 개체를 Json String 형식으로 받아옵니다.
