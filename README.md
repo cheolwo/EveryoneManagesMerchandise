@@ -298,9 +298,13 @@ Status 모델과 함께 주로 배치모듈을 이용할 생각입니다.
 ![image](https://user-images.githubusercontent.com/25167316/169030714-e659ed8d-1780-4ebc-add8-d0fb1e6a55c4.png)
 1. INotifyProperyChanged 인터페이스를 통해 상태변화가 반영될 수 있도록 합니다.
 2. Entity-Center-Commodity-Status에 따 View 단 프론트 코드를 정형화합니다.
-3. EntityPageViewModel 과 EntityPost,Put,Delete,GetsViewModel 로 구분됩니다.
+3. EntityPageViewModel 과 EntityPost,Put,Delete,GetsViewModel 로 구분합니다.
+4. Get, Detail Mode 를 지원합니다.
 
 ## EntityPageViewModel Example
+하나의 ViewPage는 하나의 ViewModel 을 가질 수 있도록 하기 위해 만들었습니다. 
+하나의 ViewPage에서 Post, Put, Delete, Gets 역할을 수행할 수 있도록 EntityPageViewModel 기 EntityPost, Put, Delete, GetsViewModel을 DI 받습니다.
+
     public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
         public EntityPostViewModel<TEntity> _EntityPostViewModel;
@@ -329,7 +333,8 @@ Status 모델과 함께 주로 배치모듈을 이용할 생각입니다.
     }
     
 ## BaseEntityVieWModel Example
-ViewMode와 DTO 프로퍼티를 분류하여 Dictionary에 저장해두는 역할을 담당합니다.
+ViewMode와 DTO 프로퍼티를 정적모듈인 PropertyClassification 을 통해 분류하여 Dictionary에 저장해두는 역할을 담당합니다.
+Dictionary에 저장해둔 프로퍼티는 View 단에서 이용하여 화면을 구성하는 요소로 사용할 생각입니다.
     
     public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
@@ -340,6 +345,10 @@ ViewMode와 DTO 프로퍼티를 분류하여 Dictionary에 저장해두는 역�
             PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
             InitializedByComponentMode(ComponentMode);
         }   
+        public IDictionary<string, PropertyInfo> StringProperty {get; private set;}
+        public IDictionary<string, PropertyInfo> IntProperty {get; private set;}
+        public IDictionary<string, PropertyInfo> DateTimeProperty {get; private set;}
+        public List<PropertyInfo> PropertiesByComponentMode {get; private set;}
     }
     
 ## BaseViewModel
@@ -396,6 +405,8 @@ MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 결론적으로 Ba
 3. 기본적인 DataTranferObject 역할을 수행합니다.
 
 ## DTO Example
+Model 과 마찬가지로 DTO 또한 모든 DTO 개체는 모두 EntityDTO 개체를 상속받습니다.
+
     public class EntityDTO : IEntityDTO
     {
         [Get] public string? Id { get; set; }
@@ -418,6 +429,24 @@ MVVM 개발패턴에 따라 모든 ViewModel 관련 개체는 결론적으로 Ba
         {
             throw new NotImplementedException();
         }
+    }
+
+유저별로 보여지는 정보가 다를 거라고 생각하여 유저별 DTO 개체를 만들었습니다. 
+
+    public class EmployerWCommodity : EmployerCommodity
+    {
+        [Get] public string? Type { get; set; }
+        [Get] public string? PakcingBarcode { get; set; }
+        [Detail] public double? Width { get; set; }
+        [Detail] public double? height { get; set; }
+        [Detail] public double? length { get; set; }
+        [Get] public int Quantity { get; set; }
+        [Get] public string? MCommodityId { get; set; }
+        [Get] public string? TCommodityId { get; set; }
+        [Detail][Many(ViewNameofWarehouse.SWCommodity)] public string? SWCommodities { get; set; }  // 입고
+        [Detail][Many(ViewNameofWarehouse.EWCommodity)] public string? EWCommodities { get; set; }  // 출고
+        [Detail][Many(ViewNameofWarehouse.MWCommodity)] public string? MWCommodities { get; set; }  // 적재
+        [Detail][One(ViewNameofWarehouse.Warehouse)] public string? Warehouse { get; set; }
     }
     
 ## Model To DTO Example
