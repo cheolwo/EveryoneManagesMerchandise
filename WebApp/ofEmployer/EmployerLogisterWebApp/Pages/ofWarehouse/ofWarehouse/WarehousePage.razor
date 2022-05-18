@@ -1,19 +1,19 @@
 ﻿@page "/Warehouse"
 @using BusinessRazor.Components.ofUser
 @using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
 @using System.ComponentModel
-@inject EmployerWarehousePageViewModel _EmployerWarehousePageViewModel
 @inject GetUserViewModel _GetUserViewModel
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerWarehouse> _Logger
-@inject EntityPageViewModel<EmployerWarehouse> _EntityPageViewModel
+@inject EmployerPageViewModel<EmployerWarehouse> _EntityPageViewModel
 
-<EmployerLogisterWebApp.Pages.ofGeneric.EntityTableManager entityPageViewModel=_EntityPageViewModel></EmployerLogisterWebApp.Pages.ofGeneric.EntityTableManager>
+<EmployerLogisterWebApp.Pages.ofGeneric.EmployerEntityTableManager TEntity=EmployerWarehouse entityPageViewModel=_EntityPageViewModel></EmployerLogisterWebApp.Pages.ofGeneric.EmployerEntityTableManager>
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
     <CascadingValue Value=@_UserManager Name="UserManager">

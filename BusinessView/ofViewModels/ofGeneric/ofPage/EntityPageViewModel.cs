@@ -17,7 +17,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         // List<PropertyInfo> DetailManyProperties();
     }
     public enum ViewMode {Get, Detail}
-    public static class EntityPropManager<TEntity> where TEntity : IEntityDTO
+    public static class EntityPropManager<TEntity> where TEntity : EntityDTO
     {   
         public static IEnumerable<string> GetStringProperties(ViewMode viewmode)
         {
@@ -155,7 +155,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : class, IEntityDTO, new()
+    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : EntityDTO, new()
     {
         private readonly ICenterPageRoadAddressService _CenterPageRoadAddressService;
         private readonly ICenterPageTaxService _CenterPageTaxService;
@@ -174,7 +174,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _CenterPageRoadAddressService = centerPageRoadAddressService;
         }
     }
-    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : class, IEntityDTO, new()
+    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : EntityDTO, new()
     {
         public CommodityPageViewModel(
             CommodityPostViewModel<TCommodity> CommodityPostViewModel, 
@@ -185,7 +185,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         {
         }
     }
-    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : class, IEntityDTO, new()
+    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : EntityDTO, new()
     {
         public StatusPageViewModel(
             StatusPostViewModel<TStatus> StatusPostViewModel, 

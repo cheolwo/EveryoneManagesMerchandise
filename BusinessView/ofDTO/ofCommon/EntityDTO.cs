@@ -1,3 +1,4 @@
+using BusinessData;
 using BusinessView.ofCommon.ofInterface;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -11,10 +12,9 @@ namespace BusinessView.ofDTO.ofCommon
         [Detail]public string? Container {get; set;}
         [Detail]public DateTime CreateTime { get; set; }
         [Detail]public string? UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
-        [Detail]public List<ChangeUser>? ChangedUsers {get; set;}
-        [Detail]public List<ImageofInfo>? ImageofInfos {get; set;}
-        [Detail]public List<Doc>? Docs {get; set;}
-        [Detail] public IDictionary<string, Stream> Files {get; set;}
+        [Detail]public string? ChangedUsers {get; set;}
+        [Detail]public string? ImageofInfos {get; set;}
+        [Detail]public string? Docs {get; set;}
 
         public void BrowserFileToDTO(IList<IBrowserFile> files, EntityDTO entityDTO)
         {

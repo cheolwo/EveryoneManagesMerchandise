@@ -1,26 +1,15 @@
 ﻿using BusinessView.ofCommon.ofInterface;
-using BusinessView.ofUser.ofCommon;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessView.ofDTO.ofCommon
 {
-    public class IdentityUserDTO : IEntityDTO
+    public class IdentityUserDTO : EntityDTO, IEntityDTO
     {
         public string? Email { get; set; }
         public string? UserName { get; set; }
-        public string? Id { get; set; }
 
         public Dictionary<string, List<PropertyInfo>> DictionaryforClassifiedPropertyByAttribute(Type t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EqualsById(object obj)
         {
             throw new NotImplementedException();
         }

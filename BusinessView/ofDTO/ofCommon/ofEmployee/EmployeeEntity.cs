@@ -1,9 +1,5 @@
 ﻿using BusinessData;
-using BusinessData.ofCommon.ofInterface;
-using System.Reflection;
-using BusinessView.ofCommon.ofInterface;
 using System.Text.Json;
-using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployee
 {
@@ -18,12 +14,6 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
         {
             T? OneObject = JsonSerializer.Deserialize<T>(jsonString);
             return OneObject;
-        }
-
-        public bool EqualsById(object? obj)
-        {
-            return obj is EmployeeEntity entity &&
-                  Id == entity.Id;
         }
     }
     public class EmployeeCenter : EmployeeEntity

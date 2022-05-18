@@ -44,4 +44,10 @@
     <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Components\ofGeneric\ofPaltform\" />
+    <Folder Include="Components\ofGeneric\ofEmployee\" />
+    <Folder Include="Components\ofGeneric\ofEmployer\" />
+  </ItemGroup>
+
 </Project>

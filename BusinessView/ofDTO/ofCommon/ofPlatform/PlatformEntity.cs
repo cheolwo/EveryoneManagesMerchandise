@@ -8,11 +8,6 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
 {
     public class PlatformEntity : EntityDTO
     {
-        public bool EqualsById(object? obj)
-        {
-            return obj is PlatformEntity entity &&
-                  Id == entity.Id;
-        }
     }
     public class PlatformCenter : PlatformEntity
     {

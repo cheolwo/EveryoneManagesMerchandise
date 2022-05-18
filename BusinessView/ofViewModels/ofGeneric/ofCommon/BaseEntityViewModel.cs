@@ -1,9 +1,7 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofCommon.ofInterface;
 using System.Reflection;
 using BusinessView.ofCommon;
-using System.Collections;
 using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
@@ -19,6 +17,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     {
         public BaseEntityViewModel(ActorContext ActorContext)
         {
+           if(ActorContext == null)
+            {
+
+            }
             _ActorContext = ActorContext;
             ComponentMode = ComponentMode.Get;
             PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
@@ -106,7 +108,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
             if(base.Files.Count > 0)
             {
-                Entity.BrowserFileToDTO(base.Files);
+                Entity.BrowserFileToDTO(base.Files, Entity);
             }
             var PostValue = await _ActorContext.PostAsync<TEntity>(Entity);
             if (PostValue != null)
@@ -127,7 +129,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             IsPost = false;
             _TEntity = new();
             _postTEntity = new();
-            Files = new();
             OnPropertyChanged();
         }
     }
@@ -162,7 +163,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
             if(base.Files.Count > 0)
             {
-                Entity.BrowserFileToDTO(base.Files);
+                Entity.BrowserFileToDTO(base.Files, Entity);
             }
             var PutValue = await _ActorContext.PutAsync<TEntity>(TEntity);
             if(PutValue != null)
@@ -183,7 +184,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             _isPut = false;
             _TEntity = new();
             _putTEntity = new();
-            Files = new();
             OnPropertyChanged();
         }
     }
@@ -199,7 +199,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
             if(base.Files.Count > 0)
             {
-                Entity.BrowserFileToDTO(base.Files);
+                Entity.BrowserFileToDTO(base.Files, Entity);
             }
             await _ActorContext.DeleteByIdAsync<TEntity>(id);
             Back();
@@ -212,7 +212,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public void Reset()
         {
-            Files = new();
             Entity = new();
         }
     }

@@ -1,9 +1,9 @@
-using BusinessView.ofCommon.ofInterface;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
-    public class BaseCenterViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : IEntityDTO, new()
+    public class BaseCenterViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public BaseCenterViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -11,7 +11,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 
             }
     }
-    public class CenterPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : IEntityDTO, new()
+    public class CenterPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public CenterPostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -19,7 +19,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CenterPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : IEntityDTO, new()
+    public class CenterPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public CenterPutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -27,7 +27,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CenterDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : IEntityDTO, new()
+    public class CenterDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public CenterDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -35,7 +35,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         }
     }
-    public class CenterGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : IEntityDTO, new()
+    public class CenterGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public CenterGetsViewModel(ActorContext actorContext)
             :base(actorContext)

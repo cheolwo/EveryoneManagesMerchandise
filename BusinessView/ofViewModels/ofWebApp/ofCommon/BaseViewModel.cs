@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components.Forms;
-using System.Collections;
-using System.IO;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {
@@ -26,7 +24,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         {
             foreach (var file in e.GetMultipleFiles())
             {
-                files.Add(file);
+                Files.Add(file);
             }
         }
         public IDictionary<string, Stream> BrowserFileToDTO()

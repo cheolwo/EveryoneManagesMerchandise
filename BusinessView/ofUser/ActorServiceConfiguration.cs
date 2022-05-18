@@ -163,6 +163,7 @@ using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofEGOC;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 
 namespace BusinessView.ofActorService
 {
@@ -184,8 +185,10 @@ namespace BusinessView.ofActorService
     {
         public static IServiceCollection AddEmployerActorService(this IServiceCollection services)
         {
+            services.AddScoped<GetUserViewModel>();
             services.AddScoped<UserActorContext>();
             services.AddScoped<EmployerActorContext>();
+            services.AddScoped<ActorServiceOption>();
             services.AddScoped(typeof(EntityPageViewModel<>));
             services.AddScoped(typeof(CenterPageViewModel<>));
             services.AddScoped(typeof(CommodityPageViewModel<>));
@@ -214,6 +217,12 @@ namespace BusinessView.ofActorService
             services.AddScoped(typeof(StatusPutViewModel<>));
             services.AddScoped(typeof(StatusDeleteViewModel<>));
             services.AddScoped(typeof(StatusGetsViewModel<>));
+
+            services.AddScoped(typeof(EmployerPageViewModel<>));
+            services.AddScoped(typeof(EmployerPostViewModel<>));
+            services.AddScoped(typeof(EmployerPutViewModel<>));
+            services.AddScoped(typeof(EmployerDeleteViewModel<>));
+            services.AddScoped(typeof(EmployerGetsViewModel<>));
 
             services.AddScoped<ICenterPageRoadAddressService, RoadAddressService>();
             services.AddScoped<ICenterPageTaxService, TaxService>();
@@ -499,6 +508,7 @@ namespace BusinessView.ofActorService
         }
         public static IServiceCollection AddPlatformActorService(this IServiceCollection services)
         {
+            services.AddScoped<ActorServiceOption>();
             services.AddScoped<UserActorContext>();
             services.AddScoped<EmployerActorContext>();
             services.AddScoped(typeof(EntityPageViewModel<>));
@@ -814,6 +824,8 @@ namespace BusinessView.ofActorService
         }
         public static IServiceCollection AddEmployerLogisterService(this IServiceCollection services)
         {
+            services.AddScoped<ActorContext>();
+            services.AddScoped<ActorServiceOption>();
             services.AddScoped<UserActorContext>();
             services.AddScoped<EmployerLogisterContext>();
             services.AddScoped(typeof(EntityPageViewModel<>));

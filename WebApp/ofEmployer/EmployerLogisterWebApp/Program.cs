@@ -25,7 +25,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 builder.Services.AddScoped<ActorServiceOption>();
 builder.Services.AddEmployerActorService();
-builder.Services.AddEmployerLogisterService();
 
 builder.Services.AddMudServices();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();

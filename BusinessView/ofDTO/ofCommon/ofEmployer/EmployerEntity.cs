@@ -1,18 +1,9 @@
 ﻿using BusinessData;
-using BusinessData.ofCommon.ofInterface;
-using System.Reflection;
-using BusinessView.ofCommon.ofInterface;
-using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployer
 {
     public class EmployerEntity : EntityDTO
     {
-        public bool EqualsById(object? obj)
-        {
-            return obj is EmployerEntity entity &&
-                  Id == entity.Id;
-        }
     }
     public class EmployerCenter : EmployerEntity
     {
@@ -30,9 +21,9 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
         [Get][Many] public string? EStatuses { get; set; }
         [Get][Many] public string? MStatuses { get; set; }
         [Get][Many] public string? SStatuses { get; set; }
-        [Detail] public List<CenterMacAddress>? CenterMacAddresses { get; set; }
-        [Detail] public List<CenterIPAddress>? CenterIPAddresses { get; set; }
-        [Detail] public List<CenterRole>? CenterRoles {get; set;}
+        [Detail] public string? CenterMacAddresses { get; set; }
+        [Detail] public string? CenterIPAddresses { get; set; }
+        [Detail] public string? CenterRoles {get; set;}
     }
     public class EmployerCommodity : EmployerEntity
     {
