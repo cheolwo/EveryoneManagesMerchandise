@@ -156,7 +156,7 @@ namespace BusinessView.ofCommon.ofUser
             StorageBuilder.Add(nameof(EmployerProductLand), EmployerProductNMemoryDatabase.EmployerProductLands);
             StorageBuilder.Add(nameof(EmployerPCommodity), EmployerProductNMemoryDatabase.EmployerPCommoditys);
         }
-        protected override void OnValidatorBuilder(ValidatorBuilder validatorBuilde)
+        protected override void OnValidatorBuilder(ValidatorBuilder ValidatorBuilder)
         {
             ValidatorBuilder.Add(nameof(EmployerEmployeeRole), new EmployerEmployeeRoleValidator());
             ValidatorBuilder.Add(nameof(EmployerHRBusinessPart), new EmployerHRBusinessPartValidator());

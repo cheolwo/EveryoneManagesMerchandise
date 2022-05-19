@@ -1,14 +1,15 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace DividedTagServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +39,36 @@ namespace DividedTagServer.Controllers.ofEmployer
             }
             var GetEmployerDividedTag = ModelToDTO<DividedTag, EmployerDividedTag>.ConvertToDTO(DividedTag, new EmployerDividedTag());
             return GetEmployerDividedTag;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerDividedTag>>> Gets()
+        {
+            var DividedTags = await _EmployerDividedTagRepository.GetToListAsync();
+            if (DividedTags.Count == 0)
+            {
+                return new List<EmployerDividedTag>();
+            }
+            List<EmployerDividedTag> EmployerDividedTags = new List<EmployerDividedTag>();
+            foreach (var DividedTag in DividedTags)
+            {
+                EmployerDividedTags.Add(ModelToDTO<DividedTag, EmployerDividedTag>.ConvertToDTO(DividedTag, new EmployerDividedTag()));
+            }
+            return EmployerDividedTags;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerDividedTag>>> GetsAsyncByUserId(string userid)
+        {
+            var DividedTags = await _EmployerDividedTagRepository.GetToListByUserId(userid);
+            if (DividedTags.Count == 0)
+            {
+                new List<EmployerDividedTag>();
+            }
+            List<EmployerDividedTag> EmployerDividedTags = new List<EmployerDividedTag>();
+            foreach (var DividedTag in DividedTags)
+            {
+                EmployerDividedTags.Add(ModelToDTO<DividedTag, EmployerDividedTag>.ConvertToDTO(DividedTag, new EmployerDividedTag()));
+            }
+            return EmployerDividedTags;
         }
 
         [HttpPost]

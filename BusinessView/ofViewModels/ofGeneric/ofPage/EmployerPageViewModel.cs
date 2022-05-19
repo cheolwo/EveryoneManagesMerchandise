@@ -6,11 +6,18 @@ namespace BusinessView.ofViewModels.ofGeneric
 {
     public class EmployerPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
+        public EmployerPostViewModel<TEntity> _EmployerPostViewModel { get; private set; }
+        public EmployerPutViewModel<TEntity> _EmployerPutViewModel { get; private set; }
+        public EmployerDeleteViewModel<TEntity> _EmployerDeleteViewModel { get; private set; }
+        public EmployerGetsViewModel<TEntity> _EmployerGetsViewModel { get; private set; }
         public EmployerPageViewModel(EmployerPostViewModel<TEntity> postViewModel, EmployerPutViewModel<TEntity> putViewModel, 
                                 EmployerDeleteViewModel<TEntity> deleteViewModel, EmployerGetsViewModel<TEntity> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
         {
-
+            _EmployerPostViewModel = postViewModel;
+            _EmployerPutViewModel = putViewModel;  
+            _EmployerGetsViewModel = getsViewModel;
+            _EmployerDeleteViewModel = deleteViewModel;
         }
     }
     public class EmployerPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : EmployerEntity, new()

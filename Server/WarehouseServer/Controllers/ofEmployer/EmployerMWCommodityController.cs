@@ -8,7 +8,7 @@ using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace MWCommodityServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace MWCommodityServer.Controllers.ofEmployer
             }
             var GetEmployerMWCommodity = ModelToDTO<MWCommodity, EmployerMWCommodity>.ConvertToDTO(MWCommodity, new EmployerMWCommodity());
             return GetEmployerMWCommodity;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerMWCommodity>>> Gets()
+        {
+            var MWCommoditys = await _EmployerMWCommodityRepository.GetToListAsync();
+            if (MWCommoditys.Count == 0)
+            {
+                return new List<EmployerMWCommodity>();
+            }
+            List<EmployerMWCommodity> EmployerMWCommoditys = new List<EmployerMWCommodity>();
+            foreach (var MWCommodity in MWCommoditys)
+            {
+                EmployerMWCommoditys.Add(ModelToDTO<MWCommodity, EmployerMWCommodity>.ConvertToDTO(MWCommodity, new EmployerMWCommodity()));
+            }
+            return EmployerMWCommoditys;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerMWCommodity>>> GetsAsyncByUserId(string userid)
+        {
+            var MWCommoditys = await _EmployerMWCommodityRepository.GetToListByUserId(userid);
+            if (MWCommoditys.Count == 0)
+            {
+                return new List<EmployerMWCommodity>();
+            }
+            List<EmployerMWCommodity> EmployerMWCommoditys = new List<EmployerMWCommodity>();
+            foreach (var MWCommodity in MWCommoditys)
+            {
+                EmployerMWCommoditys.Add(ModelToDTO<MWCommodity, EmployerMWCommodity>.ConvertToDTO(MWCommodity, new EmployerMWCommodity()));
+            }
+            return EmployerMWCommoditys;
         }
 
         [HttpPost]

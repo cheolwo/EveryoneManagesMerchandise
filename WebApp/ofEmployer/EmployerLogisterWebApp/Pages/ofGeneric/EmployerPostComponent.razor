@@ -1,0 +1,44 @@
+﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
+@using BusinessView.ofViewModels.ofGeneric
+@typeparam TEntity where TEntity : EmployerEntity, new()
+
+@if(_EmployerPostViewModel == null)
+{
+
+}
+else
+{
+<h3>EmployerPostComponent</h3>
+@foreach(var key in _EmployerPostViewModel.StringProperty.Keys)
+{
+    <MudTextField @bind-Value="_EmployerPostViewModel.StringProperty[key]"  Label="@key"></MudTextField>
+}
+@foreach(var key in _EmployerPostViewModel.IntProperty.Keys)
+{
+    <MudTextField @bind-Value="_EmployerPostViewModel.IntProperty[key]"  Label="@key"></MudTextField>
+}
+@foreach(var key in _EmployerPostViewModel.DateTimeProperty.Keys)
+{
+    <MudDatePicker @bind-Date="_EmployerPostViewModel.DateTimeProperty[key]" Label="@key"/>
+}
+<MudButton OnClick="PostAsync">Post</MudButton>
+}
+@code {
+    [Parameter] public EmployerPostViewModel<TEntity>? _EmployerPostViewModel { get; set; }
+    public async Task PostAsync()
+    {
+        try
+        {
+            _EmployerPostViewModel.PropertyToEntity();
+            await _EmployerPostViewModel.PostAsync();
+        }
+        catch(Exception e)
+        {
+
+        }
+        finally
+        {
+            
+        }
+    }
+}

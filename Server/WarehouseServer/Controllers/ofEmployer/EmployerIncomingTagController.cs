@@ -1,14 +1,15 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace IncomingTagServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +39,36 @@ namespace IncomingTagServer.Controllers.ofEmployer
             }
             var GetEmployerIncomingTag = ModelToDTO<IncomingTag, EmployerIncomingTag>.ConvertToDTO(IncomingTag, new EmployerIncomingTag());
             return GetEmployerIncomingTag;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerIncomingTag>>> Gets()
+        {
+            var IncomingTags = await _EmployerIncomingTagRepository.GetToListAsync();
+            if (IncomingTags.Count == 0)
+            {
+                return new List<EmployerIncomingTag>();
+            }
+            List<EmployerIncomingTag> EmployerIncomingTags = new List<EmployerIncomingTag>();
+            foreach (var IncomingTag in IncomingTags)
+            {
+                EmployerIncomingTags.Add(ModelToDTO<IncomingTag, EmployerIncomingTag>.ConvertToDTO(IncomingTag, new EmployerIncomingTag()));
+            }
+            return EmployerIncomingTags;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerIncomingTag>>> GetsAsyncByUserId(string userid)
+        {
+            var IncomingTags = await _EmployerIncomingTagRepository.GetToListByUserId(userid);
+            if (IncomingTags.Count == 0)
+            {
+                return new List<EmployerIncomingTag>();
+            }
+            List<EmployerIncomingTag> EmployerIncomingTags = new List<EmployerIncomingTag>();
+            foreach (var IncomingTag in IncomingTags)
+            {
+                EmployerIncomingTags.Add(ModelToDTO<IncomingTag, EmployerIncomingTag>.ConvertToDTO(IncomingTag, new EmployerIncomingTag()));
+            }
+            return EmployerIncomingTags;
         }
 
         [HttpPost]

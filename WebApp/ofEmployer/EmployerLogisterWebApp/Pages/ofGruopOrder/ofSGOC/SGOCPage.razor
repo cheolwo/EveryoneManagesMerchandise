@@ -1,10 +1,29 @@
 ﻿@page "/SGOC"
+@using BusinessRazor.Components.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
-@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofSGOC
-@inject EmployerSGOCPageViewModel _EmployerSGOCPageViewModel
+@using Microsoft.AspNetCore.Identity
+@using BusinessView.ofDTO.ofGroupOrder.ofEmployer
+@using System.ComponentModel
+@using EmployerLogisterWebApp.Pages.ofGeneric
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerSGOC> _Logger
+@inject EmployerPageViewModel<EmployerSGOC> _EntityPageViewModel
 
-<h3>SGOCPage</h3>
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
 
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerSGOC EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
 @code {
-
 }

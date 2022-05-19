@@ -1,9 +1,29 @@
 ﻿@page "/HRRole"
+@using BusinessRazor.Components.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
-@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRRole
-@inject EmployerHRRolePageViewModel _EmployerHRRolePageViewModel
-<h3>HRRolePage</h3>
+@using Microsoft.AspNetCore.Identity
+@using BusinessView.ofDTO.ofHR.ofEmployer
+@using System.ComponentModel
+@using EmployerLogisterWebApp.Pages.ofGeneric
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerHRRole> _Logger
+@inject EmployerPageViewModel<EmployerHRRole> _EntityPageViewModel
 
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerHRRole EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
 @code {
-
 }

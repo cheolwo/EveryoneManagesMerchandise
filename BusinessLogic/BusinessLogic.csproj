@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="NationalTaxManager\" />
+    <Folder Include="ofExternal\ofToss\" />
+    <Folder Include="ofExternal\ofBody\" />
+    <Folder Include="ofExternal\ofCoupang\" />
     <Folder Include="ofManager\ofMarket\ofBlobStorage\" />
   </ItemGroup>
 

@@ -45,7 +45,7 @@ namespace WarehouseServer.Controllers.ofEmployer
             var Warehouses = await _EmployerWarehouseRepository.GetToListAsync();
             if (Warehouses.Count == 0)
             {
-                return NotFound();
+                return new List<EmployerWarehouse>();
             }
             List<EmployerWarehouse> EmployerWarehouses = new List<EmployerWarehouse>();
             foreach (var Warehouse in Warehouses)
@@ -60,7 +60,7 @@ namespace WarehouseServer.Controllers.ofEmployer
             var Warehouses = await _EmployerWarehouseRepository.GetToListByUserId(userid);
             if (Warehouses.Count == 0)
             {
-                return NotFound();
+                return new List<EmployerWarehouse>();
             }
             List<EmployerWarehouse> EmployerWarehouses = new List<EmployerWarehouse>();
             foreach (var Warehouse in Warehouses)

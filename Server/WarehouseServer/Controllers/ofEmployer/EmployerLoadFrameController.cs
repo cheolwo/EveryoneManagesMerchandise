@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace LoadFrameServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace LoadFrameServer.Controllers.ofEmployer
             }
             var GetEmployerLoadFrame = ModelToDTO<LoadFrame, EmployerLoadFrame>.ConvertToDTO(LoadFrame, new EmployerLoadFrame());
             return GetEmployerLoadFrame;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerLoadFrame>>> Gets()
+        {
+            var LoadFrames = await _EmployerLoadFrameRepository.GetToListAsync();
+            if (LoadFrames.Count == 0)
+            {
+                return new List<EmployerLoadFrame>();
+            }
+            List<EmployerLoadFrame> EmployerLoadFrames = new List<EmployerLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                EmployerLoadFrames.Add(ModelToDTO<LoadFrame, EmployerLoadFrame>.ConvertToDTO(LoadFrame, new EmployerLoadFrame()));
+            }
+            return EmployerLoadFrames;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerLoadFrame>>> GetsAsyncByUserId(string userid)
+        {
+            var LoadFrames = await _EmployerLoadFrameRepository.GetToListByUserId(userid);
+            if (LoadFrames.Count == 0)
+            {
+                return new List<EmployerLoadFrame>();
+            }
+            List<EmployerLoadFrame> EmployerLoadFrames = new List<EmployerLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                EmployerLoadFrames.Add(ModelToDTO<LoadFrame, EmployerLoadFrame>.ConvertToDTO(LoadFrame, new EmployerLoadFrame()));
+            }
+            return EmployerLoadFrames;
         }
 
         [HttpPost]

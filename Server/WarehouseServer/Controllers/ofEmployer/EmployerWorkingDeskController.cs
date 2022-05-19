@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WorkingDeskServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace WorkingDeskServer.Controllers.ofEmployer
             }
             var GetEmployerWorkingDesk = ModelToDTO<WorkingDesk, EmployerWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployerWorkingDesk());
             return GetEmployerWorkingDesk;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerWorkingDesk>>> Gets()
+        {
+            var WorkingDesks = await _EmployerWorkingDeskRepository.GetToListAsync();
+            if (WorkingDesks.Count == 0)
+            {
+                return new List<EmployerWorkingDesk>();
+            }
+            List<EmployerWorkingDesk> EmployerWorkingDesks = new List<EmployerWorkingDesk>();
+            foreach (var WorkingDesk in WorkingDesks)
+            {
+                EmployerWorkingDesks.Add(ModelToDTO<WorkingDesk, EmployerWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployerWorkingDesk()));
+            }
+            return EmployerWorkingDesks;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerWorkingDesk>>> GetsAsyncByUserId(string userid)
+        {
+            var WorkingDesks = await _EmployerWorkingDeskRepository.GetToListByUserId(userid);
+            if (WorkingDesks.Count == 0)
+            {
+                return new List<EmployerWorkingDesk>();
+            }
+            List<EmployerWorkingDesk> EmployerWorkingDesks = new List<EmployerWorkingDesk>();
+            foreach (var WorkingDesk in WorkingDesks)
+            {
+                EmployerWorkingDesks.Add(ModelToDTO<WorkingDesk, EmployerWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployerWorkingDesk()));
+            }
+            return EmployerWorkingDesks;
         }
 
         [HttpPost]

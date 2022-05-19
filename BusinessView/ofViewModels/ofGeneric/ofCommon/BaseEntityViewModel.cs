@@ -9,7 +9,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     public delegate void PostPageToGets();
     public delegate void PutPageToGets();
     public delegate void DeletePageToGets();
-    public delegate Task GetsPageToPost(string id);
+    public delegate void GetsPageToPost();
     public delegate Task GetsPageToPut(string id);
     public delegate Task GetsPageToDelete(string id);
     public enum ComponentMode { Get, Detail }
@@ -17,7 +17,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     {
         public BaseEntityViewModel(ActorContext ActorContext)
         {
-           if(ActorContext == null)
+            if (ActorContext == null)
             {
 
             }
@@ -25,12 +25,12 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             ComponentMode = ComponentMode.Get;
             PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
             InitializedByComponentMode(ComponentMode);
-        }    
+        }
         protected readonly ActorContext _ActorContext;
         protected TEntity? _TEntity = new();
         public TEntity? Entity
         {
-            get=>_TEntity;
+            get => _TEntity;
             set
             {
                 SetValue(ref _TEntity, value);
@@ -46,24 +46,66 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 OnPropertyChanged();
             }
         }
-        public IDictionary<string, PropertyInfo> StringProperty {get; private set;}
-        public IDictionary<string, PropertyInfo> IntProperty {get; private set;}
-        public IDictionary<string, PropertyInfo> DateTimeProperty {get; private set;}
-        public List<PropertyInfo> PropertiesByComponentMode {get; private set;}
+        public IDictionary<string, string> StringProperty { get; private set; }
+        public IDictionary<string, int> IntProperty { get; private set; }
+        public IDictionary<string, DateTime?> DateTimeProperty { get; private set; }
+        public List<PropertyInfo> PropertiesByComponentMode { get; private set; }
+        public void PropertyToEntity()
+        {
+            bool IsSet = false;
+            foreach (var prop in PropertiesByComponentMode)
+            {
+                if (IsSet == true) { IsSet = false; continue; }
+                foreach (var key in StringProperty.Keys)
+                {
+                    if (key == prop.Name)
+                    {
+                        prop.SetValue(_TEntity, StringProperty[key]);
+                        IsSet = true;
+                        break;
+                    }
+                }
+                if (IsSet == true) { IsSet = false; continue; }
+                foreach (var key in IntProperty.Keys)
+                {
+                    if (key == prop.Name)
+                    {
+                        prop.SetValue(_TEntity, IntProperty[key]);
+                        IsSet = true;
+                        break;
+                    }
+                }
+
+                if (IsSet == true) { IsSet = false; continue; }
+                foreach (var key in DateTimeProperty.Keys)
+                {
+                    if (key == prop.Name)
+                    {
+                        prop.SetValue(_TEntity, DateTimeProperty[key]);
+                        IsSet = true;
+                        break;
+                    }
+                }
+            }
+            StringProperty.Clear();
+            IntProperty.Clear();
+            DateTimeProperty.Clear();
+        }
         public void InitializedByComponentMode(ComponentMode componentMode)
         {
-            if(StringProperty != null) {StringProperty.Clear();}
-            if(IntProperty != null) {IntProperty.Clear();}
-            if(DateTimeProperty != null) {DateTimeProperty.Clear();}
+            if (StringProperty != null) { StringProperty.Clear(); }
+            if (IntProperty != null) { IntProperty.Clear(); }
+            if (DateTimeProperty != null) { DateTimeProperty.Clear(); }
 
             StringProperty = PropertyClassification.ClassifyStringProperty(ComponentMode, typeof(TEntity));
             IntProperty = PropertyClassification.ClassifyIntProperty(ComponentMode, typeof(TEntity));
             DateTimeProperty = PropertyClassification.ClassifyDateTimeProperty(ComponentMode, typeof(TEntity));
+            PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
         }
         public async Task GetByIdAsync(string id)
         {
             Entity = await _ActorContext.GetByIdAsync<TEntity>(id);
-        }   
+        }
         public void SelectDetailMode()
         {
             ComponentMode = ComponentMode.Detail;
@@ -79,9 +121,9 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     */
     public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
-        public PostPageToGets? postPageToGets {get; set;}
+        public PostPageToGets? postPageToGets { get; set; }
         public EntityPostViewModel(ActorContext actorContext)
-            :base(actorContext)
+            : base(actorContext)
         {
 
         }
@@ -104,13 +146,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 SetValue(ref _postTEntity, value);
             }
         }
-        public async Task PostAsync(TEntity Entity)
+        public async Task PostAsync()
         {
-            if(base.Files.Count > 0)
+            if (base.Files.Count > 0)
             {
                 Entity.BrowserFileToDTO(base.Files, Entity);
             }
-            var PostValue = await _ActorContext.PostAsync<TEntity>(Entity);
+            var PostValue = await _ActorContext.PostAsync(Entity);
             if (PostValue != null)
             {
                 PostTEntity = PostValue;
@@ -121,7 +163,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            if(postPageToGets == null) { throw new ArgumentNullException("PostPageToGets Is Null");}
+            if (postPageToGets == null) { throw new ArgumentNullException("PostPageToGets Is Null"); }
             postPageToGets();
         }
         public void Reset()
@@ -134,9 +176,9 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
-        public PutPageToGets? putPageToGets {get; set;}
+        public PutPageToGets? putPageToGets { get; set; }
         public EntityPutViewModel(ActorContext actorContext)
-            :base(actorContext)
+            : base(actorContext)
         {
 
         }
@@ -161,12 +203,12 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public async Task PutAsync(TEntity TEntity)
         {
-            if(base.Files.Count > 0)
+            if (base.Files.Count > 0)
             {
                 Entity.BrowserFileToDTO(base.Files, Entity);
             }
             var PutValue = await _ActorContext.PutAsync<TEntity>(TEntity);
-            if(PutValue != null)
+            if (PutValue != null)
             {
                 _isPut = true;
                 PutTEntity = PutValue;
@@ -176,7 +218,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            if(putPageToGets == null ) {throw new ArgumentNullException("PutPageToGets == null");}
+            if (putPageToGets == null) { throw new ArgumentNullException("PutPageToGets == null"); }
             putPageToGets();
         }
         public void Reset()
@@ -189,15 +231,15 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
-        public DeletePageToGets? deletePageToGets {get; set;}
+        public DeletePageToGets? deletePageToGets { get; set; }
         public EntityDeleteViewModel(ActorContext actorContext)
-            :base(actorContext)
+            : base(actorContext)
         {
 
         }
         public async Task DeleteAsync(string id)
         {
-            if(base.Files.Count > 0)
+            if (base.Files.Count > 0)
             {
                 Entity.BrowserFileToDTO(base.Files, Entity);
             }
@@ -207,7 +249,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public void Back()
         {
             Reset();
-            if(deletePageToGets == null) { throw new ArgumentNullException("DeletePageToGets Is Null");}
+            if (deletePageToGets == null) { throw new ArgumentNullException("DeletePageToGets Is Null"); }
             deletePageToGets();
         }
         public void Reset()
@@ -215,44 +257,70 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             Entity = new();
         }
     }
-    public enum ViewMode { Table, Card, DashBoard}
+    public enum ViewMode { Table, Card, DashBoard }
     public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
-        public GetsPageToPost? getsPageToPost {get; set;}
-        public GetsPageToPut? getsPageToPut {get; set; }
+        public GetsPageToPost? getsPageToPost { get; set; }
+        public GetsPageToPut? getsPageToPut { get; set; }
         public GetsPageToDelete? getsPageToDelete { get; set; }
-        
+
 
         public EntityGetsViewModel(ActorContext actorContext)
-            :base(actorContext)
+            : base(actorContext)
         {
 
         }
         private List<TEntity> _TEntitys = new();
         public List<TEntity> TEntitys
         {
-            get=> _TEntitys;
+            get => _TEntitys;
             set
             {
-                SetValue(ref _TEntitys, value);   
+                SetValue(ref _TEntitys, value);
             }
         }
         private ViewMode _ViewMode = ViewMode.Table;
         public ViewMode ViewMode
         {
             get => _ViewMode;
-            set 
+            set
             {
                 _ViewMode = value;
                 OnPropertyChanged();
             }
         }
+        private bool _IsInitialized;
+        public bool IsInitialized
+        {
+            get => _IsInitialized;
+            set
+            {
+                _IsInitialized = value;
+                OnPropertyChanged();
+            }
+        }
+        public async Task InitializedAsync(string userid = null)
+        {
+            if (IsInitialized is false)
+            {
+                if (userid == null)
+                {
+                    await GetsAsync();
+                    IsInitialized = true;
+                }
+                else
+                {
+                    await GetsAsyncByUserId(userid);
+                    IsInitialized = true;
+                }
+            }
+        }
         public async Task GetsAsync()
         {
             IEnumerable<TEntity>? dtos = await _ActorContext.GetsAsync<TEntity>();
-            if(dtos != null)
+            if (dtos != null)
             {
-                foreach(var dto in dtos)
+                foreach (var dto in dtos)
                 {
                     _TEntitys.Add(dto);
                 }
@@ -262,28 +330,28 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public async Task GetsAsyncByUserId(string userid)
         {
             IEnumerable<TEntity>? dtos = await _ActorContext.GetsAsyncByUserId<TEntity>(userid);
-            if(dtos != null)
+            if (dtos != null)
             {
-                foreach(var dto in dtos)
+                foreach (var dto in dtos)
                 {
                     _TEntitys.Add(dto);
                 }
             }
             OnPropertyChanged();
         }
-        public async Task GetsPageToPost(string id)
+        public void GetsPageToPost()
         {
-            if(getsPageToPost == null ) {throw new ArgumentNullException("GetsPageToPost Is Null");}
-            await getsPageToPost(id);
+            if (getsPageToPost == null) { throw new ArgumentNullException("GetsPageToPost Is Null"); }
+            getsPageToPost();
         }
         public async Task GetsPageToPut(string id)
         {
-            if(getsPageToPut == null ) {throw new ArgumentNullException("GetsPageToPut Is Null");}
+            if (getsPageToPut == null) { throw new ArgumentNullException("GetsPageToPut Is Null"); }
             await getsPageToPut(id);
         }
         public async Task GetsPageToDelete(string id)
         {
-            if(getsPageToDelete == null ) {throw new ArgumentNullException("GetsPageToDelete Is Null");}
+            if (getsPageToDelete == null) { throw new ArgumentNullException("GetsPageToDelete Is Null"); }
             await getsPageToDelete(id);
         }
     }

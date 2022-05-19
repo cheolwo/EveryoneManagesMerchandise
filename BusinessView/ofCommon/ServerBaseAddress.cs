@@ -11,7 +11,7 @@
         public const string ProductWebAPIServerURL = "https://localhost:7172";
         public const string TradeWebAPIServerURL = "https://localhost:7074";
         public const string MarketWebAPIServerURL = "https://localhost:7074";
-    }
+    }   
     public static class ProductServerBaseAddress
     {
         public const string WarehouseWebAPIServerURL = "https://localhost:7025";

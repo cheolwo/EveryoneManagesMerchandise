@@ -7,13 +7,13 @@
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
 @using System.ComponentModel
+@using EmployerLogisterWebApp.Pages.ofGeneric
 @inject GetUserViewModel _GetUserViewModel
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerWarehouse> _Logger
 @inject EmployerPageViewModel<EmployerWarehouse> _EntityPageViewModel
 
-<EmployerLogisterWebApp.Pages.ofGeneric.EmployerEntityTableManager TEntity=EmployerWarehouse entityPageViewModel=_EntityPageViewModel></EmployerLogisterWebApp.Pages.ofGeneric.EmployerEntityTableManager>
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
     <CascadingValue Value=@_UserManager Name="UserManager">
@@ -22,37 +22,9 @@
         </CascadingValue>
     </CascadingValue>
 }
-else
-{
-   @* <CascadingValue Value=IdentityUserDTO Name="GetUserViewModel">
-    @if (IsGets)
-    {
-        <EmployerGetsWarehouseComponent ViewModel=_GetsEmployerWarehouseViewModel EventPost="ClickPost" EventPut="ClickPut" EventDelete="ClickDelete" EventDetail="ClickDetail">
-        </EmployerGetsWarehouseComponent>
-    }
-    @if (IsPost)
-    {
-        <EmployerPostWarehouseComponent ViewModel=_PostEmployerWarehouseViewModel PostToGets=ClickPostToGets>
-        </EmployerPostWarehouseComponent>
-    }
-    @if (IsPut)
-    {
-        <EmployerPutWarehouseComponent ViewModel=_PutEmployerWarehouseViewModel PutToGets=ClickPutToGets>
-        </EmployerPutWarehouseComponent>
-    }
-    @if (IsDelete)
-    {
-        <EmployerDeleteWarehouseComponent ViewModel=_DeleteEmployerWarehouseViewModel DeleteToGets=ClickDeleteToGets>
-        </EmployerDeleteWarehouseComponent>
-    }
-    @if (IsDetail)
-    {
-        <EmployerGetWarehouseComponent ViewModel=_BaseEmployerWarehouseViewModel DetailToGets=ClickDetailToGets>
-        </EmployerGetWarehouseComponent>
-    }
-</CascadingValue>*@
-}
 
-
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerWarehouse EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
 @code {
 }

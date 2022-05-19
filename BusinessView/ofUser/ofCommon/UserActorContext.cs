@@ -54,20 +54,11 @@ namespace BusinessView.ofCommon.ofUser
 
             if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
             if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
-            if (validator == null) { throw new NullReferenceException(nameof(AbstractValidator<T>)); }
-
-            var Result = validator.Validate(t);
-
-            if (Result.IsValid)
-            {
+            //if (validator == null) { throw new NullReferenceException(nameof(AbstractValidator<T>)); }
                 T? Value = await service.PostAsync<T>(t);
                 if(Value != null) { storage.Insert(Value); return Value; }
                 else { throw new NullReferenceException("PostService Value Is Null"); }
-            }
-            else
-            {
-                throw new ValidationException("It is Not Validate");
-            }
+
         }
         /*
             1. Validate 단계

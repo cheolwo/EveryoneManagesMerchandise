@@ -60,6 +60,8 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EntityGetsViewModel.getsPageToPost = OnClickGetsToPost;
             _EntityGetsViewModel.getsPageToPut = OnClickGetsToPut;
             _EntityGetsViewModel.getsPageToDelete = OnClickGetsToDelete;
+
+            IsSelectGets = true;
         }
         private bool isSelectPost {get; set;}
         public bool IsSelectPost
@@ -118,11 +120,11 @@ namespace BusinessView.ofViewModels.ofGeneric
             isSelectDetail = true;
             await _EntityPostViewModel.GetByIdAsync(id);
         }
-        public async Task OnClickGetsToPost(string id)
+        public void OnClickGetsToPost()
         {
             isSelectGets = false;
             isSelectPost = true;
-            await _EntityPostViewModel.GetByIdAsync(id);
+            OnPropertyChanged();
         }
         public async Task OnClickGetsToPut(string id)
         {

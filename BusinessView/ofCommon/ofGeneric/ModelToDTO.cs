@@ -35,6 +35,12 @@ namespace BusinessView.ofGeneric
                         }
                         else
                         {
+                            if(prop.PropertyType.IsGenericType)
+                            {
+                                var JsonModelValue = JsonConvert.SerializeObject(modelvalue, Formatting.Indented);
+                                dtoprop.SetValue(dto, JsonModelValue);
+                                break;
+                            }
                             dtoprop.SetValue(dto, modelvalue);
                             break;
                         }

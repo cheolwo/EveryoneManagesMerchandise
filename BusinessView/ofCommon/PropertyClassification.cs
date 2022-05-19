@@ -6,54 +6,54 @@ namespace BusinessView.ofCommon
 {
     public static class PropertyClassification
     {
-        public static Dictionary<string, PropertyInfo> ClassifyIntProperty(IEnumerable<PropertyInfo> propertyInfos)
+        public static Dictionary<string, int> ClassifyIntProperty(IEnumerable<PropertyInfo> propertyInfos)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, int> result = new Dictionary<string, int>();
             if (propertyInfos != null)
             {
                 foreach (var prop in propertyInfos)
                 {
                     if (prop.PropertyType == typeof(int))
                     {
-                        result.Add(prop.Name, prop);
+                        result.Add(prop.Name, new int());
                     }
                 }
             }
             return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyStringProperty(IEnumerable<PropertyInfo> propertyInfos)
+        public static Dictionary<string, string> ClassifyStringProperty(IEnumerable<PropertyInfo> propertyInfos)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, string> result = new Dictionary<string, string>();
             if (propertyInfos != null)
             {
                 foreach (var prop in propertyInfos)
                 {
                     if (prop.PropertyType == typeof(string))
                     {
-                        result.Add(prop.Name, prop);
+                        result.Add(prop.Name, string.Empty);
                     }
                 }
             }
             return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyDateTimeProperty(IEnumerable<PropertyInfo> propertyInfos)
+        public static Dictionary<string, DateTime> ClassifyDateTimeProperty(IEnumerable<PropertyInfo> propertyInfos)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, DateTime> result = new Dictionary<string, DateTime>();
             if (propertyInfos != null)
             {
                 foreach (var prop in propertyInfos)
                 {
                     if (prop.PropertyType == typeof(DateTime))
                     {
-                        result.Add(prop.Name, prop);
+                        result.Add(prop.Name, new DateTime());
                     }
                 }
             }
             return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyDateTimeProperty(ComponentMode mode, Type t)
+        public static Dictionary<string, DateTime?> ClassifyDateTimeProperty(ComponentMode mode, Type t)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, DateTime?> result = new Dictionary<string, DateTime?>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
@@ -63,7 +63,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(DateTime))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, new DateTime());
                         }
                     }
                 }
@@ -78,7 +78,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(DateTime))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, new DateTime());
                         }
                     }
                 }
@@ -86,9 +86,9 @@ namespace BusinessView.ofCommon
             }
             return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyStringProperty(ComponentMode mode, Type t)
+        public static Dictionary<string, string> ClassifyStringProperty(ComponentMode mode, Type t)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, string> result = new Dictionary<string, string>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
@@ -98,7 +98,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(string))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, string.Empty);
                         }
                     }
                 }
@@ -113,7 +113,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(string))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, string.Empty);
                         }
                     }
                 }
@@ -121,9 +121,9 @@ namespace BusinessView.ofCommon
             }
             return result;
         }
-        public static Dictionary<string, PropertyInfo> ClassifyIntProperty(ComponentMode mode, Type t)
+        public static Dictionary<string, int> ClassifyIntProperty(ComponentMode mode, Type t)
         {
-            Dictionary<string, PropertyInfo> result = new Dictionary<string, PropertyInfo>();
+            Dictionary<string, int> result = new Dictionary<string, int>();
             if (mode == ComponentMode.Get)
             {
                 var propertyInfos = OnlyGetProperties(t);
@@ -133,7 +133,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(int))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, new int());
                         }
                     }
                 }
@@ -148,7 +148,7 @@ namespace BusinessView.ofCommon
                     {
                         if (prop.PropertyType == typeof(int))
                         {
-                            result.Add(prop.Name, prop);
+                            result.Add(prop.Name, new int());
                         }
                     }
                 }

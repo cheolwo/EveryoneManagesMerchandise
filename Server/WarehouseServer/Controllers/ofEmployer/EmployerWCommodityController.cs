@@ -8,7 +8,7 @@ using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WCommodityServer.Controllers.ofEmployer
+namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace WCommodityServer.Controllers.ofEmployer
             }
             var GetEmployerWCommodity = ModelToDTO<WCommodity, EmployerWCommodity>.ConvertToDTO(WCommodity, new EmployerWCommodity());
             return GetEmployerWCommodity;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployerWCommodity>>> Gets()
+        {
+            var WCommoditys = await _EmployerWCommodityRepository.GetToListAsync();
+            if (WCommoditys.Count == 0)
+            {
+                return new List<EmployerWCommodity>();
+            }
+            List<EmployerWCommodity> EmployerWCommoditys = new List<EmployerWCommodity>();
+            foreach (var WCommodity in WCommoditys)
+            {
+                EmployerWCommoditys.Add(ModelToDTO<WCommodity, EmployerWCommodity>.ConvertToDTO(WCommodity, new EmployerWCommodity()));
+            }
+            return EmployerWCommoditys;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployerWCommodity>>> GetsAsyncByUserId(string userid)
+        {
+            var WCommoditys = await _EmployerWCommodityRepository.GetToListByUserId(userid);
+            if (WCommoditys.Count == 0)
+            {
+                return new List<EmployerWCommodity>();
+            }
+            List<EmployerWCommodity> EmployerWCommoditys = new List<EmployerWCommodity>();
+            foreach (var WCommodity in WCommoditys)
+            {
+                EmployerWCommoditys.Add(ModelToDTO<WCommodity, EmployerWCommodity>.ConvertToDTO(WCommodity, new EmployerWCommodity()));
+            }
+            return EmployerWCommoditys;
         }
 
         [HttpPost]

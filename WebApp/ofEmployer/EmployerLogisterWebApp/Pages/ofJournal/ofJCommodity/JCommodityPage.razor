@@ -1,9 +1,29 @@
 ﻿@page "/JCommodity"
+@using BusinessRazor.Components.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
-@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJCommodity
-@inject EmployerJCommodityPageViewModel _EmployerJCommodityPageViewModel
-<h3>JCommodityPage</h3>
+@using Microsoft.AspNetCore.Identity
+@using BusinessView.ofDTO.ofJournal.ofEmployer
+@using System.ComponentModel
+@using EmployerLogisterWebApp.Pages.ofGeneric
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerJCommodity> _Logger
+@inject EmployerPageViewModel<EmployerJCommodity> _EntityPageViewModel
 
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerJCommodity EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
 @code {
-
 }
