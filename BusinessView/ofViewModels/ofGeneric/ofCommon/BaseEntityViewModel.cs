@@ -221,6 +221,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public GetsPageToPost? getsPageToPost {get; set;}
         public GetsPageToPut? getsPageToPut {get; set; }
         public GetsPageToDelete? getsPageToDelete { get; set; }
+        
 
         public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
