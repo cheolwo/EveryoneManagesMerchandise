@@ -50,7 +50,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         public IDictionary<string, PropertyInfo> IntProperty {get; private set;}
         public IDictionary<string, PropertyInfo> DateTimeProperty {get; private set;}
         public List<PropertyInfo> PropertiesByComponentMode {get; private set;}
-        private void InitializedByComponentMode(ComponentMode componentMode)
+        public void InitializedByComponentMode(ComponentMode componentMode)
         {
             if(StringProperty != null) {StringProperty.Clear();}
             if(IntProperty != null) {IntProperty.Clear();}
@@ -215,11 +215,13 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             Entity = new();
         }
     }
+    public enum ViewMode { Table, Card, DashBoard}
     public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
     {
         public GetsPageToPost? getsPageToPost {get; set;}
         public GetsPageToPut? getsPageToPut {get; set; }
         public GetsPageToDelete? getsPageToDelete { get; set; }
+        
 
         public EntityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -233,6 +235,16 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             set
             {
                 SetValue(ref _TEntitys, value);   
+            }
+        }
+        private ViewMode _ViewMode = ViewMode.Table;
+        public ViewMode ViewMode
+        {
+            get => _ViewMode;
+            set 
+            {
+                _ViewMode = value;
+                OnPropertyChanged();
             }
         }
         public async Task GetsAsync()
