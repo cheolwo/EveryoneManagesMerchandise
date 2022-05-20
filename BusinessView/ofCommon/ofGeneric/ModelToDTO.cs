@@ -70,8 +70,7 @@ namespace BusinessView.ofGeneric
                             var One = dtoprop.GetCustomAttribute<OneAttribute>();
                             if (Many is not null || One is not null)
                             {
-                                string JsonDtoValue = (string)dtovalue;
-                                var DeserialObject = JsonConvert.DeserializeObject(JsonDtoValue, modelprop.PropertyType);
+                                var DeserialObject = JsonConvert.DeserializeObject((string)dtovalue, modelprop.PropertyType);
                                 modelprop.SetValue(model, DeserialObject);
                                 break;
                             }
