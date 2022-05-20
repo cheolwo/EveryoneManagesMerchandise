@@ -1,15 +1,14 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace EWCommodityServer.Controllers.ofPlatform
+namespace WarehouseServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -39,6 +38,36 @@ namespace EWCommodityServer.Controllers.ofPlatform
             }
             var GetPlatformEWCommodity = ModelToDTO<EWCommodity, PlatformEWCommodity>.ConvertToDTO(EWCommodity, new PlatformEWCommodity());
             return GetPlatformEWCommodity;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PlatformEWCommodity>>> Gets()
+        {
+            var EWCommoditys = await _PlatformEWCommodityRepository.GetToListAsync();
+            if (EWCommoditys.Count == 0)
+            {
+                return new List<PlatformEWCommodity>();
+            }
+            List<PlatformEWCommodity> PlatformEWCommoditys = new List<PlatformEWCommodity>();
+            foreach (var EWCommodity in EWCommoditys)
+            {
+                PlatformEWCommoditys.Add(ModelToDTO<EWCommodity, PlatformEWCommodity>.ConvertToDTO(EWCommodity, new PlatformEWCommodity()));
+            }
+            return PlatformEWCommoditys;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<PlatformEWCommodity>>> GetsAsyncByUserId(string userid)
+        {
+            var EWCommoditys = await _PlatformEWCommodityRepository.GetToListByUserId(userid);
+            if (EWCommoditys.Count == 0)
+            {
+                return new List<PlatformEWCommodity>();
+            }
+            List<PlatformEWCommodity> PlatformEWCommoditys = new List<PlatformEWCommodity>();
+            foreach (var EWCommodity in EWCommoditys)
+            {
+                PlatformEWCommoditys.Add(ModelToDTO<EWCommodity, PlatformEWCommodity>.ConvertToDTO(EWCommodity, new PlatformEWCommodity()));
+            }
+            return PlatformEWCommoditys;
         }
 
         [HttpPost]

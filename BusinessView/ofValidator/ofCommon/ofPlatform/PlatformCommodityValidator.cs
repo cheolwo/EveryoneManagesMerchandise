@@ -3,7 +3,7 @@ using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofValidator.ofCommon.ofPlatform
 {
-    public class PlatformCommodityValidator : AbstractValidator<PlatformCommodity>
+    public class PlatformCommodityValidator : PlatformEntityValidator
     {
         public PlatformCommodityValidator()
         {

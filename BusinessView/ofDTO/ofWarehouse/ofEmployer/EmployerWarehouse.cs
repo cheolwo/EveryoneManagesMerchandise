@@ -25,6 +25,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
         [Detail][Many(ViewNameofWarehouse.WorkingDesk)] public string? WorkingDesks { get; set; }
         [Detail][Many(ViewNameofWarehouse.DividedTag)] public string? DividedTags { get; set; }
         [Detail][Many(ViewNameofWarehouse.IncomingTag)] public string? IncomingTags { get; set; }
+        public MultipartFormDataContent? MultipartFormDataContent { get; set; }
 
         public string GetServerUrl(bool IsProduct)
         {

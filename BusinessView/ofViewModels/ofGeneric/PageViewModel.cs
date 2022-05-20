@@ -2,6 +2,7 @@ using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.ComponentModel;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofCommon;
+using Microsoft.AspNetCore.Http;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
@@ -54,7 +55,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
         public async Task PostAsync(TEntity Entity)
         {
-            var PostValue = await _ActorContext.PostAsync<TEntity>(Entity);
+            var PostValue = await _ActorContext.PostAsync(Entity);
             if (PostValue != null)
             {
                 PostTEntity = PostValue;

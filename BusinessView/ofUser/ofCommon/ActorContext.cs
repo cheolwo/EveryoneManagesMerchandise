@@ -1,5 +1,7 @@
 ﻿using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
 
 namespace BusinessView.ofCommon.ofUser
 {
@@ -22,8 +24,8 @@ namespace BusinessView.ofCommon.ofUser
         protected virtual void OnServiceBuilder(ServiceBuilder serviceBuilder) { }
         protected virtual void OnStrorageBuilder(StorageBuilder storageBuilder) { }
         protected virtual void OnValidatorBuilder(ValidatorBuilder validatorBuilde) { }
-
-        public abstract Task<T> PostAsync<T>(T t) where T :  EntityDTO,  new();
+        public abstract Task<T> PostAsync<T>(T t, MultipartFormDataContent content) where T : EntityDTO, new();
+        public abstract Task<T> PostAsync<T>(T t) where T : EntityDTO, new();
         public abstract Task<T> PutAsync<T>(T t) where T : EntityDTO, new();
         public abstract Task<T> GetByIdAsync<T>(string id) where T : EntityDTO, new();
         public abstract Task DeleteByIdAsync<T>(string id) where T : EntityDTO, new();

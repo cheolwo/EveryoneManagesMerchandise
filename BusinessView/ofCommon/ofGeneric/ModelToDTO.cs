@@ -77,8 +77,18 @@ namespace BusinessView.ofGeneric
                             }
                             else
                             {
-                                modelprop.SetValue(model, dtovalue);
-                                break;
+                                var Generic = dtoprop.GetCustomAttribute<GenericAttribute>();
+                                if (Generic is not null)
+                                {
+                                    var DesirialObject = JsonConvert.DeserializeObject((string)dtovalue, Generic._t);
+                                    modelprop.SetValue(model, DesirialObject);
+                                    break;
+                                }
+                                else
+                                {
+                                    modelprop.SetValue(model, dtovalue);
+                                    break;
+                                }
                             }
                         }
                     }

@@ -148,17 +148,27 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public async Task PostAsync()
         {
-            if (base.Files.Count > 0)
+            if (upload)
             {
-                Entity.BrowserFileToDTO(base.Files, Entity);
+                var PostValue = await _ActorContext.PostAsync(Entity, content);
+                if (PostValue != null)
+                {
+                    PostTEntity = PostValue;
+                    IsPost = true;
+                    Back();
+                }
             }
-            var PostValue = await _ActorContext.PostAsync(Entity);
-            if (PostValue != null)
+            else
             {
-                PostTEntity = PostValue;
-                IsPost = true;
-                Back();
+                var PostValue = await _ActorContext.PostAsync(Entity);
+                if (PostValue != null)
+                {
+                    PostTEntity = PostValue;
+                    IsPost = true;
+                    Back();
+                }
             }
+            
         }
         public void Back()
         {
@@ -305,6 +315,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             {
                 if (userid == null)
                 {
+                    TEntitys.Clear();
                     await GetsAsync();
                     IsInitialized = true;
                 }

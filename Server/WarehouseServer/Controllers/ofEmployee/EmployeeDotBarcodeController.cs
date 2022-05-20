@@ -1,14 +1,14 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace DotBarcodeServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace DotBarcodeServer.Controllers.ofEmployee
             }
             var GetEmployeeDotBarcode = ModelToDTO<DotBarcode, EmployeeDotBarcode>.ConvertToDTO(DotBarcode, new EmployeeDotBarcode());
             return GetEmployeeDotBarcode;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeDotBarcode>>> Gets()
+        {
+            var DotBarcodes = await _EmployeeDotBarcodeRepository.GetToListAsync();
+            if (DotBarcodes.Count == 0)
+            {
+                return new List<EmployeeDotBarcode>();
+            }
+            List<EmployeeDotBarcode> EmployeeDotBarcodes = new List<EmployeeDotBarcode>();
+            foreach (var DotBarcode in DotBarcodes)
+            {
+                EmployeeDotBarcodes.Add(ModelToDTO<DotBarcode, EmployeeDotBarcode>.ConvertToDTO(DotBarcode, new EmployeeDotBarcode()));
+            }
+            return EmployeeDotBarcodes;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeDotBarcode>>> GetsAsyncByUserId(string userid)
+        {
+            var DotBarcodes = await _EmployeeDotBarcodeRepository.GetToListByUserId(userid);
+            if (DotBarcodes.Count == 0)
+            {
+                return new List<EmployeeDotBarcode>();
+            }
+            List<EmployeeDotBarcode> EmployeeDotBarcodes = new List<EmployeeDotBarcode>();
+            foreach (var DotBarcode in DotBarcodes)
+            {
+                EmployeeDotBarcodes.Add(ModelToDTO<DotBarcode, EmployeeDotBarcode>.ConvertToDTO(DotBarcode, new EmployeeDotBarcode()));
+            }
+            return EmployeeDotBarcodes;
         }
 
         [HttpPost]

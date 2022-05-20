@@ -3,10 +3,11 @@ using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofValidator.ofCommon.ofEmployee
 {
-    public class EmployeeEntityValidator : AbstractValidator<EmployeeEntity>
+    public class EmployeeEntityValidator : EntityDTOValidator
     {
         public EmployeeEntityValidator()
         {
+
         }
     }
 }

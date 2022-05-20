@@ -3,6 +3,7 @@ using BusinessData.ofGeneric.ofIdFactory;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace BusinessLogic.ofManager.ofGeneric
     {
         Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString);
         Task<TEntity> CreateAsync(TEntity entity);
+        Task<TEntity> CreateAsync(TEntity entity, List<IFormFile> formFiles, string connectionString);
         Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> Files, string connectionString);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task UpdateAttachAsync(TEntity entity);
@@ -117,6 +119,17 @@ namespace BusinessLogic.ofManager.ofGeneric
             if (files.Count > 0)
             {
                 TEntity BlobUploadEntity = await _EntityBlobStorage.UploadAsync(entity, files, connectionString);
+                return await _EntityDataRepository.AddAsync(BlobUploadEntity);
+            }
+            return await _EntityDataRepository.AddAsync(entity);
+        }
+        public async Task<TEntity> CreateAsync(TEntity entity, List<IFormFile> formFiles, string connectionString)
+        {
+            entity.Id = await _EntityIdFactory.CreateAsync(entity);
+            entity.CreateTime = DateTime.Now;
+            if (formFiles.Count > 0)
+            {
+                TEntity BlobUploadEntity = await _EntityBlobStorage.UploadAsync(entity, formFiles, connectionString);
                 return await _EntityDataRepository.AddAsync(BlobUploadEntity);
             }
             return await _EntityDataRepository.AddAsync(entity);

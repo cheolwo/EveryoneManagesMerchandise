@@ -25,9 +25,9 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         [Get][Many] public string? EStatuses { get; set; }
         [Get][Many] public string? MStatuses { get; set; }
         [Get][Many] public string? SStatuses { get; set; }
-        [Detail] public List<CenterMacAddress>? CenterMacAddresses { get; set; }
-        [Detail] public List<CenterIPAddress>? CenterIPAddresses { get; set; }
-        [Detail] public List<CenterRole>? CenterRoles {get; set;}
+        [Detail][Generic(typeof(List<CenterMacAddress>))] public List<CenterMacAddress>? CenterMacAddresses { get; set; }
+        [Detail] [Generic(typeof(List<CenterIPAddress>))]public List<CenterIPAddress>? CenterIPAddresses { get; set; }
+        [Detail] [Generic(typeof(List<CenterRole>))]public List<CenterRole>? CenterRoles {get; set;}
     }
     public class PlatformCommodity : PlatformEntity
     {
@@ -35,7 +35,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         public string? OpponentBusinessUserId { get; set; }
         [Detail]public string? Barcode {get; set;}
         public string? CenterId {get; set;}
-        [One][Get]public Center? Center { get; set; }
+        [One][Get]public string? Center { get; set; }
         [Many][Get]public string? EStatuses { get; set; }
         [Many][Get]public string? MStatuses { get; set; }
         [Many][Get]public string? SStatuses { get; set; }

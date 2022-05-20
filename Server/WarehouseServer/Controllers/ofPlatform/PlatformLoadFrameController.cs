@@ -1,14 +1,15 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace LoadFrameServer.Controllers.ofPlatform
+namespace WarehouseServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +39,36 @@ namespace LoadFrameServer.Controllers.ofPlatform
             }
             var GetPlatformLoadFrame = ModelToDTO<LoadFrame, PlatformLoadFrame>.ConvertToDTO(LoadFrame, new PlatformLoadFrame());
             return GetPlatformLoadFrame;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PlatformLoadFrame>>> Gets()
+        {
+            var LoadFrames = await _PlatformLoadFrameRepository.GetToListAsync();
+            if (LoadFrames.Count == 0)
+            {
+                return new List<PlatformLoadFrame>();
+            }
+            List<PlatformLoadFrame> PlatformLoadFrames = new List<PlatformLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                PlatformLoadFrames.Add(ModelToDTO<LoadFrame, PlatformLoadFrame>.ConvertToDTO(LoadFrame, new PlatformLoadFrame()));
+            }
+            return PlatformLoadFrames;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<PlatformLoadFrame>>> GetsAsyncByUserId(string userid)
+        {
+            var LoadFrames = await _PlatformLoadFrameRepository.GetToListByUserId(userid);
+            if (LoadFrames.Count == 0)
+            {
+                return new List<PlatformLoadFrame>();
+            }
+            List<PlatformLoadFrame> PlatformLoadFrames = new List<PlatformLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                PlatformLoadFrames.Add(ModelToDTO<LoadFrame, PlatformLoadFrame>.ConvertToDTO(LoadFrame, new PlatformLoadFrame()));
+            }
+            return PlatformLoadFrames;
         }
 
         [HttpPost]

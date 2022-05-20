@@ -1,14 +1,14 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofGeneric;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WCommodityServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace WCommodityServer.Controllers.ofEmployee
             }
             var GetEmployeeWCommodity = ModelToDTO<WCommodity, EmployeeWCommodity>.ConvertToDTO(WCommodity, new EmployeeWCommodity());
             return GetEmployeeWCommodity;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeWCommodity>>> Gets()
+        {
+            var WCommoditys = await _EmployeeWCommodityRepository.GetToListAsync();
+            if (WCommoditys.Count == 0)
+            {
+                return new List<EmployeeWCommodity>();
+            }
+            List<EmployeeWCommodity> EmployeeWCommoditys = new List<EmployeeWCommodity>();
+            foreach (var WCommodity in WCommoditys)
+            {
+                EmployeeWCommoditys.Add(ModelToDTO<WCommodity, EmployeeWCommodity>.ConvertToDTO(WCommodity, new EmployeeWCommodity()));
+            }
+            return EmployeeWCommoditys;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeWCommodity>>> GetsAsyncByUserId(string userid)
+        {
+            var WCommoditys = await _EmployeeWCommodityRepository.GetToListByUserId(userid);
+            if (WCommoditys.Count == 0)
+            {
+                return new List<EmployeeWCommodity>();
+            }
+            List<EmployeeWCommodity> EmployeeWCommoditys = new List<EmployeeWCommodity>();
+            foreach (var WCommodity in WCommoditys)
+            {
+                EmployeeWCommoditys.Add(ModelToDTO<WCommodity, EmployeeWCommodity>.ConvertToDTO(WCommodity, new EmployeeWCommodity()));
+            }
+            return EmployeeWCommoditys;
         }
 
         [HttpPost]

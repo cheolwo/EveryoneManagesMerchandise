@@ -1,14 +1,15 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace IncomingTagServer.Controllers.ofPlatform
+namespace WarehouseServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +39,36 @@ namespace IncomingTagServer.Controllers.ofPlatform
             }
             var GetPlatformIncomingTag = ModelToDTO<IncomingTag, PlatformIncomingTag>.ConvertToDTO(IncomingTag, new PlatformIncomingTag());
             return GetPlatformIncomingTag;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PlatformIncomingTag>>> Gets()
+        {
+            var IncomingTags = await _PlatformIncomingTagRepository.GetToListAsync();
+            if (IncomingTags.Count == 0)
+            {
+                return new List<PlatformIncomingTag>();
+            }
+            List<PlatformIncomingTag> PlatformIncomingTags = new List<PlatformIncomingTag>();
+            foreach (var IncomingTag in IncomingTags)
+            {
+                PlatformIncomingTags.Add(ModelToDTO<IncomingTag, PlatformIncomingTag>.ConvertToDTO(IncomingTag, new PlatformIncomingTag()));
+            }
+            return PlatformIncomingTags;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<PlatformIncomingTag>>> GetsAsyncByUserId(string userid)
+        {
+            var IncomingTags = await _PlatformIncomingTagRepository.GetToListByUserId(userid);
+            if (IncomingTags.Count == 0)
+            {
+                return new List<PlatformIncomingTag>();
+            }
+            List<PlatformIncomingTag> PlatformIncomingTags = new List<PlatformIncomingTag>();
+            foreach (var IncomingTag in IncomingTags)
+            {
+                PlatformIncomingTags.Add(ModelToDTO<IncomingTag, PlatformIncomingTag>.ConvertToDTO(IncomingTag, new PlatformIncomingTag()));
+            }
+            return PlatformIncomingTags;
         }
 
         [HttpPost]

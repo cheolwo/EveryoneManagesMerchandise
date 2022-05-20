@@ -74,6 +74,18 @@ namespace BusinessData
             Name = "";
         }
     }
+    public class GenericAttribute : Attribute
+    {
+        public Type _t { get; set; }
+        public GenericAttribute()
+        {
+
+        }
+        public GenericAttribute(Type t)
+        {
+            _t = t;
+        }
+    }
 
     public class RescopeAttribute : Attribute
     {

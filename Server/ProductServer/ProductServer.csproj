@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\ofEmployer\" />
+    <Folder Include="Controllers\ofPlatform\" />
+    <Folder Include="Controllers\ofEmployee\" />
     <Folder Include="Controllers\ofEmployee\" />
     <Folder Include="Controllers\ofPlatform\" />
   </ItemGroup>

@@ -1,14 +1,14 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace DividedTagServer.Controllers.ofPlatform
+namespace WarehouseServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace DividedTagServer.Controllers.ofPlatform
             }
             var GetPlatformDividedTag = ModelToDTO<DividedTag, PlatformDividedTag>.ConvertToDTO(DividedTag, new PlatformDividedTag());
             return GetPlatformDividedTag;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PlatformDividedTag>>> Gets()
+        {
+            var DividedTags = await _PlatformDividedTagRepository.GetToListAsync();
+            if (DividedTags.Count == 0)
+            {
+                return new List<PlatformDividedTag>();
+            }
+            List<PlatformDividedTag> PlatformDividedTags = new List<PlatformDividedTag>();
+            foreach (var DividedTag in DividedTags)
+            {
+                PlatformDividedTags.Add(ModelToDTO<DividedTag, PlatformDividedTag>.ConvertToDTO(DividedTag, new PlatformDividedTag()));
+            }
+            return PlatformDividedTags;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<PlatformDividedTag>>> GetsAsyncByUserId(string userid)
+        {
+            var DividedTags = await _PlatformDividedTagRepository.GetToListByUserId(userid);
+            if (DividedTags.Count == 0)
+            {
+                return new List<PlatformDividedTag>();
+            }
+            List<PlatformDividedTag> PlatformDividedTags = new List<PlatformDividedTag>();
+            foreach (var DividedTag in DividedTags)
+            {
+                PlatformDividedTags.Add(ModelToDTO<DividedTag, PlatformDividedTag>.ConvertToDTO(DividedTag, new PlatformDividedTag()));
+            }
+            return PlatformDividedTags;
         }
 
         [HttpPost]

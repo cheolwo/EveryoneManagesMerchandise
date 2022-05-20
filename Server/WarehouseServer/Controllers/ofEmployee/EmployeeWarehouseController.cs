@@ -1,10 +1,10 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofGeneric;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,6 +38,36 @@ namespace WarehouseServer.Controllers.ofEmployee
             }
             var GetEmployeeWarehouse = ModelToDTO<Warehouse, EmployeeWarehouse>.ConvertToDTO(Warehouse, new EmployeeWarehouse());
             return GetEmployeeWarehouse;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeWarehouse>>> Gets()
+        {
+            var Warehouses = await _EmployeeWarehouseRepository.GetToListAsync();
+            if (Warehouses.Count == 0)
+            {
+                return new List<EmployeeWarehouse>();
+            }
+            List<EmployeeWarehouse> EmployeeWarehouses = new List<EmployeeWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                EmployeeWarehouses.Add(ModelToDTO<Warehouse, EmployeeWarehouse>.ConvertToDTO(Warehouse, new EmployeeWarehouse()));
+            }
+            return EmployeeWarehouses;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeWarehouse>>> GetsAsyncByUserId(string userid)
+        {
+            var Warehouses = await _EmployeeWarehouseRepository.GetToListByUserId(userid);
+            if (Warehouses.Count == 0)
+            {
+                return new List<EmployeeWarehouse>();
+            }
+            List<EmployeeWarehouse> EmployeeWarehouses = new List<EmployeeWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                EmployeeWarehouses.Add(ModelToDTO<Warehouse, EmployeeWarehouse>.ConvertToDTO(Warehouse, new EmployeeWarehouse()));
+            }
+            return EmployeeWarehouses;
         }
 
         [HttpPost]

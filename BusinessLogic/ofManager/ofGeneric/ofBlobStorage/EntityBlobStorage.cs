@@ -9,6 +9,7 @@ using Azure.Storage.Blobs.Models;
 using BusinessData;
 using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
 namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
@@ -31,6 +32,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
     }
     public interface IEntityBlobStorage<TEntity> where TEntity : Entity
     {
+        Task<TEntity> UploadAsync(TEntity entity, List<IFormFile> files, string connectionString);
         Task<TEntity> UploadAsync(TEntity entity, List<IBrowserFile> files, string connectionString);
         Task DownLoadAsync(TEntity entity, string downloadPath);
         Task<List<BlobItem>> GetToListByContainerName(string containerName);
@@ -86,6 +88,28 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
             }
             return entity;
         }
+        public async Task<TEntity> UploadAsync(TEntity entity, List<IFormFile> files, string connectionString)
+        {
+            BlobServiceClient blobServiceClient = new(connectionString);
+            CreateBlobContainer(entity, connectionString);
+            // 저장할 파일이 없다면 BlobStorage 이용할 필요 없으니 모듈 종료.
+            if (files.Count == 0) { return entity; }
+
+            // BlobStorage에서 컨테이너를 Load
+            BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(entity.Container);
+            // 해당 컨테이너에 파일을 저장.
+            foreach (var file in files)
+            {
+                var Result = await blobContainerClient.UploadBlobAsync(file.Name, file.OpenReadStream());
+                ImageofInfo imageofInfo = new();
+                imageofInfo.fileName = file.Name;
+                imageofInfo.Id = (int)Result.Value.BlobSequenceNumber;
+                imageofInfo.Info = file.Length.ToString();
+                imageofInfo.Purpose = "Image";
+                entity.ImageofInfos.Add(imageofInfo);
+            }
+            return entity;
+        }
         public Task DownLoadAsync(TEntity entity, string downloadPath)
         {
             throw new System.NotImplementedException();
@@ -95,6 +119,7 @@ namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
         {
             throw new System.NotImplementedException();
         }
+
     }
 
 }

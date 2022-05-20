@@ -1,11 +1,10 @@
 ﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -39,6 +38,36 @@ namespace WarehouseServer.Controllers.ofPlatform
             }
             var GetPlatformWarehouse = ModelToDTO<Warehouse, PlatformWarehouse>.ConvertToDTO(Warehouse, new PlatformWarehouse());
             return GetPlatformWarehouse;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PlatformWarehouse>>> Gets()
+        {
+            var Warehouses = await _PlatformWarehouseRepository.GetToListAsync();
+            if (Warehouses.Count == 0)
+            {
+                return new List<PlatformWarehouse>();
+            }
+            List<PlatformWarehouse> PlatformWarehouses = new List<PlatformWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                PlatformWarehouses.Add(ModelToDTO<Warehouse, PlatformWarehouse>.ConvertToDTO(Warehouse, new PlatformWarehouse()));
+            }
+            return PlatformWarehouses;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<PlatformWarehouse>>> GetsAsyncByUserId(string userid)
+        {
+            var Warehouses = await _PlatformWarehouseRepository.GetToListByUserId(userid);
+            if (Warehouses.Count == 0)
+            {
+                return new List<PlatformWarehouse>();
+            }
+            List<PlatformWarehouse> PlatformWarehouses = new List<PlatformWarehouse>();
+            foreach (var Warehouse in Warehouses)
+            {
+                PlatformWarehouses.Add(ModelToDTO<Warehouse, PlatformWarehouse>.ConvertToDTO(Warehouse, new PlatformWarehouse()));
+            }
+            return PlatformWarehouses;
         }
 
         [HttpPost]

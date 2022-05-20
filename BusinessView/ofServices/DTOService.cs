@@ -1,4 +1,7 @@
-﻿using System.Net.Http.Json;
+﻿using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
@@ -25,12 +28,45 @@ namespace BusinessView.ofCommon.ofServices
         {
             _DTOServiceOptions = options;
         }
+        public virtual async Task<T?> PostAsync<T>(T t, MultipartFormDataContent content) where T : new()
+        {
+            var entityJson = new StringContent(
+                            JsonSerializer.Serialize(t),
+                            Encoding.UTF8,
+                            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+
+            using var httpResponseMessage =
+               await _httpClient.PostAsync($"/api/{typeof(T).Name}", entityJson);
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            var response = await _httpClient.PostAsync("/api/Filesave", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                };
+
+                using var responseStream =
+                    await response.Content.ReadAsStreamAsync();
+
+                var newUploadResults = await JsonSerializer
+                    .DeserializeAsync<IList<UploadResult>>(responseStream, options);
+
+                Console.WriteLine(newUploadResults);
+            }
+
+            string JsonIdentityUserDTO = await httpResponseMessage.Content.ReadAsStringAsync();
+            T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
+            return dto;
+        }
         public virtual async Task<T?> PostAsync<T>(T t) where T : new()
         {
             var entityJson = new StringContent(
-            JsonSerializer.Serialize(t),
-            Encoding.UTF8,
-            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+                            JsonSerializer.Serialize(t),
+                            Encoding.UTF8,
+                            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+
             using var httpResponseMessage =
                await _httpClient.PostAsync($"/api/{typeof(T).Name}", entityJson);
             httpResponseMessage.EnsureSuccessStatusCode();

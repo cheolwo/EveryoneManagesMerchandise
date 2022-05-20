@@ -3,7 +3,7 @@ using BusinessView.ofDTO.ofCommon.ofEmployee;
 
 namespace BusinessView.ofValidator.ofCommon.ofEmployee
 {
-    public class EmployeeCommodityValidator : AbstractValidator<EmployeeCommodity>
+    public class EmployeeCommodityValidator : EmployeeEntityValidator
     {
         public EmployeeCommodityValidator()
         {

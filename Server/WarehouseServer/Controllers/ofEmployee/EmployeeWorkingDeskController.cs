@@ -1,14 +1,14 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofGeneric;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WorkingDeskServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace WorkingDeskServer.Controllers.ofEmployee
             }
             var GetEmployeeWorkingDesk = ModelToDTO<WorkingDesk, EmployeeWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployeeWorkingDesk());
             return GetEmployeeWorkingDesk;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeWorkingDesk>>> Gets()
+        {
+            var WorkingDesks = await _EmployeeWorkingDeskRepository.GetToListAsync();
+            if (WorkingDesks.Count == 0)
+            {
+                return new List<EmployeeWorkingDesk>();
+            }
+            List<EmployeeWorkingDesk> EmployeeWorkingDesks = new List<EmployeeWorkingDesk>();
+            foreach (var WorkingDesk in WorkingDesks)
+            {
+                EmployeeWorkingDesks.Add(ModelToDTO<WorkingDesk, EmployeeWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployeeWorkingDesk()));
+            }
+            return EmployeeWorkingDesks;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeWorkingDesk>>> GetsAsyncByUserId(string userid)
+        {
+            var WorkingDesks = await _EmployeeWorkingDeskRepository.GetToListByUserId(userid);
+            if (WorkingDesks.Count == 0)
+            {
+                return new List<EmployeeWorkingDesk>();
+            }
+            List<EmployeeWorkingDesk> EmployeeWorkingDesks = new List<EmployeeWorkingDesk>();
+            foreach (var WorkingDesk in WorkingDesks)
+            {
+                EmployeeWorkingDesks.Add(ModelToDTO<WorkingDesk, EmployeeWorkingDesk>.ConvertToDTO(WorkingDesk, new EmployeeWorkingDesk()));
+            }
+            return EmployeeWorkingDesks;
         }
 
         [HttpPost]

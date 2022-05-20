@@ -21,9 +21,9 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
         [Get][Many] public string? EStatuses { get; set; }
         [Get][Many] public string? MStatuses { get; set; }
         [Get][Many] public string? SStatuses { get; set; }
-        [Detail] public string? CenterMacAddresses { get; set; }
-        [Detail] public string? CenterIPAddresses { get; set; }
-        [Detail] public string? CenterRoles {get; set;}
+        [Detail][Generic(typeof(List<CenterMacAddress>))] public string? CenterMacAddresses { get; set; }
+        [Detail][Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
+        [Detail][Generic(typeof(List<CenterRole>))] public string? CenterRoles {get; set;}
     }
     public class EmployerCommodity : EmployerEntity
     {

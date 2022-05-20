@@ -1,14 +1,14 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofGeneric;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace SWCommodityServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,6 +38,36 @@ namespace SWCommodityServer.Controllers.ofEmployee
             }
             var GetEmployeeSWCommodity = ModelToDTO<SWCommodity, EmployeeSWCommodity>.ConvertToDTO(SWCommodity, new EmployeeSWCommodity());
             return GetEmployeeSWCommodity;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeSWCommodity>>> Gets()
+        {
+            var SWCommoditys = await _EmployeeSWCommodityRepository.GetToListAsync();
+            if (SWCommoditys.Count == 0)
+            {
+                return new List<EmployeeSWCommodity>();
+            }
+            List<EmployeeSWCommodity> EmployeeSWCommoditys = new List<EmployeeSWCommodity>();
+            foreach (var SWCommodity in SWCommoditys)
+            {
+                EmployeeSWCommoditys.Add(ModelToDTO<SWCommodity, EmployeeSWCommodity>.ConvertToDTO(SWCommodity, new EmployeeSWCommodity()));
+            }
+            return EmployeeSWCommoditys;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeSWCommodity>>> GetsAsyncByUserId(string userid)
+        {
+            var SWCommoditys = await _EmployeeSWCommodityRepository.GetToListByUserId(userid);
+            if (SWCommoditys.Count == 0)
+            {
+                return new List<EmployeeSWCommodity>();
+            }
+            List<EmployeeSWCommodity> EmployeeSWCommoditys = new List<EmployeeSWCommodity>();
+            foreach (var SWCommodity in SWCommoditys)
+            {
+                EmployeeSWCommoditys.Add(ModelToDTO<SWCommodity, EmployeeSWCommodity>.ConvertToDTO(SWCommodity, new EmployeeSWCommodity()));
+            }
+            return EmployeeSWCommoditys;
         }
 
         [HttpPost]

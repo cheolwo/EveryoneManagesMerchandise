@@ -1,14 +1,14 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofGeneric;
+﻿using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BusinessView.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofWarehouse.Model;
+using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessData.ofWarehouse.ofInterface.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace LoadFrameServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -26,7 +26,7 @@ namespace LoadFrameServer.Controllers.ofEmployee
             _EmployeeLoadFrameRepository = EmployeeLoadFrameRepository;
             _EmployeeLoadFrameManager = EmployeeLoadFrameManager;
         }
-        // GET: api/<EmployeeDotBarcodeController>
+        // GET: api/<EmployeeLoadFrameController>
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployeeLoadFrame>> GetLoadFrame(string id)
         {
@@ -36,8 +36,38 @@ namespace LoadFrameServer.Controllers.ofEmployee
             {
                 return NotFound();
             }
-            var GetEmployeeDotBarcode = ModelToDTO<LoadFrame, EmployeeLoadFrame>.ConvertToDTO(LoadFrame, new EmployeeLoadFrame());
-            return GetEmployeeDotBarcode;
+            var GetEmployeeLoadFrame = ModelToDTO<LoadFrame, EmployeeLoadFrame>.ConvertToDTO(LoadFrame, new EmployeeLoadFrame());
+            return GetEmployeeLoadFrame;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EmployeeLoadFrame>>> Gets()
+        {
+            var LoadFrames = await _EmployeeLoadFrameRepository.GetToListAsync();
+            if (LoadFrames.Count == 0)
+            {
+                return new List<EmployeeLoadFrame>();
+            }
+            List<EmployeeLoadFrame> EmployeeLoadFrames = new List<EmployeeLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                EmployeeLoadFrames.Add(ModelToDTO<LoadFrame, EmployeeLoadFrame>.ConvertToDTO(LoadFrame, new EmployeeLoadFrame()));
+            }
+            return EmployeeLoadFrames;
+        }
+        [HttpGet("User")]
+        public async Task<ActionResult<IEnumerable<EmployeeLoadFrame>>> GetsAsyncByUserId(string userid)
+        {
+            var LoadFrames = await _EmployeeLoadFrameRepository.GetToListByUserId(userid);
+            if (LoadFrames.Count == 0)
+            {
+                return new List<EmployeeLoadFrame>();
+            }
+            List<EmployeeLoadFrame> EmployeeLoadFrames = new List<EmployeeLoadFrame>();
+            foreach (var LoadFrame in LoadFrames)
+            {
+                EmployeeLoadFrames.Add(ModelToDTO<LoadFrame, EmployeeLoadFrame>.ConvertToDTO(LoadFrame, new EmployeeLoadFrame()));
+            }
+            return EmployeeLoadFrames;
         }
 
         [HttpPost]

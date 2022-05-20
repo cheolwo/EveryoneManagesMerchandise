@@ -8,7 +8,7 @@ using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace DividedTagServer.Controllers.ofEmployee
+namespace WarehouseServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -70,7 +70,7 @@ namespace DividedTagServer.Controllers.ofEmployee
             return employeeDividedTags;
         }
         [HttpPost]
-        public async Task<ActionResult<EmployeeDividedTag>> PostDividedTag(EmployeeDividedTag EmployeeDividedTag)
+        public async Task<ActionResult<EmployeeDividedTag>> PostDividedTag(EmployeeDividedTag EmployeeDividedTag, IFormFile formFile)
         {
             var model = DTOToModel<EmployeeDividedTag, DividedTag>.ConvertToModel(EmployeeDividedTag, new());
             var newDividedTag = await _EmployeeDividedTagManager.CreateAsync(model);
@@ -78,6 +78,15 @@ namespace DividedTagServer.Controllers.ofEmployee
             //return CreatedAtAction("GetDividedTag", new { id = DividedTag.Id }, DividedTag);
             return CreatedAtAction(nameof(GetDividedTag), new { id = newDividedTag.Id }, newDividedTag);
         }
+        //[HttpPost]
+        //public async Task<ActionResult<EmployeeDividedTag>> PostDividedTag(EmployeeDividedTag EmployeeDividedTag)
+        //{
+        //    var model = DTOToModel<EmployeeDividedTag, DividedTag>.ConvertToModel(EmployeeDividedTag, new());
+        //    var newDividedTag = await _EmployeeDividedTagManager.CreateAsync(model);
+
+        //    //return CreatedAtAction("GetDividedTag", new { id = DividedTag.Id }, DividedTag);
+        //    return CreatedAtAction(nameof(GetDividedTag), new { id = newDividedTag.Id }, newDividedTag);
+        //}
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDividedTag(string id, EmployeeDividedTag EmployeeDividedTag)

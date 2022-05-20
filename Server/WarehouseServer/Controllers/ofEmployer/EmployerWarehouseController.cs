@@ -5,6 +5,7 @@ using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
 using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using Microsoft.AspNetCore.Components.Forms;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,11 +18,14 @@ namespace WarehouseServer.Controllers.ofEmployer
         private readonly ILogger<EmployerWarehouseController> _logger;
         private readonly IEmployerWarehouseManager _EmployerWarehouseManager;
         private readonly IEmployerWarehouseRepository _EmployerWarehouseRepository;
+        private readonly IConfiguration _configuration;
 
         public EmployerWarehouseController(ILogger<EmployerWarehouseController> logger,
             IEmployerWarehouseManager EmployerWarehouseManager, 
-            IEmployerWarehouseRepository EmployerWarehouseRepository)
+            IEmployerWarehouseRepository EmployerWarehouseRepository,
+            IConfiguration configuration)
         {
+            _configuration = configuration;
             _logger = logger;
             _EmployerWarehouseRepository = EmployerWarehouseRepository;
             _EmployerWarehouseManager = EmployerWarehouseManager;
@@ -30,6 +34,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpGet("{id}")]
         public async Task<ActionResult<EmployerWarehouse>> GetWarehouse(string id)
         {
+            _logger.LogInformation("Access" + nameof(EmployerWarehouseController.GetWarehouse));
             var Warehouse = await _EmployerWarehouseRepository.GetByIdAsync(id);
 
             if (Warehouse == null)
@@ -42,6 +47,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> Gets()
         {
+            _logger.LogInformation("Access" + nameof(EmployerWarehouseController.Gets));
             var Warehouses = await _EmployerWarehouseRepository.GetToListAsync();
             if (Warehouses.Count == 0)
             {
@@ -57,6 +63,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> GetsAsyncByUserId(string userid)
         {
+            _logger.LogInformation("Access" + nameof(EmployerWarehouseController.GetsAsyncByUserId));
             var Warehouses = await _EmployerWarehouseRepository.GetToListByUserId(userid);
             if (Warehouses.Count == 0)
             {
@@ -71,9 +78,11 @@ namespace WarehouseServer.Controllers.ofEmployer
         }
 
         [HttpPost]
-        public async Task<ActionResult<EmployerWarehouse>> PostWarehouse(EmployerWarehouse EmployerWarehouse)
+        public async Task<ActionResult<EmployerWarehouse>> PostWarehouse([FromBody]EmployerWarehouse EmployerWarehouse)
         {
+            _logger.LogInformation(nameof(EmployerWarehouseController.PostWarehouse));
             var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
+
             var newWarehouse = await _EmployerWarehouseManager.CreateAsync(model);
 
             //return CreatedAtAction("GetWarehouse", new { id = Warehouse.Id }, Warehouse);
@@ -81,8 +90,9 @@ namespace WarehouseServer.Controllers.ofEmployer
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWarehouse(string id, EmployerWarehouse EmployerWarehouse)
+        public async Task<IActionResult> PutWarehouse(string id, [FromBody] EmployerWarehouse EmployerWarehouse)
         {
+            _logger.LogInformation("Access" + nameof(EmployerWarehouseController.PutWarehouse));
             var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
             if (id != model.Id)
             {
@@ -102,6 +112,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWarehouse(string id)
         {
+            _logger.LogInformation("Access" + nameof(EmployerWarehouseController.DeleteWarehouse));
             var Warehouse = await _EmployerWarehouseRepository.GetByIdAsync(id);
             if (Warehouse == null)
             {
