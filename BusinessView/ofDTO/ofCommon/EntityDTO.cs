@@ -4,6 +4,12 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace BusinessView.ofDTO.ofCommon
 {
+    public static class InitializedValue
+    {
+        public const string InitializedStringValue = "Null";
+        public const int InitializedIntValue = "0";
+    }
+    [AutoMap(typeof(Entity))]
     public class EntityDTO : IEntityDTO
     {
         [Get] public string? Id { get; set; }

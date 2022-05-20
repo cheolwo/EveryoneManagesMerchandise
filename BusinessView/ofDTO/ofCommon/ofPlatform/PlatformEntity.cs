@@ -9,6 +9,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
     public class PlatformEntity : EntityDTO
     {
     }
+    [AutoMap(typeof(Center))]
     public class PlatformCenter : PlatformEntity
     {
         [Get] public string? LoginId { get; set; }

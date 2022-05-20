@@ -14,9 +14,10 @@ namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
         [Get] public int Quantity { get; set; }
         [Get] public string? MCommodityId { get; set; }
         [Get] public string? TCommodityId { get; set; }
-        [Detail][Many(ViewNameofWarehouse.SWCommodity)] public string? SWCommodities { get; set; }  // 입고
-        [Detail][Many(ViewNameofWarehouse.EWCommodity)] public string? EWCommodities { get; set; }  // 출고
-        [Detail][Many(ViewNameofWarehouse.MWCommodity)] public string? MWCommodities { get; set; }  // 적재
-        [Detail][One(ViewNameofWarehouse.Warehouse)] public string? Warehouse { get; set; }
+        [Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }  // 입고
+        [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }  // 출고
+        [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }  // 적재
+        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(List<Warehouse>))] public string? Warehsouse { get; set; }
     }
+
 }

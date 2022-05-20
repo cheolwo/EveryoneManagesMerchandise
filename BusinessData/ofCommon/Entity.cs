@@ -53,25 +53,39 @@ namespace BusinessData
     public class OneAttribute : Attribute
     {     
         public string Name { get; set; }
+        public Type _t {get; set;}
         public OneAttribute(string name)
         {
             Name = name;
         }
-        public OneAttribute()
+        public OneAttribute(Type t)
         {
             Name = "";
+            _t = t;
+        }
+        public OneAttribute(string name, Type t)
+        {
+            Name = name;
+            _t = t;
         }
     }
     public class ManyAttribute : Attribute
     {
         public string Name { get; set; }
+        public Type _t {get; set;}
         public ManyAttribute(string name)
         {
             Name = name;
         }
-        public ManyAttribute()
+        public ManyAttribute(Type t)
         {
             Name = "";
+            _t = t;
+        }
+        public ManyAttribute(string name, Type t)
+        {
+            Name = name;
+            _t = t;
         }
     }
     public class GenericAttribute : Attribute

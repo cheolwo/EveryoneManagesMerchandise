@@ -5,6 +5,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     public class EmployerEntity : EntityDTO
     {
     }
+    [AutoMap(typeof(Center))]
     public class EmployerCenter : EmployerEntity
     {
         [Get] public string? LoginId { get; set; }
