@@ -108,6 +108,14 @@ namespace BusinessData
             _t = t;
         }
     }
+    public class OriginAttribute : Attribute
+    {
+        public Type _t {get; set;}
+        public OriginAttribute(Type t)
+        {
+            _t = t;
+        }
+    }
 
     public class RescopeAttribute : Attribute
     {
