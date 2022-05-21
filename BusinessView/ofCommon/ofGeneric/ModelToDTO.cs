@@ -13,7 +13,7 @@ namespace BusinessView.ofGeneric
     // 직렬화가 주요 개념
     public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
-        public static PropertyInfo? GetDTOPropertyByModelProp(PropertyInfo modepProp)
+        public static PropertyInfo GetDTOPropertyByModelProp(PropertyInfo modepProp)
         {
             var DTOProps = typeof(DTO).GetProperties();
             foreach (var prop in DTOProps)
@@ -23,7 +23,7 @@ namespace BusinessView.ofGeneric
                     return prop;
                 }
             }
-            return null;
+            throw new ArgumentException("Not_Matched");
         }
         public static DTO ConvertToDTO(Model model, DTO dto)
         {
@@ -36,13 +36,20 @@ namespace BusinessView.ofGeneric
                 var modelvalue = prop.GetValue(model);
                 if (modelvalue is null)
                 {
+                    var dtoprop = GetDTOPropertyByModelProp(prop);
                     if (prop.PropertyType == typeof(int))
                     {
-                        var dtoprop = GetDTOPropertyByModelProp(prop);
                         if (dtoprop != null) { dtoprop.SetValue(dto, InitializedValue.InitializedIntValue); }
                     }
                     if (prop.PropertyType == typeof(string))
                     {
+                        var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
+                        var One = dtoprop.GetCustomAttribute<OneAttribute>();
+                        var Generic = dtoprop.GetCustomAttribute<GenericAttribute>();
+                        if(Many is not null || One is not null || Generic is not null)
+                        {
+
+                        }
                         var dtoProp = GetDTOPropertyByModelProp(prop);
                         if (dtoProp != null) { dtoProp.SetValue(dto, InitializedValue.InitializedStringValue); }
                     }
@@ -54,23 +61,15 @@ namespace BusinessView.ofGeneric
                     {
                         var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
                         var One = dtoprop.GetCustomAttribute<OneAttribute>();
-                        if (Many is not null || One is not null)
+                        var Generic  = dtoprop.GetCustomAttribute<GenericAttribute>();
+                        if (Many is not null || One is not null || Generic is not null)
                         {
                             var dtovalue = JsonConvert.SerializeObject(modelvalue, Formatting.Indented);
                             dtoprop.SetValue(dto, dtovalue);
                             break;
                         }
-                        else
-                        {
-                            if (prop.PropertyType.IsGenericType)
-                            {
-                                var JsonModelValue = JsonConvert.SerializeObject(modelvalue, Formatting.Indented);
-                                dtoprop.SetValue(dto, JsonModelValue);
-                                break;
-                            }
                             dtoprop.SetValue(dto, modelvalue);
-                            break;
-                        }
+                            break;           
                     }
                 }
             }
@@ -81,7 +80,7 @@ namespace BusinessView.ofGeneric
     // 컨트롤러에서 DTO를 Model로 주로 변환함.
     public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
-        public static PropertyInfo? GetModelPropByDTOProp(PropertyInfo dtoProp)
+        public static PropertyInfo GetModelPropByDTOProp(PropertyInfo dtoProp)
         {
             var modelProp = typeof(Model).GetProperties();
             foreach (var prop in modelProp)
@@ -91,7 +90,7 @@ namespace BusinessView.ofGeneric
                     return prop;
                 }
             }
-            return null;
+            throw new ArgumentException("Not_Matched");
         }
         public static Model ConvertToModel(DTO dto, Model model)
         {
@@ -99,7 +98,7 @@ namespace BusinessView.ofGeneric
             var DTOProps = typeof(DTO).GetProperties();
             foreach (var dtoprop in DTOProps)
             {
-                var dtovalue = (string)dtoprop.GetValue(dto);
+                var dtovalue = dtoprop.GetValue(dto);
                 if(dtovalue is null)
                 {
                     var modelProp = GetModelPropByDTOProp(dtoprop);
@@ -158,19 +157,19 @@ namespace BusinessView.ofGeneric
                             {
                                 if(Generic is not null)
                                 {
-                                    var DeserialObject = JsonConvert.DeserializeObject(dtovalue, Generic._t);
+                                    var DeserialObject = JsonConvert.DeserializeObject((string?)dtovalue, Generic._t);
                                     modelprop.SetValue(model, DeserialObject);
                                     break;
                                 }
                                 if(One is not null)
                                 {
-                                    var DesirialObject = JsonConvert.DeserializeObject(dtovalue, One._t);
+                                    var DesirialObject = JsonConvert.DeserializeObject((string?)dtovalue, One._t);
                                     modelprop.SetValue(model, DesirialObject);
                                     break;
                                 }
                                 if(Many is not null)
                                 {
-                                    var DesirialObject = JsonConvert.DeserializeObject(dtovalue, Many._t);
+                                    var DesirialObject = JsonConvert.DeserializeObject((string?)dtovalue, Many._t);
                                     modelprop.SetValue(model, DesirialObject);
                                     break;
                                 }

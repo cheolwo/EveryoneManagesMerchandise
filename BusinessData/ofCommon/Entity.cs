@@ -54,6 +54,10 @@ namespace BusinessData
     {     
         public string Name { get; set; }
         public Type _t {get; set;}
+        public OneAttribute()
+        {
+            Name = "";
+        }
         public OneAttribute(string name)
         {
             Name = name;
@@ -73,6 +77,10 @@ namespace BusinessData
     {
         public string Name { get; set; }
         public Type _t {get; set;}
+        public ManyAttribute()
+        {
+            Name = "null";
+        }
         public ManyAttribute(string name)
         {
             Name = name;
@@ -147,6 +155,9 @@ namespace BusinessData
         public List<Doc> Docs { get; set; }
         public Entity()
         {
+            ImageofInfos = new();
+            ChangedUsers = new();
+            Docs = new();
         }
         public void SetRelation(Type type, string Code)
         {

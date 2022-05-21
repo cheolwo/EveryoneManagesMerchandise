@@ -7,12 +7,11 @@ namespace BusinessView.ofDTO.ofCommon
     public static class InitializedValue
     {
         public const string InitializedStringValue = "Null";
-        public const int InitializedIntValue = "0";
+        public const int InitializedIntValue = 0;
     }
-    [AutoMap(typeof(Entity))]
     public class EntityDTO : IEntityDTO
     {
-        [Get] public string? Id { get; set; }
+        [Detail] public string? Id { get; set; }
         [Get] public string? Code { get; set; }
         [Get] public string? Name { get; set; }
         [Detail]public string? Container {get; set;}

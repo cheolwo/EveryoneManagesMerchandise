@@ -1,10 +1,12 @@
-﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
+﻿using BusinessData;
+using BusinessData.ofWarehouse.Model;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     public class PlatformWorkingDesk : PlatformEntity
     {
-        public bool IsUsed { get; set; }
-        public string? Warehouse { get; set; }
+        [Get]public bool IsUsed { get; set; }
+        [Detail][One(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
 }

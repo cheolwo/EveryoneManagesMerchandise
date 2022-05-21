@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofWarehouse;
 
@@ -17,7 +18,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
         [Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }  // 입고
         [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }  // 출고
         [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }  // 적재
-        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(List<Warehouse>))] public string? Warehsouse { get; set; }
+        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehsouse { get; set; }
     }
 
 }

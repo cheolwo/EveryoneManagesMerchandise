@@ -16,7 +16,6 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
             return OneObject;
         }
     }
-    [AutoMap(typeof(Center))]
     public class EmployeeCenter : EmployeeEntity
     {
         [Get] public string? LoginId { get; set; }

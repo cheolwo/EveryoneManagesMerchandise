@@ -5,7 +5,6 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     public class EmployerEntity : EntityDTO
     {
     }
-    [AutoMap(typeof(Center))]
     public class EmployerCenter : EmployerEntity
     {
         [Get] public string? LoginId { get; set; }
@@ -18,10 +17,10 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
         [Get] public string? CardPassword {get; set;}
         [Get] public string? PhoneNumber {get; set;}
         [Get] public string? FaxNumber {get; set;}
-        [Get][Many] public string? Commodities { get; set; }
-        [Get][Many] public string? EStatuses { get; set; }
-        [Get][Many] public string? MStatuses { get; set; }
-        [Get][Many] public string? SStatuses { get; set; }
+        [Get][Many(typeof(List<Commodity>))] public string? Commodities { get; set; }
+        [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
+        [Get][Many(typeof(List<MStatus>))] public string? MStatuses { get; set; }
+        [Get][Many(typeof(List<SStatus>))] public string? SStatuses { get; set; }
         [Detail][Generic(typeof(List<CenterMacAddress>))] public string? CenterMacAddresses { get; set; }
         [Detail][Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
         [Detail][Generic(typeof(List<CenterRole>))] public string? CenterRoles {get; set;}
@@ -32,31 +31,31 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
         public string? OpponentBusinessUserId { get; set; }
         [Detail]public string? Barcode {get; set;}
         public string? CenterId {get; set;}
-        [One][Get]public string? Center { get; set; }
-        [Many][Get]public string? EStatuses { get; set; }
-        [Many][Get]public string? MStatuses { get; set; }
-        [Many][Get]public string? SStatuses { get; set; }
+        [One(typeof(Center))][Get]public string? Center { get; set; }
+        [Many(typeof(EStatus))][Get]public string? EStatuses { get; set; }
+        [Many(typeof(MStatus))][Get]public string? MStatuses { get; set; }
+        [Many(typeof(SStatus))][Get]public string? SStatuses { get; set; }
     }
     public class EmployerStatus : EmployerEntity
     {
         public string? CommodityId {get; set;}
         public string? CenterId {get; set;}
         public string? Quantity { get; set; }
-        [Get][One] public string? Commodity { get; set; }
-        [Get][One] public string? Center {get; set;}
+        [Get][One(typeof(Commodity))] public string? Commodity { get; set; }
+        [Get][One(typeof(Center))] public string? Center {get; set;}
     }
     public class EmployerSStatus : EmployerStatus
     {
-        [Get][Many]public string? MStatuses { get; set; }
+        [Get][Many(typeof(List<MStatus>))]public string? MStatuses { get; set; }
     }
     public class EmployerMStatus : EmployerStatus
     {
-        [Get][One] public string? SStatus { get; set; }
-        [Get][Many] public string? EStatuses { get; set; }
+        [Get][One(typeof(SStatus))] public string? SStatus { get; set; }
+        [Get][Many(typeof(EStatus))] public string? EStatuses { get; set; }
     }
     public class EmployerEStatus : EmployerStatus
     {
         public string? MStatusId {get; set;}
-        [Get][One] public string? MStatus { get; set; }
+        [Get][One(typeof(MStatus))] public string? MStatus { get; set; }
     }
 }
