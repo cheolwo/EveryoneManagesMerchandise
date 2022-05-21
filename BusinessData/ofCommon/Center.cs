@@ -15,11 +15,11 @@ namespace BusinessData
         public string CountryCode { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
-        public List<CenterCard> CenterCards { get; set; }
         public List<Commodity> Commodities { get; set; }
         public List<EStatus> EStatuses { get; set; }
         public List<MStatus> MStatuses { get; set; }
         public List<SStatus> SStatuses { get; set; }
+        public List<CenterCard> CenterCards { get; set; }
         public List<CenterMacAddress> CenterMacAddresses { get; set; }
         public List<CenterIPAddress> CenterIPAddresses { get; set; }
         public List<CenterRole> CenterRoles { get; set; }

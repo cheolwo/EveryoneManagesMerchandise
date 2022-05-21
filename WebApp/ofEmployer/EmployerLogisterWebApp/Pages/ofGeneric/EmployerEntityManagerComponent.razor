@@ -69,7 +69,9 @@
                 });
             });
             OnlyGetProperties = EmployerPageViewModel._EntityGetsViewModel.PropertiesByComponentMode;
+            
             await EmployerPageViewModel._EntityGetsViewModel.InitializedAsync();
+            
         }
         catch(Exception ex)
         {

@@ -13,7 +13,7 @@ namespace BusinessView.ofGeneric
     // 직렬화가 주요 개념
     public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
-        public static PropertyInfo GetDTOPropertyByModelProp(PropertyInfo modepProp)
+        public static PropertyInfo? GetDTOPropertyByModelProp(PropertyInfo modepProp)
         {
             var DTOProps = typeof(DTO).GetProperties();
             foreach (var prop in DTOProps)
@@ -23,7 +23,7 @@ namespace BusinessView.ofGeneric
                     return prop;
                 }
             }
-            throw new ArgumentException("Not_Matched");
+            return null;
         }
         public static DTO ConvertToDTO(Model model, DTO dto)
         {
@@ -37,23 +37,26 @@ namespace BusinessView.ofGeneric
                 if (modelvalue is null)
                 {
                     var dtoprop = GetDTOPropertyByModelProp(prop);
+                    if(dtoprop == null) { continue; }
                     if (prop.PropertyType == typeof(int))
                     {
                         if (dtoprop != null) { dtoprop.SetValue(dto, InitializedValue.InitializedIntValue); }
                     }
                     if (prop.PropertyType == typeof(string))
-                    {
+                    {   
+                        // ModelValue 가 없는 상태에서 Model to DTO 하는 것임.
                         var Many = dtoprop.GetCustomAttribute<ManyAttribute>();
                         var One = dtoprop.GetCustomAttribute<OneAttribute>();
                         var Generic = dtoprop.GetCustomAttribute<GenericAttribute>();
                         if(Many is not null || One is not null || Generic is not null)
                         {
-
+                             dtoprop.SetValue(dto, InitializedValue.InitializedStringValue);
+                             continue;
                         }
                         var dtoProp = GetDTOPropertyByModelProp(prop);
                         if (dtoProp != null) { dtoProp.SetValue(dto, InitializedValue.InitializedStringValue); }
+                        continue;
                     }
-                    continue;
                 }
                 foreach (var dtoprop in DTOProps)
                 {
@@ -80,7 +83,7 @@ namespace BusinessView.ofGeneric
     // 컨트롤러에서 DTO를 Model로 주로 변환함.
     public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
-        public static PropertyInfo GetModelPropByDTOProp(PropertyInfo dtoProp)
+        public static PropertyInfo? GetModelPropByDTOProp(PropertyInfo dtoProp)
         {
             var modelProp = typeof(Model).GetProperties();
             foreach (var prop in modelProp)
@@ -90,7 +93,7 @@ namespace BusinessView.ofGeneric
                     return prop;
                 }
             }
-            throw new ArgumentException("Not_Matched");
+            return null;
         }
         public static Model ConvertToModel(DTO dto, Model model)
         {
@@ -99,9 +102,10 @@ namespace BusinessView.ofGeneric
             foreach (var dtoprop in DTOProps)
             {
                 var dtovalue = dtoprop.GetValue(dto);
-                if(dtovalue is null)
+                if(dtovalue is null || dtovalue.Equals("[]") || dtovalue.Equals("string"))
                 {
                     var modelProp = GetModelPropByDTOProp(dtoprop);
+                    if(modelProp == null) { continue; }
                     if(dtoprop.PropertyType == typeof(int))
                     {
                         modelProp.SetValue(model, InitializedValue.InitializedIntValue);

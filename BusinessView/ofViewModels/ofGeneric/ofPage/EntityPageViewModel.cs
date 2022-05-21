@@ -61,7 +61,11 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EntityGetsViewModel.getsPageToPut = OnClickGetsToPut;
             _EntityGetsViewModel.getsPageToDelete = OnClickGetsToDelete;
 
-            IsSelectGets = true;
+            isSelectGets = true;
+            isSelectPost = false;
+            isSelectPut = false;
+            isSelectDelete = false;
+            OnPropertyChanged();
         }
         private bool isSelectPost {get; set;}
         public bool IsSelectPost
