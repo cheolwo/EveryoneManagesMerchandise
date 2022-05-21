@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZKPLJGSbEfF/zDCSiL9jTI7BZBNU0aYBw3offzZFlu4=",
+  "Hash": "bH4I5tKEL69pZ+OiKuwaimzHvGU+2swCTOpicHgxjxY=",
   "Source": "BusinessRazor",
   "BasePath": "_content/BusinessRazor",
   "Mode": "Default",
@@ -49,40 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css",
-      "SourceId": "BusinessRazor",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/BusinessRazor",
-      "RelativePath": "BusinessRazor.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BusinessRazor.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css",
-      "SourceId": "BusinessRazor",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/BusinessRazor",
-      "RelativePath": "BusinessRazor.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BusinessRazor.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\background.png",
