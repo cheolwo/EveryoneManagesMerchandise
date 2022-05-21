@@ -178,9 +178,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public void Reset()
         {
-            IsPost = false;
+            _isPost = false;
             _TEntity = new();
-            _postTEntity = new();
             OnPropertyChanged();
         }
     }
