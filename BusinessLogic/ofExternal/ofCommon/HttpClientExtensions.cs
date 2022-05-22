@@ -19,16 +19,15 @@ namespace BusinessLogic.ofExternal.ofCommon
     {
         IEnumerable<PropertyInfo> GetRequiredProps();
     }
+    // public static async Task<HttpResponseMessage> GetWithQueryStringAsync(this HttpClient client, string uri,
+        //     Dictionary<string, string> queryStringParams)
+        // {
+        //     var url = GetUriWithQueryString(uri, queryStringParams);
+
+        //     return await client.GetAsync(url);
+        // }
     public static class HttpClientExtensions
     {
-        public static async Task<HttpResponseMessage> GetWithQueryStringAsync(this HttpClient client, string uri,
-            Dictionary<string, string> queryStringParams)
-        {
-            var url = GetUriWithQueryString(uri, queryStringParams);
-
-            return await client.GetAsync(url);
-        }
-        
         public static string GetUri<T>(string requestUri, T t) where T : class
         {
             var QueryStringParams = GetQueryStringParams<T>(t);

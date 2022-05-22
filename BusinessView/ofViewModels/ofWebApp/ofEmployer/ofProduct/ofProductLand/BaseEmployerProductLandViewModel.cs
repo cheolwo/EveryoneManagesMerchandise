@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofProduct.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 {
-    public class BaseEmployerProductLandViewModel : BaseEntityViewModel<EmployerProductLand>
-    {
-        public BaseEmployerProductLandViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostProductLandViewModel : EntityPostViewModel<EmployerProductLand>
+    public class EmployerPostProductLandViewModel : EmployerPostViewModel<EmployerProductLand>
     {
         public EmployerPostProductLandViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerPutProductLandViewModel : EntityPutViewModel<EmployerProductLand>
+    public class EmployerPutProductLandViewModel : EmployerPutViewModel<EmployerProductLand>
     {
         public EmployerPutProductLandViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerDeleteProductLandViewModel : EntityDeleteViewModel<EmployerProductLand>
+    public class EmployerDeleteProductLandViewModel : EmployerDeleteViewModel<EmployerProductLand>
     {
         public EmployerDeleteProductLandViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerGetsProductLandViewModel : EntityGetsViewModel<EmployerProductLand>
+    public class EmployerGetsProductLandViewModel : EmployerGetsViewModel<EmployerProductLand>
     {
         public EmployerGetsProductLandViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

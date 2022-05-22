@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using BusinessView.ofActorService;
+using BusinessLogic.ofExternal.ofSearchingService;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -27,6 +28,7 @@ builder.Services.AddScoped<ActorServiceOption>();
 builder.Services.AddEmployerActorService();
 
 builder.Services.AddMudServices();
+builder.Services.AddTransient<KoreaSearchingAddressService>();
 builder.Services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

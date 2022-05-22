@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofJournal.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournalCenter
 {
-    public class EmployerJournalCenterPageViewModel : CenterPageViewModel<EmployerJournalCenter> 
+    public class EmployerJournalCenterPageViewModel : EmployerCenterPageViewModel<EmployerJournalCenter> 
     {
         public readonly EmployerPostJournalCenterViewModel _EmployerPostJournalCenterViewModel;
         public readonly EmployerPutJournalCenterViewModel _EmployerPutJournalCenterViewModel;

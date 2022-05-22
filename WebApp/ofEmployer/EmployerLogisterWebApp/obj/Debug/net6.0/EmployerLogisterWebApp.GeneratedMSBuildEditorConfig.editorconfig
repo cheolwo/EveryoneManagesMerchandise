@@ -39,12 +39,68 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/EmployerDeleteComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXEVtcGxveWVyRGVsZXRlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/EmployerEntityManagerComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXEVtcGxveWVyRW50aXR5TWFuYWdlckNvbXBvbmVudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/EmployerPostComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXEVtcGxveWVyUG9zdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/EmployerPutComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXEVtcGxveWVyUHV0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCenter/EmployerCenterManagerComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ2VudGVyXEVtcGxveWVyQ2VudGVyTWFuYWdlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCenter/EmployerCenterPostComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ2VudGVyXEVtcGxveWVyQ2VudGVyUG9zdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCenter/EmployerCenterPutComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ2VudGVyXEVtcGxveWVyQ2VudGVyUHV0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCenter/EmployerDeleteComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ2VudGVyXEVtcGxveWVyRGVsZXRlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCommodity/EmployerCommodityDeleteComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ29tbW9kaXR5XEVtcGxveWVyQ29tbW9kaXR5RGVsZXRlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCommodity/EmployerCommodityManagerComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ29tbW9kaXR5XEVtcGxveWVyQ29tbW9kaXR5TWFuYWdlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCommodity/EmployerCommodityPostComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ29tbW9kaXR5XEVtcGxveWVyQ29tbW9kaXR5UG9zdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofCommodity/EmployerCommodityPutComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mQ29tbW9kaXR5XEVtcGxveWVyQ29tbW9kaXR5UHV0Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofStatus/EmployerStatusDeleteComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mU3RhdHVzXEVtcGxveWVyU3RhdHVzRGVsZXRlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofStatus/EmployerStatusManagerComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mU3RhdHVzXEVtcGxveWVyU3RhdHVzTWFuYWdlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofStatus/EmployerStatusPostComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mU3RhdHVzXEVtcGxveWVyU3RhdHVzUG9zdENvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGeneric/ofStatus/EmployerStatusPutComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcb2ZHZW5lcmljXG9mU3RhdHVzXEVtcGxveWVyU3RhdHVzUHV0Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/ofGruopOrder/ofEGOC/EGOCPage.razor]

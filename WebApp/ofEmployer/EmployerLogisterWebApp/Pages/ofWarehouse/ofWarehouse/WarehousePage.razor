@@ -1,9 +1,11 @@
 ﻿@page "/Warehouse"
+@using BusinessLogic.ofExternal.ofSearchingService
 @using BusinessRazor.Components.ofUser
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
+@using EmployerLogisterWebApp.Pages.ofGeneric.ofCenter
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
 @using System.ComponentModel
@@ -12,7 +14,8 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerWarehouse> _Logger
-@inject EmployerPageViewModel<EmployerWarehouse> _EntityPageViewModel
+@inject EmployerWarehousePageViewModel _EntityCenterPageViewModel
+
 
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
@@ -25,7 +28,7 @@
 }
 
     <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
-        <EmployerEntityManagerComponent TEntity=EmployerWarehouse EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+                <EmployerCenterManagerComponent T=EmployerWarehouse EmployerCenterPageViewModel=_EntityCenterPageViewModel></EmployerCenterManagerComponent>
     </CascadingValue>
 @code {
 }

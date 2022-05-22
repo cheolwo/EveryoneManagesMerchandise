@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofHR.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
-    public class BaseEmployerHREmployeeViewModel : BaseEntityViewModel<EmployerHREmployee>
-    {
-        public BaseEmployerHREmployeeViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostHREmployeeViewModel : EntityPostViewModel<EmployerHREmployee>
+    public class EmployerPostHREmployeeViewModel : EmployerPostViewModel<EmployerHREmployee>
     {
         public EmployerPostHREmployeeViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerPutHREmployeeViewModel : EntityPutViewModel<EmployerHREmployee>
+    public class EmployerPutHREmployeeViewModel : EmployerPutViewModel<EmployerHREmployee>
     {
         public EmployerPutHREmployeeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerDeleteHREmployeeViewModel : EntityDeleteViewModel<EmployerHREmployee>
+    public class EmployerDeleteHREmployeeViewModel : EmployerDeleteViewModel<EmployerHREmployee>
     {
         public EmployerDeleteHREmployeeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerGetsHREmployeeViewModel : EntityGetsViewModel<EmployerHREmployee>
+    public class EmployerGetsHREmployeeViewModel : EmployerGetsViewModel<EmployerHREmployee>
     {
         public EmployerGetsHREmployeeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

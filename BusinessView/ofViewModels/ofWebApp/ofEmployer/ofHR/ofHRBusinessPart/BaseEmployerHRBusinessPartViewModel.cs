@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofHR.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
-    public class BaseEmployerHRBusinessPartViewModel : BaseEntityViewModel<EmployerHRBusinessPart>
-    {
-        public BaseEmployerHRBusinessPartViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostHRBusinessPartViewModel : EntityPostViewModel<EmployerHRBusinessPart>
+    public class EmployerPostHRBusinessPartViewModel : EmployerPostViewModel<EmployerHRBusinessPart>
     {
         public EmployerPostHRBusinessPartViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerPutHRBusinessPartViewModel : EntityPutViewModel<EmployerHRBusinessPart>
+    public class EmployerPutHRBusinessPartViewModel : EmployerPutViewModel<EmployerHRBusinessPart>
     {
         public EmployerPutHRBusinessPartViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerDeleteHRBusinessPartViewModel : EntityDeleteViewModel<EmployerHRBusinessPart>
+    public class EmployerDeleteHRBusinessPartViewModel : EmployerDeleteViewModel<EmployerHRBusinessPart>
     {
         public EmployerDeleteHRBusinessPartViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerGetsHRBusinessPartViewModel : EntityGetsViewModel<EmployerHRBusinessPart>
+    public class EmployerGetsHRBusinessPartViewModel : EmployerGetsViewModel<EmployerHRBusinessPart>
     {
         public EmployerGetsHRBusinessPartViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

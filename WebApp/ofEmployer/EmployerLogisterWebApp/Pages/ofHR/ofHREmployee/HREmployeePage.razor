@@ -3,6 +3,7 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHREmployee
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofHR.ofEmployer
 @using System.ComponentModel
@@ -11,7 +12,7 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerHREmployee> _Logger
-@inject EmployerPageViewModel<EmployerHREmployee> _EntityPageViewModel
+@inject EmployerHREmployeePageViewModel _EmployerHREmployeePageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
@@ -23,7 +24,7 @@
 }
 
     <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
-        <EmployerEntityManagerComponent TEntity=EmployerHREmployee EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+        <EmployerEntityManagerComponent TEntity=EmployerHREmployee EmployerPageViewModel=_EmployerHREmployeePageViewModel></EmployerEntityManagerComponent>
     </CascadingValue>
 @code {
 }

@@ -14,7 +14,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Serv
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\WarehouseServer.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\WarehouseServer.AssemblyInfo.cs
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\WarehouseServer.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\WarehouseServer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\WarehouseServer.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\WarehouseServer\obj\Debug\net6.0\staticwebassets.development.json

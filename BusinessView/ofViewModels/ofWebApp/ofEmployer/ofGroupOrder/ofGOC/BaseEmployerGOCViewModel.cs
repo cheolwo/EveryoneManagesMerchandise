@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
         {
         }
     }
-    public class EmployerPostGOCViewModel : CenterPostViewModel<EmployerGOC>
+    public class EmployerPostGOCViewModel : EmployerCenterPostViewModel<EmployerGOC>
     {
         public EmployerPostGOCViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerPutGOCViewModel : CenterPutViewModel<EmployerGOC>
+    public class EmployerPutGOCViewModel : EmployerCenterPutViewModel<EmployerGOC>
     {
         public EmployerPutGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerDeleteGOCViewModel : CenterDeleteViewModel<EmployerGOC>
+    public class EmployerDeleteGOCViewModel : EmployerCenterDeleteViewModel<EmployerGOC>
     {
         public EmployerDeleteGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerGetsGOCViewModel : CenterGetsViewModel<EmployerGOC>
+    public class EmployerGetsGOCViewModel : EmployerCenterGetsViewModel<EmployerGOC>
     {
         public EmployerGetsGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

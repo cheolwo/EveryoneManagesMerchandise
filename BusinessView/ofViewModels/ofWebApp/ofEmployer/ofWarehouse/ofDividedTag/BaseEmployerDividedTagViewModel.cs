@@ -1,17 +1,10 @@
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
-    public class BaseEmployerDividedTagViewModel : BaseEntityViewModel<EmployerDividedTag>
-    {
-        public BaseEmployerDividedTagViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostDividedTagViewModel : EntityPostViewModel<EmployerDividedTag>
+    public class EmployerPostDividedTagViewModel : EmployerPostViewModel<EmployerDividedTag>
     {
         public EmployerPostDividedTagViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutDividedTagViewModel : EntityPutViewModel<EmployerDividedTag>
+    public class EmployerPutDividedTagViewModel : EmployerPutViewModel<EmployerDividedTag>
     {
         public EmployerPutDividedTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteDividedTagViewModel : EntityDeleteViewModel<EmployerDividedTag>
+    public class EmployerDeleteDividedTagViewModel : EmployerDeleteViewModel<EmployerDividedTag>
     {
         public EmployerDeleteDividedTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsDividedTagViewModel : EntityGetsViewModel<EmployerDividedTag>
+    public class EmployerGetsDividedTagViewModel : EmployerGetsViewModel<EmployerDividedTag>
     {
         public EmployerGetsDividedTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

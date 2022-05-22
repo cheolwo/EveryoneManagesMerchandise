@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 {
-    public class EmployerWarehousePageViewModel : CenterPageViewModel<EmployerWarehouse> 
+    public class EmployerWarehousePageViewModel : EmployerCenterPageViewModel<EmployerWarehouse> 
     {
         public readonly EmployerPostWarehouseViewModel _EmployerPostWarehouseViewModel;
         public readonly EmployerPutWarehouseViewModel _EmployerPutWarehouseViewModel;

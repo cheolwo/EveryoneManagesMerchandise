@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofProduct.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
         {
         }
     }
-    public class EmployerPostPCommodityViewModel : CommodityPostViewModel<EmployerPCommodity>
+    public class EmployerPostPCommodityViewModel : EmployerCommodityPostViewModel<EmployerPCommodity>
     {
         public EmployerPostPCommodityViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerPutPCommodityViewModel : CommodityPutViewModel<EmployerPCommodity>
+    public class EmployerPutPCommodityViewModel : EmployerCommodityPutViewModel<EmployerPCommodity>
     {
         public EmployerPutPCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerDeletePCommodityViewModel : CommodityDeleteViewModel<EmployerPCommodity>
+    public class EmployerDeletePCommodityViewModel : EmployerCommodityDeleteViewModel<EmployerPCommodity>
     {
         public EmployerDeletePCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerGetsPCommodityViewModel : CommodityGetsViewModel<EmployerPCommodity>
+    public class EmployerGetsPCommodityViewModel : EmployerCommodityGetsViewModel<EmployerPCommodity>
     {
         public EmployerGetsPCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

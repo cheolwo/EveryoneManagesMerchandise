@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
         {
         }
     }
-    public class EmployerPostMGOCViewModel : StatusPostViewModel<EmployerMGOC>
+    public class EmployerPostMGOCViewModel : EmployerStatusPostViewModel<EmployerMGOC>
     {
         public EmployerPostMGOCViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerPutMGOCViewModel : StatusPutViewModel<EmployerMGOC>
+    public class EmployerPutMGOCViewModel : EmployerStatusPutViewModel<EmployerMGOC>
     {
         public EmployerPutMGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerDeleteMGOCViewModel : StatusDeleteViewModel<EmployerMGOC>
+    public class EmployerDeleteMGOCViewModel : EmployerStatusDeleteViewModel<EmployerMGOC>
     {
         public EmployerDeleteMGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerGetsMGOCViewModel : StatusGetsViewModel<EmployerMGOC>
+    public class EmployerGetsMGOCViewModel : EmployerStatusGetsViewModel<EmployerMGOC>
     {
         public EmployerGetsMGOCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

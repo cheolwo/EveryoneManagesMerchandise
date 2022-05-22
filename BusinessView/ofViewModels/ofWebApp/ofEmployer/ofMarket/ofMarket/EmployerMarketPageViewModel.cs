@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofMarket.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofMarket
 {
-    public class EmployerMarketPageViewModel : CenterPageViewModel<EmployerMarket> 
+    public class EmployerMarketPageViewModel : EmployerCenterPageViewModel<EmployerMarket> 
     {
         public readonly EmployerPostMarketViewModel _EmployerPostMarketViewModel;
         public readonly EmployerPutMarketViewModel _EmployerPutMarketViewModel;

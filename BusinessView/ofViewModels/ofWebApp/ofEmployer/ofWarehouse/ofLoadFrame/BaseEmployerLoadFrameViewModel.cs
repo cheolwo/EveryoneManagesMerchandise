@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
-    public class BaseEmployerLoadFrameViewModel : BaseEntityViewModel<EmployerLoadFrame>
-    {
-        public BaseEmployerLoadFrameViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostLoadFrameViewModel : EntityPostViewModel<EmployerLoadFrame>
+    public class EmployerPostLoadFrameViewModel : EmployerPostViewModel<EmployerLoadFrame>
     {
         public EmployerPostLoadFrameViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutLoadFrameViewModel : EntityPutViewModel<EmployerLoadFrame>
+    public class EmployerPutLoadFrameViewModel : EmployerPutViewModel<EmployerLoadFrame>
     {
         public EmployerPutLoadFrameViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteLoadFrameViewModel : EntityDeleteViewModel<EmployerLoadFrame>
+    public class EmployerDeleteLoadFrameViewModel : EmployerDeleteViewModel<EmployerLoadFrame>
     {
         public EmployerDeleteLoadFrameViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsLoadFrameViewModel : EntityGetsViewModel<EmployerLoadFrame>
+    public class EmployerGetsLoadFrameViewModel : EmployerGetsViewModel<EmployerLoadFrame>
     {
         public EmployerGetsLoadFrameViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

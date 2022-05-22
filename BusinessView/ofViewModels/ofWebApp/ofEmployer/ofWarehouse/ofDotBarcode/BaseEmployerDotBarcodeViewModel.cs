@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
-    public class BaseEmployerDotBarcodeViewModel : BaseEntityViewModel<EmployerDotBarcode>
-    {
-        public BaseEmployerDotBarcodeViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostDotBarcodeViewModel : EntityPostViewModel<EmployerDotBarcode>
+    public class EmployerPostDotBarcodeViewModel : EmployerPostViewModel<EmployerDotBarcode>
     {
         public EmployerPostDotBarcodeViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutDotBarcodeViewModel : EntityPutViewModel<EmployerDotBarcode>
+    public class EmployerPutDotBarcodeViewModel : EmployerPutViewModel<EmployerDotBarcode>
     {
         public EmployerPutDotBarcodeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteDotBarcodeViewModel : EntityDeleteViewModel<EmployerDotBarcode>
+    public class EmployerDeleteDotBarcodeViewModel : EmployerDeleteViewModel<EmployerDotBarcode>
     {
         public EmployerDeleteDotBarcodeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsDotBarcodeViewModel : EntityGetsViewModel<EmployerDotBarcode>
+    public class EmployerGetsDotBarcodeViewModel : EmployerGetsViewModel<EmployerDotBarcode>
     {
         public EmployerGetsDotBarcodeViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
         {
         }
     }
-    public class EmployerPostEWCommodityViewModel : StatusPostViewModel<EmployerEWCommodity>
+    public class EmployerPostEWCommodityViewModel : EmployerStatusPostViewModel<EmployerEWCommodity>
     {
         public EmployerPostEWCommodityViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutEWCommodityViewModel : StatusPutViewModel<EmployerEWCommodity>
+    public class EmployerPutEWCommodityViewModel : EmployerStatusPutViewModel<EmployerEWCommodity>
     {
         public EmployerPutEWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteEWCommodityViewModel : StatusDeleteViewModel<EmployerEWCommodity>
+    public class EmployerDeleteEWCommodityViewModel : EmployerStatusDeleteViewModel<EmployerEWCommodity>
     {
         public EmployerDeleteEWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsEWCommodityViewModel : StatusGetsViewModel<EmployerEWCommodity>
+    public class EmployerGetsEWCommodityViewModel : EmployerStatusGetsViewModel<EmployerEWCommodity>
     {
         public EmployerGetsEWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

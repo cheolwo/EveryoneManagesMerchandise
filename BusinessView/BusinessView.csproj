@@ -462,6 +462,5 @@
 		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofOrder\" />
 		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofProduct\" />
 		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofTrade\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofWarehouse\" />
 	</ItemGroup>
 </Project>

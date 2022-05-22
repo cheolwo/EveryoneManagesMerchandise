@@ -1,7 +1,7 @@
-﻿using BusinessView.ofDTO.ofJournal.ofEmployee;
+﻿using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournalCenter
 {
     public class EmployeeJournalCenterPageViewModel : CenterPageViewModel<EmployeeJournalCenter> 

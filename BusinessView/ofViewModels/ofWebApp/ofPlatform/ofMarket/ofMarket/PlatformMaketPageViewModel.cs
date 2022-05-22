@@ -1,4 +1,5 @@
-﻿using BusinessView.ofDTO.ofMarket.ofPlatform;
+﻿using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
 

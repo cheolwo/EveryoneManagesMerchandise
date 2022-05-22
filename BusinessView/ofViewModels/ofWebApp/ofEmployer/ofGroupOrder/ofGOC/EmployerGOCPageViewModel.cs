@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOC
 {
-    public class EmployerGOCPageViewModel : CenterPageViewModel<EmployerGOC> 
+    public class EmployerGOCPageViewModel : EmployerCenterPageViewModel<EmployerGOC> 
     {
         public readonly EmployerPostGOCViewModel _EmployerPostGOCViewModel;
         public readonly EmployerPutGOCViewModel _EmployerPutGOCViewModel;

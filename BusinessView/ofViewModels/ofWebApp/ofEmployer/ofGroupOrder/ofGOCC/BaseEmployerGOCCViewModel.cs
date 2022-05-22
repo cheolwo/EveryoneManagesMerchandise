@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
         {
         }
     }
-    public class EmployerPostGOCCViewModel : CommodityPostViewModel<EmployerGOCC>
+    public class EmployerPostGOCCViewModel : EmployerCommodityPostViewModel<EmployerGOCC>
     {
         public EmployerPostGOCCViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerPutGOCCViewModel : CommodityPutViewModel<EmployerGOCC>
+    public class EmployerPutGOCCViewModel : EmployerCommodityPutViewModel<EmployerGOCC>
     {
         public EmployerPutGOCCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerDeleteGOCCViewModel : CommodityDeleteViewModel<EmployerGOCC>
+    public class EmployerDeleteGOCCViewModel : EmployerCommodityDeleteViewModel<EmployerGOCC>
     {
         public EmployerDeleteGOCCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder
 
         }
     }
-    public class EmployerGetsGOCCViewModel : CommodityGetsViewModel<EmployerGOCC>
+    public class EmployerGetsGOCCViewModel : EmployerCommodityGetsViewModel<EmployerGOCC>
     {
         public EmployerGetsGOCCViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

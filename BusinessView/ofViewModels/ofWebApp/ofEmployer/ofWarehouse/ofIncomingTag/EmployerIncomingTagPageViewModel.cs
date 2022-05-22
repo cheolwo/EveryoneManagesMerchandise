@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofIncomingTag
 {
-    public class EmployerIncomingTagPageViewModel : EntityPageViewModel<EmployerIncomingTag> 
+    public class EmployerIncomingTagPageViewModel : EmployerPageViewModel<EmployerIncomingTag> 
     {
         public readonly EmployerPostIncomingTagViewModel _EmployerPostIncomingTagViewModel;
         public readonly EmployerPutIncomingTagViewModel _EmployerPutIncomingTagViewModel;

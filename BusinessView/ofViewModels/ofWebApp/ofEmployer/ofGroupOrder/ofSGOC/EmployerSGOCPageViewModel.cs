@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofSGOC
 {
-    public class EmployerSGOCPageViewModel : StatusPageViewModel<EmployerSGOC> 
+    public class EmployerSGOCPageViewModel : EmployerStatusPageViewModel<EmployerSGOC> 
     {
         public readonly EmployerPostSGOCViewModel _EmployerPostSGOCViewModel;
         public readonly EmployerPutSGOCViewModel _EmployerPutSGOCViewModel;

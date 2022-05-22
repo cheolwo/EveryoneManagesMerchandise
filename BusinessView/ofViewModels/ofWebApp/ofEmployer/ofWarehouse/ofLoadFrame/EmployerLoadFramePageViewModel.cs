@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofLoadFrame
 {
-    public class EmployerLoadFramePageViewModel : EntityPageViewModel<EmployerLoadFrame> 
+    public class EmployerLoadFramePageViewModel : EmployerPageViewModel<EmployerLoadFrame> 
     {
         public readonly EmployerPostLoadFrameViewModel _EmployerPostLoadFrameViewModel;
         public readonly EmployerPutLoadFrameViewModel _EmployerPutLoadFrameViewModel;

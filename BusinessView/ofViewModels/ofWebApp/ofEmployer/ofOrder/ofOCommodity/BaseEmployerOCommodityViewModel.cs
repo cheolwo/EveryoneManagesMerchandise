@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofOrder.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
         {
         }
     }
-    public class EmployerPostOCommodityViewModel : CommodityPostViewModel<EmployerOCommodity>
+    public class EmployerPostOCommodityViewModel : EmployerCommodityPostViewModel<EmployerOCommodity>
     {
         public EmployerPostOCommodityViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerPutOCommodityViewModel : CommodityPutViewModel<EmployerOCommodity>
+    public class EmployerPutOCommodityViewModel : EmployerCommodityPutViewModel<EmployerOCommodity>
     {
         public EmployerPutOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerDeleteOCommodityViewModel : CommodityDeleteViewModel<EmployerOCommodity>
+    public class EmployerDeleteOCommodityViewModel : EmployerCommodityDeleteViewModel<EmployerOCommodity>
     {
         public EmployerDeleteOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerGetsOCommodityViewModel : CommodityGetsViewModel<EmployerOCommodity>
+    public class EmployerGetsOCommodityViewModel : EmployerCommodityGetsViewModel<EmployerOCommodity>
     {
         public EmployerGetsOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

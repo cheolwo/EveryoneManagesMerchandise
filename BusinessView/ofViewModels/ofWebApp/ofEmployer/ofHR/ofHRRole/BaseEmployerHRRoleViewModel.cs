@@ -1,17 +1,12 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofHR.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
-    public class BaseEmployerHRRoleViewModel : BaseEntityViewModel<EmployerHRRole>
-    {
-        public BaseEmployerHRRoleViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostHRRoleViewModel : EntityPostViewModel<EmployerHRRole>
+
+    public class EmployerPostHRRoleViewModel : EmployerPostViewModel<EmployerHRRole>
     {
         public EmployerPostHRRoleViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +14,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerPutHRRoleViewModel : EntityPutViewModel<EmployerHRRole>
+    public class EmployerPutHRRoleViewModel : EmployerPutViewModel<EmployerHRRole>
     {
         public EmployerPutHRRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +22,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerDeleteHRRoleViewModel : EntityDeleteViewModel<EmployerHRRole>
+    public class EmployerDeleteHRRoleViewModel : EmployerDeleteViewModel<EmployerHRRole>
     {
         public EmployerDeleteHRRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +30,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerGetsHRRoleViewModel : EntityGetsViewModel<EmployerHRRole>
+    public class EmployerGetsHRRoleViewModel : EmployerGetsViewModel<EmployerHRRole>
     {
         public EmployerGetsHRRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

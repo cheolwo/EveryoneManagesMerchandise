@@ -8,11 +8,15 @@ using System.Text.Json;
 
 namespace BusinessLogic.ofExternal.ofSearchingService
 {
+    public interface ICenterPageRoadAddressService
+    {
+        Task<List<string>> GetAddressByKeyword(string keyword);
+    }
     public enum ErrorCodeKoreaSearchingAddressService
     {
         E0001, E0002, E0003, E0004, E0005, E0006, E0007, E0008, E0009, E0010, E0011, E0012, E0013, E0014, E0015
     }
-    public class KoreaSearchingAddressService
+    public class KoreaSearchingAddressService : ICenterPageRoadAddressService
     {
         public HttpClient _httpClient { get; set; }
         public KoreaSearchingAddressService()
@@ -20,30 +24,31 @@ namespace BusinessLogic.ofExternal.ofSearchingService
             _httpClient = new();
             _httpClient.BaseAddress = new Uri("https://www.juso.go.kr");
         }
-        public async Task<HttpResponseMessage> SearchAddress(string Address)
+        public async Task<List<string>> GetAddressByKeyword(string keyword)
         {
-            KoreaAddressRequestParameter KoreaAddressRequestParameter = new(Address);
-            string requestUri = "/addrlink/addrLinkApiJsonp.do";
-            string getUri = HttpClientExtensions.GetUri(requestUri, KoreaAddressRequestParameter);
-            return await _httpClient.GetAsync(getUri);
-        }
-        public async Task<List<string>> GetKoreadAddressByKeyword(string Address)
-        {
-            KoreaAddressRequestParameter KoreaAddressRequestParameter = new(Address);
+            KoreaAddressRequestParameter KoreaAddressRequestParameter = new(keyword);
             string requestUri = "/addrlink/addrLinkApiJsonp.do";
             string getUri = HttpClientExtensions.GetUri(requestUri, KoreaAddressRequestParameter);
             var HttpGetValue = await _httpClient.GetAsync(getUri);
             var Serialvalue = await HttpGetValue.Content.ReadAsStringAsync();
             var secondvalue = Serialvalue.Remove(0, 1);
             var ThirdValue = secondvalue.Remove(secondvalue.Length - 1, 1);
-            Console.WriteLine(ThirdValue);
+
             var deserialvalue = JsonSerializer.Deserialize<Root>(ThirdValue);
             List<string> listAddress = new();
             foreach (var addr in deserialvalue.results.juso)
             {
-                listAddress.Add(addr.roadAddr);
+                string value = Convert.ToString(addr.roadAddr);
+                listAddress.Add(value);
             }
             return listAddress;
+        }
+        public async Task<HttpResponseMessage> SearchAddress(string Address)
+        {
+            KoreaAddressRequestParameter KoreaAddressRequestParameter = new(Address);
+            string requestUri = "/addrlink/addrLinkApiJsonp.do";
+            string getUri = HttpClientExtensions.GetUri(requestUri, KoreaAddressRequestParameter);
+            return await _httpClient.GetAsync(getUri);
         }
         //public async Task<KoreadAddressExternalDTO> SearchAddress(string Address)
         //{
@@ -60,39 +65,39 @@ namespace BusinessLogic.ofExternal.ofSearchingService
     }
     public class Common
     {
-        public string errorMessage { get; set; }
-        public string countPerPage { get; set; }
-        public string totalCount { get; set; }
-        public string errorCode { get; set; }
-        public string currentPage { get; set; }
+        public dynamic errorMessage { get; set; }
+        public dynamic countPerPage { get; set; }
+        public dynamic totalCount { get; set; }
+        public dynamic errorCode { get; set; }
+        public dynamic currentPage { get; set; }
     }
 
     public class Juso
     {
-        public string detBdNmList { get; set; }
-        public string engAddr { get; set; }
-        public string rn { get; set; }
-        public string emdNm { get; set; }
-        public string zipNo { get; set; }
-        public string roadAddrPart2 { get; set; }
-        public string emdNo { get; set; }
-        public string sggNm { get; set; }
-        public string jibunAddr { get; set; }
-        public string siNm { get; set; }
-        public string roadAddrPart1 { get; set; }
-        public string bdNm { get; set; }
-        public string admCd { get; set; }
-        public string udrtYn { get; set; }
-        public string lnbrMnnm { get; set; }
-        public string roadAddr { get; set; }
-        public string lnbrSlno { get; set; }
-        public string buldMnnm { get; set; }
-        public string bdKdcd { get; set; }
-        public string liNm { get; set; }
-        public string rnMgtSn { get; set; }
-        public string mtYn { get; set; }
-        public string bdMgtSn { get; set; }
-        public string buldSlno { get; set; }
+        public dynamic detBdNmList { get; set; }
+        public dynamic engAddr { get; set; }
+        public dynamic rn { get; set; }
+        public dynamic emdNm { get; set; }
+        public dynamic zipNo { get; set; }
+        public dynamic roadAddrPart2 { get; set; }
+        public dynamic emdNo { get; set; }
+        public dynamic sggNm { get; set; }
+        public dynamic jibunAddr { get; set; }
+        public dynamic siNm { get; set; }
+        public dynamic roadAddrPart1 { get; set; }
+        public dynamic bdNm { get; set; }
+        public dynamic admCd { get; set; }
+        public dynamic udrtYn { get; set; }
+        public dynamic lnbrMnnm { get; set; }
+        public dynamic roadAddr { get; set; }
+        public dynamic lnbrSlno { get; set; }
+        public dynamic buldMnnm { get; set; }
+        public dynamic bdKdcd { get; set; }
+        public dynamic liNm { get; set; }
+        public dynamic rnMgtSn { get; set; }
+        public dynamic mtYn { get; set; }
+        public dynamic bdMgtSn { get; set; }
+        public dynamic buldSlno { get; set; }
     }
 
     public class Results
@@ -105,7 +110,7 @@ namespace BusinessLogic.ofExternal.ofSearchingService
     {
         public Results results { get; set; }
     }
-
+    //devU01TX0FVVEgyMDIyMDUyMjE2NTUxNjExMjU5Nzg=
     public class KoreaAddressRequestParameter : IHttpRequestParameter
     {
         [Required] public int currentPage { get; set; } // 현재 페이지 번호

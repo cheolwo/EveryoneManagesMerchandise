@@ -3,6 +3,7 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournal
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofJournal.ofEmployer
 @using System.ComponentModel
@@ -11,7 +12,7 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerJournal> _Logger
-@inject EmployerPageViewModel<EmployerJournal> _EntityPageViewModel
+@inject EmployerJournalPageViewModel _EntityPageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {

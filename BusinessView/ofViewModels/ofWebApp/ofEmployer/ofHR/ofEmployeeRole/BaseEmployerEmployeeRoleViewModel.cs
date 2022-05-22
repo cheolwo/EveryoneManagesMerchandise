@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofHR.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 {
-    public class BaseEmployerEmployeeRoleViewModel : BaseEntityViewModel<EmployerEmployeeRole>
-    {
-        public BaseEmployerEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostEmployeeRoleViewModel : EntityPostViewModel<EmployerEmployeeRole>
+    public class EmployerPostEmployeeRoleViewModel : EmployerPostViewModel<EmployerEmployeeRole>
     {
         public EmployerPostEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerPutEmployeeRoleViewModel : EntityPutViewModel<EmployerEmployeeRole>
+    public class EmployerPutEmployeeRoleViewModel : EmployerPutViewModel<EmployerEmployeeRole>
     {
         public EmployerPutEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerDeleteEmployeeRoleViewModel : EntityDeleteViewModel<EmployerEmployeeRole>
+    public class EmployerDeleteEmployeeRoleViewModel : EmployerDeleteViewModel<EmployerEmployeeRole>
     {
         public EmployerDeleteEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
 
         }
     }
-    public class EmployerGetsEmployeeRoleViewModel : EntityGetsViewModel<EmployerEmployeeRole>
+    public class EmployerGetsEmployeeRoleViewModel : EmployerGetsViewModel<EmployerEmployeeRole>
     {
         public EmployerGetsEmployeeRoleViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

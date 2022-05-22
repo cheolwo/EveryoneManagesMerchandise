@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRBusinessPart
 {
-    public class EmployerHRBusinessPartPageViewModel : EntityPageViewModel<EmployerHRBusinessPart> 
+    public class EmployerHRBusinessPartPageViewModel : EmployerPageViewModel<EmployerHRBusinessPart> 
     {
         public readonly EmployerPostHRBusinessPartViewModel _EmployerPostHRBusinessPartViewModel;
         public readonly EmployerPutHRBusinessPartViewModel _EmployerPutHRBusinessPartViewModel;

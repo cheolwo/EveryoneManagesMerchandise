@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDotBarcode
 {
-    public class EmployerDotBarcodePageViewModel : EntityPageViewModel<EmployerDotBarcode> 
+    public class EmployerDotBarcodePageViewModel : EmployerPageViewModel<EmployerDotBarcode> 
     {
         public readonly EmployerPostDotBarcodeViewModel _EmployerPostDotBarcodeViewModel;
         public readonly EmployerPutDotBarcodeViewModel _EmployerPutDotBarcodeViewModel;

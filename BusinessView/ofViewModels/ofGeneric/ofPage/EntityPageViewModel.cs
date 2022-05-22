@@ -4,6 +4,7 @@ using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofCommon.ofInterface;
 using BusinessView.ofDTO.ofCommon;
+using BusinessLogic.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

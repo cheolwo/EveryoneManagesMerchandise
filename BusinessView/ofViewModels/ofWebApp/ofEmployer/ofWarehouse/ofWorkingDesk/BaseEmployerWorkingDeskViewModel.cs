@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
-    public class BaseEmployerWorkingDeskViewModel : BaseEntityViewModel<EmployerWorkingDesk>
-    {
-        public BaseEmployerWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostWorkingDeskViewModel : EntityPostViewModel<EmployerWorkingDesk>
+    public class EmployerPostWorkingDeskViewModel : EmployerPostViewModel<EmployerWorkingDesk>
     {
         public EmployerPostWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutWorkingDeskViewModel : EntityPutViewModel<EmployerWorkingDesk>
+    public class EmployerPutWorkingDeskViewModel : EmployerPutViewModel<EmployerWorkingDesk>
     {
         public EmployerPutWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteWorkingDeskViewModel : EntityDeleteViewModel<EmployerWorkingDesk>
+    public class EmployerDeleteWorkingDeskViewModel : EmployerDeleteViewModel<EmployerWorkingDesk>
     {
         public EmployerDeleteWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsWorkingDeskViewModel : EntityGetsViewModel<EmployerWorkingDesk>
+    public class EmployerGetsWorkingDeskViewModel : EmployerGetsViewModel<EmployerWorkingDesk>
     {
         public EmployerGetsWorkingDeskViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

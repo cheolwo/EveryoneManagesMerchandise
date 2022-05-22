@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofServices.ofCommon;
 using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofTradeCenter
 {
-    public class EmployerTradeCenterPageViewModel : CenterPageViewModel<EmployerTradeCenter> 
+    public class EmployerTradeCenterPageViewModel : EmployerCenterPageViewModel<EmployerTradeCenter> 
     {
         public readonly EmployerPostTradeCenterViewModel _EmployerPostTradeCenterViewModel;
         public readonly EmployerPutTradeCenterViewModel _EmployerPutTradeCenterViewModel;

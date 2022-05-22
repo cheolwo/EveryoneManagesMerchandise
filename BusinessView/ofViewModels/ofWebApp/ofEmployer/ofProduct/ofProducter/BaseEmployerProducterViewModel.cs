@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofProduct.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
         {
         }
     }
-    public class EmployerPostProducterViewModel : CenterPostViewModel<EmployerProducter>
+    public class EmployerPostProducterViewModel : EmployerCenterPostViewModel<EmployerProducter>
     {
         public EmployerPostProducterViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerPutProducterViewModel : CenterPutViewModel<EmployerProducter>
+    public class EmployerPutProducterViewModel : EmployerCenterPutViewModel<EmployerProducter>
     {
         public EmployerPutProducterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerDeleteProducterViewModel : CenterDeleteViewModel<EmployerProducter>
+    public class EmployerDeleteProducterViewModel : EmployerCenterDeleteViewModel<EmployerProducter>
     {
         public EmployerDeleteProducterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct
 
         }
     }
-    public class EmployerGetsProducterViewModel : CenterGetsViewModel<EmployerProducter>
+    public class EmployerGetsProducterViewModel : EmployerCenterGetsViewModel<EmployerProducter>
     {
         public EmployerGetsProducterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

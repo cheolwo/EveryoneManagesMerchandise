@@ -1,17 +1,11 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
-    public class BaseEmployerIncomingTagViewModel : BaseEntityViewModel<EmployerIncomingTag>
-    {
-        public BaseEmployerIncomingTagViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostIncomingTagViewModel : EntityPostViewModel<EmployerIncomingTag>
+    public class EmployerPostIncomingTagViewModel : EmployerPostViewModel<EmployerIncomingTag>
     {
         public EmployerPostIncomingTagViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +13,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutIncomingTagViewModel : EntityPutViewModel<EmployerIncomingTag>
+    public class EmployerPutIncomingTagViewModel : EmployerPutViewModel<EmployerIncomingTag>
     {
         public EmployerPutIncomingTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +21,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteIncomingTagViewModel : EntityDeleteViewModel<EmployerIncomingTag>
+    public class EmployerDeleteIncomingTagViewModel : EmployerDeleteViewModel<EmployerIncomingTag>
     {
         public EmployerDeleteIncomingTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +29,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsIncomingTagViewModel : EntityGetsViewModel<EmployerIncomingTag>
+    public class EmployerGetsIncomingTagViewModel : EmployerGetsViewModel<EmployerIncomingTag>
     {
         public EmployerGetsIncomingTagViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofHR.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofHRCenter
 {
-    public class EmployerHRCenterPageViewModel : CenterPageViewModel<EmployerHRCenter> 
+    public class EmployerHRCenterPageViewModel : EmployerCenterPageViewModel<EmployerHRCenter> 
     {
         public readonly EmployerPostHRCenterViewModel _EmployerPostHRCenterViewModel;
         public readonly EmployerPutHRCenterViewModel _EmployerPutHRCenterViewModel;

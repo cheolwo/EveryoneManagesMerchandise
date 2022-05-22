@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDividedTag
 {
-    public class EmployerDividedTagPageViewModel : EntityPageViewModel<EmployerDividedTag> 
+    public class EmployerDividedTagPageViewModel : EmployerPageViewModel<EmployerDividedTag> 
     {
         public readonly EmployerPostDividedTagViewModel _EmployerPostDividedTagViewModel;
         public readonly EmployerPutDividedTagViewModel _EmployerPutDividedTagViewModel;

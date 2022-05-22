@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofEOCommodity
 {
-    public class EmployerEOCommodityPageViewModel : StatusPageViewModel<EmployerEOCommodity> 
+    public class EmployerEOCommodityPageViewModel : EmployerStatusPageViewModel<EmployerEOCommodity> 
     {
         public readonly EmployerPostEOCommodityViewModel _EmployerPostEOCommodityViewModel;
         public readonly EmployerPutEOCommodityViewModel _EmployerPutEOCommodityViewModel;

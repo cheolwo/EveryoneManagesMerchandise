@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
         {
         }
     }
-    public class EmployerPostWCommodityViewModel : CommodityPostViewModel<EmployerWCommodity>
+    public class EmployerPostWCommodityViewModel : EmployerCommodityPostViewModel<EmployerWCommodity>
     {
         public EmployerPostWCommodityViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerPutWCommodityViewModel : CommodityPutViewModel<EmployerWCommodity>
+    public class EmployerPutWCommodityViewModel : EmployerCommodityPutViewModel<EmployerWCommodity>
     {
         public EmployerPutWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerDeleteWCommodityViewModel : CommodityDeleteViewModel<EmployerWCommodity>
+    public class EmployerDeleteWCommodityViewModel : EmployerCommodityDeleteViewModel<EmployerWCommodity>
     {
         public EmployerDeleteWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 
         }
     }
-    public class EmployerGetsWCommodityViewModel : CommodityGetsViewModel<EmployerWCommodity>
+    public class EmployerGetsWCommodityViewModel : EmployerCommodityGetsViewModel<EmployerWCommodity>
     {
         public EmployerGetsWCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

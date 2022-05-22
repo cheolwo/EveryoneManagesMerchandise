@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofMarket.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
         {
         }
     }
-    public class EmployerPostPlatMarketViewModel : CenterPostViewModel<EmployerPlatMarket>
+    public class EmployerPostPlatMarketViewModel : EmployerCenterPostViewModel<EmployerPlatMarket>
     {
         public EmployerPostPlatMarketViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
 
         }
     }
-    public class EmployerPutPlatMarketViewModel : CenterPutViewModel<EmployerPlatMarket>
+    public class EmployerPutPlatMarketViewModel : EmployerCenterPutViewModel<EmployerPlatMarket>
     {
         public EmployerPutPlatMarketViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
 
         }
     }
-    public class EmployerDeletePlatMarketViewModel : CenterDeleteViewModel<EmployerPlatMarket>
+    public class EmployerDeletePlatMarketViewModel : EmployerCenterDeleteViewModel<EmployerPlatMarket>
     {
         public EmployerDeletePlatMarketViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket
 
         }
     }
-    public class EmployerGetsPlatMarketViewModel : CenterGetsViewModel<EmployerPlatMarket>
+    public class EmployerGetsPlatMarketViewModel : EmployerCenterGetsViewModel<EmployerPlatMarket>
     {
         public EmployerGetsPlatMarketViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

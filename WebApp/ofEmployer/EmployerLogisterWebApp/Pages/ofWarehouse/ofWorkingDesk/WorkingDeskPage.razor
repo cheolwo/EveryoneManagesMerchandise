@@ -4,6 +4,7 @@
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDesk
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
 @using System.ComponentModel
@@ -13,6 +14,7 @@
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerWorkingDesk> _Logger
 @inject EmployerPageViewModel<EmployerWorkingDesk> _EntityPageViewModel
+@inject EmployerWorkingDeskPageViewModel _EmployerWorkingDeskPageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {

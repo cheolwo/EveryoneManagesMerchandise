@@ -63,7 +63,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebA
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.AssemblyInfo.cs
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.RazorAssemblyInfo.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.RazorAssemblyInfo.cs

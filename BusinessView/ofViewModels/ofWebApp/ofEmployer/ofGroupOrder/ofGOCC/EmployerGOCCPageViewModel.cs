@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOCC
 {
-    public class EmployerGOCCPageViewModel : CommodityPageViewModel<EmployerGOCC> 
+    public class EmployerGOCCPageViewModel : EmployerCommodityPageViewModel<EmployerGOCC> 
     {
         public readonly EmployerPostGOCCViewModel _EmployerPostGOCCViewModel;
         public readonly EmployerPutGOCCViewModel _EmployerPutGOCCViewModel;

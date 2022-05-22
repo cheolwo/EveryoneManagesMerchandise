@@ -3,6 +3,7 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDividedTag
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
@@ -12,7 +13,7 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerDividedTag> _Logger
-@inject EmployerPageViewModel<EmployerDividedTag> _EntityPageViewModel
+@inject EmployerDividedTagPageViewModel _EntityPageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {

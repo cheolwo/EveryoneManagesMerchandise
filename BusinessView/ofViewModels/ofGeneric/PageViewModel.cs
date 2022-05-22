@@ -2,7 +2,6 @@ using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.ComponentModel;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofCommon;
-using Microsoft.AspNetCore.Http;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

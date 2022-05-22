@@ -1,6 +1,7 @@
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofTrade.ofEmployer;
+using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 {
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
         {
         }
     }
-    public class EmployerPostTradeCenterViewModel : CenterPostViewModel<EmployerTradeCenter>
+    public class EmployerPostTradeCenterViewModel : EmployerCenterPostViewModel<EmployerTradeCenter>
     {
         public EmployerPostTradeCenterViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 
         }
     }
-    public class EmployerPutTradeCenterViewModel : CenterPutViewModel<EmployerTradeCenter>
+    public class EmployerPutTradeCenterViewModel : EmployerCenterPutViewModel<EmployerTradeCenter>
     {
         public EmployerPutTradeCenterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 
         }
     }
-    public class EmployerDeleteTradeCenterViewModel : CenterDeleteViewModel<EmployerTradeCenter>
+    public class EmployerDeleteTradeCenterViewModel : EmployerCenterDeleteViewModel<EmployerTradeCenter>
     {
         public EmployerDeleteTradeCenterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -35,7 +36,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 
         }
     }
-    public class EmployerGetsTradeCenterViewModel : CenterGetsViewModel<EmployerTradeCenter>
+    public class EmployerGetsTradeCenterViewModel : EmployerCenterGetsViewModel<EmployerTradeCenter>
     {
         public EmployerGetsTradeCenterViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

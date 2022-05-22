@@ -3,6 +3,7 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDotBarcode
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofDTO.ofWarehouse.ofEmployer
@@ -12,7 +13,7 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerDotBarcode> _Logger
-@inject EmployerPageViewModel<EmployerDotBarcode> _EntityPageViewModel
+@inject EmployerDotBarcodePageViewModel _EntityPageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {

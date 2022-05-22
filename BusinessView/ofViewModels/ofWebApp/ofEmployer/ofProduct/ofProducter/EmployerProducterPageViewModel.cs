@@ -1,10 +1,10 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessLogic.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProducter
 {
-    public class EmployerProducterPageViewModel : CenterPageViewModel<EmployerProducter> 
+    public class EmployerProducterPageViewModel : EmployerCenterPageViewModel<EmployerProducter> 
     {
         public readonly EmployerPostProducterViewModel _EmployerPostProducterViewModel;
         public readonly EmployerPutProducterViewModel _EmployerPutProducterViewModel;

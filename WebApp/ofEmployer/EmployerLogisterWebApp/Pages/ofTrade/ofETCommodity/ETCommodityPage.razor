@@ -3,6 +3,8 @@
 @using BusinessView.ofDTO.ofCommon
 @using BusinessView.ofViewModels.ofGeneric
 @using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofETCommodity
+@using EmployerLogisterWebApp.Pages.ofGeneric.ofStatus
 @using Microsoft.AspNetCore.Identity
 @using BusinessView.ofTrade.ofEmployer
 @using System.ComponentModel
@@ -11,7 +13,7 @@
 @inject NavigationManager _NavigationManager
 @inject UserManager<IdentityUser> _UserManager
 @inject ILogger<EmployerETCommodity> _Logger
-@inject EmployerPageViewModel<EmployerETCommodity> _EntityPageViewModel
+@inject EmployerETCommodityPageViewModel _EmployerETCommodityPageViewModel
 
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
@@ -23,7 +25,7 @@
 }
 
     <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
-        <EmployerEntityManagerComponent TEntity=EmployerETCommodity EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+        <EmployerStatusManagerComponent T=EmployerETCommodity EmployerStatusPageViewModel=_EmployerETCommodityPageViewModel></EmployerStatusManagerComponent>
     </CascadingValue>
 @code {
 }

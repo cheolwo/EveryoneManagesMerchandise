@@ -3,7 +3,7 @@ using BusinessView.ofViewModels.ofGeneric;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDesk
 {
-    public class EmployerWorkingDeskPageViewModel : EntityPageViewModel<EmployerWorkingDesk> 
+    public class EmployerWorkingDeskPageViewModel : EmployerPageViewModel<EmployerWorkingDesk> 
     {
         public readonly EmployerPostWorkingDeskViewModel _EmployerPostWorkingDeskViewModel;
         public readonly EmployerPutWorkingDeskViewModel _EmployerPutWorkingDeskViewModel;
