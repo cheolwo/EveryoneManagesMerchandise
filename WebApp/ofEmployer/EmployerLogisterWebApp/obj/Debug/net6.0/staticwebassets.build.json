@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NivwGxra+78yLAY9vYVwWTH+0HpBreGoSHAAeWVx42U=",
+  "Hash": "wPE+lD8wYgOHDcIWhk5b88H7XlHa1j/8y2Uvn6kyu6A=",
   "Source": "EmployerLogisterWebApp",
   "BasePath": "_content/EmployerLogisterWebApp",
   "Mode": "Default",
@@ -1394,23 +1394,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\wwwroot\\popup\\jusoPopup.jsp",
-      "SourceId": "EmployerLogisterWebApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\wwwroot\\",
-      "BasePath": "_content/EmployerLogisterWebApp",
-      "RelativePath": "popup/jusoPopup.jsp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\popup\\jusoPopup.jsp"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\wwwroot\\scripts.js",
