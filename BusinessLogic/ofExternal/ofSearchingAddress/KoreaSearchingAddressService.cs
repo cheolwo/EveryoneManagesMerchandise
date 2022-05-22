@@ -4,7 +4,6 @@ using BusinessLogic.ofExternal.ofCommon;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace BusinessLogic.ofExternal.ofSearchingService
@@ -37,7 +36,7 @@ namespace BusinessLogic.ofExternal.ofSearchingService
             var Serialvalue = await HttpGetValue.Content.ReadAsStringAsync();
             var secondvalue = Serialvalue.Remove(0, 1);
             var ThirdValue = secondvalue.Remove(secondvalue.Length - 1, 1);
-
+            Console.WriteLine(ThirdValue);
             var deserialvalue = JsonSerializer.Deserialize<Root>(ThirdValue);
             List<string> listAddress = new();
             foreach (var addr in deserialvalue.results.juso)
