@@ -21,7 +21,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
         [Get] public string? LoginId { get; set; }
         [Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] public string? Address {get; set;}
+        [Get][Origin(typeof(juso))] public string? Address {get; set;}
         [Get] public string? CountryCode {get; set;}
         [Get] public string? PhoneNumber {get; set;}
         [Get] public string? FaxNumber {get; set;}

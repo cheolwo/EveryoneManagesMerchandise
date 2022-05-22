@@ -14,17 +14,15 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         [Get] public string? LoginId { get; set; }
         [Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] public string? Address {get; set;}
+        [Get] [Origin(typeof(juso))]public string? Address {get; set;}
         [Get] public string? CountryCode {get; set;}
-        [Detail] public string? CardNumber {get; set;}
-        [Get] public string? Cvv {get; set;}
-        [Get] public string? CardPassword {get; set;}
         [Get] public string? PhoneNumber {get; set;}
         [Get] public string? FaxNumber {get; set;}
         [Get][Many] public string? Commodities { get; set; }
         [Get][Many] public string? EStatuses { get; set; }
         [Get][Many] public string? MStatuses { get; set; }
         [Get][Many] public string? SStatuses { get; set; }
+        [Detail][Generic(typeof(List<CenterCard>))] public string? CenterCards { get; set; }
         [Detail][Generic(typeof(List<CenterMacAddress>))] public List<CenterMacAddress>? CenterMacAddresses { get; set; }
         [Detail] [Generic(typeof(List<CenterIPAddress>))]public List<CenterIPAddress>? CenterIPAddresses { get; set; }
         [Detail] [Generic(typeof(List<CenterRole>))]public List<CenterRole>? CenterRoles {get; set;}
