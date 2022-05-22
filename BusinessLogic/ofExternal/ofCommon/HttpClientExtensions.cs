@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Reflection;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Text;
 
 namespace BusinessLogic.ofExternal.ofCommon
 {
@@ -78,7 +82,7 @@ namespace BusinessLogic.ofExternal.ofCommon
         }
         private static Dictionary<string, string> GetQueryStringParams<T>(T t) where T : class
         {
-            var props = typeof(t).GetProperties();
+            var props = typeof(T).GetProperties();
             Dictionary<string, string> QueryStringParams = new();
             foreach(var prop in props)
             {

@@ -1,8 +1,5 @@
 ﻿using BusinessData;
-using BusinessData.ofCommon.ofInterface;
-using System.Reflection;
-using BusinessView.ofCommon.ofInterface;
-using Microsoft.AspNetCore.Components.Forms;
+using BusinessLogic.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon.ofPlatform
 {
@@ -14,7 +11,7 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
         [Get] public string? LoginId { get; set; }
         [Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] [Origin(typeof(juso))]public string? Address {get; set;}
+        [Get] [Origin(typeof(Juso))]public string? Address {get; set;}
         [Get] public string? CountryCode {get; set;}
         [Get] public string? PhoneNumber {get; set;}
         [Get] public string? FaxNumber {get; set;}

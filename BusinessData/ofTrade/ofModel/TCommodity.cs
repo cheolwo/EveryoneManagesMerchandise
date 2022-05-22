@@ -64,7 +64,6 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
-    [Origin(typeof(TCommodity))]
     public class ETCommodity  : EStatus
     {
         public string MTCommodityId {get; set;}

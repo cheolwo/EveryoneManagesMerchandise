@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using BusinessLogic.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployer
 {
@@ -10,7 +11,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
         [Get] public string? LoginId { get; set; }
         [Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] [Origin(typeof(juso))]public string? Address {get; set;}
+        [Get] [Origin(typeof(Juso))]public string? Address {get; set;}
         [Get] public string? CountryCode {get; set;}
         [Get] public string? PhoneNumber {get; set;}
         [Get] public string? FaxNumber {get; set;}

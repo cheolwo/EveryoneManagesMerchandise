@@ -405,18 +405,6 @@ namespace BusinessData
             return EntityRelation;
         }
     }
-    public class Origin : Attribute
-    {
-        private Type T { get; set; }
-        public Origin(Type t)
-        {
-            this.T = t;
-        }
-        private Type GetOrigin()
-        {
-            return T;
-        }
-    }
 
     // public class Journal : Attribute
     // {
