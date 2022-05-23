@@ -12,6 +12,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     public delegate void GetsPageToPost();
     public delegate Task GetsPageToPut(string id);
     public delegate Task GetsPageToDelete(string id);
+    public delegate void Busy();
     public enum ComponentMode { Get, Detail }
     public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {

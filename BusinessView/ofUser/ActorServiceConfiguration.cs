@@ -220,10 +220,28 @@ namespace BusinessView.ofActorService
             services.AddScoped(typeof(StatusGetsViewModel<>));
 
             services.AddScoped(typeof(EmployerPageViewModel<>));
-            services.AddScoped(typeof(ofViewModels.ofGeneric.EmployerPostViewModel<>));
+            services.AddScoped(typeof(EmployerPostViewModel<>));
             services.AddScoped(typeof(EmployerPutViewModel<>));
             services.AddScoped(typeof(EmployerDeleteViewModel<>));
             services.AddScoped(typeof(EmployerGetsViewModel<>));
+
+            services.AddScoped(typeof(EmployerCenterPageViewModel<>));
+            services.AddScoped(typeof(EmployerCenterPostViewModel<>));
+            services.AddScoped(typeof(EmployerCenterPutViewModel<>));
+            services.AddScoped(typeof(EmployerCenterDeleteViewModel<>));
+            services.AddScoped(typeof(EmployerCenterGetsViewModel<>));
+
+            services.AddScoped(typeof(EmployerCommodityPageViewModel<>));
+            services.AddScoped(typeof(EmployerCommodityPostViewModel<>));
+            services.AddScoped(typeof(EmployerCommodityPutViewModel<>));
+            services.AddScoped(typeof(EmployerCommodityDeleteViewModel<>));
+            services.AddScoped(typeof(EmployerCommodityGetsViewModel<>));
+
+            services.AddScoped(typeof(EmployerStatusPageViewModel<>));
+            services.AddScoped(typeof(EmployerStatusPostViewModel<>));
+            services.AddScoped(typeof(EmployerStatusPutViewModel<>));
+            services.AddScoped(typeof(EmployerStatusDeleteViewModel<>));
+            services.AddScoped(typeof(EmployerStatusGetsViewModel<>));
 
             services.AddScoped<ICenterPageRoadAddressService, KoreaSearchingAddressService>();
             services.AddScoped<ICenterPageTaxService, TaxService>();

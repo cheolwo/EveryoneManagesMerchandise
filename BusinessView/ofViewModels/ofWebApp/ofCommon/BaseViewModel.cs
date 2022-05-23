@@ -33,20 +33,15 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         {
             public string? Name { get; set; }
         }
-        public IList<IBrowserFile> Files = new List<IBrowserFile>();
-        public List<IFormFile> FormFiles = new();
-
         private List<File> files = new();
         private List<UploadResult> uploadResults = new();
         private int maxAllowedFiles = 3;
         public MultipartFormDataContent content = new();
-        private bool shouldRender;
         public bool upload = false;
 
         public void UploadFiles(InputFileChangeEventArgs e)
         {
             upload = false;
-            shouldRender = false;
             long maxFileSize = 1024 * 1024 * 15;
 
             foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
@@ -71,32 +66,6 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
                         upload = true;
                 }
             }
-         
-            shouldRender = true;
-        }
-        private void BrowserFileToFormFile()
-        {
-            if(Files.Count > 0)
-            {
-                foreach(var file in Files)
-                {
-                    var stream = file.OpenReadStream();
-                    IFormFile newFormFile = new FormFile(stream, 0, file.Size, file.Name, file.Name);
-                    FormFiles.Add(newFormFile);
-                }
-            }
-        }
-        public IDictionary<string, Stream> BrowserFileToDTO()
-        {
-            IDictionary<string, Stream> BrowserFileStreams = new Dictionary<string, Stream>();
-            if(Files.Count > 0)
-            {
-                foreach(var file in Files)
-                {
-                    BrowserFileStreams.Add(file.Name, file.OpenReadStream());
-                }
-            }
-            return BrowserFileStreams;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

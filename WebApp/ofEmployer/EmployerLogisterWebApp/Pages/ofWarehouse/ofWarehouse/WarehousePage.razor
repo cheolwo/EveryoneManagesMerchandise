@@ -16,8 +16,6 @@
 @inject ILogger<EmployerWarehouse> _Logger
 @inject EmployerWarehousePageViewModel _EntityCenterPageViewModel
 
-
-
 @if (_GetUserViewModel.IdentityUserDTO.UserName == null)
 {
     <CascadingValue Value=@_UserManager Name="UserManager">

@@ -1,1 +1,53 @@
-﻿
+﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
+@using BusinessView.ofViewModels.ofGeneric
+@typeparam T where T: EmployerCenter, new()
+
+@if (_EmployerCenterPostViewModel == null)
+{
+    <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+}
+else
+{
+    <h3>EmployerCenterPostComponent</h3>
+    @foreach (var key in _EmployerCenterPostViewModel.StringProperty.Keys)
+    {
+        <MudTextField @bind-Value="_EmployerCenterPostViewModel.StringProperty[key]" Label="@key"></MudTextField>
+    }
+    @foreach (var key in _EmployerCenterPostViewModel.IntProperty.Keys)
+    {
+        <MudTextField @bind-Value="_EmployerCenterPostViewModel.IntProperty[key]" Label="@key"></MudTextField>
+    }
+    @foreach (var key in _EmployerCenterPostViewModel.DateTimeProperty.Keys)
+    {
+        <MudDatePicker @bind-Date="_EmployerCenterPostViewModel.DateTimeProperty[key]" Label="@key" />
+    }
+    <InputFile id="fileInput" OnChange="_EmployerCenterPostViewModel.UploadFiles" hidden multiple />
+
+<MudButton HtmlTag="label"
+           Variant="Variant.Filled"
+           Color="Color.Primary"
+           StartIcon="@Icons.Filled.CloudUpload"
+           for="fileInput">
+    Upload Files
+</MudButton>
+  <MudButton OnClick="PostAsync">Post</MudButton>
+}
+@code {
+    [Parameter] public EmployerCenterPostViewModel<T>? _EmployerCenterPostViewModel { get; set; }
+    public async Task PostAsync()
+    {
+        try
+        {
+            _EmployerCenterPostViewModel.PropertyToEntity();
+            await _EmployerCenterPostViewModel.PostAsync();
+        }
+        catch (Exception e)
+        {
+
+        }
+        finally
+        {
+
+        }
+    }
+}

@@ -79,8 +79,6 @@ namespace BusinessView.ofGeneric
             return dto;
         }
     }
-    // 역직렬화가 주요 개념
-    // 컨트롤러에서 DTO를 Model로 주로 변환함.
     public class DTOToModel<DTO, Model> where DTO : class where Model : class
     {
         public static PropertyInfo? GetModelPropByDTOProp(PropertyInfo dtoProp)
@@ -119,7 +117,6 @@ namespace BusinessView.ofGeneric
                         {
                             if(Generic is not null)
                             {
-                                // Activator 로 한 게 값이 잘 들어가나 테스트해볼 필요가 있긴 함.
                                 var GenericObject = Activator.CreateInstance(Generic._t);
                                 modelProp.SetValue(model, GenericObject); 
                                 continue;
@@ -141,8 +138,6 @@ namespace BusinessView.ofGeneric
                         continue;
                     }
                 }
-                // DTO TO Model 을 하고 있는 것이다.
-                // DTO의 값이 있다는 것을 전제로 처리하는 곳.
                 foreach (var modelprop in ModelProps)
                 {
                     if (dtoprop.Name.Equals(modelprop.Name))
