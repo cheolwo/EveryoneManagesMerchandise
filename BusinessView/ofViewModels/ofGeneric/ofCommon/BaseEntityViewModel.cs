@@ -88,9 +88,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                     }
                 }
             }
-            StringProperty.Clear();
-            IntProperty.Clear();
-            DateTimeProperty.Clear();
+            OnPropertyChanged();
+            //StringProperty.Values.Clear();
+            //IntProperty.Values.Clear();
+            //DateTimeProperty.Values.Clear();
         }
         public void InitializedByComponentMode(ComponentMode componentMode)
         {

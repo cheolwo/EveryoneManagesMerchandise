@@ -24,7 +24,7 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class EmployerPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : EmployerEntity, new()
     {
-        protected readonly EmployerActorContext _employerActorContext;
+        public  EmployerActorContext _employerActorContext { get; private set; }
         public EmployerPostViewModel(EmployerActorContext employerActorContext)
             :base(employerActorContext)
         {

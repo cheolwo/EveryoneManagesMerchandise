@@ -47,35 +47,47 @@ namespace BusinessView.ofCommon.ofUser
             3. Storage 단게
                 PostValue를 InMemeoryDatabase 에 저장하는 단계
          */
+        public IValidator<T> GetValidator<T>() where T : EntityDTO, new()
+        {
+            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
+            if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
+            return validator;
+        }
+        public ITable<T> GetMemoryTable<T>() where T : EntityDTO, new()
+        {
+            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
+            if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
+            return storage;
+        }
+        public DTOService GetDTOService<T>() where T : EntityDTO, new()
+        {
+            DTOService service = ServiceBuilder.Get(typeof(T).Name);
+            if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
+            return service;
+        }
         public override async Task<T> PostAsync<T>(T t)
         {
             if (t == null) { throw new ArgumentNullException(nameof(T)); }
 
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
-            if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
-            if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
-
-
-            T? Value = await service.PostAsync<T>(t);
-            if (Value != null) { storage.Insert(Value); return Value; }
-            else { throw new NullReferenceException("PostService Value Is Null"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
+            IValidator<T> validator = GetValidator<T>();
+            var validateResult = validator.Validate(t);
+            if(validateResult.IsValid)
+            {
+                T? Value = await service.PostAsync(t);
+                if (Value != null) { storage.Insert(Value); return Value; }
+                else { throw new NullReferenceException("POST_RETURN_VALUE_NULL"); }
+            }
+            else { throw new ArgumentException("NOT_VALIDATE"); }
         }
         public override async Task<T> PostAsync<T>(T t, MultipartFormDataContent content)
         {
             if (t == null) { throw new ArgumentNullException(nameof(T)); }
 
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
-            if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
-            if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
-
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
+            IValidator<T> validator = GetValidator<T>();
 
             T? Value = await service.PostAsync<T>(t, content);
             if (Value != null) { storage.Insert(Value); return Value; }
@@ -94,13 +106,9 @@ namespace BusinessView.ofCommon.ofUser
         {
             if (t == null) { throw new ArgumentNullException(nameof(T)); }
 
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
-            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
-            if (validator == null) { throw new NullReferenceException("Validator Is Null So Register Storage!"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
+            IValidator<T> validator = GetValidator<T>();
 
             var Result = validator.Validate(t);
             if (Result.IsValid)
@@ -134,11 +142,8 @@ namespace BusinessView.ofCommon.ofUser
         */
         public override async Task<T> GetByIdAsync<T>(string id)
         {
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
-            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
 
             var StorageValue = storage.FirstOrDefault(e => e.EqualsById(id));
             if (StorageValue != null) { return StorageValue; }
@@ -154,11 +159,8 @@ namespace BusinessView.ofCommon.ofUser
         */
         public override async Task DeleteByIdAsync<T>(string id)
         {
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
-            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
 
             var StorageValue = storage.FirstOrDefault(e => e.EqualsById(id));
             if (StorageValue != null) { storage.Delete(StorageValue); }
@@ -168,11 +170,8 @@ namespace BusinessView.ofCommon.ofUser
 
         public override async Task<IEnumerable<T>> GetsAsync<T>()
         {
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
-            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
             if (storage.Count > 0) { return storage.ToList(); }
             else
             {
@@ -184,11 +183,8 @@ namespace BusinessView.ofCommon.ofUser
 
         public override async Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid)
         {
-            DTOService service = ServiceBuilder.Get(typeof(T).Name);
-            ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-
-            if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
-            if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }
+            DTOService service = GetDTOService<T>();
+            ITable<T> storage = GetMemoryTable<T>();
             if (storage.Count > 0) { return storage.ToList(); }
             else
             {

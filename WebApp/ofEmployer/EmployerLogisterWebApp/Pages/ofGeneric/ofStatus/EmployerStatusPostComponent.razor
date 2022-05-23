@@ -39,6 +39,7 @@ else
         try
         {
             _EmployerStatusPostViewModel.PropertyToEntity();
+
             await _EmployerStatusPostViewModel.PostAsync();
         }
         catch (Exception e)
