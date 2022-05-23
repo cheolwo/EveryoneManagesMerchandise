@@ -9,7 +9,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
         [Get] public bool Attached { get; set; }
         [Get] public string? IncomingTagId { get; set; }
         [Get] public string? WarehouseId { get; set; }
-        [Get][One(ViewNameofWarehouse.IncomingTag)] public string? IncomingTag { get; set; }
-        [Get][One(ViewNameofWarehouse.Warehouse)] public string? Warehouse { get; set; }
+        [Get][One(ViewNameofWarehouse.IncomingTag, typeof(IncomingTag))] public string? IncomingTag { get; set; }
+        [Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
 }

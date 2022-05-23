@@ -5,6 +5,6 @@ namespace BusinessView.ofTrade.ofEmployee
 {
     public class EmployeeTradeCenter : EmployeeCenter
     {
-        public string? TCommodities {get; set;}
+        [Detail][Many(typeof(List<TCommodity>))]public string? TCommodities {get; set;}
     }
 }

@@ -4,7 +4,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     public class PlatformLoadFrame : PlatformEntity
     {
-        public string? MWCommodities { get; set; }
-        public string? Warehouse { get; set; }
+        [Detail][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
+        [Detail][One(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
 }
