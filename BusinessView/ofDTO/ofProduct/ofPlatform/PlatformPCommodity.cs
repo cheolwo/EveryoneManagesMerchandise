@@ -7,10 +7,10 @@ namespace BusinessView.ofDTO.ofProduct.ofPlatform
     {
         [Detail]public string? Category {get; set;}
         [Detail] public string? Brand {get; set;}
-        [Many] public string? SPCommodities {get; set;}
-        [Many] public string? MPCommodities {get; set;}
-        [Many] public string? EPCommodities {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public string? ProductLand {get; set;}
-        public string? Producter {get; set;}  
+        [Detail][Many(typeof(List<SPCommodity>))] public string? SPCommodities {get; set;}
+        [Detail][Many(typeof(List<MPCommodity>))] public string? MPCommodities {get; set;}
+        [Detail][Many(typeof(List<EPCommodity>))] public string? EPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductLand, typeof(ProductLand))] public string? ProductLand {get; set;}
+        [Detail][One(typeof(Producter))]public string? Producter {get; set;}  
     }
 }

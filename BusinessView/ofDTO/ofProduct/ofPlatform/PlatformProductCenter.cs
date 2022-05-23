@@ -21,10 +21,10 @@ namespace BusinessView.ofDTO.ofProduct.ofPlatform
     {
         public string? Producters {get; set;}
         public string? CoprNumber {get; set;}
-        [Detail][Many(ViewNameofProductCenter.ProductCenter)] public string? ProductLands {get; set;}
-        [Detail][Many(ViewNameofProductCenter.PCommodity)] public string? PCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.SPCommodity)] public string? SPCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.MPCommodity)] public string? MPCommodities {get; set;}
-        [Detail][Many(ViewNameofProductCenter.EPCommodity)] public string? EPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.ProductCenter, typeof(List<ProductLand>))] public string? ProductLands {get; set;}
+        [Detail][Many(ViewNameofProductCenter.PCommodity, typeof(List<PCommodity>))] public string? PCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.SPCommodity, typeof(List<SPCommodity>))] public string? SPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.MPCommodity, typeof(List<MPCommodity>))] public string? MPCommodities {get; set;}
+        [Detail][Many(ViewNameofProductCenter.EPCommodity, typeof(List<EPCommodity>))] public string? EPCommodities {get; set;}
     }
 }

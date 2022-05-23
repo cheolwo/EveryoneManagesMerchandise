@@ -4,11 +4,11 @@ namespace BusinessView.ofTrade.ofEmployee
 {
     public class EmployeeSTCommodity : EmployeeSStatus
     {
-        public string? BuyerId {get; set;} 
-        public string? Message {get; set;}
-        public float Payed {get; set;}
-        public bool IsAccept {get; set;}
-        public string? MTCommodityId {get; set;}
-        public string? TCommoditiy {get; set;}
+        [Get]public string? BuyerId {get; set;} 
+        [Get]public string? Message {get; set;}
+        [Get]public float Payed {get; set;}
+        [Get]public bool IsAccept {get; set;}
+        [Get]public string? MTCommodityId {get; set;}
+        [Detail][One(typeof(TCommodity))]public string? TCommoditiy {get; set;}
     }
 }

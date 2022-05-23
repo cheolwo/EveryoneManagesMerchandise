@@ -4,10 +4,10 @@ namespace BusinessView.ofTrade.ofEmployer
 {
     public class EmployerMTCommodity : EmployerMStatus
     {
-        public bool IsAccecptBillofLading {get; set;}
-        public bool IsAcceptCerticificateofOrigin {get; set;}
-        public bool IsAcceptCredit {get; set;}
-        public string? ETCommodityId {get; set;}
-        public string? TCommodity {get; set;}
+        [Get]public bool IsAccecptBillofLading {get; set;}
+        [Get]public bool IsAcceptCerticificateofOrigin {get; set;}
+        [Get]public bool IsAcceptCredit {get; set;}
+        [Get]public string? ETCommodityId {get; set;}
+        [Detail][One(typeof(TCommodity))]public string? TCommodity {get; set;}
     }
 }
