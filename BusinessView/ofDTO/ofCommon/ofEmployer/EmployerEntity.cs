@@ -8,13 +8,13 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     }
     public class EmployerCenter : EmployerEntity
     {
-        [Get] public string? LoginId { get; set; }
-        [Get] public string? Password { get; set; }
-        [Get] public int FailLogin {get; set;}
-        [Get] [Origin(typeof(Juso))]public string? Address {get; set;}
-        [Get] public string? CountryCode {get; set;}
-        [Get] public string? PhoneNumber {get; set;}
-        [Get] public string? FaxNumber {get; set;}
+        [Form][Get] public string? LoginId { get; set; }
+        [Form][Get] public string? Password { get; set; }
+        [Detail] public int FailLogin {get; set;}
+        [Form][Get] [Origin(typeof(Juso))]public string? Address {get; set;}
+        [Form][Get] public string? CountryCode {get; set;}
+        [Form][Get] public string? PhoneNumber {get; set;}
+        [Detail] public string? FaxNumber {get; set;}
         [Get][Many(typeof(List<Commodity>))] public string? Commodities { get; set; }
         [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
         [Get][Many(typeof(List<MStatus>))] public string? MStatuses { get; set; }
@@ -26,10 +26,9 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     }
     public class EmployerCommodity : EmployerEntity
     {
-        public string? HsCode {get; set;}
-        public string? OpponentBusinessUserId { get; set; }
-        [Detail]public string? Barcode {get; set;}
-        public string? CenterId {get; set;}
+        [Form][Get]public string? HsCode {get; set;}
+        [Form][Get]public string? Barcode {get; set;}
+        [Form][Get]public string? CenterId {get; set;}
         [One(typeof(Center))][Get]public string? Center { get; set; }
         [Many(typeof(EStatus))][Get]public string? EStatuses { get; set; }
         [Many(typeof(MStatus))][Get]public string? MStatuses { get; set; }
@@ -37,9 +36,9 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     }
     public class EmployerStatus : EmployerEntity
     {
-        public string? CommodityId {get; set;}
-        public string? CenterId {get; set;}
-        public string? Quantity { get; set; }
+        [Form][Get]public string? CommodityId {get; set;}
+        [Form][Get]public string? CenterId {get; set;}
+        [Form][Get]public string? Quantity { get; set; }
         [Get][One(typeof(Commodity))] public string? Commodity { get; set; }
         [Get][One(typeof(Center))] public string? Center {get; set;}
     }

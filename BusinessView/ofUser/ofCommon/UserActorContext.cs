@@ -53,11 +53,11 @@ namespace BusinessView.ofCommon.ofUser
 
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            EntityDTOValidator validator = ValidatorBuilder.Get(typeof(T).Name);
+            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
 
             if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
             if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
-            if (validator == null) { throw new NullReferenceException(nameof(EntityDTOValidator)); }
+            if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
 
 
             T? Value = await service.PostAsync<T>(t);
@@ -70,11 +70,11 @@ namespace BusinessView.ofCommon.ofUser
 
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            EntityDTOValidator validator = ValidatorBuilder.Get(typeof(T).Name);
+            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
 
             if (service == null) { throw new NullReferenceException(nameof(DTOService)); }
             if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
-            if (validator == null) { throw new NullReferenceException(nameof(EntityDTOValidator)); }
+            if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
 
 
             T? Value = await service.PostAsync<T>(t, content);
@@ -96,7 +96,7 @@ namespace BusinessView.ofCommon.ofUser
 
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
-            EntityDTOValidator validator = ValidatorBuilder.Get(typeof(T).Name);
+            IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
 
             if (service == null) { throw new NullReferenceException("Service Is Null So Register Service!"); }
             if (storage == null) { throw new NullReferenceException("Storage Is Null So Register Storage!"); }

@@ -1,12 +1,20 @@
+using BusinessView.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
-
+using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofMarket
 {
-    public class PlatformMMCommodityValidator : PlatformStatusValidator
+    public class PlatformMMCommodityValidator : PlatformStatusValidator<PlatformMMCommodity>
     {
         public PlatformMMCommodityValidator()
         {
 
         }
+        public override Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (model, propertyName) =>
+        {
+            var result = await ValidateAsync(ValidationContext<PlatformMMCommodity>.CreateWithOptions((PlatformMMCommodity)model, x => x.IncludeProperties(propertyName)));
+            if (result.IsValid)
+                return Array.Empty<string>();
+            return result.Errors.Select(e => e.ErrorMessage);
+        };
     }
 }

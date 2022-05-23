@@ -1,22 +1,23 @@
 ﻿using BusinessView.ofValidator.ofCommon;
+using FluentValidation;
 
 namespace BusinessView.ofUser.ofCommon
 {
     public class ValidatorBuilder
     {
-        private Dictionary<int, EntityDTOValidator> DicValidator { get; set; }
+        private Dictionary<int, IValidator> DicValidator { get; set; }
         public ValidatorBuilder()
         {
             DicValidator = new();
         }
         // Using // Actor : virtual void OnConfigureValidator(ValidatorBuilder ValidatorBuilder)
-        public void Add(string nameofDTO, EntityDTOValidator Validator)
+        public void Add(string nameofDTO, IValidator Validator)
         {
             DicValidator.Add(nameofDTO.GetHashCode(), Validator);
         }
         // Using // Actor : virtaul Add<T> (T t) where T : IViewModel
         // This Method Purpose is to Get Validator In Dictionay of Validators
-        public EntityDTOValidator Get(string nameofDTO)
+        public IValidator Get(string nameofDTO)
         {
             return DicValidator[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include Validator For ViewModel");

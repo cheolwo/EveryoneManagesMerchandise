@@ -213,10 +213,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public async Task PutAsync(TEntity TEntity)
         {
-            if (base.Files.Count > 0)
-            {
-                Entity.BrowserFileToDTO(base.Files, Entity);
-            }
             var PutValue = await _ActorContext.PutAsync<TEntity>(TEntity);
             if (PutValue != null)
             {
@@ -249,10 +245,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
         public async Task DeleteAsync(string id)
         {
-            if (base.Files.Count > 0)
-            {
-                Entity.BrowserFileToDTO(base.Files, Entity);
-            }
             await _ActorContext.DeleteByIdAsync<TEntity>(id);
             Back();
         }
