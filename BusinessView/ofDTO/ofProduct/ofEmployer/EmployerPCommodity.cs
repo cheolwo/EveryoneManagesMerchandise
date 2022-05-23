@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployer
 {
     public class EmployerPCommodity : EmployerCommodity

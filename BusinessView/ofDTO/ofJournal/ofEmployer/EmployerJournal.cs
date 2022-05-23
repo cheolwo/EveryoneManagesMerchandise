@@ -1,5 +1,5 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessData.ofJournal;
 namespace BusinessView.ofDTO.ofJournal.ofEmployer
 {
     public class EmployerJournal : EmployerEntity

@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
-
+using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployee
 {
     public class EmployeeMPCommodity : EmployeeMStatus

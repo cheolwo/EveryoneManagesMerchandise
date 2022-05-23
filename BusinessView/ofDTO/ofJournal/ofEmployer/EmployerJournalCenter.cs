@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BusinessData.ofJournal;
 namespace BusinessView.ofDTO.ofJournal.ofEmployer
 {
     public class EmployerJournalCenter : EmployerCenter

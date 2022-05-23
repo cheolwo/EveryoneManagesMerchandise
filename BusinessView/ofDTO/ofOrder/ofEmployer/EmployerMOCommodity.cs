@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessData.ofOrder;
 namespace BusinessView.ofDTO.ofOrder.ofEmployer
 {
     public class EmployerMOCommodity : EmployerMStatus

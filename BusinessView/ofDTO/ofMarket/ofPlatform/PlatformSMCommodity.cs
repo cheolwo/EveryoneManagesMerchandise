@@ -1,7 +1,7 @@
 ﻿using BusinessData;
 using BusinessData.ofMarket.ofModel;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessData.ofMarket;
 namespace BusinessView.ofDTO.ofMarket.ofPlatform
 {
     public class PlatformSMCommodity : PlatformSStatus

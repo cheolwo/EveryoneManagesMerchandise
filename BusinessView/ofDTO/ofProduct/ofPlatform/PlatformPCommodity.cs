@@ -1,6 +1,6 @@
 ﻿using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofPlatform
 {
     public class PlatformPCommodity : PlatformCommodity

@@ -1,5 +1,6 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessData;
+using BusinessData.ofTrade.ofModel;
 namespace BusinessView.ofTrade.ofPlatform
 {
     public class PlatformETCommodity : PlatformEStatus

@@ -1,7 +1,7 @@
 ﻿using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessView.ofDTO.ofProduct.ofEmployee;
-
+using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployer
 {
     public class EmployerEPCommodity : EmployerEStatus

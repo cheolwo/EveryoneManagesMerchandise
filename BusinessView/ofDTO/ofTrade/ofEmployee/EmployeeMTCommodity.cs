@@ -1,5 +1,6 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofEmployee;
-
+using BusinessData;
+using BusinessData.ofTrade.ofModel;
 namespace BusinessView.ofTrade.ofEmployee
 {
     public class EmployeeMTCommodity : EmployeeMStatus

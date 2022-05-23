@@ -1,7 +1,7 @@
 ﻿using BusinessData;
 using BusinessData.ofHumanResource.ofRepository;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessData.ofHR;
 namespace BusinessView.ofDTO.ofHR.ofEmployer
 {
     public class EmployerEmployeeRole : EmployerEntity

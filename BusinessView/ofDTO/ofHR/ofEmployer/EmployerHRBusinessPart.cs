@@ -1,5 +1,5 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessData.ofHR;
 namespace BusinessView.ofDTO.ofHR.ofEmployer
 {
     public class EmployerHRBusinessPart : EmployerEntity

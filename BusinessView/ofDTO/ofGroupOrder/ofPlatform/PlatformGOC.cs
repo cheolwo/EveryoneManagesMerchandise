@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BusinessData.ofGroupOrder;
 namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
 {
     public class PlatformGOC : PlatformCenter

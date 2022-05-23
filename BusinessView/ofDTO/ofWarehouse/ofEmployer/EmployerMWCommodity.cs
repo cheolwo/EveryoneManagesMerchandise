@@ -1,4 +1,5 @@
 ﻿using BusinessData;
+using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessView.ofWarehouse;
 

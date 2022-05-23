@@ -1,5 +1,5 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofEmployee;
-
+using BusinessData.ofJournal;
 namespace BusinessView.ofDTO.ofJournal.ofEmployee
 {
     public class EmployeeJCommodity : EmployeeCommodity

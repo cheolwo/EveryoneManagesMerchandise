@@ -2,7 +2,7 @@
 using BusinessData.ofMarket.ofModel;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using NMemory.Data;
-
+using BusinessData.ofMarket;
 namespace BusinessView.ofDTO.ofMarket.ofEmployer
 {
     public class EmployerPlatMarket : EmployerCenter

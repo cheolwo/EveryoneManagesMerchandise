@@ -1,5 +1,5 @@
 ﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessData.ofJournal;
 namespace BusinessView.ofDTO.ofJournal.ofPlatform
 {
     public class PlatformJournal : PlatformEntity
