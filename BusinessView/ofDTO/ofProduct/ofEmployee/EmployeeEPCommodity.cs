@@ -1,8 +1,10 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
 using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployee
 {
+    [AutoMap(typeof(EPCommodity))]
     public class EmployeeEPCommodity : EmployeeEStatus
     {   
         [Many][One(ViewNameofProductCenter.PCommodity)] public string? PCommodity { get; set; }

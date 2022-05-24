@@ -108,3 +108,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebA
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\BusinessView.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\NMemory.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\Iamport.RestApi.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\obj\Debug\net6.0\EmployerLogisterWebApp.MvcApplicationPartsAssemblyInfo.cs

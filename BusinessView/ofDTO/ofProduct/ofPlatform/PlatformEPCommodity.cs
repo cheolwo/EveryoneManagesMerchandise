@@ -1,8 +1,10 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofPlatform
 {
+    [AutoMap(typeof(EPCommodity))]
     public class PlatformEPCommodity : PlatformEStatus
     {   
         [Many][One(ViewNameofProductCenter.PCommodity, typeof(PCommodity))] public string? PCommodity { get; set; }

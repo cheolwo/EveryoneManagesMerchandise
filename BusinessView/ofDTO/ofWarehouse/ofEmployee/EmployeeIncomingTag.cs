@@ -1,10 +1,12 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
 using BusinessView.ofWarehouse;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployee
 {
+    [AutoMap(typeof(IncomingTag))]
     public class EmployeeIncomingTag : EmployeeEntity
     {
         [Get] public string? SWCommodityId { get; set; }

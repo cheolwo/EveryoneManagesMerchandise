@@ -28,8 +28,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             InitializedByComponentMode(ComponentMode);
         }
         protected readonly ActorContext _ActorContext;
-        protected TEntity? _TEntity = new();
-        public TEntity? Entity
+        protected TEntity _TEntity = new();
+        public TEntity Entity
         {
             get => _TEntity;
             set
@@ -139,8 +139,8 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 OnPropertyChanged();
             }
         }
-        private TEntity? _postTEntity = new();
-        public TEntity? PostTEntity
+        private TEntity _postTEntity = new();
+        public TEntity PostTEntity
         {
             get => _postTEntity;
             set
@@ -148,35 +148,26 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
                 SetValue(ref _postTEntity, value);
             }
         }
-        public async Task PostAsync()
+        public async Task<TEntity> PostAsync()
         {
+            IsBusy = true;
+            // File
             if (upload)
             {
                 var PostValue = await _ActorContext.PostAsync(Entity, content);
-                if (PostValue != null)
-                {
-                    PostTEntity = PostValue;
-                    IsPost = true;
-                    Back();
-                }
+                return PostValue ?? throw new InvalidOperationException();
             }
             else
             {
                 var PostValue = await _ActorContext.PostAsync(Entity);
-                if (PostValue != null)
-                {
-                    PostTEntity = PostValue;
-                    IsPost = true;
-                    Back();
-                }
+                return PostValue ??  throw new InvalidOperationException();
             }
-            
         }
         public void Back()
         {
             Reset();
-            if (postPageToGets == null) { throw new ArgumentNullException("PostPageToGets Is Null"); }
             postPageToGets();
+            if (postPageToGets == null) { throw new ArgumentNullException("PostPageToGets Is Null"); }
         }
         public void Reset()
         {

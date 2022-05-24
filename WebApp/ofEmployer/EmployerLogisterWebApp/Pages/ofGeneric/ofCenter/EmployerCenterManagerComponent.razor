@@ -28,25 +28,28 @@
             <MudButton Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton>
         </MudTd>
     </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+    </PagerContent>
 </MudTable>
 }
+
 @if(EmployerCenterPageViewModel.IsSelectPost)
 {
-    <MudButton Variant="Variant.Filled" Color="Color.Primary">Post</MudButton>
-    <EmployerCenterPostComponent T=T _EmployerCenterPostViewModel=EmployerCenterPageViewModel._EmployerCenterPostViewModel></EmployerCenterPostComponent>
+    <EmployerCenterPostComponent T=T _EmployerCenterPostViewModel=EmployerCenterPageViewModel._EmployerCenterPostViewModel
+                                                                ManagedList=EmployerCenterPageViewModel._EmployerCenterGetsViewModel.TEntitys>
+
+    </EmployerCenterPostComponent>
 }
-@if(EmployerCenterPageViewModel.IsSelectPut)
-{
+
     <MudButton Variant="Variant.Filled" Color="Color.Primary">Put</MudButton>
-}
-@if(EmployerCenterPageViewModel.IsSelectDelete)
-{
+
+
     <MudButton Variant="Variant.Filled" Color="Color.Primary">Delete</MudButton>
-}
-@if(EmployerCenterPageViewModel.IsSelectDatail)
-{
+
+
     <MudButton Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton>
-}
+
 
 @code {
     [CascadingParameter(Name = "IdentityUserDTO")] public IdentityUserDTO? IdentityUserDTO { get; set; }

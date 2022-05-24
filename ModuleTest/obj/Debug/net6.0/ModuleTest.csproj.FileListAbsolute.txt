@@ -114,3 +114,4 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Modu
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\BusinessView.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\BusinessView.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\NMemory.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\ModuleTest\bin\Debug\net6.0\AutoMapper.dll

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3G5Tki8EtftQXopv0KfI6yHE9HKt0AU0zniNg6iaKZxmvpF1f2opBOmo3lxxGHz140KJWLHt501J4+P873qozQ==",
+  "dgSpecHash": "0QM3v15bAaCJR0tEkSeXdQOsrmTLxGFQPtnyw3tRwqDf4nRsX8KP4IBMewBbFQqfdfiOc9OcNG+19a/6MQAK3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\Server\\OCServer\\OCServer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.common\\12.9.0\\azure.storage.common.12.9.0.nupkg.sha512",
@@ -33,7 +34,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.3\\microsoft.aspnetcore.metadata.6.0.3.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.2\\microsoft.entityframeworkcore.6.0.2.nupkg.sha512",

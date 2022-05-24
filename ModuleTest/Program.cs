@@ -1,12 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using AutoMapper;
+using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofExternal.ofSearchingService;
-
-KoreaSearchingAddressService KoreaSearchingAddressService = new();
-var addresses = await KoreaSearchingAddressService.GetAddressByKeyword("아차산로");
-foreach (var addr in addresses)
-{
-    Console.WriteLine(addr);
-}
+using BusinessView.ofCommon.ofServices;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofGeneric;
+using System.Text.Json;
+JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
+jsonSerializerOptions.WriteIndented = true;
+Warehouse warehouse = new Warehouse();
+warehouse.LoginId = "123";
+warehouse.Name = "박철우";
+var modelvalue = "{\"wCommodities\":[],\"ewCommodities\":[],\"mwCommodities\":[],\"swCommodities\":[],\"loadFrames\":[],\"dotBarcodes\":[],\"workingDesks\":[],\"dividedTags\":[],\"incomingTags\":[],\"loginId\":\"asd\",\"password\":\"fDF\",\"failLogin\":0,\"address\":\"ASDF\",\"countryCode\":\"ASDF\",\"phoneNumber\":\"ASDF\",\"faxNumber\":\"FASDFADFS\",\"commodities\":[],\"eStatuses\":[],\"mStatuses\":[],\"sStatuses\":[],\"centerCards\":[],\"centerMacAddresses\":[],\"centerIPAddresses\":[],\"centerRoles\":[],\"id\":\"W-36\",\"code\":\"Null\",\"name\":\"ASDFASD\",\"container\":\"Null\",\"createTime\":\"2022-05-24T01:23:58.7164655+09:00\",\"userId\":\"Null\",\"changedUsers\":[],\"imageofInfos\":[],\"docs\":[]}";
+var value = JsonSerializer.Deserialize<Warehouse>(modelvalue);
+var serialvalue = JsonSerializer.Serialize(warehouse, jsonSerializerOptions);
+Console.WriteLine(serialvalue);
+var deserialvalue = JsonSerializer.Deserialize<Warehouse>(serialvalue);
+Console.WriteLine(deserialvalue.LoginId);
+Console.WriteLine(value);
+var configuration = new MapperConfiguration(cfg => cfg.AddMaps("BusinessView"));
+var mapper = new Mapper(configuration);
 
 
 public class Rootobject

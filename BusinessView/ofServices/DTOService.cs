@@ -1,4 +1,7 @@
-﻿using BusinessView.ofViewModels.ofWebApp.ofCommon;
+﻿using AutoMapper;
+using BusinessData;
+using BusinessView.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http.Json;
@@ -27,6 +30,7 @@ namespace BusinessView.ofCommon.ofServices
         public DTOService(DTOServiceOptions options)
         {
             _DTOServiceOptions = options;
+            
         }
         public virtual async Task<T?> PostAsync<T>(T t, MultipartFormDataContent content) where T : new()
         {
@@ -60,20 +64,23 @@ namespace BusinessView.ofCommon.ofServices
             T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
             return dto;
         }
-        public virtual async Task<T?> PostAsync<T>(T t) where T : new()
+        public virtual async Task<T?> PostAsync<T>(T t) where T :  class, new()
         {
+            AutoMapAttribute? autoMapAttribute = (AutoMapAttribute?)Attribute.GetCustomAttribute(typeof(T), typeof(AutoMapAttribute));
+            if(autoMapAttribute == null ) { throw new ArgumentException("NOT_INCLUDE_ORIGINATTRIBUTE"); }
             var entityJson = new StringContent(
                             JsonSerializer.Serialize(t),
                             Encoding.UTF8,
                             Application.Json); // using static System.Net.Mime.MediaTypeNames;
 
+            //var configuration = new MapperConfiguration(cfg => cfg.AddMaps("BusinessView"));
+            //var mapper = new Mapper(configuration);
+
             using var httpResponseMessage =
                await _httpClient.PostAsync($"/api/{typeof(T).Name}", entityJson);
             httpResponseMessage.EnsureSuccessStatusCode();
-
-            string JsonIdentityUserDTO = await httpResponseMessage.Content.ReadAsStringAsync();
-            T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
-            return dto;
+            var value = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
+            return value;
         }
         public virtual async Task<T?> PutAsync<T>(T t) where T : new()
         {
@@ -116,4 +123,5 @@ namespace BusinessView.ofCommon.ofServices
     //        options.Invoke(_options);
     //    }
     //}
+
 }

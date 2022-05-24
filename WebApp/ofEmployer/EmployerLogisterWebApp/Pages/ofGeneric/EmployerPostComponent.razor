@@ -3,13 +3,12 @@
 @using BusinessView.ofViewModels.ofGeneric
 @typeparam TEntity where TEntity : EmployerEntity, new()
 
-@if (_EmployerPostViewModel == null)
+@if (_EmployerPostViewModel == null || _EmployerPostViewModel.IsBusy)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
 }
 else
 {
-   
         <h3>EmployerPostComponent</h3>
         @foreach (var key in _EmployerPostViewModel.StringProperty.Keys)
         {
@@ -34,13 +33,11 @@ else
         </MudButton>
         <MudButton OnClick="PostAsync">Post</MudButton>
         <MudButton OnClick="Validate">Validate</MudButton>
-
-
 }
 @code {
     [Parameter] public EmployerPostViewModel<TEntity> _EmployerPostViewModel { get; set; }
     public EmployerEntityValidator<TEntity>? _EmployerEntityValidator { get; set; }
-    public async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         _EmployerEntityValidator = (EmployerEntityValidator<TEntity>)_EmployerPostViewModel._employerActorContext.GetValidator<TEntity>();
     }

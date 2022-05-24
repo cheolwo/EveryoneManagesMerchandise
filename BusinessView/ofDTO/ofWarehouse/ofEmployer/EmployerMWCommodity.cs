@@ -1,10 +1,12 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessView.ofWarehouse;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
 {
+    [AutoMap(typeof(MWCommodity))]
     public class EmployerMWCommodity : EmployerMStatus
     {
         [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }

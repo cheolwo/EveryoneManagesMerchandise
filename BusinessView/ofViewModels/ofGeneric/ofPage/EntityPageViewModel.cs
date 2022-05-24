@@ -55,7 +55,7 @@ namespace BusinessView.ofViewModels.ofGeneric
              _EntityPutViewModel.PropertyChanged += propertyChangedEventHandler;
              _EntityGetsViewModel.PropertyChanged += propertyChangedEventHandler;
 
-            _EntityPostViewModel.postPageToGets = OnClickDeleteToGets;
+            _EntityPostViewModel.postPageToGets = OnClickPostToGets;
             _EntityPutViewModel.putPageToGets = OnClickPutToGets;
             _EntityDeleteViewModel.deletePageToGets = OnClickDeleteToGets;
             _EntityGetsViewModel.getsPageToPost = OnClickGetsToPost;

@@ -1,8 +1,12 @@
 ﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
 @using BusinessView.ofViewModels.ofGeneric
+@using System.ComponentModel
+
+@implements IDisposable
+
 @typeparam T where T: EmployerCenter, new()
 
-@if (_EmployerCenterPostViewModel == null)
+@if (_EmployerCenterPostViewModel == null || _EmployerCenterPostViewModel.IsBusy || ManagedList == null)
 {
     <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
 }
@@ -31,15 +35,46 @@ else
     Upload Files
 </MudButton>
   <MudButton OnClick="PostAsync">Post</MudButton>
+  <MudButton  
+           Variant="Variant.Filled"
+           Color="Color.Primary" 
+           OnClick=_EmployerCenterPostViewModel.Back>Back
+</MudButton>
 }
 @code {
     [Parameter] public EmployerCenterPostViewModel<T>? _EmployerCenterPostViewModel { get; set; }
+    [Parameter] public List<T> ManagedList { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        _EmployerCenterPostViewModel.PropertyChanged += async (sender, e) =>
+        {
+            await InvokeAsync(() =>
+           {
+               StateHasChanged();
+           });
+        };
+        await base.OnInitializedAsync();
+    }
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        _EmployerCenterPostViewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+
     public async Task PostAsync()
     {
         try
         {
             _EmployerCenterPostViewModel.PropertyToEntity();
-            await _EmployerCenterPostViewModel.PostAsync();
+            var value = await _EmployerCenterPostViewModel.PostAsync();
+            if(value != null) { ManagedList.Add(value); }
         }
         catch (Exception e)
         {
@@ -47,7 +82,13 @@ else
         }
         finally
         {
-
+            _EmployerCenterPostViewModel.IsBusy = false;
+            _EmployerCenterPostViewModel.Entity = new();
+            _EmployerCenterPostViewModel.DateTimeProperty.Clear();
+            _EmployerCenterPostViewModel.IntProperty.Clear();
+            _EmployerCenterPostViewModel.StringProperty.Clear();
+            _EmployerCenterPostViewModel.InitializedByComponentMode(_EmployerCenterPostViewModel.ComponentMode);
+            _EmployerCenterPostViewModel.postPageToGets();
         }
     }
 }

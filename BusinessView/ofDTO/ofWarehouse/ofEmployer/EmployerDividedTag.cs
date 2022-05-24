@@ -1,10 +1,12 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessView.ofWarehouse;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
 {
+    [AutoMap(typeof(DividedTag))]
     public class EmployerDividedTag : EmployerEntity
     {
         [Get] public bool Attached { get; set; }

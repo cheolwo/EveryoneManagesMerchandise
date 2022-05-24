@@ -1,8 +1,10 @@
-﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
+﻿using AutoMapper;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 namespace BusinessView.ofTrade.ofPlatform
 {
+    [AutoMap(typeof(MTCommodity))]
     public class PlatformMTCommodity : PlatformMStatus
     {
         [Get]public bool IsAccecptBillofLading {get; set;}

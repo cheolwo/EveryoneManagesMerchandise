@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Text.Json;
 using BusinessView.ofDTO.ofCommon;
+using AutoMapper;
 
 namespace BusinessView.ofGeneric
 {

@@ -1,8 +1,10 @@
-﻿using BusinessView.ofDTO.ofCommon.ofEmployer;
+﻿using AutoMapper;
+using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 namespace BusinessView.ofTrade.ofEmployer
 {
+    [AutoMap(typeof(MTCommodity))]
     public class EmployerMTCommodity : EmployerMStatus
     {
         [Get]public bool IsAccecptBillofLading {get; set;}

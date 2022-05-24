@@ -1,8 +1,10 @@
-﻿using BusinessView.ofDTO.ofCommon.ofEmployer;
+﻿using AutoMapper;
+using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 namespace BusinessView.ofTrade.ofEmployer
 {
+    [AutoMap(typeof(TCommodity))]
     public class EmployerTCommodity : EmployerCommodity
     {
         [Get]public string? PCommodityId {get; set;}

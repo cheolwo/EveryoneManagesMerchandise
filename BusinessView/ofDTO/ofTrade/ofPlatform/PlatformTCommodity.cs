@@ -1,9 +1,11 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofTrade.ofModel;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofTrade.ofPlatform
 {
+    [AutoMap(typeof(TCommodity))]
     public class PlatformTCommodity : PlatformCommodity
     {
         [Get]public string? PCommodityId {get; set;}

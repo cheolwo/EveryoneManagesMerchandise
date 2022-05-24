@@ -1,10 +1,12 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofWarehouse;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
+    [AutoMap(typeof(WCommodity))]
     public class PlatformWCommodity : PlatformCommodity
     {
         [Get] public string? Type { get; set; }

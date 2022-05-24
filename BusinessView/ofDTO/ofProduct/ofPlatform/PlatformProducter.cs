@@ -1,8 +1,10 @@
-﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
+﻿using AutoMapper;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessData.ofProduct;
 using BusinessData; 
 namespace BusinessView.ofDTO.ofProduct.ofPlatform
 {
+    [AutoMap(typeof(Producter))]
     public class PlatformProducter : PlatformCenter
     {
         [Detail][Many(typeof(List<ProductCenter>))]public string? ProductCenters { get; set; } 

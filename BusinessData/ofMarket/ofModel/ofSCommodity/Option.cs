@@ -6,7 +6,7 @@ namespace BusinessData.ofMarket.ofModel
     {
         [Key] public int Id { get; set; }
         public string Key { get; set; }
-        public string Value { get; set; }
+        public string Value { get; set; }   
         public string NormalPrice { get; set; }
         public string SalePrice { get; set; }
         public string ModelNo { get; set; }

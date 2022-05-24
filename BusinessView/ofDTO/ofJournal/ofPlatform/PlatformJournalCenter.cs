@@ -1,14 +1,12 @@
-﻿using BusinessView.ofDTO.ofCommon.ofPlatform;
-using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
+using BusinessView.ofDTO.ofCommon.ofPlatform;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessData.ofJournal;
+using BusinessData.ofFinancial.Model;
+using BusinessData;
 
 namespace BusinessView.ofDTO.ofJournal.ofPlatform
 {
+    [AutoMap(typeof(JournalCenter))]
     public class PlatformJournalCenter : PlatformCenter
     {
         [Required] public string? b_no { get; set; } // 사업자등록번호

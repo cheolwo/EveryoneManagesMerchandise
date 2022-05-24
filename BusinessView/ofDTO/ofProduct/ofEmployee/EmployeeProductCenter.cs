@@ -1,4 +1,5 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
 using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployee
@@ -17,6 +18,7 @@ namespace BusinessView.ofDTO.ofProduct.ofEmployee
         public const string Product = "Product";
         public const string LiveStock = "LiveStock";
     }
+    [AutoMap(typeof(ProductCenter))]
     public class EmployeeProductCenter : EmployeeCenter
     {
         public string? Producters {get; set;}

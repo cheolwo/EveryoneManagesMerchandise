@@ -5,7 +5,6 @@ using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
 using BusinessData.ofWarehouse.ofInterface.ofEmployer;
-using Microsoft.AspNetCore.Components.Forms;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -84,9 +83,9 @@ namespace WarehouseServer.Controllers.ofEmployer
             var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
 
             var newWarehouse = await _EmployerWarehouseManager.CreateAsync(model);
-
+            var dto = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(newWarehouse, new());
             //return CreatedAtAction("GetWarehouse", new { id = Warehouse.Id }, Warehouse);
-            return CreatedAtAction(nameof(GetWarehouse), new { id = newWarehouse.Id }, newWarehouse);
+            return CreatedAtAction(nameof(GetWarehouse), new { id = newWarehouse.Id }, dto);
         }
 
         [HttpPut("{id}")]

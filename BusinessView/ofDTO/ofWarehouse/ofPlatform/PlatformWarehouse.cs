@@ -1,4 +1,5 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofWarehouse;
@@ -14,6 +15,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
     C#
     byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
      */
+    [AutoMap(typeof(Warehouse))]
     public class PlatformWarehouse : PlatformCenter
     {
         [Detail][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }

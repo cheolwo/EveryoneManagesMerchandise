@@ -1,4 +1,5 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessView.ofGeneric;
@@ -15,6 +16,7 @@ namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
     C#
     byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
      */
+    [AutoMap(typeof(Warehouse))]
     public class EmployerWarehouse : EmployerCenter, IDTO
     {
         [Detail][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }

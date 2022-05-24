@@ -1,8 +1,10 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployer
 {
+    [AutoMap(typeof(SPCommodity))]
     public class EmployerSPCommodity : EmployerSStatus
     {
         [Get]public string? StartedTime {get; set;}

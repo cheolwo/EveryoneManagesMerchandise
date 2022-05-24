@@ -1,4 +1,5 @@
-﻿using BusinessData;
+﻿using AutoMapper;
+using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofWarehouse;
@@ -6,6 +7,7 @@ using BusinessView.ofGeneric;
 
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
+    [AutoMap(typeof(DividedTag))]
     public class PlatformDividedTag : PlatformEntity
     {
         [Get] public bool Attached { get; set; }
