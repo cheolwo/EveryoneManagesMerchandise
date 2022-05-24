@@ -6,10 +6,20 @@ namespace BusinessData.ofProduct.ofDbContext
 {
     public class ProductDbContext : DbContext
     {
+        private string _connectionstring;
         public ProductDbContext(DbContextOptions<ProductDbContext> options)
             : base(options)
         {
 
+        }
+        public ProductDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.ProductDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +29,7 @@ namespace BusinessData.ofProduct.ofDbContext
             modelBuilder.ApplyConfiguration(new MPCommodityConfiguration());
             modelBuilder.ApplyConfiguration(new EPCommodityConfiguration());
             modelBuilder.ApplyConfiguration(new ProductLandConfiguration());
+            modelBuilder.ApplyConfiguration(new ProducterConfiguration());
         }
     }
     public class ProductLandConfiguration : EntityConfiguration<ProductLand>
@@ -33,6 +44,7 @@ namespace BusinessData.ofProduct.ofDbContext
         public override void Configure(EntityTypeBuilder<PCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("PCommodity");
         }
     }
     public class ProductCenterConfiguration : CenterConfiguration<ProductCenter>
@@ -40,6 +52,15 @@ namespace BusinessData.ofProduct.ofDbContext
         public override void Configure(EntityTypeBuilder<ProductCenter> builder)
         {
             base.Configure(builder);
+            builder.ToTable("ProductCenter");
+        }
+    }
+    public class ProducterConfiguration : CenterConfiguration<Producter>
+    {
+        public override void Configure(EntityTypeBuilder<Producter> builder)
+        {
+            base.Configure(builder);
+            builder.ToTable("Producter");
         }
     }
     public class SPCommodityConfiguration : StatusConfiguration<SPCommodity>
@@ -47,6 +68,7 @@ namespace BusinessData.ofProduct.ofDbContext
         public override void Configure(EntityTypeBuilder<SPCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("SPCommodity");
         }
     }
     public class MPCommodityConfiguration : StatusConfiguration<MPCommodity>
@@ -54,6 +76,7 @@ namespace BusinessData.ofProduct.ofDbContext
         public override void Configure(EntityTypeBuilder<MPCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("MPCommodity");
         }
     }
     public class EPCommodityConfiguration : StatusConfiguration<EPCommodity>
@@ -61,6 +84,7 @@ namespace BusinessData.ofProduct.ofDbContext
         public override void Configure(EntityTypeBuilder<EPCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("EPCommodity");
         }
     }
 }

@@ -7,10 +7,20 @@ namespace BusinessData.ofTrade.ofDbContext
 {
     public class TradeDbContext : DbContext
     {
+        private string _connectionstring;
         public TradeDbContext(DbContextOptions<TradeDbContext> options)
             : base(options)
         {
 
+        }
+        public TradeDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.TradeDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +36,7 @@ namespace BusinessData.ofTrade.ofDbContext
         public override void Configure(EntityTypeBuilder<TCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("TCommodity");
         }
     }
     public class TradeCenterConfiguration : CenterConfiguration<TradeCenter>
@@ -33,6 +44,7 @@ namespace BusinessData.ofTrade.ofDbContext
         public override void Configure(EntityTypeBuilder<TradeCenter> builder)
         {
             base.Configure(builder);
+            builder.ToTable("TradeCenter");
         }
     }
     public class STCommodityConfiguration : StatusConfiguration<STCommodity>
@@ -40,6 +52,7 @@ namespace BusinessData.ofTrade.ofDbContext
         public override void Configure(EntityTypeBuilder<STCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("STCommodity");
         }
     }
     public class MTCommodityConfiguration : StatusConfiguration<MTCommodity>
@@ -47,6 +60,7 @@ namespace BusinessData.ofTrade.ofDbContext
         public override void Configure(EntityTypeBuilder<MTCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("MTCommodity");
         }
     }
     public class ETCommodityConfiguration : StatusConfiguration<ETCommodity>
@@ -54,6 +68,7 @@ namespace BusinessData.ofTrade.ofDbContext
         public override void Configure(EntityTypeBuilder<ETCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("ETCommodity");
         }
     }
 }

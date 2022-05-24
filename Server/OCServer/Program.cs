@@ -21,8 +21,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var OrderDbConnectionString = builder.Configuration.GetConnectionString("OrderDbConnection");
+bool IsProduct = false;
+string OrderDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   OrderDbConnectionString = builder.Configuration.GetConnectionString("OrderDbConnection");
+}
+else
+{
+    OrderDbConnectionString = DevelopmentDbConnetionString.OrderDbConnection;
+}
 builder.Services.AddDbContext<OrderDbContext>(options =>
     options.UseSqlServer(OrderDbConnectionString));
 

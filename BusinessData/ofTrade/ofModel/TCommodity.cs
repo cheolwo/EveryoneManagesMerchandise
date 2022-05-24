@@ -6,6 +6,7 @@ using System.Reflection;
 namespace BusinessData.ofTrade.ofModel
 {
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
+    [Relation(typeof(TradeCenter), nameof(TradeCenter))] 
     public class TradeCenter : Center
     {
         public List<TCommodity> TCommodities {get; set;}
@@ -16,6 +17,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
+    [Relation(typeof(TCommodity), nameof(TCommodity))] 
     public class TCommodity : Commodity
     {
         public string PCommodityId {get; set;}
@@ -34,6 +36,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
+    [Relation(typeof(STCommodity), nameof(STCommodity))] 
     public class STCommodity : SStatus
     {
         public string BuyerId {get; set;} 
@@ -50,6 +53,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
+    [Relation(typeof(MTCommodity), nameof(MTCommodity))] 
     public class MTCommodity  : MStatus
     {
         public bool IsAccecptBillofLading {get; set;}
@@ -64,6 +68,7 @@ namespace BusinessData.ofTrade.ofModel
         }
     }
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
+    [Relation(typeof(ETCommodity), nameof(ETCommodity))] 
     public class ETCommodity  : EStatus
     {
         public string MTCommodityId {get; set;}

@@ -11,7 +11,7 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     {
         [Get]/*[SourceMember(nameof(Center.LoginId))]*/ public string? LoginId { get; set; }
         [Get] public string? Password { get; set; }
-        [Get] public int FailLogin {get; set;}
+        [Detail] public int FailLogin {get; set;}
         [Get] [Origin(typeof(Juso))]public string? Address {get; set;}
         [Get] public string? CountryCode {get; set;}
         [Get] public string? PhoneNumber {get; set;}

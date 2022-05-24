@@ -95,3 +95,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Serv
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.IO.Ports.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.IO.Ports.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\NMemory.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\OCServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll

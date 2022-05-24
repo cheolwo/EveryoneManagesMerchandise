@@ -20,8 +20,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var JournalDbConnectionString = builder.Configuration.GetConnectionString("JournalDbConnection");
+bool IsProduct = false;
+string JournalDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   JournalDbConnectionString = builder.Configuration.GetConnectionString("JournalDbConnection");
+}
+else
+{
+    JournalDbConnectionString = DevelopmentDbConnetionString.JournalDbConnection;
+}
 builder.Services.AddDbContext<JournalDbContext>(options =>
     options.UseSqlServer(JournalDbConnectionString));
 

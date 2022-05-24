@@ -19,7 +19,7 @@ namespace BusinessData.ofOrder.ofDbContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(_connectionstring is null) { _connectionstring = DbConnectionString.OrderDbConnection; }
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.OrderDbConnection; }
             optionsBuilder.UseSqlServer(_connectionstring, options => options.EnableRetryOnFailure());
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

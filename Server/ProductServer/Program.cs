@@ -22,14 +22,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var ProductDbConnectionString = builder.Configuration.GetConnectionString("ProductDbConnection");
+bool IsProduct = false;
+string ProductDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   ProductDbConnectionString = builder.Configuration.GetConnectionString("ProductDbConnection");
+}
+else
+{
+    ProductDbConnectionString = DevelopmentDbConnetionString.ProductDbConnection;
+}
 builder.Services.AddDbContext<ProductDbContext>(options =>
     options.UseSqlServer(ProductDbConnectionString));
 
-var TemperatureDbConnectionString = DevelopmentDbConnetionString.IotDbConnection;
-builder.Services.AddDbContext<IotDbContext>(options =>
-    options.UseSqlServer(TemperatureDbConnectionString));
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

@@ -9,17 +9,25 @@ namespace BusinessData.ofFinancial
 {
     public class JournalDbContext : DbContext
     {
+        private string _connectionstring;
         public JournalDbContext(DbContextOptions<JournalDbContext> options)
             :base(options)
         {
 
         }
+        public JournalDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.JournalDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration<JournalCenter>(new JournalCenterConfiguration());
-            modelBuilder.ApplyConfiguration<JCommodity>(new JCommodityConfiguration());
-            modelBuilder.ApplyConfiguration<Journal>(new JournalConfiguration());
-            modelBuilder.ApplyConfiguration<UserSettingJournal>(new UserSettingJournalConfiguration());
+            modelBuilder.ApplyConfiguration(new JournalCenterConfiguration());
+            modelBuilder.ApplyConfiguration(new JCommodityConfiguration());
         }
     }
     public class UserSettingJournalConfiguration : EntityConfiguration<UserSettingJournal>
@@ -35,11 +43,15 @@ namespace BusinessData.ofFinancial
                  v => JsonConvert.DeserializeObject<List<Credit>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
         }
     }
-    public class JCommodityConfiguration : CommodityConfiguration<JCommodity>
+    public class JCommodityConfiguration : EntityConfiguration<JCommodity>
     {
         public override void Configure(EntityTypeBuilder<JCommodity> builder)
         {
             base.Configure(builder);
+            builder.Property(c => c.Journals).HasConversion(
+                 v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
+                 v => JsonConvert.DeserializeObject<List<Journal>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+            builder.ToTable("JCommodity");
         }
     }
     public class JournalCenterConfiguration : CenterConfiguration<JournalCenter>
@@ -47,6 +59,7 @@ namespace BusinessData.ofFinancial
         public override void Configure(EntityTypeBuilder<JournalCenter> builder)
         {
             base.Configure(builder);
+            builder.ToTable("JournalCenter");
         }
     }
     public class JournalConfiguration : EntityConfiguration<Journal> 

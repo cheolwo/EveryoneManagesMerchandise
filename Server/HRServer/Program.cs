@@ -1,5 +1,6 @@
 using BusinessData;
 using BusinessData.ofGeneric.ofIdFactory;
+using BusinessData.ofHR.ofDbContext;
 using BusinessData.ofHRCenter.ofRepository;
 using BusinessData.ofHumanResouce.ofIdFactory;
 using BusinessData.ofHumanResource.ofInterface.ofEmployee;
@@ -15,9 +16,22 @@ using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployer;
 using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
 using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+bool IsProduct = false;
+string HRDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   HRDbConnectionString = builder.Configuration.GetConnectionString("HRDbConnection");
+}
+else
+{
+    HRDbConnectionString = DevelopmentDbConnetionString.HRDbConnection;
+}
+builder.Services.AddDbContext<HRDbContext>(options =>
+       options.UseSqlServer(HRDbConnectionString));
 // Add services to the container.
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
@@ -35,59 +49,78 @@ builder.Services.AddScoped(typeof(ICenterFileFactory<>), typeof(CenterFileFactor
 builder.Services.AddScoped(typeof(CenterPasswordHasher<>));
 
 builder.Services.AddScoped<IHRCenterManager, HRCenterManager>();
+builder.Services.AddScoped<IEmployeeHRCenterManager, HRCenterManager>();
+builder.Services.AddScoped<IEmployerHRCenterManager, HRCenterManager>();
+builder.Services.AddScoped<IPlatformHRCenterManager, HRCenterManager>();
+builder.Services.AddScoped<IHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IEmployeeHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IEmployerHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IPlatformHRCenterRepository, HRCenterRepository>();
+builder.Services.AddScoped<IHRCenterIdFactory, HRCenterIdFactory>();
+builder.Services.AddScoped<IHRCenterFileFactory, HRCenterFileFactory>();
+builder.Services.AddScoped<IHRCenterBlobStorage, HRCenterBlobStorage>();
+builder.Services.AddScoped<IHRCenterBlobContainerFactory, HRCenterBlobContainerFactory>();
+
+builder.Services.AddScoped<IHRBusinessPartManager, HRBusinessPartManager>();
+builder.Services.AddScoped<IEmployeeHRBusinessPartManager, HRBusinessPartManager>();
+builder.Services.AddScoped<IEmployerHRBusinessPartManager, HRBusinessPartManager>();
+builder.Services.AddScoped<IPlatformHRBusinessPartManager, HRBusinessPartManager>();
+builder.Services.AddScoped<IHRBusinessPartRepository, HRBusinessPartRepository>();
+builder.Services.AddScoped<IEmployeeHRBusinessPartRepository, HRBusinessPartRepository>();
+builder.Services.AddScoped<IEmployerHRBusinessPartRepository, HRBusinessPartRepository>();
+builder.Services.AddScoped<IPlatformHRBusinessPartRepository, HRBusinessPartRepository>();
+builder.Services.AddScoped<IHRBusinessPartIdFactory, HRBusinessPartIdFactory>();
+builder.Services.AddScoped<IHRBusinessPartFileFactory, HRBusinessPartFileFactory>();
+builder.Services.AddScoped<IHRBusinessPartBlobStorage, HRBusinessPartBlobStorage>();
+builder.Services.AddScoped<IHRBusinessPartBlobContainerFactory, HRBusinessPartBlobContainerFactory>();
+
 builder.Services.AddScoped<IHREmployeeManager, HREmployeeManager>();
 builder.Services.AddScoped<IHRRoleManager, HRRoleManager>();
 builder.Services.AddScoped<IEmployeeRoleManager, EmployeeRoleManager>();
 
-builder.Services.AddScoped<IEmployeeHRCenterManager, HRCenterManager>();
 builder.Services.AddScoped<IEmployeeHREmployeeManager, HREmployeeManager>();
 builder.Services.AddScoped<IEmployeeHRRoleManager, HRRoleManager>();
 builder.Services.AddScoped<IEmployeeEmployeeRoleManager, EmployeeRoleManager>();
 
-builder.Services.AddScoped<IEmployerHRCenterManager, HRCenterManager>();
 builder.Services.AddScoped<IEmployerHREmployeeManager, HREmployeeManager>();
 builder.Services.AddScoped<IEmployerHRRoleManager, HRRoleManager>();
 builder.Services.AddScoped<IEmployerEmployeeRoleManager, EmployeeRoleManager>();
 
-builder.Services.AddScoped<IPlatformHRCenterManager, HRCenterManager>();
 builder.Services.AddScoped<IPlatformHREmployeeManager, HREmployeeManager>();
 builder.Services.AddScoped<IPlatformHRRoleManager, HRRoleManager>();
 builder.Services.AddScoped<IPlatformEmployeeRoleManager, EmployeeRoleManager>();
 
-builder.Services.AddScoped<IHRCenterRepository, HRCenterRepository>();
 builder.Services.AddScoped<IHREmployeeRepository, HREmployeeRepository>();
 builder.Services.AddScoped<IHRRoleRepository, HRRoleRepository>();
 builder.Services.AddScoped<IEmployeeRoleRepository, EmployeeRoleRepository>();
 
-builder.Services.AddScoped<IEmployeeHRCenterRepository, HRCenterRepository>();
 builder.Services.AddScoped<IEmployeeHREmployeeRepository, HREmployeeRepository>();
 builder.Services.AddScoped<IEmployeeHRRoleRepository, HRRoleRepository>();
 builder.Services.AddScoped<IEmployeeEmployeeRoleRepository, EmployeeRoleRepository>();
 
-builder.Services.AddScoped<IEmployerHRCenterRepository, HRCenterRepository>();
 builder.Services.AddScoped<IEmployerHREmployeeRepository, HREmployeeRepository>();
 builder.Services.AddScoped<IEmployerHRRoleRepository, HRRoleRepository>();
 builder.Services.AddScoped<IEmployerEmployeeRoleRepository, EmployeeRoleRepository>();
 
-builder.Services.AddScoped<IPlatformHRCenterRepository, HRCenterRepository>();
 builder.Services.AddScoped<IPlatformHREmployeeRepository, HREmployeeRepository>();
 builder.Services.AddScoped<IPlatformHRRoleRepository, HRRoleRepository>();
 builder.Services.AddScoped<IPlatformEmployeeRoleRepository, EmployeeRoleRepository>();
 
-builder.Services.AddScoped<IHRCenterIdFactory, HRCenterIdFactory>();
 builder.Services.AddScoped<IHREmployeeIdFactory, HREmployeeIdFactory>();
 builder.Services.AddScoped<IHRRoleIdFactory, HRRoleIdFactory>();
 builder.Services.AddScoped<IEmployeeRoleIdFactory, EmployeeRoleIdFactory>();
 
-builder.Services.AddScoped<IHRCenterFileFactory, HRCenterFileFactory>();
 builder.Services.AddScoped<IHREmployeeFileFactory, HREmployeeFileFactory>();
 builder.Services.AddScoped<IHRRoleFileFactory, HRRoleFileFactory>();
 builder.Services.AddScoped<IEmployeeRoleFileFactory, EmployeeRoleFileFactory>();
 
-builder.Services.AddScoped<IHRCenterBlobStorage, HRCenterBlobStorage>();
 builder.Services.AddScoped<IHREmployeeBlobStorage, HREmployeeBlobStorage>();
 builder.Services.AddScoped<IHRRoleBlobStorage, HRRoleBlobStorage>();
 builder.Services.AddScoped<IEmployeeRoleBlobStorage, EmployeeRoleBlobStorage>();
+
+builder.Services.AddScoped<IHREmployeeBlobContainerFactory, HREmployeeBlobContainerFactory>();
+builder.Services.AddScoped<IHRRoleBlobContainerFactory, HRRoleBlobContainerFactory>();
+builder.Services.AddScoped<IEmployeeRoleBlobContainerFactory, EmployeeRoleBlobContainerFactory>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

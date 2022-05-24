@@ -74,6 +74,23 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
             return await base.CreateNameofContainer(entity);
         }
     }
+    public interface IHRBusinessPartBlobContainerFactory : IEntityContainerFactory<HRBusinessPart>
+    {
+
+    }
+    public class HRBusinessPartBlobContainerFactory : EntityContainerFactory<HRBusinessPart>, IHRBusinessPartBlobContainerFactory
+    {
+        private readonly IHRBusinessPartRepository _HRBusinessPartRepository;
+        public HRBusinessPartBlobContainerFactory(IHRBusinessPartRepository HRBusinessPartRepository)
+            :base(HRBusinessPartRepository)
+        {
+            _HRBusinessPartRepository = HRBusinessPartRepository;
+        }
+        public override async Task<string> CreateNameofContainer(HRBusinessPart entity)
+        {
+            return await base.CreateNameofContainer(entity);
+        }
+    }
     public interface IHRCenterBlobStorage : IEntityBlobStorage<HRCenter>
     {
 
@@ -87,6 +104,10 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
 
     }
     public interface IEmployeeRoleBlobStorage : IEntityBlobStorage<EmployeeRole>
+    {
+
+    }
+    public interface IHRBusinessPartBlobStorage : IEntityBlobStorage<HRBusinessPart>
     {
 
     }
@@ -119,6 +140,14 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
     {
         public EmployeeRoleBlobStorage(IEmployeeRoleBlobContainerFactory EmployeeRoleBlobContainerFactory)
             : base(EmployeeRoleBlobContainerFactory)
+        {
+
+        }
+    }
+    public class HRBusinessPartBlobStorage : EntityBlobStorage<HRBusinessPart>, IHRBusinessPartBlobStorage
+    {
+        public HRBusinessPartBlobStorage(IHRBusinessPartBlobContainerFactory HRBusinessPartBlobContainerFactory)
+            : base(HRBusinessPartBlobContainerFactory)
         {
 
         }

@@ -37,4 +37,12 @@ namespace BusinessLogic.ofManager.ofWarehouse.ofFileFactory
     {
 
     }
+    public interface IHRBusinessPartFileFactory : IEntityFileFactory<HRBusinessPart>
+    {
+
+    }
+    public class HRBusinessPartFileFactory : EntityFileFactory<HRBusinessPart>, IHRBusinessPartFileFactory
+    {
+
+    }
 }

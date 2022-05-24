@@ -22,8 +22,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var TradeDbConnectionString = builder.Configuration.GetConnectionString("TradeDbConnection");
+bool IsProduct = false;
+string TradeDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   TradeDbConnectionString = builder.Configuration.GetConnectionString("TradeDbConnection");
+}
+else
+{
+    TradeDbConnectionString = DevelopmentDbConnetionString.TradeDbConnection;
+}
 builder.Services.AddDbContext<TradeDbContext>(options =>
     options.UseSqlServer(TradeDbConnectionString));
 

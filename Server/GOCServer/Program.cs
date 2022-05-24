@@ -22,10 +22,19 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var GOCDbConnectionString = builder.Configuration.GetConnectionString("GOCDbConnection");
+bool IsProduct = false;
+string GroupOrderDbConnectionString = "";
+if(IsProduct)
+{
+    // Add services to the container.
+   GroupOrderDbConnectionString = builder.Configuration.GetConnectionString("GroupOrderDbConnection");
+}
+else
+{
+    GroupOrderDbConnectionString = DevelopmentDbConnetionString.GroupOrderDbConnection;
+}
 builder.Services.AddDbContext<GODbContext>(options =>
-    options.UseSqlServer(GOCDbConnectionString));
+    options.UseSqlServer(GroupOrderDbConnectionString));
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

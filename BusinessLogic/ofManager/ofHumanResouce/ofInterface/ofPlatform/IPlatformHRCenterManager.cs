@@ -22,4 +22,8 @@ namespace BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofPlatform
     {
 
     }
+    public interface IPlatformHRBusinessPartManager : IHRBusinessPartManager
+    {
+
+    }
 }

@@ -52,4 +52,16 @@ namespace BusinessData.ofHumanResouce.ofIdFactory
 
         }
     }
+    public interface IHRBusinessPartIdFactory : IEntityIdFactory<HRBusinessPart>
+    {
+
+    }
+    public class HRBusinessPartIdFactory : EntityIdFactory<HRBusinessPart>, IHRBusinessPartIdFactory
+    {
+        public HRBusinessPartIdFactory(IHRBusinessPartRepository HRBusinessPartRepository)
+            : base(HRBusinessPartRepository)
+        {
+
+        }
+    }
 }
