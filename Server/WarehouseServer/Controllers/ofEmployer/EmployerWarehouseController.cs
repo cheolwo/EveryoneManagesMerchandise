@@ -79,9 +79,9 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpPost]
         public async Task<ActionResult<EmployerWarehouse>> PostWarehouse([FromBody]EmployerWarehouse EmployerWarehouse)
         {
+            
             _logger.LogInformation(nameof(EmployerWarehouseController.PostWarehouse));
             var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
-
             var newWarehouse = await _EmployerWarehouseManager.CreateAsync(model);
             var dto = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(newWarehouse, new());
             //return CreatedAtAction("GetWarehouse", new { id = Warehouse.Id }, Warehouse);
@@ -89,7 +89,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWarehouse(string id, [FromBody] EmployerWarehouse EmployerWarehouse)
+        public async Task<IActionResult> PutWarehouse([FromBody] EmployerWarehouse EmployerWarehouse)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.PutWarehouse));
             var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
