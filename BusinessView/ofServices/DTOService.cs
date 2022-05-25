@@ -92,8 +92,8 @@ namespace BusinessView.ofCommon.ofServices
                await _httpClient.PutAsync($"/api/{typeof(T).Name}", entityJson);
             httpResponseMessage.EnsureSuccessStatusCode();
 
-            string JsonIdentityUserDTO = await httpResponseMessage.Content.ReadAsStringAsync();
-            T? dto = JsonSerializer.Deserialize<T>(JsonIdentityUserDTO);
+            string jsonDto = await httpResponseMessage.Content.ReadAsStringAsync();
+            T? dto = JsonSerializer.Deserialize<T>(jsonDto);
             return dto;
         }
         public virtual async Task DeleteAsync<T>(string id) where T : new()
@@ -108,6 +108,14 @@ namespace BusinessView.ofCommon.ofServices
         public virtual async Task<IEnumerable<T>?> GetsAsync<T>() where T : new()
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}");
+        }
+        public virtual async Task<IEnumrable<T>> GetsAsync<T>(T t) where T : new()
+        {
+            var entityJson = new StringContent(
+                            JsonSerializer.Serialize(t),
+                            Encoding.UTF8,
+                            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}", entityJson);
         }
         public virtual async Task<IEnumerable<T>?> GetsAsyncByUserId<T>(string userid) where T : new()
         {

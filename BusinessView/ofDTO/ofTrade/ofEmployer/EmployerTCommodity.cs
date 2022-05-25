@@ -7,7 +7,7 @@ namespace BusinessView.ofTrade.ofEmployer
     [AutoMap(typeof(TCommodity))]
     public class EmployerTCommodity : EmployerCommodity
     {
-        [Get]public string? PCommodityId {get; set;}
+        [Query][Get]public string? PCommodityId {get; set;}
         [Detail][Many(typeof(List<STCommodity>))]public string? STCommodities {get; set;}
         [Detail][Many(typeof(List<MTCommodity>))]public string? MTCommodities {get; set;}
         [Detail][Many(typeof(List<ETCommodity>))]public string? ETCommodities {get; set;}

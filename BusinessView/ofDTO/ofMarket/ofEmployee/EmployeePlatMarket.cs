@@ -10,8 +10,8 @@ namespace BusinessView.ofDTO.ofMarket.ofEmployee
     [AutoMap(typeof(PlatMarket))]
     public class EmployeePlatMarket : EmployeeCenter
     {
-        [Get]public string? NameofPlatForm {get; set;}
-        [Get]public string? VendorId { get; set; }
+        [Query][Get]public string? NameofPlatForm {get; set;}
+        [Query][Get]public string? VendorId { get; set; }
         [Get]public string? VendorPassword {get; set;}
         [Detail]public Binary? AccessKey { get; set; }
         [Detail]public Binary? SecreatKey { get; set; }

@@ -7,8 +7,8 @@ namespace BusinessView.ofTrade.ofEmployer
     [AutoMap(typeof(ETCommodity))]
     public class EmployerETCommodity : EmployerEStatus
     {
-        [Get]public string? MTCommodityId {get; set;}
-        [Get]public string? SWCommodityId {get; set;}
+        [Query][Get]public string? MTCommodityId {get; set;}
+        [Query][Get]public string? SWCommodityId {get; set;}
         [Detail][One(typeof(TCommodity))]public string? TCommodity { get; set; }
     }
 }

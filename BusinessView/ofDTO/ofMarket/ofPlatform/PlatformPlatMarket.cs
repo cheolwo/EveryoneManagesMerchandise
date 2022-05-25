@@ -8,8 +8,8 @@ namespace BusinessView.ofDTO.ofMarket.ofPlatform
     [AutoMap(typeof(PlatMarket))]
     public class PlatformPlatMarket : PlatformCenter
     {
-        [Get]public string? NameofPlatForm {get; set;}
-        [Get]public string? VendorId { get; set; }
+        [Query][Get]public string? NameofPlatForm {get; set;}
+        [Query][Get]public string? VendorId { get; set; }
         [Get]public string? VendorPassword {get; set;}
         [Detail]public byte[]? AccessKey { get; set; }
         [Detail]public byte[]? SecreatKey { get; set; }

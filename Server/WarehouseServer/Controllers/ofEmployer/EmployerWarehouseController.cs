@@ -60,7 +60,7 @@ namespace WarehouseServer.Controllers.ofEmployer
             return EmployerWarehouses;
         }
         [HttpGet("User")]
-        public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> GetsAsyncByUserId(string userid, string name)
+        public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> GetsAsyncByUserId(string userid)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.GetsAsyncByUserId));
             var Warehouses = await _EmployerWarehouseRepository.GetToListByUserId(userid);
@@ -88,7 +88,7 @@ namespace WarehouseServer.Controllers.ofEmployer
             return CreatedAtAction(nameof(GetWarehouse), new { id = newWarehouse.Id }, dto);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> PutWarehouse([FromBody] EmployerWarehouse EmployerWarehouse)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.PutWarehouse));
@@ -108,7 +108,7 @@ namespace WarehouseServer.Controllers.ofEmployer
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<IActionResult> DeleteWarehouse(string id)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.DeleteWarehouse));

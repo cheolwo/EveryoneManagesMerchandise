@@ -8,8 +8,8 @@ namespace BusinessView.ofDTO.ofOrder.ofEmployee
     [AutoMap(typeof(OCommodity))]
     public class EmployeeOCommodity : EmployeeCommodity
     {
-        [Get] public string? OrderId { get; set; } // 이거의 존재는 Order Table 이라는 테이블의 존재를 의미하는데..
-        public string? OrderType { get; set; }
+        [Query][Get] public string? OrderId { get; set; } // 이거의 존재는 Order Table 이라는 테이블의 존재를 의미하는데..
+        [Query][Get]public string? OrderType { get; set; }
         [Detail][Many(ViewNameofOrderCenter.SOCommodity, typeof(List<SOCommodity>))] public string? SOCommodities { get; set; }
         [Detail][Many(ViewNameofOrderCenter.MOCommodity, typeof(List<MOCommodity>))] public string? MOCommodities { get; set; }
         [Detail][Many(ViewNameofOrderCenter.EOCommodity, typeof(List<EOCommodity>))] public string? EOCommodities { get; set; }

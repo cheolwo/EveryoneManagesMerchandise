@@ -16,14 +16,21 @@ namespace BusinessView.ofDTO.ofCommon
             
         }
     }
+    public class QueryAttribute : Attribute
+    {
+        public QueryAttribute()
+        {
+
+        }
+    }
     public class EntityDTO : IEntityDTO
     {
-        [Detail] public string? Id { get; set; } // 자동결정
-        [Detail] public string? Code { get; set; } // 자동결정
-        [Form][Get] public string? Name { get; set; }
-        [Detail]public string? Container {get; set;} // 자동결정
-        [Detail]public DateTime CreateTime { get; set; } // 자동결정
-        [Detail]public string? UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
+        [Key][Query][Detail] public string? Id { get; set; } // 자동결정
+        [Query][Detail] public string? Code { get; set; } // 자동결정
+        [Query][Form][Get] public string? Name { get; set; }
+        [Query][Detail]public string? Container {get; set;} // 자동결정
+        [Query][Detail]public DateTime CreateTime { get; set; } // 자동결정
+        [Query][Detail]public string? UserId {get; set;} // 이 부분은 인덱스로 만들어도 괜찮겠다.
         [Detail] [Generic(typeof(List<ChangeUser>))]public string? ChangedUsers {get; set;} // 자동결정
         [Detail] [Generic(typeof(List<ImageofInfo>))]public string? ImageofInfos {get; set;} // 자동결정
         [Detail] [Generic(typeof(List<Doc>))]public string? Docs {get; set;} // 자동결정

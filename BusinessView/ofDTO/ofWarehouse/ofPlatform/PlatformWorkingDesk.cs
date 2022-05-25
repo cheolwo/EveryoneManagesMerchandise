@@ -8,6 +8,6 @@ namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
     [AutoMap(typeof(WorkingDesk))]
     public class PlatformWorkingDesk : PlatformEntity
     {
-        public bool IsUsed { get; set; }
+        [Query]public bool IsUsed { get; set; }
     }
 }

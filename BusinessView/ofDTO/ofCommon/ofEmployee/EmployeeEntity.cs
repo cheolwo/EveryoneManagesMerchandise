@@ -1,31 +1,20 @@
 ﻿using BusinessData;
 using BusinessLogic.ofExternal.ofSearchingService;
-using System.Text.Json;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployee
 {
     public class EmployeeEntity : EntityDTO
     {
-        public IEnumerable<T> ConvertJsonToManyObject<T>(string JsonString) where T : class
-        {
-            IEnumerable<T>? ManyObject = JsonSerializer.Deserialize<IEnumerable<T>>(JsonString);
-            return ManyObject;
-        }
-        public T ConvertJsonToOneObject<T>(string jsonString) where T : class
-        {
-            T? OneObject = JsonSerializer.Deserialize<T>(jsonString);
-            return OneObject;
-        }
     }
     public class EmployeeCenter : EmployeeEntity
     {
-        [Get] public string? LoginId { get; set; }
-        [Get] public string? Password { get; set; }
+        [Query][Get] public string? LoginId { get; set; }
+        [Query][Get] public string? Password { get; set; }
         [Get] public int FailLogin {get; set;}
-        [Get] [Origin(typeof(Juso))]public string? Address {get; set;}
-        [Get] public string? CountryCode {get; set;}
-        [Get] public string? PhoneNumber {get; set;}
-        [Get] public string? FaxNumber {get; set;}
+        [Query][Get] [Origin(typeof(Juso))]public string? Address {get; set;}
+        [Query][Get] public string? CountryCode {get; set;}
+        [Query][Get] public string? PhoneNumber {get; set;}
+        [Query][Get] public string? FaxNumber {get; set;}
         [Get][Many(typeof(List<Commodity>))] public string? Commodities { get; set; }
         [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
         [Get][Many(typeof(List<MStatus>))] public string? MStatuses { get; set; }
@@ -37,10 +26,10 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
     }
     public class EmployeeCommodity : EmployeeEntity
     {
-        public string? HsCode {get; set;}
+        [Query]public string? HsCode {get; set;}
         public string? OpponentBusinessUserId { get; set; }
-        [Detail]public string? Barcode {get; set;}
-        public string? CenterId {get; set;}
+        [Query][Detail]public string? Barcode {get; set;}
+        [Query]public string? CenterId {get; set;}
         [One(typeof(Center))][Get]public string? Center { get; set; }
         [Many(typeof(List<EStatus>))][Get]public string? EStatuses { get; set; }
         [Many(typeof(List<MStatus>))][Get]public string? MStatuses { get; set; }
@@ -48,9 +37,9 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
     }
     public class EmployeeStatus : EmployeeEntity
     {
-        public string? CommodityId {get; set;}
-        public string? CenterId {get; set;}
-        public string? Quantity { get; set; }
+        [Query]public string? CommodityId {get; set;}
+        [Query]public string? CenterId {get; set;}
+        [Query]public string? Quantity { get; set; }
         [Get][One(typeof(Commodity))] public string? Commodity { get; set; }
         [Get][One(typeof(Center))] public string? Center {get; set;}
     }

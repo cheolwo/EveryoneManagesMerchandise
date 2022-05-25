@@ -8,8 +8,7 @@ namespace BusinessView.ofDTO.ofHR.ofPlatform
     [AutoMap(typeof(HRRole))]
     public class PlatformHRRole : PlatformEntity
     {
-        [Get]public string? DetailName {get; set;}
-        public string? PossibleAPIInfos {get; set;}
+        [Query][Get]public string? DetailName {get; set;}
         [One(ViewNameofHRCenter.HRCenter,typeof(HRCenter))]public string? HRCenter {get; set;}
     }
 }

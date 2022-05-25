@@ -12,6 +12,17 @@ namespace BusinessView.ofGeneric
         string GetServerUrl(bool IsProduct);
     }
     // 직렬화가 주요 개념
+    public static class ModelDTOExtentions
+    {
+        public static DTO ConvertToDTO<DTO, Model>(this Model model) where Model : class where DTO : class, new()
+        {
+            return ModelToDTO<Model, DTO>.ConvertToDTO(model, new DTO());
+        }
+        public static Model ConvertToModel<Model, DTO>(this DTO dto, Model model) where DTO : class where Model : class, new()
+        {
+            return DTOToModel<DTO, Model>.ConvertToModel(dto, new Model());
+        }
+    }
     public class ModelToDTO<Model, DTO> where Model : class where DTO : class
     {
         public static PropertyInfo? GetDTOPropertyByModelProp(PropertyInfo modepProp)

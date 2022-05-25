@@ -7,12 +7,12 @@ namespace BusinessView.ofDTO.ofProduct.ofEmployee
     [AutoMap(typeof(PCommodity))]
     public class EmployeePCommodity : EmployeeCommodity
     {
-        [Detail]public string? Category {get; set;}
-        [Detail]public string? Brand {get; set;}
-        [Many] public string? SPCommodities {get; set;}
-        [Many] public string? MPCommodities {get; set;}
-        [Many] public string? EPCommodities {get; set;}
-        [Detail][One(ViewNameofProductCenter.ProductLand)] public string? ProductLand {get; set;}
-        public string? Producter {get; set;}  
+        [Query][Detail]public string? Category {get; set;}
+        [Query][Detail] public string? Brand {get; set;}
+        [Many(typeof(List<SPCommodity>))] public string? SPCommodities {get; set;}
+        [Many(typeof(List<MPCommodity>))] public string? MPCommodities {get; set;}
+        [Many(typeof(List<EPCommodity>))] public string? EPCommodities {get; set;}
+        [Detail][One(ViewNameofProductCenter.ProductLand, typeof(ProductLand))] public string? ProductLand {get; set;}
+        [One(typeof(Producter))]public string? Producter {get; set;}  
     }
 }

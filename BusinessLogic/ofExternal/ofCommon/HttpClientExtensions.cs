@@ -26,6 +26,70 @@ namespace BusinessLogic.ofExternal.ofCommon
 
         //     return await client.GetAsync(url);
         // }
+    public static class EntityDTOExtensions
+    {
+        public enum QueryCode {Key, ForeignKey, QueryString, QueryInt}
+        // 이런 걸 책임연쇄 패턴이라고 하는 거구나....
+        public static List<PropertyInfo> GetByQueryAttribute(this EntityDTO entityDTO)
+        {
+            var props = typeof(EntityDTO).GetProperties();
+            List<PropertyInfo> propIncludedQueryAttribute = new();
+            foreach(var prop in props)
+            {
+                var QueryAttribute = prop.GetCustomAttribute<QueryAttribute>();
+                if(QueryAttribute != null && prop.GetValue(entityDTO) != null)
+                {
+                    propIncludedQueryAttribute.Add(prop);
+                }
+            }
+            return propIncludedQueryAttribute;
+        }
+        public static Dictionary<QueryCode, List<PropertyInfo>> DistributedByQueryCode(this List<PropertyInfo> props)
+        {
+            Dictionary<QueryCode, List<PropertyInfo>> dictionary = new();
+            List<PropertyInfo> KeyProps = new();
+            List<PropertyInfo> ForeignProps = new();
+            List<PropertyInfo> StringProps = new();
+            List<PropertyInfo> IntProps = new();
+            
+            dictionary.Add(QueryCode.Key, KeyProps);
+            dictionary.Add(QueryCode.ForeignKey, ForeignProps);
+            dictionary.Add(QueryCode.QueryString, StringProps);
+            dictionary.Add(QueryCode.QueryInt, IntProps);
+
+            foreach(var prop in props)
+            {
+                var key = prop.GetCustomAttribute<KeyAttriute>();
+                if(key != null) 
+                {
+                    var KeyProps = dictionary[QueryCode.Key];
+                    KeyProps.Add(prop);
+                    continue;
+                }
+                var foreignKey = prop.GetCustomAttribute<ForeignKeyAttribute>();
+                
+                if(foreignKey != null) 
+                {
+                    var ForeignProps = dictionary[QueryCode.ForeignKey];
+                    KeyProps.Add(prop);
+                    continue;
+                }
+                if(prop.PropertyType == typeof(string))
+                {
+                    var StringProps = dictionary[QueryCode.QueryString];
+                    StringProps.Add(prop);
+                    continue;
+                }
+                if(prop.PropertyType == typeof(int))
+                {
+                    var IntProps = dictionary[QueryCode.QueryInt];
+                    IntProps.Add(prop);
+                    continue;
+                }
+            }
+            return dictionary;
+        }
+    }
     public static class HttpClientExtensions
     {
         public static string GetUri<T>(string requestUri, T t) where T : class

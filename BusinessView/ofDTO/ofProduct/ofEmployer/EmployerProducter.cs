@@ -7,10 +7,10 @@ namespace BusinessView.ofDTO.ofProduct.ofEmployer
     [AutoMap(typeof(Producter))]
     public class EmployerProducter : EmployerCenter
     {
-        public string? ProductCenter { get; set; } 
-        public string? PCommodity { get; set; }
-        public string? SPCommodity { get; set; }
-        public string? MPCommodities { get; set; }    
-        public string? EPCommodity { get; set;}
+        [Many(typeof(List<ProductCenter>))][Detail]public string? ProductCenters { get; set; } 
+        [Many(typeof(List<PCommodity>))][Detail]public string? PCommodities { get; set; }
+        [Many(typeof(List<SPCommodity>))][Detail]public string? SPCommodities{ get; set; }
+        [Many(typeof(List<MPCommodity>))][Detail]public string? MPCommodities { get; set; }    
+        [Many(typeof(List<EPCommodity>))][Detail]public string? EPCommodities { get; set;}
     }
 }

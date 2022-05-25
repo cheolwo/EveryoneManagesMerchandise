@@ -8,7 +8,7 @@ namespace BusinessView.ofDTO.ofMarket.ofPlatform
     [AutoMap(typeof(Market))]
     public class PlatformMarket : PlatformCenter
     {
-        [Get]public string NameofMarket { get; set; }
+        [Query][Get]public string NameofMarket { get; set; }
         [Many(ViewNameofMarket.PlatMarket, typeof(List<PlatMarket>))]public string? PlatMarkets { get; set; }
         [Many(ViewNameofMarket.MCommodity, typeof(List<MCommodity>))]public string? MCommodities {get; set;}
         [Many(ViewNameofMarket.SMCommodity, typeof(List<SMCommodity>))]public string? SMCommodities {get; set; }

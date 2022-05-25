@@ -7,11 +7,11 @@ namespace BusinessView.ofTrade.ofEmployee
     [AutoMap(typeof(STCommodity))]
     public class EmployeeSTCommodity : EmployeeSStatus
     {
-        [Get]public string? BuyerId {get; set;} 
-        [Get]public string? Message {get; set;}
-        [Get]public float Payed {get; set;}
-        [Get]public bool IsAccept {get; set;}
-        [Get]public string? MTCommodityId {get; set;}
+        [Query][Get]public string? BuyerId {get; set;} 
+        [Query][Get]public string? Message {get; set;}
+        [Query][Get]public float Payed {get; set;}
+        [Query][Get]public bool IsAccept {get; set;}
+        [Query][Get]public string? MTCommodityId {get; set;}
         [Detail][One(typeof(TCommodity))]public string? TCommoditiy {get; set;}
     }
 }

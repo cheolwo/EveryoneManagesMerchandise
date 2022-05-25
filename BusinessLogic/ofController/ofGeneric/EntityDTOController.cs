@@ -1,3 +1,4 @@
+using System;
 namespace BusienssLogic.ofController.ofGeneric
 {
     // 여기 친구는 Rouing 을 할 정도가 아니야
@@ -11,16 +12,19 @@ namespace BusienssLogic.ofController.ofGeneric
     {
         protected readonly ILogger<DTO> _logger;
         protected readonly IEntityManager<Model> _entityManager;
+        protected readonly IEntityDataRepository<Model> _entiyDataRepository;
         protected readonly IConfiguration _configuration;
         // configurationa 이라는 친구는 AzureBlbobStorage ConnectionString 에 접근하는 역할을 담당하는 것이지.
         // 이외 추가적으로 Singleton 으로 운영되는 메모리 저장소가 있으면 좋겟다.
 
         public EntityDTOController(ILogger<DTO> logger, IEntityManager<Model> entityManager,
+                                        IEntityDataRepository<Model> entityDataRepository,
                                         IConfiguration configuration)
         {
             _logger = logger;
             _entityManager = entityManager;
             _configuration = configuration;
+            _entiyDataRepository = entityDataRepository;
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<DTO>> GetById(string id)
@@ -37,6 +41,23 @@ namespace BusienssLogic.ofController.ofGeneric
             _logger.LogInformation(nameof(model));
             var dto = ModelToDTO<Model, DTO>.ConvertToDTO(model, new DTO());
             return dto;
+        }
+        // 사전에 분류가 되어 있으면 좋겠다.
+        // prop 의 Attribute를 보고 어떻게 Get를 할지에 대해.
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<DTO>>> GetByDTO(DTO dto)
+        {
+            _logger.LogInformation(nameof(EntiyDTOController<DTO>.GetByDTO));
+            List<DTO> dtos = new();
+            var distributed = dto.GetByQueryAttribute().DistributedByQueryCode();
+            if(distributed[QueryCode.Key].Count > 0)
+            {
+                var keyProp = distributed[QueryCode.Key].FirstOrDefault();
+                var model = _entiyDataRepository.GetByIdAsync((string)keyProp.GetValue(dto));
+                if(model == null) {throw new ArgumentException("Model Is Null");}
+                var dto = model.ConvertToDTO();
+                return dto.Add(dto);
+            }
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DTO>>> GetAlls()
