@@ -138,18 +138,6 @@ namespace BusinessData
             return T;
         }
     }
-    public class OrdererView
-    {
-        public List<string> Views { get; set; }
-        public OrdererView(List<string> NameofViews)
-        {
-            foreach (var item in NameofViews)
-            {
-                Views.Add(item);
-            }
-        }
-    }
-    
     public abstract class Entity : IComparable<Entity>, IComparable, IEquatable<Entity>, IComparer
     {
         [Key] public string Id { get; set; }

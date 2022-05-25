@@ -18,14 +18,6 @@ namespace BusinessLogic.ofManager.ofGeneric
         void SetMangaerType(Type t);
     }
     // 값이 입력되면 형변환이 이루어지도록 하는 게 맞지.
-    public interface IRescopeEntityManager
-    {
-        Task<Entity> CreateAsync(IdentityUser IdentityUser, Entity entity);
-        Task<Entity> UpdateAsync(IdentityUser IdentityUser, Entity entity);
-        Task<List<Entity>> GetToListAsync();
-        Task DeleteByIdAsync(string Id);
-        Type GetManagerType();
-    }
     public interface IEntityManager<TEntity> where TEntity : Entity
     {
         Task<TEntity> CreateWithBlobContainer(TEntity entity, string connectionString);
@@ -47,6 +39,13 @@ namespace BusinessLogic.ofManager.ofGeneric
         object[, ] GetExcelDatas(string fileconnectionstring);
         Task EntitiesToDb(List<TEntity> entities);
         Task EntitiesToDbAttach(List<TEntity> entities);
+    }
+    public interface IEntityDTOManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity
+    {
+        Task<EntityDTO> CreateAsync(EntityDTO entityDTO);
+        Task<EntityDTO> UpdateAsync(EntityDTO entityDTO);
+        Task<IEnumerable<EntityDTO>> GetToListAsync(EntityDTO entityDTO);
+        Task DeleteAsync(EntityDTO entityDTO);
     }
 
     // 데이터 적합성 검사의 경우는 ApplicationLayer 단에서 해결해야될 문제야.
@@ -83,7 +82,7 @@ namespace BusinessLogic.ofManager.ofGeneric
 
         // }
     }
-    public class EntityManager<TEntity> : IEntityManager<TEntity> where TEntity : Entity, new()
+    public class EntityManager<TEntity> : IEntityDTOManager<TEntity> where TEntity : Entity, new()
     {
         public readonly IEntityDataRepository<TEntity> _EntityDataRepository;
         protected readonly IEntityIdFactory<TEntity> _EntityIdFactory;
@@ -103,6 +102,38 @@ namespace BusinessLogic.ofManager.ofGeneric
             _EntityDataRepository = EntityDataRepository;
             _EntityFileFactory = entityFileFactory;
             _DicConvertFactory = DicConvertFactory;
+        }
+        public virtual async Task<EntityDTO> CreateAsync(EntityDTO entityDTO)
+        {
+            
+        }
+        public virtual async Task<EntityDTO> UpdateAsync(EntityDTO entityDTO)
+        {
+
+        }
+        public virtual async Task<IEnumerable<EntityDTO>> GetToListAsync(EntityDTO entityDTO)
+        {
+            List<EntityDTO> entityDTOs = new();
+            var distributed = entityDTO.GetByQueryAttribute().DistributedByQueryCode();
+            var keyProps = dictionary[QueryCode.Key];
+            var StringProps = dictionary[QueryCode.QueryString];
+            var IntProps = dictionary[QueryCode.QueryInt];
+            
+            if(keyProps.Count > 0)
+            {
+                var keyProp = distributed[QueryCode.Key].FirstOrDefault();
+                var model = _entiyDataRepository.GetByIdAsync((string)keyProp.GetValue(dto));
+                if(model == null) {throw new ArgumentException("Model Is Null");}
+                var dto = model.ConvertToDTO();
+                return dtos.Add(dto);
+            }
+            
+            
+            return entityDTOs;
+        }
+        public virtual async Task DeleteAsync(EntityDTO entityDTO)
+        {
+
         }
         public virtual async Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target)
         {

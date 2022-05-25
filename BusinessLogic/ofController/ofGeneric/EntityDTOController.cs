@@ -11,7 +11,7 @@ namespace BusienssLogic.ofController.ofGeneric
     public class EntiyDTOController<DTO, Model> : ControllerBase where DTO : EntityDTO where Model : Entity
     {
         protected readonly ILogger<DTO> _logger;
-        protected readonly IEntityManager<Model> _entityManager;
+        protected readonly IEntityDTOManager<Model> _entityManager;
         protected readonly IEntityDataRepository<Model> _entiyDataRepository;
         protected readonly IConfiguration _configuration;
         // configurationa 이라는 친구는 AzureBlbobStorage ConnectionString 에 접근하는 역할을 담당하는 것이지.
@@ -47,17 +47,25 @@ namespace BusienssLogic.ofController.ofGeneric
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DTO>>> GetByDTO(DTO dto)
         {
+            // EntityManager 가 Get 부분에 있어 EntityDataRepository 만큼 할 일이 별로 없어서
+            // EntityManager 내부에서 상기 코드가 처리되는 게 있었으면 한다.
             _logger.LogInformation(nameof(EntiyDTOController<DTO>.GetByDTO));
-            List<DTO> dtos = new();
-            var distributed = dto.GetByQueryAttribute().DistributedByQueryCode();
-            if(distributed[QueryCode.Key].Count > 0)
+            var dtos = await _entityManager.GetToListAsync(dto);
+            if(dtos.Count == 0)
             {
-                var keyProp = distributed[QueryCode.Key].FirstOrDefault();
-                var model = _entiyDataRepository.GetByIdAsync((string)keyProp.GetValue(dto));
-                if(model == null) {throw new ArgumentException("Model Is Null");}
-                var dto = model.ConvertToDTO();
-                return dto.Add(dto);
+                return new List<DTO>();
             }
+            returna dtos;
+            // List<DTO> dtos = new();
+            // var distributed = dto.GetByQueryAttribute().DistributedByQueryCode();
+            // if(distributed[QueryCode.Key].Count > 0)
+            // {
+            //     var keyProp = distributed[QueryCode.Key].FirstOrDefault();
+            //     var model = _entiyDataRepository.GetByIdAsync((string)keyProp.GetValue(dto));
+            //     if(model == null) {throw new ArgumentException("Model Is Null");}
+            //     var dto = model.ConvertToDTO();
+            //     return dtos.Add(dto);
+            // }
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DTO>>> GetAlls()

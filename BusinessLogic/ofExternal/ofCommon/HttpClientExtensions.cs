@@ -26,9 +26,9 @@ namespace BusinessLogic.ofExternal.ofCommon
 
         //     return await client.GetAsync(url);
         // }
+    public enum QueryCode {Key, ForeignKey, QueryString, QueryInt}
     public static class EntityDTOExtensions
     {
-        public enum QueryCode {Key, ForeignKey, QueryString, QueryInt}
         // 이런 걸 책임연쇄 패턴이라고 하는 거구나....
         public static List<PropertyInfo> GetByQueryAttribute(this EntityDTO entityDTO)
         {
