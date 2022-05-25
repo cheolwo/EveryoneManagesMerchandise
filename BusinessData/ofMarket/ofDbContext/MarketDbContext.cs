@@ -9,10 +9,20 @@ namespace BusinessData.ofMarket.ofDbContext
 {
     public class MarketDbContext : DbContext
     {
+        private string _connectionstring;
         public MarketDbContext(DbContextOptions<MarketDbContext> options)
             : base(options)
         {
 
+        }
+        public MarketDbContext(string connectionstring)
+        {
+            _connectionstring = connectionstring;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.MarketDbConnection; }
+            optionsBuilder.UseSqlServer(_connectionstring);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +42,7 @@ namespace BusinessData.ofMarket.ofDbContext
             builder.Property(c => c.Options).HasConversion(
                  v => JsonConvert.SerializeObject(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }),
                  v => JsonConvert.DeserializeObject<List<Option>>(v, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+            builder.ToTable("MCommodity"); 
         }
     }
     public class MarketConfiguration : CenterConfiguration<Market>
@@ -39,6 +50,7 @@ namespace BusinessData.ofMarket.ofDbContext
         public override void Configure(EntityTypeBuilder<Market> builder)
         {
             base.Configure(builder);
+            builder.ToTable("Market");
         }
     }
     public class SMCommodityConfiguration : StatusConfiguration<SMCommodity>
@@ -46,6 +58,7 @@ namespace BusinessData.ofMarket.ofDbContext
         public override void Configure(EntityTypeBuilder<SMCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("SPCommodity");
         }
     }
     public class MMCommodityConfiguration : StatusConfiguration<MMCommodity>
@@ -53,6 +66,7 @@ namespace BusinessData.ofMarket.ofDbContext
         public override void Configure(EntityTypeBuilder<MMCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("MMCommodity");
         }
     }
     public class EMCommodityConfiguration : StatusConfiguration<EMCommodity>
@@ -60,6 +74,7 @@ namespace BusinessData.ofMarket.ofDbContext
         public override void Configure(EntityTypeBuilder<EMCommodity> builder)
         {
             base.Configure(builder);
+            builder.ToTable("EMCommodity");
         }
     }
 }

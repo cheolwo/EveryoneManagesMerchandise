@@ -128,26 +128,23 @@ namespace BusinessData.ofFinancial.Model
         public string HeadOfficeBunge {get; set;}
         public string HeadOfficeNumber {get; set;}
         public string HeadOfficeFax {get; set;}
-        
-        public JournalCenterOption JournalCenterOption {get; set;} // Json String 으로 저장한다.
-        public List<string> BusinessCode {get; set;} // BusinessCode, 이게 있어야 플랫폼 WebAPI를 이용가능하다.
-        public List<string> BranchCenterId {get; set;}
-        public List<AccountInfo> AccountInfos {get; set;}
+       
+        //public List<AccountInfo> AccountInfos {get; set;}
         public List<JCommodity> JCommodities { get; set; }
-        public List<UserSettingJournal> UserSettingJournals { get; set; }
-        public List<Vendor> Vendors {get; set;}
-        public List<Client> Clients {get; set;}
+        //public List<UserSettingJournal> UserSettingJournals { get; set; }
+        //public List<Vendor> Vendors {get; set;}
+        //public List<Client> Clients {get; set;}
         public JournalCenter()
         {
             JCommodities = new();
-            UserSettingJournals = new();
+            //UserSettingJournals = new();
         }
     }
     
     [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
     public class JCommodity : Commodity
     {
-        public string OCommodityNo { get; set; }
+        public string CommodityNo { get; set; }
         public List<Journal> Journals { get; set; }
         public JournalCenter JournalCenter { get; set; }
         public JCommodity()
@@ -170,15 +167,43 @@ namespace BusinessData.ofFinancial.Model
             JCommodity = new();
         }
     }
-    public class Debit
+    public class Debit : IComparer<Debit>
     {
+        int Id { get; set; }
         public SubjectofAccounting SubjectofAccounting {get; set;}
         public double Money {get; set;}
+
+        public int Compare(Debit x, Debit y)
+        {
+            if (x.Id > y.Id)
+            {
+                return 1;
+            }
+            if (x.Id < y.Id)
+            {
+                return -1;
+            }
+            return 0;
+        }
     }
-    public class Credit
+    public class Credit  : IComparer<Credit>
     {
+        int Id { get; set; }
         public SubjectofAccounting SubjectofAccounting {get; set;}
         public double Money {get; set;}
+
+        public int Compare(Credit x, Credit y)
+        {
+            if (x.Id > y.Id)
+            {
+                return 1;
+            }
+            if (x.Id < y.Id)
+            {
+                return -1;
+            }
+            return 0;
+        }
     }
     
     public enum SubjectofAccounting

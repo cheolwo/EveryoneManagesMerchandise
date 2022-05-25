@@ -23,4 +23,8 @@ namespace BusinessData.ofHumanResource.ofInterface.ofEmployer
     {
 
     }
+    public interface IEmployerHRBusinessPartRepository : IHRBusinessPartRepository
+    {
+
+    }
 }

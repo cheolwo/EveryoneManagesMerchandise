@@ -24,7 +24,7 @@ namespace BusinessData.ofGroupOrder.ofDbContext
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if(_connectionstring is null) { _connectionstring = DbConnectionString.GroupOrderDbConnection; }
+            if(_connectionstring is null) { _connectionstring = DevelopmentDbConnetionString.GroupOrderDbConnection; }
             optionsBuilder.UseSqlServer(_connectionstring);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

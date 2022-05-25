@@ -65,4 +65,17 @@ namespace BusinessLogic.ofManager.ofHumanResouce
 
         }
     }
+    public interface IHRBusinessPartManager : IEntityManager<HRBusinessPart>
+    {
+
+    }
+    public class HRBusinessPartManager : EntityManager<HRBusinessPart>, IEmployerHRBusinessPartManager, IEmployeeHRBusinessPartManager, IPlatformHRBusinessPartManager, IHRBusinessPartManager
+    {
+        public HRBusinessPartManager(IHRBusinessPartRepository HRBusinessPartRepository, IHRBusinessPartIdFactory HRBusinessPartIdFactory, IHRBusinessPartFileFactory HRBusinessPartFileFactory,
+        IHRBusinessPartBlobStorage entityBlobStorage, DicConvertFactory<HRBusinessPart> dicConvertFactory)
+            : base(HRBusinessPartRepository, HRBusinessPartIdFactory, HRBusinessPartFileFactory, entityBlobStorage, dicConvertFactory)
+        {
+
+        }
+    }
 }

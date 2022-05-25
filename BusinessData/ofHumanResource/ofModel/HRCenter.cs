@@ -50,7 +50,6 @@ namespace BusinessData.ofHumanResource.ofRepository
     public class HRBusinessPart : Entity
     {
         public string PartName {get; set;}
-        public List<PossibleAPIInfo> PossibleAPIInfos {get; set;}
         public HRCenter HRCenter {get; set;}
        
     }
@@ -79,7 +78,6 @@ namespace BusinessData.ofHumanResource.ofRepository
     public class HRRole : Entity, IRelatedCenter, IRelatedRoles, IComparable
     {
         [Get]public string DetailName {get; set;}
-        public List<PossibleAPIInfo> PossibleAPIInfos {get; set;}
         [One(ViewNameofHRCenter.HRCenter)]public HRCenter HRCenter {get; set;}
         public HRRole()
         {
@@ -99,7 +97,6 @@ namespace BusinessData.ofHumanResource.ofRepository
         public HRRole HRRole {get; set;}
         public HRBusinessPart HRBusinessPart {get; set;}
         public HREmployee HREmployee {get; set;}
-        public List<PossibleAPIInfo> PossibleAPIInfos {get; set;}
         [One(ViewNameofHRCenter.HRCenter)]public HRCenter HRCenter {get; set;}
         public EmployeeRole()
         {

@@ -50,4 +50,15 @@ namespace BusinessData.ofHRCenter.ofRepository
         {
         }
     }
+    public interface IHRBusinessPartRepository : IEntityDataRepository<HRBusinessPart>
+    {
+    }
+
+    public class HRBusinessPartRepository : EntityDataRepository<HRBusinessPart>, IHRBusinessPartRepository, IEmployeeHRBusinessPartRepository, IEmployerHRBusinessPartRepository, IPlatformHRBusinessPartRepository
+    {
+        public HRBusinessPartRepository(HRDbContext HRDbContext)
+            :base(HRDbContext)
+        {
+        }
+    }
 }

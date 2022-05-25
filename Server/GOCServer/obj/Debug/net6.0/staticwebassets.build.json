@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "14I90vMK9MvAqgKKC8V4OvYbkvReO93twhVb0weqQto=",
+  "Source": "GOCServer",
+  "BasePath": "_content/GOCServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

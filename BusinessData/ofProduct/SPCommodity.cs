@@ -15,7 +15,6 @@ namespace BusinessData.ofProduct
         public string Unit {get; set;}
         public float AnticipatingQuantity {get; set;}
         public bool IsTablable {get; set;}
-        public List<string> OrderGroups {get; set;}
         public PCommodity PCommodity { get; set; }
         public ProductLand ProductLand {get; set;}
         public Producter Producter { get; set;}

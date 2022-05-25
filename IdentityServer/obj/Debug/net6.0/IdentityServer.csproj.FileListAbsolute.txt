@@ -315,3 +315,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Iden
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\obj\Debug\net6.0\IdentityServer.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\obj\Debug\net6.0\IdentityServer.genruntimeconfig.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\obj\Debug\net6.0\ref\IdentityServer.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\NMemory.dll

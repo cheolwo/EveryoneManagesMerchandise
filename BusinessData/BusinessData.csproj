@@ -85,6 +85,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\IotDb\" />
+    <Folder Include="Migrations\JournalDb\" />
+    <Folder Include="Migrations\TradeDb\" />
     <Folder Include="ofCommon\ofFactory\" />
     <Folder Include="ofGeneric\ofStorage\" />
     <Folder Include="ofJournal\Migrations\" />

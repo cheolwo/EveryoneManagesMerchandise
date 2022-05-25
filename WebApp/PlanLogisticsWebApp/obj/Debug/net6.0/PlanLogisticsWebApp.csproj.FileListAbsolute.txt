@@ -610,3 +610,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebA
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsWebApp\bin\Debug\net6.0\Quartz.AspNetCore.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsWebApp\bin\Debug\net6.0\Quartz.Extensions.DependencyInjection.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsWebApp\bin\Debug\net6.0\Quartz.Extensions.Hosting.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsWebApp\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\PlanLogisticsWebApp\bin\Debug\net6.0\NMemory.dll
