@@ -1,0 +1,4 @@
+namespace BusinessLogic.ofController.ofCommon
+{
+    
+}

@@ -32,8 +32,8 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployee
         [Get][Many(typeof(List<SStatus>))] public string? SStatuses { get; set; }
         [Detail][Generic(typeof(List<CenterCard>))] public string? CenterCards { get; set; }
         [Detail][Generic(typeof(List<CenterMacAddress>))] public string? CenterMacAddresses { get; set; }
-        [Detail] [Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
-        [Detail] [Generic(typeof(List<CenterRole>))]public string? CenterRoles {get; set;}
+        [Detail][Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
+        [Detail][Generic(typeof(List<CenterRole>))]public string? CenterRoles {get; set;}
     }
     public class EmployeeCommodity : EmployeeEntity
     {
