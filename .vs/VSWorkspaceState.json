@@ -1,13 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BusinessRazor\\Components",
-    "\\BusinessRazor\\Components\\ofWarehouser",
-    "\\BusinessRazor\\wwwroot",
-    "\\Server\\GOCServer",
     "\\WebApp",
     "\\WebApp\\PlanLogisticsWebApp"
   ],
-  "SelectedNode": "\\WebApp\\PlanLogisticsWebApp\\PlanLogisticsWebApp.csproj",
+  "SelectedNode": "\\EveryoneManagesMerchandise.sln",
   "PreviewInSolutionExplorer": false
 }
