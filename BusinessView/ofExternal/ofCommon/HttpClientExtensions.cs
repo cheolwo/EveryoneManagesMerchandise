@@ -1,13 +1,9 @@
-using System.Collections;
 using System.Reflection;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Text;
 using BusinessView.ofDTO.ofCommon;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BusienssLogic.ofController.ofCommon;
 
 namespace BusinessView.ofExternal.ofCommon
 {
@@ -34,6 +30,33 @@ namespace BusinessView.ofExternal.ofCommon
             {
                 var QueryAttribute = prop.GetCustomAttribute<QueryAttribute>();
                 if(QueryAttribute != null && prop.GetValue(entityDTO) != null)
+                {
+                    propIncludedQueryAttribute.Add(prop);
+                }
+            }
+            return propIncludedQueryAttribute;
+        }
+        public static List<PropertyInfo> GetByQueryAttribute<DTO>(this EntityQuery<DTO> entityQuery) where DTO : EntityDTO, new()
+        {
+            var props = typeof(EntityQuery<DTO>).GetProperties();
+            List<PropertyInfo> propIncludedQueryAttribute = new();
+            foreach (var prop in props)
+            {
+                if(prop.PropertyType == typeof(EntityDTO))
+                {
+                    var dto = (DTO?)prop.GetValue(entityQuery);
+                    if(dto != null) 
+                    {
+                        var propertyInfos = dto.GetByQueryAttribute(); 
+                        foreach(var dtoprop in propertyInfos)
+                        {
+                            propIncludedQueryAttribute.Add(dtoprop);
+                        }
+                    }
+                    continue;
+                }
+                var QueryAttribute = prop.GetCustomAttribute<QueryAttribute>();
+                if (QueryAttribute != null && prop.GetValue(entityQuery) != null)
                 {
                     propIncludedQueryAttribute.Add(prop);
                 }

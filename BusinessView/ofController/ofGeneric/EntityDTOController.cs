@@ -1,11 +1,10 @@
+using BusienssLogic.ofController.ofCommon;
 using BusinessData;
-using BusinessLogic.ofManager.ofGeneric;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
 namespace BusienssView.ofController.ofGeneric
 {
     // 여기 친구는 Rouing 을 할 정도가 아니야
@@ -21,7 +20,7 @@ namespace BusienssView.ofController.ofGeneric
     }
     
     [ApiController]
-    public class EntiyDTOController<DTO, Model> : ControllerBase, IEntityDTOController where DTO : EntityDTO, new() where Model : Entity, new()
+    public class EntiyDTOController<DTO, Model> : ControllerBase, IEntityDTOController<DTO> where DTO : EntityDTO, new() where Model : Entity, new()
     {
         protected readonly ILogger<DTO> _logger;
         protected readonly IEntityDTOManager<DTO, Model> _entityManager;

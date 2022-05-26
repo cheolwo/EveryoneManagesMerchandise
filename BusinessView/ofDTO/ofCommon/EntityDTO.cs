@@ -46,4 +46,16 @@ namespace BusinessView.ofDTO.ofCommon
             throw new NotImplementedException();
         }
     }
+    public class CenterDTO : EntityDTO
+    {
+
+    }
+    public class CommodityDTO : EntityDTO
+    {
+
+    }
+    public class StatusDTO : EntityDTO
+    {
+
+    }
 }
