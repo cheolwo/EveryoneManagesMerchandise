@@ -29,13 +29,11 @@ namespace BusienssView.ofController.ofGeneric
         // 이외 추가적으로 Singleton 으로 운영되는 메모리 저장소가 있으면 좋겟다.
 
         public EntiyDTOController(ILogger<DTO> logger, IEntityDTOManager<DTO, Model> entityManager,
-                                        IEntityDataRepository<Model> entityDataRepository,
                                         IConfiguration configuration)
         {
             _logger = logger;
             _entityManager = entityManager;
             _configuration = configuration;
-            _entiyDataRepository = entityDataRepository;
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<DTO>> GetById(string id)
@@ -61,7 +59,7 @@ namespace BusienssView.ofController.ofGeneric
             // EntityManager 가 Get 부분에 있어 EntityDataRepository 만큼 할 일이 별로 없어서
             // EntityManager 내부에서 상기 코드가 처리되는 게 있었으면 한다.
             _logger.LogInformation(nameof(EntiyDTOController<DTO, Model>.GetByDTO));
-            List<DTO> dtos = await _entityManager.GetToListAsync(QueryDic);
+            List<DTO> dtos = await _entityManager.GetToListAsync(query);
             if(dtos.Count > 0)
             {
                 return new List<DTO>();
@@ -106,7 +104,6 @@ namespace BusienssView.ofController.ofGeneric
                 return newModel;
             }
             throw new ArgumentException("Post Failed");
-            _logger.LogInformation(nameof(newModel));
         }
         [HttpPut]
         public async Task<ActionResult<DTO>> Put([FromBody]DTO dto)

@@ -41,12 +41,14 @@ namespace BusinessView.ofGeneric
             return queryModels;
         }
 
-        public Task<List<TDTO>> QueryMatching(QueryCode queryCode, PropertyInfo propertyInfo, TDTO dto)
+        public async Task<List<TDTO>> QueryMatching(QueryCode queryCode, PropertyInfo propertyInfo, TDTO dto)
         {
+            List<TDTO> tDTOs = new();
             var method = typeof(EntityDataRepository<TModel>).GetMethod(propertyInfo.Name);
             // 매칭하는데 이름이 필요하네.
-            method.Invoke(this, (string)propertyInfo.GetValue(dto));
-           // method.Invoke((string)propertyInfo.GetValue(dto));
+            //method.Invoke(this, (string)propertyInfo.GetValue(dto));
+            // method.Invoke((string)propertyInfo.GetValue(dto));
+            return tDTOs;
         }
     }
 }
