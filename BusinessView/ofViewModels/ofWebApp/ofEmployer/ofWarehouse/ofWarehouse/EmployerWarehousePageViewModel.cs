@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
 {
     public class EmployerWarehousePageViewModel : EmployerCenterPageViewModel<EmployerWarehouse> 

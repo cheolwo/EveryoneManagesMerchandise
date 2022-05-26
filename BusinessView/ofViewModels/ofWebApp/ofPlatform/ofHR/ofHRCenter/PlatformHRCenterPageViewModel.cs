@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRCenter
 {
     public class PlatformHRCenterPageViewModel : CenterPageViewModel<PlatformHRCenter> 

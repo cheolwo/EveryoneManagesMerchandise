@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofExternal.ofSearchingService;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOC
 {
     public class EmployeeGOCPageViewModel : CenterPageViewModel<EmployeeGOC> 

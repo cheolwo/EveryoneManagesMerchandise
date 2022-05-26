@@ -1,7 +1,8 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofPlatform;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofExternal.ofSearchingService;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProducter
 {
     public class PlatformProducterPageViewModel : CenterPageViewModel<PlatformProducter> 

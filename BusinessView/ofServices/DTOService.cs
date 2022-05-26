@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessView.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
@@ -109,13 +105,17 @@ namespace BusinessView.ofCommon.ofServices
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}");
         }
-        public virtual async Task<IEnumrable<T>> GetsAsync<T>(T t) where T : new()
+        public virtual async Task<IEnumerable<T>> GetsAsync<T>(T t) where T : new()
         {
             var entityJson = new StringContent(
                             JsonSerializer.Serialize(t),
                             Encoding.UTF8,
                             Application.Json); // using static System.Net.Mime.MediaTypeNames;
-            return await _httpClient.GetFromJsonAsync<IEnumerable<T>?>($"/api/{typeof(T).Name}", entityJson);
+            using var httpResponseMessage = await _httpClient.PostAsync($"/api/{typeof(T).Name}/Alls", entityJson);
+            httpResponseMessage.EnsureSuccessStatusCode();
+            string jsonDto = await httpResponseMessage.Content.ReadAsStringAsync();
+            List<T>? dto = JsonSerializer.Deserialize<List<T>>(jsonDto);
+            return dto;
         }
         public virtual async Task<IEnumerable<T>?> GetsAsyncByUserId<T>(string userid) where T : new()
         {

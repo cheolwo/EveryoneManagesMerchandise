@@ -1,6 +1,7 @@
 using BusinessData;
 using BusinessView.ofCommon.ofInterface;
 using Microsoft.AspNetCore.Components.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusinessView.ofDTO.ofCommon
 {

@@ -2,8 +2,8 @@
 using BusinessData;
 using BusinessData.ofMarket.ofModel;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
-using BusinessData.ofMarket;
 using NMemory.Data;
+using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofDTO.ofMarket.ofEmployee
 {

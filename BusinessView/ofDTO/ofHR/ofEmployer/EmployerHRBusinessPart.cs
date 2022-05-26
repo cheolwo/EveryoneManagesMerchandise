@@ -3,6 +3,7 @@ using BusinessView.ofDTO.ofCommon.ofEmployer;
 using BusinessData.ofHR;
 using BusinessData;
 using BusinessData.ofHumanResource.ofRepository;
+using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofDTO.ofHR.ofEmployer
 {

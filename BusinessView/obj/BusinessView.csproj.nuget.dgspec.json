@@ -269,6 +269,10 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "NMemory": {
               "target": "Package",
               "version": "[3.1.4, )"

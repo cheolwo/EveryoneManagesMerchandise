@@ -2,6 +2,7 @@
 using BusinessView.ofDTO.ofCommon.ofEmployee;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
+using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofTrade.ofEmployee
 {
     [AutoMap(typeof(STCommodity))]

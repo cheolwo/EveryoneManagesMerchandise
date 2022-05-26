@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 
 namespace BusinessView.ofTrade.ofPlatform

@@ -2,8 +2,6 @@
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {

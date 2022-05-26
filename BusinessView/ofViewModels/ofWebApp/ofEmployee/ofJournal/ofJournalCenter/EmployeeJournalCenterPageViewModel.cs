@@ -1,4 +1,4 @@
-﻿using BusinessLogic.ofExternal.ofSearchingService;
+﻿using BusinessView.ofExternal.ofSearchingService;
 using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;

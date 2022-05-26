@@ -1,5 +1,5 @@
 ﻿using BusinessData;
-using BusinessLogic.ofExternal.ofSearchingService;
+using BusinessView.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployer
 {

@@ -2,7 +2,7 @@
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofTrade.ofPlatform
 {
     [AutoMap(typeof(TCommodity))]
