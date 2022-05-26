@@ -22,7 +22,7 @@ namespace BusinessView.ofExternal.ofCommon
 
         //     return await client.GetAsync(url);
         // }
-    public enum QueryCode {Key, ForeignKey, QueryString, QueryInt}
+    public enum QueryCode {Key, ForeignKey, Time, QueryString, QueryInt}
     public static class EntityDTOExtensions
     {
         // 이런 걸 책임연쇄 패턴이라고 하는 거구나....
@@ -47,6 +47,7 @@ namespace BusinessView.ofExternal.ofCommon
             List<PropertyInfo> ForeignProps = new();
             List<PropertyInfo> StringProps = new();
             List<PropertyInfo> IntProps = new();
+            List<PropertyInfo> TimeProps = new();
             
             dictionary.Add(QueryCode.Key, KeyProps);
             dictionary.Add(QueryCode.ForeignKey, ForeignProps);
@@ -66,9 +67,14 @@ namespace BusinessView.ofExternal.ofCommon
                 
                 if(foreignKey != null) 
                 {
-                   ForeignProps = dictionary[QueryCode.ForeignKey];
+                    ForeignProps = dictionary[QueryCode.ForeignKey];
                     KeyProps.Add(prop);
                     continue;
+                }
+                if(prop.PropertyType == typeof(DateTime))
+                {
+                    TimeProps = dictionary[QueryCode.Time];
+                    TimeProps.Add(prop);
                 }
                 if(prop.PropertyType == typeof(string))
                 {

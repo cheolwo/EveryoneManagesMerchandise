@@ -10,16 +10,21 @@ namespace BusienssView.ofController.ofGeneric
 {
     // 여기 친구는 Rouing 을 할 정도가 아니야
     // Rouing은 구체적인 이름이 붙어야 돼.
-    public interface IEntityDTOController
+    public interface IEntityDTOController<DTO> where DTO : EntityDTO, new()
     {
-        
+        Task<ActionResult<DTO>> GetById(string id);
+        Task<ActionResult<IEnumerable<DTO>>> GetByDTO([FromBody]EntityQuery<DTO> query);
+        Task<ActionResult<IEnumerable<DTO>>> GetAlls();
+        Task<ActionResult<DTO>> Post([FromBody]DTO dto);
+        Task<ActionResult<DTO>> Put([FromBody]DTO dto);
+        Task Delete(string id);
     }
+    
     [ApiController]
-    public class EntiyDTOController<DTO, Model> : ControllerBase where DTO : EntityDTO, new() where Model : Entity, new()
+    public class EntiyDTOController<DTO, Model> : ControllerBase, IEntityDTOController where DTO : EntityDTO, new() where Model : Entity, new()
     {
         protected readonly ILogger<DTO> _logger;
         protected readonly IEntityDTOManager<DTO, Model> _entityManager;
-        protected readonly IEntityDataRepository<Model> _entiyDataRepository;
         protected readonly IConfiguration _configuration;
         // configurationa 이라는 친구는 AzureBlbobStorage ConnectionString 에 접근하는 역할을 담당하는 것이지.
         // 이외 추가적으로 Singleton 으로 운영되는 메모리 저장소가 있으면 좋겟다.
@@ -51,13 +56,13 @@ namespace BusienssView.ofController.ofGeneric
         }
         // 사전에 분류가 되어 있으면 좋겠다.
         // prop 의 Attribute를 보고 어떻게 Get를 할지에 대해.
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<DTO>>> GetByDTO(DTO dto)
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<DTO>>> GetByDTO([FromBody]EntityQuery<DTO> query)
         {
             // EntityManager 가 Get 부분에 있어 EntityDataRepository 만큼 할 일이 별로 없어서
             // EntityManager 내부에서 상기 코드가 처리되는 게 있었으면 한다.
             _logger.LogInformation(nameof(EntiyDTOController<DTO, Model>.GetByDTO));
-            List<DTO> dtos = await _entityManager.GetToListAsync(dto);
+            List<DTO> dtos = await _entityManager.GetToListAsync(QueryDic);
             if(dtos.Count > 0)
             {
                 return new List<DTO>();
