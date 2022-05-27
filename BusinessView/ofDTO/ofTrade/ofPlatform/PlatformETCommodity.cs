@@ -3,13 +3,12 @@ using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofDTO.ofCommon.ofTrade;
 namespace BusinessView.ofTrade.ofPlatform
 {
     [AutoMap(typeof(ETCommodity))]
-    public class PlatformETCommodity : PlatformEStatus
+    public class PlatformETCommodity : ETCommodityDTO
     {
-        [Query][Get]public string? MTCommodityId {get; set;}
-        [Query][Get]public string? SWCommodityId {get; set;}
-        [Detail][One(typeof(TCommodity))]public string? TCommodity { get; set; }
+        
     }
 }

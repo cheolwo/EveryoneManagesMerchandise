@@ -6,7 +6,7 @@ using BusinessView.ofDTO.ofCommon.ofPlatform;
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     [AutoMap(typeof(DotBarcode))]
-    public class PlatformDotBarcode : PlatformEntity
+    public class PlatformDotBarcode : DotBarcodeDTO
     {
 
     }

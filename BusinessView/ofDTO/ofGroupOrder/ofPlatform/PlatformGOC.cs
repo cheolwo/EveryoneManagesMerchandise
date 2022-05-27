@@ -12,9 +12,7 @@ using BusinessData;
 namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
 {
     [AutoMap(typeof(GOC))]
-    public class PlatformGOC : PlatformCenter
+    public class PlatformGOC : GOCCDTO
     {
-        public string? OrderCenters { get; set; }
-        public string? WarehouseId { get; set; }
     }
 }

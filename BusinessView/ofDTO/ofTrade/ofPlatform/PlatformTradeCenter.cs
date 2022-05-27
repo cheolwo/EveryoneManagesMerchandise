@@ -2,12 +2,12 @@
 using BusinessData;
 using BusinessData.ofTrade.ofModel;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
-
+using BusinessView.ofDTO.ofCommon.ofTrade;
 namespace BusinessView.ofTrade.ofPlatform
 {
     [AutoMap(typeof(TradeCenter))]
-    public class PlatformTradeCenter : PlatformCenter
+    public class PlatformTradeCenter : TradeCenterDTO
     {
-        [Detail][Many(typeof(List<TCommodity>))]public string? TCommodities {get; set;}
+       
     }
 }

@@ -4,14 +4,12 @@ using BusinessData.ofHR;
 using BusinessData;
 using BusinessData.ofHumanResource.ofRepository;
 using BusinessView.ofDTO.ofCommon;
-
+using BusinessView.ofDTO.ofHR;
 namespace BusinessView.ofDTO.ofHR.ofEmployer
 {
     [AutoMap(typeof(HRBusinessPart))]
-    public class EmployerHRBusinessPart : EmployerEntity
+    public class EmployerHRBusinessPart : HRBusinessPartDTO
     {
-        [Query][Get]public string? PartName {get; set;}
-        [Query][Get]public string? PossibleAPIInfos {get; set;}
-        [Get][One(typeof(HRCenter))]public string? HRCenter {get; set;}
+        
     }
 }

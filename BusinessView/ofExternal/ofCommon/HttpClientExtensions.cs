@@ -18,7 +18,7 @@ namespace BusinessView.ofExternal.ofCommon
 
         //     return await client.GetAsync(url);
         // }
-    public enum QueryCode {Key, ForeignKey, Time, QueryString, QueryInt}
+    public enum QueryCode {Key, ForeignKey, With, Time, String, Bool, Int}
     public static class EntityDTOExtensions
     {
         // 이런 걸 책임연쇄 패턴이라고 하는 거구나....

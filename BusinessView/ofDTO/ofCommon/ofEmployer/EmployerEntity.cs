@@ -3,58 +3,57 @@ using BusinessView.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon.ofEmployer
 {
-    public class EmployerEntity : EntityDTO
+    // 인터페이스로 확장하는 형태가 만들어지겠다.
+    public interface IEmployerEntity 
     {
     }
-    public class EmployerCenter : EmployerEntity
+    public interface IEmployerCenter : IEmployerEntity
     {
-        [Query][Get] public string? LoginId { get; set; }
-        [Query][Get] public string? Password { get; set; }
-        [Get] public int FailLogin {get; set;}
-        [Query][Get] [Origin(typeof(Juso))]public string? Address {get; set;}
-        [Query][Get] public string? CountryCode {get; set;}
-        [Query][Get] public string? PhoneNumber {get; set;}
-        [Query][Get] public string? FaxNumber {get; set;}
-        [Get][Many(typeof(List<Commodity>))] public string? Commodities { get; set; }
-        [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
-        [Get][Many(typeof(List<MStatus>))] public string? MStatuses { get; set; }
-        [Get][Many(typeof(List<SStatus>))] public string? SStatuses { get; set; }
-        [Detail][Generic(typeof(List<CenterCard>))] public string? CenterCards { get; set; }
-        [Detail][Generic(typeof(List<CenterMacAddress>))] public string? CenterMacAddresses { get; set; }
-        [Detail][Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
-        [Detail][Generic(typeof(List<CenterRole>))]public string? CenterRoles {get; set;}
+
     }
-    public class EmployerCommodity : EmployerEntity
+    public interface IEmployerCommodity : IEmployerEntity
     {
-        [Query]public string? HsCode {get; set;}
-        public string? OpponentBusinessUserId { get; set; }
-        [Query][Detail]public string? Barcode {get; set;}
-        [Query]public string? CenterId {get; set;}
-        [One(typeof(Center))][Get]public string? Center { get; set; }
-        [Many(typeof(List<EStatus>))][Get]public string? EStatuses { get; set; }
-        [Many(typeof(List<MStatus>))][Get]public string? MStatuses { get; set; }
-        [Many(typeof(List<SStatus>))][Get]public string? SStatuses { get; set; }
+
     }
-    public class EmployerStatus : EmployerEntity
+    public interface IEmployerStatus : IEmployerEntity
     {
-        [Query]public string? CommodityId {get; set;}
-        [Query]public string? CenterId {get; set;}
-        [Query]public string? Quantity { get; set; }
-        [Get][One(typeof(Commodity))] public string? Commodity { get; set; }
-        [Get][One(typeof(Center))] public string? Center {get; set;}
+
     }
-    public class EmployerSStatus : EmployerStatus
+    public interface IEmployerSStatus : IEmployerStatus
     {
-        [Get][Many(typeof(List<MStatus>))]public string? MStatuses { get; set; }
+
     }
-    public class EmployerMStatus : EmployerStatus
+    public interface IEmployerMStatus : IEmployerStatus
     {
-        [Get][One(typeof(SStatus))] public string? SStatus { get; set; }
-        [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
+
     }
-    public class EmployerEStatus : EmployerStatus
+    public interface IEmployerEStatus : IEmployerStatus
     {
-        public string? MStatusId {get; set;}
-        [Get][One(typeof(MStatus))] public string? MStatus { get; set; }
+
+    }
+    // EmployerCenter는 EmployerEntity 이면서 CenterDTO 라는 걸 표현하고 싶은데.
+    public class EmployerCenter : CenterDTO, IEmployerCenter
+    {
+      
+    }
+    public class EmployerCommodity : CommodityDTO, IEmployerCommodity
+    {
+
+    }
+    public class EmployerStatus : StatusDTO, IEmployerStatus
+    {
+      
+    }
+    public class EmployerSStatus : EmployerStatus, IEmployerSStatus
+    {
+       
+    }
+    public class EmployerMStatus : EmployerStatus, IEmployerMStatus
+    {
+        
+    }
+    public class EmployerEStatus : EmployerStatus, IEmployerEStatus
+    {
+       
     }
 }

@@ -7,10 +7,8 @@ using BusinessData.ofFinancial.Model;
 namespace BusinessView.ofDTO.ofJournal.ofPlatform
 {
     [AutoMap(typeof(JCommodity))]
-    public class PlatformJCommodity : PlatformCommodity
+    public class PlatformJCommodity : JCommodityDTO
     {
-        public string? OCommodityNo { get; set; }
-        public string? Journals { get; set; }
-        public string? JournalCenter { get; set; }
+       
     }
 }

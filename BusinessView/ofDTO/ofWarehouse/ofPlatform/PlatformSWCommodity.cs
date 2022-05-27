@@ -8,12 +8,8 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     [AutoMap(typeof(SWCommodity))]
-    public class PlatformSWCommodity : PlatformSStatus
+    public class PlatformSWCommodity : SWCommodityDTO
     {
-        [Query][Get] public int IncomingQuantity { get; set; }
-        [Query][Get] public string? IncomingTagId { get; set; }
-        [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }
-        [Detail][One(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodity { get; set; }
-        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+       
     }
 }

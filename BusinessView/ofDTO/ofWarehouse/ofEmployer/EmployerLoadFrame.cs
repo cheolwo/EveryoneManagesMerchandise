@@ -3,13 +3,12 @@ using BusinessData;
 using BusinessData.ofMarket.ofModel;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
-
+using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
 {
     [AutoMap(typeof(LoadFrame))]
-    public class EmployerLoadFrame : EmployerEntity
+    public class EmployerLoadFrame : LoadFrameDTO
     {
-        [Detail][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
-        [Detail][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
+       
     }
 }

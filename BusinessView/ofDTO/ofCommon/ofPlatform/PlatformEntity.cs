@@ -3,58 +3,57 @@ using BusinessView.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon.ofPlatform
 {
-    public class PlatformEntity : EntityDTO
+    // 인터페이스로 확장하는 형태가 만들어지겠다.
+    public interface IPlatformEntity 
     {
     }
-    public class PlatformCenter : PlatformEntity
+    public interface IPlatformCenter : IPlatformEntity
     {
-        [Query][Get] public string? LoginId { get; set; }
-        [Query][Get] public string? Password { get; set; }
-        [Get] public int FailLogin {get; set;}
-        [Query][Get] [Origin(typeof(Juso))]public string? Address {get; set;}
-        [Query][Get] public string? CountryCode {get; set;}
-        [Query][Get] public string? PhoneNumber {get; set;}
-        [Query][Get] public string? FaxNumber {get; set;}
-        [Get][Many(typeof(List<Commodity>))] public string? Commodities { get; set; }
-        [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
-        [Get][Many(typeof(List<MStatus>))] public string? MStatuses { get; set; }
-        [Get][Many(typeof(List<SStatus>))] public string? SStatuses { get; set; }
-        [Detail][Generic(typeof(List<CenterCard>))] public string? CenterCards { get; set; }
-        [Detail][Generic(typeof(List<CenterMacAddress>))] public string? CenterMacAddresses { get; set; }
-        [Detail][Generic(typeof(List<CenterIPAddress>))]public string? CenterIPAddresses { get; set; }
-        [Detail][Generic(typeof(List<CenterRole>))]public string? CenterRoles {get; set;}
+
     }
-    public class PlatformCommodity : PlatformEntity
+    public interface IPlatformCommodity : IPlatformEntity
     {
-        [Query]public string? HsCode {get; set;}
-        public string? OpponentBusinessUserId { get; set; }
-        [Query][Detail]public string? Barcode {get; set;}
-        [Query]public string? CenterId {get; set;}
-        [One(typeof(Center))][Get]public string? Center { get; set; }
-        [Many(typeof(List<EStatus>))][Get]public string? EStatuses { get; set; }
-        [Many(typeof(List<MStatus>))][Get]public string? MStatuses { get; set; }
-        [Many(typeof(List<SStatus>))][Get]public string? SStatuses { get; set; }
+
     }
-    public class PlatformStatus : PlatformEntity
+    public interface IPlatformStatus : IPlatformEntity
     {
-        [Query]public string? CommodityId {get; set;}
-        [Query]public string? CenterId {get; set;}
-        [Query]public string? Quantity { get; set; }
-        [Get][One(typeof(Commodity))] public string? Commodity { get; set; }
-        [Get][One(typeof(Center))] public string? Center {get; set;}
+
     }
-    public class PlatformSStatus : PlatformStatus
+    public interface IPlatformSStatus : IPlatformStatus
     {
-        [Get][Many(typeof(List<MStatus>))]public string? MStatuses { get; set; }
+
     }
-    public class PlatformMStatus : PlatformStatus
+    public interface IPlatformMStatus : IPlatformStatus
     {
-        [Get][One(typeof(SStatus))] public string? SStatus { get; set; }
-        [Get][Many(typeof(List<EStatus>))] public string? EStatuses { get; set; }
+
     }
-    public class PlatformEStatus : PlatformStatus
+    public interface IPlatformEStatus : IPlatformStatus
     {
-        public string? MStatusId {get; set;}
-        [Get][One(typeof(MStatus))] public string? MStatus { get; set; }
+
+    }
+    // PlatformCenter는 PlatformEntity 이면서 CenterDTO 라는 걸 표현하고 싶은데.
+    public class PlatformCenter : CenterDTO, IPlatformCenter
+    {
+      
+    }
+    public class PlatformCommodity : CommodityDTO, IPlatformCommodity
+    {
+
+    }
+    public class PlatformStatus : StatusDTO, IPlatformStatus
+    {
+      
+    }
+    public class PlatformSStatus : PlatformStatus, IPlatformSStatus
+    {
+       
+    }
+    public class PlatformMStatus : PlatformStatus, IPlatformMStatus
+    {
+        
+    }
+    public class PlatformEStatus : PlatformStatus, IPlatformEStatus
+    {
+       
     }
 }

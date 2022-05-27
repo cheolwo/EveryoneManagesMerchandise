@@ -6,11 +6,8 @@ using BusinessData.ofProduct;
 namespace BusinessView.ofDTO.ofProduct.ofEmployer
 {
     [AutoMap(typeof(EPCommodity))]
-    public class EmployerEPCommodity : EmployerEStatus
+    public class EmployerEPCommodity : EPCommodityDTO
     {   
-        [Many][One(ViewNameofProductCenter.PCommodity, typeof(PCommodity))] public string? PCommodity { get; set; }
-        [Many][One(ViewNameofProductCenter.ProductLand, typeof(ProductLand))] public string? ProductLand {get; set;}
-        [Many][One(ViewNameofProductCenter.ProductCenter, typeof(Producter))] public string? Producter { get; set;}
-        [Many][One(ViewNameofProductCenter.MPCommodity, typeof(MPCommodity))] public string? MPCommodity {get; set;}
+       
     }
 }

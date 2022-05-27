@@ -2,13 +2,13 @@
 using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
-
+using BusinessView.ofWarehouse;
+using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployee
 {
-    [AutoMap(typeof(LoadFrame))]
-    public class EmployeeLoadFrame : EmployeeEntity
+    [AutoMap(typeof(MWCommodity))]
+    public class EmployeeMWCommodity : MWCommodityDTO
     {
-        [Detail][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
-        [Detail][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
+        
     }
 }
