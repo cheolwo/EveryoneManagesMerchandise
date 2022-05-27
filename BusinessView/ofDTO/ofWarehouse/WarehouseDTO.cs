@@ -2,6 +2,7 @@ using BusinessData;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofCommon;
 using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofExternal.ofCommon;
 
 namespace BusinessView.ofWarehouse
 {
@@ -21,61 +22,61 @@ namespace BusinessView.ofWarehouse
     }
     public class WarehouseDTO : CenterDTO
     {
-        [Detail][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }
-        [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
-        [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }
-        [Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }
-        [Detail][Many(ViewNameofWarehouse.LoadFrame, typeof(List<LoadFrame>))] public string? LoadFrames { get; set; }
-        [Detail][Many(ViewNameofWarehouse.DotBarcode, typeof(List<DotBarcode>))] public string? DotBarcodes { get; set; }
-        [Detail][Many(ViewNameofWarehouse.WorkingDesk, typeof(List<WorkingDesk>))] public string? WorkingDesks { get; set; }
-        [Detail][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
-        [Detail][Many(ViewNameofWarehouse.IncomingTag, typeof(List<IncomingTag>))] public string? IncomingTags { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.LoadFrame, typeof(List<LoadFrame>))] public string? LoadFrames { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.DotBarcode, typeof(List<DotBarcode>))] public string? DotBarcodes { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.WorkingDesk, typeof(List<WorkingDesk>))] public string? WorkingDesks { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.IncomingTag, typeof(List<IncomingTag>))] public string? IncomingTags { get; set; }
     }
     public class WCommodityDTO : CommodityDTO
     {
-        [Query(QueryCode)][Get] public string? Type { get; set; }
-        [Query][Get] public string? PakcingBarcode { get; set; }
-        [Query][Detail] public double? Width { get; set; }
-        [Query][Detail] public double? height { get; set; }
-        [Query][Detail] public double? length { get; set; }
-        [Query][Get] public int Quantity { get; set; }
-        [Query][Get] public string? MCommodityId { get; set; }
-        [Query][Get] public string? TCommodityId { get; set; }
-        [Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }  // 입고
-        [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }  // 출고
-        [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }  // 적재
-        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.String)][Get] public string? Type { get; set; }
+        [Query(QueryCode.String)][Get] public string? PakcingBarcode { get; set; }
+        [Query(QueryCode.Int)][Detail] public double? Width { get; set; }
+        [Query(QueryCode.Int)][Detail] public double? height { get; set; }
+        [Query(QueryCode.Int)][Detail] public double? length { get; set; }
+        [Query(QueryCode.Int)][Get] public int Quantity { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? MCommodityId { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? TCommodityId { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.SWCommodity, typeof(List<SWCommodity>))] public string? SWCommodities { get; set; }  // 입고
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }  // 출고
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }  // 적재
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     public class SWCommodityDTO : SStatusDTO
     {
-        [Query][Get] public int IncomingQuantity { get; set; }
-        [Query][Get] public string? IncomingTagId { get; set; }
-        [Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }
-        [Detail][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
-        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.Int)][Get] public int IncomingQuantity { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? IncomingTagId { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     public class MWCommodityDTO : MStatusDTO
     {
-        [Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
-        [Detail][One(ViewNameofWarehouse.LoadFrame, typeof(LoadFrame))] public string? LoadFrame { get; set; }
-        [Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
-        [Detail][One(ViewNameofWarehouse.SWCommodity, typeof(SWCommodity))] public string? SWCommodity { get; set; }
-        [Detail][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
+        [Query(QueryCode.With)][Detail][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.LoadFrame, typeof(LoadFrame))] public string? LoadFrame { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.SWCommodity, typeof(SWCommodity))] public string? SWCommodity { get; set; }
+        [Query(QueryCode.With)][Detail][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
     }
     public class EWCommodityDTO : EStatusDTO
     {
-        [Query][Get] public int OutgoingQuantity { get; set; }
-        [Get][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
-        [Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
-        [Get][One(ViewNameofWarehouse.MWCommodity, typeof(MWCommodity))] public string? MWCommodity { get; set; }
+        [Query(QueryCode.Int)][Get] public int OutgoingQuantity { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.MWCommodity, typeof(MWCommodity))] public string? MWCommodity { get; set; }
     }
     public class DiviedTagDTO : EntityDTO
     {
-        [Query][Get] public bool Attached { get; set; }
-        [Query][Get] public string? IncomingTagId { get; set; }
-        [Query][Get] public string? WarehouseId { get; set; }
-        [Get][One(ViewNameofWarehouse.IncomingTag, typeof(IncomingTag))] public string? IncomingTag { get; set; }
-        [Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.Bool)][Get] public bool Attached { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? IncomingTagId { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? WarehouseId { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.IncomingTag, typeof(IncomingTag))] public string? IncomingTag { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     public class DotBarcodeDTO : EntityDTO
     {
@@ -83,19 +84,19 @@ namespace BusinessView.ofWarehouse
     }
     public class IncomingTagDTO : EntityDTO
     {
-        [Query][Get] public string? SWCommodityId { get; set; }
-        [Query][Get] public string? WareohuseId { get; set; }
-        [Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
-        [Get][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? SWCommodityId { get; set; }
+        [Query(QueryCode.ForeignKey)][Get] public string? WareohuseId { get; set; }
+        [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
+        [Query(QueryCode.With)][Get][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
     }
     public class LoadFrameDTO : EntityDTO
     {
-        [Detail][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
-        [Detail][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
+        [Query(QueryCode.With)][Detail][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
+        [Query(QueryCode.With)][Detail][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
     public class WorkingDeskDTO : EntityDTO
     {
         [Query(QueryCode.Bool)]public bool IsUsed { get; set; }
-        [Detail][One(typeof(Warehouse))]public string? Warehouse { get; set; }
+        [Query(QueryCode.With)][Detail][One(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
 }

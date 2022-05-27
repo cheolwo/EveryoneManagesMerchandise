@@ -42,7 +42,7 @@ namespace BusinessView.ofExternal.ofCommon
             List<PropertyInfo> propIncludedQueryAttribute = new();
             foreach (var prop in props)
             {
-                if(prop.PropertyType == typeof(EntityDTO))
+                if(prop.PropertyType == typeof(DTO))
                 {
                     var dto = (DTO?)prop.GetValue(entityQuery);
                     if(dto != null) 
@@ -68,46 +68,54 @@ namespace BusinessView.ofExternal.ofCommon
             Dictionary<QueryCode, List<PropertyInfo>> dictionary = new();
             List<PropertyInfo> KeyProps = new();
             List<PropertyInfo> ForeignProps = new();
+            List<PropertyInfo> WithProps = new();
             List<PropertyInfo> StringProps = new();
             List<PropertyInfo> IntProps = new();
             List<PropertyInfo> TimeProps = new();
             
             dictionary.Add(QueryCode.Key, KeyProps);
             dictionary.Add(QueryCode.ForeignKey, ForeignProps);
-            dictionary.Add(QueryCode.QueryString, StringProps);
-            dictionary.Add(QueryCode.QueryInt, IntProps);
+            dictionary.Add(QueryCode.With, WithProps);
+            dictionary.Add(QueryCode.String, StringProps);
+            dictionary.Add(QueryCode.Int, IntProps);
+            dictionary.Add(QueryCode.Time, TimeProps);
 
             foreach(var prop in props)
             {
-                var key = prop.GetCustomAttribute<KeyAttribute>();
-                if(key != null) 
+                var query = prop.GetCustomAttribute<QueryAttribute>();
+                if(query.QueryCode == QueryCode.Key) 
                 {
                     KeyProps = dictionary[QueryCode.Key];
                     KeyProps.Add(prop);
                     continue;
                 }
-                var foreignKey = prop.GetCustomAttribute<ForeignKeyAttribute>();
-                
-                if(foreignKey != null) 
+                if(query.QueryCode == QueryCode.ForeignKey) 
                 {
                     ForeignProps = dictionary[QueryCode.ForeignKey];
-                    KeyProps.Add(prop);
+                    ForeignProps.Add(prop);
                     continue;
                 }
-                if(prop.PropertyType == typeof(DateTime))
+                if(query.QueryCode == QueryCode.With)
+                {
+                    WithProps == dictionary[QueryCode.With];
+                    WithProps.Add(prop);
+                    continue;
+                }
+                if(query.QueryCode == QueryCode.Time)
                 {
                     TimeProps = dictionary[QueryCode.Time];
                     TimeProps.Add(prop);
+                    continue;
                 }
-                if(prop.PropertyType == typeof(string))
+                if(query.QueryCode == QueryCode.String)
                 {
-                    StringProps = dictionary[QueryCode.QueryString];
+                    StringProps = dictionary[QueryCode.String];
                     StringProps.Add(prop);
                     continue;
                 }
-                if(prop.PropertyType == typeof(int))
+                if(query.QueryCode == QueryCode.Int)
                 {
-                    IntProps = dictionary[QueryCode.QueryInt];
+                    IntProps = dictionary[QueryCode.Int];
                     IntProps.Add(prop);
                     continue;
                 }

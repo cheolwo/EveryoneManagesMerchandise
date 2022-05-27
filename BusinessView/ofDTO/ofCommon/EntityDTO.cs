@@ -30,9 +30,9 @@ namespace BusinessView.ofDTO.ofCommon
             get => queryCode;
         }
     }
-    public class EntityDTO : IEntityDTO
+    public class EntityDTO 
     {
-        [Key][Query(QueryCode.Key)][Detail] public string? Id { get; set; } // 자동결정
+        [Query(QueryCode.Key)][Detail] public string? Id { get; set; } // 자동결정
         [Query(QueryCode.String)][Detail] public string? Code { get; set; } // 자동결정
         [Query(QueryCode.String)][Form][Get] public string? Name { get; set; }
         [Query(QueryCode.String)][Detail]public string? Container {get; set;} // 자동결정

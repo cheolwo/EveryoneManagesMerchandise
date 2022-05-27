@@ -1,11 +1,11 @@
 using BusinessView.ofDTO.ofCommon;
-
+using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofGroupOrder
 {
     public class GOCDTO : CenterDTO
     {
-        public string? OrderCenters { get; set; }
-        public string? WarehouseId { get; set; }
+        [Query(QueryCode.String)]public string? OrderCenters { get; set; }
+        [Query(QueryCode.String)]public string? WarehouseId { get; set; }
     }
     public class GOCCDTO : CommodityDTO
     {
