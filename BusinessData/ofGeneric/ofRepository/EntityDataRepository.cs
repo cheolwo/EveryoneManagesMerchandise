@@ -183,51 +183,5 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
         }
-
-        public async Task<TEntity> GetByNameAsync(string Name)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Name.Equals(Name));
-        }
-
-        public async Task<TEntity> GetByContainerAsync(string ContainerName)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.containerName.Equals(containerName));
-        }
-
-        public async Task<TEntity> GetByCodeAsync(string Code)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Code.Equals(Code));
-        }
-
-        public async Task<TEntity> GetByUserIdAsync(string UserId)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(UserId));
-        }
-
-
-        public async Task<List<TEntity>> GetToListByUserIdAsync(string UserId)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Container.Equals(Container)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByNameAsync(string Name)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Name.Equals(Name)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByCodeAsync(string Code)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(UserId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CreateTime >= beforeDateTime && e.CreateTime <= AfterDateTime).ToListAsync();
-        }
     }
 }

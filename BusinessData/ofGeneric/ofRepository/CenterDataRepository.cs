@@ -172,16 +172,6 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Where(e => e.FaxNumber.Equals(FaxNumber)).ToListAsync();
         }
 
-        public async Task<TEntity> GetByLoginIdAsync(string LoginId)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.LoginId.Equals(LoginId));
-        }
-
-        public async Task<TEntity> GetByAddressAsync(string Address)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Address.Equals(Address));
-        }
-
         public async Task<TEntity> GetByCountryCodeAsync(string CountryCode)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CountryCode.Equals(CountryCode));
@@ -192,44 +182,23 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.PhoneNumber.Equals(PhoneNumber));
         }
 
-        public async Task<TEntity> GetByFaxnumberAsync(string Faxnumber)
+        public async Task<TEntity> GetByFaxnumberAsync(string FaxNumber)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.FaxNumber.Equals(FaxNumber));
         }
-
-        public async Task<List<TEntity>> GetToListByLoginIdAsync(string LoginId)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.LoginId.Equals(LoginId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByAddressAsync(string Address)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Address.Equals(Address)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByCountryCodeAsync(string CoutryCode)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CountryCode)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByPhoneNumberAsync(string PhoneNumber)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.PhoneNumber.Equals(PhoneNumber)).ToListAsync();
-        }
-
         public async Task<List<TEntity>> GetToListByFaxnNumberAsync(string FaxNumber)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.FaxNumber.Equals(FaxNumber)).ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdWithRelatedAsync(string id)
+        public async Task<TEntity> GetByIdWithRelatedAsync(string Id)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Id.Equals(Id)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Id.Equals(Id)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
         public async Task<TEntity> GetByLoginIdWithRelatedAsync(string LoginId)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Id.Equals(Id)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e => e.LoginId.Equals(LoginId)).Include(e => e.Commodities).Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.EStatuses).FirstOrDefaultAsync();
         }
 
         public async Task<TEntity> GetByAddressWithRelatedAsync(string Address)
@@ -250,22 +219,11 @@ namespace BusinessData
                                         FirstOrDefaultAsync();
         }
 
-        public async Task<TEntity> GetByFaxnumberWithRelatedAsync(string Faxnumber)
+        public async Task<TEntity> GetByFaxnumberWithRelatedAsync(string FaxNumber)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.FaxNumber.Equals(FaxNumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).
                                         FirstOrDefaultAsync();
         }
-
-        public async Task<List<TEntity>> GetToListByCountryCodeWithRelatedAsync(string CoutryCode)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CountryCode)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
-        }
-
         public async Task<List<TEntity>> GetToListByAddressWithRelatedAsync(string Address)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Address.Equals(Address)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
@@ -278,7 +236,7 @@ namespace BusinessData
 
         public async Task<List<TEntity>> GetToListByFaxNumberWithRelatedAsync(string FaxNumber)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Faxnumber.Equals(Faxnumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.FaxNumber.Equals(FaxNumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
     }
 }

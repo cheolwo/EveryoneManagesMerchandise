@@ -48,12 +48,6 @@ namespace BusinessData
             TEntityes = TEntityes.Where(e => e.Center.CountryCode.Equals(CountryCode)).ToList();
             return TEntityes;
         }
-
-        public Task<List<TEntity>> GetToListByCountryCodeAsync(string CountryCode)
-        {
-            return await _DbContext.Set<TEntity>.
-        }
-
         public async Task<List<TEntity>> GetToListWithCenterAsync()
         {
             return await _DbContext.Set<TEntity>().Include(TEntity => TEntity.Center).ToListAsync();
@@ -86,62 +80,41 @@ namespace BusinessData
 
         public async Task<TEntity> GetByCommodityIdAsync(string CommodityId)
         {
-            return await _DbContext.Set<TEntity>.FirstOrDefaultAsync(e=>e.CommodityId.Equals(CommodityId));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CommodityId.Equals(CommodityId));
         }
 
         public async Task<TEntity> GetByCenterIdAsync(string CenterId)
         {
-            return await _DbContext.Set<TEntity>.FirstOrDefaultAsync(e=>e.CenterId.Equals(CenterId));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CenterId.Equals(CenterId));
         }
-
-        public async Task<List<TEntity>> GetToListByCommodityIdAsync(string CommodityId)
-        {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CommodityId.Equals(CommodityId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId)
-        {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CenterId.Equals(CenterId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByQuantityAsync(int MaxQuantity)
-        {
-            return await _DbContext.Set<TEntity>.Where(e=>e.Quantity <= MaxQuantity).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByQuntityAsync(int MinQuantity, int MaxQuantity)
-        {
-            return await _DbContext.Set<TEntity>.Where(e=>e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
-        }
-
         public async Task<TEntity> GetByCommodityIdWithRelatedAsync(string CommodityId)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CommodityId.Equals(CommodityId)).Include(e=>e.Center).Include(e=>e.Commodity).FirstOrDefaultAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CommodityId.Equals(CommodityId)).Include(e=>e.Center).Include(e=>e.Commodity).FirstOrDefaultAsync();
         }
 
         public async Task<TEntity> GetByCenterIdWithRelatedAsync(string CenterId)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CenterId.Equals(CenterId)).Include(e=>e.Center).Include(e=>e.Commodity).FirstOrDefaultAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).Include(e=>e.Center).Include(e=>e.Commodity).FirstOrDefaultAsync();
         }
 
         public async Task<List<TEntity>> GetToListByCommodityIdWithRelatedAsync(string CommodityId)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CommodityId.Equals(CommodityId)).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CommodityId.Equals(CommodityId)).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByCenterIdWithRelatedAsync(string CenterId)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.CentnerId.Equals(CentnerId)).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByQuantityWithRelatedAsync(int MaxQuantity)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.Quantity <= MaxQuantity).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Quantity <= MaxQuantity).Include(e=>e.Center).Include(e=>e.Commodity).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByQuntityWithRelatedAsync(int MinQuantity, int MaxQuantity)
         {
-            return await _DbContext.Set<TEntity>.Where(e=>e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
         }
     }
     public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
@@ -181,17 +154,11 @@ namespace BusinessData
     }
     public interface IEStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
     {
-        Task<List<TEntity>> GetToListWithMStatusAsync();
     }
     public class EStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IEStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
     {
         public EStatusDataRepository(DbContext DbContext) : base(DbContext)
         {
-        }
-
-        public Task<List<TEntity>> GetToListWithMStatusAsync()
-        {
-            return await _DbContext.Set<TEntity>.
         }
     }
 }

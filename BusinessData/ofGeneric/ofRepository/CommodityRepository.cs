@@ -186,12 +186,6 @@ namespace BusinessData.ofGenericRepository
         {
             return await _DbContext.Set<TEntity>().Where(e => e.Barcode.Equals(Barcode)).ToListAsync();
         }
-
-        public async Task<TEntity> GetByBarcodeAsync(string Barcode)
-        {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));
-        }
-
         public async Task<TEntity> GetByHsCodeAsnyc(string HsCode)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.HsCode.Equals(HsCode));
@@ -202,21 +196,6 @@ namespace BusinessData.ofGenericRepository
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CenterId.Equals(CenterId));
         }
 
-        public async Task<List<TEntity>> GetToListByHsCodeAsync(string HsCode)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.HsCode.Equals(HsCode)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).ToListAsync();
-        }
-
-        public async Task<List<TEntity>> GetToListByBarcodeAsync(string Barcode)
-        {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).ToListAsync();
-        }
-
         public async Task<TEntity> GetByBarcodeWithRelatedAsync(string Barcode)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
@@ -224,22 +203,22 @@ namespace BusinessData.ofGenericRepository
 
         public async Task<TEntity> GetByHsCodeWithRelatedAsnyc(string HsCode)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.HsCode.Equals(HsCode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
         public async Task<TEntity> GetByCenterIdWithRelatedAsnyc(string CenterId)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
         public async Task<List<TEntity>> GetToListByHsCodeWithRelatedAsync(string HsCode)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.HsCode.Equals(HsCode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByCenterIdWithRelatedAsync(string CenterId)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByBarcodeWithRelatedAsync(string Barcode)
