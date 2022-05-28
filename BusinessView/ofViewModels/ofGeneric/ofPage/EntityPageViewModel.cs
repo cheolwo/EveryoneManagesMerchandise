@@ -164,6 +164,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : CenterDTO, new()
     {
+        private readonly CenterPostViewModel<TCenter> _CenterPostViewModel;
+        private readonly CenterPutViewModel<TCenter> _CenterPutViewModel;
+        private readonly CenterDeleteViewModel<TCenter> _CenterDeleteViewModel;
+        private readonly CenterGetsViewModel<TCenter> _CenterGetViewMode;
         private readonly ICenterPageRoadAddressService _CenterPageRoadAddressService;
         private readonly ICenterPageTaxService _CenterPageTaxService;
         private readonly ICenterPageIdentityRoleService _CenterPageIdentityRoleService;
@@ -179,10 +183,18 @@ namespace BusinessView.ofViewModels.ofGeneric
             _CenterPageIdentityRoleService = centerPageIdentityRoleService;
             _CenterPageTaxService = centerPageTaxService;
             _CenterPageRoadAddressService = centerPageRoadAddressService;
+            _CenterPostViewModel = CenterPostViewModel;
+            _CenterDeleteViewModel = CenterDeleteViewModel;
+            _CenterGetViewMode = CenterGetViewModel;
+            _CenterPutViewModel = CenterPutViewModel;
         }
     }
     public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : CommodityDTO, new()
     {
+        private readonly CommodityPostViewModel<TCommodity> _CommodityPostViewModel;
+        private readonly CommodityPutViewModel<TCommodity> _CommodityPutViewModel;
+        private readonly CommodityDeleteViewModel<TCommodity> _CommodityDeleteViewModel;
+        private readonly CommodityGetsViewModel<TCommodity> _CommodityGetViewMode;
         public CommodityPageViewModel(
             CommodityPostViewModel<TCommodity> CommodityPostViewModel, 
             CommodityPutViewModel<TCommodity> CommodityPutViewModel,
@@ -190,10 +202,18 @@ namespace BusinessView.ofViewModels.ofGeneric
             CommodityGetsViewModel<TCommodity> CommodityGetViewModel)
                                             :base(CommodityPostViewModel, CommodityPutViewModel, CommodityDeleteViewModel, CommodityGetViewModel)
         {
+            _CommodityPostViewModel = CommodityPostViewModel;
+            _CommodityDeleteViewModel = CommodityDeleteViewModel;
+            _CommodityGetViewMode = CommodityGetViewModel;
+            _CommodityPutViewModel = CommodityPutViewModel;
         }
     }
     public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : StatusDTO, new()
     {
+        private readonly StatusPostViewModel<TStatus> _StatusPostViewModel;
+        private readonly StatusPutViewModel<TStatus> _StatusPutViewModel;
+        private readonly StatusDeleteViewModel<TStatus> _StatusDeleteViewModel;
+        private readonly StatusGetsViewModel<TStatus> _StatusGetViewMode;
         public StatusPageViewModel(
             StatusPostViewModel<TStatus> StatusPostViewModel, 
             StatusPutViewModel<TStatus> StatusPutViewModel,
@@ -201,6 +221,67 @@ namespace BusinessView.ofViewModels.ofGeneric
             StatusGetsViewModel<TStatus> StatusGetViewModel)
                                             :base(StatusPostViewModel, StatusPutViewModel, StatusDeleteViewModel, StatusGetViewModel)
         {
+            _StatusPostViewModel = StatusPostViewModel;
+            _StatusDeleteViewModel = StatusDeleteViewModel;
+            _StatusGetViewMode = StatusGetViewModel;
+            _StatusPutViewModel = StatusPutViewModel;
+        }
+    }
+    public class SStatusPageViewModel<TSStatus> : StatusPageViewModel<TSStatus> where TSStatus : SStatusDTO , new()
+    {
+        private readonly SStatusPostViewModel<TSStatus> _SStatusPostViewModel;
+        private readonly SStatusPutViewModel<TSStatus> _SStatusPutViewModel;
+        private readonly SStatusDeleteViewModel<TSStatus> _SStatusDeleteViewModel;
+        private readonly SStatusGetsViewModel<TSStatus> _SStatusGetViewMode;
+        public SStatusPageViewModel(
+            SStatusPostViewModel<TSStatus> SStatusPostViewModel, 
+            SStatusPutViewModel<TSStatus> SStatusPutViewModel,
+            SStatusDeleteViewModel<TSStatus> SStatusDeleteViewModel, 
+            SStatusGetsViewModel<TSStatus> SStatusGetViewModel)
+                                            :base(SStatusPostViewModel, SStatusPutViewModel, SStatusDeleteViewModel, SStatusGetViewModel)
+        {
+            _SStatusPostViewModel = SStatusPostViewModel;
+            _SStatusDeleteViewModel = SStatusDeleteViewModel;
+            _SStatusGetViewMode = SStatusGetViewModel;
+            _SStatusPutViewModel = SStatusPutViewModel;
+        }
+    }
+    public class MStatusPageViewModel<TMStatus> : StatusPageViewModel<TMStatus> where TMStatus : MStatusDTO , new()
+    {
+        private readonly MStatusPostViewModel<TMStatus> _MStatusPostViewModel;
+        private readonly MStatusPutViewModel<TMStatus> _MStatusPutViewModel;
+        private readonly MStatusDeleteViewModel<TMStatus> _MStatusDeleteViewModel;
+        private readonly MStatusGetsViewModel<TMStatus> _MStatusGetViewMode;
+        public MStatusPageViewModel(
+            MStatusPostViewModel<TMStatus> MStatusPostViewModel, 
+            MStatusPutViewModel<TMStatus> MStatusPutViewModel,
+            MStatusDeleteViewModel<TMStatus> MStatusDeleteViewModel, 
+            MStatusGetsViewModel<TMStatus> MStatusGetViewModel)
+                                            :base(MStatusPostViewModel, MStatusPutViewModel, MStatusDeleteViewModel, MStatusGetViewModel)
+        {
+            _MStatusPostViewModel = MStatusPostViewModel;
+            _MStatusDeleteViewModel = MStatusDeleteViewModel;
+            _MStatusGetViewMode = MStatusGetViewModel;
+            _MStatusPutViewModel = MStatusPutViewModel;
+        }
+    }
+    public class EStatusPageViewModel<TEStatus> : StatusPageViewModel<TEStatus> where TEStatus : EStatusDTO , new()
+    {
+        private readonly EStatusPostViewModel<TEStatus> _EStatusPostViewModel;
+        private readonly EStatusPutViewModel<TEStatus> _EStatusPutViewModel;
+        private readonly EStatusDeleteViewModel<TEStatus> _EStatusDeleteViewModel;
+        private readonly EStatusGetsViewModel<TEStatus> _EStatusGetViewMode;
+        public EStatusPageViewModel(
+            EStatusPostViewModel<TEStatus> EStatusPostViewModel, 
+            EStatusPutViewModel<TEStatus> EStatusPutViewModel,
+            EStatusDeleteViewModel<TEStatus> EStatusDeleteViewModel, 
+            EStatusGetsViewModel<TEStatus> EStatusGetViewModel)
+                                            :base(EStatusPostViewModel, EStatusPutViewModel, EStatusDeleteViewModel, EStatusGetViewModel)
+        {
+            _EStatusPostViewModel = EStatusPostViewModel;
+            _EStatusDeleteViewModel = EStatusDeleteViewModel;
+            _EStatusGetViewMode = EStatusGetViewModel;
+            _EStatusPutViewModel = EStatusPutViewModel;
         }
     }
 }

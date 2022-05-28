@@ -70,7 +70,7 @@ namespace BusinessView.ofWarehouse
         [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
         [Query(QueryCode.With)][Get][One(ViewNameofWarehouse.MWCommodity, typeof(MWCommodity))] public string? MWCommodity { get; set; }
     }
-    public class DiviedTagDTO : EntityDTO
+    public class DividedTagDTO : EntityDTO
     {
         [Query(QueryCode.Bool)][Get] public bool Attached { get; set; }
         [Query(QueryCode.ForeignKey)][Get] public string? IncomingTagId { get; set; }
