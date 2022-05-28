@@ -44,15 +44,15 @@ namespace BusinessView.ofDTO.ofCommon.ofEmployer
     {
       
     }
-    public class EmployerSStatus : EmployerStatus, IEmployerSStatus
+    public class EmployerSStatus : SStatusDTO, IEmployerSStatus
     {
        
     }
-    public class EmployerMStatus : EmployerStatus, IEmployerMStatus
+    public class EmployerMStatus : MStatusDTO, IEmployerMStatus
     {
         
     }
-    public class EmployerEStatus : EmployerStatus, IEmployerEStatus
+    public class EmployerEStatus : EStatusDTO, IEmployerEStatus
     {
        
     }

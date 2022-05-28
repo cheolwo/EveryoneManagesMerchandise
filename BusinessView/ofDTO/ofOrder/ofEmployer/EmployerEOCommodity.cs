@@ -8,7 +8,7 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofOrder.ofEmployer
 {
     [AutoMap(typeof(EOCommodity))]
-    public class EmployerEOCommodity : EOCommodityDTO
+    public class EmployerEOCommodity : EmployerEStatus
     {
       
     }

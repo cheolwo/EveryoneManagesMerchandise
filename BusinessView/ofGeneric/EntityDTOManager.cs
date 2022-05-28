@@ -17,8 +17,8 @@ namespace BusinessView.ofGeneric
     }
     public class EntityDTOManager<DTO, Model> : EntityManager<Model>, IEntityDTOManager<DTO, Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {
-        private readonly IEntityDataRepository<Model> _EntityDataRepository;
-        public EntityDTOManager(IEntityDataRepository<Model> EntityDataRepository, 
+        private readonly IEntityDTORepository<DTO, Model> _EntityDataRepository;
+        public EntityDTOManager(IEntityDTORepository<DTO, Model> EntityDataRepository, 
             IEntityIdFactory<Model> EntityIdFactory, 
             IEntityFileFactory<Model> entityFileFactory, 
             IEntityBlobStorage<Model> EntityBlobStorage, 

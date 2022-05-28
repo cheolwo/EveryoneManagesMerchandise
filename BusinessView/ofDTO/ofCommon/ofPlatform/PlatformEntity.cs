@@ -44,15 +44,15 @@ namespace BusinessView.ofDTO.ofCommon.ofPlatform
     {
       
     }
-    public class PlatformSStatus : PlatformStatus, IPlatformSStatus
+    public class PlatformSStatus : SStatusDTO, IPlatformSStatus
     {
        
     }
-    public class PlatformMStatus : PlatformStatus, IPlatformMStatus
+    public class PlatformMStatus : MStatusDTO, IPlatformMStatus
     {
         
     }
-    public class PlatformEStatus : PlatformStatus, IPlatformEStatus
+    public class PlatformEStatus : EStatusDTO, IPlatformEStatus
     {
        
     }

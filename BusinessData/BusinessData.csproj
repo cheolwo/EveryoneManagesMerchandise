@@ -16,6 +16,7 @@
     <Compile Remove="Migrations\WarehouseDb\**" />
     <Compile Remove="ofAccount\NewFolder\**" />
     <Compile Remove="ofAccount\ofIdentityDbContext\**" />
+    <Compile Remove="ofGeneric\ofStorage\**" />
     <Compile Remove="ofHRMarket\Migrations\**" />
     <Compile Remove="ofMarket\DataManager\**" />
     <Compile Remove="ofMarket\Migrations\**" />
@@ -31,6 +32,7 @@
     <EmbeddedResource Remove="Migrations\WarehouseDb\**" />
     <EmbeddedResource Remove="ofAccount\NewFolder\**" />
     <EmbeddedResource Remove="ofAccount\ofIdentityDbContext\**" />
+    <EmbeddedResource Remove="ofGeneric\ofStorage\**" />
     <EmbeddedResource Remove="ofHRMarket\Migrations\**" />
     <EmbeddedResource Remove="ofMarket\DataManager\**" />
     <EmbeddedResource Remove="ofMarket\Migrations\**" />
@@ -46,6 +48,7 @@
     <None Remove="Migrations\WarehouseDb\**" />
     <None Remove="ofAccount\NewFolder\**" />
     <None Remove="ofAccount\ofIdentityDbContext\**" />
+    <None Remove="ofGeneric\ofStorage\**" />
     <None Remove="ofHRMarket\Migrations\**" />
     <None Remove="ofMarket\DataManager\**" />
     <None Remove="ofMarket\Migrations\**" />
@@ -88,7 +91,6 @@
     <Folder Include="Migrations\JournalDb\" />
     <Folder Include="Migrations\TradeDb\" />
     <Folder Include="ofCommon\ofFactory\" />
-    <Folder Include="ofGeneric\ofStorage\" />
     <Folder Include="ofJournal\Migrations\" />
     <Folder Include="ofJournal\Configuration\" />
     <Folder Include="ofHRMarket\ofInterface\ofEmployee\" />

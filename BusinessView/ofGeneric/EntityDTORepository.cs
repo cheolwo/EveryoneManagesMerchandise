@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace BusinessView.ofGeneric
 {
-    public interface IEntityDTORepository<DTO> where DTO : EntityDTO, new()
+    public interface IEntityDTORepository<DTO, Model> : IEntityDataRepository<Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {
         Task<List<DTO>> QueryMatching(QueryCode queryCode, PropertyInfo propertyInfo, DTO dto);
     }
@@ -18,7 +18,7 @@ namespace BusinessView.ofGeneric
         분류된 Dic을 EntityDataRepository 에 전달하는 단계
         List<Model> models = await _EntityDataRepository.QueryChaining(QueryDic, dto);
     */
-    public class EntityDTORepository<TDTO, TModel> : EntityDataRepository<TModel>, IEntityDTORepository<TDTO>
+    public class EntityDTORepository<TDTO, TModel> : EntityDataRepository<TModel>, IEntityDTORepository<TDTO, TModel>
                                         where TDTO : EntityDTO, new() where TModel : Entity, new()
     {
         private readonly List<TModel> QueryModels = new();

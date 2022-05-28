@@ -8,8 +8,8 @@ namespace BusienssLogic.ofController.ofCommon
     public class EntityQuery<DTO> where DTO : EntityDTO, new()
     {
         public DTO Dto {get; set;}
-        [Query]public DateTime StartDate {get; set;}
-        [Query]public DateTime EndDate {get; set;}
+        [Query(QueryCode.Time)]public DateTime StartDate {get; set;}
+        [Query(QueryCode.Time)]public DateTime EndDate {get; set;}
         public Dictionary<QueryCode, List<PropertyInfo>> GetQueryDictionary(EntityQuery<DTO> query)
         {
             return query.GetByQueryAttribute().DistributedByQueryCode();
@@ -17,6 +17,7 @@ namespace BusienssLogic.ofController.ofCommon
     }
     public class CenterQuery<DTO> : EntityQuery<DTO> where DTO : CenterDTO, new()
     {
+        public bool Related {get; set;}
     }
     public class CommodityQuery<DTO> : EntityQuery<DTO> where DTO : CommodityDTO, new()
     {

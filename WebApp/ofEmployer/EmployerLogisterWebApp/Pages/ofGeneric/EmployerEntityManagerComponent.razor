@@ -5,7 +5,7 @@
 @using BusinessView.ofViewModels.ofGeneric.ofCommon
 @using MudBlazor
 @using System.ComponentModel
-@typeparam TEntity where TEntity : EmployerEntity, new()
+@typeparam TEntity where TEntity : IEmployerEntity, new()
 @if (EmployerPageViewModel.IsSelectGets)
 {
     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=>EmployerPageViewModel.OnClickGetsToPost()">Post</MudButton>

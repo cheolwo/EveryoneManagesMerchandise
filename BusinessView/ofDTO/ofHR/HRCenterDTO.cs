@@ -1,3 +1,5 @@
+using BusinessData;
+using BusinessData.ofHumanResource.ofRepository;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofHR

@@ -1,5 +1,7 @@
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofExternal.ofCommon;
+using System.ComponentModel.DataAnnotations;
+
 namespace BusinessView.ofDTO.ofJournal
 {
     public class JournalCenterDTO : CenterDTO

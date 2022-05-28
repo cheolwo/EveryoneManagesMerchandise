@@ -1,10 +1,11 @@
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {
-    public class PlatformPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : PlatformEntity, new()
+    public class PlatformPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EntityDTO, IPlatformEntity, new()
     {
         public PlatformPostViewModel<TEntity> _PlatformPostViewModel { get; private set; }
         public PlatformPutViewModel<TEntity> _PlatformPutViewModel { get; private set; }
@@ -20,7 +21,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformDeleteViewModel = deleteViewModel;
         }
     }
-    public class PlatformPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : PlatformEntity, new()
+    public class PlatformPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : EntityDTO, IPlatformEntity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformPostViewModel(PlatformActorContext PlatformActorContext)
@@ -29,7 +30,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : PlatformEntity, new()
+    public class PlatformPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : EntityDTO, IPlatformEntity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformPutViewModel(PlatformActorContext PlatformActorContext)
@@ -38,7 +39,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : PlatformEntity, new()
+    public class PlatformGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : EntityDTO, IPlatformEntity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformGetsViewModel(PlatformActorContext PlatformActorContext)
@@ -47,7 +48,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : PlatformEntity, new()
+    public class PlatformDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : EntityDTO, IPlatformEntity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformDeleteViewModel(PlatformActorContext PlatformActorContext)

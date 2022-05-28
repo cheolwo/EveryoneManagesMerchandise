@@ -1,4 +1,7 @@
+using BusinessData;
+using BusinessData.ofProduct;
 using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofDTO.ofProduct.ofEmployee;
 using BusinessView.ofExternal.ofCommon;
 using System;
 namespace BusinessView.ofDTO.ofProduct

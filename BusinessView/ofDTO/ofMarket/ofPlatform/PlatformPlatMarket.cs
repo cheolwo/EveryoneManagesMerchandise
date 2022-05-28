@@ -7,7 +7,7 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofMarket.ofPlatform
 {
     [AutoMap(typeof(PlatMarket))]
-    public class PlatformPlatMarket : PlatformCenter
+    public class PlatformPlatMarket : PlatMarketDTO
     {
        
     }

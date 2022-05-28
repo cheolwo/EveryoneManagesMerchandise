@@ -7,7 +7,7 @@ using BusinessData;
 namespace BusinessView.ofDTO.ofGroupOrder.ofEmployer
 {
     [AutoMap(typeof(GOC))]
-    public class EmployerGOC : GOCCDTO
+    public class EmployerGOC : GOCDTO
     {
     }
 }

@@ -1,5 +1,9 @@
+using BusinessData;
+using BusinessData.ofMarket.ofModel;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofExternal.ofCommon;
+using NMemory.Data;
+
 namespace BusinessView.ofDTO.ofMarket
 {
     public class MarketDTO : CenterDTO

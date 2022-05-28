@@ -1,9 +1,10 @@
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofPlatform;
 using FluentValidation;
 
 namespace BusinessView.ofValidator.ofCommon.ofPlatform
 {
-    public class PlatformEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : PlatformEntity
+    public class PlatformEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EntityDTO
     {
         public PlatformEntityValidator()
         {

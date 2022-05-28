@@ -162,7 +162,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             OnPropertyChanged();
         }
     }
-    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : EntityDTO, new()
+    public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : CenterDTO, new()
     {
         private readonly ICenterPageRoadAddressService _CenterPageRoadAddressService;
         private readonly ICenterPageTaxService _CenterPageTaxService;
@@ -181,7 +181,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _CenterPageRoadAddressService = centerPageRoadAddressService;
         }
     }
-    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : EntityDTO, new()
+    public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : CommodityDTO, new()
     {
         public CommodityPageViewModel(
             CommodityPostViewModel<TCommodity> CommodityPostViewModel, 
@@ -192,7 +192,7 @@ namespace BusinessView.ofViewModels.ofGeneric
         {
         }
     }
-    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : EntityDTO, new()
+    public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : StatusDTO, new()
     {
         public StatusPageViewModel(
             StatusPostViewModel<TStatus> StatusPostViewModel, 

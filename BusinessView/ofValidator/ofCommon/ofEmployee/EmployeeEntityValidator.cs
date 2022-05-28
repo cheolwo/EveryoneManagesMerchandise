@@ -1,9 +1,10 @@
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofEmployee;
 using FluentValidation;
 
 namespace BusinessView.ofValidator.ofCommon.ofEmployee
 {
-    public class EmployeeEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EmployeeEntity
+    public class EmployeeEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EntityDTO
     {
         public EmployeeEntityValidator()
         {
@@ -67,7 +68,7 @@ namespace BusinessView.ofValidator.ofCommon.ofEmployee
             return result.Errors.Select(e => e.ErrorMessage);
         };
     }
-    public class EmployeeStatusValidator<TEntity> : EmployeeEntityValidator<TEntity>, IValidator<TEntity> where TEntity : EmployeeStatus
+    public class EmployeeStatusValidator<TEntity> : EmployeeEntityValidator<TEntity>, IValidator<TEntity> where TEntity : EmployeeStatus, new()
     {
         public EmployeeStatusValidator()
         {

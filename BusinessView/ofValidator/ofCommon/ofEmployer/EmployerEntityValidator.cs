@@ -1,9 +1,10 @@
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofEmployer;
 using FluentValidation;
 
 namespace BusinessView.ofValidator.ofCommon.ofEmployer
 {
-    public class EmployerEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EmployerEntity
+    public class EmployerEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EntityDTO
     {
         public EmployerEntityValidator()
         {

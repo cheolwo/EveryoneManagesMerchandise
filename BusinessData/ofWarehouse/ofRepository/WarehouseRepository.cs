@@ -19,11 +19,6 @@ namespace BusinessData.ofWarehouse.ofRepository
         {
 
         }
-        public async Task<List<Warehouse>> GetToListByUserIdAsync(string UserId)
-        {
-            return await _DbContext.Set<Warehouse>().Where(e => e.UserId.Equals(UserId)).ToListAsync();
-        }
-
         public async Task<List<Warehouse>> GetToListByUserIdWithWCommodityAsync(string UserId)
         {
             List<Warehouse> Warehouses = await _DbContext.Set<Warehouse>()

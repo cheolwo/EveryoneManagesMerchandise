@@ -6,7 +6,7 @@ using BusinessData.ofMarket;
 namespace BusinessView.ofDTO.ofMarket.ofPlatform
 {
     [AutoMap(typeof(EMCommodity))]
-    public class PlatformEMCommodity : PlatformEStatus
+    public class PlatformEMCommodity : EMCommodityDTO
     {
         
     }

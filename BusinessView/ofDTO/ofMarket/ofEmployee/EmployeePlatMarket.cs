@@ -8,7 +8,7 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofMarket.ofEmployee
 {
     [AutoMap(typeof(PlatMarket))]
-    public class EmployeePlatMarket : EmployeeCenter
+    public class EmployeePlatMarket : PlatMarketDTO
     {
         
     }
