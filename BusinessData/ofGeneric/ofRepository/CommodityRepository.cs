@@ -29,27 +29,27 @@ namespace BusinessData.ofGenericRepository
         Task<List<TEntity>> GetToListByBarcodeWithRelatedAsync(string Barcode);
 
         //With
-        Task<List<TEntity>> GetToListWithEStatusesAsync();
-        Task<List<TEntity>> GetToListWithMStatusesAsync();
-        Task<List<TEntity>> GetToListWithSStatusesAsync();
+        // Task<List<TEntity>> GetToListWithEStatusesAsync();
+        // Task<List<TEntity>> GetToListWithMStatusesAsync();
+        // Task<List<TEntity>> GetToListWithSStatusesAsync();
 
         // By With
-        Task<List<TEntity>> GetToListByCenterWithEStatuesAsync(Center Center);
-        Task<List<TEntity>> GetToListByCenterWithMStatuesAsync(Center Center);
-        Task<List<TEntity>> GetToListByCenterWithSStatuesAsync(Center Center);
-        Task<List<TEntity>> GetToListByCenterWithRelatedStatusesAsync(Center Center);
+        // Task<List<TEntity>> GetToListByCenterWithEStatuesAsync(Center Center);
+        // Task<List<TEntity>> GetToListByCenterWithMStatuesAsync(Center Center);
+        // Task<List<TEntity>> GetToListByCenterWithSStatuesAsync(Center Center);
+        // Task<List<TEntity>> GetToListByCenterWithRelatedStatusesAsync(Center Center);
 
-        Task<List<TEntity>> GetToListByHsCodeWithEStatuesAsync(string HsCode);
-        Task<List<TEntity>> GetToListByHsCodeWithMStatuesAsync(string HsCode);
-        Task<List<TEntity>> GetToListByHsCodeWithSStatuesAsync(string HsCode);
-        Task<List<TEntity>> GetToListByHsCodeWithRelatedStatusesAsync(string HsCode);
+        // Task<List<TEntity>> GetToListByHsCodeWithEStatuesAsync(string HsCode);
+        // Task<List<TEntity>> GetToListByHsCodeWithMStatuesAsync(string HsCode);
+        // Task<List<TEntity>> GetToListByHsCodeWithSStatuesAsync(string HsCode);
+        // Task<List<TEntity>> GetToListByHsCodeWithRelatedStatusesAsync(string HsCode);
 
-        Task<List<TEntity>> GetToListByBarcodeWithEStatuesAsync(string Barcode);
-        Task<List<TEntity>> GetToListByBarcodeWithMStatuesAsync(string Barcode);
-        Task<List<TEntity>> GetToListByBarcodeWithSStatuesAsync(string Barcode);
-        Task<List<TEntity>> GetToListByBarcodeWithRelatedStatusesAsync(string Barcode);
+        // Task<List<TEntity>> GetToListByBarcodeWithEStatuesAsync(string Barcode);
+        // Task<List<TEntity>> GetToListByBarcodeWithMStatuesAsync(string Barcode);
+        // Task<List<TEntity>> GetToListByBarcodeWithSStatuesAsync(string Barcode);
+        // Task<List<TEntity>> GetToListByBarcodeWithRelatedStatusesAsync(string Barcode);
 
-        Task<List<TEntity>> GetToListByUserIdWithSStatusAsync(string UserId);
+        // Task<List<TEntity>> GetToListByUserIdWithSStatusAsync(string UserId);
     }
     public class CommodityDataRepository<TEntity> : EntityDataRepository<TEntity>, ICommodityDataRepository<TEntity>
                                                      where TEntity : Commodity, new()
@@ -187,144 +187,64 @@ namespace BusinessData.ofGenericRepository
             return await _DbContext.Set<TEntity>().Where(e => e.Barcode.Equals(Barcode)).ToListAsync();
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByBarcodeAsync(string Barcode)
+        public async Task<TEntity> GetByBarcodeAsync(string Barcode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByHsCodeAsnyc(string HsCode)
+        public async Task<TEntity> GetByHsCodeAsnyc(string HsCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.HsCode.Equals(HsCode));
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByCenterIdAsnyc(string CenterId)
+        public async Task<TEntity> GetByCenterIdAsnyc(string CenterId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CenterId.Equals(CenterId));
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeAsync(string HsCode)
+        public async Task<List<TEntity>> GetToListByHsCodeAsync(string HsCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.HsCode.Equals(HsCode)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterIdAsync(string CenterId)
+        public async Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CenterId.Equals(CenterId)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeAsync(string Barcode)
+        public async Task<List<TEntity>> GetToListByBarcodeAsync(string Barcode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).ToListAsync();
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByBarcodeWithRelatedAsync(string Barcode)
+        public async Task<TEntity> GetByBarcodeWithRelatedAsync(string Barcode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByHsCodeWithRelatedAsnyc(string HsCode)
+        public async Task<TEntity> GetByHsCodeWithRelatedAsnyc(string HsCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICommodityDataRepository<TEntity>.GetByCenterIdWithRelatedAsnyc(string CenterId)
+        public async Task<TEntity> GetByCenterIdWithRelatedAsnyc(string CenterId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).FirstOrDefaultAsync();
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithRelatedAsync(string HsCode)
+        public async Task<List<TEntity>> GetToListByHsCodeWithRelatedAsync(string HsCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterIdWithRelatedAsync(string CenterId)
+        public async Task<List<TEntity>> GetToListByCenterIdWithRelatedAsync(string CenterId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithRelatedAsync(string Barcode)
+        public async Task<List<TEntity>> GetToListByBarcodeWithRelatedAsync(string Barcode)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithEStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithMStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithSStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithEStatuesAsync(Center Center)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithMStatuesAsync(Center Center)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithSStatuesAsync(Center Center)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithRelatedStatusesAsync(Center Center)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithEStatuesAsync(string HsCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithMStatuesAsync(string HsCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithSStatuesAsync(string HsCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithRelatedStatusesAsync(string HsCode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithEStatuesAsync(string Barcode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithMStatuesAsync(string Barcode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithSStatuesAsync(string Barcode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithRelatedStatusesAsync(string Barcode)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByUserIdWithSStatusAsync(string UserId)
-        {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Barcode.Equals(Barcode)).Include(e=>e.Center).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
     }
 }

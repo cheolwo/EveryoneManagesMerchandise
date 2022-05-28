@@ -35,21 +35,6 @@ namespace BusinessData
         Task<List<TEntity>> GetToListByCodeAsync(string Code);
         Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser);
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
-
-        // GetByWith
-        Task<TEntity> GetByUserWithRelatedAsync(IdentityUser identityUser);
-        Task<TEntity> GetByNameWithRelatedAsync(string Name);
-        Task<TEntity> GetByContainerWithRelatedAsync(string containerName);
-        Task<TEntity> GetByCodeWithRelatedAsync(string Code);
-        Task<TEntity> GetByUserIdWithRelatedAsync(string UserId);
-
-        // GetToListByWith
-        Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId);
-        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateWithRelatedAsync(string Container);
-        Task<List<TEntity>> GetToListByNameWithRelatedAsync(string Name);
-        Task<List<TEntity>> GetToListByCodeWithRelatedAsync(string Code);
-        Task<List<TEntity>> GetToListByUserWithRelatedAsync(IdentityUser IdentityUser);
-        Task<List<TEntity>> GetToListByBetweenDateTimeWithRelatedAsync(DateTime beforeDateTime, DateTime AfterDateTime);
     }
     
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
@@ -199,164 +184,50 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
         }
 
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListAsync()
+        public async Task<TEntity> GetByNameAsync(string Name)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Name.Equals(Name));
         }
 
-        Task<TEntity> IEntityDataRepository<TEntity>.FirstOrDefaultAsync()
+        public async Task<TEntity> GetByContainerAsync(string ContainerName)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.containerName.Equals(containerName));
         }
 
-        Task<TEntity> IEntityDataRepository<TEntity>.AddAsync(TEntity tentity)
+        public async Task<TEntity> GetByCodeAsync(string Code)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Code.Equals(Code));
         }
 
-        Task<TEntity> IEntityDataRepository<TEntity>.UpdateAsync(TEntity tentity)
+        public async Task<TEntity> GetByUserIdAsync(string UserId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(UserId));
         }
 
-        Task IEntityDataRepository<TEntity>.DeleteByIdAsync(string Id)
+
+        public async Task<List<TEntity>> GetToListByUserIdAsync(string UserId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).ToListAsync();
         }
 
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByIdAsync(string Id)
+        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Container.Equals(Container)).ToListAsync();
         }
 
-        Task IEntityDataRepository<TEntity>.AddEntitiesAsync(IList<TEntity> entities)
+        public async Task<List<TEntity>> GetToListByNameAsync(string Name)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Name.Equals(Name)).ToListAsync();
         }
 
-        Task IEntityDataRepository<TEntity>.AddEntitiesByAttachAsync(IList<TEntity> entities)
+        public async Task<List<TEntity>> GetToListByCodeAsync(string Code)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(UserId)).ToListAsync();
         }
 
-        Task IEntityDataRepository<TEntity>.UpdateAttachAsync(TEntity entity)
+        public async Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserAsync(IdentityUser identityUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByNameAsync(string Name)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByContainerAsync(string containerName)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByCodeAsync(string Code)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserIdAsync(string UserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<int> IEntityDataRepository<TEntity>.GetCountAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserIdAsync(string UserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListBetweenStarnDateAndEndDateAsync(string Container)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByNameAsync(string Name)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByCodeAsync(string Code)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserAsync(IdentityUser IdentityUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserWithRelatedAsync(IdentityUser identityUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByNameWithRelatedAsync(string Name)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByContainerWithRelatedAsync(string containerName)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByCodeWithRelatedAsync(string Code)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserIdWithRelatedAsync(string UserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserIdWithRelatedAsync(string UserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListBetweenStarnDateAndEndDateWithRelatedAsync(string Container)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByNameWithRelatedAsync(string Name)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByCodeWithRelatedAsync(string Code)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserWithRelatedAsync(IdentityUser IdentityUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByBetweenDateTimeWithRelatedAsync(DateTime beforeDateTime, DateTime AfterDateTime)
-        {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CreateTime >= beforeDateTime && e.CreateTime <= AfterDateTime).ToListAsync();
         }
     }
 }

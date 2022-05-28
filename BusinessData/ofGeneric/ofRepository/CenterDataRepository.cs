@@ -8,8 +8,7 @@ namespace BusinessData
 {
     public interface ICenterDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Center
     {
-        // Get By
-        Task<TEntity> GetByIdAsync(string id);
+
         Task<TEntity> GetByLoginIdAsync(string LoginId);
         Task<TEntity> GetByAddressAsync(string Address);
         Task<TEntity> GetByCountryCodeAsync(string CountryCode);
@@ -37,15 +36,15 @@ namespace BusinessData
         Task<List<TEntity>> GetToListByAddressWithRelatedAsync(string Address);
         Task<List<TEntity>> GetToListByPhoneNumberWithRelatedAsync(string PhoneNumber);
         Task<List<TEntity>> GetToListByFaxNumberWithRelatedAsync(string FaxNumber);
-        // With
-        Task<List<TEntity>> GetToListWithCommoditiesAsync();
-        Task<List<TEntity>> GetToListWithEStatusesAsync();
-        Task<List<TEntity>> GetToListWithMStatusesAsync();
-        Task<List<TEntity>> GetToListWithSStatusesAsync();
-        Task<List<TEntity>> GetToListWithStatusesAsync();
-        Task<List<TEntity>> GetToListWithCenterMacAddressesAsync();
-        Task<List<TEntity>> GetToListWithCenterIPAddressesAsync();
-        Task<List<TEntity>> GetToListWithCenterRolesAsync();
+        // // With
+        // Task<List<TEntity>> GetToListWithCommoditiesAsync();
+        // Task<List<TEntity>> GetToListWithEStatusesAsync();
+        // Task<List<TEntity>> GetToListWithMStatusesAsync();
+        // Task<List<TEntity>> GetToListWithSStatusesAsync();
+        // Task<List<TEntity>> GetToListWithStatusesAsync();
+        // Task<List<TEntity>> GetToListWithCenterMacAddressesAsync();
+        // Task<List<TEntity>> GetToListWithCenterIPAddressesAsync();
+        // Task<List<TEntity>> GetToListWithCenterRolesAsync();
         
     }
     public class CenterDataRepository<TEntity> : EntityDataRepository<TEntity>,
@@ -139,7 +138,7 @@ namespace BusinessData
         }
         public async Task<TEntity> GetByCenterWithStatusAsync(TEntity entity)
         {
-            return await _DbContext.Set<TEntity>().Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.MStatuses).
+            return await _DbContext.Set<TEntity>().Include(e => e.SStatuses).Include(e => e.MStatuses).Include(e => e.EStatuses).
                 Include(e => e.Commodities).FirstOrDefaultAsync(e => e.Equals(entity));
         }
 
@@ -173,154 +172,113 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Where(e => e.FaxNumber.Equals(FaxNumber)).ToListAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByIdAsync(string id)
+        public async Task<TEntity> GetByLoginIdAsync(string LoginId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.LoginId.Equals(LoginId));
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByLoginIdAsync(string LoginId)
+        public async Task<TEntity> GetByAddressAsync(string Address)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Address.Equals(Address));
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByAddressAsync(string Address)
+        public async Task<TEntity> GetByCountryCodeAsync(string CountryCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.CountryCode.Equals(CountryCode));
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByCountryCodeAsync(string CountryCode)
+        public async Task<TEntity> GetByPhoneNumberAsync(string PhoneNumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.PhoneNumber.Equals(PhoneNumber));
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByPhoneNumberAsync(string PhoneNumber)
+        public async Task<TEntity> GetByFaxnumberAsync(string Faxnumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.FaxNumber.Equals(FaxNumber));
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByFaxnumberAsync(string Faxnumber)
+        public async Task<List<TEntity>> GetToListByLoginIdAsync(string LoginId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.LoginId.Equals(LoginId)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByLoginIdAsync(string LoginId)
+        public async Task<List<TEntity>> GetToListByAddressAsync(string Address)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Address.Equals(Address)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByAddressAsync(string Address)
+        public async Task<List<TEntity>> GetToListByCountryCodeAsync(string CoutryCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CountryCode)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByCountryCodeAsync(string CoutryCode)
+        public async Task<List<TEntity>> GetToListByPhoneNumberAsync(string PhoneNumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.PhoneNumber.Equals(PhoneNumber)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByPhoneNumberAsync(string PhoneNumber)
+        public async Task<List<TEntity>> GetToListByFaxnNumberAsync(string FaxNumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.FaxNumber.Equals(FaxNumber)).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByFaxnNumberAsync(string FaxNumber)
+        public async Task<TEntity> GetByIdWithRelatedAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Id.Equals(Id)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByIdWithRelatedAsync(string id)
+        public async Task<TEntity> GetByLoginIdWithRelatedAsync(string LoginId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Id.Equals(Id)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByLoginIdWithRelatedAsync(string LoginId)
+        public async Task<TEntity> GetByAddressWithRelatedAsync(string Address)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Address.Equals(Address)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).
+                                        FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByAddressWithRelatedAsync(string Address)
+        public async Task<TEntity> GetByCountryCodeWithRelatedAsync(string CountryCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CountryCode)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).
+                                        FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByCountryCodeWithRelatedAsync(string CountryCode)
+        public async Task<TEntity> GetByPhoneNumberWithRelatedAsync(string PhoneNumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.PhoneNumber.Equals(PhoneNumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).
+                                        FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByPhoneNumberWithRelatedAsync(string PhoneNumber)
+        public async Task<TEntity> GetByFaxnumberWithRelatedAsync(string Faxnumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.FaxNumber.Equals(FaxNumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).
+                                        FirstOrDefaultAsync();
         }
 
-        Task<TEntity> ICenterDataRepository<TEntity>.GetByFaxnumberWithRelatedAsync(string Faxnumber)
+        public async Task<List<TEntity>> GetToListByCountryCodeWithRelatedAsync(string CoutryCode)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.CountryCode.Equals(CountryCode)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByCountryCodeWithRelatedAsync(string CoutryCode)
+        public async Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByUserIdWithRelatedAsync(string userId)
+        public async Task<List<TEntity>> GetToListByAddressWithRelatedAsync(string Address)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Address.Equals(Address)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByAddressWithRelatedAsync(string Address)
+        public async Task<List<TEntity>> GetToListByPhoneNumberWithRelatedAsync(string PhoneNumber)
         {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.PhoneNumber.Equals(PhoneNumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
 
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByPhoneNumberWithRelatedAsync(string PhoneNumber)
+        public async Task<List<TEntity>> GetToListByFaxNumberWithRelatedAsync(string FaxNumber)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListByFaxNumberWithRelatedAsync(string FaxNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithCommoditiesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithEStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithMStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithSStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithStatusesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithCenterMacAddressesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithCenterIPAddressesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<TEntity>> ICenterDataRepository<TEntity>.GetToListWithCenterRolesAsync()
-        {
-            throw new NotImplementedException();
+            return await _DbContext.Set<TEntity>().Where(e=>e.Faxnumber.Equals(Faxnumber)).Include(e=>e.Commodities).Include(e=>e.SStatuses).Include(e=>e.MStatuses).Include(e=>e.EStatuses).ToListAsync();
         }
     }
 }
