@@ -2,17 +2,17 @@ using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofDTO.ofMarket;
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofPlatMarket
 {
-    public class PlatMarketPageViewModel<TMStatus> : MStatusPageViewModel<TMStatus> where TMStatus : PlatMarketDTO, new()
+    public class PlatMarketPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : PlatMarketDTO, new()
     {
-        private readonly PlatMarketPostViewModel<TMStatus> _PlatMarketPostViewModel;
-        private readonly PlatMarketPutViewModel<TMStatus> _PlatMarketPutViewModel;
-        private readonly PlatMarketDeleteViewModel<TMStatus> _PlatMarketDeleteViewModel;
-        private readonly PlatMarketGetsViewModel<TMStatus> _PlatMarketGetViewMode;
+        private readonly PlatMarketPostViewModel<TCenter> _PlatMarketPostViewModel;
+        private readonly PlatMarketPutViewModel<TCenter> _PlatMarketPutViewModel;
+        private readonly PlatMarketDeleteViewModel<TCenter> _PlatMarketDeleteViewModel;
+        private readonly PlatMarketGetsViewModel<TCenter> _PlatMarketGetViewMode;
         public PlatMarketPageViewModel(
-            PlatMarketPostViewModel<TMStatus> PlatMarketPostViewModel, 
-            PlatMarketPutViewModel<TMStatus> PlatMarketPutViewModel,
-            PlatMarketDeleteViewModel<TMStatus> PlatMarketDeleteViewModel, 
-            PlatMarketGetsViewModel<TMStatus> PlatMarketGetViewModel)
+            PlatMarketPostViewModel<TCenter> PlatMarketPostViewModel, 
+            PlatMarketPutViewModel<TCenter> PlatMarketPutViewModel,
+            PlatMarketDeleteViewModel<TCenter> PlatMarketDeleteViewModel, 
+            PlatMarketGetsViewModel<TCenter> PlatMarketGetViewModel)
                                             :base(PlatMarketPostViewModel, PlatMarketPutViewModel, PlatMarketDeleteViewModel, PlatMarketGetViewModel)
         {
             _PlatMarketPostViewModel = PlatMarketPostViewModel;

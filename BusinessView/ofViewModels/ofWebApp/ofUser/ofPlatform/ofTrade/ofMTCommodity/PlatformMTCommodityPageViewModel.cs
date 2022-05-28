@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofTrade.ofMTCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofTrade.ofMTCommodity
 {
-    public class PlatformMTCommodityPageViewModel : StatusPageViewModel<PlatformMTCommodity> 
+    public class PlatformMTCommodityPageViewModel : MTCommodityPageViewModel<PlatformMTCommodity> 
     {
         public readonly PlatformPostMTCommodityViewModel _PlatformPostMTCommodityViewModel;
         public readonly PlatformPutMTCommodityViewModel _PlatformPutMTCommodityViewModel;
         public readonly PlatformDeleteMTCommodityViewModel _PlatformDeleteMTCommodityViewModel;
         public readonly PlatformGetsMTCommodityViewModel _PlatformGetsMTCommodityViewModel;
+
         public PlatformMTCommodityPageViewModel(PlatformPostMTCommodityViewModel PlatformPostMTCommodityViewModel, 
                                         PlatformPutMTCommodityViewModel PlatformPutMTCommodityViewModel,
                                         PlatformDeleteMTCommodityViewModel PlatformDeleteMTCommodityViewModel,

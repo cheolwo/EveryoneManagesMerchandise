@@ -1,24 +1,21 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWarehouse
 {
-    public class PlatformWarehousePageViewModel : CenterPageViewModel<PlatformWarehouse> 
+    public class PlatformWarehousePageViewModel : WarehousePageViewModel<PlatformWarehouse> 
     {
         public readonly PlatformPostWarehouseViewModel _PlatformPostWarehouseViewModel;
         public readonly PlatformPutWarehouseViewModel _PlatformPutWarehouseViewModel;
         public readonly PlatformDeleteWarehouseViewModel _PlatformDeleteWarehouseViewModel;
         public readonly PlatformGetsWarehouseViewModel _PlatformGetsWarehouseViewModel;
-        public PlatformWarehousePageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        PlatformPostWarehouseViewModel PlatformPostWarehouseViewModel, 
+
+        public PlatformWarehousePageViewModel(PlatformPostWarehouseViewModel PlatformPostWarehouseViewModel, 
                                         PlatformPutWarehouseViewModel PlatformPutWarehouseViewModel,
                                         PlatformDeleteWarehouseViewModel PlatformDeleteWarehouseViewModel,
                                         PlatformGetsWarehouseViewModel PlatformGetsWarehouseViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostWarehouseViewModel, PlatformPutWarehouseViewModel, PlatformDeleteWarehouseViewModel, PlatformGetsWarehouseViewModel)
+                :base(PlatformPostWarehouseViewModel, PlatformPutWarehouseViewModel, PlatformDeleteWarehouseViewModel, PlatformGetsWarehouseViewModel)
                     
         {
             _PlatformPostWarehouseViewModel = PlatformPostWarehouseViewModel;

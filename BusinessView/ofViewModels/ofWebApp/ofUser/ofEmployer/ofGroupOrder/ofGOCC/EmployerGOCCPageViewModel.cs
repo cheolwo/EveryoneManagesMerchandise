@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOCC;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOCC
 {
-    public class EmployerGOCCPageViewModel : EmployerCommodityPageViewModel<EmployerGOCC> 
+    public class EmployerGOCCPageViewModel : GOCCPageViewModel<EmployerGOCC> 
     {
         public readonly EmployerPostGOCCViewModel _EmployerPostGOCCViewModel;
         public readonly EmployerPutGOCCViewModel _EmployerPutGOCCViewModel;
         public readonly EmployerDeleteGOCCViewModel _EmployerDeleteGOCCViewModel;
         public readonly EmployerGetsGOCCViewModel _EmployerGetsGOCCViewModel;
+
         public EmployerGOCCPageViewModel(EmployerPostGOCCViewModel EmployerPostGOCCViewModel, 
                                         EmployerPutGOCCViewModel EmployerPutGOCCViewModel,
                                         EmployerDeleteGOCCViewModel EmployerDeleteGOCCViewModel,

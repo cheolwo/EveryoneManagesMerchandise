@@ -1,23 +1,21 @@
 ﻿using BusinessView.ofDTO.ofHR.ofPlatform;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRCenter;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRCenter
 {
-    public class PlatformHRCenterPageViewModel : CenterPageViewModel<PlatformHRCenter> 
+    public class PlatformHRCenterPageViewModel : HRCenterPageViewModel<PlatformHRCenter> 
     {
         public readonly PlatformPostHRCenterViewModel _PlatformPostHRCenterViewModel;
         public readonly PlatformPutHRCenterViewModel _PlatformPutHRCenterViewModel;
         public readonly PlatformDeleteHRCenterViewModel _PlatformDeleteHRCenterViewModel;
         public readonly PlatformGetsHRCenterViewModel _PlatformGetsHRCenterViewModel;
-        public PlatformHRCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        PlatformPostHRCenterViewModel PlatformPostHRCenterViewModel, 
+
+        public PlatformHRCenterPageViewModel(PlatformPostHRCenterViewModel PlatformPostHRCenterViewModel, 
                                         PlatformPutHRCenterViewModel PlatformPutHRCenterViewModel,
                                         PlatformDeleteHRCenterViewModel PlatformDeleteHRCenterViewModel,
                                         PlatformGetsHRCenterViewModel PlatformGetsHRCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostHRCenterViewModel, PlatformPutHRCenterViewModel, PlatformDeleteHRCenterViewModel, PlatformGetsHRCenterViewModel)
+                :base(PlatformPostHRCenterViewModel, PlatformPutHRCenterViewModel, PlatformDeleteHRCenterViewModel, PlatformGetsHRCenterViewModel)
                     
         {
             _PlatformPostHRCenterViewModel = PlatformPostHRCenterViewModel;

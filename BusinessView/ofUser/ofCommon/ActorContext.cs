@@ -3,7 +3,7 @@ using BusinessView.ofUser.ofCommon;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 
-namespace BusinessView.ofCommon.ofUser
+namespace BusinessView.ofUser.ofCommon
 {
     public class ActorOption
     {

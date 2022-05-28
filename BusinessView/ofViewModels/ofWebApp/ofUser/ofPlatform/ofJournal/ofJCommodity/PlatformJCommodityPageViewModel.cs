@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofJournal.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal.ofJCommodity
 {
-    public class PlatformJCommodityPageViewModel : CommodityPageViewModel<PlatformJCommodity> 
+    public class PlatformJCommodityPageViewModel : JCommodityPageViewModel<PlatformJCommodity> 
     {
         public readonly PlatformPostJCommodityViewModel _PlatformPostJCommodityViewModel;
         public readonly PlatformPutJCommodityViewModel _PlatformPutJCommodityViewModel;
         public readonly PlatformDeleteJCommodityViewModel _PlatformDeleteJCommodityViewModel;
         public readonly PlatformGetsJCommodityViewModel _PlatformGetsJCommodityViewModel;
+
         public PlatformJCommodityPageViewModel(PlatformPostJCommodityViewModel PlatformPostJCommodityViewModel, 
                                         PlatformPutJCommodityViewModel PlatformPutJCommodityViewModel,
                                         PlatformDeleteJCommodityViewModel PlatformDeleteJCommodityViewModel,

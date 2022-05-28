@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournal;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournal
 {
-    public class EmployeeJournalPageViewModel : EntityPageViewModel<EmployeeJournal> 
+    public class EmployeeJournalPageViewModel : JournalPageViewModel<EmployeeJournal> 
     {
         public readonly EmployeePostJournalViewModel _EmployeePostJournalViewModel;
         public readonly EmployeePutJournalViewModel _EmployeePutJournalViewModel;

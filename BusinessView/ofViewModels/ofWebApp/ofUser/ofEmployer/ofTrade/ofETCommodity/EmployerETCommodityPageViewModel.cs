@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofTrade.ofETCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofETCommodity
 {
-    public class EmployerETCommodityPageViewModel : EmployerStatusPageViewModel<EmployerETCommodity> 
+    public class EmployerETCommodityPageViewModel : ETCommodityPageViewModel<EmployerETCommodity> 
     {
         public readonly EmployerPostETCommodityViewModel _EmployerPostETCommodityViewModel;
         public readonly EmployerPutETCommodityViewModel _EmployerPutETCommodityViewModel;
         public readonly EmployerDeleteETCommodityViewModel _EmployerDeleteETCommodityViewModel;
         public readonly EmployerGetsETCommodityViewModel _EmployerGetsETCommodityViewModel;
+
         public EmployerETCommodityPageViewModel(EmployerPostETCommodityViewModel EmployerPostETCommodityViewModel, 
                                         EmployerPutETCommodityViewModel EmployerPutETCommodityViewModel,
                                         EmployerDeleteETCommodityViewModel EmployerDeleteETCommodityViewModel,

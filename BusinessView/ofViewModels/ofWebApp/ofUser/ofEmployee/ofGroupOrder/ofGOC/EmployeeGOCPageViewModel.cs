@@ -2,9 +2,10 @@
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOC;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOC
 {
-    public class EmployeeGOCPageViewModel : CenterPageViewModel<EmployeeGOC> 
+    public class EmployeeGOCPageViewModel : GOCPageViewModel<EmployeeGOC> 
     {
         public readonly EmployeePostGOCViewModel _EmployeePostGOCViewModel;
         public readonly EmployeePutGOCViewModel _EmployeePutGOCViewModel;

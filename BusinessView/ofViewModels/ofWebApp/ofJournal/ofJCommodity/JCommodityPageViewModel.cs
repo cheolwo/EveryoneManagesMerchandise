@@ -2,17 +2,17 @@ using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofDTO.ofJournal;
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity
 {
-    public class JCommodityPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : JCommodityDTO, new()
+    public class JCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : JCommodityDTO, new()
     {
-        private readonly JCommodityPostViewModel<TEntity> _JCommodityPostViewModel;
-        private readonly JCommodityPutViewModel<TEntity> _JCommodityPutViewModel;
-        private readonly JCommodityDeleteViewModel<TEntity> _JCommodityDeleteViewModel;
-        private readonly JCommodityGetsViewModel<TEntity> _JCommodityGetViewMode;
+        private readonly JCommodityPostViewModel<TCommodity> _JCommodityPostViewModel;
+        private readonly JCommodityPutViewModel<TCommodity> _JCommodityPutViewModel;
+        private readonly JCommodityDeleteViewModel<TCommodity> _JCommodityDeleteViewModel;
+        private readonly JCommodityGetsViewModel<TCommodity> _JCommodityGetViewMode;
         public JCommodityPageViewModel(
-            JCommodityPostViewModel<TEntity> JCommodityPostViewModel, 
-            JCommodityPutViewModel<TEntity> JCommodityPutViewModel,
-            JCommodityDeleteViewModel<TEntity> JCommodityDeleteViewModel, 
-            JCommodityGetsViewModel<TEntity> JCommodityGetViewModel)
+            JCommodityPostViewModel<TCommodity> JCommodityPostViewModel, 
+            JCommodityPutViewModel<TCommodity> JCommodityPutViewModel,
+            JCommodityDeleteViewModel<TCommodity> JCommodityDeleteViewModel, 
+            JCommodityGetsViewModel<TCommodity> JCommodityGetViewModel)
                                             :base(JCommodityPostViewModel, JCommodityPutViewModel, JCommodityDeleteViewModel, JCommodityGetViewModel)
         {
             _JCommodityPostViewModel = JCommodityPostViewModel;

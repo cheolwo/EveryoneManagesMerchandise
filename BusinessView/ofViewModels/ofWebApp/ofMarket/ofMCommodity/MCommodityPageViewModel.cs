@@ -2,17 +2,17 @@ using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofDTO.ofMarket;
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofMCommodity
 {
-    public class MCommodityPageViewModel<TEStatus> : EStatusPageViewModel<TEStatus> where TEStatus : MCommodityDTO, new()
+    public class MCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : MCommodityDTO, new()
     {
-        private readonly MCommodityPostViewModel<TEStatus> _MCommodityPostViewModel;
-        private readonly MCommodityPutViewModel<TEStatus> _MCommodityPutViewModel;
-        private readonly MCommodityDeleteViewModel<TEStatus> _MCommodityDeleteViewModel;
-        private readonly MCommodityGetsViewModel<TEStatus> _MCommodityGetViewMode;
+        private readonly MCommodityPostViewModel<TCommodity> _MCommodityPostViewModel;
+        private readonly MCommodityPutViewModel<TCommodity> _MCommodityPutViewModel;
+        private readonly MCommodityDeleteViewModel<TCommodity> _MCommodityDeleteViewModel;
+        private readonly MCommodityGetsViewModel<TCommodity> _MCommodityGetViewMode;
         public MCommodityPageViewModel(
-            MCommodityPostViewModel<TEStatus> MCommodityPostViewModel, 
-            MCommodityPutViewModel<TEStatus> MCommodityPutViewModel,
-            MCommodityDeleteViewModel<TEStatus> MCommodityDeleteViewModel, 
-            MCommodityGetsViewModel<TEStatus> MCommodityGetViewModel)
+            MCommodityPostViewModel<TCommodity> MCommodityPostViewModel, 
+            MCommodityPutViewModel<TCommodity> MCommodityPutViewModel,
+            MCommodityDeleteViewModel<TCommodity> MCommodityDeleteViewModel, 
+            MCommodityGetsViewModel<TCommodity> MCommodityGetViewModel)
                                             :base(MCommodityPostViewModel, MCommodityPutViewModel, MCommodityDeleteViewModel, MCommodityGetViewModel)
         {
             _MCommodityPostViewModel = MCommodityPostViewModel;

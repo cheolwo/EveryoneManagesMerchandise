@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofMarket.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofMarket.ofEMCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofEMCommodity
 {
-    public class EmployerEMCommodityPageViewModel : EmployerStatusPageViewModel<EmployerEMCommodity> 
+    public class EmployerEMCommodityPageViewModel : EMCommodityPageViewModel<EmployerEMCommodity> 
     {
         public readonly EmployerPostEMCommodityViewModel _EmployerPostEMCommodityViewModel;
         public readonly EmployerPutEMCommodityViewModel _EmployerPutEMCommodityViewModel;
         public readonly EmployerDeleteEMCommodityViewModel _EmployerDeleteEMCommodityViewModel;
         public readonly EmployerGetsEMCommodityViewModel _EmployerGetsEMCommodityViewModel;
+
         public EmployerEMCommodityPageViewModel(EmployerPostEMCommodityViewModel EmployerPostEMCommodityViewModel, 
                                         EmployerPutEMCommodityViewModel EmployerPutEMCommodityViewModel,
                                         EmployerDeleteEMCommodityViewModel EmployerDeleteEMCommodityViewModel,

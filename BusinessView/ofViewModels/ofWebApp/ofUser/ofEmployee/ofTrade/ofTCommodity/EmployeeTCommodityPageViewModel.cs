@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofTrade.ofTCommodity;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTCommodity
 {
-    public class EmployeeTCommodityPageViewModel : CommodityPageViewModel<EmployeeTCommodity> 
+    public class EmployeeTCommodityPageViewModel : TCommodityPageViewModel<EmployeeTCommodity> 
     {
         public readonly EmployeePostTCommodityViewModel _EmployeePostTCommodityViewModel;
         public readonly EmployeePutTCommodityViewModel _EmployeePutTCommodityViewModel;

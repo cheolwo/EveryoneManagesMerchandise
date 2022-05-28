@@ -2,9 +2,10 @@
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofOrderCenter
 {
-    public class EmployeeOrderCenterPageViewModel : CenterPageViewModel<EmployeeOrderCenter> 
+    public class EmployeeOrderCenterPageViewModel : OrderCenterPageViewModel<EmployeeOrderCenter> 
     {
         public readonly EmployeePostOrderCenterViewModel _EmployeePostOrderCenterViewModel;
         public readonly EmployeePutOrderCenterViewModel _EmployeePutOrderCenterViewModel;

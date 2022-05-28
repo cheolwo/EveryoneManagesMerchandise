@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductLand;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofProductLand
 {
-    public class PlatformProductLandPageViewModel : EntityPageViewModel<PlatformProductLand> 
+    public class PlatformProductLandPageViewModel : ProductLandPageViewModel<PlatformProductLand> 
     {
         public readonly PlatformPostProductLandViewModel _PlatformPostProductLandViewModel;
         public readonly PlatformPutProductLandViewModel _PlatformPutProductLandViewModel;
         public readonly PlatformDeleteProductLandViewModel _PlatformDeleteProductLandViewModel;
         public readonly PlatformGetsProductLandViewModel _PlatformGetsProductLandViewModel;
+
         public PlatformProductLandPageViewModel(PlatformPostProductLandViewModel PlatformPostProductLandViewModel, 
                                         PlatformPutProductLandViewModel PlatformPutProductLandViewModel,
                                         PlatformDeleteProductLandViewModel PlatformDeleteProductLandViewModel,

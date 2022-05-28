@@ -2,10 +2,10 @@
 using BusinessView.ofDTO.ofMarket.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofMarket.ofMarket;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMarket
 {
-    public class EmployeeMarketPageViewModel : CenterPageViewModel<EmployeeMarket> 
+    public class EmployeeMarketPageViewModel : MarketPageViewModel<EmployeeMarket> 
     {
         public readonly EmployeePostMarketViewModel _EmployeePostMarketViewModel;
         public readonly EmployeePutMarketViewModel _EmployeePutMarketViewModel;

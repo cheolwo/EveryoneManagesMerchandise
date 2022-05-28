@@ -3,7 +3,7 @@ using BusinessView.ofWarehouse;
 using BusinessView.ofCommon.ofUser;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse
 {
-    public class WarehousePostViewModel<TSStatus> : SStatusPostViewModel<TSStatus> where TSStatus : WarehouseDTO, new()
+    public class WarehousePostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : WarehouseDTO, new()
     {
         public WarehousePostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -11,7 +11,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse
 
         }
     }
-    public class WarehousePutViewModel<TSStatus> : SStatusPutViewModel<TSStatus> where TSStatus : WarehouseDTO, new()
+    public class WarehousePutViewModel<TCenter> : CenterPutViewModel<TCenter> where TCenter : WarehouseDTO, new()
     {
         public WarehousePutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -19,7 +19,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse
 
         }
     }
-    public class WarehouseDeleteViewModel<TSStatus> : SStatusDeleteViewModel<TSStatus> where TSStatus : WarehouseDTO, new()
+    public class WarehouseDeleteViewModel<TCenter> : CenterDeleteViewModel<TCenter> where TCenter : WarehouseDTO, new()
     {
         public WarehouseDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -27,7 +27,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse
              
         }
     }
-    public class WarehouseGetsViewModel<TSStatus> : SStatusGetsViewModel<TSStatus> where TSStatus : WarehouseDTO, new()
+    public class WarehouseGetsViewModel<TCenter> : CenterGetsViewModel<TCenter> where TCenter : WarehouseDTO, new()
     {
         public WarehouseGetsViewModel(ActorContext actorContext)
             :base(actorContext)

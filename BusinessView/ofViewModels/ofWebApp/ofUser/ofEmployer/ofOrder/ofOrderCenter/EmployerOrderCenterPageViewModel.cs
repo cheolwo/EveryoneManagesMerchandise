@@ -1,23 +1,21 @@
 ﻿using BusinessView.ofDTO.ofOrder.ofEmployer;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder.ofOrderCenter
 {
-    public class EmployerOrderCenterPageViewModel : EmployerCenterPageViewModel<EmployerOrderCenter> 
+    public class EmployerOrderCenterPageViewModel : OrderCenterPageViewModel<EmployerOrderCenter> 
     {
         public readonly EmployerPostOrderCenterViewModel _EmployerPostOrderCenterViewModel;
         public readonly EmployerPutOrderCenterViewModel _EmployerPutOrderCenterViewModel;
         public readonly EmployerDeleteOrderCenterViewModel _EmployerDeleteOrderCenterViewModel;
         public readonly EmployerGetsOrderCenterViewModel _EmployerGetsOrderCenterViewModel;
-        public EmployerOrderCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        EmployerPostOrderCenterViewModel EmployerPostOrderCenterViewModel, 
+
+        public EmployerOrderCenterPageViewModel(EmployerPostOrderCenterViewModel EmployerPostOrderCenterViewModel, 
                                         EmployerPutOrderCenterViewModel EmployerPutOrderCenterViewModel,
                                         EmployerDeleteOrderCenterViewModel EmployerDeleteOrderCenterViewModel,
                                         EmployerGetsOrderCenterViewModel EmployerGetsOrderCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostOrderCenterViewModel, EmployerPutOrderCenterViewModel, EmployerDeleteOrderCenterViewModel, EmployerGetsOrderCenterViewModel)
+                :base(EmployerPostOrderCenterViewModel, EmployerPutOrderCenterViewModel, EmployerDeleteOrderCenterViewModel, EmployerGetsOrderCenterViewModel)
                     
         {
             _EmployerPostOrderCenterViewModel = EmployerPostOrderCenterViewModel;

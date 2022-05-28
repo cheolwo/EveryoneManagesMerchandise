@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDividedTag;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDividedTag
 {
-    public class EmployeeDividedTagPageViewModel : EntityPageViewModel<EmployeeDividedTag> 
+    public class EmployeeDividedTagPageViewModel : DividedTagPageViewModel<EmployeeDividedTag> 
     {
         public readonly EmployeePostDividedTagViewModel _EmployeePostDividedTagViewModel;
         public readonly EmployeePutDividedTagViewModel _EmployeePutDividedTagViewModel;

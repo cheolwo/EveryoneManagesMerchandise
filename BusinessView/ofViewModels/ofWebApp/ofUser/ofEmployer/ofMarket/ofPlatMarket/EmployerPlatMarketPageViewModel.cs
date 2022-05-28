@@ -1,23 +1,21 @@
 ﻿using BusinessView.ofDTO.ofMarket.ofEmployer;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofMarket.ofPlatMarket;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofMarket.ofPlatMarket
 {
-    public class EmployerPlatMarketPageViewModel : EmployerCenterPageViewModel<EmployerPlatMarket> 
+    public class EmployerPlatMarketPageViewModel : PlatMarketPageViewModel<EmployerPlatMarket> 
     {
         public readonly EmployerPostPlatMarketViewModel _EmployerPostPlatMarketViewModel;
         public readonly EmployerPutPlatMarketViewModel _EmployerPutPlatMarketViewModel;
         public readonly EmployerDeletePlatMarketViewModel _EmployerDeletePlatMarketViewModel;
         public readonly EmployerGetsPlatMarketViewModel _EmployerGetsPlatMarketViewModel;
-        public EmployerPlatMarketPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        EmployerPostPlatMarketViewModel EmployerPostPlatMarketViewModel, 
+
+        public EmployerPlatMarketPageViewModel(EmployerPostPlatMarketViewModel EmployerPostPlatMarketViewModel, 
                                         EmployerPutPlatMarketViewModel EmployerPutPlatMarketViewModel,
                                         EmployerDeletePlatMarketViewModel EmployerDeletePlatMarketViewModel,
                                         EmployerGetsPlatMarketViewModel EmployerGetsPlatMarketViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostPlatMarketViewModel, EmployerPutPlatMarketViewModel, EmployerDeletePlatMarketViewModel, EmployerGetsPlatMarketViewModel)
+                :base(EmployerPostPlatMarketViewModel, EmployerPutPlatMarketViewModel, EmployerDeletePlatMarketViewModel, EmployerGetsPlatMarketViewModel)
                     
         {
             _EmployerPostPlatMarketViewModel = EmployerPostPlatMarketViewModel;

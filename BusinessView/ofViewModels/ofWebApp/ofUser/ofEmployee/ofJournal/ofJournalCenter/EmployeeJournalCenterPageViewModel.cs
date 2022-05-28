@@ -2,9 +2,10 @@
 using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournalCenter;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournalCenter
 {
-    public class EmployeeJournalCenterPageViewModel : CenterPageViewModel<EmployeeJournalCenter> 
+    public class EmployeeJournalCenterPageViewModel : JournalCenterPageViewModel<EmployeeJournalCenter> 
     {
         public readonly EmployeePostJournalCenterViewModel _EmployeePostJournalCenterViewModel;
         public readonly EmployeePutJournalCenterViewModel _EmployeePutJournalCenterViewModel;

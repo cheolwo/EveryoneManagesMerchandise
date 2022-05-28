@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDotBarcode;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDotBarcode
 {
-    public class EmployeeDotBarcodePageViewModel : EntityPageViewModel<EmployeeDotBarcode> 
+    public class EmployeeDotBarcodePageViewModel : DotBarcodePageViewModel<EmployeeDotBarcode> 
     {
         public readonly EmployeePostDotBarcodeViewModel _EmployeePostDotBarcodeViewModel;
         public readonly EmployeePutDotBarcodeViewModel _EmployeePutDotBarcodeViewModel;

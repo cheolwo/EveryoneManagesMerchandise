@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofLoadFrame;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofLoadFrame
 {
-    public class EmployeeLoadFramePageViewModel : EntityPageViewModel<EmployeeLoadFrame> 
+    public class EmployeeLoadFramePageViewModel : LoadFramePageViewModel<EmployeeLoadFrame> 
     {
         public readonly EmployeePostLoadFrameViewModel _EmployeePostLoadFrameViewModel;
         public readonly EmployeePutLoadFrameViewModel _EmployeePutLoadFrameViewModel;

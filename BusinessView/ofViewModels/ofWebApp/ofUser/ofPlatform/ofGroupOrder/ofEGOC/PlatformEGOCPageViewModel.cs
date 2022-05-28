@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofEGOC
 {
-    public class PlatformEGOCPageViewModel : StatusPageViewModel<PlatformEGOC> 
+    public class PlatformEGOCPageViewModel : EGOCPageViewModel<PlatformEGOC> 
     {
         public readonly PlatformPostEGOCViewModel _PlatformPostEGOCViewModel;
         public readonly PlatformPutEGOCViewModel _PlatformPutEGOCViewModel;
         public readonly PlatformDeleteEGOCViewModel _PlatformDeleteEGOCViewModel;
         public readonly PlatformGetsEGOCViewModel _PlatformGetsEGOCViewModel;
+
         public PlatformEGOCPageViewModel(PlatformPostEGOCViewModel PlatformPostEGOCViewModel, 
                                         PlatformPutEGOCViewModel PlatformPutEGOCViewModel,
                                         PlatformDeleteEGOCViewModel PlatformDeleteEGOCViewModel,

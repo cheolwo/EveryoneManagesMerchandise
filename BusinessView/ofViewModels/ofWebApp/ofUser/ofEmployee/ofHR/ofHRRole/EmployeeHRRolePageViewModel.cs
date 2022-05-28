@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofHR.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRRole;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRRole
 {
-    public class EmployeeHRRolePageViewModel : EntityPageViewModel<EmployeeHRRole> 
+    public class EmployeeHRRolePageViewModel : HRRolePageViewModel<EmployeeHRRole> 
     {
         public readonly EmployeePostHRRoleViewModel _EmployeePostHRRoleViewModel;
         public readonly EmployeePutHRRoleViewModel _EmployeePutHRRoleViewModel;

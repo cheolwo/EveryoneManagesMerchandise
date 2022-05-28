@@ -2,9 +2,10 @@
 using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofTrade.ofTradeCenter;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter
 {
-    public class EmployeeTradeCenterPageViewModel : CenterPageViewModel<EmployeeTradeCenter> 
+    public class EmployeeTradeCenterPageViewModel : TradeCenterPageViewModel<EmployeeTradeCenter> 
     {
         public readonly EmployeePostTradeCenterViewModel _EmployeePostTradeCenterViewModel;
         public readonly EmployeePutTradeCenterViewModel _EmployeePutTradeCenterViewModel;

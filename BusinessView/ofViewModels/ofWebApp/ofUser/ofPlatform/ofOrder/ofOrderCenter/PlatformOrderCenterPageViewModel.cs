@@ -1,23 +1,21 @@
 ﻿using BusinessView.ofDTO.ofOrder.ofPlatform;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofOrderCenter
 {
-    public class PlatformOrderCenterPageViewModel : CenterPageViewModel<PlatformOrderCenter> 
+    public class PlatformOrderCenterPageViewModel : OrderCenterPageViewModel<PlatformOrderCenter> 
     {
         public readonly PlatformPostOrderCenterViewModel _PlatformPostOrderCenterViewModel;
         public readonly PlatformPutOrderCenterViewModel _PlatformPutOrderCenterViewModel;
         public readonly PlatformDeleteOrderCenterViewModel _PlatformDeleteOrderCenterViewModel;
         public readonly PlatformGetsOrderCenterViewModel _PlatformGetsOrderCenterViewModel;
-        public PlatformOrderCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        PlatformPostOrderCenterViewModel PlatformPostOrderCenterViewModel, 
+
+        public PlatformOrderCenterPageViewModel(PlatformPostOrderCenterViewModel PlatformPostOrderCenterViewModel, 
                                         PlatformPutOrderCenterViewModel PlatformPutOrderCenterViewModel,
                                         PlatformDeleteOrderCenterViewModel PlatformDeleteOrderCenterViewModel,
                                         PlatformGetsOrderCenterViewModel PlatformGetsOrderCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, PlatformPostOrderCenterViewModel, PlatformPutOrderCenterViewModel, PlatformDeleteOrderCenterViewModel, PlatformGetsOrderCenterViewModel)
+                :base(PlatformPostOrderCenterViewModel, PlatformPutOrderCenterViewModel, PlatformDeleteOrderCenterViewModel, PlatformGetsOrderCenterViewModel)
                     
         {
             _PlatformPostOrderCenterViewModel = PlatformPostOrderCenterViewModel;

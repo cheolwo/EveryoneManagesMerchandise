@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofIncomingTag;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofIncomingTag
 {
-    public class EmployerIncomingTagPageViewModel : EmployerPageViewModel<EmployerIncomingTag> 
+    public class EmployerIncomingTagPageViewModel : IncomingTagPageViewModel<EmployerIncomingTag> 
     {
         public readonly EmployerPostIncomingTagViewModel _EmployerPostIncomingTagViewModel;
         public readonly EmployerPutIncomingTagViewModel _EmployerPutIncomingTagViewModel;
         public readonly EmployerDeleteIncomingTagViewModel _EmployerDeleteIncomingTagViewModel;
         public readonly EmployerGetsIncomingTagViewModel _EmployerGetsIncomingTagViewModel;
+
         public EmployerIncomingTagPageViewModel(EmployerPostIncomingTagViewModel EmployerPostIncomingTagViewModel, 
                                         EmployerPutIncomingTagViewModel EmployerPutIncomingTagViewModel,
                                         EmployerDeleteIncomingTagViewModel EmployerDeleteIncomingTagViewModel,

@@ -3,7 +3,7 @@ using BusinessView.ofWarehouse;
 using BusinessView.ofCommon.ofUser;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofMWCommodity
 {
-    public class MWCommodityPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : MWCommodityDTO, new()
+    public class MWCommodityPostViewModel<TMStatus> : MStatusPostViewModel<TMStatus> where TMStatus : MWCommodityDTO, new()
     {
         public MWCommodityPostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -11,7 +11,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofMWCommodity
 
         }
     }
-    public class MWCommodityPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : MWCommodityDTO, new()
+    public class MWCommodityPutViewModel<TMStatus> : MStatusPutViewModel<TMStatus> where TMStatus : MWCommodityDTO, new()
     {
         public MWCommodityPutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -19,7 +19,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofMWCommodity
 
         }
     }
-    public class MWCommodityDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : MWCommodityDTO, new()
+    public class MWCommodityDeleteViewModel<TMStatus> : MStatusDeleteViewModel<TMStatus> where TMStatus : MWCommodityDTO, new()
     {
         public MWCommodityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -27,7 +27,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofMWCommodity
              
         }
     }
-    public class MWCommodityGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : MWCommodityDTO, new()
+    public class MWCommodityGetsViewModel<TMStatus> : MStatusGetsViewModel<TMStatus> where TMStatus : MWCommodityDTO, new()
     {
         public MWCommodityGetsViewModel(ActorContext actorContext)
             :base(actorContext)

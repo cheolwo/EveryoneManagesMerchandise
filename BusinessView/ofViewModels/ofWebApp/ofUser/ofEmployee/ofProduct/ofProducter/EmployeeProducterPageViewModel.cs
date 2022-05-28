@@ -2,10 +2,10 @@
 using BusinessView.ofDTO.ofProduct.ofEmployee;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProducter;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProducter
 {
-    public class EmployeeProducterPageViewModel : CenterPageViewModel<EmployeeProducter> 
+    public class EmployeeProducterPageViewModel : ProducterPageViewModel<EmployeeProducter> 
     {
         public readonly EmployeePostProducterViewModel _EmployeePostProducterViewModel;
         public readonly EmployeePutProducterViewModel _EmployeePutProducterViewModel;

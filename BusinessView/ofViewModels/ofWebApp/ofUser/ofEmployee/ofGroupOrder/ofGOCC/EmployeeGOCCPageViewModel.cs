@@ -1,9 +1,10 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOCC;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOCC
 {
-    public class EmployeeGOCCPageViewModel : CommodityPageViewModel<EmployeeGOCC> 
+    public class EmployeeGOCCPageViewModel : GOCCPageViewModel<EmployeeGOCC> 
     {
         public readonly EmployeePostGOCCViewModel _EmployeePostGOCCViewModel;
         public readonly EmployeePutGOCCViewModel _EmployeePutGOCCViewModel;

@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDividedTag;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDividedTag
 {
-    public class EmployerDividedTagPageViewModel : EmployerPageViewModel<EmployerDividedTag> 
+    public class EmployerDividedTagPageViewModel : DividedTagPageViewModel<EmployerDividedTag> 
     {
         public readonly EmployerPostDividedTagViewModel _EmployerPostDividedTagViewModel;
         public readonly EmployerPutDividedTagViewModel _EmployerPutDividedTagViewModel;
         public readonly EmployerDeleteDividedTagViewModel _EmployerDeleteDividedTagViewModel;
         public readonly EmployerGetsDividedTagViewModel _EmployerGetsDividedTagViewModel;
+
         public EmployerDividedTagPageViewModel(EmployerPostDividedTagViewModel EmployerPostDividedTagViewModel, 
                                         EmployerPutDividedTagViewModel EmployerPutDividedTagViewModel,
                                         EmployerDeleteDividedTagViewModel EmployerDeleteDividedTagViewModel,

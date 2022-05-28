@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofIncomingTag;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofIncomingTag
 {
-    public class EmployeeIncomingTagPageViewModel : EntityPageViewModel<EmployeeIncomingTag> 
+    public class EmployeeIncomingTagPageViewModel : IncomingTagPageViewModel<EmployeeIncomingTag> 
     {
         public readonly EmployeePostIncomingTagViewModel _EmployeePostIncomingTagViewModel;
         public readonly EmployeePutIncomingTagViewModel _EmployeePutIncomingTagViewModel;

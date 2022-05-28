@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofMGOC;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofMGOC
 {
-    public class EmployeeMGOCPageViewModel : StatusPageViewModel<EmployeeMGOC> 
+    public class EmployeeMGOCPageViewModel : MGOCPageViewModel<EmployeeMGOC> 
     {
         public readonly EmployeePostMGOCViewModel _EmployeePostMGOCViewModel;
         public readonly EmployeePutMGOCViewModel _EmployeePutMGOCViewModel;

@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRBusinessPart;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR.ofHRBusinessPart
 {
-    public class PlatformHRBusinessPartPageViewModel : EntityPageViewModel<PlatformHRBusinessPart> 
+    public class PlatformHRBusinessPartPageViewModel : HRBusinessPartPageViewModel<PlatformHRBusinessPart> 
     {
         public readonly PlatformPostHRBusinessPartViewModel _PlatformPostHRBusinessPartViewModel;
         public readonly PlatformPutHRBusinessPartViewModel _PlatformPutHRBusinessPartViewModel;
         public readonly PlatformDeleteHRBusinessPartViewModel _PlatformDeleteHRBusinessPartViewModel;
         public readonly PlatformGetsHRBusinessPartViewModel _PlatformGetsHRBusinessPartViewModel;
+
         public PlatformHRBusinessPartPageViewModel(PlatformPostHRBusinessPartViewModel PlatformPostHRBusinessPartViewModel, 
                                         PlatformPutHRBusinessPartViewModel PlatformPutHRBusinessPartViewModel,
                                         PlatformDeleteHRBusinessPartViewModel PlatformDeleteHRBusinessPartViewModel,

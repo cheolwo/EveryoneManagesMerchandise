@@ -2,10 +2,10 @@
 using BusinessView.ofExternal.ofSearchingService;
 using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWarehouse
 {
-    public class EmployeeWarehousePageViewModel : CenterPageViewModel<EmployeeWarehouse> 
+    public class EmployeeWarehousePageViewModel : WarehousePageViewModel<EmployeeWarehouse> 
     {
         public readonly EmployeePostWarehouseViewModel _EmployeePostWarehouseViewModel;
         public readonly EmployeePutWarehouseViewModel _EmployeePutWarehouseViewModel;

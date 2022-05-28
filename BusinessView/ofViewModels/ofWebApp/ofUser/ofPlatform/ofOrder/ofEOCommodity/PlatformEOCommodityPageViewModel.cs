@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofOrder.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofEOCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder.ofEOCommodity
 {
-    public class PlatformEOCommodityPageViewModel : StatusPageViewModel<PlatformEOCommodity> 
+    public class PlatformEOCommodityPageViewModel : EOCommodityPageViewModel<PlatformEOCommodity> 
     {
         public readonly PlatformPostEOCommodityViewModel _PlatformPostEOCommodityViewModel;
         public readonly PlatformPutEOCommodityViewModel _PlatformPutEOCommodityViewModel;
         public readonly PlatformDeleteEOCommodityViewModel _PlatformDeleteEOCommodityViewModel;
         public readonly PlatformGetsEOCommodityViewModel _PlatformGetsEOCommodityViewModel;
+
         public PlatformEOCommodityPageViewModel(PlatformPostEOCommodityViewModel PlatformPostEOCommodityViewModel, 
                                         PlatformPutEOCommodityViewModel PlatformPutEOCommodityViewModel,
                                         PlatformDeleteEOCommodityViewModel PlatformDeleteEOCommodityViewModel,

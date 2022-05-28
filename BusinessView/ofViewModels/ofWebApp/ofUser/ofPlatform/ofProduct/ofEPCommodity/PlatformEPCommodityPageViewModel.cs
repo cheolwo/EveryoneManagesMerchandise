@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofProduct.ofEPCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofProduct.ofEPCommodity
 {
-    public class PlatformEPCommodityPageViewModel : StatusPageViewModel<PlatformEPCommodity> 
+    public class PlatformEPCommodityPageViewModel : EPCommodityPageViewModel<PlatformEPCommodity> 
     {
         public readonly PlatformPostEPCommodityViewModel _PlatformPostEPCommodityViewModel;
         public readonly PlatformPutEPCommodityViewModel _PlatformPutEPCommodityViewModel;
         public readonly PlatformDeleteEPCommodityViewModel _PlatformDeleteEPCommodityViewModel;
         public readonly PlatformGetsEPCommodityViewModel _PlatformGetsEPCommodityViewModel;
+
         public PlatformEPCommodityPageViewModel(PlatformPostEPCommodityViewModel PlatformPostEPCommodityViewModel, 
                                         PlatformPutEPCommodityViewModel PlatformPutEPCommodityViewModel,
                                         PlatformDeleteEPCommodityViewModel PlatformDeleteEPCommodityViewModel,

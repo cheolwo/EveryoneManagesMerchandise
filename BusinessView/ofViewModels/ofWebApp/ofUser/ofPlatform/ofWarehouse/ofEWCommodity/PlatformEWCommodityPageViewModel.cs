@@ -1,14 +1,16 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofEWCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofEWCommodity
 {
-    public class PlatformEWCommodityPageViewModel : StatusPageViewModel<PlatformEWCommodity> 
+    public class PlatformEWCommodityPageViewModel : EWCommodityPageViewModel<PlatformEWCommodity> 
     {
         public readonly PlatformPostEWCommodityViewModel _PlatformPostEWCommodityViewModel;
         public readonly PlatformPutEWCommodityViewModel _PlatformPutEWCommodityViewModel;
         public readonly PlatformDeleteEWCommodityViewModel _PlatformDeleteEWCommodityViewModel;
         public readonly PlatformGetsEWCommodityViewModel _PlatformGetsEWCommodityViewModel;
+
         public PlatformEWCommodityPageViewModel(PlatformPostEWCommodityViewModel PlatformPostEWCommodityViewModel, 
                                         PlatformPutEWCommodityViewModel PlatformPutEWCommodityViewModel,
                                         PlatformDeleteEWCommodityViewModel PlatformDeleteEWCommodityViewModel,

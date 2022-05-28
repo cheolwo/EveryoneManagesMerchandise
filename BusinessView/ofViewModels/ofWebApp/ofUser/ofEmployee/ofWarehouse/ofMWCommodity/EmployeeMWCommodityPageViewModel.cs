@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofMWCommodity;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofMWCommodity
 {
-    public class EmployeeMWCommodityPageViewModel : StatusPageViewModel<EmployeeMWCommodity> 
+    public class EmployeeMWCommodityPageViewModel : MWCommodityPageViewModel<EmployeeMWCommodity> 
     {
         public readonly EmployeePostMWCommodityViewModel _EmployeePostMWCommodityViewModel;
         public readonly EmployeePutMWCommodityViewModel _EmployeePutMWCommodityViewModel;

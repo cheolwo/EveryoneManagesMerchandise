@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductLand;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductLand
 {
-    public class EmployeeProductLandPageViewModel : EntityPageViewModel<EmployeeProductLand> 
+    public class EmployeeProductLandPageViewModel : ProductLandPageViewModel<EmployeeProductLand> 
     {
         public readonly EmployeePostProductLandViewModel _EmployeePostProductLandViewModel;
         public readonly EmployeePutProductLandViewModel _EmployeePutProductLandViewModel;

@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWorkingDesk;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWorkingDesk
 {
-    public class EmployeeWorkingDeskPageViewModel : EntityPageViewModel<EmployeeWorkingDesk> 
+    public class EmployeeWorkingDeskPageViewModel : WorkingDeskPageViewModel<EmployeeWorkingDesk> 
     {
         public readonly EmployeePostWorkingDeskViewModel _EmployeePostWorkingDeskViewModel;
         public readonly EmployeePutWorkingDeskViewModel _EmployeePutWorkingDeskViewModel;

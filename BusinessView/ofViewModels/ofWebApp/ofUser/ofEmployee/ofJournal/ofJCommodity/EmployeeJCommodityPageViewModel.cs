@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofViewModels.ofGeneric;
-
+using BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJCommodity
 {
-    public class EmployeeJCommodityPageViewModel : CommodityPageViewModel<EmployeeJCommodity> 
+    public class EmployeeJCommodityPageViewModel : JCommodityPageViewModel<EmployeeJCommodity> 
     {
         public readonly EmployeePostJCommodityViewModel _EmployeePostJCommodityViewModel;
         public readonly EmployeePutJCommodityViewModel _EmployeePutJCommodityViewModel;

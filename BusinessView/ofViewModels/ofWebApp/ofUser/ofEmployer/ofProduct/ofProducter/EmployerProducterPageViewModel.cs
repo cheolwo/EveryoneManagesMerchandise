@@ -1,23 +1,21 @@
 ﻿using BusinessView.ofDTO.ofProduct.ofEmployer;
-using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProducter;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofProduct.ofProducter
 {
-    public class EmployerProducterPageViewModel : EmployerCenterPageViewModel<EmployerProducter> 
+    public class EmployerProducterPageViewModel : ProducterPageViewModel<EmployerProducter> 
     {
         public readonly EmployerPostProducterViewModel _EmployerPostProducterViewModel;
         public readonly EmployerPutProducterViewModel _EmployerPutProducterViewModel;
         public readonly EmployerDeleteProducterViewModel _EmployerDeleteProducterViewModel;
         public readonly EmployerGetsProducterViewModel _EmployerGetsProducterViewModel;
-        public EmployerProducterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
-                                        EmployerPostProducterViewModel EmployerPostProducterViewModel, 
+
+        public EmployerProducterPageViewModel(EmployerPostProducterViewModel EmployerPostProducterViewModel, 
                                         EmployerPutProducterViewModel EmployerPutProducterViewModel,
                                         EmployerDeleteProducterViewModel EmployerDeleteProducterViewModel,
                                         EmployerGetsProducterViewModel EmployerGetsProducterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, EmployerPostProducterViewModel, EmployerPutProducterViewModel, EmployerDeleteProducterViewModel, EmployerGetsProducterViewModel)
+                :base(EmployerPostProducterViewModel, EmployerPutProducterViewModel, EmployerDeleteProducterViewModel, EmployerGetsProducterViewModel)
                     
         {
             _EmployerPostProducterViewModel = EmployerPostProducterViewModel;
