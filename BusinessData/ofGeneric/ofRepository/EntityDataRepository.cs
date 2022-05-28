@@ -198,5 +198,165 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
         }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.FirstOrDefaultAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.AddAsync(TEntity tentity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.UpdateAsync(TEntity tentity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IEntityDataRepository<TEntity>.DeleteByIdAsync(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByIdAsync(string Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IEntityDataRepository<TEntity>.AddEntitiesAsync(IList<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IEntityDataRepository<TEntity>.AddEntitiesByAttachAsync(IList<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IEntityDataRepository<TEntity>.UpdateAttachAsync(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserAsync(IdentityUser identityUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByNameAsync(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByContainerAsync(string containerName)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByCodeAsync(string Code)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserIdAsync(string UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IEntityDataRepository<TEntity>.GetCountAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserIdAsync(string UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListBetweenStarnDateAndEndDateAsync(string Container)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByNameAsync(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByCodeAsync(string Code)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserAsync(IdentityUser IdentityUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserWithRelatedAsync(IdentityUser identityUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByNameWithRelatedAsync(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByContainerWithRelatedAsync(string containerName)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByCodeWithRelatedAsync(string Code)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IEntityDataRepository<TEntity>.GetByUserIdWithRelatedAsync(string UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserIdWithRelatedAsync(string UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListBetweenStarnDateAndEndDateWithRelatedAsync(string Container)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByNameWithRelatedAsync(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByCodeWithRelatedAsync(string Code)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByUserWithRelatedAsync(IdentityUser IdentityUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IEntityDataRepository<TEntity>.GetToListByBetweenDateTimeWithRelatedAsync(DateTime beforeDateTime, DateTime AfterDateTime)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

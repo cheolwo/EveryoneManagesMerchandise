@@ -14,7 +14,7 @@ namespace BusinessData.ofGenericRepository
         Task<TEntity> GetByCenterIdAsnyc(string CenterId);
 
         // GetToListBy
-        Task<List<TEntity>> GetToListByHsCodeWithRelatedAsync(string HsCode);
+        Task<List<TEntity>> GetToListByHsCodeAsync(string HsCode);
         Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId);
         Task<List<TEntity>> GetToListByBarcodeAsync(string Barcode);
 
@@ -172,7 +172,7 @@ namespace BusinessData.ofGenericRepository
             else { return false;  }
         }
 
-        public async Task<List<TEntity>> GetToListByUserIdWithSStatusAsyncstring UserId)
+        public async Task<List<TEntity>> GetToListByUserIdWithSStatusAsyncstring (string UserId)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).Include(e=>e.SStatuses).ToListAsync();
         }
@@ -185,6 +185,146 @@ namespace BusinessData.ofGenericRepository
         public async Task<List<TEntity>> GetToListByBarcodeAsync(string Barcode)
         {
             return await _DbContext.Set<TEntity>().Where(e => e.Barcode.Equals(Barcode)).ToListAsync();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByBarcodeAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByHsCodeAsnyc(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByCenterIdAsnyc(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterIdAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByBarcodeWithRelatedAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByHsCodeWithRelatedAsnyc(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> ICommodityDataRepository<TEntity>.GetByCenterIdWithRelatedAsnyc(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithRelatedAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterIdWithRelatedAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithRelatedAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithEStatusesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithMStatusesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListWithSStatusesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithEStatuesAsync(Center Center)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithMStatuesAsync(Center Center)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithSStatuesAsync(Center Center)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByCenterWithRelatedStatusesAsync(Center Center)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithEStatuesAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithMStatuesAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithSStatuesAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByHsCodeWithRelatedStatusesAsync(string HsCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithEStatuesAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithMStatuesAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithSStatuesAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByBarcodeWithRelatedStatusesAsync(string Barcode)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> ICommodityDataRepository<TEntity>.GetToListByUserIdWithSStatusAsync(string UserId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

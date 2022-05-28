@@ -87,6 +87,76 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().Where(e => e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
         }
+
+        Task<TEntity> IStatusDataRepository<TEntity>.GetByCommodityIdAsync(string CommodityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IStatusDataRepository<TEntity>.GetByCenterIdAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByCommodityIdAsync(string CommodityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByCenterIdAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByQuantityAsync(int MaxQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByQuntityAsync(int MinQuantity, int MaxQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IStatusDataRepository<TEntity>.GetByCommodityIdWithRelatedAsync(string CommodityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<TEntity> IStatusDataRepository<TEntity>.GetByCenterIdWithRelatedAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByCommodityIdWithRelatedAsync(string CommodityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByCenterIdWithRelatedAsync(string CenterId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByQuantityWithRelatedAsync(int MaxQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListByQuntityWithRelatedAsync(int MinQuantity, int MaxQuantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListWithCenterAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<List<TEntity>> IStatusDataRepository<TEntity>.GetToListWithCommodity()
+        {
+            throw new NotImplementedException();
+        }
     }
     public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
     {
