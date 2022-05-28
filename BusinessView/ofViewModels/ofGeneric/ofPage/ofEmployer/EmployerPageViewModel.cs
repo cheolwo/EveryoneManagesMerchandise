@@ -113,14 +113,14 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
     }
 
-    public class EmployerCommodityPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EmployerCommodity, new()
+    public class EmployerCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : EmployerCommodity, new()
     {
-        public EmployerCommodityPostViewModel<TEntity> _EmployerCommodityPostViewModel { get; private set; }
-        public EmployerCommodityPutViewModel<TEntity> _EmployerCommodityPutViewModel { get; private set; }
-        public EmployerCommodityDeleteViewModel<TEntity> _EmployerCommodityDeleteViewModel { get; private set; }
-        public EmployerCommodityGetsViewModel<TEntity> _EmployerCommodityGetsViewModel { get; private set; }
-        public EmployerCommodityPageViewModel(EmployerCommodityPostViewModel<TEntity> postViewModel, EmployerCommodityPutViewModel<TEntity> putViewModel, 
-                                EmployerCommodityDeleteViewModel<TEntity> deleteViewModel, EmployerCommodityGetsViewModel<TEntity> getsViewModel)
+        public EmployerCommodityPostViewModel<TCommodity> _EmployerCommodityPostViewModel { get; private set; }
+        public EmployerCommodityPutViewModel<TCommodity> _EmployerCommodityPutViewModel { get; private set; }
+        public EmployerCommodityDeleteViewModel<TCommodity> _EmployerCommodityDeleteViewModel { get; private set; }
+        public EmployerCommodityGetsViewModel<TCommodity> _EmployerCommodityGetsViewModel { get; private set; }
+        public EmployerCommodityPageViewModel(EmployerCommodityPostViewModel<TCommodity> postViewModel, EmployerCommodityPutViewModel<TCommodity> putViewModel, 
+                                EmployerCommodityDeleteViewModel<TCommodity> deleteViewModel, EmployerCommodityGetsViewModel<TCommodity> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
         {
             _EmployerCommodityPostViewModel = postViewModel;
@@ -129,7 +129,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerCommodityDeleteViewModel = deleteViewModel;
         }
     }
-    public class EmployerCommodityPostViewModel<TEntity> : CommodityPostViewModel<TEntity> where TEntity : EmployerCommodity, new()
+    public class EmployerCommodityPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : EmployerCommodity, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCommodityPostViewModel(EmployerActorContext EmployerActorContext)
@@ -138,7 +138,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCommodityPutViewModel<TEntity> : CommodityPutViewModel<TEntity> where TEntity : EmployerCommodity, new()
+    public class EmployerCommodityPutViewModel<TCommodity> : CommodityPutViewModel<TCommodity> where TCommodity : EmployerCommodity, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCommodityPutViewModel(EmployerActorContext EmployerActorContext)
@@ -147,7 +147,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCommodityGetsViewModel<TEntity> : CommodityGetsViewModel<TEntity> where TEntity : EmployerCommodity, new()
+    public class EmployerCommodityGetsViewModel<TCommodity> : CommodityGetsViewModel<TCommodity> where TCommodity : EmployerCommodity, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCommodityGetsViewModel(EmployerActorContext EmployerActorContext)
@@ -156,7 +156,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCommodityDeleteViewModel<TEntity> : CommodityDeleteViewModel<TEntity> where TEntity : EmployerCommodity, new()
+    public class EmployerCommodityDeleteViewModel<TCommodity> : CommodityDeleteViewModel<TCommodity> where TCommodity : EmployerCommodity, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCommodityDeleteViewModel(EmployerActorContext EmployerActorContext)
@@ -166,32 +166,32 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
     }
 
-    public class EmployerCenterPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EmployerCenter, new()
+    public class EmployerCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : EmployerCenter, new()
     {
-        public EmployerCenterPostViewModel<TEntity> _EmployerCenterPostViewModel { get; private set; }
-        public EmployerCenterPutViewModel<TEntity> _EmployerCenterPutViewModel { get; private set; }
-        public EmployerCenterDeleteViewModel<TEntity> _EmployerCenterDeleteViewModel { get; private set; }
-        public EmployerCenterGetsViewModel<TEntity> _EmployerCenterGetsViewModel { get; private set; }
+        public EmployerCenterPostViewModel<TCenter> _EmployerCenterPostViewModel { get; private set; }
+        public EmployerCenterPutViewModel<TCenter> _EmployerCenterPutViewModel { get; private set; }
+        public EmployerCenterDeleteViewModel<TCenter> _EmployerCenterDeleteViewModel { get; private set; }
+        public EmployerCenterGetsViewModel<TCenter> _EmployerCenterGetsViewModel { get; private set; }
         public ICenterPageRoadAddressService _centerPageRoadAddressService { get; private set; }
         public ICenterPageTaxService _centerPageTaxService { get; private set; }
-        public ICenterPageIdentityRoleService _centerPageIdentityRoleService { get; private set; }
+        public ICenterPageIdCenterRoleService _centerPageIdCenterRoleService { get; private set; }
         public EmployerCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
                                         ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService, 
-                                        EmployerCenterPostViewModel<TEntity> postViewModel, EmployerCenterPutViewModel<TEntity> putViewModel, 
-                                EmployerCenterDeleteViewModel<TEntity> deleteViewModel, EmployerCenterGetsViewModel<TEntity> getsViewModel)
+                                        ICenterPageIdCenterRoleService centerPageIdCenterRoleService, 
+                                        EmployerCenterPostViewModel<TCenter> postViewModel, EmployerCenterPutViewModel<TCenter> putViewModel, 
+                                EmployerCenterDeleteViewModel<TCenter> deleteViewModel, EmployerCenterGetsViewModel<TCenter> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
         {
             _EmployerCenterPostViewModel = postViewModel;
             _EmployerCenterPutViewModel = putViewModel;  
             _EmployerCenterGetsViewModel = getsViewModel;
             _EmployerCenterDeleteViewModel = deleteViewModel;
-            _centerPageIdentityRoleService = centerPageIdentityRoleService;
+            _centerPageIdCenterRoleService = centerPageIdCenterRoleService;
             _centerPageRoadAddressService = centerPageRoadAddressService;
             _centerPageTaxService = centerPageTaxService;
         }
     }
-    public class EmployerCenterPostViewModel<TEntity> : CenterPostViewModel<TEntity> where TEntity : EmployerCenter, new()
+    public class EmployerCenterPostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : EmployerCenter, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCenterPostViewModel(EmployerActorContext EmployerActorContext)
@@ -200,7 +200,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCenterPutViewModel<TEntity> : CenterPutViewModel<TEntity> where TEntity : EmployerCenter, new()
+    public class EmployerCenterPutViewModel<TCenter> : CenterPutViewModel<TCenter> where TCenter : EmployerCenter, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCenterPutViewModel(EmployerActorContext EmployerActorContext)
@@ -209,7 +209,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCenterGetsViewModel<TEntity> : CenterGetsViewModel<TEntity> where TEntity : EmployerCenter, new()
+    public class EmployerCenterGetsViewModel<TCenter> : CenterGetsViewModel<TCenter> where TCenter : EmployerCenter, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCenterGetsViewModel(EmployerActorContext EmployerActorContext)
@@ -218,7 +218,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerActorContext = EmployerActorContext;
         }
     }
-    public class EmployerCenterDeleteViewModel<TEntity> : CenterDeleteViewModel<TEntity> where TEntity : EmployerCenter, new()
+    public class EmployerCenterDeleteViewModel<TCenter> : CenterDeleteViewModel<TCenter> where TCenter : EmployerCenter, new()
     {
         protected readonly EmployerActorContext _EmployerActorContext;
         public EmployerCenterDeleteViewModel(EmployerActorContext EmployerActorContext)

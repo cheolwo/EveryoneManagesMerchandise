@@ -111,14 +111,14 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
     }
 
-    public class PlatformCommodityPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : PlatformCommodity, new()
+    public class PlatformCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : PlatformCommodity, new()
     {
-        public PlatformCommodityPostViewModel<TEntity> _PlatformCommodityPostViewModel { get; private set; }
-        public PlatformCommodityPutViewModel<TEntity> _PlatformCommodityPutViewModel { get; private set; }
-        public PlatformCommodityDeleteViewModel<TEntity> _PlatformCommodityDeleteViewModel { get; private set; }
-        public PlatformCommodityGetsViewModel<TEntity> _PlatformCommodityGetsViewModel { get; private set; }
-        public PlatformCommodityPageViewModel(PlatformCommodityPostViewModel<TEntity> postViewModel, PlatformCommodityPutViewModel<TEntity> putViewModel, 
-                                PlatformCommodityDeleteViewModel<TEntity> deleteViewModel, PlatformCommodityGetsViewModel<TEntity> getsViewModel)
+        public PlatformCommodityPostViewModel<TCommodity> _PlatformCommodityPostViewModel { get; private set; }
+        public PlatformCommodityPutViewModel<TCommodity> _PlatformCommodityPutViewModel { get; private set; }
+        public PlatformCommodityDeleteViewModel<TCommodity> _PlatformCommodityDeleteViewModel { get; private set; }
+        public PlatformCommodityGetsViewModel<TCommodity> _PlatformCommodityGetsViewModel { get; private set; }
+        public PlatformCommodityPageViewModel(PlatformCommodityPostViewModel<TCommodity> postViewModel, PlatformCommodityPutViewModel<TCommodity> putViewModel, 
+                                PlatformCommodityDeleteViewModel<TCommodity> deleteViewModel, PlatformCommodityGetsViewModel<TCommodity> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
         {
             _PlatformCommodityPostViewModel = postViewModel;
@@ -127,7 +127,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformCommodityDeleteViewModel = deleteViewModel;
         }
     }
-    public class PlatformCommodityPostViewModel<TEntity> : CommodityPostViewModel<TEntity> where TEntity : PlatformCommodity, new()
+    public class PlatformCommodityPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : PlatformCommodity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCommodityPostViewModel(PlatformActorContext PlatformActorContext)
@@ -136,7 +136,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCommodityPutViewModel<TEntity> : CommodityPutViewModel<TEntity> where TEntity : PlatformCommodity, new()
+    public class PlatformCommodityPutViewModel<TCommodity> : CommodityPutViewModel<TCommodity> where TCommodity : PlatformCommodity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCommodityPutViewModel(PlatformActorContext PlatformActorContext)
@@ -145,7 +145,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCommodityGetsViewModel<TEntity> : CommodityGetsViewModel<TEntity> where TEntity : PlatformCommodity, new()
+    public class PlatformCommodityGetsViewModel<TCommodity> : CommodityGetsViewModel<TCommodity> where TCommodity : PlatformCommodity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCommodityGetsViewModel(PlatformActorContext PlatformActorContext)
@@ -154,7 +154,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCommodityDeleteViewModel<TEntity> : CommodityDeleteViewModel<TEntity> where TEntity : PlatformCommodity, new()
+    public class PlatformCommodityDeleteViewModel<TCommodity> : CommodityDeleteViewModel<TCommodity> where TCommodity : PlatformCommodity, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCommodityDeleteViewModel(PlatformActorContext PlatformActorContext)
@@ -164,14 +164,14 @@ namespace BusinessView.ofViewModels.ofGeneric
         }
     }
 
-    public class PlatformCenterPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : PlatformCenter, new()
+    public class PlatformCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : PlatformCenter, new()
     {
-        public PlatformCenterPostViewModel<TEntity> _PlatformCenterPostViewModel { get; private set; }
-        public PlatformCenterPutViewModel<TEntity> _PlatformCenterPutViewModel { get; private set; }
-        public PlatformCenterDeleteViewModel<TEntity> _PlatformCenterDeleteViewModel { get; private set; }
-        public PlatformCenterGetsViewModel<TEntity> _PlatformCenterGetsViewModel { get; private set; }
-        public PlatformCenterPageViewModel(PlatformCenterPostViewModel<TEntity> postViewModel, PlatformCenterPutViewModel<TEntity> putViewModel, 
-                                PlatformCenterDeleteViewModel<TEntity> deleteViewModel, PlatformCenterGetsViewModel<TEntity> getsViewModel)
+        public PlatformCenterPostViewModel<TCenter> _PlatformCenterPostViewModel { get; private set; }
+        public PlatformCenterPutViewModel<TCenter> _PlatformCenterPutViewModel { get; private set; }
+        public PlatformCenterDeleteViewModel<TCenter> _PlatformCenterDeleteViewModel { get; private set; }
+        public PlatformCenterGetsViewModel<TCenter> _PlatformCenterGetsViewModel { get; private set; }
+        public PlatformCenterPageViewModel(PlatformCenterPostViewModel<TCenter> postViewModel, PlatformCenterPutViewModel<TCenter> putViewModel, 
+                                PlatformCenterDeleteViewModel<TCenter> deleteViewModel, PlatformCenterGetsViewModel<TCenter> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
         {
             _PlatformCenterPostViewModel = postViewModel;
@@ -180,7 +180,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformCenterDeleteViewModel = deleteViewModel;
         }
     }
-    public class PlatformCenterPostViewModel<TEntity> : CenterPostViewModel<TEntity> where TEntity : PlatformCenter, new()
+    public class PlatformCenterPostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : PlatformCenter, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCenterPostViewModel(PlatformActorContext PlatformActorContext)
@@ -189,7 +189,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCenterPutViewModel<TEntity> : CenterPutViewModel<TEntity> where TEntity : PlatformCenter, new()
+    public class PlatformCenterPutViewModel<TCenter> : CenterPutViewModel<TCenter> where TCenter : PlatformCenter, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCenterPutViewModel(PlatformActorContext PlatformActorContext)
@@ -198,7 +198,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCenterGetsViewModel<TEntity> : CenterGetsViewModel<TEntity> where TEntity : PlatformCenter, new()
+    public class PlatformCenterGetsViewModel<TCenter> : CenterGetsViewModel<TCenter> where TCenter : PlatformCenter, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCenterGetsViewModel(PlatformActorContext PlatformActorContext)
@@ -207,7 +207,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformCenterDeleteViewModel<TEntity> : CenterDeleteViewModel<TEntity> where TEntity : PlatformCenter, new()
+    public class PlatformCenterDeleteViewModel<TCenter> : CenterDeleteViewModel<TCenter> where TCenter : PlatformCenter, new()
     {
         protected readonly PlatformActorContext _PlatformActorContext;
         public PlatformCenterDeleteViewModel(PlatformActorContext PlatformActorContext)

@@ -4,7 +4,8 @@ using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOC;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOC
 {
-    public class PlatformGOCPageViewModel : GOCPageViewModel<PlatformGOC> 
+    public class PlatformGOCPageViewModel : GOCPageViewModel<PlatformGOC>
+                                    // : PlatformCenterPageViewModel<PlatformGOC> 
     {
         public readonly PlatformPostGOCViewModel _PlatformPostGOCViewModel;
         public readonly PlatformPutGOCViewModel _PlatformPutGOCViewModel;

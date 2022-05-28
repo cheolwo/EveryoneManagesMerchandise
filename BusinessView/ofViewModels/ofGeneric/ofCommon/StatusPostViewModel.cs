@@ -3,16 +3,7 @@ using BusinessView.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
-    public class BaseStatusViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : StatusDTO, new()
 
-    {
-        public BaseStatusViewModel(ActorContext actorContext)
-            :base(actorContext)
-            {
-                
-            }
-    }
-   
     public class StatusPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : StatusDTO, new()
     {
         public StatusPostViewModel(ActorContext actorContext)
