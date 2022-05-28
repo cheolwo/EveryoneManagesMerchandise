@@ -103,3 +103,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Serv
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\TradeServer\bin\Debug\net6.0\NMemory.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\TradeServer\bin\Debug\net6.0\Humanizer.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\TradeServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\TradeServer\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Server\TradeServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll

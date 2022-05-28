@@ -16,23 +16,40 @@ namespace BusinessData
         Task<TEntity> UpdateAsync(TEntity tentity);
         Task DeleteByIdAsync(string Id);
         Task<TEntity> GetByIdAsync(string Id);
-        Task AddEntities(IList<TEntity> entities);
-        Task AddEntitiesByAttach(IList<TEntity> entities);
+        Task AddEntitiesAsync(IList<TEntity> entities);
+        Task AddEntitiesByAttachAsync(IList<TEntity> entities);
         Task UpdateAttachAsync(TEntity entity);
+
         // 특정 By
         Task<TEntity> GetByUserAsync(IdentityUser identityUser);
         Task<TEntity> GetByNameAsync(string Name);
         Task<TEntity> GetByContainerAsync(string containerName);
         Task<TEntity> GetByCodeAsync(string Code);
-        Task<TEntity> GetByUserId(string UserId);
+        Task<TEntity> GetByUserIdAsync(string UserId);
         Task<int> GetCountAsync();
-        Task<List<TEntity>> GetToListByUserId(string UserId);
-        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDate(DateTime StartDate, DateTime EndDate);
-        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDate(string Container);
-        Task<List<TEntity>> GetToListByName(string Name);
-        Task<List<TEntity>> GetToListByCode(string Code);
+
+        // GetToListBy
+        Task<List<TEntity>> GetToListByUserIdAsync(string UserId);
+        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container);
+        Task<List<TEntity>> GetToListByNameAsync(string Name);
+        Task<List<TEntity>> GetToListByCodeAsync(string Code);
         Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser);
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
+
+        // GetByWith
+        Task<TEntity> GetByUserWithRelatedAsync(IdentityUser identityUser);
+        Task<TEntity> GetByNameWithRelatedAsync(string Name);
+        Task<TEntity> GetByContainerWithRelatedAsync(string containerName);
+        Task<TEntity> GetByCodeWithRelatedAsync(string Code);
+        Task<TEntity> GetByUserIdWithRelatedAsync(string UserId);
+
+        // GetToListByWith
+        Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId);
+        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateWithRelatedAsync(string Container);
+        Task<List<TEntity>> GetToListByNameWithRelatedAsync(string Name);
+        Task<List<TEntity>> GetToListByCodeWithRelatedAsync(string Code);
+        Task<List<TEntity>> GetToListByUserWithRelatedAsync(IdentityUser IdentityUser);
+        Task<List<TEntity>> GetToListByBetweenDateTimeWithRelatedAsync(DateTime beforeDateTime, DateTime AfterDateTime);
     }
     
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
@@ -99,7 +116,7 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Where(e => e.CreateTime >= beforeDateTime && e.CreateTime <= AfterDateTime).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetToListByUserId(string UserId)
+        public async Task<List<TEntity>> GetToListByUserIdAsync(string UserId)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).ToListAsync();
         }
@@ -129,7 +146,7 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Code.Equals(Code));
         }
 
-        public async Task AddEntities(IList<TEntity> entities)
+        public async Task AddEntitiesAsync(IList<TEntity> entities)
         {
             foreach(var entity in entities)
             {
@@ -139,7 +156,7 @@ namespace BusinessData
             }
         }
 
-        public async Task AddEntitiesByAttach(IList<TEntity> entities)
+        public async Task AddEntitiesByAttachAsync(IList<TEntity> entities)
         {
             foreach(var entity in entities)
             {
@@ -157,27 +174,27 @@ namespace BusinessData
             await _DbContext.SaveChangesAsync();
         }
 
-        public async Task<TEntity> GetByUserId(string UserId)
+        public async Task<TEntity> GetByUserIdAsync(string UserId)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(UserId)); 
         }
 
-        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDate(DateTime StartDate, DateTime EndDate)
+        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(DateTime StartDate, DateTime EndDate)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.CreateTime >= StartDate && e.CreateTime <= EndDate).ToListAsync();    
         }
 
-        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDate(string Container)
+        public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container)
         {
             return await _DbContext.Set<TEntity>().Where(e => e.Container.Equals(Container)).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetToListByName(string Name)
+        public async Task<List<TEntity>> GetToListByNameAsync(string Name)
         {
             return await  _DbContext.Set<TEntity>().Where(e=>e.Name.Equals(Name)).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetToListByCode(string Code)
+        public async Task<List<TEntity>> GetToListByCodeAsync(string Code)
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
         }

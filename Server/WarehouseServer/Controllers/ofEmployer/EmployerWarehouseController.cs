@@ -92,13 +92,13 @@ namespace WarehouseServer.Controllers.ofEmployer
         public async Task<IActionResult> PutWarehouse([FromBody] EmployerWarehouse EmployerWarehouse)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.PutWarehouse));
-            var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
-            if (id != model.Id)
+            if (EmployerWarehouse == null)
             {
                 return BadRequest();
             }
             try
             {
+                var model = DTOToModel<EmployerWarehouse, Warehouse>.ConvertToModel(EmployerWarehouse, new());
                 await _EmployerWarehouseManager.UpdateAsync(model);
             }
             catch (DbUpdateConcurrencyException)

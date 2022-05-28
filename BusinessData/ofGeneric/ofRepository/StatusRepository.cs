@@ -8,7 +8,25 @@ namespace BusinessData
 {
     public interface IStatusDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Status
     {
-        Task<List<TEntity>> GetToListByCountryCodeAsync(string CountryCode);
+        // Get By
+        Task<TEntity> GetByCommodityIdAsync(string CommodityId);
+        Task<TEntity> GetByCenterIdAsync(string CenterId);
+        
+        // GetToList By
+        Task<List<TEntity>> GetToListByCommodityIdAsync(string CommodityId);
+        Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId);
+        Task<List<TEntity>> GetToListByQuantityAsync(int MaxQuantity);
+        Task<List<TEntity>> GetToListByQuntityAsync(int MinQuantity, int MaxQuantity);
+
+        // Get By With
+        Task<TEntity> GetByCommodityIdWithRelatedAsync(string CommodityId);
+        Task<TEntity> GetByCenterIdWithRelatedAsync(string CenterId);
+        // Get To List By With
+        Task<List<TEntity>> GetToListByCommodityIdWithRelatedAsync(string CommodityId);
+        Task<List<TEntity>> GetToListByCenterIdWithRelatedAsync(string CenterId);
+        Task<List<TEntity>> GetToListByQuantityWithRelatedAsync(int MaxQuantity);
+        Task<List<TEntity>> GetToListByQuntityWithRelatedAsync(int MinQuantity, int MaxQuantity);
+
         // List
         Task<List<TEntity>> GetToListWithCenterAsync();
         Task<List<TEntity>> GetToListWithCommodity();
@@ -45,29 +63,49 @@ namespace BusinessData
             return await _DbContext.Set<TEntity>().Include(TEntity => TEntity.Center).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetToListWithCommodity()
+        public async Task<List<TEntity>> GetToListWithCommodityAsync()
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.Commodity).ToListAsync();
+        }
+
+        public async Task<List<TEntity>> GetToListByCommodityIdAsync(string CommodityId)
+        {
+            return await _DbContext.Set<TEntity>().Where(e => e.CommodityId.Equals(CommodityId)).ToListAsync();
+        }
+
+        public async Task<List<TEntity>> GetToListByCenterIdAsync(string CenterId)
+        {
+            return await _DbContext.Set<TEntity>().Where(e => e.CenterId.Equals(CenterId)).ToListAsync();
+        }
+
+        public async Task<List<TEntity>> GetToListByQuantityAsync(int MaxQuantity)
+        {
+            return await _DbContext.Set<TEntity>().Where(e => e.Quantity <= MaxQuantity).ToListAsync();
+        }
+
+        public async Task<List<TEntity>> GetToListByQuntityAsync(int MinQuantity, int MaxQuantity)
+        {
+            return await _DbContext.Set<TEntity>().Where(e => e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
         }
     }
     public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
     {
-        Task<List<TEntity>> GetToListWithMStatuses();
+        Task<List<TEntity>> GetToListWithMStatusesAsync();
     }
     public class SStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, ISStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
     {
         public SStatusDataRepository(DbContext DbContext) : base(DbContext)
         {
         }
-        public async Task<List<TEntity>> GetToListWithMStatuses()
+        public async Task<List<TEntity>> GetToListWithMStatusesAsync()
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.MStatuses).ToListAsync();
         }
     }
     public interface IMStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : MStatus, IRelationable, new()
     {
-        Task<List<TEntity>> GetToListWithEStatuses();
-        Task<List<TEntity>> GetToListWithSStatus();
+        Task<List<TEntity>> GetToListWithEStatusesAsync();
+        Task<List<TEntity>> GetToListWithSStatusAsync();
     }
     public class MStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IMStatusDataRepository<TEntity> where TEntity : MStatus, IRelationable, new()
     {
@@ -75,19 +113,19 @@ namespace BusinessData
         {
         }
 
-        public async Task<List<TEntity>> GetToListWithEStatuses()
+        public async Task<List<TEntity>> GetToListWithEStatusesAsync()
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.EStatuses).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetToListWithSStatus()
+        public async Task<List<TEntity>> GetToListWithSStatusAsync()
         {
             return await _DbContext.Set<TEntity>().Include(entity => entity.SStatus).ToListAsync();
         }
     }
     public interface IEStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
     {
-        Task<List<TEntity>> GetToListWithMStatus();
+        Task<List<TEntity>> GetToListWithMStatusAsync();
     }
     public class EStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IEStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
     {
@@ -95,7 +133,7 @@ namespace BusinessData
         {
         }
 
-        public Task<List<TEntity>> GetToListWithMStatus()
+        public Task<List<TEntity>> GetToListWithMStatusAsync()
         {
             throw new NotImplementedException();
         }

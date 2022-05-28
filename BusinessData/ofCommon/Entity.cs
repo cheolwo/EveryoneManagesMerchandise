@@ -342,7 +342,7 @@ namespace BusinessData
     {
         public string CommodityId { get; set; }
         public string CenterId { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
         public Commodity Commodity { get; set; }
         public Center Center { get; set; }
 

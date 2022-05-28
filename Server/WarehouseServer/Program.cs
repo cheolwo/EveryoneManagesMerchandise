@@ -63,10 +63,8 @@ builder.Services.AddScoped(typeof(IStatusFileFactory<>), typeof(StatusFileFactor
 
 builder.Services.AddScoped(typeof(ISStatusManager<>), typeof(SStatusManager<>));
 builder.Services.AddScoped(typeof(ISStatusDataRepository<>), typeof(SStatusDataRepository<>));
-
 builder.Services.AddScoped(typeof(IMStatusManager<>), typeof(MStatusManager<>));
 builder.Services.AddScoped(typeof(IMStatusDataRepository<>), typeof(MStatusDataRepository<>));
-
 builder.Services.AddScoped(typeof(IEStatusManager<>), typeof(EStatusManager<>));
 builder.Services.AddScoped(typeof(IEStatusDataRepository<>), typeof(EStatusDataRepository<>));
 

@@ -317,3 +317,5 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Iden
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\obj\Debug\net6.0\ref\IdentityServer.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\NMemory.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\IdentityServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
