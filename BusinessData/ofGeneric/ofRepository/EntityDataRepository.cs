@@ -30,11 +30,12 @@ namespace BusinessData
 
         // GetToListBy
         Task<List<TEntity>> GetToListByUserIdAsync(string UserId);
-        Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container);
+        Task<List<TEntity>> GetToListByContainerAsync(string Container);
         Task<List<TEntity>> GetToListByNameAsync(string Name);
         Task<List<TEntity>> GetToListByCodeAsync(string Code);
         Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser);
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
+        Task<List<TEntity>> GetToListByCreateTimeAsync(DateTime dateTime);
     }
     
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
