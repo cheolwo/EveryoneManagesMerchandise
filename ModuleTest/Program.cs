@@ -1,9 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using AutoMapper;
 using BusinessData.ofWarehouse.Model;
-using System.Reflection;
+using BusinessView.ofGeneric;
 using System.Text;
-using System.Text.Json;
 //JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
 //jsonSerializerOptions.WriteIndented = true;
 //Warehouse warehouse = new Warehouse();
@@ -12,35 +10,42 @@ using System.Text.Json;
 //var modelvalue = "{\"wCommodities\":[],\"ewCommodities\":[],\"mwCommodities\":[],\"swCommodities\":[],\"loadFrames\":[],\"dotBarcodes\":[],\"workingDesks\":[],\"dividedTags\":[],\"incomingTags\":[],\"loginId\":\"asd\",\"password\":\"fDF\",\"failLogin\":0,\"address\":\"ASDF\",\"countryCode\":\"ASDF\",\"phoneNumber\":\"ASDF\",\"faxNumber\":\"FASDFADFS\",\"commodities\":[],\"eStatuses\":[],\"mStatuses\":[],\"sStatuses\":[],\"centerCards\":[],\"centerMacAddresses\":[],\"centerIPAddresses\":[],\"centerRoles\":[],\"id\":\"W-36\",\"code\":\"Null\",\"name\":\"ASDFASD\",\"container\":\"Null\",\"createTime\":\"2022-05-24T01:23:58.7164655+09:00\",\"userId\":\"Null\",\"changedUsers\":[],\"imageofInfos\":[],\"docs\":[]}";
 //var value = JsonSerializer.Deserialize<Warehouse>(modelvalue);
 //var serialvalue = JsonSerializer.Serialize(warehouse, jsonSerializerOptions);
-//Console.WriteLine(serialvalue);
 //var deserialvalue = JsonSerializer.Deserialize<Warehouse>(serialvalue);
 //Console.WriteLine(deserialvalue.LoginId);
 //Console.WriteLine(value);
 //var configuration = new MapperConfiguration(cfg => cfg.AddMaps("BusinessView"));
 //var mapper = new Mapper(configuration);
 
-SpinLockSample1();
-Assembly assembly = Assembly.Load("BusinessView");
-var pubTypesQuery = from type in assembly.GetTypes()
-                    where type.IsPublic
-                    from method in type.GetMethods()
-                    where method.ReturnType.IsArray == true
-                        || (method.ReturnType.GetInterface(
-                            typeof(System.Collections.Generic.IEnumerable<>).FullName) != null
-                        && method.ReturnType.FullName != "System.String")
-                    group method.ToString() by type.ToString();
+Warehouse warehouse1 = new Warehouse() { Name = "bbbb" };
+Warehouse warehouse2= new Warehouse() { Name = "bbbb" };
+Warehouse warehouse3 = new Warehouse() { Name = "bbbb" };
+Warehouse warehouse4 = new Warehouse() { Name = "bbbb" };
+Warehouse warehouse5= new Warehouse() { Name = "bbbb" };
+Warehouse warehouse6 = new Warehouse() { Name = "aaaa" };
+Warehouse warehouse7 = new Warehouse() { Name = "aaaa" };
 
-foreach (var groupOfMethods in pubTypesQuery)
+Warehouse warehouse8 = new Warehouse() { Name = "aaaa" };
+Warehouse warehouse9 = new Warehouse() { Name = "aaaa" };
+Warehouse warehouse10 = new Warehouse() { Name = "aaaa" };
+
+List<Warehouse> list = new();
+list.Add(warehouse1);
+list.Add(warehouse2);
+list.Add(warehouse3);
+list.Add(warehouse4);
+list.Add(warehouse5);
+list.Add(warehouse6);
+list.Add(warehouse7);
+list.Add(warehouse8);
+list.Add(warehouse9);list.Add(warehouse10);
+
+var fileterlist = list.Filter(e => e.Name.Equals("aaaa"));
+foreach(var value in fileterlist)
 {
-    Console.WriteLine("Type: {0}", groupOfMethods.Key);
-    foreach (var method in groupOfMethods)
-    {
-        Console.WriteLine("  {0}", method);
-    }
+    Console.WriteLine(value.Name);
 }
 
-Console.WriteLine("Press any key to exit... ");
-Console.ReadKey();
+
 static void SpinLockSample1()
 {
     SpinLock sl = new SpinLock();
