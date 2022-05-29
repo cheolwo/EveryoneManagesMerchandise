@@ -8,7 +8,7 @@ using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
 {
     [AutoMap(typeof(DividedTag))]
-    public class EmployerDividedTag : DiviedTagDTO
+    public class EmployerDividedTag : DividedTagDTO
     {
         
     }

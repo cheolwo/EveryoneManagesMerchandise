@@ -168,21 +168,14 @@ namespace BusinessView.ofViewModels.ofGeneric
         private readonly CenterPutViewModel<TCenter> _CenterPutViewModel;
         private readonly CenterDeleteViewModel<TCenter> _CenterDeleteViewModel;
         private readonly CenterGetsViewModel<TCenter> _CenterGetViewMode;
-        private readonly ICenterPageRoadAddressService _CenterPageRoadAddressService;
-        private readonly ICenterPageTaxService _CenterPageTaxService;
-        private readonly ICenterPageIdentityRoleService _CenterPageIdentityRoleService;
-        public CenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public CenterPageViewModel(
             CenterPostViewModel<TCenter> CenterPostViewModel, 
             CenterPutViewModel<TCenter> CenterPutViewModel,
             CenterDeleteViewModel<TCenter> CenterDeleteViewModel, 
             CenterGetsViewModel<TCenter> CenterGetViewModel)
                                             :base(CenterPostViewModel, CenterPutViewModel, CenterDeleteViewModel, CenterGetViewModel)
         {
-            _CenterPageIdentityRoleService = centerPageIdentityRoleService;
-            _CenterPageTaxService = centerPageTaxService;
-            _CenterPageRoadAddressService = centerPageRoadAddressService;
+         
             _CenterPostViewModel = CenterPostViewModel;
             _CenterDeleteViewModel = CenterDeleteViewModel;
             _CenterGetViewMode = CenterGetViewModel;

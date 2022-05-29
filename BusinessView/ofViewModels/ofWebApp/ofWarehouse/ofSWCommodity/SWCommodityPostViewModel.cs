@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofWarehouse;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofSWCommodity
 {
     public class SWCommodityPostViewModel<TSStatus> : SStatusPostViewModel<TSStatus> where TSStatus : SWCommodityDTO, new()

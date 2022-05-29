@@ -102,7 +102,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         // CenterManager 로그인 메서드
         public virtual async Task<TEntity> LoginAsync(string LoginId, string Password)
         {
-            TEntity entity = await _centerDataRepository.GetByLoginId(LoginId);
+            TEntity entity = await _centerDataRepository.GetByLoginIdAsync(LoginId);
             var Result = _passwordHashser.VerifyHashedPassword(entity, entity.Password, Password);
             if (Result.Equals(PasswordVerificationResult.Success)) { return entity; }
             else
@@ -132,24 +132,14 @@ namespace BusinessLogic.ofManager.ofGeneric
             return _centerIdFactory.SetUserKeyCenterValueId(UserKeyCenterValue, count);
         }
 
-        public async Task<TEntity> GetByUserIdWithRelated(string UserId)
+        public Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId)
         {
-            var Center =  await _centerDataRepository.GetByUserId(UserId);
-            if(Center != null)
-            {
-                return await _centerDataRepository.GetByCenterWithStatus(Center);
-            }
-            throw new ArgumentNullException("Not Register Center");
+            throw new NotImplementedException();
         }
 
-        public async Task<List<TEntity>> GetToListByUserIdWithRelatedAsync(string UserId)
+        public Task<List<TEntity>> GetToListWithRelatedAsync()
         {
-            return await _centerDataRepository.GetToListByUserIdWithRelated(UserId);
-        }
-
-        public async Task<List<TEntity>> GetToListWithRelatedAsync()
-        {
-            return await _centerDataRepository.GetToListWithStatuses();
+            throw new NotImplementedException();
         }
     }
 }

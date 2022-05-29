@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofHR.ofEmployee;
 using BusinessView.ofValidator.ofCommon.ofEmployee;
+using BusinessView.ofValidator.ofCommon.ofHR;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployee.ofHR
 {
-    public class EmployeeEmployeeRoleValidator : EmployeeEntityValidator<EmployeeEmployeeRole>
+    public class EmployeeEmployeeRoleValidator : EmployeeRoleValidator<EmployeeEmployeeRole>
     {
         public EmployeeEmployeeRoleValidator()
         {

@@ -1,9 +1,9 @@
 using BusinessView.ofTrade.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofTrade;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofTrade
 {
-    public class PlatformTCommodityValidator : PlatformCommodityValidator<PlatformTCommodity>
+    public class PlatformTCommodityValidator : TCommodityValidator<PlatformTCommodity>
     {
         public PlatformTCommodityValidator()
         {

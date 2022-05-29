@@ -147,6 +147,9 @@
 		<Compile Remove="ofDTO\ofWarehouse\ofPlatform\ofWarehouse\**" />
 		<Compile Remove="ofDTO\ofWarehouse\ofPlatform\ofWCommodity\**" />
 		<Compile Remove="ofDTO\ofWarehouse\ofPlatform\ofWorkingDesk\**" />
+		<Compile Remove="ofViewModels\ofWebApp\ofEmployee\**" />
+		<Compile Remove="ofViewModels\ofWebApp\ofEmployer\**" />
+		<Compile Remove="ofViewModels\ofWebApp\ofPlatform\**" />
 		<EmbeddedResource Remove="ofArea\**" />
 		<EmbeddedResource Remove="ofCommon\ofEmployee\ofValidate\**" />
 		<EmbeddedResource Remove="ofCommon\ofEmployer\ofValidate\**" />
@@ -288,6 +291,9 @@
 		<EmbeddedResource Remove="ofDTO\ofWarehouse\ofPlatform\ofWarehouse\**" />
 		<EmbeddedResource Remove="ofDTO\ofWarehouse\ofPlatform\ofWCommodity\**" />
 		<EmbeddedResource Remove="ofDTO\ofWarehouse\ofPlatform\ofWorkingDesk\**" />
+		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofEmployee\**" />
+		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofEmployer\**" />
+		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofPlatform\**" />
 		<None Remove="ofArea\**" />
 		<None Remove="ofCommon\ofEmployee\ofValidate\**" />
 		<None Remove="ofCommon\ofEmployer\ofValidate\**" />
@@ -429,6 +435,9 @@
 		<None Remove="ofDTO\ofWarehouse\ofPlatform\ofWarehouse\**" />
 		<None Remove="ofDTO\ofWarehouse\ofPlatform\ofWCommodity\**" />
 		<None Remove="ofDTO\ofWarehouse\ofPlatform\ofWorkingDesk\**" />
+		<None Remove="ofViewModels\ofWebApp\ofEmployee\**" />
+		<None Remove="ofViewModels\ofWebApp\ofEmployer\**" />
+		<None Remove="ofViewModels\ofWebApp\ofPlatform\**" />
 	</ItemGroup>
 	<ItemGroup>
 	  <COMReference Include="Microsoft.Office.Interop.Excel">
@@ -455,25 +464,5 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="ofCommon\ofPlatform\ofValidate\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofHR\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofJournal\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofMarket\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofOrder\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofProduct\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofTrade\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployee\ofWarehouse\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofHR\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofJournal\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofMarket\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofOrder\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofProduct\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofTrade\" />
-		<Folder Include="ofViewModels\ofWebApp\ofEmployer\ofWarehouse\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofHR\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofJournal\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofMarket\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofOrder\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofProduct\" />
-		<Folder Include="ofViewModels\ofWebApp\ofPlatform\ofTrade\" />
 	</ItemGroup>
 </Project>

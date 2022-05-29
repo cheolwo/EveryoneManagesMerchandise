@@ -2,6 +2,7 @@ using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.ComponentModel;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofDTO.ofCommon;
+using BusinessView.ofUser.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

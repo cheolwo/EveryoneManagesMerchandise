@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
 using FluentValidation;
+using BusinessView.ofValidator.ofCommon.ofGroupOrder;
 namespace BusinessView.ofValidator.ofPlatform.ofGroupOrder
 {
-    public class PlatformSGOCValidator : PlatformStatusValidator<PlatformSGOC>
+    public class PlatformSGOCValidator : SGOCValidator<PlatformSGOC>
     {
         public PlatformSGOCValidator()
         {

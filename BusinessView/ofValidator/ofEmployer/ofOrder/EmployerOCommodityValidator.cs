@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofOrder.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessView.ofValidator.ofCommon.ofOrder;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofOrder
 {
-    public class EmployerOCommodityValidator : EmployerCommodityValidator<EmployerOCommodity>
+    public class EmployerOCommodityValidator : OCommodityValidator<EmployerOCommodity>
     {
         public EmployerOCommodityValidator()
         {

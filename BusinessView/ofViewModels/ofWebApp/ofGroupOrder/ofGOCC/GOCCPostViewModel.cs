@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofGroupOrder;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOCC
 {
     public class GOCCPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : GOCCDTO, new()

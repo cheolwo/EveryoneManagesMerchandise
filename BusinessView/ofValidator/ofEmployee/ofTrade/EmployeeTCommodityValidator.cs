@@ -1,9 +1,9 @@
 using BusinessView.ofTrade.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofEmployee;
+using BusinessView.ofValidator.ofCommon.ofTrade;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployee.ofTrade
 {
-    public class EmployeeTCommodityValidator : EmployeeCommodityValidator<EmployeeTCommodity>
+    public class EmployeeTCommodityValidator : TCommodityValidator<EmployeeTCommodity>
     {
         public EmployeeTCommodityValidator()
         {

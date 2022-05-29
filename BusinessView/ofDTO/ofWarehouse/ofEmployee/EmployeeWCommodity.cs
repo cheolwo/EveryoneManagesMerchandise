@@ -9,7 +9,7 @@ using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployee
 {
     [AutoMap(typeof(WCommodity))]
-    public class EmployeeWCommodity : WarehouseDTO
+    public class EmployeeWCommodity : WCommodityDTO
     {
         
     }

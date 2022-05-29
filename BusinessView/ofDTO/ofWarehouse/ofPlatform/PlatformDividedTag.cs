@@ -9,7 +9,7 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     [AutoMap(typeof(DividedTag))]
-    public class PlatformDividedTag : DiviedTagDTO
+    public class PlatformDividedTag : DividedTagDTO
     {
        
     }

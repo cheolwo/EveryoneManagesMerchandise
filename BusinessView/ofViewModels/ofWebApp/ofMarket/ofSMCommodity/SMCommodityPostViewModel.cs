@@ -1,9 +1,10 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofMarket;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofSMCommodity
 {
-    public class SMCommodityPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
+    public class SMCommodityPostViewModel<TEStatus> : SStatusPostViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
     {
         public SMCommodityPostViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -11,7 +12,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofSMCommodity
 
         }
     }
-    public class SMCommodityPutViewModel<TEStatus> : EStatusPutViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
+    public class SMCommodityPutViewModel<TEStatus> : SStatusPutViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
     {
         public SMCommodityPutViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -19,7 +20,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofSMCommodity
 
         }
     }
-    public class SMCommodityDeleteViewModel<TEStatus> : EStatusDeleteViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
+    public class SMCommodityDeleteViewModel<TEStatus> : SStatusDeleteViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
     {
         public SMCommodityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
@@ -27,7 +28,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofSMCommodity
              
         }
     }
-    public class SMCommodityGetsViewModel<TEStatus> : EStatusGetsViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
+    public class SMCommodityGetsViewModel<TEStatus> : SStatusGetsViewModel<TEStatus> where TEStatus : SMCommodityDTO, new()
     {
         public SMCommodityGetsViewModel(ActorContext actorContext)
             :base(actorContext)

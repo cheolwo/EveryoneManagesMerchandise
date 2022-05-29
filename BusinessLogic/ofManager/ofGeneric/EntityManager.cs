@@ -122,14 +122,7 @@ namespace BusinessLogic.ofManager.ofGeneric
         //{
 
         //}
-        public virtual async Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target)
-        {
-            int count = await _EntityDataRepository.GetCountAsync();
-            var datas = _EntityFileFactory.InitExcelData(fileconnectionstring);
-            var entities = _EntityFileFactory.SetExcelEntities(datas, target);
-            IList<TEntity> SetIdEntities = _EntityIdFactory.SetEntityId(entities, count);
-            await _EntityDataRepository.AddEntities(SetIdEntities);
-        }
+
         public virtual async Task<TEntity> CreateAsync(TEntity entity, List<IBrowserFile> files, string connectionString)
         {
             entity.Id = await _EntityIdFactory.CreateAsync(entity);
@@ -225,29 +218,36 @@ namespace BusinessLogic.ofManager.ofGeneric
             return _EntityFileFactory.InitExcelData(fileconnectionstring);
         }
 
-        public async Task EntitiesToDb(List<TEntity> entities)
-        {
-            await _EntityDataRepository.AddEntities(entities);
-        }
 
         public async Task<TEntity> GetByIdAsync(string Id)
         {
             return await _EntityDataRepository.GetByIdAsync(Id);
         }
 
-        public async Task EntitiesToDbAttach(List<TEntity> entities)
-        {
-            await _EntityDataRepository.AddEntitiesByAttach(entities);
-        }
 
         public async Task UpdateAttachAsync(TEntity entity)
         {
             await _EntityDataRepository.UpdateAttachAsync(entity);
         }
 
-        public async Task<TEntity> GetByUserId(string UserId)
+        public Task<TEntity> GetByUserId(string UserId)
         {
-            return await _EntityDataRepository.GetByUserId(UserId);
+            throw new NotImplementedException();
+        }
+
+        public Task ExcelToDb(string fileconnectionstring, Dictionary<PropertyInfo, int> target)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EntitiesToDb(List<TEntity> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task EntitiesToDbAttach(List<TEntity> entities)
+        {
+            throw new NotImplementedException();
         }
     }
 }

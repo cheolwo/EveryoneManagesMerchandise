@@ -11,14 +11,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofPlatMarket
         public readonly EmployeePutPlatMarketViewModel _EmployeePutPlatMarketViewModel;
         public readonly EmployeeDeletePlatMarketViewModel _EmployeeDeletePlatMarketViewModel;
         public readonly EmployeeGetsPlatMarketViewModel _EmployeeGetsPlatMarketViewModel;
-        public EmployeePlatMarketPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public EmployeePlatMarketPageViewModel(
             EmployeePostPlatMarketViewModel employeePostPlatMarketViewModel, 
                                         EmployeePutPlatMarketViewModel employeePutPlatMarketViewModel,
                                         EmployeeDeletePlatMarketViewModel employeeDeletePlatMarketViewModel,
                                         EmployeeGetsPlatMarketViewModel employeeGetsPlatMarketViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostPlatMarketViewModel, employeePutPlatMarketViewModel, employeeDeletePlatMarketViewModel, employeeGetsPlatMarketViewModel)
+                :base(employeePostPlatMarketViewModel, employeePutPlatMarketViewModel, employeeDeletePlatMarketViewModel, employeeGetsPlatMarketViewModel)
                     
         {
             _EmployeePostPlatMarketViewModel = employeePostPlatMarketViewModel;

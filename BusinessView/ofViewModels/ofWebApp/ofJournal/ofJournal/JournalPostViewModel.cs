@@ -1,6 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofJournal;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournal
 {
     public class JournalPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : JournalDTO, new()

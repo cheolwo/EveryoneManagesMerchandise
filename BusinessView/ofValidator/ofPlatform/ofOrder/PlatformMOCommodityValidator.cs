@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofOrder.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofOrder;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofOrder
 {
-    public class PlatformMOCommodityValidator : PlatformStatusValidator<PlatformMOCommodity>
+    public class PlatformMOCommodityValidator : MOCommodityValidator<PlatformMOCommodity>
     {
         public PlatformMOCommodityValidator()
         {

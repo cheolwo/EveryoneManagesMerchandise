@@ -7,7 +7,7 @@ using BusinessData;
 namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
 {
     [AutoMap(typeof(GOCC))]
-    public class PlatformGOCC : PlatformCommodity
+    public class PlatformGOCC : GOCCDTO
     {
 
     }

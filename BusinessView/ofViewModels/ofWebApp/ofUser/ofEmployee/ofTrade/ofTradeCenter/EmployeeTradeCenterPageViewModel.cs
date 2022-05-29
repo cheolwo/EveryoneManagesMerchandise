@@ -11,14 +11,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter
         public readonly EmployeePutTradeCenterViewModel _EmployeePutTradeCenterViewModel;
         public readonly EmployeeDeleteTradeCenterViewModel _EmployeeDeleteTradeCenterViewModel;
         public readonly EmployeeGetsTradeCenterViewModel _EmployeeGetsTradeCenterViewModel;
-        public EmployeeTradeCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public EmployeeTradeCenterPageViewModel(
             EmployeePostTradeCenterViewModel employeePostTradeCenterViewModel, 
                                         EmployeePutTradeCenterViewModel employeePutTradeCenterViewModel,
                                         EmployeeDeleteTradeCenterViewModel employeeDeleteTradeCenterViewModel,
                                         EmployeeGetsTradeCenterViewModel employeeGetsTradeCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostTradeCenterViewModel, employeePutTradeCenterViewModel, employeeDeleteTradeCenterViewModel, employeeGetsTradeCenterViewModel)
+                :base(employeePostTradeCenterViewModel, employeePutTradeCenterViewModel, employeeDeleteTradeCenterViewModel, employeeGetsTradeCenterViewModel)
                     
         {
             _EmployeePostTradeCenterViewModel = employeePostTradeCenterViewModel;

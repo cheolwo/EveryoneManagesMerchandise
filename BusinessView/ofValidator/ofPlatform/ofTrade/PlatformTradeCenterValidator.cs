@@ -1,9 +1,9 @@
 using BusinessView.ofTrade.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofTrade;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofTrade
 {
-    public class PlatformTradeCenterValidator : PlatformCenterValidator<PlatformTradeCenter>
+    public class PlatformTradeCenterValidator : TradeCenterValidator<PlatformTradeCenter>
     {
         public PlatformTradeCenterValidator()
         {

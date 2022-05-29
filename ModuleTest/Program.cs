@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AutoMapper;
 using BusinessData.ofWarehouse.Model;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 //JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
@@ -19,7 +20,27 @@ using System.Text.Json;
 //var mapper = new Mapper(configuration);
 
 SpinLockSample1();
+Assembly assembly = Assembly.Load("BusinessView");
+var pubTypesQuery = from type in assembly.GetTypes()
+                    where type.IsPublic
+                    from method in type.GetMethods()
+                    where method.ReturnType.IsArray == true
+                        || (method.ReturnType.GetInterface(
+                            typeof(System.Collections.Generic.IEnumerable<>).FullName) != null
+                        && method.ReturnType.FullName != "System.String")
+                    group method.ToString() by type.ToString();
 
+foreach (var groupOfMethods in pubTypesQuery)
+{
+    Console.WriteLine("Type: {0}", groupOfMethods.Key);
+    foreach (var method in groupOfMethods)
+    {
+        Console.WriteLine("  {0}", method);
+    }
+}
+
+Console.WriteLine("Press any key to exit... ");
+Console.ReadKey();
 static void SpinLockSample1()
 {
     SpinLock sl = new SpinLock();

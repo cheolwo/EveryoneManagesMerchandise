@@ -2,17 +2,11 @@ using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofOrder.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofMOCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 {
-    public class BaseEmployerMOCommodityViewModel : BaseStatusViewModel<EmployerMOCommodity>
-    {
-        public BaseEmployerMOCommodityViewModel(EmployerActorContext EmployerActorContext)
-            :base(EmployerActorContext)
-        {
-        }
-    }
-    public class EmployerPostMOCommodityViewModel : EmployerStatusPostViewModel<EmployerMOCommodity>
+    public class EmployerPostMOCommodityViewModel : MOCommodityPostViewModel<EmployerMOCommodity>
     {
         public EmployerPostMOCommodityViewModel(EmployerActorContext EmployerActorContext)
             : base(EmployerActorContext)
@@ -20,7 +14,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerPutMOCommodityViewModel : EmployerStatusPutViewModel<EmployerMOCommodity>
+    public class EmployerPutMOCommodityViewModel : MOCommodityPutViewModel<EmployerMOCommodity>
     {
         public EmployerPutMOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -28,7 +22,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerDeleteMOCommodityViewModel : EmployerStatusDeleteViewModel<EmployerMOCommodity>
+    public class EmployerDeleteMOCommodityViewModel : MOCommodityDeleteViewModel<EmployerMOCommodity>
     {
         public EmployerDeleteMOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)
@@ -36,7 +30,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofOrder
 
         }
     }
-    public class EmployerGetsMOCommodityViewModel : EmployerStatusGetsViewModel<EmployerMOCommodity>
+    public class EmployerGetsMOCommodityViewModel : MOCommodityGetsViewModel<EmployerMOCommodity>
     {
         public EmployerGetsMOCommodityViewModel(EmployerActorContext EmployerActorContext)
             :base(EmployerActorContext)

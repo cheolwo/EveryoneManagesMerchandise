@@ -1,9 +1,10 @@
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofWarehouse;
 using FluentValidation;
+using BusinessView.ofDTO.ofWarehouse.ofPlatform;
+
 namespace BusinessView.ofValidator.ofPlatform.ofWarehouse
 {
-    public class PlatformMWCommodityValidator : PlatformStatusValidator<PlatformMWCommodity>
+    public class PlatformMWCommodityValidator : MWCommodityValidator<PlatformMWCommodity>
     {
         public PlatformMWCommodityValidator()
         {

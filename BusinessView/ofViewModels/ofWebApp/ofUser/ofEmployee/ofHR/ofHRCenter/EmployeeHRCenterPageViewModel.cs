@@ -11,14 +11,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRCenter
         public readonly EmployeePutHRCenterViewModel _EmployeePutHRCenterViewModel;
         public readonly EmployeeDeleteHRCenterViewModel _EmployeeDeleteHRCenterViewModel;
         public readonly EmployeeGetsHRCenterViewModel _EmployeeGetsHRCenterViewModel;
-        public EmployeeHRCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public EmployeeHRCenterPageViewModel(
                                         EmployeePostHRCenterViewModel employeePostHRCenterViewModel, 
                                         EmployeePutHRCenterViewModel employeePutHRCenterViewModel,
                                         EmployeeDeleteHRCenterViewModel employeeDeleteHRCenterViewModel,
                                         EmployeeGetsHRCenterViewModel employeeGetsHRCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostHRCenterViewModel, employeePutHRCenterViewModel, employeeDeleteHRCenterViewModel, employeeGetsHRCenterViewModel)
+                :base(employeePostHRCenterViewModel, employeePutHRCenterViewModel, employeeDeleteHRCenterViewModel, employeeGetsHRCenterViewModel)
                     
         {
             _EmployeePostHRCenterViewModel = employeePostHRCenterViewModel;

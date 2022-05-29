@@ -12,14 +12,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOC
         public readonly EmployeeDeleteGOCViewModel _EmployeeDeleteGOCViewModel;
         public readonly EmployeeGetsGOCViewModel _EmployeeGetsGOCViewModel;
 
-        public EmployeeGOCPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public EmployeeGOCPageViewModel(
                                         EmployeePostGOCViewModel employeePostGOCViewModel, 
                                         EmployeePutGOCViewModel employeePutGOCViewModel,
                                         EmployeeDeleteGOCViewModel employeeDeleteGOCViewModel,
                                         EmployeeGetsGOCViewModel employeeGetsGOCViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostGOCViewModel, employeePutGOCViewModel, employeeDeleteGOCViewModel, employeeGetsGOCViewModel)
+                :base(employeePostGOCViewModel, employeePutGOCViewModel, employeeDeleteGOCViewModel, employeeGetsGOCViewModel)
                     
         {
             _EmployeePostGOCViewModel = employeePostGOCViewModel;

@@ -1,6 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofCommon.ofTrade;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
 namespace BusinessView.ofViewModels.ofWebApp.ofTrade.ofETCommodity
 {
     public class ETCommodityPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus> where TEStatus : ETCommodityDTO, new()

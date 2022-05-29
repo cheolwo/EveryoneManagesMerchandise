@@ -8,7 +8,7 @@ using BusinessView.ofDTO.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
 {
     [AutoMap(typeof(EWCommodity))]
-    public class PlatformEWCommodity : EStatusDTO
+    public class PlatformEWCommodity : EWCommodityDTO
     {
        
     }

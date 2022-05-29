@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofGroupOrder;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofMGOC
 {
     public class MGOCPostViewModel<TMStatus> : MStatusPostViewModel<TMStatus> where TMStatus : MGOCDTO, new()

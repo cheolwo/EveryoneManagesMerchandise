@@ -165,6 +165,7 @@ using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofEGOC;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofExternal.ofSearchingService;
+using BusinessView.ofUser.ofCommon;
 
 namespace BusinessView.ofActorService
 {

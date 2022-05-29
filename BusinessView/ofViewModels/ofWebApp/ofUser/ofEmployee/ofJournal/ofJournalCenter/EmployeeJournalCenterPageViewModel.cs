@@ -11,14 +11,12 @@ namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournalCente
         public readonly EmployeePutJournalCenterViewModel _EmployeePutJournalCenterViewModel;
         public readonly EmployeeDeleteJournalCenterViewModel _EmployeeDeleteJournalCenterViewModel;
         public readonly EmployeeGetsJournalCenterViewModel _EmployeeGetsJournalCenterViewModel;
-        public EmployeeJournalCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdentityRoleService centerPageIdentityRoleService,
+        public EmployeeJournalCenterPageViewModel(
             EmployeePostJournalCenterViewModel employeePostJournalCenterViewModel, 
                                         EmployeePutJournalCenterViewModel employeePutJournalCenterViewModel,
                                         EmployeeDeleteJournalCenterViewModel employeeDeleteJournalCenterViewModel,
                                         EmployeeGetsJournalCenterViewModel employeeGetsJournalCenterViewModel)
-                :base(centerPageRoadAddressService, centerPageTaxService, centerPageIdentityRoleService, employeePostJournalCenterViewModel, employeePutJournalCenterViewModel, employeeDeleteJournalCenterViewModel, employeeGetsJournalCenterViewModel)
+                :base(employeePostJournalCenterViewModel, employeePutJournalCenterViewModel, employeeDeleteJournalCenterViewModel, employeeGetsJournalCenterViewModel)
                     
         {
             _EmployeePostJournalCenterViewModel = employeePostJournalCenterViewModel;

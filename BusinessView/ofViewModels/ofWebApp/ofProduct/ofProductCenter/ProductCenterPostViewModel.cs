@@ -1,6 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofDTO.ofProduct;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductCenter
 {
     public class ProductCenterPostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : ProductCenterDTO, new()

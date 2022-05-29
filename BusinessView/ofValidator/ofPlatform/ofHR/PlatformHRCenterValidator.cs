@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofHR;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofHR
 {
-    public class PlatformHRCenterValidator : PlatformCenterValidator<PlatformHRCenter>
+    public class PlatformHRCenterValidator : HRCenterValidator<PlatformHRCenter>
     {
         public PlatformHRCenterValidator()
         {

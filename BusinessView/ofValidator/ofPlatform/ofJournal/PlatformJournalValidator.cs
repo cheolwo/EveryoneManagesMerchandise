@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofJournal.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofJournal;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofJournal
 {
-    public class PlatformJournalValidator : PlatformEntityValidator<PlatformJournal>
+    public class PlatformJournalValidator : JournalValidator<PlatformJournal>
     {
         public PlatformJournalValidator()
         {

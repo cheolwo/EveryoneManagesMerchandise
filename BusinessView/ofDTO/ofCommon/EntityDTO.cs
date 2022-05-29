@@ -3,6 +3,7 @@ using BusinessView.ofCommon.ofInterface;
 using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel.DataAnnotations;
 using BusinessView.ofExternal.ofCommon;
+using BusinessView.ofExternal.ofSearchingService;
 
 namespace BusinessView.ofDTO.ofCommon
 {

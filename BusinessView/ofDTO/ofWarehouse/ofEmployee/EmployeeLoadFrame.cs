@@ -6,9 +6,8 @@ using BusinessView.ofWarehouse;
 using BusinessView.ofExternal.ofCommon;
 namespace BusinessView.ofDTO.ofWarehouse.ofEmployee
 {
-    [AutoMap(typeof(MWCommodity))]
-    public class EmployeeMWCommodity : MWCommodityDTO
+    [AutoMap(typeof(LoadFrame))]
+    public class EmployeeLoadFrame : LoadFrameDTO
     {
-        
     }
 }

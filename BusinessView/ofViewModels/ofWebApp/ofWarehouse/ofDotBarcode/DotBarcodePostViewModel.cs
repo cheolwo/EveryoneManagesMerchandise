@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofWarehouse;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDotBarcode
 {
     public class DotBarcodePostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : DotBarcodeDTO, new()

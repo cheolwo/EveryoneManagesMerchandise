@@ -172,12 +172,8 @@ namespace BusinessView.ofViewModels.ofGeneric
         public EmployerCenterPutViewModel<TCenter> _EmployerCenterPutViewModel { get; private set; }
         public EmployerCenterDeleteViewModel<TCenter> _EmployerCenterDeleteViewModel { get; private set; }
         public EmployerCenterGetsViewModel<TCenter> _EmployerCenterGetsViewModel { get; private set; }
-        public ICenterPageRoadAddressService _centerPageRoadAddressService { get; private set; }
-        public ICenterPageTaxService _centerPageTaxService { get; private set; }
-        public ICenterPageIdCenterRoleService _centerPageIdCenterRoleService { get; private set; }
-        public EmployerCenterPageViewModel(ICenterPageRoadAddressService centerPageRoadAddressService,
-                                        ICenterPageTaxService centerPageTaxService,
-                                        ICenterPageIdCenterRoleService centerPageIdCenterRoleService, 
+
+        public EmployerCenterPageViewModel(
                                         EmployerCenterPostViewModel<TCenter> postViewModel, EmployerCenterPutViewModel<TCenter> putViewModel, 
                                 EmployerCenterDeleteViewModel<TCenter> deleteViewModel, EmployerCenterGetsViewModel<TCenter> getsViewModel)
             :base(postViewModel, putViewModel, deleteViewModel, getsViewModel)
@@ -186,9 +182,7 @@ namespace BusinessView.ofViewModels.ofGeneric
             _EmployerCenterPutViewModel = putViewModel;  
             _EmployerCenterGetsViewModel = getsViewModel;
             _EmployerCenterDeleteViewModel = deleteViewModel;
-            _centerPageIdCenterRoleService = centerPageIdCenterRoleService;
-            _centerPageRoadAddressService = centerPageRoadAddressService;
-            _centerPageTaxService = centerPageTaxService;
+
         }
     }
     public class EmployerCenterPostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : EmployerCenter, new()

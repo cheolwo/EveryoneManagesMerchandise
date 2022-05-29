@@ -1,13 +1,14 @@
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessView.ofValidator.ofCommon.ofWarehouse;
 using FluentValidation;
+using BusinessView.ofDTO.ofWarehouse.ofEmployer;
+
 namespace BusinessView.ofValidator.ofEmployer.ofWarehouse
 {
-    public class EmployerLoadFrameValidator : EmployerEntityValidator<EmployerLoadFrame>
+    public class EmployerLoadFrameValidator : LoadFrameValidator<EmployerLoadFrame>
     {
         public EmployerLoadFrameValidator()
         {
-            
+
         }
         public override Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (model, propertyName) =>
         {

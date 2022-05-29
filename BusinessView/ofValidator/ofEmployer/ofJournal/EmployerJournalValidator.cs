@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofJournal.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessView.ofValidator.ofCommon.ofJournal;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofJournal
 {
-    public class EmployerJournalValidator : EmployerEntityValidator<EmployerJournal>
+    public class EmployerJournalValidator : JournalValidator<EmployerJournal>
     {
         public EmployerJournalValidator()
         {

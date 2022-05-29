@@ -97,7 +97,7 @@ namespace BusinessView.ofExternal.ofCommon
                 }
                 if(query.QueryCode == QueryCode.With)
                 {
-                    WithProps == dictionary[QueryCode.With];
+                    WithProps = dictionary[QueryCode.With];
                     WithProps.Add(prop);
                     continue;
                 }

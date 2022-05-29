@@ -1,13 +1,14 @@
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
 using FluentValidation;
+using BusinessView.ofValidator.ofCommon.ofGroupOrder;
 namespace BusinessView.ofValidator.ofEmployer.ofGroupOrder
 {
-    public class EmployerEGOCValidator : EmployerStatusValidator<EmployerEGOC>
+    public class EmployerEGOCValidator : EGOCValidator<EmployerEGOC>
     {
         public EmployerEGOCValidator()
         {
-            
+
         }
         public override Func<object, string, Task<IEnumerable<string>>> ValidateValue => async (model, propertyName) =>
         {

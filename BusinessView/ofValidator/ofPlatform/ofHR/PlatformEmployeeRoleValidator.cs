@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofPlatform;
+using BusinessView.ofValidator.ofCommon.ofHR;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofHR
 {
-    public class PlatformEmployeeRoleValidator : PlatformEntityValidator<PlatformEmployeeRole>
+    public class PlatformEmployeeRoleValidator : EmployeeRoleValidator<PlatformEmployeeRole>
     {
         public PlatformEmployeeRoleValidator()
         {

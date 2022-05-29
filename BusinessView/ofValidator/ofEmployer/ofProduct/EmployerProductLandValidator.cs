@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessView.ofValidator.ofCommon.ofProduct;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofProduct
 {
-    public class EmployerProductLandValidator : EmployerEntityValidator<EmployerProductLand>
+    public class EmployerProductLandValidator : ProductLandValidator<EmployerProductLand>
     {
         public EmployerProductLandValidator()
         {

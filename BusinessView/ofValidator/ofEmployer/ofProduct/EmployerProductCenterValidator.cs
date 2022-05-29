@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofProduct.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessView.ofValidator.ofCommon.ofProduct;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofProduct
 {
-    public class EmployerProductCenterValidator : EmployerCenterValidator<EmployerProductCenter>
+    public class EmployerProductCenterValidator : ProductCenterValidator<EmployerProductCenter>
     {
         public EmployerProductCenterValidator()
         {
@@ -15,6 +16,6 @@ namespace BusinessView.ofValidator.ofEmployer.ofProduct
             if (result.IsValid)
                 return Array.Empty<string>();
             return result.Errors.Select(e => e.ErrorMessage);
-        };   
+        };
     }
 }

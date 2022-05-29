@@ -1,6 +1,8 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofWarehouse;
 using BusinessView.ofCommon.ofUser;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofEWCommodity
 {
     public class EWCommodityPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus> where TEStatus : EWCommodityDTO, new()

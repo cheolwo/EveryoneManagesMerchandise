@@ -1,42 +1,41 @@
 using BusinessView.ofDTO.ofOrder.ofPlatform;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOCommodity;
-using BusinessView.ofUser.ofCommon;
+using BusinessView.ofViewModels.ofWebApp.ofOrder.ofEOCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofOrder
 {
-    public class PlatformPostOCommodityViewModel : OCommodityPostViewModel<PlatformOCommodity>
+    public class PlatformPostEOCommodityViewModel : EOCommodityPostViewModel<PlatformEOCommodity>
     {
         private readonly PlatformActorContext _PlatformActorContext;
-        public PlatformPostOCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformPostEOCommodityViewModel(PlatformActorContext PlatformActorContext)
             : base(PlatformActorContext)
         {
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformPutOCommodityViewModel : OCommodityPutViewModel<PlatformOCommodity>
+    public class PlatformPutEOCommodityViewModel : EOCommodityPutViewModel<PlatformEOCommodity>
     {
         private readonly PlatformActorContext _PlatformActorContext;
-        public PlatformPutOCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformPutEOCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformDeleteOCommodityViewModel : OCommodityDeleteViewModel<PlatformOCommodity>
+    public class PlatformDeleteEOCommodityViewModel : EOCommodityDeleteViewModel<PlatformEOCommodity>
     {
         private readonly PlatformActorContext _PlatformActorContext;
-        public PlatformDeleteOCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformDeleteEOCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
             _PlatformActorContext = PlatformActorContext;
         }
     }
-    public class PlatformGetsOCommodityViewModel : OCommodityGetsViewModel<PlatformOCommodity>
+    public class PlatformGetsEOCommodityViewModel : EOCommodityGetsViewModel<PlatformEOCommodity>
     {
         private readonly PlatformActorContext _PlatformActorContext;
-        public PlatformGetsOCommodityViewModel(PlatformActorContext PlatformActorContext)
+        public PlatformGetsEOCommodityViewModel(PlatformActorContext PlatformActorContext)
             :base(PlatformActorContext)
         {
             _PlatformActorContext = PlatformActorContext;

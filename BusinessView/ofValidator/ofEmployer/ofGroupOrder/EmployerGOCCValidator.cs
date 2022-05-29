@@ -1,9 +1,10 @@
 using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofEmployer;
 using FluentValidation;
+using BusinessView.ofValidator.ofCommon.ofGroupOrder;
 namespace BusinessView.ofValidator.ofEmployer.ofGroupOrder
 {
-    public class EmployerGOCCValidator : EmployerCommodityValidator<EmployerGOCC>
+    public class EmployerGOCCValidator : GOCCValidator<EmployerGOCC>
     {
         public EmployerGOCCValidator()
         {
