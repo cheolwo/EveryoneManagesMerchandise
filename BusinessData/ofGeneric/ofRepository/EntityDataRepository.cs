@@ -184,5 +184,15 @@ namespace BusinessData
         {
             return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
         }
+
+        public Task<List<TEntity>> GetToListByContainerAsync(string Container)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<TEntity>> GetToListByCreateTimeAsync(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
