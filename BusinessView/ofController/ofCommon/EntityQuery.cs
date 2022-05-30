@@ -7,7 +7,7 @@ namespace BusienssLogic.ofController.ofCommon
     // 그냥 매핑하는 게 더 좋아보이기는 한다.
     public class EntityQuery<DTO> where DTO : EntityDTO, new()
     {
-        public DTO Dto {get; set;}
+        public DTO Dto = new();
         [Query(QueryCode.Time)]public DateTime StartDate {get; set;}
         [Query(QueryCode.Time)]public DateTime EndDate {get; set;}
         public Dictionary<QueryCode, List<PropertyInfo>> GetQueryDictionary(EntityQuery<DTO> query)

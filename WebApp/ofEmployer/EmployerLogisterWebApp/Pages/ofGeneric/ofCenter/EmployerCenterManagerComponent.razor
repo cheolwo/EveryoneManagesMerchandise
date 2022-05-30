@@ -5,7 +5,7 @@
 @using BusinessView.ofViewModels.ofGeneric.ofCommon
 @using MudBlazor
 @using System.ComponentModel
-@typeparam T where T : EmployerCenter, new()
+@typeparam T where T : CenterDTO, new()
 @if (EmployerCenterPageViewModel.IsSelectGets)
 {
     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=>EmployerCenterPageViewModel.OnClickGetsToPost()">Post</MudButton>
@@ -36,8 +36,8 @@
 
 @if(EmployerCenterPageViewModel.IsSelectPost)
 {
-    <EmployerCenterPostComponent T=T _EmployerCenterPostViewModel=EmployerCenterPageViewModel._EmployerCenterPostViewModel
-                                                                ManagedList=EmployerCenterPageViewModel._EmployerCenterGetsViewModel.TEntitys>
+    <EmployerCenterPostComponent T=T _EmployerCenterPostViewModel=EmployerCenterPageViewModel._CenterPostViewModel
+                                                                ManagedList=EmployerCenterPageViewModel._CenterGetViewMode.TEntitys>
 
     </EmployerCenterPostComponent>
 }
@@ -53,7 +53,7 @@
 
 @code {
     [CascadingParameter(Name = "IdentityUserDTO")] public IdentityUserDTO? IdentityUserDTO { get; set; }
-    [Parameter] public EmployerCenterPageViewModel<T> EmployerCenterPageViewModel { get; set; }
+    [Parameter] public CenterPageViewModel<T> EmployerCenterPageViewModel { get; set; }
     public List<PropertyInfo> OnlyGetProperties = new();
     protected override async Task OnInitializedAsync()
     {

@@ -164,10 +164,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : CenterDTO, new()
     {
-        private readonly CenterPostViewModel<TCenter> _CenterPostViewModel;
-        private readonly CenterPutViewModel<TCenter> _CenterPutViewModel;
-        private readonly CenterDeleteViewModel<TCenter> _CenterDeleteViewModel;
-        private readonly CenterGetsViewModel<TCenter> _CenterGetViewMode;
+        public readonly CenterPostViewModel<TCenter> _CenterPostViewModel;
+        public readonly CenterPutViewModel<TCenter> _CenterPutViewModel;
+        public readonly CenterDeleteViewModel<TCenter> _CenterDeleteViewModel;
+        public readonly CenterGetsViewModel<TCenter> _CenterGetViewMode;
         public CenterPageViewModel(
             CenterPostViewModel<TCenter> CenterPostViewModel, 
             CenterPutViewModel<TCenter> CenterPutViewModel,
@@ -184,10 +184,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class CommodityPageViewModel<TCommodity> : EntityPageViewModel<TCommodity> where TCommodity : CommodityDTO, new()
     {
-        private readonly CommodityPostViewModel<TCommodity> _CommodityPostViewModel;
-        private readonly CommodityPutViewModel<TCommodity> _CommodityPutViewModel;
-        private readonly CommodityDeleteViewModel<TCommodity> _CommodityDeleteViewModel;
-        private readonly CommodityGetsViewModel<TCommodity> _CommodityGetViewMode;
+        public readonly CommodityPostViewModel<TCommodity> _CommodityPostViewModel;
+        public readonly CommodityPutViewModel<TCommodity> _CommodityPutViewModel;
+        public readonly CommodityDeleteViewModel<TCommodity> _CommodityDeleteViewModel;
+        public readonly CommodityGetsViewModel<TCommodity> _CommodityGetViewMode;
         public CommodityPageViewModel(
             CommodityPostViewModel<TCommodity> CommodityPostViewModel, 
             CommodityPutViewModel<TCommodity> CommodityPutViewModel,
@@ -203,10 +203,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class StatusPageViewModel<TStatus> : EntityPageViewModel<TStatus> where TStatus : StatusDTO, new()
     {
-        private readonly StatusPostViewModel<TStatus> _StatusPostViewModel;
-        private readonly StatusPutViewModel<TStatus> _StatusPutViewModel;
-        private readonly StatusDeleteViewModel<TStatus> _StatusDeleteViewModel;
-        private readonly StatusGetsViewModel<TStatus> _StatusGetViewMode;
+        public readonly StatusPostViewModel<TStatus> _StatusPostViewModel;
+        public readonly StatusPutViewModel<TStatus> _StatusPutViewModel;
+        public readonly StatusDeleteViewModel<TStatus> _StatusDeleteViewModel;
+        public readonly StatusGetsViewModel<TStatus> _StatusGetViewMode;
         public StatusPageViewModel(
             StatusPostViewModel<TStatus> StatusPostViewModel, 
             StatusPutViewModel<TStatus> StatusPutViewModel,
@@ -222,10 +222,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class SStatusPageViewModel<TSStatus> : StatusPageViewModel<TSStatus> where TSStatus : SStatusDTO , new()
     {
-        private readonly SStatusPostViewModel<TSStatus> _SStatusPostViewModel;
-        private readonly SStatusPutViewModel<TSStatus> _SStatusPutViewModel;
-        private readonly SStatusDeleteViewModel<TSStatus> _SStatusDeleteViewModel;
-        private readonly SStatusGetsViewModel<TSStatus> _SStatusGetViewMode;
+        public readonly SStatusPostViewModel<TSStatus> _SStatusPostViewModel;
+        public readonly SStatusPutViewModel<TSStatus> _SStatusPutViewModel;
+        public readonly SStatusDeleteViewModel<TSStatus> _SStatusDeleteViewModel;
+        public readonly SStatusGetsViewModel<TSStatus> _SStatusGetViewMode;
         public SStatusPageViewModel(
             SStatusPostViewModel<TSStatus> SStatusPostViewModel, 
             SStatusPutViewModel<TSStatus> SStatusPutViewModel,
@@ -241,10 +241,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class MStatusPageViewModel<TMStatus> : StatusPageViewModel<TMStatus> where TMStatus : MStatusDTO , new()
     {
-        private readonly MStatusPostViewModel<TMStatus> _MStatusPostViewModel;
-        private readonly MStatusPutViewModel<TMStatus> _MStatusPutViewModel;
-        private readonly MStatusDeleteViewModel<TMStatus> _MStatusDeleteViewModel;
-        private readonly MStatusGetsViewModel<TMStatus> _MStatusGetViewMode;
+        public readonly MStatusPostViewModel<TMStatus> _MStatusPostViewModel;
+        public readonly MStatusPutViewModel<TMStatus> _MStatusPutViewModel;
+        public readonly MStatusDeleteViewModel<TMStatus> _MStatusDeleteViewModel;
+        public readonly MStatusGetsViewModel<TMStatus> _MStatusGetViewMode;
         public MStatusPageViewModel(
             MStatusPostViewModel<TMStatus> MStatusPostViewModel, 
             MStatusPutViewModel<TMStatus> MStatusPutViewModel,
@@ -260,10 +260,10 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class EStatusPageViewModel<TEStatus> : StatusPageViewModel<TEStatus> where TEStatus : EStatusDTO , new()
     {
-        private readonly EStatusPostViewModel<TEStatus> _EStatusPostViewModel;
-        private readonly EStatusPutViewModel<TEStatus> _EStatusPutViewModel;
-        private readonly EStatusDeleteViewModel<TEStatus> _EStatusDeleteViewModel;
-        private readonly EStatusGetsViewModel<TEStatus> _EStatusGetViewMode;
+        public readonly EStatusPostViewModel<TEStatus> _EStatusPostViewModel;
+        public readonly EStatusPutViewModel<TEStatus> _EStatusPutViewModel;
+        public readonly EStatusDeleteViewModel<TEStatus> _EStatusDeleteViewModel;
+        public readonly EStatusGetsViewModel<TEStatus> _EStatusGetViewMode;
         public EStatusPageViewModel(
             EStatusPostViewModel<TEStatus> EStatusPostViewModel, 
             EStatusPutViewModel<TEStatus> EStatusPutViewModel,

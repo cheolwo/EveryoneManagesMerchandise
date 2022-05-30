@@ -19,10 +19,10 @@ namespace BusinessView.ofManager.ofFisheries
     // Open API가 4개이기 때문에 public APIManager 모듈 또한 4개이다.
     public interface IFisheriesAPIManager
     {
-        Task GetFisheries();
-        Task GetFishMCommodity();
-        Task GetFishSCommodity();
-        Task GetFishECommodity();
+        //Task GetFisheries();
+        //Task GetFishMCommodity();
+        //Task GetFishSCommodity();
+        //Task GetFishECommodity();
     }
     public class FisheriesAPIManager : IFisheriesAPIManager
     {
@@ -143,37 +143,37 @@ namespace BusinessView.ofManager.ofFisheries
             }
         }
 
-        public async Task GetFisheries()
-        {
+        //public async Task GetFisheries()
+        //{
 
-        }
-        public async Task GetFishSCommodity()
-        {
+        //}
+        //public async Task GetFishSCommodity()
+        //{
 
-        }
-        public async Task GetFishMCommodity()
-        {
+        //}
+        //public async Task GetFishMCommodity()
+        //{
 
-        }
-        public async Task GetFishECommodity()
-        {
+        //}
+        //public async Task GetFishECommodity()
+        //{
 
-        }
-        public async Task GetFisheriesToDb()
-        {
+        //}
+        //public async Task GetFisheriesToDb()
+        //{
 
-        }
-        public async Task GetFishSCommodityToDb()
-        {
+        //}
+        //public async Task GetFishSCommodityToDb()
+        //{
 
-        }
-        public async Task GetFishMCommodityToDb()
-        {
+        //}
+        //public async Task GetFishMCommodityToDb()
+        //{
 
-        }
-        public async Task GetFishECommodityToDb()
-        {
+        //}
+        //public async Task GetFishECommodityToDb()
+        //{
 
-        }
+        //}
     }
 }

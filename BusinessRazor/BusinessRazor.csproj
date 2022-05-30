@@ -7,26 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Components\ofGroupOrderer\**" />
-    <Compile Remove="Components\ofMarketer\**" />
-    <Compile Remove="Components\ofOrderer\**" />
-    <Compile Remove="Components\ofProducter\**" />
-    <Compile Remove="Components\ofTrader\**" />
-    <Content Remove="Components\ofGroupOrderer\**" />
-    <Content Remove="Components\ofMarketer\**" />
-    <Content Remove="Components\ofOrderer\**" />
-    <Content Remove="Components\ofProducter\**" />
-    <Content Remove="Components\ofTrader\**" />
-    <EmbeddedResource Remove="Components\ofGroupOrderer\**" />
-    <EmbeddedResource Remove="Components\ofMarketer\**" />
-    <EmbeddedResource Remove="Components\ofOrderer\**" />
-    <EmbeddedResource Remove="Components\ofProducter\**" />
-    <EmbeddedResource Remove="Components\ofTrader\**" />
-    <None Remove="Components\ofGroupOrderer\**" />
-    <None Remove="Components\ofMarketer\**" />
-    <None Remove="Components\ofOrderer\**" />
-    <None Remove="Components\ofProducter\**" />
-    <None Remove="Components\ofTrader\**" />
+    <Compile Remove="ofPage\ofGroupOrderer\**" />
+    <Compile Remove="ofPage\ofMarketer\**" />
+    <Compile Remove="ofPage\ofOrderer\**" />
+    <Compile Remove="ofPage\ofProducter\**" />
+    <Compile Remove="ofPage\ofTrader\**" />
+    <Content Remove="ofPage\ofGroupOrderer\**" />
+    <Content Remove="ofPage\ofMarketer\**" />
+    <Content Remove="ofPage\ofOrderer\**" />
+    <Content Remove="ofPage\ofProducter\**" />
+    <Content Remove="ofPage\ofTrader\**" />
+    <EmbeddedResource Remove="ofPage\ofGroupOrderer\**" />
+    <EmbeddedResource Remove="ofPage\ofMarketer\**" />
+    <EmbeddedResource Remove="ofPage\ofOrderer\**" />
+    <EmbeddedResource Remove="ofPage\ofProducter\**" />
+    <EmbeddedResource Remove="ofPage\ofTrader\**" />
+    <None Remove="ofPage\ofGroupOrderer\**" />
+    <None Remove="ofPage\ofMarketer\**" />
+    <None Remove="ofPage\ofOrderer\**" />
+    <None Remove="ofPage\ofProducter\**" />
+    <None Remove="ofPage\ofTrader\**" />
   </ItemGroup>
 
 
@@ -45,9 +45,54 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\ofGeneric\ofPaltform\" />
-    <Folder Include="Components\ofGeneric\ofEmployee\" />
-    <Folder Include="Components\ofGeneric\ofEmployer\" />
+    <Folder Include="ofCommon\ofMarket\ofPlatMarket\" />
+    <Folder Include="ofCommon\ofMarket\ofEMCommodity\" />
+    <Folder Include="ofCommon\ofMarket\ofMMCommodtiy\" />
+    <Folder Include="ofCommon\ofMarket\ofSMCommodity\" />
+    <Folder Include="ofCommon\ofMarket\ofMCommodity\" />
+    <Folder Include="ofCommon\ofMarket\ofMarket\" />
+    <Folder Include="ofCommon\ofOrder\ofEOCommodity\" />
+    <Folder Include="ofCommon\ofOrder\ofMOCommodity\" />
+    <Folder Include="ofCommon\ofOrder\ofSOCommodity\" />
+    <Folder Include="ofCommon\ofOrder\ofOCommodity\" />
+    <Folder Include="ofCommon\ofOrder\ofOrderCenter\" />
+    <Folder Include="ofCommon\ofProduct\ofEPCommodity\" />
+    <Folder Include="ofCommon\ofProduct\ofMPCommodity\" />
+    <Folder Include="ofCommon\ofProduct\ofSPCommodity\" />
+    <Folder Include="ofCommon\ofProduct\ofProductLand\" />
+    <Folder Include="ofCommon\ofProduct\ofPCommodity\" />
+    <Folder Include="ofCommon\ofProduct\ofProductCenter\" />
+    <Folder Include="ofCommon\ofProduct\ofProducter\" />
+    <Folder Include="ofCommon\ofTrade\ofETCommodity\" />
+    <Folder Include="ofCommon\ofTrade\ofMTCommodity\" />
+    <Folder Include="ofCommon\ofTrade\ofSTCommodity\" />
+    <Folder Include="ofCommon\ofTrade\ofTCommodity\" />
+    <Folder Include="ofCommon\ofTrade\ofTradeCenter\" />
+    <Folder Include="ofCommon\ofWarehouse\ofWorkingdesk\" />
+    <Folder Include="ofCommon\ofWarehouse\ofDividedTag\" />
+    <Folder Include="ofCommon\ofWarehouse\ofDotBarcode\" />
+    <Folder Include="ofCommon\ofWarehouse\ofLoadFrame\" />
+    <Folder Include="ofCommon\ofWarehouse\ofIncomingTag\" />
+    <Folder Include="ofCommon\ofWarehouse\ofEWCommodity\" />
+    <Folder Include="ofCommon\ofWarehouse\ofMWCommodity\" />
+    <Folder Include="ofCommon\ofWarehouse\ofSWCommodity\" />
+    <Folder Include="ofCommon\ofWarehouse\ofWCommodity\" />
+    <Folder Include="ofCommon\ofWarehouse\ofWarehouse\" />
+    <Folder Include="ofPage\ofGeneric\ofPaltform\" />
+    <Folder Include="ofPage\ofGeneric\ofEmployee\" />
+    <Folder Include="ofPage\ofGeneric\ofEmployer\" />
+    <Folder Include="ofCommon\ofGroupOrder\ofEGOC\" />
+    <Folder Include="ofCommon\ofGroupOrder\ofMGOC\" />
+    <Folder Include="ofCommon\ofGroupOrder\ofSGOC\" />
+    <Folder Include="ofCommon\ofGroupOrder\ofGOCC\" />
+    <Folder Include="ofCommon\ofGroupOrder\ofGOC\" />
+    <Folder Include="ofCommon\ofHR\ofHRBusinessPart\" />
+    <Folder Include="ofCommon\ofHR\ofHRRole\" />
+    <Folder Include="ofCommon\ofHR\ofHREmployee\" />
+    <Folder Include="ofCommon\ofHR\ofHRCenter\" />
+    <Folder Include="ofCommon\ofJournal\ofJournalCenter\" />
+    <Folder Include="ofCommon\ofJournal\ofJCommodity\" />
+    <Folder Include="ofCommon\ofJournal\ofJournal\" />
   </ItemGroup>
 
 </Project>

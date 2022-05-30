@@ -1,7 +1,10 @@
-﻿using BusinessView.ofDTO.ofCommon;
+﻿using BusinessView.ofCommon.ofServices;
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
+using FluentValidation;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
+using NMemory.Tables;
 
 namespace BusinessView.ofUser.ofCommon
 {
@@ -31,5 +34,8 @@ namespace BusinessView.ofUser.ofCommon
         public abstract Task DeleteByIdAsync<T>(string id) where T : EntityDTO, new();
         public abstract Task<IEnumerable<T>> GetsAsync<T>() where T : EntityDTO, new();
         public abstract Task<IEnumerable<T>> GetsAsyncByUserId<T>(string userid) where T : EntityDTO, new();
+        public abstract IValidator<T> GetValidator<T>() where T : EntityDTO, new();
+        public abstract ITable<T> GetMemoryTable<T>() where T : EntityDTO, new();
+        public abstract DTOService GetDTOService<T>() where T : EntityDTO, new();
     }
 }

@@ -42,21 +42,17 @@ namespace BusinessView.ofExternal.ofCommon
             List<PropertyInfo> propIncludedQueryAttribute = new();
             foreach (var prop in props)
             {
-                if(prop.PropertyType == typeof(DTO))
-                {
-                    var dto = (DTO?)prop.GetValue(entityQuery);
-                    if(dto != null) 
-                    {
-                        var propertyInfos = dto.GetByQueryAttribute(); 
-                        foreach(var dtoprop in propertyInfos)
-                        {
-                            propIncludedQueryAttribute.Add(dtoprop);
-                        }
-                    }
-                    continue;
-                }
                 var QueryAttribute = prop.GetCustomAttribute<QueryAttribute>();
                 if (QueryAttribute != null && prop.GetValue(entityQuery) != null)
+                {
+                    propIncludedQueryAttribute.Add(prop);
+                }
+            }
+            var dtoprops = typeof(DTO).GetProperties();
+            foreach(var prop in dtoprops)
+            {
+                var QueryAttribute = prop.GetCustomAttribute<QueryAttribute>();
+                if (QueryAttribute != null && prop.GetValue(entityQuery.Dto) != null)
                 {
                     propIncludedQueryAttribute.Add(prop);
                 }

@@ -1,6 +1,7 @@
 ﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
 @using BusinessView.ofViewModels.ofGeneric
-@typeparam T where T : EmployerStatus, new()
+@using BusinessView.ofViewModels.ofGeneric.ofCommon
+@typeparam T where T : StatusDTO, new()
 
 @if (_EmployerStatusPostViewModel == null)
 {
@@ -33,7 +34,7 @@ else
   <MudButton OnClick="PostAsync">Post</MudButton>
 }
 @code {
-    [Parameter] public EmployerStatusPostViewModel<T>? _EmployerStatusPostViewModel { get; set; }
+    [Parameter] public StatusPostViewModel<T>? _EmployerStatusPostViewModel { get; set; }
     public async Task PostAsync()
     {
         try

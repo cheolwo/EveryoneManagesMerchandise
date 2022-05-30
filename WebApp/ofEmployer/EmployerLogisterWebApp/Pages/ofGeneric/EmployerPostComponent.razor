@@ -1,7 +1,8 @@
 ﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
 @using BusinessView.ofValidator.ofCommon.ofEmployer
 @using BusinessView.ofViewModels.ofGeneric
-@typeparam TEntity where TEntity : EmployerEntity, new()
+@using BusinessView.ofViewModels.ofGeneric.ofCommon
+@typeparam TEntity where TEntity : EntityDTO, new()
 
 @if (_EmployerPostViewModel == null || _EmployerPostViewModel.IsBusy)
 {
@@ -35,11 +36,11 @@ else
         <MudButton OnClick="Validate">Validate</MudButton>
 }
 @code {
-    [Parameter] public EmployerPostViewModel<TEntity> _EmployerPostViewModel { get; set; }
+    [Parameter] public EntityPostViewModel<TEntity> _EmployerPostViewModel { get; set; }
     public EmployerEntityValidator<TEntity>? _EmployerEntityValidator { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        _EmployerEntityValidator = (EmployerEntityValidator<TEntity>)_EmployerPostViewModel._employerActorContext.GetValidator<TEntity>();
+        _EmployerEntityValidator = (EmployerEntityValidator<TEntity>)_EmployerPostViewModel._ActorContext.GetValidator<TEntity>();
     }
     public async Task PostAsync()
     {

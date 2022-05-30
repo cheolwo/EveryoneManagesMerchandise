@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace BusinessView.ofDTO.ofCommon
 {
-    public class IdentityUserDTO : EntityDTO, IEntityDTO
+    public class IdentityUserDTO : EntityDTO
     {
         public string? Email { get; set; }
         public string? UserName { get; set; }

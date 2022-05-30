@@ -1,10 +1,11 @@
 ﻿@using BusinessView.ofDTO.ofCommon.ofEmployer
 @using BusinessView.ofViewModels.ofGeneric
 @using System.ComponentModel
+@using BusinessView.ofViewModels.ofGeneric.ofCommon
 
 @implements IDisposable
 
-@typeparam T where T: EmployerCenter, new()
+@typeparam T where T: CenterDTO, new()
 
 @if (_EmployerCenterPostViewModel == null || _EmployerCenterPostViewModel.IsBusy || ManagedList == null)
 {
@@ -42,7 +43,7 @@ else
 </MudButton>
 }
 @code {
-    [Parameter] public EmployerCenterPostViewModel<T>? _EmployerCenterPostViewModel { get; set; }
+    [Parameter] public CenterPostViewModel<T>? _EmployerCenterPostViewModel { get; set; }
     [Parameter] public List<T> ManagedList { get; set; }
     protected override async Task OnInitializedAsync()
     {

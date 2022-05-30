@@ -96,6 +96,8 @@ namespace BusinessData
             _t = t;
         }
     }
+
+    [AttributeUsage(AttributeTargets.Property)]
     public class GenericAttribute : Attribute
     {
         public Type _t { get; set; }

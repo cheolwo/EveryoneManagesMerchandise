@@ -6,7 +6,7 @@
 @using MudBlazor
 @using System.ComponentModel
 
-@typeparam T where T : EmployerCommodity, new()
+@typeparam T where T : CommodityDTO, new()
 @if (EmployerCommodityPageViewModel.IsSelectGets)
 {
     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=>EmployerCommodityPageViewModel.OnClickGetsToPost()">Post</MudButton>
@@ -34,7 +34,7 @@
 @if(EmployerCommodityPageViewModel.IsSelectPost)
 {
     <MudButton Variant="Variant.Filled" Color="Color.Primary">Post</MudButton>
-    <EmployerCommodityPostComponent T=T _EmployerCommodityPostViewModel=EmployerCommodityPageViewModel._EmployerCommodityPostViewModel></EmployerCommodityPostComponent>
+    <EmployerCommodityPostComponent T=T _EmployerCommodityPostViewModel=EmployerCommodityPageViewModel._CommodityPostViewModel></EmployerCommodityPostComponent>
 }
 @if(EmployerCommodityPageViewModel.IsSelectPut)
 {
@@ -53,7 +53,7 @@
 
 @code {
     [CascadingParameter(Name = "IdentityUserDTO")] public IdentityUserDTO? IdentityUserDTO { get; set; }
-    [Parameter] public EmployerCommodityPageViewModel<T> EmployerCommodityPageViewModel { get; set; }
+    [Parameter] public CommodityPageViewModel<T> EmployerCommodityPageViewModel { get; set; }
     public List<PropertyInfo> OnlyGetProperties = new();
     protected override async Task OnInitializedAsync()
     {

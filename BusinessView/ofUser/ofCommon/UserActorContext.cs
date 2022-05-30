@@ -47,19 +47,19 @@ namespace BusinessView.ofCommon.ofUser
             3. Storage 단게
                 PostValue를 InMemeoryDatabase 에 저장하는 단계
          */
-        public IValidator<T> GetValidator<T>() where T : EntityDTO, new()
+        public override IValidator<T> GetValidator<T>() 
         {
             IValidator<T> validator = (IValidator<T>)ValidatorBuilder.Get(typeof(T).Name);
             if (validator == null) { throw new NullReferenceException(nameof(IValidator<T>)); }
             return validator;
         }
-        public ITable<T> GetMemoryTable<T>() where T : EntityDTO, new()
+        public override ITable<T> GetMemoryTable<T>() 
         {
             ITable<T> storage = (ITable<T>)StorageBuilder.Get(typeof(T).Name);
             if (storage == null) { throw new NullReferenceException(nameof(ITable<T>)); }
             return storage;
         }
-        public DTOService GetDTOService<T>() where T : EntityDTO, new()
+        public override DTOService GetDTOService<T>() 
         {
             DTOService service = ServiceBuilder.Get(typeof(T).Name);
             if (service == null) { throw new NullReferenceException(nameof(DTOService)); }

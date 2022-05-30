@@ -203,9 +203,11 @@ namespace BusinessView.ofGeneric
     }
     public static class EntityQueryFilter
     {
-        public static IEnumerable<Model> Filter<Model>(this IEnumerable<Model> list, Func<Model, bool> selector) where Model : Entity
+        public static IEnumerable<Model> Filter<Model>(this IEnumerable<Model> list, Func<Model, bool> selector) 
+                                                                                    where Model : Entity
                 => (from model in list where selector(model) select model).ToList();
-                
+
+
         public static IEnumerable<Model> FileterByRemainedQuery<DTO, Model>(this IEnumerable<Model> Querylist, List<PropertyInfo> RemainedQuery, EntityQuery<DTO> entityQuery) where Model : Entity where DTO : EntityDTO, new()
         {
             foreach (var prop in RemainedQuery)

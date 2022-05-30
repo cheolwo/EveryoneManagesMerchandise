@@ -1,50 +1,61 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using AutoMapper;
+using BusienssLogic.ofController.ofCommon;
 using BusinessData.ofWarehouse.Model;
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofGeneric;
+using System.Reflection;
 using System.Text;
-//JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
-//jsonSerializerOptions.WriteIndented = true;
-//Warehouse warehouse = new Warehouse();
-//warehouse.LoginId = "123";
-//warehouse.Name = "박철우";
-//var modelvalue = "{\"wCommodities\":[],\"ewCommodities\":[],\"mwCommodities\":[],\"swCommodities\":[],\"loadFrames\":[],\"dotBarcodes\":[],\"workingDesks\":[],\"dividedTags\":[],\"incomingTags\":[],\"loginId\":\"asd\",\"password\":\"fDF\",\"failLogin\":0,\"address\":\"ASDF\",\"countryCode\":\"ASDF\",\"phoneNumber\":\"ASDF\",\"faxNumber\":\"FASDFADFS\",\"commodities\":[],\"eStatuses\":[],\"mStatuses\":[],\"sStatuses\":[],\"centerCards\":[],\"centerMacAddresses\":[],\"centerIPAddresses\":[],\"centerRoles\":[],\"id\":\"W-36\",\"code\":\"Null\",\"name\":\"ASDFASD\",\"container\":\"Null\",\"createTime\":\"2022-05-24T01:23:58.7164655+09:00\",\"userId\":\"Null\",\"changedUsers\":[],\"imageofInfos\":[],\"docs\":[]}";
-//var value = JsonSerializer.Deserialize<Warehouse>(modelvalue);
-//var serialvalue = JsonSerializer.Serialize(warehouse, jsonSerializerOptions);
-//var deserialvalue = JsonSerializer.Deserialize<Warehouse>(serialvalue);
-//Console.WriteLine(deserialvalue.LoginId);
-//Console.WriteLine(value);
-//var configuration = new MapperConfiguration(cfg => cfg.AddMaps("BusinessView"));
-//var mapper = new Mapper(configuration);
+using System.Text.Json;
 
-Warehouse warehouse1 = new Warehouse() { Name = "bbbb" };
-Warehouse warehouse2= new Warehouse() { Name = "bbbb" };
-Warehouse warehouse3 = new Warehouse() { Name = "bbbb" };
-Warehouse warehouse4 = new Warehouse() { Name = "bbbb" };
-Warehouse warehouse5= new Warehouse() { Name = "bbbb" };
-Warehouse warehouse6 = new Warehouse() { Name = "aaaa" };
-Warehouse warehouse7 = new Warehouse() { Name = "aaaa" };
+//Warehouse warehouse1 = new Warehouse() { Name = "bbbb" };
+//Warehouse warehouse2= new Warehouse() { Name = "bbbb" };
+//Warehouse warehouse3 = new Warehouse() { Name = "bbbb" };
+//Warehouse warehouse4 = new Warehouse() { Name = "bbbb" };
+//Warehouse warehouse5= new Warehouse() { Name = "bbbb" };
+//Warehouse warehouse6 = new Warehouse() { Name = "aaaa" };
+//Warehouse warehouse7 = new Warehouse() { Name = "aaaa" };
+//Warehouse warehouse8 = new Warehouse() { Name = "aaaa" };
+//Warehouse warehouse9 = new Warehouse() { Name = "aaaa" };
+//Warehouse warehouse10 = new Warehouse() { Name = "aaaa" };
 
-Warehouse warehouse8 = new Warehouse() { Name = "aaaa" };
-Warehouse warehouse9 = new Warehouse() { Name = "aaaa" };
-Warehouse warehouse10 = new Warehouse() { Name = "aaaa" };
+//List<Warehouse> list = new();
+//list.Add(warehouse1);
+//list.Add(warehouse2);
+//list.Add(warehouse3);
+//list.Add(warehouse4);
+//list.Add(warehouse5);
+//list.Add(warehouse6);
+//list.Add(warehouse7);
+//list.Add(warehouse8);
+//list.Add(warehouse9);list.Add(warehouse10);
 
-List<Warehouse> list = new();
-list.Add(warehouse1);
-list.Add(warehouse2);
-list.Add(warehouse3);
-list.Add(warehouse4);
-list.Add(warehouse5);
-list.Add(warehouse6);
-list.Add(warehouse7);
-list.Add(warehouse8);
-list.Add(warehouse9);list.Add(warehouse10);
+//var fileterlist = list.Filter(e => e.Name.Equals("aaaa"));
+//foreach(var value in fileterlist)
+//{
+//    Console.WriteLine(value.Name);
+//}
 
-var fileterlist = list.Filter(e => e.Name.Equals("aaaa"));
-foreach(var value in fileterlist)
+EntityQuery<EntityDTO> entityQuery = new();
+entityQuery.StartDate = DateTime.Now;
+entityQuery.EndDate = DateTime.Now;
+entityQuery.Dto.Container = "asdf";
+entityQuery.Dto.Name = "adsfsadfsadf";
+entityQuery.Dto.Code = "ffff";
+var dic = entityQuery.GetQueryDictionary(entityQuery);
+foreach (var key in dic.Keys)
 {
-    Console.WriteLine(value.Name);
+    var props = dic[key]; 
+    foreach(var prop in props)
+    {
+        if(prop.Name == "StartDate" || prop.Name == "EndDate")
+        {
+            Console.WriteLine("{0} : {1}", prop.Name,prop.GetValue(entityQuery));
+            continue;
+        }
+        Console.WriteLine("{0} : {1}", prop.Name, prop.GetValue(entityQuery.Dto));
+    }
 }
-
 
 static void SpinLockSample1()
 {

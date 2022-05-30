@@ -28,7 +28,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
             InitializedByComponentMode(ComponentMode);
         }
-        protected readonly ActorContext _ActorContext;
+        public readonly ActorContext _ActorContext;
         protected TEntity _TEntity = new();
         public TEntity Entity
         {
