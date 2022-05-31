@@ -57,7 +57,7 @@ namespace TradeServer.Controllers.ofEmployer
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployerTradeCenter>>> GetsAsyncByUserId(string userid)
         {
-            var TradeCenters = await _EmployerTradeCenterRepository.GetToListByUserId(userid);
+            var TradeCenters = await _EmployerTradeCenterRepository.GetToListByUserIdAsync(userid);
             if (TradeCenters.Count == 0)
             {
                 return new List<EmployerTradeCenter>();

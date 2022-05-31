@@ -58,7 +58,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployerIncomingTag>>> GetsAsyncByUserId(string userid)
         {
-            var IncomingTags = await _EmployerIncomingTagRepository.GetToListByUserId(userid);
+            var IncomingTags = await _EmployerIncomingTagRepository.GetToListByUserIdAsync(userid);
             if (IncomingTags.Count == 0)
             {
                 return new List<EmployerIncomingTag>();

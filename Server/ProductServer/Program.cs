@@ -23,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string ProductDbConnectionString = "";
 if(IsProduct)
 {
@@ -33,8 +34,16 @@ else
 {
     ProductDbConnectionString = DevelopmentDbConnetionString.ProductDbConnection;
 }
-builder.Services.AddDbContext<ProductDbContext>(options =>
-    options.UseSqlServer(ProductDbConnectionString));
+if(IsInMemory)
+{
+    builder.Services.AddDbContext<ProductDbContext>(options =>
+    options.UseSqlServer(ProductDbConnectionString).UseInMemoryDatabase("PrductTestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<ProductDbContext>(options =>
+ options.UseSqlServer(ProductDbConnectionString));
+}
 
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));

@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using BusinessData;
 using BusinessData.ofCommon.ofInterface;
+using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 namespace BusinessView.ofCommon
 {
@@ -162,8 +163,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if (Get != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if ( View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Get)
                 {
                     var Many = prop.GetCustomAttribute<ManyAttribute>();
                     var One = prop.GetCustomAttribute<OneAttribute>();
@@ -181,8 +182,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Get = prop.GetCustomAttribute<DetailAttribute>();
-                if (Get != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Detail)
                 {
                     var Many = prop.GetCustomAttribute<ManyAttribute>();
                     var One = prop.GetCustomAttribute<OneAttribute>();
@@ -209,8 +210,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if (Get != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Get)
                 {
                     var Many = prop.GetCustomAttribute<ManyAttribute>();
                     if (Many != null)
@@ -228,8 +229,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if (Get != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Get)
                 {
                     var One = prop.GetCustomAttribute<OneAttribute>();
                     if (One != null)
@@ -247,8 +248,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if (Detail != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Detail)
                 {
                     var One = prop.GetCustomAttribute<OneAttribute>();
                     if (One != null)
@@ -266,8 +267,8 @@ namespace BusinessView.ofCommon
             var props = t.GetProperties();
             foreach (var prop in props)
             {
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if (Detail != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Detail)
                 {
                     var Many = prop.GetCustomAttribute<ManyAttribute>();
                     if (Many != null)
@@ -291,8 +292,8 @@ namespace BusinessView.ofCommon
             foreach (var prop in props)
             {
                 var Many = prop.GetCustomAttribute<ManyAttribute>();
-                var Get = prop.GetCustomAttribute<GetAttribute>();
-                if (Get != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Get)
                 {
                     if (Many != null)
                     {
@@ -305,8 +306,8 @@ namespace BusinessView.ofCommon
             foreach (var prop in props)
             {
                 var Many = prop.GetCustomAttribute<ManyAttribute>();
-                var Detail = prop.GetCustomAttribute<DetailAttribute>();
-                if (Detail != null)
+                var View = prop.GetCustomAttribute<ViewAttribute>();
+                if (View != null && View._ViewMode == ofDTO.ofCommon.ViewMode.Detail)
                 {
                     if (Many != null)
                     {

@@ -25,6 +25,7 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string WarehouseDbConnectionString = "";
 if(IsProduct)
 {
@@ -35,8 +36,17 @@ else
 {
     WarehouseDbConnectionString = DevelopmentDbConnetionString.WarehouseDbConnection;
 }
-builder.Services.AddDbContext<WarehouseDbContext>(options =>
+if(IsInMemory)
+{
+    builder.Services.AddDbContext<WarehouseDbContext>(options =>
+       options.UseSqlServer(WarehouseDbConnectionString).UseInMemoryDatabase("WarehouseTestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<WarehouseDbContext>(options =>
        options.UseSqlServer(WarehouseDbConnectionString));
+}
+
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

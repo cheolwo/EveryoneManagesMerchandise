@@ -21,6 +21,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string JournalDbConnectionString = "";
 if(IsProduct)
 {
@@ -31,8 +32,17 @@ else
 {
     JournalDbConnectionString = DevelopmentDbConnetionString.JournalDbConnection;
 }
-builder.Services.AddDbContext<JournalDbContext>(options =>
-    options.UseSqlServer(JournalDbConnectionString));
+if (IsInMemory)
+{
+    builder.Services.AddDbContext<JournalDbContext>(options =>
+    options.UseSqlServer(JournalDbConnectionString).UseInMemoryDatabase("JournalTestDb"));
+
+}
+else
+{
+    builder.Services.AddDbContext<JournalDbContext>(options =>
+        options.UseSqlServer(JournalDbConnectionString));
+}
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

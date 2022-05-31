@@ -58,7 +58,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformLoadFrame>>> GetsAsyncByUserId(string userid)
         {
-            var LoadFrames = await _PlatformLoadFrameRepository.GetToListByUserId(userid);
+            var LoadFrames = await _PlatformLoadFrameRepository.GetToListByUserIdAsync(userid);
             if (LoadFrames.Count == 0)
             {
                 return new List<PlatformLoadFrame>();

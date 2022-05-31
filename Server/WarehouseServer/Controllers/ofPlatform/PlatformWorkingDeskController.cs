@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformWorkingDesk>>> GetsAsyncByUserId(string userid)
         {
-            var WorkingDesks = await _PlatformWorkingDeskRepository.GetToListByUserId(userid);
+            var WorkingDesks = await _PlatformWorkingDeskRepository.GetToListByUserIdAsync(userid);
             if (WorkingDesks.Count == 0)
             {
                 return new List<PlatformWorkingDesk>();

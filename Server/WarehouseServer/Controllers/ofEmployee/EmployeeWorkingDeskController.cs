@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployee
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployeeWorkingDesk>>> GetsAsyncByUserId(string userid)
         {
-            var WorkingDesks = await _EmployeeWorkingDeskRepository.GetToListByUserId(userid);
+            var WorkingDesks = await _EmployeeWorkingDeskRepository.GetToListByUserIdAsync(userid);
             if (WorkingDesks.Count == 0)
             {
                 return new List<EmployeeWorkingDesk>();

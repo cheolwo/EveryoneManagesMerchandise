@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployerLoadFrame>>> GetsAsyncByUserId(string userid)
         {
-            var LoadFrames = await _EmployerLoadFrameRepository.GetToListByUserId(userid);
+            var LoadFrames = await _EmployerLoadFrameRepository.GetToListByUserIdAsync(userid);
             if (LoadFrames.Count == 0)
             {
                 return new List<EmployerLoadFrame>();

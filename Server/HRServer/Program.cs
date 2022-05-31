@@ -20,6 +20,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 bool IsProduct = false;
+bool IsInMemory = false;
 string HRDbConnectionString = "";
 if(IsProduct)
 {
@@ -30,8 +31,16 @@ else
 {
     HRDbConnectionString = DevelopmentDbConnetionString.HRDbConnection;
 }
-builder.Services.AddDbContext<HRDbContext>(options =>
-       options.UseSqlServer(HRDbConnectionString));
+if (IsInMemory)
+{
+    builder.Services.AddDbContext<HRDbContext>(options =>
+       options.UseSqlServer(HRDbConnectionString).UseInMemoryDatabase("HRTestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<HRDbContext>(options =>
+           options.UseSqlServer(HRDbConnectionString));
+}
 // Add services to the container.
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

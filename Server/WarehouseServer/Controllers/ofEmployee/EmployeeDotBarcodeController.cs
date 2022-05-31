@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployee
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployeeDotBarcode>>> GetsAsyncByUserId(string userid)
         {
-            var DotBarcodes = await _EmployeeDotBarcodeRepository.GetToListByUserId(userid);
+            var DotBarcodes = await _EmployeeDotBarcodeRepository.GetToListByUserIdAsync(userid);
             if (DotBarcodes.Count == 0)
             {
                 return new List<EmployeeDotBarcode>();

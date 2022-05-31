@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformDividedTag>>> GetsAsyncByUserId(string userid)
         {
-            var DividedTags = await _PlatformDividedTagRepository.GetToListByUserId(userid);
+            var DividedTags = await _PlatformDividedTagRepository.GetToListByUserIdAsync(userid);
             if (DividedTags.Count == 0)
             {
                 return new List<PlatformDividedTag>();

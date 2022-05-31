@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformWCommodity>>> GetsAsyncByUserId(string userid)
         {
-            var WCommoditys = await _PlatformWCommodityRepository.GetToListByUserId(userid);
+            var WCommoditys = await _PlatformWCommodityRepository.GetToListByUserIdAsync(userid);
             if (WCommoditys.Count == 0)
             {
                 return new List<PlatformWCommodity>();

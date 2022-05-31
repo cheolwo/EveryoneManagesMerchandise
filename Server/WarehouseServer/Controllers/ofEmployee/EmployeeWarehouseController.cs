@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployee
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployeeWarehouse>>> GetsAsyncByUserId(string userid)
         {
-            var Warehouses = await _EmployeeWarehouseRepository.GetToListByUserId(userid);
+            var Warehouses = await _EmployeeWarehouseRepository.GetToListByUserIdAsync(userid);
             if (Warehouses.Count == 0)
             {
                 return new List<EmployeeWarehouse>();

@@ -17,22 +17,21 @@ namespace BusinessView.ofViewModels.ofGeneric
         // List<PropertyInfo> DetailOneProperties();
         // List<PropertyInfo> DetailManyProperties();
     }
-    public enum ViewMode {Get, Detail}
-    public static class EntityPropManager<TEntity> where TEntity : EntityDTO
-    {   
-        public static IEnumerable<string> GetStringProperties(ViewMode viewmode)
-        {
-            throw new NotImplementedException();
-        }
-        public static IEnumerable<string> GetIntProperties(ViewMode viewmode)
-        {
-            throw new NotImplementedException();
-        }
-        public static IEnumerable<string> GetDateTimeProperties(ViewMode viewmode)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //public static class EntityPropManager<TEntity> where TEntity : EntityDTO
+    //{   
+    //    public static IEnumerable<string> GetStringProperties(ViewMode viewmode)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //    public static IEnumerable<string> GetIntProperties(ViewMode viewmode)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //    public static IEnumerable<string> GetDateTimeProperties(ViewMode viewmode)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
     public class EntityPageViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
         public EntityPostViewModel<TEntity> _EntityPostViewModel;

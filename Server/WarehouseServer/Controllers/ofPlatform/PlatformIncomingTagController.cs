@@ -58,7 +58,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformIncomingTag>>> GetsAsyncByUserId(string userid)
         {
-            var IncomingTags = await _PlatformIncomingTagRepository.GetToListByUserId(userid);
+            var IncomingTags = await _PlatformIncomingTagRepository.GetToListByUserIdAsync(userid);
             if (IncomingTags.Count == 0)
             {
                 return new List<PlatformIncomingTag>();

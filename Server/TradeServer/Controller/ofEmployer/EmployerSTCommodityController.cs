@@ -57,7 +57,7 @@ namespace TradeServer.Controllers.ofEmployer
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployerSTCommodity>>> GetsAsyncByUserId(string userid)
         {
-            var STCommoditys = await _EmployerSTCommodityRepository.GetToListByUserId(userid);
+            var STCommoditys = await _EmployerSTCommodityRepository.GetToListByUserIdAsync(userid);
             if (STCommoditys.Count == 0)
             {
                 return new List<EmployerSTCommodity>();

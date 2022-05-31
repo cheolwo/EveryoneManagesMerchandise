@@ -23,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string GroupOrderDbConnectionString = "";
 if(IsProduct)
 {
@@ -33,8 +34,16 @@ else
 {
     GroupOrderDbConnectionString = DevelopmentDbConnetionString.GroupOrderDbConnection;
 }
-builder.Services.AddDbContext<GODbContext>(options =>
+if(IsInMemory)
+{
+    builder.Services.AddDbContext<GODbContext>(options =>
+    options.UseSqlServer(GroupOrderDbConnectionString).UseInMemoryDatabase("GroupOrderDb"));
+}
+else
+{
+    builder.Services.AddDbContext<GODbContext>(options =>
     options.UseSqlServer(GroupOrderDbConnectionString));
+}
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

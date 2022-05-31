@@ -22,6 +22,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string OrderDbConnectionString = "";
 if(IsProduct)
 {
@@ -32,8 +33,16 @@ else
 {
     OrderDbConnectionString = DevelopmentDbConnetionString.OrderDbConnection;
 }
-builder.Services.AddDbContext<OrderDbContext>(options =>
-    options.UseSqlServer(OrderDbConnectionString));
+if(IsInMemory)
+{
+    builder.Services.AddDbContext<OrderDbContext>(options =>
+     options.UseSqlServer(OrderDbConnectionString).UseInMemoryDatabase("OrderTestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<OrderDbContext>(options =>
+ options.UseSqlServer(OrderDbConnectionString));
+}
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

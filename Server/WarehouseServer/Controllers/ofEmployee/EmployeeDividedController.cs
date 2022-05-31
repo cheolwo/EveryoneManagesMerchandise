@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofEmployee
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<EmployeeDividedTag>>> GetsAsyncByUserId(string userid)
         {
-            var DividedTags = await _EmployeeDividedTagRepository.GetToListByUserId(userid);
+            var DividedTags = await _EmployeeDividedTagRepository.GetToListByUserIdAsync(userid);
             if (DividedTags.Count == 0)
             {
                 return NotFound();

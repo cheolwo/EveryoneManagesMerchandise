@@ -63,7 +63,7 @@ namespace WarehouseServer.Controllers.ofEmployer
         public async Task<ActionResult<IEnumerable<EmployerWarehouse>>> GetsAsyncByUserId(string userid)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.GetsAsyncByUserId));
-            var Warehouses = await _EmployerWarehouseRepository.GetToListByUserId(userid);
+            var Warehouses = await _EmployerWarehouseRepository.GetToListByUserIdAsync(userid);
             if (Warehouses.Count == 0)
             {
                 return new List<EmployerWarehouse>();

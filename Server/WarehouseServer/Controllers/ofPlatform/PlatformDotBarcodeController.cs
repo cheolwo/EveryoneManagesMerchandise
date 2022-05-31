@@ -57,7 +57,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("User")]
         public async Task<ActionResult<IEnumerable<PlatformDotBarcode>>> GetsAsyncByUserId(string userid)
         {
-            var DotBarcodes = await _PlatformDotBarcodeRepository.GetToListByUserId(userid);
+            var DotBarcodes = await _PlatformDotBarcodeRepository.GetToListByUserIdAsync(userid);
             if (DotBarcodes.Count == 0)
             {
                 return new List<PlatformDotBarcode>();

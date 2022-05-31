@@ -23,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 bool IsProduct = false;
+bool IsInMemory = false;
 string TradeDbConnectionString = "";
 if(IsProduct)
 {
@@ -33,8 +34,17 @@ else
 {
     TradeDbConnectionString = DevelopmentDbConnetionString.TradeDbConnection;
 }
-builder.Services.AddDbContext<TradeDbContext>(options =>
+if(IsInMemory)
+{
+    builder.Services.AddDbContext<TradeDbContext>(options =>
+    options.UseSqlServer(TradeDbConnectionString).UseInMemoryDatabase("TradeTestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<TradeDbContext>(options =>
     options.UseSqlServer(TradeDbConnectionString));
+}
+
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));
