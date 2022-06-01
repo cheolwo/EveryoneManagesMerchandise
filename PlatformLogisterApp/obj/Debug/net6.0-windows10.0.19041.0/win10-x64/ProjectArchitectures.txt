@@ -1,0 +1,1 @@
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\PlatformLogisterApp.csproj;x64

@@ -49,12 +49,4 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
-	  <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-	  <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
-	  <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
-	  <ProjectReference Include="..\EmployerRazor\EmployerRazor.csproj" />
-	</ItemGroup>
-
 </Project>

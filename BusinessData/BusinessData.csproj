@@ -14,13 +14,16 @@
     <Compile Remove="Migrations\OrderDb\**" />
     <Compile Remove="Migrations\SmartFarmDb\**" />
     <Compile Remove="Migrations\WarehouseDb\**" />
-    <Compile Remove="ofAccount\NewFolder\**" />
-    <Compile Remove="ofAccount\ofIdentityDbContext\**" />
-    <Compile Remove="ofGeneric\ofStorage\**" />
-    <Compile Remove="ofHRMarket\Migrations\**" />
-    <Compile Remove="ofMarket\DataManager\**" />
-    <Compile Remove="ofMarket\Migrations\**" />
-    <Compile Remove="ofWarehouse\DataManager\**" />
+    <Compile Remove="ofDataAccessLayer\ofCommon\ofFactory\**" />
+    <Compile Remove="ofDataAccessLayer\ofGeneric\ofStorage\**" />
+    <Compile Remove="ofDataAccessLayer\ofHRMarket\Migrations\**" />
+    <Compile Remove="ofDataAccessLayer\ofHRMarket\ofInterface\**" />
+    <Compile Remove="ofDataAccessLayer\ofJournal\Configuration\**" />
+    <Compile Remove="ofDataAccessLayer\ofJournal\Migrations\**" />
+    <Compile Remove="ofDataAccessLayer\ofMarket\DataManager\**" />
+    <Compile Remove="ofDataAccessLayer\ofMarket\Migrations\**" />
+    <Compile Remove="ofDataAccessLayer\ofTrade\Migrations\**" />
+    <Compile Remove="ofDataAccessLayer\ofWarehouse\DataManager\**" />
     <EmbeddedResource Remove="Migrations\BusinessUserDb\**" />
     <EmbeddedResource Remove="Migrations\FisheriesDb\**" />
     <EmbeddedResource Remove="Migrations\GODb\**" />
@@ -30,13 +33,16 @@
     <EmbeddedResource Remove="Migrations\OrderDb\**" />
     <EmbeddedResource Remove="Migrations\SmartFarmDb\**" />
     <EmbeddedResource Remove="Migrations\WarehouseDb\**" />
-    <EmbeddedResource Remove="ofAccount\NewFolder\**" />
-    <EmbeddedResource Remove="ofAccount\ofIdentityDbContext\**" />
-    <EmbeddedResource Remove="ofGeneric\ofStorage\**" />
-    <EmbeddedResource Remove="ofHRMarket\Migrations\**" />
-    <EmbeddedResource Remove="ofMarket\DataManager\**" />
-    <EmbeddedResource Remove="ofMarket\Migrations\**" />
-    <EmbeddedResource Remove="ofWarehouse\DataManager\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofCommon\ofFactory\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofGeneric\ofStorage\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofHRMarket\Migrations\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofHRMarket\ofInterface\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofJournal\Configuration\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofJournal\Migrations\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofMarket\DataManager\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofMarket\Migrations\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofTrade\Migrations\**" />
+    <EmbeddedResource Remove="ofDataAccessLayer\ofWarehouse\DataManager\**" />
     <None Remove="Migrations\BusinessUserDb\**" />
     <None Remove="Migrations\FisheriesDb\**" />
     <None Remove="Migrations\GODb\**" />
@@ -46,13 +52,16 @@
     <None Remove="Migrations\OrderDb\**" />
     <None Remove="Migrations\SmartFarmDb\**" />
     <None Remove="Migrations\WarehouseDb\**" />
-    <None Remove="ofAccount\NewFolder\**" />
-    <None Remove="ofAccount\ofIdentityDbContext\**" />
-    <None Remove="ofGeneric\ofStorage\**" />
-    <None Remove="ofHRMarket\Migrations\**" />
-    <None Remove="ofMarket\DataManager\**" />
-    <None Remove="ofMarket\Migrations\**" />
-    <None Remove="ofWarehouse\DataManager\**" />
+    <None Remove="ofDataAccessLayer\ofCommon\ofFactory\**" />
+    <None Remove="ofDataAccessLayer\ofGeneric\ofStorage\**" />
+    <None Remove="ofDataAccessLayer\ofHRMarket\Migrations\**" />
+    <None Remove="ofDataAccessLayer\ofHRMarket\ofInterface\**" />
+    <None Remove="ofDataAccessLayer\ofJournal\Configuration\**" />
+    <None Remove="ofDataAccessLayer\ofJournal\Migrations\**" />
+    <None Remove="ofDataAccessLayer\ofMarket\DataManager\**" />
+    <None Remove="ofDataAccessLayer\ofMarket\Migrations\**" />
+    <None Remove="ofDataAccessLayer\ofTrade\Migrations\**" />
+    <None Remove="ofDataAccessLayer\ofWarehouse\DataManager\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,6 +77,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
@@ -82,6 +92,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NMemory" Version="3.1.4" />
     <PackageReference Include="Popbill" Version="1.14.0" />
     <PackageReference Include="System.IO.Ports" Version="6.0.0" />
   </ItemGroup>
@@ -90,22 +101,16 @@
     <Folder Include="Migrations\IotDb\" />
     <Folder Include="Migrations\JournalDb\" />
     <Folder Include="Migrations\TradeDb\" />
-    <Folder Include="ofCommon\ofFactory\" />
-    <Folder Include="ofJournal\Migrations\" />
-    <Folder Include="ofJournal\Configuration\" />
-    <Folder Include="ofHRMarket\ofInterface\ofEmployee\" />
-    <Folder Include="ofHRMarket\ofInterface\ofEmployer\" />
-    <Folder Include="ofHRMarket\ofInterface\ofPlatform\" />
-    <Folder Include="ofSmartFarm\ofInterface\ofEmployee\" />
-    <Folder Include="ofSmartFarm\ofInterface\ofEmployer\" />
-    <Folder Include="ofSmartFarm\ofInterface\ofPlatform\" />
-    <Folder Include="ofSmartFarm\ofRepository\" />
-    <Folder Include="ofTrade\Migrations\" />
-    <Folder Include="ofTraditionalMarket\ofInterface\ofEmployee\" />
-    <Folder Include="ofTraditionalMarket\ofInterface\ofEmployer\" />
-    <Folder Include="ofTraditionalMarket\ofInterface\ofPlatform\" />
-    <Folder Include="ofViewModel\ofSystem\" />
-    <Folder Include="ofWarehouse\Migrations\" />
+    <Folder Include="ofDataAccessLayer\ofWarehouse\Migrations\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofCommon\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofGroupOrder\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofHR\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofJournal\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofMarket\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofOrder\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofProduct\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofTrade\" />
+    <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofWarehouse\" />
   </ItemGroup>
 
   <ItemGroup>

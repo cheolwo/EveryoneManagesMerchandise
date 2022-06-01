@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NationalTaxManager\**" />
+    <EmbeddedResource Remove="NationalTaxManager\**" />
+    <None Remove="NationalTaxManager\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>9</VersionMinor>
@@ -35,8 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NationalTaxManager\" />
-    <Folder Include="ofManager\ofMarket\ofBlobStorage\" />
+    <Folder Include="ofEntityDTOManager\ofHR\" />
+    <Folder Include="ofEntityDTOManager\ofJournal\" />
+    <Folder Include="ofEntityDTOManager\ofMarket\" />
+    <Folder Include="ofEntityDTOManager\ofOrder\" />
+    <Folder Include="ofEntityDTOManager\ofProduct\" />
+    <Folder Include="ofEntityDTOManager\ofTrade\" />
+    <Folder Include="ofEntityDTOManager\ofWarehouse\" />
   </ItemGroup>
 
   <ItemGroup>

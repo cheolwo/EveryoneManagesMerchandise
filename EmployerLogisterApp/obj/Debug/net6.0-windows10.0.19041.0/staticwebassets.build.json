@@ -1,11 +1,34 @@
 {
   "Version": 1,
-  "Hash": "DvjME8xDJaA0z+0NkVfaUyavetVBIxHJHzZYL4l1vRc=",
+  "Hash": "r+GJ1UdvTSgemIr5+C9PO6bVhCDuxpu56Imz2QWQo8Y=",
   "Source": "EmployerLogisterApp",
   "BasePath": "/",
   "Mode": "Root",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj",
+      "Version": 2,
+      "Source": "BusinessRazor",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework;RuntimeIdentifier"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\EmployerRazor.csproj",
+      "Version": 2,
+      "Source": "EmployerRazor",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "EmployerLogisterApp\\wwwroot",
@@ -13,9 +36,67 @@
       "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\wwwroot\\",
       "BasePath": "/",
       "Pattern": "**"
+    },
+    {
+      "Name": "EmployerRazor\\wwwroot",
+      "Source": "EmployerRazor",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
+      "Pattern": "**"
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor.thememanager\\1.0.6\\staticwebassets\\MudBlazorThemeManager.css",
+      "SourceId": "MudBlazor.ThemeManager",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor.thememanager\\1.0.6\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor.ThemeManager",
+      "RelativePath": "MudBlazorThemeManager.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor.thememanager\\1.0.6\\staticwebassets\\MudBlazorThemeManager.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.js"
+    },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\EmployerLogisterApp.styles.css",
       "SourceId": "EmployerLogisterApp",
@@ -32,23 +113,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\EmployerLogisterApp.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\EmployerLogisterApp.bundle.scp.css",
-      "SourceId": "EmployerLogisterApp",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\",
-      "BasePath": "/",
-      "RelativePath": "EmployerLogisterApp.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\EmployerLogisterApp.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\wwwroot\\css\\app.css",
@@ -287,6 +351,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerRazor.bundle.scp.css",
+      "SourceId": "EmployerRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/EmployerRazor",
+      "RelativePath": "EmployerRazor.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerRazor.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\background.png",
+      "SourceId": "EmployerRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "EmployerRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
     }
   ]
 }

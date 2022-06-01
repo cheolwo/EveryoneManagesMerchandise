@@ -45,6 +45,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "Azure.Storage.Blobs": {
               "target": "Package",
               "version": "[12.10.0, )"
@@ -86,6 +90,10 @@
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "NMemory": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

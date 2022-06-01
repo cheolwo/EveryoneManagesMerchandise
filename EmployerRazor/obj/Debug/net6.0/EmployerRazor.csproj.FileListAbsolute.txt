@@ -1,10 +1,4 @@
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessRazor.staticwebassets.runtime.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.deps.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.runtimeconfig.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\appsettings.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.staticwebassets.runtime.json
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.exe
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.staticwebassets.runtime.json
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.deps.json
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.dll
@@ -13,12 +7,10 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Empl
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessLogic.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessView.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessData.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessLogic.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessView.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerLogisterWebApp.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\EmployerRazor.csproj.AssemblyReference.cache
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\EmployerRazor.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\EmployerRazor.AssemblyInfoInputs.cache

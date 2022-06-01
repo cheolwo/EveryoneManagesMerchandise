@@ -1,8 +1,8 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Reflection;
-using BusinessView.ofCommon;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {

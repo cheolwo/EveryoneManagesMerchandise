@@ -1,3 +1,6 @@
+wwwroot\_content\MudBlazor.ThemeManager\MudBlazorThemeManager.css
+wwwroot\_content\MudBlazor\MudBlazor.min.css
+wwwroot\_content\MudBlazor\MudBlazor.min.js
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -41,10 +44,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\EmployerLogisterApp.styles.css
-wwwroot\EmployerLogisterApp.bundle.scp.css
 AboutAssets.txt
-Shared\MainLayout.razor.css
-Shared\NavMenu.razor.css
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
@@ -59,3 +59,6 @@ wwwroot\css\open-iconic\ICON-LICENSE
 wwwroot\css\open-iconic\README.md
 wwwroot\favicon.ico
 wwwroot\index.html
+wwwroot\_content\EmployerRazor\EmployerRazor.bundle.scp.css
+wwwroot\_content\EmployerRazor\background.png
+wwwroot\_content\EmployerRazor\exampleJsInterop.js

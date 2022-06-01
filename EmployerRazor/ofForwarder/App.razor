@@ -1,8 +1,7 @@
 ﻿@using EmployerRazor.ofForwarder.ofShared
-<CascadingAuthenticationState>
+@using Microsoft.AspNetCore.Authentication
     <Router AppAssembly="@typeof(App).Assembly">
-        <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <Found Context="routeData">        
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
         <NotFound>
@@ -12,4 +11,3 @@
             </LayoutView>
         </NotFound>
     </Router>
-</CascadingAuthenticationState>
