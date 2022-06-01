@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using System;
-using BusinessData.ofTrade.ofDbContext;
-using System.Reflection;
+using BusinessData.ofDataAccessLayer.ofTrade.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 
-namespace BusinessData.ofTrade.ofModel
+namespace BusinessData.ofDataAccessLayer.ofTrade.ofModel
 {
     [DataContext(typeof(TradeDbContext), DbConnectionString.TradeDbConnection)]
     [Relation(typeof(TradeCenter), nameof(TradeCenter))] 

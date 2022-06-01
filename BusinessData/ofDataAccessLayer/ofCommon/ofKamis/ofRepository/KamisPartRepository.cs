@@ -1,8 +1,7 @@
-using BusinessData.ofCommon.ofHsCode.ofDbContext;
-using BusinessData.ofCommon.ofKamis.ofDbContext;
-using BusinessData.ofCommon.ofKamis.ofModel;
+using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofModel;
 
-namespace BusinessData.ofCommon.ofKamis.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofRepository
 {
     public class KamisGradeRepository : EntityDataRepository<KamisGrade>
     {

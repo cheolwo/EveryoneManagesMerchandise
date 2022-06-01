@@ -3,7 +3,7 @@ using BusinessData.ofHRMarket.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofHRMarket.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofHRMarket.ofDbContext
 {
     // 고용계약 DB
     public class HRMarketDbContext : DbContext

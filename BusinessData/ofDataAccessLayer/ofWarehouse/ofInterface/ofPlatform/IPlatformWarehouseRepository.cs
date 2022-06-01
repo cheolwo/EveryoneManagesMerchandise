@@ -1,6 +1,6 @@
 ﻿using BusinessData.ofWarehouse.ofRepository;
 
-namespace BusinessData.ofWarehouse.ofInterface.ofPlatform
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface
 {
     public interface IPlatformWarehouseRepository : IWarehouseRepository
     {

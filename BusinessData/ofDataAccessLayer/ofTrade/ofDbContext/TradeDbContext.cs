@@ -1,9 +1,10 @@
-using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofTrade.ofModel;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofTrade.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofTrade.ofDbContext
 {
     public class TradeDbContext : DbContext
     {

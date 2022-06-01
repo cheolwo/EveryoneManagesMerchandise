@@ -1,6 +1,8 @@
-﻿using BusinessData.ofWarehouse.ofDbContext;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
-namespace BusinessData.ofWarehouse.Model
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
     [Relation(typeof(DividedTag), "DT")]

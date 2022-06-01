@@ -1,11 +1,6 @@
-﻿using BusinessData.ofHRCenter.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository;
 
-namespace BusinessData.ofHumanResource.ofInterface.ofEmployee
+namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployee
 {
     public interface IEmployeeHRCenterRepository : IHRCenterRepository
     {

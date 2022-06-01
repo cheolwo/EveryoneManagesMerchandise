@@ -1,9 +1,12 @@
-using BusinessData.ofHR.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofHR.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 
-namespace BusinessData.ofHumanResource.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository
 {
     [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
     [Authorize(Roles ="Admin_HR, Employee_HR")]

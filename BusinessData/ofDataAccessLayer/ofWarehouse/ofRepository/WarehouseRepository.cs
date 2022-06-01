@@ -2,15 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofDbContext;
-using BusinessData.ofGenericRepository;
 using System;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
-namespace BusinessData.ofWarehouse.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
 {
     public class WarehouseRepository : CenterDataRepository<Warehouse>, IWarehouseRepository, IEmployeeWarehouseRepository, IEmployerWarehouseRepository, IPlatformWarehouseRepository 
     {
@@ -51,6 +49,11 @@ namespace BusinessData.ofWarehouse.ofRepository
                 return WithRelatedWarehouse;
             }
             else {throw new ArgumentNullException();}
+        }
+
+        public Task<Warehouse> GetRelatedData(Warehouse warehouse)
+        {
+            throw new NotImplementedException();
         }
     }
 

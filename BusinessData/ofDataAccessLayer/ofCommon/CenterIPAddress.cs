@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon
 {
     [NotMapped]
     public class CenterIPAddress : IEqualityComparer<CenterIPAddress>

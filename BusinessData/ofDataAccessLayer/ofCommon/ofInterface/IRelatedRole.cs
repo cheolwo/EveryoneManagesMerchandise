@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofInterface
 {
     public interface IRelatedRoles
     {

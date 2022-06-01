@@ -3,7 +3,7 @@ using BusinessData.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofCommon.ofKamis.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofDbContext
 {
     public class KamisDbContext : DbContext
     {

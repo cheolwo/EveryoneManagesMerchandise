@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
 using Microsoft.EntityFrameworkCore;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 {
     public interface IStatusDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Status
     {

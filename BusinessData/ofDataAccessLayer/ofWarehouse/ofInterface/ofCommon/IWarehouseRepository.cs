@@ -1,8 +1,8 @@
-﻿using BusinessData.ofGenericRepository;
-using BusinessData.ofWarehouse.Model;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofWarehouse.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface
 {
     public interface IWarehouseRepository : ICenterDataRepository<Warehouse>
     {

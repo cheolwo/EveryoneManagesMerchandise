@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.EntityFrameworkCore;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 {
     public interface ICenterDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Center
     {

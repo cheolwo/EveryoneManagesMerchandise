@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BusinessData.ofCommon.ofHsCode.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofDbContext
 {
     public class HsDbContext : DbContext
     {

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using BusinessData.ofFinancial.Model;
-using BusinessData.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newtonsoft.Json;
 
-namespace BusinessData.ofFinancial
+namespace BusinessData.ofDataAccessLayer.ofJournal
 {
     public class JournalDbContext : DbContext
     {

@@ -3,7 +3,7 @@ using BusinessData.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofCommon.ofKApt.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofKApt.ofDbContext
 {
     public class KAptDbContext : DbContext
     {

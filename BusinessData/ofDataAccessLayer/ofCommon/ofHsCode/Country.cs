@@ -1,10 +1,8 @@
-﻿using BusinessData.ofCommon.ofHsCode.ofDbContext;
-using BusinessData.ofCommon.ofInterface;
-using System;
+﻿using BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofDbContext;
 using System.Collections.Generic;
-using System.Reflection;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 
-namespace BusinessData.ofCommon.ofHsCode
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofHsCode
 {
     [DataContext(typeof(HsDbContext), DbConnectionString.HsDbConnection)]
     [Relation(typeof(Country), "Country")] 

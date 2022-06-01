@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
-using BusinessData.ofDeliveryCenter.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofDeliveryCenter
+namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
 {
     public static class ViewNameofDeliveryCenter
     {

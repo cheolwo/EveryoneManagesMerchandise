@@ -1,6 +1,6 @@
 using System;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofInterface
 {
     public interface IRelationEntity
     {

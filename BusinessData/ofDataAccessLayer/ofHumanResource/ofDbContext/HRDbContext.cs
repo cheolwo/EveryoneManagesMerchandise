@@ -1,14 +1,10 @@
-using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofHumanResource.ofRepository;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
 
-namespace BusinessData.ofHR.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofHR.ofDbContext
 {
     // 고용계약 DB
     public class HRDbContext : DbContext

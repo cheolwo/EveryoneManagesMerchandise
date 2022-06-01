@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon
 {
     public class Commodity : Entity, IRelatedCenter
     {

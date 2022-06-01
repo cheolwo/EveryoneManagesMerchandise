@@ -1,12 +1,11 @@
-using System.Threading.Tasks;
-using BusinessData.ofGenericRepository;
-using BusinessData.ofTrade.ofDbContext;
-using BusinessData.ofTrade.ofinterface.ofEmployee;
-using BusinessData.ofTrade.ofinterface.ofEmployer;
-using BusinessData.ofTrade.ofinterface.ofPlatform;
-using BusinessData.ofTrade.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofTrade.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
 
-namespace BusinessData.ofTrade.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofTrade.ofRepository
 {
     public interface ITradeCenterRepository : ICenterDataRepository<TradeCenter>
     {

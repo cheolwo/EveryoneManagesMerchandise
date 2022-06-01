@@ -1,11 +1,9 @@
-﻿using BusinessData.ofCommon.ofHsCode.ofDbContext;
-using BusinessData.ofCommon.ofInterface;
+﻿using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofDbContext;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
 
-namespace BusinessData.ofCommon.ofHsCode
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofHsCode
 {
     [DataContext(typeof(HsDbContext), DbConnectionString.HsDbConnection)]
     [Relation(typeof(ConfirmationByTheCustomsOfficer), "ConfirmationByTheCustomsOfficer")]

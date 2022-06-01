@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BusinessData.ofCommon
+namespace BusinessData.ofDataAccessLayer.ofCommon
 {
     public class FisheriesDbContext : DbContext
     {

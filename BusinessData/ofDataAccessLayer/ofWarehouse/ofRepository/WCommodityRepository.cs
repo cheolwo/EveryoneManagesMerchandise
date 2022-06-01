@@ -2,14 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofGenericRepository;
-using BusinessData.ofWarehouse.ofDbContext;
-using BusinessData.ofWarehouse.ofInterface.ofEmployee;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
 
-namespace BusinessData.ofWarehouse.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
 {
     public class WCommodityRepository : CommodityDataRepository<WCommodity>, IWCommodityRepository, IEmployeeWCommodityRepository, IEmployerWCommodityRepository, IPlatformWCommodityRepository
     {

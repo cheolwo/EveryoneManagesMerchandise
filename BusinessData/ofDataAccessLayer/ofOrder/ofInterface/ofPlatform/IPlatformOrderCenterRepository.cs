@@ -1,11 +1,6 @@
-﻿using BusinessData.ofOrder.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofOrder.ofRepository;
 
-namespace BusinessData.ofOrder.ofInterface.ofPlatform
+namespace BusinessData.ofDataAccessLayer.ofOrder.ofInterface.ofPlatform
 {
     public interface IPlatformOrderCenterRepository : IOrderCenterRepository
     {

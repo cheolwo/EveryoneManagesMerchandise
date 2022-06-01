@@ -1,10 +1,11 @@
-using BusinessData.ofHR.ofDbContext;
-using BusinessData.ofHumanResource.ofInterface.ofEmployee;
-using BusinessData.ofHumanResource.ofInterface.ofEmployer;
-using BusinessData.ofHumanResource.ofInterface.ofPlatform;
-using BusinessData.ofHumanResource.ofRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHR.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository;
 
-namespace BusinessData.ofHRCenter.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
 {
     public interface IHRCenterRepository : ICenterDataRepository<HRCenter>
     {

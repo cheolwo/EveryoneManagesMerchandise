@@ -1,6 +1,8 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofGeneric.ofIdFactory
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
 {
     public interface IStatusIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Status
     {

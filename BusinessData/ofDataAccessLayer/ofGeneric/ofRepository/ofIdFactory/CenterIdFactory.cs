@@ -1,8 +1,10 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofGeneric.ofIdFactory
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
 {
     public interface ICenterIdFactory<TEntity> : IEntityIdFactory<TEntity> where TEntity: Center, new()
     {

@@ -8,7 +8,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon
 {
     public static class DbConnectionString
     {

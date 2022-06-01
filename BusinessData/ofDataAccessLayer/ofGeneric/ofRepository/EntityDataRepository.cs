@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 {
     public interface IEntityDataRepository<TEntity> where TEntity : Entity
     {

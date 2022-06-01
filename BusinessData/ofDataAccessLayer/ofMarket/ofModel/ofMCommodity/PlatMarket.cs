@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Reflection;
-using BusinessData.ofCommon.ofInterface;
-using BusinessData.ofMarket.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofMarket.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofMarket.ofModel
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
 {
     [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
     [Authorize(Roles ="Admin_Market")]

@@ -1,9 +1,8 @@
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofDbContext;
 using System.Collections.Generic;
-using System;
-using System.Reflection;
-using BusinessData.ofCommon.ofKamis.ofDbContext;
 
-namespace BusinessData.ofCommon.ofKamis.ofModel
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofModel
 {
     public abstract class KamisEntity : Entity
     {

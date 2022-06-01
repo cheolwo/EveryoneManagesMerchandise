@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using BusinessData.ofGenericRepository;
-using BusinessData.ofGroupOrder.ofDbContext;
-using BusinessData.ofGroupOrder.ofInterface.ofEmployee;
-using BusinessData.ofGroupOrder.ofInterface.ofEmployer;
-using BusinessData.ofGroupOrder.ofInterface.ofPlatform;
-using BusinessData.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 
-namespace BusinessData.ofGO.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
 {
     public interface IGOCRepository : ICenterDataRepository<GOC>
     {

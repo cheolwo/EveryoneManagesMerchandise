@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newtonsoft.Json;
 
-namespace BusinessData.ofDeliveryCenter.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofDbContext
 {
     public class DeliveryDbContext : DbContext
     {

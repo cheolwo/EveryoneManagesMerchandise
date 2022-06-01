@@ -1,8 +1,10 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofProduct.ofDbContext;
 using System;
 using System.Collections.Generic;
 
-namespace BusinessData.ofProduct
+namespace BusinessData.ofDataAccessLayer.ofProduct
 {
     [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
     [Relation(typeof(MPCommodity), "PLPM")]

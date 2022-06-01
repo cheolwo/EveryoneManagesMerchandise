@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BusinessData.ofGroupOrder.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext
 {
     public class GODbContext : DbContext
     {

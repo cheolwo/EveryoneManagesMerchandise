@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofWarehouse.ofInterface.ofEmployer
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface
 {
     public interface IEmployerWarehouseRepository : IWarehouseRepository
     {

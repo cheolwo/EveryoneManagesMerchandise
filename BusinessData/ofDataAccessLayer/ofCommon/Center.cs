@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon
 {
     public class Center : Entity
     {

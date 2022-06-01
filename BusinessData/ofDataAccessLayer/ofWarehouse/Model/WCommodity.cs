@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using BusinessData.ofWarehouse.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofCommon;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofWarehouse.Model
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
 
     [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]

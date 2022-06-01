@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System;
-using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 using BusinessData.ofProduct.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon;
 
-namespace BusinessData.ofProduct
+namespace BusinessData.ofDataAccessLayer.ofProduct
 {
     [Relation(typeof(ProductCenter), "P")]
     [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]

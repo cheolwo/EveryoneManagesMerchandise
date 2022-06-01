@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-namespace BusinessData.ofFinancial.Model
+namespace BusinessData.ofDataAccessLayer.ofJournal.Model
 {
     [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
     public class UserSettingJournal : Entity

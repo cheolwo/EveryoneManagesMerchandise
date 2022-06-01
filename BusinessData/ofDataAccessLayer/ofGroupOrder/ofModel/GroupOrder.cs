@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Reflection;
-using BusinessData.ofCommon.ofInterface;
-using BusinessData.ofGroupOrder.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext;
 
-namespace BusinessData.ofGroupOrder.ofModel
+namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel
 {
     [Relation(typeof(GOC), nameof(GOC))]
     [DataContext(typeof(GODbContext), DbConnectionString.OrderDbConnection)]

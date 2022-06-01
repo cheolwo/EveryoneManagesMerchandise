@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofHRMarket.ofModel
+namespace BusinessData.ofDataAccessLayer.ofHRMarket.ofModel
 {
     [Relation(typeof(HRMarket), "HRMarket")] 
     public class HRMarket : Center

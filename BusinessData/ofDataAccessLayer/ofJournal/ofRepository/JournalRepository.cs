@@ -1,12 +1,10 @@
 ﻿using System.Threading.Tasks;
-using BusinessData.ofFinancial.Model;
-using BusinessData.ofGenericRepository;
-using BusinessData.ofJournal.ofInterface.ofEmployee;
-using BusinessData.ofJournal.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
 using BusinessData.ofJournal.ofInterface.ofPlatform;
 using Microsoft.EntityFrameworkCore;
 
-namespace BusinessData.ofFinancial.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofJournal.ofRepository
 {
     public interface IJournalCenterRepository : ICenterDataRepository<JournalCenter>
     {

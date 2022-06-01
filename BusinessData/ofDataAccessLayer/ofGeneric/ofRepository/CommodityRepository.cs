@@ -1,10 +1,11 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofGenericRepository
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 {
     public interface ICommodityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Commodity
     {

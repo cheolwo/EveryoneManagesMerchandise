@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofAttribute
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class GetAttribute : Attribute

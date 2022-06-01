@@ -1,8 +1,7 @@
-﻿using System;
+﻿using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using System.Collections.Generic;
-using System.Reflection;
 
-namespace BusinessData.ofCommon.ofFisheries.ofModel
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofFisheries.ofModel
 {
     [DataContext(typeof(FisheriesDbContext), DbConnectionString.FisheriesDbConnection)]
     [Relation(typeof(FishCommodity), nameof(FishCommodity))]

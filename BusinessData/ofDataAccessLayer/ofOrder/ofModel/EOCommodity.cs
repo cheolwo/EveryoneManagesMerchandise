@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using BusinessData.ofOrder.ofDbContext;
-using Microsoft.AspNetCore.Authorization;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofOrder.ofDbContext;
 
-namespace BusinessData.ofOrder.ofModel
+namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
 {
     [Relation(typeof(EOCommodity), nameof(EOCommodity))]
     [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]

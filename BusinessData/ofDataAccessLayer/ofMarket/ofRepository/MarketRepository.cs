@@ -1,11 +1,11 @@
-using BusinessData.ofGenericRepository;
-using BusinessData.ofMarket.ofDbContext;
-using BusinessData.ofMarket.ofInterface.ofEmployee;
-using BusinessData.ofMarket.ofInterface.ofEmployer;
-using BusinessData.ofMarket.ofInterface.ofPlatform;
-using BusinessData.ofMarket.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofMarket.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
 
-namespace BusinessData.ofMarket.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofRepository
 {
     public interface IMarketRepository : ICenterDataRepository<Market>
     {

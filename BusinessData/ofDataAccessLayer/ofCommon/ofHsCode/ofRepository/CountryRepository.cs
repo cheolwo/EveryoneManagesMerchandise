@@ -1,11 +1,6 @@
-﻿using BusinessData.ofCommon.ofHsCode.ofDbContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofDbContext;
 
-namespace BusinessData.ofCommon.ofHsCode.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofRepository
 {
     public class CountryRepository : EntityDataRepository<Country>
     {

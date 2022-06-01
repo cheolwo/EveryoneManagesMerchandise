@@ -1,4 +1,5 @@
-using BusinessData.ofGenericRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofProduct.ofDbContext;
 using BusinessData.ofProduct.ofInterface.ofEmployee;
 using BusinessData.ofProduct.ofInterface.ofEmployer;

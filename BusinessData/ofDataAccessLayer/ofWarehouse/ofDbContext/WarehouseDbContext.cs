@@ -2,8 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using BusinessData.ofWarehouse.Model;
 using BusinessData.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
-namespace BusinessData.ofWarehouse.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext
 {
     public class WarehouseDbContext : DbContext
     {

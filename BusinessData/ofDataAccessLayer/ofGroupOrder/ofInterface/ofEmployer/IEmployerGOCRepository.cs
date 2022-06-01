@@ -1,11 +1,6 @@
-﻿using BusinessData.ofGO.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository;
 
-namespace BusinessData.ofGroupOrder.ofInterface.ofEmployer
+namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofInterface.ofEmployer
 {
     public interface IEmployerGOCRepository : IGOCRepository
     {

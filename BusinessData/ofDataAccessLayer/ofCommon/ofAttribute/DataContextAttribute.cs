@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofCommon.ofAttribute
 {
     public class DataContextAttribute : Attribute
     {

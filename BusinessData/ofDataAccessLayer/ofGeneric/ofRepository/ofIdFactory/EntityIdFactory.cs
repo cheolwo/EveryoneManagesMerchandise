@@ -2,8 +2,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 
-namespace BusinessData.ofGeneric.ofIdFactory
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
 {
     public interface IEntityIdFactory<TEntity> where TEntity : Entity
     {

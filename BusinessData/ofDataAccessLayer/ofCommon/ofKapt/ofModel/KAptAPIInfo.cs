@@ -1,8 +1,5 @@
-﻿using BusinessData.ofCommon.ofInterface;
-using BusinessData.ofCommon.ofKApt.ofDbContext;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using BusinessData.ofCommon.ofKApt.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 
 namespace BusinessData.ofCommon.ofKapt
 {

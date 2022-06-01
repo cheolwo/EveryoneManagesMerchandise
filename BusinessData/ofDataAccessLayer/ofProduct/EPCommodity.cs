@@ -1,6 +1,8 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofProduct.ofDbContext;
 
-namespace BusinessData.ofProduct
+namespace BusinessData.ofDataAccessLayer.ofProduct
 {
     [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
     [Relation(typeof(EPCommodity), "PLPE")]

@@ -1,6 +1,7 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofGeneric.ofConvert
+namespace BusinessData.ofEntityDTORepository.ofGeneric.ofConvert
 {
     public class ModelToViewModel<TEntity> where TEntity : Entity
     {

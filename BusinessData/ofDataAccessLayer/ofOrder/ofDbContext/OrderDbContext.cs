@@ -1,9 +1,7 @@
-﻿using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofOrder.ofModel;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofOrder.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofOrder.ofDbContext
 {
     public class OrderDbContext : DbContext
     {

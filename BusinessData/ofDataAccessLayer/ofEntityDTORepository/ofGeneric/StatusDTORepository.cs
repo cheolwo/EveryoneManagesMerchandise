@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofRepository.ofGeneric
-{
+namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
+{ 
     internal class StatusDTORepository
     {
     }

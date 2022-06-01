@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessData.ofTrade.ofModel
+namespace BusinessData.ofDataAccessLayer.ofTrade.ofModel
 {
     public class TradeInfo 
     {

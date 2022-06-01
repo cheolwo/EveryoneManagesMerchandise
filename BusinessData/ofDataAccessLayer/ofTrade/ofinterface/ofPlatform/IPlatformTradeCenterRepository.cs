@@ -1,11 +1,6 @@
-﻿using BusinessData.ofTrade.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofTrade.ofRepository;
 
-namespace BusinessData.ofTrade.ofinterface.ofPlatform
+namespace BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofPlatform
 {
     public interface IPlatformTradeCenterRepository : ITradeCenterRepository
     {

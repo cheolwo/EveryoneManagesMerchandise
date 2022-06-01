@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Reflection;
-using BusinessData.ofCommon.ofInterface;
-using BusinessData.ofWarehouse.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofCommon;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofWarehouse.Model
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
     public enum CenterOwnerType {Owner, Lessor}
     public interface IJounral

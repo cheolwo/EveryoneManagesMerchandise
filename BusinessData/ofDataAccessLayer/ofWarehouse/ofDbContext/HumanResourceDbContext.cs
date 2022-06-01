@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BusinessData.ofWarehouse.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext
 {
     public class WHumanResourceDbContext : IdentityDbContext
     {

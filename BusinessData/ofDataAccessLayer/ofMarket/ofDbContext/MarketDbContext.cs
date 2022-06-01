@@ -1,11 +1,9 @@
 using System.Collections.Generic;
-using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofMarket.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newtonsoft.Json;
 
-namespace BusinessData.ofMarket.ofDbContext
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofDbContext
 {
     public class MarketDbContext : DbContext
     {

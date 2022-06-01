@@ -1,3 +1,4 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -6,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BusinessData.ofGeneric.ofTypeConfiguration
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration
 {
     public class CenterConfiguration<TEntity> : EntityConfiguration<TEntity>, IEntityTypeConfiguration<TEntity> where TEntity : Center
     {

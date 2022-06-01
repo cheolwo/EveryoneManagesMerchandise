@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BusinessData
+namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofCommon
 {
     public interface IBarcodable
     {

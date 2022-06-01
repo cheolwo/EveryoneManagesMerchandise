@@ -3,8 +3,10 @@ using System;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using BusinessData.ofProduct.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 
-namespace BusinessData.ofProduct
+namespace BusinessData.ofDataAccessLayer.ofProduct
 {
     [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
     [Relation(typeof(Producter), "Producter")]

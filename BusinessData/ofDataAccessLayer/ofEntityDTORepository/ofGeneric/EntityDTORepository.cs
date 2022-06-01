@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BusinessView.ofExternal.ofCommon;
 using System.Reflection;
 
-namespace BusinessView.ofRepository.ofGeneric
+namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
 {
     public interface IEntityDTORepository<DTO, Model> : IEntityDataRepository<Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {

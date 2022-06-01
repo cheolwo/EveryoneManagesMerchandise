@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using System.ComponentModel.DataAnnotations;
 
-namespace BusinessData.ofMarket.ofModel
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
 {
     public class DetailofMCommodity : Entity
     {   

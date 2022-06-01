@@ -1,11 +1,11 @@
-using BusinessData.ofDeliveryCenter;
-using BusinessData.ofDeliveryCenter.ofDbContext;
-using BusinessData.ofDeliveryCenter.ofInterface.ofEmployee;
-using BusinessData.ofDeliveryCenter.ofInterface.ofEmployer;
-using BusinessData.ofDeliveryCenter.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
 using BusinessData.ofGenericRepository;
 
-namespace BusinessData.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository
 {
     public interface IDeliveryCenterRepository : ICenterDataRepository<DeliveryCenter>
     {
@@ -15,15 +15,15 @@ namespace BusinessData.ofRepository
     {
 
     }
-    public interface ISDCommodityRepository : IStatusDataRepository<SDCommodity>
+    public interface ISDCommodityRepository : ISStatusDataRepository<SDCommodity>
     {
 
     }
-    public interface IMDCommodityRepository : IStatusDataRepository<MDCommodity>
+    public interface IMDCommodityRepository : IMStatusDataRepository<MDCommodity>
     {
 
     }
-    public interface IEDCommodityRepository : IStatusDataRepository<EDCommodity>
+    public interface IEDCommodityRepository : IEStatusDataRepository<EDCommodity>
     {
 
     }

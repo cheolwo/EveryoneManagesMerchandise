@@ -1,6 +1,7 @@
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BusinessData.ofGeneric.ofTypeConfiguration
+namespace BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration
 {
     public class CommodityConfiguration<TEntity> : EntityConfiguration<TEntity> where TEntity : Commodity
     {

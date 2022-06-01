@@ -1,11 +1,11 @@
-﻿using BusinessData.ofMarket.ofRepository;
+﻿using BusinessData.ofDataAccessLayer.ofMarket.ofRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessData.ofMarket.ofInterface.ofPlatform
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofPlatform
 {
     public interface IPlatformMarketRepository : IMarketRepository
     {

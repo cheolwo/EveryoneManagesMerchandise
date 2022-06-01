@@ -1,8 +1,11 @@
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository;
 using BusinessData.ofGeneric.ofIdFactory;
 using BusinessData.ofHRCenter.ofRepository;
 using BusinessData.ofHumanResource.ofRepository;
 
-namespace BusinessData.ofHumanResouce.ofIdFactory
+namespace BusinessData.ofDataAccessLayer.ofHumanResouce.ofIdFactory
 {
     public interface IHRCenterIdFactory : ICenterIdFactory<HRCenter>
     {

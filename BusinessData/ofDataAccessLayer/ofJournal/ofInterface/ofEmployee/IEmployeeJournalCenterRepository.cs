@@ -1,11 +1,6 @@
-﻿using BusinessData.ofFinancial.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofJournal.ofRepository;
 
-namespace BusinessData.ofJournal.ofInterface.ofEmployee
+namespace BusinessData.ofDataAccessLayer.ofJournal.ofInterface.ofEmployee
 {
     public interface IEmployeeJournalCenterRepository : IJournalCenterRepository
     {

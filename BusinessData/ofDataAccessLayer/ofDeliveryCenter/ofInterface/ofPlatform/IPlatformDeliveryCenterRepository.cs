@@ -1,6 +1,6 @@
 ﻿using BusinessData.ofRepository;
 
-namespace BusinessData.ofDeliveryCenter.ofInterface.ofPlatform
+namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofPlatform
 {
     public interface IPlatformDeliveryCenterRepository : IDeliveryCenterRepository
     {

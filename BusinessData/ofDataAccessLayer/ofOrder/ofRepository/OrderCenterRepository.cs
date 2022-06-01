@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
-using BusinessData.ofGenericRepository;
-using BusinessData.ofOrder.ofDbContext;
-using BusinessData.ofOrder.ofInterface.ofEmployee;
-using BusinessData.ofOrder.ofInterface.ofEmployer;
-using BusinessData.ofOrder.ofInterface.ofPlatform;
-using BusinessData.ofOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofOrder.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofOrder.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofOrder.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofOrder.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
 
-namespace BusinessData.ofOrder.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofOrder.ofRepository
 {
     public interface IOrderCenterRepository : ICenterDataRepository<OrderCenter>
     {

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using BusinessData.ofMarket.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofMarket.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BusinessData.ofMarket.ofModel
+namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
 {
     public static class ViewNameofMarket
     {
