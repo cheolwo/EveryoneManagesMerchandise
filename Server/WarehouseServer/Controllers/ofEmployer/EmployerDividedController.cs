@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
 using BusinessData.ofWarehouse.ofInterface.ofEmployer;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
+using BusienssLogic.ofController.ofCommon;
+using BusienssView.ofController.ofGeneric;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,18 +14,18 @@ namespace WarehouseServer.Controllers.ofEmployer
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployerDividedTagController : ControllerBase
+    public class EmployerDividedTagController : EntityDTOController<EmployerDividedTag, DividedTag>
     {
-        private readonly ILogger<EmployerDividedTagController> _logger;
+        private readonly ILogger<EmployerDividedTag> _logger;
         private readonly IEmployerDividedTagManager _EmployerDividedTagManager;
-        private readonly IEmployerDividedTagRepository _EmployerDividedTagRepository;
+        private readonly IConfiguration _Configuration;
 
-        public EmployerDividedTagController(ILogger<EmployerDividedTagController> logger,
-            IEmployerDividedTagManager EmployerDividedTagManager, 
-            IEmployerDividedTagRepository EmployerDividedTagRepository)
+        public EmployerDividedTagController(ILogger<EmployerDividedTag> logger,
+            IEmployerDividedTagManager EmployerDividedTagManager,
+            IConfiguration Configuration
+           ) :base(logger, EmployerDividedTagManager, Configuration)
         {
             _logger = logger;
-            _EmployerDividedTagRepository = EmployerDividedTagRepository;
             _EmployerDividedTagManager = EmployerDividedTagManager;
         }
         // GET: api/<EmployerDividedTagController>
@@ -81,14 +82,11 @@ namespace WarehouseServer.Controllers.ofEmployer
             return CreatedAtAction(nameof(GetDividedTag), new { id = newDividedTag.Id }, newDividedTag);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutDividedTag(string id, EmployerDividedTag EmployerDividedTag)
+
+        [HttpPut]
+        public async Task<IActionResult> PutDividedTag(EmployerDividedTag EmployerDividedTag)
         {
             var model = DTOToModel<EmployerDividedTag, DividedTag>.ConvertToModel(EmployerDividedTag, new());
-            if (id != model.Id)
-            {
-                return BadRequest();
-            }
             try
             {
                 await _EmployerDividedTagManager.UpdateAsync(model);

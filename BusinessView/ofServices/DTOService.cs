@@ -3,6 +3,8 @@ using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using BusienssLogic.ofController.ofCommon;
+using BusinessView.ofDTO.ofCommon;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofCommon.ofServices
@@ -112,6 +114,18 @@ namespace BusinessView.ofCommon.ofServices
                             Encoding.UTF8,
                             Application.Json); // using static System.Net.Mime.MediaTypeNames;
             using var httpResponseMessage = await _httpClient.PostAsync($"/api/{typeof(T).Name}/Alls", entityJson);
+            httpResponseMessage.EnsureSuccessStatusCode();
+            string jsonDto = await httpResponseMessage.Content.ReadAsStringAsync();
+            List<T>? dto = JsonSerializer.Deserialize<List<T>>(jsonDto);
+            return dto;
+        }
+        public virtual async Task<IEnumerable<T>> GetAsynByQuery<T>(EntityQuery<T> entityQuery) where T : EntityDTO, new()
+        {
+            var entityJson = new StringContent(
+                            JsonSerializer.Serialize(entityQuery),
+                            Encoding.UTF8,
+                            Application.Json); // using static System.Net.Mime.MediaTypeNames;
+            using var httpResponseMessage = await _httpClient.PostAsync($"/api/{typeof(T).Name}/Searching", entityJson);
             httpResponseMessage.EnsureSuccessStatusCode();
             string jsonDto = await httpResponseMessage.Content.ReadAsStringAsync();
             List<T>? dto = JsonSerializer.Deserialize<List<T>>(jsonDto);

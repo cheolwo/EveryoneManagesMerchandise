@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ofForwarder\ofPage\ofHR\" />
+    <Folder Include="ofForwarder\ofPage\ofJournal\" />
+    <Folder Include="ofForwarder\ofPage\ofTrade\" />
+    <Folder Include="ofForwarder\ofPage\ofWarehouse\" />
+    <Folder Include="ofLogister\ofPage\ofHR\" />
+    <Folder Include="ofLogister\ofPage\ofJournal\" />
+    <Folder Include="ofLogister\ofPage\ofTrade\" />
+    <Folder Include="ofLogister\ofPage\ofWarehouse\" />
+    <Folder Include="ofMarketer\ofPage\ofHR\" />
+    <Folder Include="ofMarketer\ofPage\ofJournal\" />
+    <Folder Include="ofMarketer\ofPage\ofMarket\" />
+    <Folder Include="ofMarketer\ofPage\ofTrade\" />
+    <Folder Include="ofMarketer\ofPage\ofWarehouse\" />
+    <Folder Include="ofOrderer\ofPage\ofGroupOrder\" />
+    <Folder Include="ofOrderer\ofPage\ofOrder\" />
+    <Folder Include="ofOrderer\ofPage\ofTrade\" />
+    <Folder Include="ofOrderer\ofPage\ofWarehouse\" />
+    <Folder Include="ofProducter\ofPage\ofHR\" />
+    <Folder Include="ofProducter\ofPage\ofJournal\" />
+    <Folder Include="ofProducter\ofPage\ofProduct\" />
+    <Folder Include="ofProducter\ofPage\ofTrade\" />
+    <Folder Include="ofProducter\ofPage\ofWarehouse\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
+    <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
+    <ProjectReference Include="..\WebApp\ofEmployer\EmployerLogisterWebApp\EmployerLogisterWebApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="ofForwarder\ofShared\LoginDisplay.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="ofForwarder\ofShared\MyNavMenu.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "f4RKgubX112CykBqdGY0bV5Hi6ZgQHlkD2U77Oo1I5o=",
+  "Source": "EmployerLogisterWebApp",
+  "BasePath": "_content/EmployerLogisterWebApp",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

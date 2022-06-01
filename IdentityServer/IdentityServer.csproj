@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
-    <ProjectReference Include="..\WebApp\PlanLogisticsWebApp\PlanLogisticsWebApp.csproj" />
   </ItemGroup>
 
 </Project>

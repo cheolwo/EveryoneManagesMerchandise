@@ -5,7 +5,8 @@ namespace ProductServer.Controllers.ofEmployee
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployerProductLandController : ControllerBase
+    public class EmployeeProductLandController : ControllerBase
     {
     }
 }
+

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace OCServer.Controllers.ofEmployer
+namespace OCServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]

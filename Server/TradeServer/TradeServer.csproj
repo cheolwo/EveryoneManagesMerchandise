@@ -31,9 +31,4 @@
     <ProjectReference Include="..\..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controller\ofPlatform\" />
-    <Folder Include="Controller\ofEmployee\" />
-  </ItemGroup>
-
 </Project>

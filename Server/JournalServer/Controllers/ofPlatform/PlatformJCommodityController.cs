@@ -5,7 +5,7 @@ namespace JournalServer.Controllers.ofPlatform
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeJCommodityController : ControllerBase
+    public class PlatformJCommodityController : ControllerBase
     {
     }
 }

@@ -14,11 +14,11 @@ namespace WarehouseServer.Controllers.ofEmployer
     [ApiController]
     public class EmployerDotBarcodeController : ControllerBase
     {
-        private readonly ILogger<EmployerDotBarcodeController> _logger;
+        private readonly ILogger<EmployerDotBarcode> _logger;
         private readonly IEmployerDotBarcodeManager _EmployerDotBarcodeManager;
         private readonly IEmployerDotBarcodeRepository _EmployerDotBarcodeRepository;
 
-        public EmployerDotBarcodeController(ILogger<EmployerDotBarcodeController> logger,
+        public EmployerDotBarcodeController(ILogger<EmployerDotBarcode> logger,
             IEmployerDotBarcodeManager EmployerDotBarcodeManager, 
             IEmployerDotBarcodeRepository EmployerDotBarcodeRepository)
         {

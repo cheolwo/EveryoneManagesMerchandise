@@ -1,12 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using AutoMapper;
 using BusienssLogic.ofController.ofCommon;
 using BusinessData.ofWarehouse.Model;
 using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofGeneric;
-using System.Reflection;
 using System.Text;
-using System.Text.Json;
+
+Console.WriteLine($"/api/Query/{typeof(Warehouse).Name}");
 
 //Warehouse warehouse1 = new Warehouse() { Name = "bbbb" };
 //Warehouse warehouse2= new Warehouse() { Name = "bbbb" };

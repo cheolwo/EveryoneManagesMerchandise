@@ -464,5 +464,21 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="ofCommon\ofPlatform\ofValidate\" />
+		<Folder Include="ofManager\ofHR\" />
+		<Folder Include="ofManager\ofJournal\" />
+		<Folder Include="ofManager\ofMarket\" />
+		<Folder Include="ofManager\ofOrder\" />
+		<Folder Include="ofManager\ofProduct\" />
+		<Folder Include="ofManager\ofTrade\" />
+		<Folder Include="ofManager\ofWarehouse\" />
+		<Folder Include="ofRepository\ofWarehouse\" />
+		<Folder Include="ofRepository\ofTrade\" />
+		<Folder Include="ofRepository\ofProduct\" />
+		<Folder Include="ofRepository\ofOrder\" />
+		<Folder Include="ofRepository\ofMarket\" />
+		<Folder Include="ofRepository\ofJournal\" />
+		<Folder Include="ofRepository\ofHR\" />
+		<Folder Include="ofRepository\ofGroupOrder\" />
+		<Folder Include="ofRepository\ofCommon\" />
 	</ItemGroup>
 </Project>

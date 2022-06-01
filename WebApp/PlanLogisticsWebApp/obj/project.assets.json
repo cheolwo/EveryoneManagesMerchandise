@@ -4047,6 +4047,7 @@
         "dependencies": {
           "BusinessLogic": "1.0.0",
           "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
           "MudBlazor": "6.0.7"
         },

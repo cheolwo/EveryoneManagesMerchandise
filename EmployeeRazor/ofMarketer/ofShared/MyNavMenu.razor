@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">EmployerLogisterWebApp</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
+    <MudNavLink Href="/example-tab-set" Match="NavLinkMatch.Prefix">example-tab-set</MudNavLink>
+    <MudNavGroup Title="UserSetting" Expanded="false">
+        <MudNavLink Href="/User"  Match="NavLinkMatch.Prefix">User</MudNavLink>
+        <MudNavLink Href="/Role"  Match="NavLinkMatch.Prefix">Role</MudNavLink>
+    </MudNavGroup>
+    <MudNavGroup Title="HR" Expanded="false">
+        <MudNavLink Href= "/HRCenter"Match="NavLinkMatch.Prefix">HRCenter</MudNavLink>
+        <MudNavLink Href="/HRBusinessPart"  Match="NavLinkMatch.Prefix">HRBusinessPart</MudNavLink>
+        <MudNavLink Href= "/HRRole"Match="NavLinkMatch.Prefix">HRRole</MudNavLink>
+        <MudNavLink Href="/HREmployee"  Match="NavLinkMatch.Prefix">HREmployee</MudNavLink>
+        <MudNavLink Href= "/EmployeeRole"Match="NavLinkMatch.Prefix">EmployeeRole</MudNavLink>
+    </MudNavGroup>
+    <MudNavGroup Title="Journal" Expanded="false">
+        <MudNavLink Href= "/JournalCenter"Match="NavLinkMatch.Prefix">JournalCenter</MudNavLink>
+        <MudNavLink Href="/JCommodity"  Match="NavLinkMatch.Prefix">JCommodity</MudNavLink>
+         <MudNavLink Href="/Journal"  Match="NavLinkMatch.Prefix">Journal</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Trade" Expanded="false">
+        <MudNavLink Href="/TradeCenter"  Match="NavLinkMatch.Prefix">TradeCenter</MudNavLink>
+        <MudNavLink Href="/TCommodity"  Match="NavLinkMatch.Prefix">TC</MudNavLink>
+        <MudNavLink Href="/STCommodity"  Match="NavLinkMatch.Prefix">STC</MudNavLink>
+        <MudNavLink Href="/MTCommodity"  Match="NavLinkMatch.Prefix">MTC</MudNavLink>
+        <MudNavLink Href="/ETCommodity"  Match="NavLinkMatch.Prefix">ETC</MudNavLink>
+    </MudNavGroup>
+     <MudNavGroup Title="Warehouse" Expanded="false">
+        <MudNavLink Href="/Warehouse" Match="NavLinkMatch.Prefix">Warehouse</MudNavLink>
+        <MudNavLink Href="/WCommodity"  Match="NavLinkMatch.Prefix">WCommodity</MudNavLink>
+        <MudNavLink Href="/SWCommodity"  Match="NavLinkMatch.Prefix">SWCommodity</MudNavLink>
+        <MudNavLink Href="/MWCommodity"  Match="NavLinkMatch.Prefix">MWCommodity</MudNavLink>
+        <MudNavLink Href="/EWCommodity"  Match="NavLinkMatch.Prefix">EWCommodity</MudNavLink>
+    </MudNavGroup>
+       <MudNavLink Href="/IncomingTag" Match="NavLinkMatch.Prefix">IncomingTag</MudNavLink>
+        <MudNavLink Href="/DividedTag"  Match="NavLinkMatch.Prefix">DividedTag</MudNavLink>
+        <MudNavLink Href="/LoadFrame"  Match="NavLinkMatch.Prefix">LoadFrame</MudNavLink>
+        <MudNavLink Href="/DotBarcode"  Match="NavLinkMatch.Prefix">DotBarcode</MudNavLink>
+        <MudNavLink Href="/WorkingDesk"  Match="NavLinkMatch.Prefix">WorkingDesk</MudNavLink>
+</MudNavMenu>
+
+@code {
+    //[Inject] public UserManager<IdentityUser> _userManager { get; set; }
+    //[Inject] public IHttpContextAccessor _httpContextAccessor { get; set; }
+    //public IdentityUser User { get; set; }
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    User = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+    //}
+    private bool collapseNavMenu = true;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
