@@ -1,0 +1,30 @@
+﻿@page "/TradeCenter"
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade.ofTradeCenter
+@using EmployerRazor.ofLogister.ofPage.ofGeneric.ofCenter
+@using Microsoft.AspNetCore.Identity
+@using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer
+@using System.ComponentModel
+@using Microsoft.Extensions.Logging
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject EmployerTradeCenterPageViewModel _EntityPageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerCenterManagerComponent T=EmployerTradeCenter EmployerCenterPageViewModel=_EntityPageViewModel></EmployerCenterManagerComponent>
+    </CascadingValue>
+@code {
+}

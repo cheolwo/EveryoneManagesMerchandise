@@ -3027,6 +3027,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -5923,6 +5924,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -8819,6 +8821,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -11715,6 +11718,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -14608,6 +14612,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -17501,6 +17506,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -20394,6 +20400,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -23290,6 +23297,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -25039,6 +25047,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -26738,6 +26747,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -28437,6 +28447,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -30136,6 +30147,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -31832,6 +31844,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -33528,6 +33541,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -35224,6 +35238,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -36907,6 +36922,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -38656,6 +38672,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -40355,6 +40372,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -42054,6 +42072,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -43753,6 +43772,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -45449,6 +45469,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -47145,6 +47166,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -48841,6 +48863,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -50524,6 +50547,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -52364,6 +52388,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -54126,6 +54151,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -55888,6 +55914,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -57650,6 +57677,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -59409,6 +59437,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -61168,6 +61197,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -62927,6 +62957,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -64679,6 +64710,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",
@@ -70774,6 +70806,7 @@
       "BusinessView >= 1.0.0",
       "EmployerRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.2",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
       "MudBlazor >= 6.0.10"
@@ -70783,6 +70816,7 @@
       "BusinessView >= 1.0.0",
       "EmployerRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.2",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
       "MudBlazor >= 6.0.10",
@@ -70793,6 +70827,7 @@
       "BusinessView >= 1.0.0",
       "EmployerRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.2",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
       "MudBlazor >= 6.0.10",
@@ -70803,6 +70838,7 @@
       "BusinessView >= 1.0.0",
       "EmployerRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.2",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22000.194",
@@ -70915,6 +70951,10 @@
             "version": "[6.0.312, )",
             "autoReferenced": true
           },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.2, )"
+          },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
             "version": "[6.0.312, )",
@@ -70981,6 +71021,10 @@
             "version": "[6.0.312, )",
             "autoReferenced": true
           },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.2, )"
+          },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
             "version": "[6.0.312, )",
@@ -71037,6 +71081,10 @@
             "target": "Package",
             "version": "[6.0.312, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.2, )"
           },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",
@@ -71095,6 +71143,10 @@
             "target": "Package",
             "version": "[6.0.312, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.2, )"
           },
           "Microsoft.Maui.Dependencies": {
             "target": "Package",

@@ -1,0 +1,90 @@
+﻿@using BusinessData.ofPresentationLayer.ofDTO.ofCommon
+@using BusinessView.ofCommon.ofInterface
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofGeneric.ofCommon
+@using MudBlazor
+@using System.ComponentModel
+@typeparam T where T : StatusDTO, new()
+@if (EmployerStatusPageViewModel.IsSelectGets)
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=>EmployerStatusPageViewModel.OnClickGetsToPost()">Post</MudButton>
+    <MudTable Items=EmployerStatusPageViewModel._EntityGetsViewModel.TEntitys>
+        <HeaderContent>
+            @foreach (var prop in OnlyGetProperties)
+        {
+            <MudTh>@prop.Name</MudTh>
+        }
+        <MudTh>Manager</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        @foreach (var prop in OnlyGetProperties)
+            {
+                <MudTd>@prop.GetValue(context)</MudTd>
+            }
+        <MudTd>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary">Update</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary">Delete</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+}
+@if(EmployerStatusPageViewModel.IsSelectPost)
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary">Post</MudButton>
+    <EmployerStatusPostComponent T=T _EmployerStatusPostViewModel=EmployerStatusPageViewModel._StatusPostViewModel></EmployerStatusPostComponent>
+}
+@if(EmployerStatusPageViewModel.IsSelectPut)
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary">Put</MudButton>
+}
+@if(EmployerStatusPageViewModel.IsSelectDelete)
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary">Delete</MudButton>
+}
+@if(EmployerStatusPageViewModel.IsSelectDatail)
+{
+    <MudButton Variant="Variant.Filled" Color="Color.Primary">Detail</MudButton>
+}
+
+
+
+@code {
+    [CascadingParameter(Name = "IdentityUserDTO")] public IdentityUserDTO? IdentityUserDTO { get; set; }
+    [Parameter] public StatusPageViewModel<T> EmployerStatusPageViewModel { get; set; }
+    public List<PropertyInfo> OnlyGetProperties = new();
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            if (EmployerStatusPageViewModel == null) { throw new NullReferenceException("EmployerStatusPageViewModel Is null"); }
+            EmployerStatusPageViewModel.OnInitialized(async (sernder, e) =>
+            {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            });
+            OnlyGetProperties = EmployerStatusPageViewModel._EntityGetsViewModel.PropertiesByComponentMode;
+            
+            await EmployerStatusPageViewModel._EntityGetsViewModel.InitializedAsync();
+            
+        }
+        catch(Exception ex)
+        {
+            
+        }
+    }
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            StateHasChanged();
+        });
+    }
+    public void Dispose()
+    {
+        EmployerStatusPageViewModel.PropertyChanged -= OnPropertyChangedHandler;
+    }
+}

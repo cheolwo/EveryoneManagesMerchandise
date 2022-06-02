@@ -1,0 +1,31 @@
+﻿@page "/EmployeeRole"
+@using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployer
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR.ofEmployeeRole
+@using EmployerRazor.ofLogister.ofPage.ofGeneric
+@using Microsoft.AspNetCore.Identity
+@using System.ComponentModel
+@using Microsoft.Extensions.Logging
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerEmployeeRole> _Logger
+@inject EmployerEmployeeRolePageViewModel _EmployerEmployeeRolePageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerEmployeeRole EmployerPageViewModel=_EmployerEmployeeRolePageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
+@code {
+}

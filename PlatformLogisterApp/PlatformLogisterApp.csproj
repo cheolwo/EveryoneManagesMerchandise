@@ -50,8 +50,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.5" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.0-preview.4.22251.1" />
+	  <PackageReference Include="MudBlazor" Version="6.0.11-dev.4" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
 	  <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
+	  <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
+	  <ProjectReference Include="..\EmployerRazor\EmployerRazor.csproj" />
 	</ItemGroup>
 
 </Project>

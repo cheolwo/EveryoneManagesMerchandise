@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "EmployerRazor/1.0.0": {
         "dependencies": {
+          "BusinessData": "1.0.0",
           "BusinessRazor": "1.0.0",
           "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "6.0.5",

@@ -1,0 +1,31 @@
+﻿@page "/JCommodity"
+@using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployer
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJCommodity
+@using EmployerRazor.ofLogister.ofPage.ofGeneric.ofCommodity
+@using Microsoft.AspNetCore.Identity
+@using System.ComponentModel
+@using Microsoft.Extensions.Logging
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerJCommodity> _Logger
+@inject EmployerJCommodityPageViewModel _EmployerJCommodityPageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerCommodityManagerComponent T=EmployerJCommodity EmployerCommodityPageViewModel=_EmployerJCommodityPageViewModel></EmployerCommodityManagerComponent>
+    </CascadingValue>
+@code {
+}

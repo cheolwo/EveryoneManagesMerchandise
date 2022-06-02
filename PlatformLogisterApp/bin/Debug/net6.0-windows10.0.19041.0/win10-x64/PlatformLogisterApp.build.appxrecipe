@@ -754,16 +754,19 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.authentication.core\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll">
       <PackagePath>Microsoft.AspNetCore.Authentication.Core.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.authorization\6.0.4\lib\net6.0\Microsoft.AspNetCore.Authorization.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.authorization\6.0.5\lib\net6.0\Microsoft.AspNetCore.Authorization.dll">
       <PackagePath>Microsoft.AspNetCore.Authorization.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components\6.0.4\lib\net6.0\Microsoft.AspNetCore.Components.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components\6.0.5\lib\net6.0\Microsoft.AspNetCore.Components.dll">
       <PackagePath>Microsoft.AspNetCore.Components.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.forms\6.0.4\lib\net6.0\Microsoft.AspNetCore.Components.Forms.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.authorization\6.0.5\lib\net6.0\Microsoft.AspNetCore.Components.Authorization.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.Authorization.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.forms\6.0.5\lib\net6.0\Microsoft.AspNetCore.Components.Forms.dll">
       <PackagePath>Microsoft.AspNetCore.Components.Forms.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.web\6.0.4\lib\net6.0\Microsoft.AspNetCore.Components.Web.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.web\6.0.5\lib\net6.0\Microsoft.AspNetCore.Components.Web.dll">
       <PackagePath>Microsoft.AspNetCore.Components.Web.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.webview\6.0.4\lib\net6.0\Microsoft.AspNetCore.Components.WebView.dll">
@@ -808,7 +811,7 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.identity.entityframeworkcore\6.0.2\lib\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll">
       <PackagePath>Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.metadata\6.0.4\lib\net6.0\Microsoft.AspNetCore.Metadata.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.metadata\6.0.5\lib\net6.0\Microsoft.AspNetCore.Metadata.dll">
       <PackagePath>Microsoft.AspNetCore.Metadata.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.webutilities\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll">
@@ -922,7 +925,7 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.identitymodel.tokens\6.8.0\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll">
       <PackagePath>Microsoft.IdentityModel.Tokens.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.jsinterop\6.0.4\lib\net6.0\Microsoft.JSInterop.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.jsinterop\6.0.5\lib\net6.0\Microsoft.JSInterop.dll">
       <PackagePath>Microsoft.JSInterop.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.maui.graphics\6.0.300\lib\net6.0-windows10.0.18362\Microsoft.Maui.Graphics.dll">
@@ -961,8 +964,11 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.windowsappsdk\1.0.3\lib\net5.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.7\lib\net6.0\MudBlazor.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.11-dev.4\lib\net6.0\MudBlazor.dll">
       <PackagePath>MudBlazor.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor.thememanager\1.0.6\lib\net6.0\MudBlazor.ThemeManager.dll">
+      <PackagePath>MudBlazor.ThemeManager.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -982,7 +988,7 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\system.identitymodel.tokens.jwt\6.8.0\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll">
       <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\system.io.pipelines\6.0.2\lib\net6.0\System.IO.Pipelines.dll">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\system.io.pipelines\6.0.3\lib\net6.0\System.IO.Pipelines.dll">
       <PackagePath>System.IO.Pipelines.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\system.io.ports\6.0.0\runtimes\win\lib\net6.0\System.IO.Ports.dll">
@@ -1027,11 +1033,17 @@
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessView\bin\Debug\net6.0\BusinessView.dll">
       <PackagePath>BusinessView.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.dll">
+      <PackagePath>EmployerRazor.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\PlatformLogisterApp.deps.json">
       <PackagePath>PlatformLogisterApp.deps.json</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\BusinessRazor\obj\Debug\net6.0\staticwebassets.development.json">
       <PackagePath>BusinessRazor.staticwebassets.runtime.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\staticwebassets.development.json">
+      <PackagePath>EmployerRazor.staticwebassets.runtime.json</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.aspnetcore.components.webview.maui\6.0.312\lib\net6.0-windows10.0.19041\Microsoft.AspNetCore.Components.WebView.Maui.pri">
       <PackagePath>Microsoft.AspNetCore.Components.WebView.Maui.pri</PackagePath>
@@ -1054,11 +1066,26 @@
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.7\staticwebassets\MudBlazor.min.css">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor.thememanager\1.0.6\staticwebassets\MudBlazorThemeManager.css">
+      <PackagePath>wwwroot\_content\MudBlazor.ThemeManager\MudBlazorThemeManager.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.11-dev.4\staticwebassets\MudBlazor.css">
+      <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.11-dev.4\staticwebassets\MudBlazor.min.css">
       <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.min.css</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.7\staticwebassets\MudBlazor.min.js">
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\mudblazor\6.0.11-dev.4\staticwebassets\MudBlazor.min.js">
       <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\scopedcss\projectbundle\EmployerRazor.bundle.scp.css">
+      <PackagePath>wwwroot\_content\EmployerRazor\EmployerRazor.bundle.scp.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\wwwroot\background.png">
+      <PackagePath>wwwroot\_content\EmployerRazor\background.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\wwwroot\exampleJsInterop.js">
+      <PackagePath>wwwroot\_content\EmployerRazor\exampleJsInterop.js</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\PlatformLogisterApp.styles.css">
       <PackagePath>wwwroot\PlatformLogisterApp.styles.css</PackagePath>
@@ -1237,8 +1264,8 @@
     <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\Shared\MainLayout.razor.css">
       <PackagePath>Shared\MainLayout.razor.css</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\Shared\NavMenu.razor.css">
-      <PackagePath>Shared\NavMenu.razor.css</PackagePath>
+    <AppxPackagedFile Include="C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\Shared\MyNavMenu.razor.css">
+      <PackagePath>Shared\MyNavMenu.razor.css</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -26,10 +26,6 @@
     <Folder Include="ofForwarder\ofPage\ofTrade\" />
     <Folder Include="ofForwarder\ofPage\ofWarehouse\" />
     <Folder Include="ofForwarder\wwwroot\" />
-    <Folder Include="ofLogister\ofPage\ofHR\" />
-    <Folder Include="ofLogister\ofPage\ofJournal\" />
-    <Folder Include="ofLogister\ofPage\ofTrade\" />
-    <Folder Include="ofLogister\ofPage\ofWarehouse\" />
     <Folder Include="ofLogister\wwwroot\" />
     <Folder Include="ofMarketer\ofPage\ofHR\" />
     <Folder Include="ofMarketer\ofPage\ofJournal\" />
@@ -52,6 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
     <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
     <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
   </ItemGroup>

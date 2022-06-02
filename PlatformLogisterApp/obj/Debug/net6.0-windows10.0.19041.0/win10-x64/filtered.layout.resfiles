@@ -1,5 +1,10 @@
+wwwroot\_content\MudBlazor.ThemeManager\MudBlazorThemeManager.css
+wwwroot\_content\MudBlazor\MudBlazor.css
 wwwroot\_content\MudBlazor\MudBlazor.min.css
 wwwroot\_content\MudBlazor\MudBlazor.min.js
+wwwroot\_content\EmployerRazor\EmployerRazor.bundle.scp.css
+wwwroot\_content\EmployerRazor\background.png
+wwwroot\_content\EmployerRazor\exampleJsInterop.js
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -46,7 +51,7 @@ wwwroot\PlatformLogisterApp.styles.css
 wwwroot\PlatformLogisterApp.bundle.scp.css
 AboutAssets.txt
 Shared\MainLayout.razor.css
-Shared\NavMenu.razor.css
+Shared\MyNavMenu.razor.css
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map

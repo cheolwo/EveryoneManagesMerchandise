@@ -1,0 +1,29 @@
+﻿@page "/LoadFrame"
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
+@using Microsoft.AspNetCore.Identity
+@using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer
+@using System.ComponentModel
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerLoadFrame> _Logger
+@inject EmployerPageViewModel<EmployerLoadFrame> _EntityPageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerEntityManagerComponent TEntity=EmployerLoadFrame EmployerPageViewModel=_EntityPageViewModel></EmployerEntityManagerComponent>
+    </CascadingValue>
+@code {
+}

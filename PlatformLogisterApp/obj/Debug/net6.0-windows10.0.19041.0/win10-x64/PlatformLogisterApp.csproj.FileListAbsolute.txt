@@ -282,7 +282,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\XamlSaveStateFile.xml
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\PlatformLogisterApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\Shared\MainLayout.razor.rz.scp.css
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\PlatformLogisterApp.styles.css
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\PlatformLogisterApp.bundle.scp.css
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
@@ -427,3 +426,9 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\BusinessView.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\BusinessView.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\EmployerRazor.staticwebassets.runtime.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Components.Authorization.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\MudBlazor.ThemeManager.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\EmployerRazor.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\EmployerRazor.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\scopedcss\Shared\MyNavMenu.razor.rz.scp.css

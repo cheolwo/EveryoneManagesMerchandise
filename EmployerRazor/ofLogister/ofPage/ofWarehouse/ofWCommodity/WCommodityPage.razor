@@ -1,0 +1,31 @@
+﻿@page "/WCommodity"
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWCommodity
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse
+@using Microsoft.AspNetCore.Identity
+@using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer
+@using System.ComponentModel
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerWCommodity> _Logger
+@inject EmployerPageViewModel<EmployerWCommodity> _EntityPageViewModel
+@inject EmployerWCommodityPageViewModel _EmployerWCommodityPageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerCommodityManagerComponent T=EmployerWCommodity EmployerCommodityPageViewModel=_EmployerWCommodityPageViewModel></EmployerCommodityManagerComponent>
+    </CascadingValue>
+@code {
+}

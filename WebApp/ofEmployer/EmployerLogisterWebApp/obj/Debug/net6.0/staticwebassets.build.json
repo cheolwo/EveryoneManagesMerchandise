@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wPE+lD8wYgOHDcIWhk5b88H7XlHa1j/8y2Uvn6kyu6A=",
+  "Hash": "SkwJGquRcfv+NXWyKEgOFAtKRAdaGyCBhueIWbZBuj8=",
   "Source": "EmployerLogisterWebApp",
   "BasePath": "_content/EmployerLogisterWebApp",
   "Mode": "Default",
@@ -16,21 +16,32 @@
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
       "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\EmployerRazor.csproj",
+      "Version": 2,
+      "Source": "EmployerRazor",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
     }
   ],
   "DiscoveryPatterns": [
-    {
-      "Name": "BusinessRazor\\wwwroot",
-      "Source": "BusinessRazor",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
-      "BasePath": "_content/BusinessRazor",
-      "Pattern": "**"
-    },
     {
       "Name": "EmployerLogisterWebApp\\wwwroot",
       "Source": "EmployerLogisterWebApp",
       "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\wwwroot\\",
       "BasePath": "_content/EmployerLogisterWebApp",
+      "Pattern": "**"
+    },
+    {
+      "Name": "EmployerRazor\\wwwroot",
+      "Source": "EmployerRazor",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
       "Pattern": "**"
     }
   ],
@@ -1107,11 +1118,28 @@
       "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.9\\staticwebassets\\MudBlazor.min.js"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\background.png",
-      "SourceId": "BusinessRazor",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerRazor.bundle.scp.css",
+      "SourceId": "EmployerRazor",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
-      "BasePath": "_content/BusinessRazor",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/EmployerRazor",
+      "RelativePath": "EmployerRazor.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerRazor.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\background.png",
+      "SourceId": "EmployerRazor",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
       "RelativePath": "background.png",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1124,11 +1152,11 @@
       "OriginalItemSpec": "wwwroot\\background.png"
     },
     {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\exampleJsInterop.js",
-      "SourceId": "BusinessRazor",
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "EmployerRazor",
       "SourceType": "Project",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\wwwroot\\",
-      "BasePath": "_content/BusinessRazor",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerRazor\\wwwroot\\",
+      "BasePath": "_content/EmployerRazor",
       "RelativePath": "exampleJsInterop.js",
       "AssetKind": "All",
       "AssetMode": "All",
@@ -1156,23 +1184,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\EmployerLogisterWebApp.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerLogisterWebApp.bundle.scp.css",
-      "SourceId": "EmployerLogisterWebApp",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/EmployerLogisterWebApp",
-      "RelativePath": "EmployerLogisterWebApp.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\EmployerLogisterWebApp.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\WebApp\\ofEmployer\\EmployerLogisterWebApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",

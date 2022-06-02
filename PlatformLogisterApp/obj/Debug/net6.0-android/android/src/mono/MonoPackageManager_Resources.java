@@ -21,6 +21,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.AspNetCore.Authentication.Core.dll",
 		"Microsoft.AspNetCore.Authorization.dll",
 		"Microsoft.AspNetCore.Components.dll",
+		"Microsoft.AspNetCore.Components.Authorization.dll",
 		"Microsoft.AspNetCore.Components.Forms.dll",
 		"Microsoft.AspNetCore.Components.Web.dll",
 		"Microsoft.AspNetCore.Components.WebView.dll",
@@ -78,6 +79,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.Graphics.dll",
 		"Microsoft.Net.Http.Headers.dll",
 		"MudBlazor.dll",
+		"MudBlazor.ThemeManager.dll",
 		"Newtonsoft.Json.dll",
 		"NMemory.dll",
 		"Popbill.dll",
@@ -175,6 +177,7 @@ public class MonoPackageManager_Resources {
 		"BusinessData.dll",
 		"BusinessRazor.dll",
 		"BusinessView.dll",
+		"EmployerRazor.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

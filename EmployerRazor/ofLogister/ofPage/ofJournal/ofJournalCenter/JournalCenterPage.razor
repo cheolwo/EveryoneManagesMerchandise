@@ -1,0 +1,31 @@
+﻿@page "/JournalCenter"
+@using BusinessRazor.ofPage.ofUser
+@using BusinessView.ofDTO.ofCommon
+@using BusinessView.ofViewModels.ofGeneric
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
+@using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal.ofJournalCenter
+@using EmployerRazor.ofLogister.ofPage.ofGeneric.ofCenter
+@using Microsoft.AspNetCore.Identity
+@using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployer
+@using System.ComponentModel
+@using Microsoft.Extensions.Logging
+@inject GetUserViewModel _GetUserViewModel
+@inject NavigationManager _NavigationManager
+@inject UserManager<IdentityUser> _UserManager
+@inject ILogger<EmployerJournalCenter> _Logger
+@inject EmployerJournalCenterPageViewModel _EmployerJournalCenterPageViewModel
+
+@if (_GetUserViewModel.IdentityUserDTO.UserName == null)
+{
+    <CascadingValue Value=@_UserManager Name="UserManager">
+        <CascadingValue Value=@_NavigationManager Name="NavigationManager">
+            <UserComponent model=@_GetUserViewModel></UserComponent>
+        </CascadingValue>
+    </CascadingValue>
+}
+
+    <CascadingValue Value=_GetUserViewModel.IdentityUserDTO Name="IdentityUserDTO">
+        <EmployerCenterManagerComponent T=EmployerJournalCenter EmployerCenterPageViewModel=_EmployerJournalCenterPageViewModel></EmployerCenterManagerComponent>
+    </CascadingValue>
+@code {
+}
