@@ -1,9 +1,9 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
-using BusinessView.ofTrade.ofEmployer;
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofUser;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
 
 namespace BusinessView.ofUser.ofEmployer
 {

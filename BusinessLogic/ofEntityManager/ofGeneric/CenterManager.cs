@@ -1,7 +1,8 @@
-using BusinessData;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofGeneric
+namespace BusinessLogic.ofEntityManager.ofGeneric
 {
     public class CenterPasswordHasher<TEntity> : IPasswordHasher<TEntity> where TEntity : Center
     {

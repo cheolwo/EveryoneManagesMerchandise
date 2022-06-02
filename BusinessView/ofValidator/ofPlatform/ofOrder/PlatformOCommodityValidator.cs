@@ -1,7 +1,6 @@
-using BusinessView.ofDTO.ofOrder.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofOrder;
 using FluentValidation;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
 namespace BusinessView.ofValidator.ofPlatform.ofOrder
 {
     public class PlatformOCommodityValidator : OCommodityValidator<PlatformOCommodity>

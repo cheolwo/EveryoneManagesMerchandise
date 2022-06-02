@@ -1,5 +1,4 @@
-﻿using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofViewModels.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofEWCommodity;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofEWCommodity
 {

@@ -1,7 +1,7 @@
-using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
 using FluentValidation;
 using BusinessView.ofValidator.ofCommon.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
+
 namespace BusinessView.ofValidator.ofPlatform.ofGroupOrder
 {
     public class PlatformEGOCValidator : EGOCValidator<PlatformEGOC>

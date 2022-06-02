@@ -1,8 +1,8 @@
-﻿using BusinessData.ofFinancial.Model;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+﻿using BusinessData.ofDataAccessLayer.ofJournal.Model;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 
-namespace BusinessLogic.ofManager.ofJournal.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofJournal.ofBlobStorage
 {
     public interface IJournalCenterBlobContainerFactory : IEntityContainerFactory<JournalCenter>
     {

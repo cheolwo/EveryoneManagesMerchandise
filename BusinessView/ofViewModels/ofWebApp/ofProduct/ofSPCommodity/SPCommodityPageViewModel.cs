@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofSPCommodity
 {
     public class SPCommodityPageViewModel<TSStatus> : SStatusPageViewModel<TSStatus> where TSStatus : SPCommodityDTO, new()

@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofHR;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofHR.ofHRRole
 {
     public class HRRolePostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : HRRoleDTO, new()

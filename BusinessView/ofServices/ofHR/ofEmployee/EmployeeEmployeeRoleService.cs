@@ -1,9 +1,4 @@
-﻿using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofServices.ofHR;
-using System.Net.Http.Json;
-using System.Text;
-using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
+﻿using BusinessView.ofServices.ofHR;
 
 namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
 {

@@ -1,4 +1,4 @@
-﻿using BusinessData.ofWarehouse.ofRepository;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofEmployer
+namespace BusinessLogic.ofEntityManager.ofTrade.ofInterface.ofEmployer
 {
     public interface IEmployerTradeCenterManager : ITradeCenterManager
     {

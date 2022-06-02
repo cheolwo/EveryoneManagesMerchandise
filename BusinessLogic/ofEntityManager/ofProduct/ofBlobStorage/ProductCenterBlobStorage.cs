@@ -1,10 +1,11 @@
+using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofProduct;
 using BusinessData.ofProduct.ofRepository;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofProduct.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofProduct.ofBlobStorage
 {
     public interface IPCommodityBlobContainerFactory : IEntityContainerFactory<PCommodity>
     {

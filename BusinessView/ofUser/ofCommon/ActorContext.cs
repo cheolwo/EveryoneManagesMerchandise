@@ -1,4 +1,5 @@
-﻿using BusinessView.ofCommon.ofServices;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessView.ofCommon.ofServices;
 using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
 using FluentValidation;

@@ -3,14 +3,6 @@ using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofHR.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee;
-using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
-using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofDTO.ofJournal.ofEmployee;
-using BusinessView.ofDTO.ofMarket.ofEmployee;
-using BusinessView.ofDTO.ofOrder.ofEmployee;
-using BusinessView.ofDTO.ofProduct.ofEmployee;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
-using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofValidator.ofEmployee.ofGroupOrder;
 using BusinessView.ofValidator.ofEmployee.ofHR;
@@ -21,6 +13,14 @@ using BusinessView.ofValidator.ofEmployee.ofProduct;
 using BusinessView.ofValidator.ofEmployee.ofTrade;
 using BusinessView.ofValidator.ofEmployee.ofWarehouse;
 using BusinessView.ofStorage.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployee;
 
 namespace BusinessView.ofCommon.ofUser
 {

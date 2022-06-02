@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData.ofOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
 
-namespace BusinessView.ofDTO.ofOrder.ofEmployer
+namespace BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployer
 {
     [AutoMap(typeof(MOCommodity))]
     public class EmployerMOCommodity : MOCommodityDTO

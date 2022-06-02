@@ -1,4 +1,4 @@
-using BusinessView.ofDTO.ofMarket.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployer;
 using NMemory;
 using NMemory.Tables;
 namespace BusinessView.ofStorage.ofEmployer

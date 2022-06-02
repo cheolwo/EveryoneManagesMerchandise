@@ -1,12 +1,7 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessLogic.ofEntityManager.ofGeneric;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofInterface.ofCommon
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofCommon
 {
     public interface IIncomingTagManager : IEntityManager<IncomingTag>
     {

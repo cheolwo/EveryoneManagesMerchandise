@@ -1,5 +1,5 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofIncomingTag
 {
     public class IncomingTagPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : IncomingTagDTO, new()

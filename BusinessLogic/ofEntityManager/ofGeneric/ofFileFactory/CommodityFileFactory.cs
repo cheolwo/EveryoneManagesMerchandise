@@ -1,8 +1,9 @@
 ﻿using BusinessData;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory
 {
     public class CommodityFileFactory<TEntity> : EntityFileFactory<TEntity>, ICommodityFileFactory<TEntity> where TEntity : Commodity, new()
     {

@@ -4,14 +4,6 @@ using BusinessView.ofCommon.ofServices.ofHR.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
 using BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee;
 using BusinessView.ofCommon.ofServices.ofJournalCenter.ofPlatform;
-using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
-using BusinessView.ofDTO.ofHR.ofPlatform;
-using BusinessView.ofDTO.ofJournal.ofPlatform;
-using BusinessView.ofDTO.ofMarket.ofPlatform;
-using BusinessView.ofDTO.ofOrder.ofPlatform;
-using BusinessView.ofDTO.ofProduct.ofPlatform;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessView.ofTrade.ofPlatform;
 using BusinessView.ofUser.ofCommon;
 using BusinessView.ofValidator.ofPlatform.ofGroupOrder;
 using BusinessView.ofValidator.ofPlatform.ofHR;
@@ -22,6 +14,14 @@ using BusinessView.ofValidator.ofPlatform.ofProduct;
 using BusinessView.ofValidator.ofPlatform.ofTrade;
 using BusinessView.ofValidator.ofPlatform.ofWarehouse;
 using BusinessView.ofStorage.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofPlatform;
 
 namespace BusinessView.ofCommon.ofUser
 {

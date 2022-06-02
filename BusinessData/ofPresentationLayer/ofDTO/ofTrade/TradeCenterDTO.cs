@@ -1,8 +1,10 @@
-using BusinessView.ofExternal.ofCommon;
-using BusinessData;
-using BusinessData.ofTrade.ofModel;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System.Collections.Generic;
 
-namespace BusinessView.ofDTO.ofCommon.ofTrade
+namespace BusinessData.ofPresentationLayer.ofDTO.ofTrade
 {
     public class TradeCenterDTO : CenterDTO
     {

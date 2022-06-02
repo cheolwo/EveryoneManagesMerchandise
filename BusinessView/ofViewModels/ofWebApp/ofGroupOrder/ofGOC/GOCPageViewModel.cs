@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOC
 {
     public class GOCPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : GOCDTO, new()

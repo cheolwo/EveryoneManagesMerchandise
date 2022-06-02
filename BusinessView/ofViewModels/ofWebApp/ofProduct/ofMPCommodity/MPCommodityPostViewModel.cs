@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofProduct;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofMPCommodity
 {
     public class MPCommodityPostViewModel<TMStatus> : MStatusPostViewModel<TMStatus> where TMStatus : MPCommodityDTO, new()

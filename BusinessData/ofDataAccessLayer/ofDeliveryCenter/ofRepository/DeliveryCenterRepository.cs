@@ -3,7 +3,9 @@ using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofEmployee;
 using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofEmployer;
 using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofPlatform;
 using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
-using BusinessData.ofGenericRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository
 {
@@ -50,6 +52,11 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository
         {
 
         }
+
+        public Task<List<SDCommodity>> GetToListWithMStatusesAsync()
+        {
+            throw new System.NotImplementedException();
+        }
     }
     public class MDCommodityRepository : StatusDataRepository<MDCommodity>, IMDCommodityRepository, IEmployeeMDCommodityRepository, IEmployerMDCommodityRepository, IPlatformMDCommodityRepository
     {
@@ -57,6 +64,16 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository
                 : base(DeliveryDbContext)
         {
 
+        }
+
+        public Task<List<MDCommodity>> GetToListWithEStatusesAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<List<MDCommodity>> GetToListWithSStatusAsync()
+        {
+            throw new System.NotImplementedException();
         }
     }
     public class EDCommodityRepository : StatusDataRepository<EDCommodity>, IEDCommodityRepository, IEmployeeEDCommodityRepository, IEmployerEDCommodityRepository, IPlatformEDCommodityRepository

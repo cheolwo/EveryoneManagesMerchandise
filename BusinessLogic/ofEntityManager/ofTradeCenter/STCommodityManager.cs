@@ -1,14 +1,14 @@
-﻿using BusinessData.ofTrade.ofModel;
-using BusinessData.ofTrade.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofTradeCenter.ofBlobStorage;
-using BusinessLogic.ofManager.ofTradeCenter.ofFileFactory;
-using BusinessLogic.ofManager.ofTradeCenter.ofIdFactory;
-using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofTradeCenter.ofInterface.ofPlatform;
+﻿using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+using BusinessData.ofDataAccessLayer.ofTrade.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofTrade.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofTrade.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofTrade.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofTrade.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofTrade.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofTrade.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofTradeCenter
+namespace BusinessLogic.ofEntityManager.ofTrade
 {
     public interface ISTCommodityManager : ISStatusManager<STCommodity>
     {

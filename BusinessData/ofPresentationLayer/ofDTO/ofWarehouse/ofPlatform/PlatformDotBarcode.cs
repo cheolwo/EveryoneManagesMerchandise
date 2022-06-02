@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData.ofWarehouse.Model;
-using BusinessView.ofWarehouse;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
-namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform
 {
     [AutoMap(typeof(DotBarcode))]
     public class PlatformDotBarcode : DotBarcodeDTO

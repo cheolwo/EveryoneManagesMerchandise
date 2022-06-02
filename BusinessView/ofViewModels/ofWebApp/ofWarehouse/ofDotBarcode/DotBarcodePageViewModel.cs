@@ -1,5 +1,6 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDotBarcode
 {
     public class DotBarcodePageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : DotBarcodeDTO, new()

@@ -1,9 +1,6 @@
-using BusinessView.ofExternal.ofSearchingService;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

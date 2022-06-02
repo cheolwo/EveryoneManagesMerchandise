@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 
-namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository
+namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
 {
     [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
     [Authorize(Roles ="Admin_HR, Employee_HR")]

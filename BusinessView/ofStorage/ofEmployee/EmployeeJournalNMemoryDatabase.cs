@@ -1,4 +1,4 @@
-using BusinessView.ofDTO.ofJournal.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployee;
 using NMemory;
 using NMemory.Tables;
 

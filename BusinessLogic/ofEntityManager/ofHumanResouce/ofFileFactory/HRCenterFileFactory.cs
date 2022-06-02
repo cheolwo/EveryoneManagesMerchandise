@@ -1,9 +1,7 @@
-using BusinessData.ofHumanResource.ofRepository;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory
 {
     public interface IHRCenterFileFactory : ICenterFileFactory<HRCenter>
     {

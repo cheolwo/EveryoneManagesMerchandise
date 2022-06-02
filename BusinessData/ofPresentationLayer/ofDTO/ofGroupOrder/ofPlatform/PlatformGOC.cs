@@ -1,15 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessData.ofGroupOrder;
-using BusinessData.ofGroupOrder.ofModel;
-using BusinessData;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 
-namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform
 {
     [AutoMap(typeof(GOC))]
     public class PlatformGOC : GOCDTO

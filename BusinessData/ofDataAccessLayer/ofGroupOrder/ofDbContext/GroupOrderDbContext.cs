@@ -1,5 +1,6 @@
-using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

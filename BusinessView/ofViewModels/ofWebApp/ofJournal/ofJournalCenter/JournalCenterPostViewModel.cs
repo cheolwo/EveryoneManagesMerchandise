@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofJournal;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournalCenter
 {
     public class JournalCenterPostViewModel<TCenter> : CenterPostViewModel<TCenter> where TCenter : JournalCenterDTO, new()

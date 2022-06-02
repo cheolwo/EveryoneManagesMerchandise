@@ -1,5 +1,4 @@
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofCommon.ofWarehouse
 {

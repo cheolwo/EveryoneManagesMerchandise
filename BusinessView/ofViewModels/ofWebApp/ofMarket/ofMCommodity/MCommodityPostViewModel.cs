@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofMarket;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofMCommodity
 {
     public class MCommodityPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : MCommodityDTO, new()

@@ -1,9 +1,4 @@
-﻿using BusinessData.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofEmployer
 {

@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using BusinessData.ofJournal;
-using BusinessData;
-using BusinessData.ofFinancial.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
 
-namespace BusinessView.ofDTO.ofJournal.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform
 {
     [AutoMap(typeof(JCommodity))]
     public class PlatformJCommodity : JCommodityDTO

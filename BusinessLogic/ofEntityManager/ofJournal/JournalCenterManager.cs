@@ -1,16 +1,14 @@
-using BusinessData;
-using BusinessData.ofFinancial.Model;
-using BusinessData.ofFinancial.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofJournal.ofIdFactory;
-using BusinessLogic.ofManager.ofJournal.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofJournal.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofJournal.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
-using System;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofJournal.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofJournal.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofJournal.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofJournal.ofInterface.ofPlatform;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory;
 
-namespace BusinessLogic.ofManager
+namespace BusinessLogic.ofEntityManager.ofJournal
 {
     public interface IJournalCenterManager : ICenterManager<JournalCenter>
     {

@@ -1,11 +1,16 @@
-using BusienssLogic.ofController.ofCommon;
-using BusinessData;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofGeneric;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessLogic.oEntityDTOManager.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-namespace BusienssView.ofController.ofGeneric
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace BusienssLogic.ofController.ofGeneric
 {
     // 여기 친구는 Rouing 을 할 정도가 아니야
     // Rouing은 구체적인 이름이 붙어야 돼.

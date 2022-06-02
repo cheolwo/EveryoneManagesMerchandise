@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofMarket;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofEMCommodity
 {
     public class EMCommodityPageViewModel<TEStatus> : EStatusPageViewModel<TEStatus> where TEStatus : EMCommodityDTO, new()

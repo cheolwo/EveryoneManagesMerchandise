@@ -1,4 +1,4 @@
-﻿using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofCommon;
+﻿using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofCommon;
 
 namespace BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee
 {

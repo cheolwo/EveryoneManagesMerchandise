@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofHR;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofHR.ofHRCenter
 {
     public class HRCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : HRCenterDTO, new()

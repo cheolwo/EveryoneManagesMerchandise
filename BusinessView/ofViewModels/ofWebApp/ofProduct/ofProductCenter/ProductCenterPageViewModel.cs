@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductCenter
 {
     public class ProductCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : ProductCenterDTO, new()

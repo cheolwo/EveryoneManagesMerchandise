@@ -1,14 +1,14 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
-using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofWarehouse
+namespace BusinessLogic.ofEntityManager.ofWarehouse
 {
     public class EWCommodityManager : StatusManager<EWCommodity>, IEmployerEWCommodityManager, IEmployeeEWCommodityManager, IPlatformEWCommodityManager, IEWCommodityManager
     {

@@ -59,6 +59,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "GoogleGson/2.9.0.1": {
         "type": "package",
         "compile": {
@@ -1039,6 +1048,25 @@
           }
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -1046,15 +1074,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -2938,24 +2957,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -3015,6 +3048,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "GoogleGson/2.9.0.1": {
@@ -3959,6 +4001,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -3966,15 +4027,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -5749,24 +5801,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -5826,6 +5892,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "GoogleGson/2.9.0.1": {
@@ -6770,6 +6845,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -6777,15 +6871,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -8560,24 +8645,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -8637,6 +8736,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "GoogleGson/2.9.0.1": {
@@ -9581,6 +9689,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -9588,15 +9715,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -11371,24 +11489,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -11450,6 +11582,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "GoogleGson/2.9.0.1": {
         "type": "package",
         "compile": {
@@ -12392,6 +12533,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -12399,15 +12559,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -14179,24 +14330,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -14258,6 +14423,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "GoogleGson/2.9.0.1": {
         "type": "package",
         "compile": {
@@ -15200,6 +15374,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -15207,15 +15400,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -16987,24 +17171,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -17066,6 +17264,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "GoogleGson/2.9.0.1": {
         "type": "package",
         "compile": {
@@ -18008,6 +18215,25 @@
           "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -18015,15 +18241,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -19795,24 +20012,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -19872,6 +20103,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "GoogleGson/2.9.0.1": {
@@ -20819,6 +21059,25 @@
           "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -20826,15 +21085,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -22606,24 +22856,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -22685,6 +22949,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -23663,6 +23936,25 @@
           }
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -23670,15 +23962,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -24270,24 +24553,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -24349,6 +24646,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -25283,6 +25589,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -25290,15 +25615,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -25884,24 +26200,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -25961,6 +26291,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -26897,6 +27236,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -26904,15 +27262,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -27498,24 +27847,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -27575,6 +27938,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -28511,6 +28883,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -28518,15 +28909,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -29112,24 +29494,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -29191,6 +29587,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -30125,6 +30530,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -30132,15 +30556,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -30723,24 +31138,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -30802,6 +31231,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -31736,6 +32174,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -31743,15 +32200,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -32334,24 +32782,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -32413,6 +32875,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -33347,6 +33818,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -33354,15 +33844,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -33945,24 +34426,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -34022,6 +34517,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -34961,6 +35465,25 @@
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -34968,15 +35491,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -35543,24 +36057,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -35620,6 +36148,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -36600,6 +37137,25 @@
           }
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -36607,15 +37163,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -37207,24 +37754,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -37284,6 +37845,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -38220,6 +38790,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -38227,15 +38816,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -38821,24 +39401,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -38898,6 +39492,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -39834,6 +40437,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -39841,15 +40463,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -40435,24 +41048,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -40512,6 +41139,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -41448,6 +42084,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -41455,15 +42110,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -42049,24 +42695,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -42128,6 +42788,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -43062,6 +43731,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -43069,15 +43757,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -43660,24 +44339,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -43739,6 +44432,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -44673,6 +45375,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -44680,15 +45401,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -45271,24 +45983,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -45350,6 +46076,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -46284,6 +47019,25 @@
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -46291,15 +47045,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -46882,24 +47627,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -46959,6 +47718,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -47898,6 +48666,25 @@
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -47905,15 +48692,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -48480,24 +49258,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -48557,6 +49349,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -49634,6 +50435,25 @@
           }
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -49641,15 +50461,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -50235,24 +51046,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -50312,6 +51137,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -51317,6 +52151,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -51324,15 +52177,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -51912,24 +52756,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -51989,6 +52847,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -52994,6 +53861,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -53001,15 +53887,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -53589,24 +54466,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -53666,6 +54557,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -54671,6 +55571,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -54678,15 +55597,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -55266,24 +56176,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -55345,6 +56269,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -56348,6 +57281,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -56355,15 +57307,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -56940,24 +57883,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -57019,6 +57976,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -58022,6 +58988,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -58029,15 +59014,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -58614,24 +59590,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -58693,6 +59683,15 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
+        }
+      },
       "Linkhub/1.4.1": {
         "type": "package",
         "compile": {
@@ -59696,6 +60695,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -59703,15 +60721,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -60288,24 +61297,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     },
@@ -60365,6 +61388,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
+        }
+      },
+      "FluentValidation/11.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {}
         }
       },
       "Linkhub/1.4.1": {
@@ -61379,6 +62411,25 @@
           "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
         }
       },
+      "MudBlazor/6.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "6.0.2",
+          "Microsoft.AspNetCore.Components.Web": "6.0.2"
+        },
+        "compile": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MudBlazor.dll": {}
+        },
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -61386,15 +62437,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
         }
       },
       "NMemory/3.1.4": {
@@ -61955,24 +62997,38 @@
           "bin/placeholder/BusinessData.dll": {}
         }
       },
-      "BusinessLogic/1.0.0": {
+      "BusinessRazor/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
+          "BusinessView": "1.0.0",
+          "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
+          "MudBlazor": "6.0.7"
         },
         "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
+          "bin/placeholder/BusinessRazor.dll": {}
+        }
+      },
+      "BusinessView/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "BusinessData": "1.0.0",
+          "FluentValidation": "11.0.1",
+          "Microsoft.AspNetCore.Components": "6.0.3",
+          "NMemory": "3.1.4",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessView.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessView.dll": {}
         }
       }
     }
@@ -62045,6 +63101,27 @@
         "lib/netstandard2.0/Azure.Storage.Common.dll",
         "lib/netstandard2.0/Azure.Storage.Common.xml",
         "pkgicon.png"
+      ]
+    },
+    "FluentValidation/11.0.1": {
+      "sha512": "fcL5zF/glDwskUtpL0IfBupVWTChxOOvVs+dAA7Gme5NjIeJBiFKWq3eZV1O+AigucnBTr8SWG7wRRn+PgFnTw==",
+      "type": "package",
+      "path": "fluentvalidation/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.0.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "GoogleGson/2.9.0.1": {
@@ -64298,6 +65375,27 @@
         "tools/x86/GenXbf.dll"
       ]
     },
+    "MudBlazor/6.0.7": {
+      "sha512": "7NYG50IAgGAmWEWBNzjEOjWmyk9PEkSTDnGMppXzoS1F4CBJe7KkyhDFFHPBpuTpNqJ4r7Xw36R+LPgw7mKoFA==",
+      "type": "package",
+      "path": "mudblazor/6.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net6.0/MudBlazor.dll",
+        "lib/net6.0/MudBlazor.xml",
+        "mudblazor.6.0.7.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -64323,30 +65421,6 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "NLog/5.0.0-rc1": {
-      "sha512": "+ce3zuXplax1HLxFieqA7BwxLjdmZacYblz6AcfrqxfFWytMz9SHBwUas45aamVrQhTKUA4m5la464/RxnCZPg==",
-      "type": "package",
-      "path": "nlog/5.0.0-rc1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net35/NLog.dll",
-        "lib/net35/NLog.xml",
-        "lib/net45/NLog.dll",
-        "lib/net45/NLog.xml",
-        "lib/net46/NLog.dll",
-        "lib/net46/NLog.xml",
-        "lib/netstandard1.3/NLog.dll",
-        "lib/netstandard1.3/NLog.xml",
-        "lib/netstandard1.5/NLog.dll",
-        "lib/netstandard1.5/NLog.xml",
-        "lib/netstandard2.0/NLog.dll",
-        "lib/netstandard2.0/NLog.xml",
-        "nlog.5.0.0-rc1.nupkg.sha512",
-        "nlog.nuspec"
       ]
     },
     "NMemory/3.1.4": {
@@ -67980,23 +69054,28 @@
       "path": "../BusinessData/BusinessData.csproj",
       "msbuildProject": "../BusinessData/BusinessData.csproj"
     },
-    "BusinessLogic/1.0.0": {
+    "BusinessRazor/1.0.0": {
       "type": "project",
-      "path": "../BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+      "path": "../BusinessRazor/BusinessRazor.csproj",
+      "msbuildProject": "../BusinessRazor/BusinessRazor.csproj"
+    },
+    "BusinessView/1.0.0": {
+      "type": "project",
+      "path": "../BusinessView/BusinessView.csproj",
+      "msbuildProject": "../BusinessView/BusinessView.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-android31.0": [
       "BusinessData >= 1.0.0",
-      "BusinessLogic >= 1.0.0",
+      "BusinessRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312"
     ],
     "net6.0-ios15.4": [
       "BusinessData >= 1.0.0",
-      "BusinessLogic >= 1.0.0",
+      "BusinessRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
@@ -68004,7 +69083,7 @@
     ],
     "net6.0-maccatalyst15.4": [
       "BusinessData >= 1.0.0",
-      "BusinessLogic >= 1.0.0",
+      "BusinessRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
@@ -68012,7 +69091,7 @@
     ],
     "net6.0-windows10.0.19041": [
       "BusinessData >= 1.0.0",
-      "BusinessLogic >= 1.0.0",
+      "BusinessRazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebView.Maui >= 6.0.312",
       "Microsoft.Maui.Dependencies >= 6.0.312",
       "Microsoft.Maui.Extensions >= 6.0.312",
@@ -68059,8 +69138,8 @@
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj"
             }
           }
         },
@@ -68070,8 +69149,8 @@
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj"
             }
           }
         },
@@ -68081,8 +69160,8 @@
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj"
             }
           }
         },
@@ -68092,8 +69171,8 @@
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessData\\BusinessData.csproj"
             },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj"
             }
           }
         }

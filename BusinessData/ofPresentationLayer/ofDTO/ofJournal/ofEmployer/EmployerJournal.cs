@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessData.ofJournal;
-using BusinessData;
-using BusinessData.ofFinancial.Model;
-namespace BusinessView.ofDTO.ofJournal.ofEmployer
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployer
 {
     [AutoMap(typeof(Journal))]
     public class EmployerJournal : JournalDTO

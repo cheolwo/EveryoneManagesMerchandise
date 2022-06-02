@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using BusinessData.ofMarket.ofModel;
-using BusinessData.ofMarket.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
-using BusinessLogic.ofManager.ofMarket.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessData.ofDataAccessLayer.ofMarket.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofMarket.ofIdFactory;
 using Microsoft.AspNetCore.Identity;
 
-namespace BusinessLogic.ofManager.ofMarket
+namespace BusinessLogic.ofEntityManager.ofMarket
 {
     public interface IPlatMarketFileFactory : ICenterFileFactory<PlatMarket>
     {

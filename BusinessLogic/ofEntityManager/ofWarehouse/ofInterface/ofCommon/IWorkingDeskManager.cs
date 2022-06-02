@@ -1,7 +1,7 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessLogic.ofEntityManager.ofGeneric;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofInterface.ofCommon
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofCommon
 {
     public interface IWorkingDeskManager : IEntityManager<WorkingDesk>
     {

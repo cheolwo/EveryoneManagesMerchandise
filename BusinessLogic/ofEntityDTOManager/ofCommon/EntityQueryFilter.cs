@@ -1,14 +1,13 @@
-﻿using BusienssLogic.ofController.ofCommon;
-using BusinessData;
-using BusinessView.ofDTO.ofCommon;
+﻿using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace BusinessView.ofManager.ofCommon
+namespace BusinessLogic.oEntityDTOManager.ofCommon
 {
     public static class EntityQueryFilter
     {

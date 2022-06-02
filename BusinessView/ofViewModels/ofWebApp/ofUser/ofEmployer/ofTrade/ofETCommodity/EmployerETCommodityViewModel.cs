@@ -1,8 +1,6 @@
-using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofTrade.ofETCommodity;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofTrade
 {

@@ -1,6 +1,6 @@
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofCommon;
-namespace BusinessView.ofDTO.ofGroupOrder
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder
 {
     public class GOCDTO : CenterDTO
     {

@@ -1,7 +1,6 @@
-using BusinessView.ofDTO.ofJournal.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofJournal;
 using FluentValidation;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform;
 namespace BusinessView.ofValidator.ofPlatform.ofJournal
 {
     public class PlatformJournalValidator : JournalValidator<PlatformJournal>

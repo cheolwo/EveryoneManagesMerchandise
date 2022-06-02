@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessData.ofHumanResource.ofRepository;
-using BusinessView.ofDTO.ofCommon.ofEmployee;
-using BusinessData.ofHR;
-using BusinessView.ofDTO.ofHR;
-namespace BusinessView.ofDTO.ofHR.ofEmployee
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee
 {
     [AutoMap(typeof(HRRole))]
     public class EmployeeHRRole : HRRoleDTO

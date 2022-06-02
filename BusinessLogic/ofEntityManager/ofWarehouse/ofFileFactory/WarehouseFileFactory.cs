@@ -1,8 +1,7 @@
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory
 {
     public interface IWarehouseFileFactory : ICenterFileFactory<Warehouse>
     {

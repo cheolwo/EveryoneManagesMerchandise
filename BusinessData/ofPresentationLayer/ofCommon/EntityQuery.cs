@@ -3,8 +3,9 @@ using BusinessView.ofDTO.ofCommon;
 using System;
 using System.Collections.Generic;
 using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
-namespace BusienssData.ofController.ofCommon
+namespace BusienssData.ofPresentationLayer.ofController.ofCommon
 {
     public enum QueryCode { Key, ForeignKey, With, Time, String, Bool, Int }
     // 그냥 매핑하는 게 더 좋아보이기는 한다.

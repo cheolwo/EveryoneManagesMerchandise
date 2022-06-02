@@ -7,6 +7,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 
 namespace BusinessData.ofDataAccessLayer.ofCommon
 {

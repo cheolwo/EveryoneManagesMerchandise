@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofJournal;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournalCenter
 {
     public class JournalCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : JournalCenterDTO, new()

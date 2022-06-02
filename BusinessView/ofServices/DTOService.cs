@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
-using BusienssLogic.ofController.ofCommon;
-using BusinessView.ofDTO.ofCommon;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessView.ofCommon.ofServices

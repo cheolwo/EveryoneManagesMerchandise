@@ -1,8 +1,6 @@
-﻿using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofDTO.ofMarket.ofEmployee;
-using BusinessView.ofServices.ofCommon;
-using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofViewModels.ofWebApp.ofMarket.ofMarket;
+﻿using BusinessView.ofViewModels.ofWebApp.ofMarket.ofMarket;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployee;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMarket
 {
     public class EmployeeMarketPageViewModel : MarketPageViewModel<EmployeeMarket> 

@@ -1,10 +1,10 @@
-﻿using BusinessData.ofHRCenter.ofRepository;
-using BusinessData.ofHumanResource.ofRepository;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+﻿using BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofBlobStorage
 {
     public interface IHRCenterBlobContainerFactory : IEntityContainerFactory<HRCenter>
     {

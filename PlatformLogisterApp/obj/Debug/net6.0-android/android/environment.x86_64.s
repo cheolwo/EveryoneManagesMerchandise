@@ -1480,6 +1480,22 @@ app_system_properties:
 .L.env.buf.360:
 	.zero	70
 	.size	.L.env.buf.360, 70
+	.type	.L.env.buf.361, @object
+.L.env.buf.361:
+	.zero	70
+	.size	.L.env.buf.361, 70
+	.type	.L.env.buf.362, @object
+.L.env.buf.362:
+	.zero	70
+	.size	.L.env.buf.362, 70
+	.type	.L.env.buf.363, @object
+.L.env.buf.363:
+	.zero	70
+	.size	.L.env.buf.363, 70
+	.type	.L.env.buf.364, @object
+.L.env.buf.364:
+	.zero	70
+	.size	.L.env.buf.364, 70
 	# Bundled assemblies data
 
 	.type	bundled_assemblies, @object
@@ -4737,7 +4753,43 @@ bundled_assemblies:
 	.zero	4
 	.quad	.L.env.buf.360	# name
 
-	.size	bundled_assemblies, 14440
+	.long	0xffffffff	# apk_fd
+	.long	0x0	# data_offset
+	.long	0x0	# data_size
+	.zero	4
+	.quad	0x0	# data
+	.long	0x0	# name_length
+	.zero	4
+	.quad	.L.env.buf.361	# name
+
+	.long	0xffffffff	# apk_fd
+	.long	0x0	# data_offset
+	.long	0x0	# data_size
+	.zero	4
+	.quad	0x0	# data
+	.long	0x0	# name_length
+	.zero	4
+	.quad	.L.env.buf.362	# name
+
+	.long	0xffffffff	# apk_fd
+	.long	0x0	# data_offset
+	.long	0x0	# data_size
+	.zero	4
+	.quad	0x0	# data
+	.long	0x0	# name_length
+	.zero	4
+	.quad	.L.env.buf.363	# name
+
+	.long	0xffffffff	# apk_fd
+	.long	0x0	# data_offset
+	.long	0x0	# data_size
+	.zero	4
+	.quad	0x0	# data
+	.long	0x0	# name_length
+	.zero	4
+	.quad	.L.env.buf.364	# name
+
+	.size	bundled_assemblies, 14600
 	# Assembly store individual assembly data
 	.type	assembly_store_bundled_assemblies, @object
 	.global	assembly_store_bundled_assemblies
@@ -4997,7 +5049,7 @@ application_config:
 	.long	0x3	# package_naming_policy
 	.long	0xc	# environment_variable_count
 	.long	0x0	# system_property_count
-	.long	0x169	# number_of_assemblies_in_apk
+	.long	0x16d	# number_of_assemblies_in_apk
 	.long	0x46	# bundled_assembly_name_width
 	.long	0x2	# number_of_assembly_store_files
 	.long	0x24	# number_of_dso_cache_entries
@@ -5050,7 +5102,7 @@ application_config:
 
 	.type	.L.autostr.8, @object
 .L.autostr.8:
-	.asciz	"a3ae1845-8e49-4662-aca4-d254a4af4902"
+	.asciz	"8a52864a-0fa7-4142-81a0-60cc6bc54c12"
 	.size	.L.autostr.8, 37
 
 	.type	.L.autostr.9, @object

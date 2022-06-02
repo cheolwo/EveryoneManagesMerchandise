@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofJournal;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity
 {
     public class JCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : JCommodityDTO, new()

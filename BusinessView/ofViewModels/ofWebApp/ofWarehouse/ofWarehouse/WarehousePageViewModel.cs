@@ -1,5 +1,5 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWarehouse
 {
     public class WarehousePageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : WarehouseDTO, new()

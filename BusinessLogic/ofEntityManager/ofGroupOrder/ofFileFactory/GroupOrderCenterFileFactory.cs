@@ -1,7 +1,7 @@
-using BusinessData.ofGroupOrder.ofModel;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofGroupOrder.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofGroupOrder.ofFileFactory
 {
     public interface IGOCFileFactory : ICenterFileFactory<GOC>
     {

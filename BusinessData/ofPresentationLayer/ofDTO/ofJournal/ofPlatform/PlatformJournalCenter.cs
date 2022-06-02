@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using System.ComponentModel.DataAnnotations;
-using BusinessData.ofFinancial.Model;
-using BusinessData;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
 
-namespace BusinessView.ofDTO.ofJournal.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform
 {
     [AutoMap(typeof(JournalCenter))]
     public class PlatformJournalCenter : JournalCenterDTO

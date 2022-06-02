@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofJournal;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity
 {
     public class JCommodityPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : JCommodityDTO, new()

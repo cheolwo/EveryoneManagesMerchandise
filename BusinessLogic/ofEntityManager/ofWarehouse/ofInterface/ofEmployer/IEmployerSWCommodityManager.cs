@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer
+﻿namespace BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployer
 {
     public interface IEmployerSWCommodityManager : ISWCommodityManager
     {

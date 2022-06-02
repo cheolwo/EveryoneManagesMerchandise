@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployee
+﻿namespace BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofEmployee
 {
     public interface IEmployeeProductCenterManager : IProductCenterManager
     {

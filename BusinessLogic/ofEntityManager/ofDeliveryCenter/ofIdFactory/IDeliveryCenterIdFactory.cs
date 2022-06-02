@@ -1,7 +1,7 @@
-using BusinessData.ofDeliveryCenter;
-using BusinessData.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter.ofIdFactory
 {
     public interface IDeliveryCenterIdFactory : ICenterIdFactory<DeliveryCenter>
     {

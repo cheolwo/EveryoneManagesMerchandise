@@ -1,8 +1,8 @@
-using BusinessData;
-using System;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using System.Text;
 using System.Threading.Tasks;
-namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory
+namespace BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory
 {
     public interface IEntityContainerFactory<TEntity> where TEntity : Entity
     {

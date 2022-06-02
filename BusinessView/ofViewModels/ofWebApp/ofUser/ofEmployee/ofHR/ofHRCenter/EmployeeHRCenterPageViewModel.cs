@@ -1,8 +1,6 @@
-﻿using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofServices.ofCommon;
-using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRCenter;
+﻿using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRCenter;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRCenter
 {
     public class EmployeeHRCenterPageViewModel : HRCenterPageViewModel<EmployeeHRCenter> 

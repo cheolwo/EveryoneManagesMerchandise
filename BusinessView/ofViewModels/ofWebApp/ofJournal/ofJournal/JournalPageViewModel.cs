@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofJournal;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofJournal.ofJournal
 {
     public class JournalPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : JournalDTO, new()

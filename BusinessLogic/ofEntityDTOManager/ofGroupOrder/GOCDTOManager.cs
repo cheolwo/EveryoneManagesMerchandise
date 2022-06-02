@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessView.ofManager.ofGroupOrder
+﻿namespace BusinessLogic.oEntityDTOManager.ofGroupOrder
 {
     internal class GOCDTOManager
     {

@@ -1,23 +1,24 @@
-using BusinessData;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofGeneric
+namespace BusinessLogic.ofEntityManager.ofGeneric
 {
     public interface IStatusManager<TEntity> : IEntityManager<TEntity> where TEntity : Status, new()
     {   
     }
-    public interface IMStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
+    public interface IMStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : MStatus, new()
     {
     }
-    public interface IEStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
+    public interface IEStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : EStatus, new()
     {
     }
-    public interface ISStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : Status, new()
+    public interface ISStatusManager<TEntity> : IStatusManager<TEntity> where TEntity : SStatus, new()
     {
     }
     // StatusManager 의 경우 회계 및 인사와 관련이 있다. 

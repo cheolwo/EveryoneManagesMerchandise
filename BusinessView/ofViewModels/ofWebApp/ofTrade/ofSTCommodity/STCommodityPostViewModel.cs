@@ -1,7 +1,7 @@
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofDTO.ofCommon.ofTrade;
-using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofTrade.ofSTCommodity
 {
     public class STCommodityPostViewModel<TSStatus> : SStatusPostViewModel<TSStatus> where TSStatus : STCommodityDTO, new()

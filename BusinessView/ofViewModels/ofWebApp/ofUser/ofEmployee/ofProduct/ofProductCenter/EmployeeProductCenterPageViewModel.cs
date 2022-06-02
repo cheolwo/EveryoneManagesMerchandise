@@ -1,8 +1,6 @@
-﻿using BusinessView.ofDTO.ofProduct.ofEmployee;
-using BusinessView.ofServices.ofCommon;
-using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductCenter;
+﻿using BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductCenter;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployee;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductCenter
 {
     public class EmployeeProductCenterPageViewModel : ProductCenterPageViewModel<EmployeeProductCenter> 

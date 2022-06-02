@@ -1,10 +1,9 @@
 ﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
-using BusinessView.ofTrade.ofEmployee;
 using BusinessView.ofUser.ofCommon;
-using BusinessView.ofDTO.ofWarehouse.ofEmployee;
 using BusinessView.ofActorService;
-using Microsoft.Extensions.Options;
 using BusinessView.ofCommon.ofUser;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
 
 namespace BusinessView.ofUser.ofEmployee
 {

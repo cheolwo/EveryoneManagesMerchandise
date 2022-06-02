@@ -1,11 +1,12 @@
 using BusinessData.ofCommon.ofKapt;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
 {
     public interface IWarehouseIdFactory : ICenterIdFactory<Warehouse>
     {

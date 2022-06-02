@@ -1,8 +1,8 @@
-using BusinessData.ofFinancial.Model;
-using BusinessData.ofFinancial.ofRepository;
-using BusinessData.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.ofRepository;
 
-namespace BusinessLogic.ofManager.ofJournal.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofJournal.ofIdFactory
 {
     public interface IJournalCenterIdFactory : ICenterIdFactory<JournalCenter>
     {

@@ -1,5 +1,4 @@
-﻿using BusinessView.ofDTO.ofHR.ofEmployee;
-using BusinessView.ofViewModels.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRBusinessPart;
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRBusinessPart
 {

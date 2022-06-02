@@ -1,7 +1,7 @@
-﻿using BusinessData.ofGeneric.ofTypeConfiguration;
+﻿using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Newtonsoft.Json;
 
 namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofDbContext
 {

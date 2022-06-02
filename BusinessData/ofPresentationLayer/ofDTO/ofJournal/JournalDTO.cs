@@ -1,8 +1,8 @@
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofCommon;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessView.ofDTO.ofJournal
+namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal
 {
     public class JournalCenterDTO : CenterDTO
     {

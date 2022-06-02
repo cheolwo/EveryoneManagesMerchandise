@@ -9,12 +9,10 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Empl
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\com.companyname.employerforwarderapp-Signed.apk
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\com.companyname.employerforwarderapp-Signed.apk.idsig
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessData.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessLogic.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessView.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\EmployerRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessData.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessLogic.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\BusinessView.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerForwarderApp\bin\Debug\net6.0-android\EmployerRazor.pdb

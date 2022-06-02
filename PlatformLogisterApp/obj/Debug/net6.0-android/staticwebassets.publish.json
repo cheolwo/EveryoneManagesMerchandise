@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "mpjpSBH3OxFWBMikyacJQJ85kQ+IDvgSz21ohonJn6A=",
+  "Hash": "ymYalz8zYpXcPz26GyPDavtfS8MW0la2j27m5fpodM4=",
   "Source": "PlatformLogisterApp",
   "BasePath": "/",
   "Mode": "Root",
   "ManifestType": "Publish",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj",
+      "Version": 2,
+      "Source": "BusinessRazor",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "PlatformLogisterApp\\wwwroot",
@@ -16,6 +28,40 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.7\\staticwebassets\\MudBlazor.min.js"
+    },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\PlatformLogisterApp\\obj\\Debug\\net6.0-android\\scopedcss\\bundle\\PlatformLogisterApp.styles.css",
       "SourceId": "PlatformLogisterApp",

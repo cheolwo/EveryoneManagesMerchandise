@@ -98,9 +98,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\IotDb\" />
-    <Folder Include="Migrations\JournalDb\" />
-    <Folder Include="Migrations\TradeDb\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="ofDataAccessLayer\ofGeneric\ofRepository\ofExtentions\" />
     <Folder Include="ofDataAccessLayer\ofWarehouse\Migrations\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofCommon\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofGroupOrder\" />

@@ -1,14 +1,14 @@
-﻿using BusinessData.ofHRCenter.ofRepository;
-using BusinessData.ofHumanResouce.ofIdFactory;
-using BusinessData.ofHumanResource.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
+﻿using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofHumanResouce.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofHumanResouce.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofHumanResouce.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+using BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHumanResouce.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofBlobStorage;
 
-namespace BusinessLogic.ofManager.ofHumanResouce
+namespace BusinessLogic.ofEntityManager.ofHumanResouce
 {
     public interface IHRCenterManager : ICenterManager<HRCenter>
     {

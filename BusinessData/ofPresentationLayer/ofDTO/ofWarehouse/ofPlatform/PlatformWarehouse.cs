@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessData.ofWarehouse.Model;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using BusinessView.ofWarehouse;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
-namespace BusinessView.ofDTO.ofWarehouse.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform
 {
     // Generic 의 경우 DTO 에서 Json String
     /*

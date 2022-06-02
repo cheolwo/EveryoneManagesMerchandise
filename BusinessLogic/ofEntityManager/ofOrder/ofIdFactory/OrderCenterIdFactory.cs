@@ -1,10 +1,8 @@
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessData.ofOrder.ofModel;
-using BusinessData.ofOrder.ofRepository;
-using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofOrder.ofRepository;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofOrder.ofIdFactory
 {
     public interface IOrderCenterIdFactory : ICenterIdFactory<OrderCenter>
     {

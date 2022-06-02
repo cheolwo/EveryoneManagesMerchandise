@@ -327,7 +327,6 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.Net.Http.Headers.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\Microsoft.Win32.SystemEvents.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\Newtonsoft.Json.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\NLog.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\Popbill.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\System.Configuration.ConfigurationManager.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\System.Drawing.Common.dll
@@ -341,6 +340,13 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Plat
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\System.Security.Permissions.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\System.Windows.Extensions.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessData.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessLogic.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessData.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessLogic.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessRazor.staticwebassets.runtime.json
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\AutoMapper.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\FluentValidation.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\MudBlazor.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\NMemory.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessRazor.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessView.dll
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessRazor.pdb
+C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\PlatformLogisterApp\bin\Debug\net6.0-ios\iossimulator-x64\BusinessView.pdb

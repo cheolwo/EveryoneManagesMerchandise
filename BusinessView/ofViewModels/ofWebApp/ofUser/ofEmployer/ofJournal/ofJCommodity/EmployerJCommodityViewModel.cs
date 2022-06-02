@@ -1,8 +1,6 @@
-using BusinessView.ofDTO.ofJournal.ofEmployer;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofJournal.ofJCommodity;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployer;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofJournal
 {

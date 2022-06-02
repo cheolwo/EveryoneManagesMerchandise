@@ -1,7 +1,7 @@
-using BusinessView.ofDTO.ofMarket.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofMarket;
 using FluentValidation;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
+
 namespace BusinessView.ofValidator.ofPlatform.ofMarket
 {
     public class PlatformEMCommodityValidator : EMCommodityValidator<PlatformEMCommodity>

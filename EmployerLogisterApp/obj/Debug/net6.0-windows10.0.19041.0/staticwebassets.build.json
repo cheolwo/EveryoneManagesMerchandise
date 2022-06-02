@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r+GJ1UdvTSgemIr5+C9PO6bVhCDuxpu56Imz2QWQo8Y=",
+  "Hash": "dumCeZpsv5wUO096D27m9vUKGVIIvaENVZxNmcOHnbY=",
   "Source": "EmployerLogisterApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -64,10 +64,10 @@
       "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor.thememanager\\1.0.6\\staticwebassets\\MudBlazorThemeManager.css"
     },
     {
-      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.css",
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\MudBlazor.min.css",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.css",
       "AssetKind": "All",
@@ -78,13 +78,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.css"
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\MudBlazor.min.css"
     },
     {
-      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.js",
+      "Identity": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\MudBlazor.min.js",
       "SourceId": "MudBlazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\",
       "BasePath": "_content/MudBlazor",
       "RelativePath": "MudBlazor.min.js",
       "AssetKind": "All",
@@ -95,7 +95,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.8\\staticwebassets\\MudBlazor.min.js"
+      "OriginalItemSpec": "C:\\Users\\user\\.nuget\\packages\\mudblazor\\6.0.10\\staticwebassets\\MudBlazor.min.js"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\EmployerLogisterApp\\obj\\Debug\\net6.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\EmployerLogisterApp.styles.css",

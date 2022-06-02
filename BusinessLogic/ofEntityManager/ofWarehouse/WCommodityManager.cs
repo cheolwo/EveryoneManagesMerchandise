@@ -1,15 +1,17 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofWarehouse.ofBlobStorage;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
-using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofCommon;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofCommon;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
 using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofWarehouse
+namespace BusinessLogic.ofEntityManager.ofWarehouse
 {
     public class WCommodityManager : CommodityManager<WCommodity>, IEmployerWCommodityManager, IEmployeeWCommodityManager, IPlatformWCommodityManager, IWCommodityManager
     {

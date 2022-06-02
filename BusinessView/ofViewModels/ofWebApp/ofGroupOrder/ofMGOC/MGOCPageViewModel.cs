@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofMGOC
 {
     public class MGOCPageViewModel<TMStatus> : MStatusPageViewModel<TMStatus> where TMStatus : MGOCDTO, new()

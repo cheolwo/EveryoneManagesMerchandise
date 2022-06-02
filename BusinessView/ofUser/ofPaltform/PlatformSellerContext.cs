@@ -1,10 +1,9 @@
-﻿using BusinessView.ofActorService;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofDTO.ofMarket.ofPlatform;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofPlatform
 {
@@ -15,6 +14,8 @@ namespace BusinessView.ofUser.ofPlatform
         {
 
         }
+
+
         protected override void OnServiceBuilder(ServiceBuilder serviceBuilder) 
         {
             serviceBuilder.Add(nameof(PlatformWarehouse), new PlatformWarehouseService(_options.WarehouseServiceOptions));

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using BusinessData;
+using BusinessData.ofDataAccessLayer.ofCommon;
 
-namespace BusinessLogic.ofManager.ofGeneric
+namespace BusinessLogic.ofEntityManager.ofGeneric
 {
     public class DicConvertFactory<TEntity> where TEntity : Entity
     {

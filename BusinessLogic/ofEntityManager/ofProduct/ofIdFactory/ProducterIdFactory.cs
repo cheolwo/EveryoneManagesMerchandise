@@ -1,8 +1,8 @@
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessData.ofProduct;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofProduct.ofRepository;
 
-namespace BusinessData.ofMarket.ofRepository.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofProduct.ofIdFactory
 {
     public interface IProductCenterIdFactory : ICenterIdFactory<ProductCenter>
     {

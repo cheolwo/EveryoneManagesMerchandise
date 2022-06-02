@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofCommon.ofTrade;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofTrade.ofTradeCenter
 {
     public class TradeCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : TradeCenterDTO, new()

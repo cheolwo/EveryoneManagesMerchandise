@@ -1,7 +1,6 @@
-using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
-using BusinessView.ofValidator.ofCommon.ofEmployer;
-using FluentValidation;
 using BusinessView.ofValidator.ofCommon.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployer;
+using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofGroupOrder
 {
     public class EmployerMGOCValidator : MGOCValidator<EmployerMGOC>

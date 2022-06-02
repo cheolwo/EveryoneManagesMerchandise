@@ -1,7 +1,7 @@
-using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofEmployee;
 using FluentValidation;
 using BusinessView.ofValidator.ofCommon.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
+
 namespace BusinessView.ofValidator.ofEmployee.ofGroupOrder
 {
     public class EmployeeEGOCValidator : EGOCValidator<EmployeeEGOC>

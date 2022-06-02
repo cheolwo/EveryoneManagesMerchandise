@@ -1,5 +1,5 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofGroupOrder;
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
 {
     public class EGOCPageViewModel<TEStatus> : EStatusPageViewModel<TEStatus> where TEStatus : EGOCDTO, new()

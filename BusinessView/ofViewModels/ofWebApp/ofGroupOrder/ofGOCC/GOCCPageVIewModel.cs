@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofGOCC
 {
     public class GOCCPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : GOCCDTO, new()

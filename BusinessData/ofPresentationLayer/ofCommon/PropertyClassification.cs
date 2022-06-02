@@ -1,10 +1,13 @@
-﻿using System.Reflection;
-using BusinessData;
-using BusinessData.ofCommon.ofInterface;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 namespace BusinessData.ofPresentationLayer.ofCommon
 {
+    public enum ComponentMode { Get, Detail }
     public static class PropertyClassification
     {
         public static Dictionary<string, int> ClassifyIntProperty(IEnumerable<PropertyInfo> propertyInfos)

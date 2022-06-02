@@ -1,5 +1,5 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofLoadFrame
 {
     public class LoadFramePageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : LoadFrameDTO, new()

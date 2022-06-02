@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Trade.ModelofDoc
+namespace BusinessData.ofDataAccessLayer.Trade.ModelofDoc
 {
     public class CommercialInvoice
     {

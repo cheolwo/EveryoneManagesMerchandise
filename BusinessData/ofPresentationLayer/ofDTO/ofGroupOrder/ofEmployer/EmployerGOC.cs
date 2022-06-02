@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessData.ofGroupOrder;
-using BusinessData.ofGroupOrder.ofModel;
-using BusinessData;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 
-namespace BusinessView.ofDTO.ofGroupOrder.ofEmployer
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployer
 {
     [AutoMap(typeof(GOC))]
     public class EmployerGOC : GOCDTO

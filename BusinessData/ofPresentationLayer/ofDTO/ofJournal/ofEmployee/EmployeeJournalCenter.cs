@@ -1,16 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofEmployee;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessData.ofJournal;
-using BusinessData;
-using BusinessData.ofFinancial.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
 
-namespace BusinessView.ofDTO.ofJournal.ofEmployee
+namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployee
 {
     [AutoMap(typeof(JournalCenter))]
     public class EmployeeJournalCenter : JournalCenterDTO

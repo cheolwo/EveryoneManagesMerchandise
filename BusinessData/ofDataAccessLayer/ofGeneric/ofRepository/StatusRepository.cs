@@ -119,11 +119,11 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
             return await _DbContext.Set<TEntity>().Where(e=>e.Quantity >= MinQuantity && e.Quantity <= MaxQuantity).ToListAsync();
         }
     }
-    public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
+    public interface ISStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : SStatus, new()
     {
         Task<List<TEntity>> GetToListWithMStatusesAsync();
     }
-    public class SStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, ISStatusDataRepository<TEntity> where TEntity : SStatus, IRelationable, new()
+    public class SStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, ISStatusDataRepository<TEntity> where TEntity : SStatus, new()
     {
         public SStatusDataRepository(DbContext DbContext) : base(DbContext)
         {
@@ -133,12 +133,12 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
             return await _DbContext.Set<TEntity>().Include(entity => entity.MStatuses).ToListAsync();
         }
     }
-    public interface IMStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : MStatus, IRelationable, new()
+    public interface IMStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : MStatus, new()
     {
         Task<List<TEntity>> GetToListWithEStatusesAsync();
         Task<List<TEntity>> GetToListWithSStatusAsync();
     }
-    public class MStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IMStatusDataRepository<TEntity> where TEntity : MStatus, IRelationable, new()
+    public class MStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IMStatusDataRepository<TEntity> where TEntity : MStatus, new()
     {
         public MStatusDataRepository(DbContext DbContext) : base(DbContext)
         {
@@ -154,10 +154,10 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
             return await _DbContext.Set<TEntity>().Include(entity => entity.SStatus).ToListAsync();
         }
     }
-    public interface IEStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
+    public interface IEStatusDataRepository<TEntity> : IStatusDataRepository<TEntity> where TEntity : EStatus, new()
     {
     }
-    public class EStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IEStatusDataRepository<TEntity> where TEntity : EStatus, IRelationable, new()
+    public class EStatusDataRepository<TEntity> : StatusDataRepository<TEntity>, IEStatusDataRepository<TEntity> where TEntity : EStatus, new()
     {
         public EStatusDataRepository(DbContext DbContext) : base(DbContext)
         {

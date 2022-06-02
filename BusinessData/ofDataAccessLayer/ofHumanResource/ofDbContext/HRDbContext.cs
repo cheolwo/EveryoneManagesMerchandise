@@ -1,6 +1,6 @@
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

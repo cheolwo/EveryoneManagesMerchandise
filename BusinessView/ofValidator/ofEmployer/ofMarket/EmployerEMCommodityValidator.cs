@@ -1,5 +1,4 @@
-using BusinessView.ofDTO.ofMarket.ofEmployer;
-using BusinessView.ofValidator.ofCommon.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployer;
 using BusinessView.ofValidator.ofCommon.ofMarket;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployer.ofMarket

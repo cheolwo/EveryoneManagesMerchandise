@@ -9,18 +9,21 @@
 		<Compile Remove="ofArea\**" />
 		<Compile Remove="ofCommon\ofEmployee\ofValidate\**" />
 		<Compile Remove="ofCommon\ofEmployer\ofValidate\**" />
+		<Compile Remove="ofCommon\ofPlatform\**" />
 		<Compile Remove="ofViewModels\ofWebApp\ofEmployee\**" />
 		<Compile Remove="ofViewModels\ofWebApp\ofEmployer\**" />
 		<Compile Remove="ofViewModels\ofWebApp\ofPlatform\**" />
 		<EmbeddedResource Remove="ofArea\**" />
 		<EmbeddedResource Remove="ofCommon\ofEmployee\ofValidate\**" />
 		<EmbeddedResource Remove="ofCommon\ofEmployer\ofValidate\**" />
+		<EmbeddedResource Remove="ofCommon\ofPlatform\**" />
 		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofEmployee\**" />
 		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofEmployer\**" />
 		<EmbeddedResource Remove="ofViewModels\ofWebApp\ofPlatform\**" />
 		<None Remove="ofArea\**" />
 		<None Remove="ofCommon\ofEmployee\ofValidate\**" />
 		<None Remove="ofCommon\ofEmployer\ofValidate\**" />
+		<None Remove="ofCommon\ofPlatform\**" />
 		<None Remove="ofViewModels\ofWebApp\ofEmployee\**" />
 		<None Remove="ofViewModels\ofWebApp\ofEmployer\**" />
 		<None Remove="ofViewModels\ofWebApp\ofPlatform\**" />
@@ -45,8 +48,5 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\BusinessData\BusinessData.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="ofCommon\ofPlatform\ofValidate\" />
 	</ItemGroup>
 </Project>

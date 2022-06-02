@@ -1,14 +1,14 @@
-﻿using BusinessData.ofDeliveryCenter;
-using BusinessData.ofRepository;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofBlobStorage;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofFileFactory;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofIdFactory;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofGeneric;
+﻿using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter
 {
     public interface IEDCommodityManager : IEStatusManager<EDCommodity>
     {

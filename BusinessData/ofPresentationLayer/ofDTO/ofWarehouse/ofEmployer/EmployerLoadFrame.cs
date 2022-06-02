@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessData.ofMarket.ofModel;
-using BusinessData.ofWarehouse.Model;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessView.ofExternal.ofCommon;
-using BusinessView.ofWarehouse;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
-namespace BusinessView.ofDTO.ofWarehouse.ofEmployer
+namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer
 {
     [AutoMap(typeof(LoadFrame))]
     public class EmployerLoadFrame : LoadFrameDTO

@@ -1,17 +1,19 @@
-﻿using BusienssLogic.ofController.ofCommon;
-using BusinessData;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofCommon;
-using BusinessView.ofManager.ofCommon;
-using BusinessView.ofRepository.ofGeneric;
+﻿using BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessLogic.oEntityDTOManager.ofCommon;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
-using System.Text;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofGeneric
+namespace BusinessLogic.oEntityDTOManager.ofGeneric
 {
     public interface IEntityDTOManager<DTO, Model> : IEntityManager<Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {

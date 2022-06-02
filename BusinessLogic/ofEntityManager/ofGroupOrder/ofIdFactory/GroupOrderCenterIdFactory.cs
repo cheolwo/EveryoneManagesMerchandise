@@ -1,11 +1,11 @@
 using BusinessData.ofCommon.ofKapt;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessData.ofGO.ofRepository;
-using BusinessData.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofGroupOrder.ofIdFactory
+namespace BusinessLogic.ofEntityManager.ofGroupOrder.ofIdFactory
 {
     public interface IGOCIdFactory : ICenterIdFactory<GOC>
     {

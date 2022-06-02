@@ -1,12 +1,11 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Text;
-using BusinessView.ofDTO.ofCommon;
-using System;
-using BusinessData;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofExternal.ofCommon;
 using System.Reflection;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
 
 namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
 {

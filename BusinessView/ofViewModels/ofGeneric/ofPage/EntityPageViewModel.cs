@@ -1,10 +1,7 @@
 using System.ComponentModel;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofCommon.ofInterface;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofSearchingService;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric
 {

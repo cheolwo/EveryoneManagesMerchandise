@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessData.ofProduct;
-using BusinessView.ofDTO.ofCommon.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofProduct;
 
-namespace BusinessView.ofDTO.ofProduct.ofEmployee
+namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployee
 {
     [AutoMap(typeof(Producter))]
     public class EmployeeProducter : ProducterDTO

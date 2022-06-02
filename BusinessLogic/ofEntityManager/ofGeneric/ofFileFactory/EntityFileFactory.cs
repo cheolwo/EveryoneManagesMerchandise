@@ -1,10 +1,10 @@
-using BusinessData;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace BusinessLogic.ofManager.ofGeneric.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory
 {
     public interface IEntityFileFactory<TEntity> where TEntity : Entity
     {

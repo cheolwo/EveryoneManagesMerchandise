@@ -1,8 +1,6 @@
-using BusinessView.ofDTO.ofHR.ofPlatform;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofHR.ofHRCenter;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR
 {

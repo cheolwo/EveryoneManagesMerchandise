@@ -1,8 +1,6 @@
-﻿using BusinessView.ofServices.ofCommon;
-using BusinessView.ofTrade.ofEmployee;
-using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofViewModels.ofWebApp.ofTrade.ofTradeCenter;
+﻿using BusinessView.ofViewModels.ofWebApp.ofTrade.ofTradeCenter;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter
 {
     public class EmployeeTradeCenterPageViewModel : TradeCenterPageViewModel<EmployeeTradeCenter> 

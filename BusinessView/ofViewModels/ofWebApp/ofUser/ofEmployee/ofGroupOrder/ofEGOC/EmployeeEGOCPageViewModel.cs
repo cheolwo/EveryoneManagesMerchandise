@@ -1,5 +1,4 @@
-using BusinessView.ofDTO.ofGroupOrder.ofEmployee;
-using BusinessView.ofViewModels.ofGeneric;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofEGOC

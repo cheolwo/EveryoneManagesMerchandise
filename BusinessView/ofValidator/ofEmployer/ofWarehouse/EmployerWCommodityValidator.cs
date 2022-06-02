@@ -1,7 +1,6 @@
 using BusinessView.ofValidator.ofCommon.ofWarehouse;
 using FluentValidation;
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 namespace BusinessView.ofValidator.ofEmployer.ofWarehouse
 {
     public class EmployerWCommodityValidator : WCommodityValidator<EmployerWCommodity>

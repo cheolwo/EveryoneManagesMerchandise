@@ -1,7 +1,4 @@
-﻿using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
-using BusinessView.ofServices.ofGroupOrder;
-
-
+﻿using BusinessView.ofServices.ofGroupOrder;
 namespace BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform
 {
     public class PlatformGOCCService : GroupOrderService

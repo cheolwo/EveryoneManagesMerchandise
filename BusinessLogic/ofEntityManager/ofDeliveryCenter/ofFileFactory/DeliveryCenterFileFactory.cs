@@ -1,9 +1,7 @@
-using BusinessData.ofDeliveryCenter;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter.ofFileFactory
 {
     public interface IDeliveryCenterFileFactory : ICenterFileFactory<DeliveryCenter>
     {

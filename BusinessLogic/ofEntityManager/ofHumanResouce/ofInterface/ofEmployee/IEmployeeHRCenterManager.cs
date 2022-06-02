@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofHumanResouce.ofInterface.ofEmployee
+namespace BusinessLogic.ofEntityManager.ofHumanResouce.ofInterface.ofEmployee
 {
     public interface IEmployeeHRCenterManager : IHRCenterManager
     {

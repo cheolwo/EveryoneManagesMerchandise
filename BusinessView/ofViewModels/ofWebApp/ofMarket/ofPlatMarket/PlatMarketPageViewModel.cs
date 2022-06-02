@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofMarket;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofMarket.ofPlatMarket
 {
     public class PlatMarketPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : PlatMarketDTO, new()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofMarket.ofInterface.ofPlatform
+namespace BusinessLogic.ofEntityManager.ofMarket.ofInterface.ofPlatform
 {
     public interface IPaltformMarketManager : IMarketManager
     {

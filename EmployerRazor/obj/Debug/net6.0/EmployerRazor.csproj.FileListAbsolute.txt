@@ -4,11 +4,9 @@ C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\Empl
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\EmployerRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessData.dll
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessLogic.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessRazor.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessView.dll
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessData.pdb
-C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessLogic.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessRazor.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\bin\Debug\net6.0\BusinessView.pdb
 C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\EmployerRazor\obj\Debug\net6.0\EmployerRazor.csproj.AssemblyReference.cache

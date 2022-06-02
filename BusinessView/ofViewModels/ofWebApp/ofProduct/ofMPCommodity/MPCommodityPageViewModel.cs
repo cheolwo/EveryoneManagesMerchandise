@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofMPCommodity
 {
     public class MPCommodityPageViewModel<TMStatus> : MStatusPageViewModel<TMStatus> where TMStatus : MPCommodityDTO, new()

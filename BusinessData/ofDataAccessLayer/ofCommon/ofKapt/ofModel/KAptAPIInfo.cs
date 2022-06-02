@@ -1,5 +1,6 @@
-﻿using BusinessData.ofCommon.ofKApt.ofDbContext;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofCommon.ofKApt.ofDbContext;
 
 namespace BusinessData.ofCommon.ofKapt
 {

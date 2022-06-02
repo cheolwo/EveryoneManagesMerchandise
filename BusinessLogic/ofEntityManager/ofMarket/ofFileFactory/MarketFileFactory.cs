@@ -1,10 +1,7 @@
-using BusinessData.ofDeliveryCenter;
-using BusinessData.ofMarket.ofModel;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter.ofFileFactory
 {
     public interface IMarketFileFactory : ICenterFileFactory<Market>
     {

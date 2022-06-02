@@ -1,11 +1,10 @@
-using BusienssData.ofController.ofCommon;
-using BusinessData;
-using BusinessView.ofExternal.ofCommon;
-using BusinessView.ofExternal.ofSearchingService;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofExternal;
 using System;
 using System.Collections.Generic;
 
-namespace BusinessView.ofDTO.ofCommon
+namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon
 {
     public static class InitializedValue
     {

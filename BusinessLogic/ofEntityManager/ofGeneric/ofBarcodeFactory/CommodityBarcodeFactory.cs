@@ -1,10 +1,9 @@
 using System.Text;
-using BusinessData;
 using System;
-using BusinessData.ofAccount.ofModel;
 using BusinessData.ofBusinessUser;
+using BusinessData.ofDataAccessLayer.ofCommon;
 
-namespace BusinessLogic.ofGeneric.ofBarcodeFactory
+namespace BusinessLogic.ofEntityManager.ofGeneric.ofBarcodeFactory
 {
     public class CommodityBarcodeFactory<TEntity> where TEntity : Commodity
     {

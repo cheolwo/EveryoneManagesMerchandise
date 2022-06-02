@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter.ofInterface.ofEmployer
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter.ofInterface.ofEmployer
 {
     public interface IEmployerDeliveryCenterManager : IDeliveryCenterManager
     {

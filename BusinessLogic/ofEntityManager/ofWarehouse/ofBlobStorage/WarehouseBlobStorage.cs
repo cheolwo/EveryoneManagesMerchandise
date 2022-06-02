@@ -1,10 +1,11 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessData.ofWarehouse.ofRepository;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofWarehouse.ofBlobStorage
 {
     public interface IWCommodityBlobContainerFactory : IEntityContainerFactory<WCommodity>
     {

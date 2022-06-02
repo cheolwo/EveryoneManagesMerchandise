@@ -1,4 +1,4 @@
-﻿namespace BusinessData.ofDTO.ofCommon.ofEmployee
+﻿namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon.ofEmployee
 {
     // 인터페이스로 확장하는 형태가 만들어지겠다.
     public interface IEmployeeEntity 

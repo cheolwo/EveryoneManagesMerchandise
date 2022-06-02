@@ -1,4 +1,4 @@
-﻿using BusinessView.ofDTO.ofCommon;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;

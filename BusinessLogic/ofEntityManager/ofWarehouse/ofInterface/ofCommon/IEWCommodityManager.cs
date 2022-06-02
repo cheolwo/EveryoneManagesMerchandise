@@ -1,7 +1,7 @@
-﻿using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofGeneric;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessLogic.ofEntityManager.ofGeneric;
 
-namespace BusinessLogic.ofManager.ofWarehouse
+namespace BusinessLogic.ofEntityManager.ofWarehouse
 {
     public interface IEWCommodityManager : IEStatusManager<EWCommodity>
     {

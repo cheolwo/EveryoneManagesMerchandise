@@ -1,5 +1,6 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofEWCommodity
 {
     public class EWCommodityPageViewModel<TEStatus> : EStatusPageViewModel<TEStatus> where TEStatus : EWCommodityDTO, new()

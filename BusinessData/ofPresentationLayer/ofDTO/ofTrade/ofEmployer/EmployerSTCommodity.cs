@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessData;
-using BusinessData.ofTrade.ofModel;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofDTO.ofCommon.ofTrade;
-namespace BusinessView.ofTrade.ofEmployer
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer
 {
     [AutoMap(typeof(STCommodity))]
     public class EmployerSTCommodity : STCommodityDTO

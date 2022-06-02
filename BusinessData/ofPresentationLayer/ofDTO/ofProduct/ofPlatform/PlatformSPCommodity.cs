@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using BusinessData.ofProduct;
+using BusinessData.ofDataAccessLayer.ofProduct;
 
-namespace BusinessView.ofDTO.ofProduct.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofPlatform
 {
     [AutoMap(typeof(SPCommodity))]
     public class PlatformSPCommodity : SPCommodityDTO

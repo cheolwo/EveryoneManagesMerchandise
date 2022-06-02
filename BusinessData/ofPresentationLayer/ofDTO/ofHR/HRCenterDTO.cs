@@ -1,8 +1,11 @@
-using BusinessData;
-using BusinessData.ofHumanResource.ofRepository;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofCommon;
-namespace BusinessView.ofDTO.ofHR
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System;
+using System.Collections.Generic;
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofHR
 {
     public class HRCenterDTO : CenterDTO
     {

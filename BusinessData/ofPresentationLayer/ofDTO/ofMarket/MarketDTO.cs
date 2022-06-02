@@ -1,11 +1,11 @@
-using BusienssData.ofController.ofCommon;
-using BusinessData;
-using BusinessData.ofMarket.ofModel;
-using BusinessView.ofDTO.ofCommon;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using NMemory.Data;
 using System.Collections.Generic;
 
-namespace BusinessView.ofDTO.ofMarket
+namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
 {
     public class MarketDTO : CenterDTO
     {

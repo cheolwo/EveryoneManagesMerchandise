@@ -1,7 +1,7 @@
-using BusinessData.ofTrade.ofModel;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofTradeCenter.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofTrade.ofFileFactory
 {
     public interface ITradeCenterFileFactory : ICenterFileFactory<TradeCenter>
     {

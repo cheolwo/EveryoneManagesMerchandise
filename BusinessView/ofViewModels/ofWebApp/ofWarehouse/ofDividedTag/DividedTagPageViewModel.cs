@@ -1,5 +1,6 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDividedTag
 {
     public class DividedTagPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : DividedTagDTO, new()

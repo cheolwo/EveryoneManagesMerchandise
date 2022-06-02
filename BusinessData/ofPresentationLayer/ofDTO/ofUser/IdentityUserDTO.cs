@@ -1,8 +1,8 @@
-﻿using BusinessView.ofCommon.ofInterface;
-using Microsoft.AspNetCore.Components.Forms;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
-namespace BusinessView.ofDTO.ofCommon
+namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon
 {
     public class IdentityUserDTO : EntityDTO
     {

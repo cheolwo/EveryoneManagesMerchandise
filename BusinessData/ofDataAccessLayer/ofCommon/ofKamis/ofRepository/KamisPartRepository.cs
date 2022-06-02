@@ -1,5 +1,6 @@
 using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofDbContext;
 using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofRepository
 {

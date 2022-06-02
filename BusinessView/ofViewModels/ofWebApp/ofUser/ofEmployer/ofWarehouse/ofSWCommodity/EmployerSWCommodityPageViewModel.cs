@@ -1,10 +1,9 @@
-﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-using BusinessView.ofViewModels.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofSWCommodity;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofSWCommodity
 {
-    public class EmployerSWCommodityPageViewModel : SWCommodityPageViewModel<EmployerSWCommodity> 
+    public class EmployerSWCommodityPageViewModel : SWCommodityPageViewModel<EmployerSWCommodity>
     {
         public readonly EmployerPostSWCommodityViewModel _EmployerPostSWCommodityViewModel;
         public readonly EmployerPutSWCommodityViewModel _EmployerPutSWCommodityViewModel;

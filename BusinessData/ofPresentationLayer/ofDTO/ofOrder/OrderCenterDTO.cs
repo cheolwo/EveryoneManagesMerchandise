@@ -1,9 +1,10 @@
-using BusinessData;
-using BusinessData.ofOrder.ofModel;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofExternal.ofCommon;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System.Collections.Generic;
 
-namespace BusinessView.ofDTO.ofOrder
+namespace BusinessData.ofPresentationLayer.ofDTO.ofOrder
 {
     public class EOCommodityDTO : EStatusDTO
     {

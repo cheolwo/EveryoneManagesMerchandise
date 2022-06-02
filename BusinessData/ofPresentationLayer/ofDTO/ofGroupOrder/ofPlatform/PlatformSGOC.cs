@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using BusinessView.ofDTO.ofCommon.ofPlatform;
-using BusinessData.ofGroupOrder;
-using BusinessData.ofGroupOrder.ofModel;
-using BusinessData;
-
-namespace BusinessView.ofDTO.ofGroupOrder.ofPlatform
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform
 {
     [AutoMap(typeof(SGOC))]
     public class PlatformSGOC : SGOCDTO

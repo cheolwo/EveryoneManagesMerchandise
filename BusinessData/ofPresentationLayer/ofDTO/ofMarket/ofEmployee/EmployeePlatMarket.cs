@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessData.ofMarket.ofModel;
-using BusinessView.ofDTO.ofCommon.ofEmployee;
-using NMemory.Data;
-using BusinessView.ofDTO.ofCommon;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
 
-namespace BusinessView.ofDTO.ofMarket.ofEmployee
+namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployee
 {
     [AutoMap(typeof(PlatMarket))]
     public class EmployeePlatMarket : PlatMarketDTO

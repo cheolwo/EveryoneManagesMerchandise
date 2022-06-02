@@ -1,4 +1,4 @@
-﻿using BusinessData.ofRepository;
+﻿using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofInterface.ofPlatform
 {

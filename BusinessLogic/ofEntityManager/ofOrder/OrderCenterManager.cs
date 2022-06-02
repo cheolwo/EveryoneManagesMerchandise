@@ -1,15 +1,15 @@
 ﻿using System.Threading.Tasks;
-using BusinessData.ofOrder.ofModel;
-using BusinessData.ofOrder.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofOrder.ofBlobStorage;
-using BusinessLogic.ofManager.ofOrder.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofOrder.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofOrder.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
-using BusinessLogic.ofManager.ofWarehouse.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofOrder.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofOrder.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofOrder.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofOrder.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofOrder.ofInterface.ofPlatform;
+using BusinessLogic.ofEntityManager.ofOrder.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofOrder.ofIdFactory;
 
-namespace BusinessLogic.ofManager.ofOrder
+namespace BusinessLogic.ofEntityManager.ofOrder
 {
     public interface IOrderCenterManager : ICenterManager<OrderCenter>
     {

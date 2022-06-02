@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData;
-using BusinessView.ofDTO.ofCommon.ofEmployer;
-using BusinessData.ofOrder;
-using BusinessData.ofOrder.ofModel;
-using BusinessView.ofDTO.ofCommon;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
 
-namespace BusinessView.ofDTO.ofOrder.ofEmployer
+namespace BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployer
 {
     [AutoMap(typeof(EOCommodity))]
     public class EmployerEOCommodity : EOCommodityDTO

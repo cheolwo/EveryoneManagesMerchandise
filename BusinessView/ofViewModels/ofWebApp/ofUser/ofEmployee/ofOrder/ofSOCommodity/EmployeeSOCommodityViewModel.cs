@@ -1,8 +1,6 @@
-using BusinessView.ofDTO.ofOrder.ofEmployee;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofOrder.ofSOCommodity;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder
 {

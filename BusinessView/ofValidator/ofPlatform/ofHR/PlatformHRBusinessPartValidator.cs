@@ -1,7 +1,6 @@
-using BusinessView.ofDTO.ofHR.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofHR;
 using FluentValidation;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
 namespace BusinessView.ofValidator.ofPlatform.ofHR
 {
     public class PlatformHRBusinessPartValidator : HRBusinessPartValidator<PlatformHRBusinessPart>

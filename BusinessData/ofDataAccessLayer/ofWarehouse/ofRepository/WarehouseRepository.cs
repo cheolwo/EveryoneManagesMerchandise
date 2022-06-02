@@ -50,11 +50,6 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
             }
             else {throw new ArgumentNullException();}
         }
-
-        public Task<Warehouse> GetRelatedData(Warehouse warehouse)
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class SWCommodityRepository : StatusDataRepository<SWCommodity>, ISWCommodityRepository, IEmployeeSWCommodityRepository, IEmployerSWCommodityRepository, IPlatformSWCommodityRepository

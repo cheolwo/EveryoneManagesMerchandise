@@ -1,8 +1,6 @@
-using BusinessView.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofMarket.ofMMCommodity;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket
 {

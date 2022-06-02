@@ -1,4 +1,4 @@
-﻿using BusinessData.ofGeneric.ofTypeConfiguration;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

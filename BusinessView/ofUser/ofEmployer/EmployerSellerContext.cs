@@ -1,10 +1,9 @@
-﻿using BusinessView.ofActorService;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofDTO.ofMarket.ofEmployer;
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofEmployer
 {

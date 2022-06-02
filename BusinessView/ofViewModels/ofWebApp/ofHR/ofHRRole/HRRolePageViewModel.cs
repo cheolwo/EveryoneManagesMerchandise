@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofHR;
+using BusinessData.ofPresentationLayer.ofDTO.ofHR;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofHR.ofHRRole
 {
     public class HRRolePageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : HRRoleDTO, new()

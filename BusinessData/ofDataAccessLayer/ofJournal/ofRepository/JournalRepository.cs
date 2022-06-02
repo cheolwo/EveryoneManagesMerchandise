@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessData.ofDataAccessLayer.ofJournal.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.ofInterface.ofEmployee;
+using BusinessData.ofDataAccessLayer.ofJournal.ofInterface.ofEmployer;
 using BusinessData.ofJournal.ofInterface.ofPlatform;
 using Microsoft.EntityFrameworkCore;
 

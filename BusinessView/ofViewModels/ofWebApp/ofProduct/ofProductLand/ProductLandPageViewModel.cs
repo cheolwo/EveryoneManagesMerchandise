@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofProduct.ofProductLand
 {
     public class ProductLandPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : ProductLandDTO, new()

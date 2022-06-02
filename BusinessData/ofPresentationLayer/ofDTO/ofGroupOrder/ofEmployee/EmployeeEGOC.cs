@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using BusinessData.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 
-namespace BusinessView.ofDTO.ofGroupOrder.ofEmployee
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee
 {
     [AutoMap(typeof(EGOC))]
     public class EmployeeEGOC : EGOCDTO

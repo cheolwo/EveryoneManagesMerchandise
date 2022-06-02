@@ -1,14 +1,14 @@
-﻿using BusinessData.ofMarket.ofModel;
-using BusinessData.ofMarket.ofRepository;
-using BusinessLogic.ofManager.ofDeliveryCenter.ofFileFactory;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofMarket.ofBlobStorage;
-using BusinessLogic.ofManager.ofMarket.ofIdFactory;
-using BusinessLogic.ofManager.ofMarket.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofMarket.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofMarket.ofInterface.ofPlatform;
+﻿using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessData.ofDataAccessLayer.ofMarket.ofRepository;
+using BusinessLogic.ofEntityManager.ofDeliveryCenter.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofMarket.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofMarket.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofMarket.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofMarket.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofMarket.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofMarket
+namespace BusinessLogic.ofEntityManager.ofMarket
 {
     public interface ISMCommodityManager : ISStatusManager<SMCommodity>
     {

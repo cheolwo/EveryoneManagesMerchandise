@@ -1,14 +1,14 @@
-﻿using BusinessData.ofMarket.ofRepository.ofIdFactory;
-using BusinessData.ofProduct;
+﻿using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofProduct.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofProduct.ofBlobStorage;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofProduct.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofProduct.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofProduct.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofProduct
+namespace BusinessLogic.ofEntityManager.ofProduct
 {
     public interface IPCommodityManager : ICommodityManager<PCommodity>
     {

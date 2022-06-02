@@ -1,18 +1,16 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
-using BusinessData;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
 
-namespace BusinessLogic.ofManager.ofGeneric.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage
 {
     public class BlobOption
     {

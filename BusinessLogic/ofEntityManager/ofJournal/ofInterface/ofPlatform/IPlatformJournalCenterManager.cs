@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofJournal.ofInterface.ofPlatform
+namespace BusinessLogic.ofEntityManager.ofJournal.ofInterface.ofPlatform
 {
     public interface IPlatformJournalCenterManager : IJournalCenterManager
     {

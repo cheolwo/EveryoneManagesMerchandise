@@ -8,9 +8,11 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.Controls.Xaml.dll",
 		"Microsoft.Maui.Controls.dll",
 		"Microsoft.Maui.Essentials.dll",
+		"AutoMapper.dll",
 		"Azure.Core.dll",
 		"Azure.Storage.Blobs.dll",
 		"Azure.Storage.Common.dll",
+		"FluentValidation.dll",
 		"GoogleGson.dll",
 		"Linkhub.dll",
 		"Microsoft.AspNetCore.Authentication.dll",
@@ -75,8 +77,9 @@ public class MonoPackageManager_Resources {
 		"Microsoft.JSInterop.dll",
 		"Microsoft.Maui.Graphics.dll",
 		"Microsoft.Net.Http.Headers.dll",
+		"MudBlazor.dll",
 		"Newtonsoft.Json.dll",
-		"NLog.dll",
+		"NMemory.dll",
 		"Popbill.dll",
 		"System.Configuration.ConfigurationManager.dll",
 		"System.Drawing.Common.dll",
@@ -170,7 +173,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.KotlinX.Coroutines.Android.dll",
 		"Xamarin.KotlinX.Coroutines.Core.Jvm.dll",
 		"BusinessData.dll",
-		"BusinessLogic.dll",
+		"BusinessRazor.dll",
+		"BusinessView.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

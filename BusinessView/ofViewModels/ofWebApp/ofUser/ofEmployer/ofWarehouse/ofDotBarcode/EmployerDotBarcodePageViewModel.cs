@@ -1,5 +1,4 @@
-﻿using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-using BusinessView.ofViewModels.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofDotBarcode;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofDotBarcode

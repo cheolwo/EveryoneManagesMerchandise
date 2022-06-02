@@ -1,5 +1,4 @@
-﻿using BusinessView.ofDTO.ofMarket.ofPlatform;
-using BusinessView.ofViewModels.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
 using BusinessView.ofViewModels.ofWebApp.ofMarket.ofPlatMarket;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofMarket.ofPlatMarket

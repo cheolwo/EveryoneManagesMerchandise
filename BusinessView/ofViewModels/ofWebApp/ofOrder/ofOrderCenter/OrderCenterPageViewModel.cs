@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofOrder;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter
 {
     public class OrderCenterPageViewModel<TCenter> : CenterPageViewModel<TCenter> where TCenter : OrderCenterDTO, new()

@@ -1,14 +1,14 @@
-using BusinessData.ofGO.ofRepository;
-using BusinessData.ofGroupOrder.ofModel;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofGroupOrder.ofBlobStorage;
-using BusinessLogic.ofManager.ofGroupOrder.ofFileFactory;
-using BusinessLogic.ofManager.ofGroupOrder.ofIdFactory;
-using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofGroupOrder.ofInterface.ofPlatform;
 
-namespace BusinessLogic.ofManager.ofOrder
+namespace BusinessLogic.ofEntityManager.ofOrder
 {
     public interface ISGOCManager : ISStatusManager<SGOC>
     {

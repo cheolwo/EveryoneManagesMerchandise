@@ -1,14 +1,14 @@
-﻿using BusinessData.ofMarket.ofRepository.ofIdFactory;
-using BusinessData.ofProduct;
-using BusinessData.ofProduct.ofRepository;
-using BusinessLogic.ofManager.ofGeneric;
-using BusinessLogic.ofManager.ofProduct.ofBlobStorage;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployee;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofEmployer;
-using BusinessLogic.ofManager.ofProduct.ofInterface.ofPlatform;
-using BusinessLogic.ofManager.ofWarehouse.ofFileFactory;
+﻿using BusinessData.ofProduct.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofProduct.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofEmployee;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofEmployer;
+using BusinessLogic.ofEntityManager.ofProduct.ofInterface.ofPlatform;
+using BusinessLogic.ofEntityManager.ofProduct.ofFileFactory;
+using BusinessData.ofDataAccessLayer.ofProduct;
+using BusinessLogic.ofEntityManager.ofProduct.ofIdFactory;
 
-namespace BusinessLogic.ofManager.ofProduct
+namespace BusinessLogic.ofEntityManager.ofProduct
 {
     public interface IEPCommodityManager : IEStatusManager<EPCommodity>
     {

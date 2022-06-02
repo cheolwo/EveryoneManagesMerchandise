@@ -1,5 +1,4 @@
-using BusinessView.ofDTO.ofJournal.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployee;
 using BusinessView.ofValidator.ofCommon.ofJournal;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofEmployee.ofJournal

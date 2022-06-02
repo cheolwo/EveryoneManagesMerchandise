@@ -1,11 +1,12 @@
-using BusienssData.ofController.ofCommon;
-using BusinessData.ofProduct;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofDTO.ofProduct.ofEmployee;
+using BusienssData.ofPresentationLayer.ofController.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer;
 using System;
 using System.Collections.Generic;
 
-namespace BusinessData.ofDTO.ofProduct
+namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
 {
     public class EPCommodityDTO : EStatusDTO
     {

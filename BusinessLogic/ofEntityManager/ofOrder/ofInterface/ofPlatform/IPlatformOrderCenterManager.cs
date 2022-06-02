@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofOrder.ofInterface.ofPlatform
+namespace BusinessLogic.ofEntityManager.ofOrder.ofInterface.ofPlatform
 {
     public interface IPlatformOrderCenterManager : IOrderCenterManager
     {

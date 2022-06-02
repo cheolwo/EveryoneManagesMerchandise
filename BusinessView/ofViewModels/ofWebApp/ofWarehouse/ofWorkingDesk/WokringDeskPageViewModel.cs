@@ -1,5 +1,5 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofWarehouse;
 namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWorkingDesk
 {
     public class WorkingDeskPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : WorkingDeskDTO, new()

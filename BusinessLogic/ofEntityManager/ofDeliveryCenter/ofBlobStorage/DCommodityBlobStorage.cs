@@ -1,12 +1,8 @@
-using BusinessData.ofDeliveryCenter;
-using BusinessData.ofRepository;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
-using Microsoft.AspNetCore.Components.Forms;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 
-namespace BusinessLogic.ofManager.ofDeliveryCenter.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofDeliveryCenter.ofBlobStorage
 {
     public interface IDCommodityBlobContainerFactory : IEntityContainerFactory<DCommodity>
     {

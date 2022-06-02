@@ -1,4 +1,4 @@
-using BusinessView.ofTrade.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
 using BusinessView.ofValidator.ofCommon.ofTrade;
 using FluentValidation;
 namespace BusinessView.ofValidator.ofPlatform.ofTrade

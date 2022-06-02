@@ -1,8 +1,8 @@
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Reflection;
-using BusinessView.ofDTO.ofCommon;
 using BusinessView.ofUser.ofCommon;
 using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
 namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 {
@@ -13,7 +13,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     public delegate Task GetsPageToPut(string id);
     public delegate Task GetsPageToDelete(string id);
     public delegate void Busy();
-    public enum ComponentMode { Get, Detail }
     public class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {
         public BaseEntityViewModel(ActorContext ActorContext)

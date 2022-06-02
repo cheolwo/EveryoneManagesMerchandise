@@ -1,11 +1,6 @@
-﻿using BusinessLogic.ofManager.ofOrder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.ofEntityManager.ofOrder;
 
-namespace BusinessLogic.ofManager.ofGroupOrder.ofInterface.ofEmployer
+namespace BusinessLogic.ofEntityManager.ofGroupOrder.ofInterface.ofEmployer
 {
     public interface IEmployerGOCManager : IGOCManager
     {

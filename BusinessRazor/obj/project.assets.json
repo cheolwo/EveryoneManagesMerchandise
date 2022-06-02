@@ -892,15 +892,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NLog/5.0.0-rc1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {}
-        }
-      },
       "NMemory/3.1.4": {
         "type": "package",
         "dependencies": {
@@ -1463,26 +1454,6 @@
         },
         "runtime": {
           "bin/placeholder/BusinessData.dll": {}
-        }
-      },
-      "BusinessLogic/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Azure.Storage.Blobs": "12.10.0",
-          "BusinessData": "1.0.0",
-          "Microsoft.AspNetCore.Authorization": "6.0.2",
-          "Microsoft.AspNetCore.Components": "6.0.2",
-          "Microsoft.AspNetCore.Components.Web": "6.0.2",
-          "Microsoft.EntityFrameworkCore": "6.0.2",
-          "NLog": "5.0.0-rc1",
-          "System.IO.Ports": "6.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
         }
       },
       "BusinessView/1.0.0": {
@@ -2823,30 +2794,6 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "NLog/5.0.0-rc1": {
-      "sha512": "+ce3zuXplax1HLxFieqA7BwxLjdmZacYblz6AcfrqxfFWytMz9SHBwUas45aamVrQhTKUA4m5la464/RxnCZPg==",
-      "type": "package",
-      "path": "nlog/5.0.0-rc1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net35/NLog.dll",
-        "lib/net35/NLog.xml",
-        "lib/net45/NLog.dll",
-        "lib/net45/NLog.xml",
-        "lib/net46/NLog.dll",
-        "lib/net46/NLog.xml",
-        "lib/netstandard1.3/NLog.dll",
-        "lib/netstandard1.3/NLog.xml",
-        "lib/netstandard1.5/NLog.dll",
-        "lib/netstandard1.5/NLog.xml",
-        "lib/netstandard2.0/NLog.dll",
-        "lib/netstandard2.0/NLog.xml",
-        "nlog.5.0.0-rc1.nupkg.sha512",
-        "nlog.nuspec"
       ]
     },
     "NMemory/3.1.4": {
@@ -4311,11 +4258,6 @@
       "path": "../BusinessData/BusinessData.csproj",
       "msbuildProject": "../BusinessData/BusinessData.csproj"
     },
-    "BusinessLogic/1.0.0": {
-      "type": "project",
-      "path": "../BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
-    },
     "BusinessView/1.0.0": {
       "type": "project",
       "path": "../BusinessView/BusinessView.csproj",
@@ -4324,7 +4266,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BusinessLogic >= 1.0.0",
       "BusinessView >= 1.0.0",
       "Microsoft.AspNetCore.Components >= 6.0.3",
       "Microsoft.AspNetCore.Components.Web >= 6.0.2",
@@ -4364,9 +4305,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessLogic\\BusinessLogic.csproj"
-            },
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj"
             }

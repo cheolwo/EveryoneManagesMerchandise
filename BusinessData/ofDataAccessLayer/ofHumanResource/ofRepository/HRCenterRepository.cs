@@ -3,7 +3,7 @@ using BusinessData.ofDataAccessLayer.ofHR.ofDbContext;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployee;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployer;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofPlatform;
-using BusinessData.ofDataAccessLayer.ofHumanResource.ofRepository;
+using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
 
 namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
 {

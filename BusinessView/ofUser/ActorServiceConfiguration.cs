@@ -53,50 +53,6 @@ using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofSWCommodity;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWarehouse;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWCommodity;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofWarehouse.ofWorkingDesk;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOC;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofGOCC;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofMGOC;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofGroupOrder.ofSGOC;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofEmployeeRole;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRBusinessPart;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRCenter;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHREmployee;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofHR.ofHRRole;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournal;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofJournal.ofJournalCenter;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofEMCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMarket;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofMMCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofPlatMarket;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofMarket.ofSMCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofEOCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofMOCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofOCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofSOCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofEPCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofMPCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofPCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductCenter;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProducter;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofProductLand;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofProduct.ofSPCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofETCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofMTCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofSTCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofTrade.ofTradeCenter;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDividedTag;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofDotBarcode;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofEWCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofIncomingTag;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofLoadFrame;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofMWCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofSWCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWarehouse;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWCommodity;
-using BusinessView.ofViewModels.ofWebApp.ofEmployee.ofWarehouse.ofWorkingDesk;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOC;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofGOCC;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofMGOC;
@@ -164,7 +120,6 @@ using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofHR;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofEGOC;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
-using BusinessView.ofExternal.ofSearchingService;
 using BusinessView.ofUser.ofCommon;
 
 namespace BusinessView.ofActorService
@@ -244,7 +199,6 @@ namespace BusinessView.ofActorService
             services.AddScoped(typeof(EmployerStatusDeleteViewModel<>));
             services.AddScoped(typeof(EmployerStatusGetsViewModel<>));
 
-            services.AddScoped<ICenterPageRoadAddressService, KoreaSearchingAddressService>();
             services.AddScoped<ICenterPageTaxService, TaxService>();
             services.AddScoped<ICenterPageIdentityRoleService, IdentityRoleService>();
 
@@ -560,7 +514,6 @@ namespace BusinessView.ofActorService
             services.AddScoped(typeof(StatusDeleteViewModel<>));
             services.AddScoped(typeof(StatusGetsViewModel<>));
 
-            services.AddScoped<ICenterPageRoadAddressService, KoreaSearchingAddressService>();
             services.AddScoped<ICenterPageTaxService, TaxService>();
             services.AddScoped<ICenterPageIdentityRoleService, IdentityRoleService>();
 

@@ -1,7 +1,8 @@
 ﻿using BusinessData;
+using BusinessData.ofDataAccessLayer.ofCommon;
 using System;
 
-namespace BusinessLogic.ofManager.ofGeneric
+namespace BusinessLogic.ofEntityManager.ofGeneric
 {
     public enum WhereOptions {Table, Card, DashBoard}
     public interface INavigateFactory<TEntity> where TEntity : Entity

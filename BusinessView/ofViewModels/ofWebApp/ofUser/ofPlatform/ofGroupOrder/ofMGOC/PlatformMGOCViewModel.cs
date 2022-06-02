@@ -1,8 +1,9 @@
-using BusinessView.ofDTO.ofGroupOrder.ofPlatform;
+
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofMGOC;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder
 {

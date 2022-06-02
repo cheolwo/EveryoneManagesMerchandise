@@ -1,5 +1,5 @@
-using BusinessData.ofCommon.ofKamis.ofModel;
-using BusinessData.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofCommon.ofKamis.ofModel;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

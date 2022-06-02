@@ -1,7 +1,4 @@
-﻿using BusinessData;
-using BusinessView.ofExternal.ofSearchingService;
-
-namespace BusinessView.ofDTO.ofCommon.ofPlatform
+﻿namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon.ofPlatform
 {
     // 인터페이스로 확장하는 형태가 만들어지겠다.
     public interface IPlatformEntity 

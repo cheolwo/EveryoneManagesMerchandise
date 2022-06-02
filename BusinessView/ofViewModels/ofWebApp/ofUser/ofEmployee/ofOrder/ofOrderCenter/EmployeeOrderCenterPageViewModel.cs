@@ -1,8 +1,6 @@
-﻿using BusinessView.ofDTO.ofOrder.ofEmployee;
-using BusinessView.ofServices.ofCommon;
-using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofExternal.ofSearchingService;
-using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter;
+﻿using BusinessView.ofViewModels.ofWebApp.ofOrder.ofOrderCenter;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofEmployee.ofOrder.ofOrderCenter
 {
     public class EmployeeOrderCenterPageViewModel : OrderCenterPageViewModel<EmployeeOrderCenter> 

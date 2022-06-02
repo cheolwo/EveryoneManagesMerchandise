@@ -1,7 +1,3 @@
-using BusinessData;
-using BusinessData.ofGeneric.ofIdFactory;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -9,9 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
-using BusinessLogic.ofManager.ofGeneric;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
 
-namespace BusinessLogic.ofManager.ofGeneric
+namespace BusinessLogic.ofEntityManager.ofGeneric
 {
     public interface IDataManager
     {

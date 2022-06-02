@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using BusinessView.ofValidator.ofCommon;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Components.Forms;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
 namespace BusinessView.ofCommon.ofUser
 {

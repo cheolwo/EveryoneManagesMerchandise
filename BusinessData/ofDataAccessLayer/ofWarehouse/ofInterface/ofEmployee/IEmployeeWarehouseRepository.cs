@@ -1,9 +1,4 @@
-﻿using BusinessData.ofWarehouse.ofRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface
 {

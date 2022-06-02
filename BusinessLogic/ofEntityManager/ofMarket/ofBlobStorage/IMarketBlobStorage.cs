@@ -1,10 +1,10 @@
-using BusinessData.ofMarket.ofModel;
-using BusinessData.ofMarket.ofRepository;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage;
-using BusinessLogic.ofManager.ofGeneric.ofBlobStorage.ofContainerFactory;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessData.ofDataAccessLayer.ofMarket.ofRepository;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofManager.ofMarket.ofBlobStorage
+namespace BusinessLogic.ofEntityManager.ofMarket.ofBlobStorage
 {
     public interface IMCommodityBlobContainerFactory : IEntityContainerFactory<MCommodity>
     {

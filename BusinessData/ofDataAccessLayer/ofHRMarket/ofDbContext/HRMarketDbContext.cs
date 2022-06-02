@@ -1,5 +1,5 @@
-﻿using BusinessData.ofGeneric.ofTypeConfiguration;
-using BusinessData.ofHRMarket.ofModel;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofTypeConfiguration;
+using BusinessData.ofDataAccessLayer.ofHRMarket.ofModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

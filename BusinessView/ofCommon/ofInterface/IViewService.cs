@@ -1,4 +1,4 @@
-﻿using BusinessView.ofGeneric;
+﻿using BusinessData.ofPresentationLayer.ofCommon;
 
 namespace BusinessView.ofCommon.ofInterface
 {

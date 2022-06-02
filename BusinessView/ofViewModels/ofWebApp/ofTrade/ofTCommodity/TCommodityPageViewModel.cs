@@ -1,5 +1,6 @@
 using BusinessView.ofViewModels.ofGeneric;
-using BusinessView.ofDTO.ofCommon.ofTrade;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade;
+
 namespace BusinessView.ofViewModels.ofWebApp.ofTrade.ofTCommodity
 {
     public class TCommodityPageViewModel<TCommodity> : CommodityPageViewModel<TCommodity> where TCommodity : TCommodityDTO, new()

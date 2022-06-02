@@ -1,15 +1,14 @@
-﻿using BusinessView.ofActorService;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployer;
 using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofCommon.ofUser;
-using BusinessView.ofDTO.ofGroupOrder.ofEmployer;
-using BusinessView.ofDTO.ofMarket.ofEmployer;
-using BusinessView.ofDTO.ofOrder.ofEmployer;
-using BusinessView.ofDTO.ofProduct.ofEmployer;
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-using BusinessView.ofTrade.ofEmployer;
 using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
 
 namespace BusinessView.ofUser.ofEmployer
 {

@@ -1,4 +1,5 @@
-﻿using BusinessView.ofDTO.ofProduct.ofEmployer;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer;
+
 using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofProduct.ofPCommodity;
 

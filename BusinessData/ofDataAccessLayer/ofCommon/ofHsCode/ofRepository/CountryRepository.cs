@@ -1,4 +1,5 @@
 ﻿using BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofDbContext;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofCommon.ofHsCode.ofRepository
 {

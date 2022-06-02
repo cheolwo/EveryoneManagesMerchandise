@@ -1,7 +1,8 @@
+using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofProduct;
-using BusinessLogic.ofManager.ofGeneric.ofFileFactory;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofManager.ofWarehouse.ofFileFactory
+namespace BusinessLogic.ofEntityManager.ofProduct.ofFileFactory
 {
     public interface IProductCenterFileFactory : ICenterFileFactory<ProductCenter>
     {
