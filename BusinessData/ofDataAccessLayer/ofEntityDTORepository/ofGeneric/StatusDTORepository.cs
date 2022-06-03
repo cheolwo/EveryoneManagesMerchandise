@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
-{ 
-    internal class StatusDTORepository
+{
+    public class StatusDTORepository
     {
     }
 }

@@ -1,10 +1,8 @@
-﻿using BusinessView.ofGeneric;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,7 +28,7 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("{id}")]
         public async Task<ActionResult<PlatformSWCommodity>> GetSWCommodity(string id)
         {
-            var SWCommodity = await _PlatformSWCommodityRepository.GetByIdAsync(id);
+            var GettingWCommodity = await _PlatformSWCommodityRepository.GetByIdAsync(id);
 
             if (SWCommodity == null)
             {

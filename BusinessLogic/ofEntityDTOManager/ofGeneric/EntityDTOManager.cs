@@ -55,16 +55,8 @@ namespace BusinessLogic.oEntityDTOManager.ofGeneric
             var QueryDic = entityQuery.GetQueryDictionary(entityQuery);
             var dto = entityQuery.Dto;
             List<DTO> dtos = new();
-            // 분류된 Dic을 EntityDataRepository 에 전달하는 단계
-            //List<Model> models = await _EntityDataRepository.QueryChaining(QueryDic, dto);
-            //if(models != null || models.Count > 0)
-            //{
-            //    foreach(var model in models)
-            //    {
-            //        dtos.Add(model.ConvertToDTO());
-            //    }
-            //}
-            return dtos;
+            List<Model> models = QueryChaining(queryDic, entityQuery);
+            return models.ToDtos();
         }
 
         public Task<DTO> UpdateAsync(DTO entityDTO)

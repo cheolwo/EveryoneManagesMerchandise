@@ -1,10 +1,10 @@
-﻿using BusinessView.ofGeneric;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,11 +14,11 @@ namespace WarehouseServer.Controllers.ofPlatform
     [ApiController]
     public class PlatformWorkingDeskController : ControllerBase
     {
-        private readonly ILogger<PlatformWorkingDeskController> _logger;
+        private readonly ILogger<PlatformWorkingDesk> _logger;
         private readonly IPlatformWorkingDeskManager _PlatformWorkingDeskManager;
         private readonly IPlatformWorkingDeskRepository _PlatformWorkingDeskRepository;
 
-        public PlatformWorkingDeskController(ILogger<PlatformWorkingDeskController> logger,
+        public PlatformWorkingDeskController(ILogger<PlatformWorkingDesk> logger,
             IPlatformWorkingDeskManager PlatformWorkingDeskManager, 
             IPlatformWorkingDeskRepository PlatformWorkingDeskRepository)
         {
@@ -30,13 +30,13 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("{id}")]
         public async Task<ActionResult<PlatformWorkingDesk>> GetWorkingDesk(string id)
         {
-            var WorkingDesk = await _PlatformWorkingDeskRepository.GetByIdAsync(id);
+            var workingDesk = await _PlatformWorkingDeskRepository.GetByIdAsync(id);
 
-            if (WorkingDesk == null)
+            if (workingDesk == null)
             {
                 return NotFound();
             }
-            var GetPlatformWorkingDesk = ModelToDTO<WorkingDesk, PlatformWorkingDesk>.ConvertToDTO(WorkingDesk, new PlatformWorkingDesk());
+            var GetPlatformWorkingDesk = ModelToDTO<WorkingDesk, PlatformWorkingDesk>.ConvertToDTO(workingDesk, new PlatformWorkingDesk());
             return GetPlatformWorkingDesk;
         }
         [HttpGet]

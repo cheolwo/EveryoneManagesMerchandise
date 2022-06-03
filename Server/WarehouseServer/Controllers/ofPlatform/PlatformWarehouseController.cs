@@ -1,10 +1,10 @@
-﻿using BusinessView.ofGeneric;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofPresentationLayer.ofCommon;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,13 +30,13 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("{id}")]
         public async Task<ActionResult<PlatformWarehouse>> GetWarehouse(string id)
         {
-            var Warehouse = await _PlatformWarehouseRepository.GetByIdAsync(id);
+            var warehouse = await _PlatformWarehouseRepository.GetByIdAsync(id);
 
-            if (Warehouse == null)
+            if (warehouse == null)
             {
                 return NotFound();
             }
-            var GetPlatformWarehouse = ModelToDTO<Warehouse, PlatformWarehouse>.ConvertToDTO(Warehouse, new PlatformWarehouse());
+            var GetPlatformWarehouse = ModelToDTO<Warehouse, PlatformWarehouse>.ConvertToDTO(warehouse, new PlatformWarehouse());
             return GetPlatformWarehouse;
         }
         [HttpGet]

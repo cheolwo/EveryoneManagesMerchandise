@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.oEntityDTOManager.ofGeneric
 {
-    internal class CommodityDTOManager
+    public class CommodityDTOManager
     {
     }
 }

@@ -40,7 +40,7 @@ namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
             return queryModels;
         }
 
-        public async Task<List<TDTO>> QueryMatching(QueryCode queryCode, PropertyInfo propertyInfo, TDTO dto)
+        public virtual async Task<List<TDTO>> QueryMatching(QueryCode queryCode, PropertyInfo propertyInfo, TDTO dto)
         {
             List<TDTO> tDTOs = new();
             var method = typeof(EntityDataRepository<TModel>).GetMethod(propertyInfo.Name);

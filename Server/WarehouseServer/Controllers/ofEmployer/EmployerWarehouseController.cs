@@ -1,10 +1,10 @@
-﻿using BusinessView.ofGeneric;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofDTO.ofWarehouse.ofEmployer;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofEmployer;
-using BusinessData.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofEmployer;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,13 +34,13 @@ namespace WarehouseServer.Controllers.ofEmployer
         public async Task<ActionResult<EmployerWarehouse>> GetWarehouse(string id)
         {
             _logger.LogInformation("Access" + nameof(EmployerWarehouseController.GetWarehouse));
-            var Warehouse = await _EmployerWarehouseRepository.GetByIdAsync(id);
+            var WarehouseById = await _EmployerWarehouseRepository.GetByIdAsync(id);
 
-            if (Warehouse == null)
+            if (WarehouseById == null)
             {
                 return NotFound();
             }
-            var GetEmployerWarehouse = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(Warehouse, new EmployerWarehouse());
+            var GetEmployerWarehouse = ModelToDTO<Warehouse, EmployerWarehouse>.ConvertToDTO(WarehouseById, new EmployerWarehouse());
             return GetEmployerWarehouse;
         }
         [HttpGet]

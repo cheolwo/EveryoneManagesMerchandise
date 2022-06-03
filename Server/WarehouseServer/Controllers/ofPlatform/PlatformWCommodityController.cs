@@ -1,10 +1,10 @@
-﻿using BusinessView.ofGeneric;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BusinessView.ofDTO.ofWarehouse.ofPlatform;
-using BusinessData.ofWarehouse.Model;
-using BusinessLogic.ofManager.ofWarehouse.ofInterface.ofPlatform;
-using BusinessData.ofWarehouse.ofInterface.ofPlatform;
+using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
+using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofPresentationLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofPlatform;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,13 +30,13 @@ namespace WarehouseServer.Controllers.ofPlatform
         [HttpGet("{id}")]
         public async Task<ActionResult<PlatformWCommodity>> GetWCommodity(string id)
         {
-            var WCommodity = await _PlatformWCommodityRepository.GetByIdAsync(id);
+            var wCommodity = await _PlatformWCommodityRepository.GetByIdAsync(id);
 
-            if (WCommodity == null)
+            if (wCommodity == null)
             {
                 return NotFound();
             }
-            var GetPlatformWCommodity = ModelToDTO<WCommodity, PlatformWCommodity>.ConvertToDTO(WCommodity, new PlatformWCommodity());
+            var GetPlatformWCommodity = ModelToDTO<WCommodity, PlatformWCommodity>.ConvertToDTO(wCommodity, new PlatformWCommodity());
             return GetPlatformWCommodity;
         }
         [HttpGet]

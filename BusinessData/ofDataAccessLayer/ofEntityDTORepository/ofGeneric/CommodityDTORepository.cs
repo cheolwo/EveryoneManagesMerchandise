@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
 {
-    internal class CommodityDTORepository
+    public class CommodityDTORepository
     {
     }
 }
