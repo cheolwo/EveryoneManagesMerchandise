@@ -1,3 +1,0 @@
-namespace BusinessView.ofServices.ofCommon
-{
-}

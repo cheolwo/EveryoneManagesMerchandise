@@ -17,6 +17,26 @@ namespace BusinessData.ofPresentationLayer.ofCommon
             var QueryStringParams = GetQueryStringParams(t);
             return GetUriWithQueryString(requestUri, QueryStringParams);
         }
+        private static Dictionary<string, string> GetQueryStringParams<T>(T t) where T : class
+        {
+            var props = typeof(T).GetProperties();
+            Dictionary<string, string> QueryStringParams = new();
+            foreach (var prop in props)
+            {
+                if (prop.PropertyType == typeof(int))
+                {
+                    string value = prop.GetValue(t).ToString();
+                    QueryStringParams.Add(prop.Name, value);
+                }
+                if (prop.PropertyType == typeof(string))
+                {
+                    string value = (string)prop.GetValue(t);
+                    QueryStringParams.Add(prop.Name, value);
+                }
+                continue;
+            }
+            return QueryStringParams;
+        }
         private static string GetUriWithQueryString(string requestUri,
                 Dictionary<string, string> queryStringParams)
         {
@@ -46,26 +66,6 @@ namespace BusinessData.ofPresentationLayer.ofCommon
         private static Dictionary<string, string> GetQueryStringParamsByRequired<T>(T t) where T : IHttpRequestParameter
         {
             var props = t.GetRequiredProps();
-            Dictionary<string, string> QueryStringParams = new();
-            foreach (var prop in props)
-            {
-                if (prop.PropertyType == typeof(int))
-                {
-                    string value = prop.GetValue(t).ToString();
-                    QueryStringParams.Add(prop.Name, value);
-                }
-                if (prop.PropertyType == typeof(string))
-                {
-                    string value = (string)prop.GetValue(t);
-                    QueryStringParams.Add(prop.Name, value);
-                }
-                continue;
-            }
-            return QueryStringParams;
-        }
-        private static Dictionary<string, string> GetQueryStringParams<T>(T t) where T : class
-        {
-            var props = typeof(T).GetProperties();
             Dictionary<string, string> QueryStringParams = new();
             foreach (var prop in props)
             {

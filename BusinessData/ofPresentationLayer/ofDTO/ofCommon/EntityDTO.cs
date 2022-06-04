@@ -6,6 +6,18 @@ using System.Collections.Generic;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon
 {
+    public class HttpServiceAttribute : Attribute
+    {
+        private Type t;
+        public HttpServiceAttribute(Type t)
+        {
+            this.t = t;
+        }
+        public Type T
+        {
+            get => t;
+        }
+    }
     public static class InitializedValue
     {
         public const string InitializedStringValue = "Null";
