@@ -1,8 +1,6 @@
-﻿using BusinessView.ofServices.ofGroupOrder;
-
-namespace BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder
+﻿namespace BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder
 {
-    public class EmployerEGOCService : GroupOrderService
+    public class EmployerEGOCService : EGOCDTOService
     {
         public EmployerEGOCService(GroupOrderServiceOptions options)
             : base(options)

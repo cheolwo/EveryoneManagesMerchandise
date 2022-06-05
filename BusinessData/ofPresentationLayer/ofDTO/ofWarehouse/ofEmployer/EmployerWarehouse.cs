@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer
 {
@@ -13,6 +15,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer
     byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
      */
     [AutoMap(typeof(Warehouse))]
+    [HttpDTOService(typeof(EmployerWarehouseService))]
     public class EmployerWarehouse : WarehouseDTO
     {
        

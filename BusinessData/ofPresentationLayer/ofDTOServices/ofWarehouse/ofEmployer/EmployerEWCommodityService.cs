@@ -1,8 +1,8 @@
 ﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class EmployerEWCommodityService : WarehouseService
+    public class EmployerEWCommodityService : EWCommodityDTOService
     {
         public EmployerEWCommodityService(WarehouseServiceOptions options)
             : base(options)

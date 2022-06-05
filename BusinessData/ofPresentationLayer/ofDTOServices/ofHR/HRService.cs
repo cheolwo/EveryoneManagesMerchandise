@@ -1,5 +1,5 @@
-﻿using BusinessView.ofCommon;
-using BusinessView.ofCommon.ofServices;
+﻿using BusinessData.ofPresendationLayer.ofDTOServices;
+using System;
 
 namespace BusinessData.ofPresentationLayer.ofDTOServices.ofHR
 {
@@ -48,9 +48,9 @@ namespace BusinessData.ofPresentationLayer.ofDTOServices.ofHR
 
         }  
     }
-    public class HREmployeeDTORoleService : HRService
+    public class EmployeeRoleDTOService : HRService
     {
-        public HREmployeeDTORoleService(HRServiceOptions options)
+        public EmployeeRoleDTOService(HRServiceOptions options)
             : base(options)
         {
 

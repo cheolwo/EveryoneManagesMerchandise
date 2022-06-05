@@ -1,8 +1,8 @@
 ﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class EmployeeWorkingDeskService : WarehouseService
+    public class EmployeeWorkingDeskService : WorkingDeskDTOService
     {
         public EmployeeWorkingDeskService(WarehouseServiceOptions options)
             : base(options)

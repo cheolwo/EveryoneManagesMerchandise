@@ -1,4 +1,4 @@
-﻿namespace BusinessView.ofCommon.ofServices
+﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
     public class WarehouseServiceOptions : DTOServiceOptions
     {

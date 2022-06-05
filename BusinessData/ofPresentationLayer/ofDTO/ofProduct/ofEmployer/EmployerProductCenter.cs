@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessData.ofDataAccessLayer.ofProduct;
-
+using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer
 {
     public static class ViewNameofProductCenter
@@ -18,6 +19,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer
         public const string LiveStock = "LiveStock";
     }
     [AutoMap(typeof(ProductCenter))]
+    [HttpDTOService(typeof(EmployerProductCenterService))]
     public class EmployerProductCenter : ProductCenterDTO
     {
 

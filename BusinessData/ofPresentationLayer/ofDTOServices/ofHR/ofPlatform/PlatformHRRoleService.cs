@@ -1,6 +1,6 @@
-﻿using BusinessView.ofServices.ofHR;
+﻿using BusinessData.ofPresentationLayer.ofDTOServices.ofHR;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofHR
 {
     public class PlatformHRRoleService : HRService
     {

@@ -1,15 +1,12 @@
-﻿using BusinessView.ofServices.ofProduct;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofProduct
 {
-    public class PlatformSPCommodityService : ProductService
+    public class PlatformSPCommodityService : SPCommodityDTOService
     {
         public PlatformSPCommodityService(ProductServiceOptions options)
             : base(options)
         {
 
         }
-
-   
     }
 }

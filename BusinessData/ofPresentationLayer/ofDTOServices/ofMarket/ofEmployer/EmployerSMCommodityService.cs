@@ -1,8 +1,7 @@
-﻿using BusinessView.ofServices.ofMarket;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofMarket
 {
-    public class EmployerSMCommodityService : MarketService
+    public class EmployerSMCommodityService : SMCommodityDTOService
     {
         public EmployerSMCommodityService(MarketServiceOptions options)
             : base(options)

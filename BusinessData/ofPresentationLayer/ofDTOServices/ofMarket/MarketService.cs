@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofCommon;
 using BusinessView.ofCommon.ofServices;
 
-namespace BusinessView.ofServices.ofMarket
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofMarket
 {
     public class MarketServiceOptions : DTOServiceOptions
     {
@@ -32,9 +32,9 @@ namespace BusinessView.ofServices.ofMarket
 
         }  
     }
-    public class PlatMarektDTOService : MarketService
+    public class PlatMarketDTOService : MarketService
     {
-        public PlatMarektDTOService(MarketServiceOptions options)
+        public PlatMarketDTOService(MarketServiceOptions options)
             : base(options)
         {
 

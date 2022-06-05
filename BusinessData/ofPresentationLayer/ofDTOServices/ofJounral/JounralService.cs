@@ -1,7 +1,7 @@
 ﻿using BusinessView.ofCommon;
 using BusinessView.ofCommon.ofServices;
 
-namespace BusinessView.ofServices.ofJournal
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofJournal
 {
     public class JournalServiceOptions : DTOServiceOptions
     {

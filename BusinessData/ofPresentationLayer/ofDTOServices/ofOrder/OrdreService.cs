@@ -1,7 +1,4 @@
-﻿using BusinessView.ofCommon;
-using BusinessView.ofCommon.ofServices;
-
-namespace BusinessView.ofServices.ofOrder
+﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
 {
     public class OrderServiceOptions : DTOServiceOptions
     {

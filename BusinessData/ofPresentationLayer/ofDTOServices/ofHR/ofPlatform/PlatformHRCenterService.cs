@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofHR;
+﻿using BusinessData.ofPresentationLayer.ofDTOServices.ofHR;
 
-namespace BusinessView.ofCommon.ofServices.ofHR.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofHR
 {
-    public class PlatformHRCenterService : HRService
+    public class PlatformHRCenterService : HRCenterDTOService
     {
         public PlatformHRCenterService(HRServiceOptions options)
             : base(options)

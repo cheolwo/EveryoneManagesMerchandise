@@ -1,8 +1,7 @@
-﻿using BusinessView.ofServices.ofTrade;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofTrade
 {
-    public class EmployerMTCommodityService : TradeService
+    public class EmployerMTCommodityService : MTCommodityDTOService
     {
         public EmployerMTCommodityService(TradeServiceOptions options)
             : base(options)

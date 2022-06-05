@@ -1,12 +1,9 @@
 using BusienssData.ofPresentationLayer.ofController.ofCommon;
-using BusinessData;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessData.ofWarehouse.Model;
-using BusinessView.ofDTO.ofCommon;
 using System.Collections.Generic;
-
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
 {
     public static class ViewNameofWarehouse
@@ -23,6 +20,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         public const string DotBarcode ="도트태그";
         public const string LoadFrameTag = "적재태그";
     }
+    [HttpDTOService(typeof(WarehouseDTOService))]
     public class WarehouseDTO : CenterDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }
@@ -35,6 +33,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.IncomingTag, typeof(List<IncomingTag>))] public string? IncomingTags { get; set; }
     }
+    [HttpDTOService(typeof(WCommodityDTOService))]
     public class WCommodityDTO : CommodityDTO
     {
         [Query(QueryCode.String)][View(ViewMode.Get)] public string? Type { get; set; }
@@ -50,6 +49,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.MWCommodity, typeof(List<MWCommodity>))] public string? MWCommodities { get; set; }  // 적재
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
+    [HttpDTOService(typeof(SWCommodityDTOService))]
     public class SWCommodityDTO : SStatusDTO
     {
         [Query(QueryCode.Int)][View(ViewMode.Get)] public int IncomingQuantity { get; set; }
@@ -58,6 +58,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
+    [HttpDTOService(typeof(MWCommodityDTOService))]
     public class MWCommodityDTO : MStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
@@ -66,6 +67,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.SWCommodity, typeof(SWCommodity))] public string? SWCommodity { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
     }
+    [HttpDTOService(typeof(EWCommodityDTOService))]
     public class EWCommodityDTO : EStatusDTO
     {
         [Query(QueryCode.Int)][View(ViewMode.Get)] public int OutgoingQuantity { get; set; }
@@ -73,6 +75,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.MWCommodity, typeof(MWCommodity))] public string? MWCommodity { get; set; }
     }
+    [HttpDTOService(typeof(DividedTagDTOService))]
     public class DividedTagDTO : EntityDTO
     {
         [Query(QueryCode.Bool)][View(ViewMode.Get)] public bool Attached { get; set; }
@@ -81,10 +84,12 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.IncomingTag, typeof(IncomingTag))] public string? IncomingTag { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
+    [HttpDTOService(typeof(DotBarcodeDTOService))]
     public class DotBarcodeDTO : EntityDTO
     {
 
     }
+    [HttpDTOService(typeof(IncomingTagDTOService))]
     public class IncomingTagDTO : EntityDTO
     {
         [Query(QueryCode.ForeignKey)][View(ViewMode.Get)] public string? SWCommodityId { get; set; }
@@ -92,11 +97,13 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Get)][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
     }
+    [HttpDTOService(typeof(LoadFrameDTOService))]
     public class LoadFrameDTO : EntityDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
+    [HttpDTOService(typeof(WorkingDeskDTOService))]
     public class WorkingDeskDTO : EntityDTO
     {
         [Query(QueryCode.Bool)]public bool IsUsed { get; set; }

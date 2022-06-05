@@ -1,8 +1,7 @@
-﻿using BusinessView.ofServices.ofProduct;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofProduct
 {
-    public class PlatformProducterService : ProductService
+    public class PlatformProducterService : ProducterDTOService
     {
         public PlatformProducterService(ProductServiceOptions options)
             : base(options)

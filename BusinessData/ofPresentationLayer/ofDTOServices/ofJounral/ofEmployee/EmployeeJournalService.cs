@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofJournal;
+﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofJournal;
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofJournal
 {
-    public class EmployeeJournalService : JournalService
+    public class EmployeeJournalService : JournalDTOService
     {
         public EmployeeJournalService(JournalServiceOptions options)
             : base(options)

@@ -1,7 +1,7 @@
 ﻿
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class EmployerIncomingTagService : WarehouseService
+    public class EmployerIncomingTagService : IncomingTagDTOService
     {
         public EmployerIncomingTagService(WarehouseServiceOptions options)
             : base(options)

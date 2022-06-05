@@ -1,8 +1,7 @@
-﻿using BusinessView.ofServices.ofProduct;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofProduct
 {
-    public class EmployerEPCommodityService : ProductService
+    public class EmployerEPCommodityService : EPCommodityDTOService
     {
         public EmployerEPCommodityService(ProductServiceOptions options)
             : base(options)

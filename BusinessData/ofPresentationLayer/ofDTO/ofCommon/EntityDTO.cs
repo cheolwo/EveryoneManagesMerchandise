@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofCommon
 {
-    public class HttpServiceAttribute : Attribute
+    public class HttpDTOServiceAttribute : Attribute
     {
-        private Type t;
-        public HttpServiceAttribute(Type t)
+        private Type _t;
+        public HttpDTOServiceAttribute(Type Type)
         {
-            this.t = t;
+            _t = Type;
         }
-        public Type T
+        public Type t
         {
-            get => t;
+            get => _t;
         }
     }
     public static class InitializedValue

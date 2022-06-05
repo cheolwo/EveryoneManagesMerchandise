@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofOrder;
+﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
 {
-    public class PlatformMOCommodityService : OrderService
+    public class PlatformMOCommodityService : MOCommodityDTOService
     {
         public PlatformMOCommodityService(OrderServiceOptions options)
             : base(options)

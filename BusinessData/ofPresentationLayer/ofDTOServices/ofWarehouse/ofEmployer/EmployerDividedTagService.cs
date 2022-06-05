@@ -1,8 +1,8 @@
 ﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class EmployerDividedTagService : WarehouseService
+    public class EmployerDividedTagService : DividedTagDTOService
     {
         public EmployerDividedTagService(WarehouseServiceOptions options)
             : base(options)

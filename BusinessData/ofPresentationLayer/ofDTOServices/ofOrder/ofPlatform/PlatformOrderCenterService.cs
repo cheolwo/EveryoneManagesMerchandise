@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofOrder;
+﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
 {
-    public class PlatformOrderCenterService : OrderService
+    public class PlatformOrderCenterService : OrderCenterDTOService
     {
         public PlatformOrderCenterService(OrderServiceOptions options)
             : base(options)

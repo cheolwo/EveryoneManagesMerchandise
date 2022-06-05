@@ -1,6 +1,5 @@
-﻿using BusinessView.ofCommon;
-using BusinessView.ofCommon.ofServices;
-using System;
+﻿using System;
+using BusinessData.ofPresendationLayer.ofDTOServices;
 
 namespace BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder
 {

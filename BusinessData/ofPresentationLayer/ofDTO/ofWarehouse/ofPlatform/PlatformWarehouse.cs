@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
-
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform
 {
     // Generic 의 경우 DTO 에서 Json String
@@ -13,6 +14,7 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform
     byte[] jsonUtf8Bytes =JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
      */
     [AutoMap(typeof(Warehouse))]
+    [HttpDTOService(typeof(PlatformWarehouseService))]
     public class PlatformWarehouse : WarehouseDTO
     {
         

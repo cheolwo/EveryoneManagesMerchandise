@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofJournal;
+﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofJournal;
 
-namespace BusinessView.ofCommon.ofServices.ofJournalCenter.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofJournal
 {
-    public class EmployerJCommodityService : JournalService
+    public class EmployerJCommodityService : JCommodityDTOService
     {
         public EmployerJCommodityService(JournalServiceOptions options)
             : base(options)

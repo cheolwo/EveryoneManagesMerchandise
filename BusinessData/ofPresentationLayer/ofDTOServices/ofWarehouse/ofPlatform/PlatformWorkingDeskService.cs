@@ -1,6 +1,6 @@
-﻿namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class PlatformWorkingDeskService : WarehouseService
+    public class PlatformWorkingDeskService : WorkingDeskDTOService
     {
         public PlatformWorkingDeskService(WarehouseServiceOptions options)
             : base(options)

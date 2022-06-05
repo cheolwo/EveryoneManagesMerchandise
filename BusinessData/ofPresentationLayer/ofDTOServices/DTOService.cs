@@ -10,7 +10,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessView.ofCommon.ofServices
+namespace BusinessData.ofPresendationLayer.ofDTOServices
 {
     public static class DevelopmentServerBaseAddress
     {

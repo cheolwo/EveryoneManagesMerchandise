@@ -1,8 +1,8 @@
 ﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class EmployerDotBarcodeService : WarehouseService
+    public class EmployerDotBarcodeService : DotBarcodeDTOService
     {
         public EmployerDotBarcodeService(WarehouseServiceOptions options)
             : base(options)

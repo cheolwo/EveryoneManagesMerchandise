@@ -1,6 +1,6 @@
-﻿namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
-    public class PlatformDividedTagService : WarehouseService
+    public class PlatformDividedTagService : DividedTagDTOService
     {
         public PlatformDividedTagService(WarehouseServiceOptions options)
             : base(options)

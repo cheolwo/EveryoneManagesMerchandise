@@ -1,7 +1,5 @@
-﻿using BusinessView.ofCommon;
-using BusinessView.ofCommon.ofServices;
-
-namespace BusinessView.ofServices.ofTrade
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofTrade
 {
     public class TradeServiceOptions : DTOServiceOptions
     {

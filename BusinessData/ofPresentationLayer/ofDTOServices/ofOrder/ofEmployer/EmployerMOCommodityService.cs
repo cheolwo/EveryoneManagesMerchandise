@@ -1,8 +1,8 @@
-﻿using BusinessView.ofServices.ofOrder;
+﻿
 
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
 {
-    public class EmployerMOCommodityService : OrderService
+    public class EmployerMOCommodityService : MOCommodityDTOService
     {
         public EmployerMOCommodityService(OrderServiceOptions options)
             : base(options)

@@ -1,8 +1,7 @@
-﻿using BusinessView.ofServices.ofMarket;
-
-namespace BusinessView.ofCommon.ofServices.ofJournal.ofPlatform
+﻿
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofMarket
 {
-    public class PlatformPlatMarketService : MarketService
+    public class PlatformPlatMarketService : PlatMarektDTOService
     {
         public PlatformPlatMarketService(MarketServiceOptions options)
             : base(options)
