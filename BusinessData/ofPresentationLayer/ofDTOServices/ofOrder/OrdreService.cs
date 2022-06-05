@@ -1,4 +1,6 @@
-﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
+﻿using System;
+
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofOrder
 {
     public class OrderServiceOptions : DTOServiceOptions
     {

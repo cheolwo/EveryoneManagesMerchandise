@@ -21,7 +21,7 @@ namespace BusinessData.ofPresentationLayer.ofCommon
         {
             return ModelToDTO<Model, DTO>.ConvertToDTO(model, new DTO());
         }
-        public static Model ConvertToModel<Model, DTO>(this DTO dto, Model model) where DTO : class where Model : class, new()
+        public static Model ConvertToModel<Model, DTO>(this DTO dto) where DTO : class where Model : class, new()
         {
             return DTOToModel<DTO, Model>.ConvertToModel(dto, new Model());
         }

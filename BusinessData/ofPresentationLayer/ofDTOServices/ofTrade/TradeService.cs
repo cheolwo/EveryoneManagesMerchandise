@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace BusinessData.ofPresendationLayer.ofDTOServices.ofTrade
 {
     public class TradeServiceOptions : DTOServiceOptions

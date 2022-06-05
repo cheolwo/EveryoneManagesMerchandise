@@ -26,7 +26,7 @@ namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
         {
 
         }
-        public List<TModel> QueryChaining(Dictionary<QueryCode, List<PropertyInfo>> queryDic, TDTO dto)
+        public async Task<List<TModel>> QueryChaining(Dictionary<QueryCode, List<PropertyInfo>> queryDic, TDTO dto)
         {
             List<TModel> queryModels = new List<TModel>();
             foreach (var code in queryDic.Keys)
@@ -34,7 +34,7 @@ namespace BusienssData.ofDataAccessLayer.ofEntityDTORepository.ofGeneric
                 var props = queryDic[code];
                 foreach (var prop in props)
                 {
-                    QueryMatching(code, prop, dto);
+                    await QueryMatching(code, prop, dto);
                 }
             }
             return queryModels;

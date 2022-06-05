@@ -1,7 +1,8 @@
-﻿using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
+﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofServices.ofJournal.ofEmployer;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
 

@@ -17,8 +17,8 @@ namespace BusienssLogic.ofController.ofGeneric
     public interface IEntityDTOController<DTO> where DTO : EntityDTO, new()
     {
         Task<ActionResult<DTO>> GetById(string id);
-        Task<ActionResult<IEnumerable<DTO>>> GetByDTO([FromBody]EntityQuery<DTO> query);
-        Task<ActionResult<IEnumerable<DTO>>> GetAlls();
+        Task<IEnumerable<DTO>> GetByDTO([FromBody]EntityQuery<DTO> query);
+        Task<IEnumerable<DTO>> GetAlls();
         Task<ActionResult<DTO>> Post([FromBody]DTO dto);
         Task<ActionResult<DTO>> Put([FromBody]DTO dto);
         Task Delete(string id);
@@ -57,20 +57,17 @@ namespace BusienssLogic.ofController.ofGeneric
         // 사전에 분류가 되어 있으면 좋겠다.
         // prop 의 Attribute를 보고 어떻게 Get를 할지에 대해.
         [HttpPost("Searching")]
-        public async Task<ActionResult<IEnumerable<DTO>>> GetByDTO([FromBody]EntityQuery<DTO> query)
+        public async Task<IEnumerable<DTO>> GetByDTO([FromBody]EntityQuery<DTO> query)
         {
             // EntityManager 가 Get 부분에 있어 EntityDataRepository 만큼 할 일이 별로 없어서
             // EntityManager 내부에서 상기 코드가 처리되는 게 있었으면 한다.
             _logger.LogInformation(nameof(EntityDTOController<DTO, Model>.GetByDTO));
-            List<DTO> dtos = await _entityManager.GetToListAsync(query);
-            if(dtos.Count > 0)
-            {
-                return new List<DTO>();
-            }
+            var dtos = await _entityManager.GetToListAsyncByQuery(query);
+           
             return dtos;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DTO>>> GetAlls()
+        public async Task<IEnumerable<DTO>> GetAlls()
         {
             // 여기는 중간 저장소를 볼 게 아니라 바로 DB 쪽 데이터에서 가져오도록 하자.
             _logger.LogInformation(nameof(EntityDTOController<DTO, Model>.GetAlls));

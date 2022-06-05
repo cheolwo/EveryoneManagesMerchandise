@@ -1,12 +1,4 @@
-﻿using BusinessView.ofCommon.ofServices;
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofServices.ofGroupOrder;
-using BusinessView.ofServices.ofHR;
-using BusinessView.ofServices.ofJournal;
-using BusinessView.ofServices.ofMarket;
-using BusinessView.ofServices.ofOrder;
-using BusinessView.ofServices.ofProduct;
-using BusinessView.ofServices.ofTrade;
+﻿using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofEmployer;
 using BusinessView.ofViewModels.ofGeneric;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofGOC;
@@ -100,7 +92,6 @@ using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofWarehouse.ofWorkingDesk;
 
 using Microsoft.Extensions.DependencyInjection;
 using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofServices.ofCommon;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofGroupOrder.ofEGOC;
 using BusinessView.ofViewModels.ofWebApp.ofEmployer.ofHR;
@@ -121,6 +112,16 @@ using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofJournal;
 using BusinessView.ofViewModels.ofWebApp.ofPlatform.ofGroupOrder.ofEGOC;
 using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresendationLayer.ofDTOServices;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofHR;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofJournal;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofCommon;
 
 namespace BusinessView.ofActorService
 {

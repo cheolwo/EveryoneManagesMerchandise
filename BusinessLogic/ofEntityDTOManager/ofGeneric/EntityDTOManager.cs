@@ -19,8 +19,9 @@ namespace BusinessLogic.oEntityDTOManager.ofGeneric
     {
         Task<DTO> CreateAsync(DTO entityDTO);
         Task<DTO> UpdateAsync(DTO entityDTO);
-        Task<List<DTO>> GetToListAsync(EntityQuery<DTO> entityQuery);
+        Task<IEnumerable<DTO>> GetToListAsync(EntityQuery<DTO> entityQuery);
         Task DeleteAsync(string id);
+        Task<IEnumerable<DTO>> GetToListAsyncByQuery(EntityQuery<DTO> entityQuery);
     }
     public class EntityDTOManager<DTO, Model> : EntityManager<Model>, IEntityDTOManager<DTO, Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {
@@ -44,26 +45,27 @@ namespace BusinessLogic.oEntityDTOManager.ofGeneric
             throw new NotImplementedException();
         }
 
-        public Task<List<DTO>> GetToListAsync(EntityQuery<DTO> entityQuery)
+        public Task<IEnumerable<DTO>> GetToListAsync(EntityQuery<DTO> entityQuery)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<DTO>> GetToListAsyncByQuery(EntityQuery<DTO> entityQuery)
+        public async Task<IEnumerable<DTO>> GetToListAsyncByQuery(EntityQuery<DTO> entityQuery)
         {
             // EntityQuery 를 Dictionary 로 분류하는 단계
             var QueryDic = entityQuery.GetQueryDictionary(entityQuery);
             var dto = entityQuery.Dto;
             List<DTO> dtos = new();
-            List<Model> models = QueryChaining(queryDic, entityQuery);
-            return models.ToDtos();
+            var models = await QueryChaining(QueryDic, entityQuery);
+       
+            return models.ToDtos<Model, DTO>();
         }
 
         public Task<DTO> UpdateAsync(DTO entityDTO)
         {
             throw new NotImplementedException();
         }
-        public IEnumerable<Model> QueryChaining(Dictionary<QueryCode, List<PropertyInfo>> queryDic, EntityQuery<DTO> entityQuery)
+        public async Task<IEnumerable<Model>> QueryChaining(Dictionary<QueryCode, List<PropertyInfo>> queryDic, EntityQuery<DTO> entityQuery)
         {
             List<Model> queryModels = new List<Model>();
             List<PropertyInfo> RemaindedQuery = new();

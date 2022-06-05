@@ -1,9 +1,10 @@
-﻿using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofUser.ofCommon;
 using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofUser;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
 
 namespace BusinessView.ofUser.ofEmployee
 {

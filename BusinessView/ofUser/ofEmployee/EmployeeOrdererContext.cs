@@ -1,10 +1,12 @@
-﻿using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
+﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
 using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofServices.ofGroupOrder.ofEmployee;
-using BusinessView.ofCommon.ofServices.ofJournal.ofEmployee;
 using BusinessView.ofCommon.ofUser;
 using BusinessView.ofUser.ofCommon;
 

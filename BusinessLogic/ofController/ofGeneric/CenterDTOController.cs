@@ -2,6 +2,7 @@
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessLogic.ofEntityDTOManager.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -55,7 +56,7 @@ namespace BusienssLogic.ofController.ofGeneric
             // CenterManager 가 Get 부분에 있어 CenterDataRepository 만큼 할 일이 별로 없어서
             // CenterManager 내부에서 상기 코드가 처리되는 게 있었으면 한다.
             _logger.LogInformation(nameof(CenterDTOController<DTO, Model>.GetByDTO));
-            List<DTO> dtos = await _CenterManager.GetToListAsync(query);
+            List<DTO> dtos = new();
             if (dtos.Count > 0)
             {
                 return new List<DTO>();
@@ -83,11 +84,11 @@ namespace BusienssLogic.ofController.ofGeneric
         public async Task<ActionResult<DTO>> Post([FromBody] DTO dto)
         {
             _logger.LogInformation(nameof(CenterDTOController<DTO, Model>.Post));
-
-            var newModel = await _CenterManager.CreateAsync(dto);
+            var ConvertedModel = dto.ConvertToModel<Model, DTO>();
+            var newModel = await _CenterManager.CreateAsync(ConvertedModel);
             if (newModel != null)
             {
-                return newModel;
+                return newModel.ConvertToDTO<DTO, Model>();
             }
             throw new ArgumentException("Post Failed");
         }
@@ -95,13 +96,13 @@ namespace BusienssLogic.ofController.ofGeneric
         public async Task<ActionResult<DTO>> Put([FromBody] DTO dto)
         {
             _logger.LogInformation(nameof(CenterDTOController<DTO, Model>.Put));
-            var updatedModel = await _CenterManager.UpdateAsync(dto);
+            var updatedModel = await _CenterManager.UpdateAsync(dto.ConvertToModel<Model, DTO>());
             if (updatedModel == null)
             {
                 return BadRequest();
             }
             // 중간 저장소에 같은 Id를 가지는 값이 있다면 삭제하고 삽입
-            return updatedModel;
+            return updatedModel.ConvertToDTO<DTO, Model>();
         }
         [HttpDelete]
         public async Task Delete(string id)
@@ -112,7 +113,12 @@ namespace BusienssLogic.ofController.ofGeneric
             {
                 return;
             }
-            await _CenterManager.DeleteAsync(id);
+            await _CenterManager.DeleteByIdAsync(id);
+        }
+
+        public Task<ActionResult<IEnumerable<DTO>>> GetByDTO([FromBody] EntityQuery<DTO> query)
+        {
+            throw new NotImplementedException();
         }
     }
 }

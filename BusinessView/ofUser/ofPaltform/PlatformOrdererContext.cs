@@ -1,12 +1,14 @@
-﻿using BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform;
-using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofUser.ofCommon;
 using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofUser;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
 
 namespace BusinessView.ofUser.ofPlatform
 {

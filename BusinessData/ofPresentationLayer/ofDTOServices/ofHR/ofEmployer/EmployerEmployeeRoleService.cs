@@ -2,7 +2,7 @@
 
 namespace BusinessData.ofPresendationLayer.ofDTOServices.ofHR
 {
-    public class EmployerEmployeeRoleService : EmployeeRoleDTORoleService
+    public class EmployerEmployeeRoleService : EmployeeRoleDTOService
     {
         public EmployerEmployeeRoleService(HRServiceOptions options)
             : base(options)

@@ -1,11 +1,9 @@
 ﻿using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessLogic.ofCenterManager.ofGeneric;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
+using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
 namespace BusinessLogic.ofEntityDTOManager.ofGeneric
 {
@@ -15,9 +13,11 @@ namespace BusinessLogic.ofEntityDTOManager.ofGeneric
         public CenterDTOManager(ICenterDTORepository<DTO, Model> CenterDataRepository,
             ICenterIdFactory<Model> CenterIdFactory,
             ICenterFileFactory<Model> CenterFileFactory,
-            ICenterBlobStorage<Model> CenterBlobStorage,
-            DicConvertFactory<Model> DicConvertFactory) : base(CenterDataRepository, CenterIdFactory, CenterFileFactory, CenterBlobStorage, DicConvertFactory)
+            IEntityBlobStorage<Model> CenterBlobStorage,
+            CenterPasswordHasher<Model> _passwordHashser,
+            DicConvertFactory<Model> DicConvertFactory) : base(CenterDataRepository, CenterIdFactory, CenterFileFactory, CenterBlobStorage, DicConvertFactory, _passwordHashser)
         {
             _CenterDTODataRepository = CenterDataRepository;
         }
     }
+}

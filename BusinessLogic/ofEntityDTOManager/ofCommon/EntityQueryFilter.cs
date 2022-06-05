@@ -1,5 +1,6 @@
 ﻿using BusienssData.ofPresentationLayer.ofController.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon;
+using BusinessData.ofPresentationLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,15 @@ namespace BusinessLogic.oEntityDTOManager.ofCommon
                                                                                     where Model : Entity
                 => (from model in list where selector(model) select model).ToList();
 
-
+        public static IEnumerable<DTO> ToDtos<Model, DTO>(this IEnumerable<Model> models) where Model : Entity, new() where DTO : EntityDTO, new()
+        {
+            List<DTO> dtos = new();
+            foreach(var model in models)
+            {
+                dtos.Add(model.ConvertToDTO<DTO, Model>());
+            }
+            return dtos;
+        }
         public static IEnumerable<Model> FileterByRemainedQuery<DTO, Model>(this IEnumerable<Model> Querylist, List<PropertyInfo> RemainedQuery, EntityQuery<DTO> entityQuery) where Model : Entity where DTO : EntityDTO, new()
         {
             foreach (var prop in RemainedQuery)

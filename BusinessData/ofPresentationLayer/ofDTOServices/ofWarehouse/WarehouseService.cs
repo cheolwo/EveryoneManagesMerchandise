@@ -1,4 +1,6 @@
-﻿namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
+﻿using System;
+
+namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {
     public class WarehouseServiceOptions : DTOServiceOptions
     {

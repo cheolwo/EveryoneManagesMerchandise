@@ -1,6 +1,4 @@
-﻿using BusinessView.ofCommon.ofServices.ofGroupOrder.ofPlatform;
-using BusinessView.ofCommon.ofServices.ofJournal.ofPlatform;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofUser.ofCommon;
 using BusinessView.ofActorService;
 using BusinessView.ofCommon.ofUser;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
@@ -9,6 +7,12 @@ using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofPlatform;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
+using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 
 namespace BusinessView.ofUser.ofPlatform
 {
