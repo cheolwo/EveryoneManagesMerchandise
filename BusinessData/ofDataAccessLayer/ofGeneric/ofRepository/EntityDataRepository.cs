@@ -16,7 +16,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
     {
         // 기본
         Task<List<TEntity>> GetToListAsync();
-        Task <TEntity> FirstOrDefaultAsync();
+        Task<TEntity> FirstOrDefaultAsync();
         Task<TEntity> AddAsync(TEntity tentity);
         Task<TEntity> UpdateAsync(TEntity tentity);
         Task DeleteByIdAsync(string Id);
@@ -42,10 +42,42 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime);
         Task<List<TEntity>> GetToListByCreateTimeAsync(DateTime dateTime);
     }
-    
-    public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
+
+    public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : class
     {
         protected DbContext _DbContext;
+        protected DbContext _InMemoryDbContext;
+        public virtual async Task<TEntity> AddAsync(TEntity tentity)
+        {
+            await _DbContext.AddAsync(tentity);
+            await _DbContext.SaveChangesAsync();
+            TEntity entity = await _DbContext.FindAsync<TEntity>(tentity.Id);
+            if (entity != null)
+            {
+                _InMemoryDbContext.AddAsync<TEntity>(entity);
+            }
+            return entity;
+        }
+        public async Task<TEntity> GetByIdAsync(string Id)
+        {
+            TEntity InMemoryEntity = _InMemoryDbContext.FindAsync<TEntity>(Id);
+            if (InMemoryEntity != null)
+            {
+                return InMemoryEntity;
+            }
+            var DbEntity = await _DbContext.FindAsync<TEntity>(Id);
+            if (DbEntity != null)
+            {
+                return DbEntity;
+            }
+            throw new ArgumentNullException("Not Exist");
+        }
+        public async Task DeleteByIdAsync(string Id)
+        {
+            TEntity entity = await GetByIdAsync(Id);
+            _DbContext.Remove(entity);
+            await _DbContext.SaveChangesAsync();
+        }
         protected readonly TEntity entity = new();
         public EntityDataRepository(DbContext DbContext)
         {
@@ -59,23 +91,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         {
             _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
-        public virtual async Task<TEntity> AddAsync(TEntity tentity)
-        {
-            await _DbContext.AddAsync(tentity);
-            await _DbContext.SaveChangesAsync();
-            return await GetByIdAsync(tentity.Id);
-        }
-        public async Task DeleteByIdAsync(string Id)
-        {
-            TEntity entity = await GetByIdAsync(Id);
-            _DbContext.Remove(entity);
-            await _DbContext.SaveChangesAsync();
-        }
 
-        public async Task<TEntity> GetByIdAsync(string Id)
-        {
-            return await _DbContext.FindAsync<TEntity>(Id);
-        }
 
         public async Task<int> GetCountAsync()
         {
@@ -99,7 +115,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         }
         public async Task<TEntity> GetByContainerAsync(string containerName)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Container.Equals(containerName));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Container.Equals(containerName));
         }
 
         public async Task<List<TEntity>> GetToListByBetweenDateTimeAsync(DateTime beforeDateTime, DateTime AfterDateTime)
@@ -109,22 +125,22 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 
         public async Task<List<TEntity>> GetToListByUserIdAsync(string UserId)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(UserId)).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e => e.UserId.Equals(UserId)).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByUserAsync(IdentityUser IdentityUser)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.UserId.Equals(IdentityUser.Id)).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e => e.UserId.Equals(IdentityUser.Id)).ToListAsync();
         }
 
         public async Task<TEntity> GetByNameAsync(string Name)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Name.Equals(Name));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Name.Equals(Name));
         }
 
         public async Task<TEntity> GetByUserAsync(IdentityUser identityUser)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(identityUser.Id));
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.UserId.Equals(identityUser.Id));
         }
 
         public async Task<TEntity> FirstOrDefaultAsync()
@@ -139,7 +155,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 
         public async Task AddEntitiesAsync(IList<TEntity> entities)
         {
-            foreach(var entity in entities)
+            foreach (var entity in entities)
             {
                 entity.CreateTime = DateTime.Now;
                 _DbContext.Set<TEntity>().Add(entity);
@@ -149,7 +165,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 
         public async Task AddEntitiesByAttachAsync(IList<TEntity> entities)
         {
-            foreach(var entity in entities)
+            foreach (var entity in entities)
             {
                 entity.CreateTime = DateTime.Now;
                 var attach = _DbContext.Attach(entity);
@@ -167,12 +183,12 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 
         public async Task<TEntity> GetByUserIdAsync(string UserId)
         {
-            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.UserId.Equals(UserId)); 
+            return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.UserId.Equals(UserId));
         }
 
         public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(DateTime StartDate, DateTime EndDate)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.CreateTime >= StartDate && e.CreateTime <= EndDate).ToListAsync();    
+            return await _DbContext.Set<TEntity>().Where(e => e.CreateTime >= StartDate && e.CreateTime <= EndDate).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListBetweenStarnDateAndEndDateAsync(string Container)
@@ -182,12 +198,12 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 
         public async Task<List<TEntity>> GetToListByNameAsync(string Name)
         {
-            return await  _DbContext.Set<TEntity>().Where(e=>e.Name.Equals(Name)).ToListAsync();
+            return await _DbContext.Set<TEntity>().Where(e => e.Name.Equals(Name)).ToListAsync();
         }
 
         public async Task<List<TEntity>> GetToListByCodeAsync(string Code)
         {
-            return await _DbContext.Set<TEntity>().Where(e=>e.Code.Equals(Code)).ToListAsync(); 
+            return await _DbContext.Set<TEntity>().Where(e => e.Code.Equals(Code)).ToListAsync();
         }
 
         public Task<List<TEntity>> GetToListByContainerAsync(string Container)

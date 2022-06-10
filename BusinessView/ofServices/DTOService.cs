@@ -1,41 +1,14 @@
 ﻿using AutoMapper;
 using BusienssData.ofPresentationLayer.ofController.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
+using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace BusinessData.ofPresentationLayer.ofDTOServices
+namespace BusinessView.ofCommon.ofServices
 {
-    public static class DevelopmentServerBaseAddress
-    {
-        public const string WarehouseWebAPIServerURL = "https://localhost:7025";
-        public const string GroupOrderWebAPIServerURL = "https://localhost:7283";
-        public const string HRWebAPIServerURL = "https://localhost:7148";
-        public const string IdentityWebAPIServerURL = "https://localhost:7271";
-        public const string JournalWebAPIServerURL = "https://localhost:7159";
-        public const string OrderWebAPIServerURL = "https://localhost:7242";
-        public const string ProductWebAPIServerURL = "https://localhost:7172";
-        public const string TradeWebAPIServerURL = "https://localhost:7074";
-        public const string MarketWebAPIServerURL = "https://localhost:7074";
-    }
-    public static class ProductServerBaseAddress
-    {
-        public const string WarehouseWebAPIServerURL = "https://localhost:7025";
-        public const string GOCWebAPIServerURL = "https://localhost:7283";
-        public const string HRWebAPIServerURL = "https://localhost:7148";
-        public const string IdentityWebAPIServerURL = "https://localhost:7148";
-        public const string JournalWebAPIServerURL = "https://localhost:7159";
-        public const string OCWebAPIServerURL = "https://localhost:7242";
-        public const string ProductWebAPIServerURL = "https://localhost:7172";
-        public const string TradeWebAPIServerURL = "https://localhost:7074";
-        public const string MarketWebAPIServerURL = "https://localhost:7074";
-    }
     public interface IDTOService<T> where T : class
     {
         Task<IEnumerable<T>?> GetsAsync();
@@ -55,7 +28,6 @@ namespace BusinessData.ofPresentationLayer.ofDTOServices
         public DTOService(DTOServiceOptions options)
         {
             _DTOServiceOptions = options;
-            
         }
         public virtual async Task<T?> PostAsync<T>(T t, MultipartFormDataContent content) where T : new()
         {
@@ -78,6 +50,11 @@ namespace BusinessData.ofPresentationLayer.ofDTOServices
 
                 using var responseStream =
                     await response.Content.ReadAsStreamAsync();
+
+                var newUploadResults = await JsonSerializer
+                    .DeserializeAsync<IList<UploadResult>>(responseStream, options);
+
+                Console.WriteLine(newUploadResults);
             }
 
             string JsonIdentityUserDTO = await httpResponseMessage.Content.ReadAsStringAsync();
