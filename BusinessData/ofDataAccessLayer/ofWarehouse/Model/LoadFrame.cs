@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
     [Relation(typeof(LoadFrame), "LF")]
     public class LoadFrame : Entity
     {

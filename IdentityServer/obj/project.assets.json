@@ -1488,6 +1488,7 @@
         "dependencies": {
           "AutoMapper": "11.0.1",
           "Azure.Storage.Blobs": "12.10.0",
+          "FluentValidation": "11.0.1",
           "Microsoft.AspNetCore.Authorization": "6.0.2",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
           "Microsoft.AspNetCore.Http": "2.2.2",

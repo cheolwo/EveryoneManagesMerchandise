@@ -31,4 +31,12 @@
     <ProjectReference Include="..\..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controller\ofForwarder\" />
+    <Folder Include="Controller\ofLogister\" />
+    <Folder Include="Controller\ofOrderer\" />
+    <Folder Include="Controller\ofProducter\" />
+    <Folder Include="Controller\ofSeller\" />
+  </ItemGroup>
+
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofMarket.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
@@ -20,7 +21,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
         public const string DetailofMCommodity = "DetailofMCommodity";
         public const string Option = "Option";
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles = "Admin_Market")]
     [Relation(typeof(Market), "M")]
     public class Market : Center, IRelatedCenter

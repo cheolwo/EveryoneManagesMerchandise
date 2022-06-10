@@ -5,10 +5,15 @@ using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using NMemory.Data;
 using System.Collections.Generic;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
+using BusinessData.ofPresentationLayer.ofDTOContext;
+using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
 {
     [HttpDTOService(typeof(MarketDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class MarketDTO : CenterDTO
     {
         [Query(QueryCode.String)][View(ViewMode.Get)]public string NameofMarket { get; set; }
@@ -19,6 +24,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
         [Query(QueryCode.With)][Many(ViewNameofMarket.EMCommodity, typeof(List<EMCommodity>))]public string? EMCommodities {get; set;}
     }
     [HttpDTOService(typeof(PlatMarketDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class PlatMarketDTO : CenterDTO
     {
         [Query(QueryCode.String)][View(ViewMode.Get)]public string? NameofPlatForm {get; set;}
@@ -29,6 +36,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofMarket.PMMCommodity, typeof(List<PMMCommodity>))] public string? PMMCommodities {get; set;}
     }
     [HttpDTOService(typeof(MCommodityDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class MCommodityDTO : CommodityDTO
     {
         [Query(QueryCode.With)][One(ViewNameofMarket.Market, typeof(Market))]public string? Market {get; set;}
@@ -39,6 +48,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
         [Query(QueryCode.With)][Many(ViewNameofMarket.EMCommodity, typeof(List<EMCommodity>))]public string? EMCommodities {get; set;}
     }
     [HttpDTOService(typeof(SMCommodityDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class SMCommodityDTO : SStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofMarket.MCommodity, typeof(MCommodity))]public string? MCommodity {get; set;}
@@ -47,6 +58,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
         [Query(QueryCode.String)][View(ViewMode.Get)]public string? SWCommodityId {get; set;}
     }
     [HttpDTOService(typeof(MMCommodityDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class MMCommodityDTO : MStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofMarket.PlatMarket, typeof(PlatMarket))]public string? PlatMarket {get; set;}
@@ -57,6 +70,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofMarket.SMCommodity, typeof(SMCommodity))]public string? SMCommodity {get; set;}
     }
     [HttpDTOService(typeof(EMCommodityDTOService))]
+    [DTOContext(typeof(MarketDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class EMCommodityDTO : EStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofMarket.MCommodity, typeof(MCommodity))]public string? MCommodity {get; set;}

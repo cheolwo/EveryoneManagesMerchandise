@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofMarket.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
 {
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles ="Admin_Market")]
     [Relation(typeof(PlatMarket), "P")]   
     public class PlatMarket : Center, IRelatedRoles
@@ -43,7 +44,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
             return HashCode.Combine(Id);
         }
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Relation(typeof(Market), "PMM")]
     public class PMMCommodity : Entity, IRelatedRoles
     {
@@ -83,7 +84,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
             return hash.ToHashCode();
         }
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(MCommodity), "MM")]
     public class MCommodity : Commodity,  IRelatedCenter
@@ -110,7 +111,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
             return Market;
         }
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(SMCommodity), "MMS")]
     public class SMCommodity : SStatus, IRelatedCenter
@@ -147,7 +148,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
             return Market;
         }
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(MMCommodity), "MMM")]
     public class MMCommodity : MStatus, IRelatedCenter
@@ -185,7 +186,7 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofModel
             return HashCode.Combine(Id);
         }
     }
-    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection)]
+    [DataContext(typeof(MarketDbContext), DbConnectionString.MarketDbConnection, typeof(MarketDataContext))]
     [Authorize(Roles ="Admin_Market, Employee_Market")]
     [Relation(typeof(EMCommodity), "MME")]
     public class EMCommodity : EStatus,  IRelatedCenter

@@ -4,6 +4,10 @@ using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System.Collections.Generic;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofDTOContext;
+using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
+using BusinessView.ofUser.ofCommon;
+
 namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
 {
     public static class ViewNameofWarehouse
@@ -21,6 +25,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         public const string LoadFrameTag = "적재태그";
     }
     [HttpDTOService(typeof(WarehouseDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class WarehouseDTO : CenterDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.WCommodity, typeof(List<WCommodity>))] public string? WCommodities { get; set; }
@@ -34,6 +40,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.IncomingTag, typeof(List<IncomingTag>))] public string? IncomingTags { get; set; }
     }
     [HttpDTOService(typeof(WCommodityDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class WCommodityDTO : CommodityDTO
     {
         [Query(QueryCode.String)][View(ViewMode.Get)] public string? Type { get; set; }
@@ -50,6 +58,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     [HttpDTOService(typeof(SWCommodityDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class SWCommodityDTO : SStatusDTO
     {
         [Query(QueryCode.Int)][View(ViewMode.Get)] public int IncomingQuantity { get; set; }
@@ -59,6 +69,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     [HttpDTOService(typeof(MWCommodityDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class MWCommodityDTO : MStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofWarehouse.EWCommodity, typeof(List<EWCommodity>))] public string? EWCommodities { get; set; }
@@ -68,6 +80,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofWarehouse.WCommodity, typeof(WCommodity))] public string? WCommodity { get; set; }
     }
     [HttpDTOService(typeof(EWCommodityDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class EWCommodityDTO : EStatusDTO
     {
         [Query(QueryCode.Int)][View(ViewMode.Get)] public int OutgoingQuantity { get; set; }
@@ -76,6 +90,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.MWCommodity, typeof(MWCommodity))] public string? MWCommodity { get; set; }
     }
     [HttpDTOService(typeof(DividedTagDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class DividedTagDTO : EntityDTO
     {
         [Query(QueryCode.Bool)][View(ViewMode.Get)] public bool Attached { get; set; }
@@ -85,11 +101,15 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][One(ViewNameofWarehouse.Warehouse, typeof(Warehouse))] public string? Warehouse { get; set; }
     }
     [HttpDTOService(typeof(DotBarcodeDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class DotBarcodeDTO : EntityDTO
     {
 
     }
     [HttpDTOService(typeof(IncomingTagDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class IncomingTagDTO : EntityDTO
     {
         [Query(QueryCode.ForeignKey)][View(ViewMode.Get)] public string? SWCommodityId { get; set; }
@@ -98,12 +118,16 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse
         [Query(QueryCode.With)][View(ViewMode.Get)][Many(ViewNameofWarehouse.DividedTag, typeof(List<DividedTag>))] public string? DividedTags { get; set; }
     }
     [HttpDTOService(typeof(LoadFrameDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class LoadFrameDTO : EntityDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(List<MWCommodity>))]public string? MWCommodities { get; set; }
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(Warehouse))]public string? Warehouse { get; set; }
     }
     [HttpDTOService(typeof(WorkingDeskDTOService))]
+    [DTOContext(typeof(WarehouseDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class WorkingDeskDTO : EntityDTO
     {
         [Query(QueryCode.Bool)]public bool IsUsed { get; set; }

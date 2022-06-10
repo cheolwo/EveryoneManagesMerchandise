@@ -2,10 +2,15 @@ using BusienssData.ofPresentationLayer.ofController.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System.ComponentModel.DataAnnotations;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofJournal;
+using BusinessData.ofPresentationLayer.ofDTOContext;
+using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal
 {
     [HttpDTOService(typeof(JournalCenterDTOService))]
+    [DTOContext(typeof(JournalDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class JournalCenterDTO : CenterDTO
     {
         [Query(QueryCode.String)][Required] public string? b_no { get; set; } // 사업자등록번호
@@ -50,6 +55,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal
         [Query(QueryCode.String)]public string? HeadOfficeFax {get; set;}
     }
     [HttpDTOService(typeof(JournalDTOService))]
+    [DTOContext(typeof(JournalDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class JournalDTO : EntityDTO
     {   
         public string? Debits { get; set; }         // Json 으로 처리한다.
@@ -58,6 +65,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal
         public string? JCommodity {get; set;}
     }
     [HttpDTOService(typeof(JCommodityDTOService))]
+    [DTOContext(typeof(JournalDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class JCommodityDTO : CommodityDTO
     {
         public string? OCommodityNo { get; set; }

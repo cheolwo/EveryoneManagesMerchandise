@@ -7,7 +7,11 @@ using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 
 namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
 {
-    public interface IEntityIdFactory<TEntity> where TEntity : Entity
+    public interface IEntityIdFactory
+    {
+
+    }
+    public interface IEntityIdFactory<TEntity> : IEntityIdFactory where TEntity : Entity
     {
         Task<string> CreateIdByRelationEntity(TEntity entity);
         Task<string> CreateAsync(TEntity entity);

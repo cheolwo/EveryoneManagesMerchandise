@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[12.10.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "Microsoft.AspNetCore.Authorization": {
               "target": "Package",
               "version": "[6.0.2, )"

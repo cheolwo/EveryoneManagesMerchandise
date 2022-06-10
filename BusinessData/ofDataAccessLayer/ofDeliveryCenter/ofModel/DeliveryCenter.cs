@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofDbContext;
+using BusinessLogic.ofDataContext.ofBusiness;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
@@ -15,12 +17,12 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
         public const string SDCommodity = "입고상품";
         public const string MDCommodity = "적재상품";
         public const string EDCommodity = "출고상품";
-        public const string LoadFrame = "적재대";
+        public const string LoadFrame = "적재대";  
         public const string IncomingTag = "입고태그";
         public const string DividedTag = "분할태그";
         public const string DotBarcode ="도트태그";
     }
-    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
+    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection, typeof(DeliveryDataContext))]
     [Authorize(Roles = "Admin_DeliverCenter")]
     [Relation(typeof(DeliveryCenter), "D")]
     public class DeliveryCenter : Center, IRelatedCenter, IRelatedRoles
@@ -60,7 +62,7 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
             return this;
         }
     }
-    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
+    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection, typeof(DeliveryDataContext))]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(DCommodity), "DD")]
     public class DCommodity : Commodity, IRelatedCenter, IRelatedRoles
@@ -93,7 +95,7 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
         }
     }
 
-    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
+    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection, typeof(DeliveryDataContext))]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(SDCommodity), "DDS")]
     public class SDCommodity : SStatus, IRelatedCenter, IRelatedRoles
@@ -124,7 +126,7 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
             return HashCode.Combine(Id);
         }
     }
-    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
+    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection, typeof(DeliveryDataContext))]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(MDCommodity), "DDM")] 
     public class MDCommodity : MStatus, IRelatedRoles
@@ -142,7 +144,7 @@ namespace BusinessData.ofDataAccessLayer.ofDeliveryCenter.ofModel
             DeliveryCenter = new();
         }
     }
-    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection)]
+    [DataContext(typeof(DeliveryDbContext), DbConnectionString.DeliveryDbConnection, typeof(DeliveryDataContext))]
     [Authorize(Roles ="Admin_DeliveryCenter, Employee_DeliveryCenter")]
     [Relation(typeof(EDCommodity), "DDE")]
     public class EDCommodity : EStatus,  IRelatedRoles

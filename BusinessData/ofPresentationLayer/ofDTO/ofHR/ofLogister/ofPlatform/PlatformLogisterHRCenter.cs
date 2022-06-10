@@ -1,0 +1,26 @@
+﻿using BusinessView.ofUser.ofCommon;
+using BusinessView.ofUser.ofPlatform;
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofHR.ofLogister.ofPlatform
+{
+    [ActorContext(typeof(PlatformLogisterContext))]
+    public class PlatformLogisterHRCenter : LogisterHRCenter
+    {
+    }
+    [ActorContext(typeof(PlatformLogisterContext))]
+    public class PlatformLogisterHRBusinessPart : LogisterHRBusinessPart
+    {
+    }
+    [ActorContext(typeof(PlatformLogisterContext))]
+    public class PlatformLogisterHREmployee : LogisterHREmployee
+    {
+    }
+    [ActorContext(typeof(PlatformLogisterContext))]
+    public class PlatformLogisterHRRole : LogisterHRRole
+    {
+    }
+    [ActorContext(typeof(PlatformLogisterContext))]
+    public class PlatformLogisterPlatformRole : LogisterEmployeeRole
+    {
+    }
+}

@@ -22,4 +22,12 @@
     <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\ofForwarder\" />
+    <Folder Include="Controllers\ofLogister\" />
+    <Folder Include="Controllers\ofOrderer\" />
+    <Folder Include="Controllers\ofProducter\" />
+    <Folder Include="Controllers\ofSeller\" />
+  </ItemGroup>
+
 </Project>

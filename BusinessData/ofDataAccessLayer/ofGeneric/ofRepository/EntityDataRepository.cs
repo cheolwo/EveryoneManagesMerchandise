@@ -8,7 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
 {
-    public interface IEntityDataRepository<TEntity> where TEntity : Entity
+    public interface IEntityDataRepository
+    {
+
+    }
+    public interface IEntityDataRepository<TEntity> : IEntityDataRepository where TEntity : Entity
     {
         // 기본
         Task<List<TEntity>> GetToListAsync();

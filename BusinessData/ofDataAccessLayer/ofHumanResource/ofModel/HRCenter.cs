@@ -1,6 +1,7 @@
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
 using BusinessData.ofDataAccessLayer.ofCommon.ofInterface;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofHR.ofDbContext;
 using Microsoft.AspNetCore.Authorization;
 using System;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 
 namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
 {
-    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
+    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection, typeof(HRDataContext))]
     [Authorize(Roles ="Admin_HR, Employee_HR")]
     [Relation(typeof(HRCenter), "HR")]
     public class HRCenter : Center, IRelatedCenter, IRelatedRoles, IComparable
@@ -47,7 +48,7 @@ namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
         public bool Delete {get; set;}
         public bool Get {get; set;}
     }
-    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
+    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection, typeof(HRDataContext))]
     [Authorize(Roles ="Admin_HR, Employee_HR")]
     [Relation(typeof(HRBusinessPart), "HRE")]
     public class HRBusinessPart : Entity
@@ -56,7 +57,7 @@ namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
         public HRCenter HRCenter {get; set;}
        
     }
-    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
+    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection, typeof(HRDataContext))]
     [Authorize(Roles ="Admin_HR, Employee_HR")]
     [Relation(typeof(HREmployee), "HRE")]
     public class HREmployee : Entity, IRelatedCenter, IRelatedRoles, IComparable
@@ -75,7 +76,7 @@ namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
         }
        
     }
-    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
+    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection, typeof(HRDataContext))]
     [Authorize(Roles ="Admin_HR, Employee_HR")]
     [Relation(typeof(HRCenter), "HRR")]
     public class HRRole : Entity, IRelatedCenter, IRelatedRoles, IComparable
@@ -92,7 +93,7 @@ namespace BusinessData.ofDataAccessLayer.ofHumanResource.ofModel
         }
        
     }
-    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection)]
+    [DataContext(typeof(HRDbContext), DbConnectionString.HRDbConnection, typeof(HRDataContext))]
     [Authorize(Roles ="Admin_HR, Employee_HR")]
     [Relation(typeof(HRCenter), "HRER")]
     public class EmployeeRole : Entity, IRelatedCenter, IRelatedRoles, IComparable

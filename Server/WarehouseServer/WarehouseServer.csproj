@@ -25,6 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\ofForwarder\" />
+    <Folder Include="Controllers\ofSeller\" />
+    <Folder Include="Controllers\ofProducter\" />
+    <Folder Include="Controllers\ofLogister\" />
+    <Folder Include="Controllers\ofOrderer\" />
     <Folder Include="Development\unsafe_uploads\" />
   </ItemGroup>
 

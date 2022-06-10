@@ -49,6 +49,7 @@
     <Folder Include="ofEntityDTOManager\ofProduct\" />
     <Folder Include="ofEntityDTOManager\ofTrade\" />
     <Folder Include="ofEntityDTOManager\ofWarehouse\" />
+    <Folder Include="ofExtensions\" />
   </ItemGroup>
 
   <ItemGroup>

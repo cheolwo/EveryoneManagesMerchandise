@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofOrder.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
@@ -15,7 +16,7 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
         public const string OrderGroup = "OrderGroup";
     }
     [Relation(typeof(OrderCenter), "O")]
-    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
+    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection, typeof(OrderDataContext))]
     public class OrderCenter : Center
     {
         public List<OCommodity> OCommodities {get; set;}
@@ -42,7 +43,7 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
         public const string Gram = "Gram";
     }
     public enum OrderType { SW, EW, SD, ED, SP, ST }
-    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
+    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection, typeof(OrderDataContext))]
     [Relation(typeof(OrderGroup), "OG")]
     public class OrderGroup : Entity
     {

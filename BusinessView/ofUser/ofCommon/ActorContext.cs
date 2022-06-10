@@ -1,11 +1,6 @@
 ﻿using BusinessData.ofPresendationLayer.ofDTOServices;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessView.ofCommon.ofServices;
-using BusinessView.ofDTO.ofCommon;
-using BusinessView.ofUser.ofCommon;
 using FluentValidation;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
 using NMemory.Tables;
 
 namespace BusinessView.ofUser.ofCommon

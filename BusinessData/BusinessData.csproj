@@ -79,6 +79,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -110,6 +111,8 @@
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofProduct\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofTrade\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofWarehouse\" />
+    <Folder Include="ofPresentationLayer\ofActorContext\ofBusiness\ofExtensions\" />
+    <Folder Include="ofPresentationLayer\ofActorContext\ofExtensions\" />
   </ItemGroup>
 
   <ItemGroup>

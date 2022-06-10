@@ -4,17 +4,32 @@ namespace BusinessData.ofDataAccessLayer.ofCommon.ofAttribute
 {
     public class DataContextAttribute : Attribute
     {
-        private Type _T;
+        private Type _dbContextType;
+        private Type _dataContextType;
         private readonly string _DbConnectionString;
 
-        public DataContextAttribute(Type t, string dbConnectionString)
+        public DataContextAttribute(Type DbContextType, string dbConnectionString, Type DataContextType)
         {
-            _T = t;
+            _dbContextType = DbContextType;
             _DbConnectionString = dbConnectionString;
+            _dataContextType = DataContextType;
+        }
+        public DataContextAttribute(Type DbContextType, string dbConnectionString)
+        {
+            _dbContextType = DbContextType;
+            _DbConnectionString = dbConnectionString;
+        }
+        public Type _DbContextType
+        {
+            get => _dbContextType;
+        }
+        public Type _DataContextType
+        {
+            get => _dataContextType;
         }
         public Type GetDbContextType()
         {
-            return _T;
+            return _dbContextType;
         }
         public string GetDbConnectionString()
         {

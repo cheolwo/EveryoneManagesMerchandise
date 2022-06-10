@@ -2,11 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
     public class Transaction
    {
        [Key] public int Id {get; set;}

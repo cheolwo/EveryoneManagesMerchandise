@@ -1,15 +1,20 @@
 using BusienssData.ofPresentationLayer.ofController.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon;
-using BusinessData.ofDataAccessLayer.ofProduct;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer;
 using System;
 using System.Collections.Generic;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofDataAccessLayer.ofProduct.ofModel;
+using BusinessData.ofPresentationLayer.ofDTOContext;
+using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
+using BusinessView.ofUser.ofCommon;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
 {
     [HttpDTOService(typeof(EPCommodityDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class EPCommodityDTO : EStatusDTO
     {
         [Query(QueryCode.With)][One(ViewNameofProductCenter.PCommodity, typeof(PCommodity))] public string? PCommodity { get; set; }
@@ -18,6 +23,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][One(ViewNameofProductCenter.MPCommodity, typeof(MPCommodity))] public string? MPCommodity {get; set;}
     }
     [HttpDTOService(typeof(MPCommodityDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class MPCommodityDTO : MStatusDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(ViewNameofProductCenter.PCommodity, typeof(PCommodity))] public string? PCommodity { get; set; }
@@ -27,6 +34,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofProductCenter.EPCommodity, typeof(List<EPCommodity>))] public string? EPCommodities {get; set;}
     }
     [HttpDTOService(typeof(PCommodityDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class PCommodityDTO : CommodityDTO
     {
         [Query(QueryCode.String)][View(ViewMode.Detail)]public string? Category {get; set;}
@@ -38,6 +47,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][View(ViewMode.Detail)][One(typeof(Producter))]public string? Producter {get; set;} 
     }
     [HttpDTOService(typeof(ProductCenterDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class ProductCenterDTO : CenterDTO
     {
         public string? Producters {get; set;}
@@ -49,6 +60,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofProductCenter.EPCommodity, typeof(List<EPCommodity>))] public string? EPCommodities {get; set;}
     }
     [HttpDTOService(typeof(ProducterDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class ProducterDTO : CenterDTO
     {
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(List<ProductCenter>))]public string? ProductCenters { get; set; } 
@@ -58,6 +71,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(typeof(List<EPCommodity>))]public string? EPCommodities { get; set;}
     }
     [HttpDTOService(typeof(ProductLandDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class ProductLandDTO : EntityDTO
     {
         [Query(QueryCode.Time)][View(ViewMode.Get)]public DateTime? StartedTime {get; set;}
@@ -73,6 +88,8 @@ namespace BusinessData.ofPresentationLayer.ofDTO.ofProduct
         [Query(QueryCode.With)][View(ViewMode.Detail)][Many(ViewNameofProductCenter.MPCommodity, typeof(List<MPCommodity>))] public string? MPCommodities {get; set;}
     }
     [HttpDTOService(typeof(SPCommodityDTOService))]
+    [DTOContext(typeof(ProductDTOContext))]
+    [BusinessContext(typeof(OrdererContext), typeof(ForwarderContext), typeof(LogisterContext), typeof(SellerContext), typeof(ProducterContext))]
     public class SPCommodityDTO : SStatusDTO
     {
         [Query(QueryCode.Time)][View(ViewMode.Get)]public DateTime? StartedTime {get; set;}

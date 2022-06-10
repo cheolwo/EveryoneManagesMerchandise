@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofCommon.ofAttribute;
+using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 using BusinessData.ofDataAccessLayer.ofOrder.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
 {
     [Relation(typeof(OCommodity), "OO")]
-    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
+    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection, typeof(OrderDataContext))]
     public class OCommodity : Commodity
     {
         [Get] public string OrderId { get; set; } // 이거의 존재는 Order Table 이라는 테이블의 존재를 의미하는데..
