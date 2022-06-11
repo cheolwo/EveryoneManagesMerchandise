@@ -20,7 +20,21 @@
     <Folder Include="Controllers\ofOrderer\" />
     <Folder Include="Controllers\ofProducter\" />
     <Folder Include="Controllers\ofSeller\" />
-    <Folder Include="Controllers\RelationShip\" />
+    <Folder Include="Controllers\RelationShip\ofEmployee\ofForwarder\" />
+    <Folder Include="Controllers\RelationShip\ofEmployee\ofLogister\" />
+    <Folder Include="Controllers\RelationShip\ofEmployee\ofOrderer\" />
+    <Folder Include="Controllers\RelationShip\ofEmployee\ofProducter\" />
+    <Folder Include="Controllers\RelationShip\ofEmployee\ofSeller\" />
+    <Folder Include="Controllers\RelationShip\ofEmployer\ofForwarder\" />
+    <Folder Include="Controllers\RelationShip\ofEmployer\ofLogister\" />
+    <Folder Include="Controllers\RelationShip\ofEmployer\ofOrderer\" />
+    <Folder Include="Controllers\RelationShip\ofEmployer\ofProducter\" />
+    <Folder Include="Controllers\RelationShip\ofEmployer\ofSeller\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofForwarder\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofLogister\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofOrderer\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofProducter\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofSeller\" />
   </ItemGroup>
 
 </Project>

@@ -24,11 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ofForwarder\" />
-    <Folder Include="Controllers\ofLogister\" />
-    <Folder Include="Controllers\ofOrderer\" />
-    <Folder Include="Controllers\ofProducter\" />
-    <Folder Include="Controllers\ofSeller\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofForwarder\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofLogister\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofOrderer\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofProducter\" />
+    <Folder Include="Controllers\RelationShip\ofPlatform\ofSeller\" />
   </ItemGroup>
 
 </Project>
