@@ -41,6 +41,10 @@ else
     builder.Services.AddDbContext<HRDbContext>(options =>
            options.UseSqlServer(HRDbConnectionString));
 }
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:4455";
+});
 // Add services to the container.
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

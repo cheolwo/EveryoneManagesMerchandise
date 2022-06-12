@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessData.ofPresentationLayer.ofDTOServices;
+using System;
 
 namespace BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse
 {

@@ -21,6 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -29,29 +30,6 @@
     <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj" />
     <ProjectReference Include="..\..\BusinessRazor\BusinessRazor.csproj" />
     <ProjectReference Include="..\..\BusinessView\BusinessView.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controller\ofForwarder\" />
-    <Folder Include="Controller\ofLogister\" />
-    <Folder Include="Controller\ofOrderer\" />
-    <Folder Include="Controller\ofProducter\" />
-    <Folder Include="Controller\ofSeller\" />
-    <Folder Include="Controller\RelationShip\ofEmployee\ofForwarder\" />
-    <Folder Include="Controller\RelationShip\ofEmployee\ofLogister\" />
-    <Folder Include="Controller\RelationShip\ofEmployee\ofOrderer\" />
-    <Folder Include="Controller\RelationShip\ofEmployee\ofProducter\" />
-    <Folder Include="Controller\RelationShip\ofEmployee\ofSeller\" />
-    <Folder Include="Controller\RelationShip\ofEmployer\ofForwarder\" />
-    <Folder Include="Controller\RelationShip\ofEmployer\ofLogister\" />
-    <Folder Include="Controller\RelationShip\ofEmployer\ofOrderer\" />
-    <Folder Include="Controller\RelationShip\ofEmployer\ofProducter\" />
-    <Folder Include="Controller\RelationShip\ofEmployer\ofSeller\" />
-    <Folder Include="Controller\RelationShip\ofPlatform\ofForwarder\" />
-    <Folder Include="Controller\RelationShip\ofPlatform\ofLogister\" />
-    <Folder Include="Controller\RelationShip\ofPlatform\ofOrderer\" />
-    <Folder Include="Controller\RelationShip\ofPlatform\ofProducter\" />
-    <Folder Include="Controller\RelationShip\ofPlatform\ofSeller\" />
   </ItemGroup>
 
 </Project>

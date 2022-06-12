@@ -43,6 +43,10 @@ else
     builder.Services.AddDbContext<OrderDbContext>(options =>
  options.UseSqlServer(OrderDbConnectionString));
 }
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:4455";
+});
 
 builder.Services.AddScoped(typeof(IEntityManager<>), typeof(EntityManager<>));
 builder.Services.AddScoped(typeof(IEntityIdFactory<>), typeof(EntityIdFactory<>));

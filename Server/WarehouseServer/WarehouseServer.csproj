@@ -15,6 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -25,26 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\ofForwarder\" />
-    <Folder Include="Controllers\ofSeller\" />
-    <Folder Include="Controllers\ofProducter\" />
-    <Folder Include="Controllers\ofLogister\" />
-    <Folder Include="Controllers\ofOrderer\" />
-    <Folder Include="Controllers\RelationShip\ofEmployee\ofForwarder\" />
-    <Folder Include="Controllers\RelationShip\ofEmployee\ofLogister\" />
-    <Folder Include="Controllers\RelationShip\ofEmployee\ofOrderer\" />
-    <Folder Include="Controllers\RelationShip\ofEmployee\ofProducter\" />
-    <Folder Include="Controllers\RelationShip\ofEmployee\ofSeller\" />
-    <Folder Include="Controllers\RelationShip\ofEmployer\ofForwarder\" />
-    <Folder Include="Controllers\RelationShip\ofEmployer\ofLogister\" />
-    <Folder Include="Controllers\RelationShip\ofEmployer\ofOrderer\" />
-    <Folder Include="Controllers\RelationShip\ofEmployer\ofProducter\" />
-    <Folder Include="Controllers\RelationShip\ofEmployer\ofSeller\" />
-    <Folder Include="Controllers\RelationShip\ofPlatform\ofForwarder\" />
-    <Folder Include="Controllers\RelationShip\ofPlatform\ofLogister\" />
-    <Folder Include="Controllers\RelationShip\ofPlatform\ofOrderer\" />
-    <Folder Include="Controllers\RelationShip\ofPlatform\ofProducter\" />
-    <Folder Include="Controllers\RelationShip\ofPlatform\ofSeller\" />
     <Folder Include="Development\unsafe_uploads\" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ using BusinessData.ofPresentationLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessLogic.oEntityDTOManager.ofGeneric;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,9 +17,7 @@ namespace BusienssLogic.ofController.ofGeneric
     // Rouing은 구체적인 이름이 붙어야 돼.
     public interface IEntityDTOController<DTO> where DTO : EntityDTO, new()
     {
-        Task<ActionResult<DTO>> GetById(string id);
         Task<IEnumerable<DTO>> GetByDTO([FromBody]EntityQuery<DTO> query);
-        Task<IEnumerable<DTO>> GetAlls();
         Task<ActionResult<DTO>> Post([FromBody]DTO dto);
         Task<ActionResult<DTO>> Put([FromBody]DTO dto);
         Task Delete(string id);
@@ -28,15 +27,15 @@ namespace BusienssLogic.ofController.ofGeneric
     public class EntityDTOController<DTO, Model> : ControllerBase, IEntityDTOController<DTO> where DTO : EntityDTO, new() where Model : Entity, new()
     {
         protected readonly ILogger<DTO> _logger;
-        protected readonly IEntityDTOManager<DTO, Model> _entityManager;
         protected readonly IConfiguration _configuration;
+        protected readonly IDistributedCache _distributedCache;
 
-        public EntityDTOController(ILogger<DTO> logger, IEntityDTOManager<DTO, Model> entityManager,
-                                        IConfiguration configuration)
+        public EntityDTOController(ILogger<DTO> logger,
+                                        IConfiguration configuration, IDistributedCache distributedCache)
         {
             _logger = logger;
-            _entityManager = entityManager;
             _configuration = configuration;
+            _distributedCache = distributedCache;
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<DTO>> GetById(string id)

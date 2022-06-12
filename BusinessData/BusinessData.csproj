@@ -111,6 +111,13 @@
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofProduct\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofTrade\" />
     <Folder Include="ofDataAccessLayer\ofEntityDTORepository\ofWarehouse\" />
+    <Folder Include="ofEntityDTOManager\ofHR\" />
+    <Folder Include="ofEntityDTOManager\ofJournal\" />
+    <Folder Include="ofEntityDTOManager\ofMarket\" />
+    <Folder Include="ofEntityDTOManager\ofOrder\" />
+    <Folder Include="ofEntityDTOManager\ofProduct\" />
+    <Folder Include="ofEntityDTOManager\ofTrade\" />
+    <Folder Include="ofEntityDTOManager\ofWarehouse\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofBusiness\ofExtensions\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofExtensions\" />
   </ItemGroup>
