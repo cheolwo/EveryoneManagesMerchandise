@@ -118,6 +118,14 @@
     <Folder Include="ofEntityDTOManager\ofProduct\" />
     <Folder Include="ofEntityDTOManager\ofTrade\" />
     <Folder Include="ofEntityDTOManager\ofWarehouse\" />
+    <Folder Include="ofExternalLayer\ofGroupOrder\" />
+    <Folder Include="ofExternalLayer\ofHR\" />
+    <Folder Include="ofExternalLayer\ofJournal\" />
+    <Folder Include="ofExternalLayer\ofMarket\" />
+    <Folder Include="ofExternalLayer\ofOrder\" />
+    <Folder Include="ofExternalLayer\ofProduct\" />
+    <Folder Include="ofExternalLayer\ofTrade\" />
+    <Folder Include="ofExternalLayer\ofWarehouse\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofBusiness\ofExtensions\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofExtensions\" />
   </ItemGroup>

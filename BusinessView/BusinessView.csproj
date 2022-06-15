@@ -49,4 +49,15 @@
 	<ItemGroup>
 		<ProjectReference Include="..\BusinessData\BusinessData.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ofViewModelFile\ofCommon\" />
+	  <Folder Include="ofViewModelFile\ofGroupOrder\" />
+	  <Folder Include="ofViewModelFile\ofHR\" />
+	  <Folder Include="ofViewModelFile\ofJournal\" />
+	  <Folder Include="ofViewModelFile\ofMarket\" />
+	  <Folder Include="ofViewModelFile\ofOrder\" />
+	  <Folder Include="ofViewModelFile\ofProduct\" />
+	  <Folder Include="ofViewModelFile\ofTrade\" />
+	  <Folder Include="ofViewModelFile\ofWarehouse\" />
+	</ItemGroup>
 </Project>
