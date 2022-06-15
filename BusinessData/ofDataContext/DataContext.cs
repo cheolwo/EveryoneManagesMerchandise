@@ -21,11 +21,53 @@ namespace BusinessData.ofDataContext
             get => t;
         }
     }
+    // IServiceScopeFactory is always a Singleton but the IServiceProvider can vary based on the lifetime of the containing class.
+    /*
+        public class Singleton : ISingleton 
+        {
+            private readonly IServiceScopeFactory scopeFactory;
+
+            public Singleton(IServiceScopeFactory scopeFactory)
+            {
+                this.scopeFactory = scopeFactory;
+            }
+
+            public void MyMethod() 
+            {
+                using(var scope = scopeFactory.CreateScope()) 
+                {
+                    var db = scope.ServiceProvider.GetRequiredService<DbContext>();
+
+                    // when we exit the using block,
+                    // the IServiceScope will dispose itself 
+                    // and dispose all of the services that it resolved.
+                }
+            }
+        }
+    */
+    /*
+     Controller 에는 SeviceProvider 가 주입 되도록 한다.
+     그래야 Model 개체에서 확장 메서드를 통해 DataContext에 접근할 수 있기 때문이다.
+    */
+    /*
+        IMemoryCache(Singleton)
+        IServiceScopeFactory, ---> DbContext, BackUpDbContext
+        IServiceProvider ----> serviceProvider.GetRequiredService<DataContext>();
+        // 이 위에 DataContext 가 업무단위별로 달라지는 면이 있으니까 Warehouse, GroupOrder
+        등으로 나눠 논 것이지.
+    */
     public abstract class DataContext
     {
         protected EntityManagerBuilder entityManagerBuilder = new();
-        public DataContext()
+        protected readonly IMemoryCache _MemoryCache;
+        protected readonly IDistributedCache _DistributedCache;
+        protected readonly IServiceScopeFactory _ServiceScopeFactory;
+
+        public DataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory)
         {
+            _MemoryCache = memoryCache;
+            _DistributedCache = distributedCache;
+            _ServiceScopeFactory = serviceScopeFactory;
             OnConfigureEntityBlobStorage(entityManagerBuilder);
             OnConfigureEntityFile(entityManagerBuilder);
             OnConfigureEntityId(entityManagerBuilder);

@@ -17,9 +17,6 @@ https://blog.naver.com/powerqkrcjfd
 
 ## Architecture 및 .Net Standard Project
 ![image](https://user-images.githubusercontent.com/25167316/169029960-f31c30f9-9381-4f6c-9f8a-b0a5f756755a.png)
-1. DataAcceLayer - BusinessData
-2. BusinessLogicLayer - BusinessLogic
-3. Presentation Layer - BusinessView
 
 ## 공통모듈
 BusinessData 프로젝트 안에 포함하는 모듈들은 주로 BusinessLogic.EntityManager 라는 모듈이 포함합니다.

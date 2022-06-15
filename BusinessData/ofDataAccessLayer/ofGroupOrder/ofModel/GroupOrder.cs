@@ -6,6 +6,9 @@ using BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel
 {
+    // DataContext,
+    // DbContext
+    // BakcUpDbContext
     [Relation(typeof(GOC), nameof(GOC))]
     [DataContext(typeof(GODbContext), DbConnectionString.OrderDbConnection, typeof(GroupOrderDataContext))]
     public class GOC : Center
