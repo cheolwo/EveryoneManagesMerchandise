@@ -11,15 +11,15 @@ using System.Linq;
 
 namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext
 {
-    public class GODbContext : DbContext
+    public class GroupOrderDbContext : DbContext
     {
         private string _connectionstring;
-        public GODbContext(DbContextOptions<GODbContext> options)
+        public GroupOrderDbContext(DbContextOptions<GroupOrderDbContext> options)
             :base(options)
         {
 
         }
-        public GODbContext(string connectionstring)
+        public GroupOrderDbContext(string connectionstring)
         {
             _connectionstring = connectionstring;
         }

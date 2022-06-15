@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace BusinessData.ofDataAccessLayer.ofHRMarket.ofModel
 {
     [Relation(typeof(HRMarket), "HRMarket")] 
+
     public class HRMarket : Center
     {
         public List<EmployeeMessage> EmployeeMessage { get; set; }

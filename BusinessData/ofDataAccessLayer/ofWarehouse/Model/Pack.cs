@@ -5,7 +5,9 @@ using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
+    [BackUpDbContext(typeof(BackUpWarehouseDbContext), DbConnectionString.BackUpWarehouseDbConnection)]
+    [DbContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDataContext))]
     public class Pack : Entity
     {
         public string Material { get; set; }

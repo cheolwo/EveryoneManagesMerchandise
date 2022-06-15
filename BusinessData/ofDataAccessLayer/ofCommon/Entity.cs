@@ -30,6 +30,23 @@ namespace BusinessData.ofDataAccessLayer.ofCommon
         public const string BusinessUserDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BusinessUserDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
         public const string OrderDbconnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=OrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
         public const string SmartFarmDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=SmartFarmDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+
+        public const string BackUpWarehouseDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpWarehouseDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpHRDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpHRDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpDeliveryDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpDeliveryDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpMarketDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpMarketDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpJournalDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpJournalDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpOrderDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpOrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpGroupOrderDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpGroupOrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpProductDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpProductDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpTradeDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpTradeDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpHsDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpHsDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpKamisDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpKamisDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpKAptDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpKAptDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpFisheriesDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpFisheriesDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpBusinessUserDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpBusinessUserDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpOrderDbconnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpOrderDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
+        public const string BackUpSmartFarmDbConnection = "Server=tcp:planlogisticsserver.database.windows.net,1433;Initial Catalog=BackUpSmartFarmDb;Persist Security Info=False;User ID=powerqkrcjfd;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=100";
     }
     public static class DevelopmentDbConnetionString
     {
@@ -51,7 +68,69 @@ namespace BusinessData.ofDataAccessLayer.ofCommon
         public const string SmartFarmDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public const string IotDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=SmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public const string IdentityDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=IdentityDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        public const string BackUpWarehouseDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpWarehouseDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpHRDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpHRDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpDeliveryDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpDeliveryDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpMarketDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpMarketDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpJournalDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpJournalDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpOrderDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpOrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpGroupOrderDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpGroupOrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpProductDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpProductDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpTradeDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpTradeDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpHsDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpHsDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpKamisDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpKamisDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpKAptDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpKAptDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpFisheriesDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpFisheriesDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpBusinessUserDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpBusinessUserDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpOrderDbconnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpOrderDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpSmartFarmDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpSmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpIotDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpSmartFarmDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string BackUpIdentityDbConnection = "Data Source=DESKTOP-HKC31JI\\SQLEXPRESS;Initial Catalog=BackUpIdentityDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class DbContextAttribute : Attribute
+    {
+        private Type _t;
+        private string _dbConnectionsString;
+        public DbContextAttribute(Type t, string DbConnectionsString)
+        {
+            _t = t;
+            _dbConnectionsString = DbConnectionsString;
+        }
+        public Type t
+        {
+            get => _t;
+        }
+        public string DbConnectionString
+        {
+            get => _dbConnectionsString;
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class BackUpDbContextAttribute : Attribute
+    {
+        private Type _t;
+        private string _dbConnectionsString;
+        public BackUpDbContextAttribute(Type t, string dbConnectionsString)
+        {
+            _t = t;
+            _dbConnectionsString = dbConnectionsString;
+        }
+        public Type t
+        {
+            get => _t;
+        }
+        public string DbConnectionString
+        {
+            get => _dbConnectionsString;
+
+        }
+    }
+
+     [AttributeUsage(AttributeTargets.Property)]
     public class OneAttribute : Attribute
     {     
         public string Name { get; set; }
@@ -75,6 +154,8 @@ namespace BusinessData.ofDataAccessLayer.ofCommon
             _t = t;
         }
     }
+
+    [AttributeUsage(AttributeTargets.Property)]
     public class ManyAttribute : Attribute
     {
         public string Name { get; set; }

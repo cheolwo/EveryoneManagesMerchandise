@@ -12,7 +12,9 @@ using Microsoft.AspNetCore.Authorization;
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
 
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
+    [BackUpDbContext(typeof(BackUpWarehouseDbContext), DbConnectionString.BackUpWarehouseDbConnection)]
+    [DbContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDataContext))]
     [Authorize(Roles ="Admin_Warehouse, Employee_Warehouse")]
     [Relation(typeof(Warehouse), "WW")] 
     public class WCommodity : Commodity, IRelatedCenter, IRelatedRoles, IBarcodable

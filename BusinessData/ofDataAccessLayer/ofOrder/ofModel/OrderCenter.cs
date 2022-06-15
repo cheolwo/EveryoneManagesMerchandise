@@ -16,7 +16,9 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
         public const string OrderGroup = "OrderGroup";
     }
     [Relation(typeof(OrderCenter), "O")]
-    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection, typeof(OrderDataContext))]
+    [BackUpDbContext(typeof(BackUpOrderDbContext), DbConnectionString.BackUpOrderDbConnection)]
+    [DbContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
+    [DataContext(typeof(OrderDataContext))]
     public class OrderCenter : Center
     {
         public List<OCommodity> OCommodities {get; set;}
@@ -43,7 +45,9 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofModel
         public const string Gram = "Gram";
     }
     public enum OrderType { SW, EW, SD, ED, SP, ST }
-    [DataContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection, typeof(OrderDataContext))]
+    [BackUpDbContext(typeof(BackUpOrderDbContext), DbConnectionString.BackUpOrderDbConnection)]
+    [DbContext(typeof(OrderDbContext), DbConnectionString.OrderDbConnection)]
+    [DataContext(typeof(OrderDataContext))]
     [Relation(typeof(OrderGroup), "OG")]
     public class OrderGroup : Entity
     {

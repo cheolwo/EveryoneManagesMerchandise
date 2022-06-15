@@ -5,7 +5,9 @@ using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
 {
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
+    [BackUpDbContext(typeof(BackUpWarehouseDbContext), DbConnectionString.BackUpWarehouseDbConnection)]
+    [DbContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDataContext))]
     [Relation(typeof(WorkingDesk), "WD")]
     public class WorkingDesk : Entity
     {
@@ -17,7 +19,9 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
         public bool IsUsed {get; set;}
         public Warehouse Warehouse {get; set;}
     }
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [BackUpDbContext(typeof(BackUpWarehouseDbContext), DbConnectionString.BackUpWarehouseDbConnection)]
+    [DbContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDataContext))]
     public class DotBarcode : Entity
     {
         public DotBarcode()

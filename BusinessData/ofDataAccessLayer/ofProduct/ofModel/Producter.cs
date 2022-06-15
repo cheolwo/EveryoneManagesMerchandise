@@ -9,7 +9,9 @@ using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 
 namespace BusinessData.ofDataAccessLayer.ofProduct.ofModel
 {
-    [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection, typeof(ProductDataContext))]
+    [BackUpDbContext(typeof(BackUpProductDbContext), DbConnectionString.BackUpProductDbConnection)]
+    [DbContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
+    [DataContext(typeof(ProductDataContext))]
     [Relation(typeof(Producter), "Producter")]
     public class Producter : Center
     {

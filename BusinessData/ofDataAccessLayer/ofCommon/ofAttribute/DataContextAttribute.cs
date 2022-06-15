@@ -19,6 +19,10 @@ namespace BusinessData.ofDataAccessLayer.ofCommon.ofAttribute
             _dbContextType = DbContextType;
             _DbConnectionString = dbConnectionString;
         }
+        public DataContextAttribute(Type DataContextType)
+        {
+            _dataContextType = DataContextType;
+        }
         public Type _DbContextType
         {
             get => _dbContextType;

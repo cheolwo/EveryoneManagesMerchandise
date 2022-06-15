@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 namespace BusinessData.ofDataAccessLayer.ofJournal.Model
 {
-    [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection, typeof(JournalDataContext))]
+    [BackUpDbContext(typeof(BackUpJournalDbContext), DbConnectionString.BackUpJournalDbConnection)]
+    [DbContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
+    [DataContext(typeof(JournalDataContext))]
     public class UserSettingJournal : Entity
     {
         public string EntityTypeName {get; set;}
@@ -88,7 +90,9 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.Model
         public JournalCenter JournalCenter {get; set;}
     }
     [Relation(typeof(JournalCenter), "JournalCenter")]
-    [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection, typeof(JournalDataContext))]
+    [BackUpDbContext(typeof(BackUpJournalDbContext), DbConnectionString.BackUpJournalDbConnection)]
+    [DbContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
+    [DataContext(typeof(JournalDataContext))]
     public class JournalCenter : Center
     {
         [Required] public string b_no { get; set; } // 사업자등록번호
@@ -143,8 +147,10 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.Model
             //UserSettingJournals = new();
         }
     }
-    
-    [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection, typeof(JournalDataContext))]
+
+    [BackUpDbContext(typeof(BackUpJournalDbContext), DbConnectionString.BackUpJournalDbConnection)]
+    [DbContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
+    [DataContext(typeof(JournalDataContext))]
     public class JCommodity : Commodity
     {
         public string CommodityNo { get; set; }
@@ -156,7 +162,9 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.Model
             JournalCenter = new();
         }
     }
-    [DataContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection, typeof(JournalDataContext))]
+    [BackUpDbContext(typeof(BackUpJournalDbContext), DbConnectionString.BackUpJournalDbConnection)]
+    [DbContext(typeof(JournalDbContext), DbConnectionString.JournalDbConnection)]
+    [DataContext(typeof(JournalDataContext))]
     public class Journal : Entity
     {
         public List<Debit> Debits { get; set; }         // Json 으로 처리한다.

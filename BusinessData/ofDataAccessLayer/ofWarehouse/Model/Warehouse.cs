@@ -26,7 +26,9 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.Model
         }
     }
 
-    [DataContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection, typeof(WarehouseDataContext))]
+    [BackUpDbContext(typeof(BackUpWarehouseDbContext), DbConnectionString.BackUpWarehouseDbConnection)]
+    [DbContext(typeof(WarehouseDbContext), DbConnectionString.WarehouseDbConnection)]
+    [DataContext(typeof(WarehouseDataContext))]
     [Authorize(Roles ="Admin_Warehouse")]
     [Relation(typeof(Warehouse), "W")] 
     public class Warehouse : Center, IRelatedCenter, IBarcodable

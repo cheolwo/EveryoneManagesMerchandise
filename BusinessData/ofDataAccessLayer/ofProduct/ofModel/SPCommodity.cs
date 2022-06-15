@@ -6,7 +6,9 @@ using BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness;
 
 namespace BusinessData.ofDataAccessLayer.ofProduct.ofModel
 {
-    [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection, typeof(ProductDataContext))]
+    [BackUpDbContext(typeof(BackUpProductDbContext), DbConnectionString.BackUpProductDbConnection)]
+    [DbContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
+    [DataContext(typeof(ProductDataContext))]
     [Relation(typeof(SPCommodity), "PLPS")]
     public class SPCommodity : SStatus
     {

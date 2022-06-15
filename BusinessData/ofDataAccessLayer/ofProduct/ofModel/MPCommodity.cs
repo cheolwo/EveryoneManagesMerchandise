@@ -7,7 +7,9 @@ using System.Collections.Generic;
 
 namespace BusinessData.ofDataAccessLayer.ofProduct.ofModel
 {
-    [DataContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection, typeof(ProductDataContext))]
+    [BackUpDbContext(typeof(BackUpProductDbContext), DbConnectionString.BackUpProductDbConnection)]
+    [DbContext(typeof(ProductDbContext), DbConnectionString.ProductDbConnection)]
+    [DataContext(typeof(ProductDataContext))]
     [Relation(typeof(MPCommodity), "PLPM")]
     public class MPCommodity : MStatus
     {
