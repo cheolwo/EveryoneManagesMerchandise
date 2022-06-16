@@ -1,18 +1,17 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using BusinessData.ofDataAccessLayer.ofMarket.ofRepository;
+using BusinessData.ofDataContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class MarketDataContext : DataContext
     {
-        public MarketDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public MarketDataContext(DataContextOptions dataContextOptions)
+            :base(dataContextOptions)
         {
         }
 
@@ -53,12 +52,45 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(Market), new EntityIdFactory<Market>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MCommodity), new EntityIdFactory<MCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(SMCommodity), new EntityIdFactory<SMCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MMCommodity), new EntityIdFactory<MMCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(EMCommodity), new EntityIdFactory<EMCommodity>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(Market), new MarketRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MCommodity), new MCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(SMCommodity), new SMCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MMCommodity), new MMCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(EMCommodity), new EMCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
         }
     }
 }

@@ -68,7 +68,11 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         {
             _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
-        
+        public CommodityDataRepository(Action<RepositoryOptions> options)
+            :base(options)
+        {
+
+        }
         public async Task<TEntity> GetByBarcodeAsync(string Barcode)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e=>e.Barcode.Equals(Barcode));

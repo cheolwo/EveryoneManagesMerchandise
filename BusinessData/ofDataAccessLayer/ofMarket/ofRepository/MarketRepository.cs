@@ -4,6 +4,7 @@ using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofEmployee;
 using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofEmployer;
 using BusinessData.ofDataAccessLayer.ofMarket.ofInterface.ofPlatform;
 using BusinessData.ofDataAccessLayer.ofMarket.ofModel;
+using System;
 
 namespace BusinessData.ofDataAccessLayer.ofMarket.ofRepository
 {
@@ -38,11 +39,21 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofRepository
         {
 
         }
+        public MarketRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class MCommodityRepository : CommodityDataRepository<MCommodity>, IMCommodityRepository, IEmployeeMCommodityRepository, IEmployerMCommodityRepository, IPlatformMCommodityRepository
     {
         public MCommodityRepository(MarketDbContext MarketDbContext)
                 : base(MarketDbContext)
+        {
+
+        }
+        public MCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -54,6 +65,11 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofRepository
         {
 
         }
+        public SMCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class MMCommodityRepository : StatusDataRepository<MMCommodity>, IMMCommodityRepository, IEmployeeMMCommodityRepository, IEmployerMMCommodityRepository, IPlatformMMCommodityRepository
     {
@@ -62,11 +78,21 @@ namespace BusinessData.ofDataAccessLayer.ofMarket.ofRepository
         {
 
         }
+        public MMCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class EMCommodityRepository : StatusDataRepository<EMCommodity>, IEMCommodityRepository, IEmployeeEMCommodityRepository, IEmployerEMCommodityRepository, IPlatformEMCommodityRepository
     {
         public EMCommodityRepository(MarketDbContext MarketDbContext)
                 : base(MarketDbContext)
+        {
+
+        }
+        public EMCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }

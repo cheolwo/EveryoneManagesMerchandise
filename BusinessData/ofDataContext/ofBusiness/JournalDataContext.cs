@@ -1,18 +1,17 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofJournal.Model;
+using BusinessData.ofDataAccessLayer.ofJournal.ofRepository;
+using BusinessData.ofDataContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class JournalDataContext : DataContext
     {
-        public JournalDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public JournalDataContext(DataContextOptions dataContextOptions)
+            :base(dataContextOptions)
         {
         }
 
@@ -53,12 +52,31 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(JournalCenter), new EntityIdFactory<JournalCenter>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(JCommodity), new EntityIdFactory<JCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(Journal), new EntityIdFactory<Journal>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(JournalCenter), new JournalCenterRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(Journal), new JournalRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(JCommodity), new JCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
         }
     }
 }

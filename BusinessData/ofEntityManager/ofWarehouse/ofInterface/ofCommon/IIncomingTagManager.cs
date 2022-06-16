@@ -1,5 +1,5 @@
 ﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
-using BusinessLogic.ofEntityManager.ofGeneric;
+using BusinessData.ofEntityManager.ofGeneric;
 
 namespace BusinessLogic.ofEntityManager.ofWarehouse.ofInterface.ofCommon
 {

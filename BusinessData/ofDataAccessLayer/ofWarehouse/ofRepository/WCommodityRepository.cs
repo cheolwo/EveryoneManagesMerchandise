@@ -6,6 +6,7 @@ using BusinessData.ofDataAccessLayer.ofWarehouse.ofDbContext;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
 using BusinessData.ofDataAccessLayer.ofWarehouse.ofInterface;
+using System;
 
 namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
 {
@@ -16,7 +17,10 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
-
+        public WCommodityRepository(Action<RepositoryOptions> options)
+        {
+           
+        }
         public async Task<List<WCommodity>> GetToListByWarehouseWithStatusAsync(Warehouse warehouse)
         {
             return await _DbContext.Set<WCommodity>()

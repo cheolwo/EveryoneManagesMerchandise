@@ -1,18 +1,17 @@
 ﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
+    /// <summary>
+    /// 예정
+    /// </summary>
     public class DeliveryDataContext : DataContext
     {
-        public DeliveryDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public DeliveryDataContext(DataContextOptions dataContextOptions)
+            :base(dataContextOptions)
         {
         }
 

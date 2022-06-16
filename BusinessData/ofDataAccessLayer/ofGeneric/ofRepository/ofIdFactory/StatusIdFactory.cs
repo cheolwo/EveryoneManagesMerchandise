@@ -1,5 +1,6 @@
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
@@ -15,6 +16,13 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
         {
 
         }
+        public StatusIdFactory() { }
+
+        public override Task<string> ConfigureIdAsync(Entity entity, DbContext dbContext, IEntityDataRepository entityDataRepository)
+        {
+            return base.ConfigureIdAsync(entity, dbContext, entityDataRepository);
+        }
+
         public override async Task<string> CreateIdByRelationEntity(TEntity entity)
         {
             return await base.CreateIdByRelationEntity(entity);

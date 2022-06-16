@@ -44,6 +44,11 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         {
             _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
+        public StatusDataRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+            
+        }
         public async Task<List<TEntity>> GetToListByCountryCode(string CountryCode)
         {
             List<TEntity> TEntityes = await GetToListWithCenterAsync();

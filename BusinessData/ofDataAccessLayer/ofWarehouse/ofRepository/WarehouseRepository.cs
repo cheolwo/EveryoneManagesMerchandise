@@ -17,6 +17,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public WarehouseRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
         public async Task<List<Warehouse>> GetToListByUserIdWithWCommodityAsync(string UserId)
         {
             List<Warehouse> Warehouses = await _DbContext.Set<Warehouse>()
@@ -59,7 +64,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public SWCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
 
+        }
         public async Task<List<SWCommodity>> GetToListByWCommodityWithStatusAsync(WCommodity wCommodity)
         {
             List<SWCommodity> SWCommodities = await _DbContext.Set<SWCommodity>()
@@ -83,6 +92,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public MWCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
         public async Task<List<MWCommodity>> GetToListByWarehouseAsync(Warehouse warehouse)
         {
             return await _DbContext.Set<MWCommodity>().Where(e => e.Warehouse.Equals(warehouse)).ToListAsync();
@@ -94,6 +108,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
     {
         public EWCommodityRepository(WarehouseDbContext WarehouseDbContext)
                 : base(WarehouseDbContext)
+        {
+
+        }
+        public EWCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -113,6 +132,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public WorkingDeskRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public interface IDotBarcodeRepository : IEntityDataRepository<DotBarcode>
     {
@@ -122,6 +146,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
     {
         public DotBarcodeRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)
+        {
+
+        }
+        public DotBarcodeRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -137,6 +166,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public IncomingTagRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public interface IDividedTagRepository : IEntityDataRepository<DividedTag>
     {
@@ -149,6 +183,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
         {
 
         }
+        public DividedTagRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public interface ILoadFrameRepository : IEntityDataRepository<LoadFrame>
     {
@@ -158,6 +197,11 @@ namespace BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository
     {
         public LoadFrameRepository(WarehouseDbContext warehouseDbContext)
             : base(warehouseDbContext)
+        {
+
+        }
+        public LoadFrameRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }

@@ -16,6 +16,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
             : base(entityDataRepository)
         {
         }
+        public CenterIdFactory() { }
         public override async Task<string> CreateIdByRelationEntity(TEntity entity)
         {
             return await base.CreateIdByRelationEntity(entity);

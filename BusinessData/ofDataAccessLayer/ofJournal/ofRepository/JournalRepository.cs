@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessData.ofDataAccessLayer.ofJournal.Model;
 using BusinessData.ofDataAccessLayer.ofJournal.ofInterface.ofEmployee;
@@ -31,6 +32,11 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.ofRepository
         {
 
         }
+        public JournalCenterRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public class JCommodityRepository : CommodityDataRepository<JCommodity>, IJCommodityRepository, IEmployerJCommodityRepository, IEmployeeJCommodityRepository, IPlatformJCommodityRepository
     {
@@ -39,11 +45,21 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.ofRepository
         {
 
         }
+        public JCommodityRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public class UserSettingJournalRepository : EntityDataRepository<UserSettingJournal>
     {
         public UserSettingJournalRepository(JournalDbContext JournalDbContext)
             :base(JournalDbContext)
+        {
+
+        }
+        public UserSettingJournalRepository(Action<RepositoryOptions> options)
+            : base(options)
         {
 
         }
@@ -56,6 +72,11 @@ namespace BusinessData.ofDataAccessLayer.ofJournal.ofRepository
     {
         public JournalRepository(JournalDbContext JournalDbContext)
             :base(JournalDbContext)
+        {
+
+        }
+        public JournalRepository(Action<RepositoryOptions> options)
+            : base(options)
         {
 
         }

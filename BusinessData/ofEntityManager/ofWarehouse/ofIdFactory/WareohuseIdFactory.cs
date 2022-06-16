@@ -19,6 +19,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public WarehouseIdFactory() { }
         public async Task<string> CreateByKapt(Warehouse warehouse, KAptBasicInfo kAptBasicInfo)
         {
             string Id = await base.CreateAsync(warehouse);        
@@ -42,6 +43,10 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public WCommodityIdFactory()
+        {
+
+        }
     }
     public interface ISWCommodityIdFactory : IStatusIdFactory<SWCommodity>
     {
@@ -54,6 +59,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public SWCommodityIdFactory() { }
     }
     public interface IMWCommodityIdFactory : IStatusIdFactory<MWCommodity>
     {
@@ -66,6 +72,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public MWCommodityIdFactory() { }
     }
     public interface IEWCommodityIdFactory : IStatusIdFactory<EWCommodity>
     {
@@ -78,6 +85,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public EWCommodityIdFactory() { }
     }
     public interface IWorkingDeskIdFactory : IEntityIdFactory<WorkingDesk>
     {
@@ -90,6 +98,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public WorkingDeskIdFactory() { }
     }
     public interface IDotBarcodeIdFactory : IEntityIdFactory<DotBarcode>
     {
@@ -102,6 +111,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public DotBarcodeIdFactory() { }
     }
     public interface IDividedTagIdFactory : IEntityIdFactory<DividedTag>
     {
@@ -114,6 +124,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public DividedTagIdFactory() { }
     }
     public interface IIncomingTagIdFactory : IEntityIdFactory<IncomingTag>
     {
@@ -126,6 +137,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public IncomingTagIdFactory() { }
     }
     public interface ILoadFrameIdFactory : IEntityIdFactory<LoadFrame>
     {
@@ -138,6 +150,7 @@ namespace BusinessLogic.ofEntityManager.ofWarehouse.ofIdFactory
         {
 
         }
+        public LoadFrameIdFactory() { }
     }
 
 }

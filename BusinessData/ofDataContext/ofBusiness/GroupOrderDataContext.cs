@@ -1,18 +1,18 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository;
+using BusinessData.ofDataAccessLayer.ofOrder.ofRepository;
+using BusinessData.ofDataContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class GroupOrderDataContext : DataContext
     {
-        public GroupOrderDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public GroupOrderDataContext(DataContextOptions dataContextOptions)
+            :base(dataContextOptions)
         {
         }
 
@@ -53,12 +53,45 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(GOC), new EntityIdFactory<GOC>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(GOCC), new EntityIdFactory<GOCC>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(SGOC), new EntityIdFactory<SGOC>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MGOC), new EntityIdFactory<MGOC>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(EGOC), new EntityIdFactory<EGOC>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(GOC), new GOCRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(GOCC), new GOCCRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(SGOC), new SGOCRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MGOC), new MGOCRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(EGOC), new EGOCRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
         }
     }
 }

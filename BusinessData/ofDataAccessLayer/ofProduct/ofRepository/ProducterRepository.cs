@@ -5,6 +5,7 @@ using BusinessData.ofProduct.ofInterface.ofEmployee;
 using BusinessData.ofProduct.ofInterface.ofEmployer;
 using BusinessData.ofProduct.ofInterface.ofPlatform;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,6 +44,11 @@ namespace BusinessData.ofProduct.ofRepository
         {
 
         }
+        public ProductCenterRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
 
         public async Task<List<ProductCenter>> GetToListByCountryCodeWithPCommodity(string CountryCode)
         {
@@ -71,11 +77,21 @@ namespace BusinessData.ofProduct.ofRepository
         {
 
         }
+        public PCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class SPCommodityRepository : StatusDataRepository<SPCommodity>, ISPCommodityRepository, IEmployeeSPCommodityRepository, IEmployerSPCommodityRepository, IPlatformSPCommodityRepository
     {
         public SPCommodityRepository(ProductDbContext ProductDbContext)
                 : base(ProductDbContext)
+        {
+
+        }
+        public SPCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -101,11 +117,21 @@ namespace BusinessData.ofProduct.ofRepository
         {
 
         }
+        public MPCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class EPCommodityRepository : StatusDataRepository<EPCommodity>, IEPCommodityRepository, IEmployeeEPCommodityRepository, IEmployerEPCommodityRepository, IPlatformEPCommodityRepository
     {
         public EPCommodityRepository(ProductDbContext ProductDbContext)
                 : base(ProductDbContext)
+        {
+
+        }
+        public EPCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }

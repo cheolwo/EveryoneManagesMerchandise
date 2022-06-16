@@ -1,18 +1,17 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+using BusinessData.ofDataAccessLayer.ofTrade.ofRepository;
+using BusinessData.ofDataContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class TradeDataContext : DataContext
     {
-        public TradeDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public TradeDataContext(DataContextOptions dataContextOptions)
+                :base(dataContextOptions)
         {
         }
 
@@ -53,12 +52,45 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(TradeCenter), new EntityIdFactory<TradeCenter>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(TCommodity), new EntityIdFactory<TCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(STCommodity), new EntityIdFactory<STCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MTCommodity), new EntityIdFactory<MTCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(ETCommodity), new EntityIdFactory<ETCommodity>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(TradeCenter), new TradeCenterRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(TCommodity), new TCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(STCommodity), new STCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MTCommodity), new MTCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(ETCommodity), new ETCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
         }
     }
 }

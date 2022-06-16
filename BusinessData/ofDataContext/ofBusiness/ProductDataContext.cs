@@ -1,18 +1,17 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofProduct.ofModel;
+using BusinessData.ofDataContext;
+using BusinessData.ofProduct.ofRepository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class ProductDataContext : DataContext
     {
-        public ProductDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public ProductDataContext(DataContextOptions dataContextOptions)
+            : base(dataContextOptions)
         {
         }
 
@@ -53,12 +52,57 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(ProductCenter), new EntityIdFactory<ProductCenter>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(PCommodity), new EntityIdFactory<PCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(SPCommodity), new EntityIdFactory<SPCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MPCommodity), new EntityIdFactory<MPCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(EPCommodity), new EntityIdFactory<EPCommodity>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(ProductCenter), new ProductCenterRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(PCommodity), new PCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(SPCommodity), new SPCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MPCommodity), new MPCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(EPCommodity), new EPCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            //entityManagerBuilder.ApplyEntityDataRepository(nameof(Producter), new ProducterRepository(e =>
+            //{
+            //    e.UsingDistributedCache = true;
+            //    e.UsingMemoryCache = true;
+            //    e.UsedSingleton = true;
+            //}));
+            //entityManagerBuilder.ApplyEntityDataRepository(nameof(ProductLand), new ProductLandRepository(e =>
+            //{
+            //    e.UsingDistributedCache = true;
+            //    e.UsingMemoryCache = true;
+            //    e.UsedSingleton = true;
+            //}));
         }
     }
 }

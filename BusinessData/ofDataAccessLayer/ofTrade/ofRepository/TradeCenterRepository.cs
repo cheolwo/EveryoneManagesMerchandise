@@ -4,6 +4,7 @@ using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofEmployee;
 using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofEmployer;
 using BusinessData.ofDataAccessLayer.ofTrade.ofinterface.ofPlatform;
 using BusinessData.ofDataAccessLayer.ofTrade.ofModel;
+using System;
 
 namespace BusinessData.ofDataAccessLayer.ofTrade.ofRepository
 {
@@ -34,11 +35,21 @@ namespace BusinessData.ofDataAccessLayer.ofTrade.ofRepository
         {
 
         }
+        public TradeCenterRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class TCommodityRepository : CommodityDataRepository<TCommodity>, ITCommodityRepository, IEmployeeTCommodityRepository, IEmployerTCommodityRepository, IPlatformTCommodityRepository
     {
         public TCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
+        {
+
+        }
+        public TCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -50,6 +61,11 @@ namespace BusinessData.ofDataAccessLayer.ofTrade.ofRepository
         {
 
         }
+        public STCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class MTCommodityRepository : StatusDataRepository<MTCommodity>, IMTCommodityRepository, IEmployeeMTCommodityRepository, IEmployerMTCommodityRepository, IPlatformMTCommodityRepository
     {
@@ -58,11 +74,21 @@ namespace BusinessData.ofDataAccessLayer.ofTrade.ofRepository
         {
 
         }
+        public MTCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class ETCommodityRepository : StatusDataRepository<ETCommodity>, IETCommodityRepository, IEmployeeETCommodityRepository, IEmployerETCommodityRepository, IPlatformETCommodityRepository
     {
         public ETCommodityRepository(TradeDbContext TradeDbContext)
                 : base(TradeDbContext)
+        {
+
+        }
+        public ETCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }

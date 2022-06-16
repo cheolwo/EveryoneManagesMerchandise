@@ -1,10 +1,15 @@
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Threading.Tasks;
 namespace BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFactory
 {
-    public interface IEntityContainerFactory<TEntity> where TEntity : Entity
+    public interface IEntityContainerFactory
+    {
+        Task<string> ConfigureNameofContainer(Entity entity, DbContext dbContext, IEntityDataRepository entityDataRepository);
+    }
+    public interface IEntityContainerFactory<TEntity> : IEntityContainerFactory where TEntity : Entity
     {
         Task<string> CreateNameofContainer(TEntity entity);
         public static string Create(TEntity entity)
@@ -24,6 +29,7 @@ namespace BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFacto
         {
             _entityDataRepository = entityDataRepository;
         }
+        public EntityContainerFactory() { }
         public StringBuilder stringBuilder = new ();
         private int ChainingCode = 0;
         // 이것의 의미가 같은 형식의 같은 유저에 대한 비정형 파일은
@@ -42,6 +48,24 @@ namespace BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage.ofContainerFacto
                 ChainingCode++;
                 await CreateNameofContainer(entity);
             }
+            return ContainerName;
+        }
+
+        public async Task<string> ConfigureNameofContainer(Entity entity, DbContext dbContext, IEntityDataRepository entityDataRepository)
+        {
+            stringBuilder.Append(entity.GetRelationCode(typeof(TEntity))); // 1~4
+            stringBuilder.Append(entity.UserId.ToLower()); // 컨테이너 이름 소문자만 가능
+            stringBuilder.Append('-');
+            stringBuilder.Append(ChainingCode);
+            string ContainerName = stringBuilder.ToString();
+
+            var CurrentEntity = await entityDataRepository.GetByContainerAsync(ContainerName, dbContext);
+            if (CurrentEntity != null)
+            {
+                ChainingCode++;
+                await ConfigureNameofContainer(entity, dbContext, entityDataRepository);
+            }
+            ChainingCode = 0;
             return ContainerName;
         }
     }

@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
 {
     public interface IEntityIdFactory
     {
-
+        Task<string> ConfigureIdAsync(Entity entity, DbContext dbConext, IEntityDataRepository entityDataRepository);
     }
     public interface IEntityIdFactory<TEntity> : IEntityIdFactory where TEntity : Entity
     {
@@ -28,6 +29,10 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
         {
             _entityDataRepository = entityDataRepository;
             RelationCode = Entity.GetRelationCode(typeof(TEntity));
+        }
+        public EntityIdFactory()
+        {
+
         }
         // 이거 하다가 Error 발생하면 쓰레드 부분에서 발생할 가능성이 있음.
         public virtual async Task<string> CreateAsync(TEntity entity)
@@ -83,6 +88,37 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory
                 SetCount++;
             }
             return entities;
+        }
+
+        public virtual async Task<string> ConfigureIdAsync(Entity entity, DbContext dbContext, IEntityDataRepository entityDataRepository)
+        {
+            StringBuilder stringBuilder = new();
+            stringBuilder.Append(entity.GetRelationCode(typeof(TEntity)));
+            stringBuilder.Append('-');
+
+            string dateTime = DateTime.Now.ToString("YY//MM/dd");
+            string[] strs = dateTime.Split('-');
+
+            foreach (var str in strs)
+            {
+                stringBuilder.Append(str);
+            }
+            stringBuilder.Append('-');
+            int Count = await _entityDataRepository.GetCountAsync();
+            stringBuilder.Append(Count);
+
+            // Chaining Code
+            stringBuilder.Append('-');
+            stringBuilder.Append(ChainingCode);
+
+            var CurrentEntity = await entityDataRepository.GetByIdAsync(stringBuilder.ToString(), dbContext);
+            if (CurrentEntity != null)
+            {
+                ChainingCode++;
+                await ConfigureIdAsync(entity, dbContext, entityDataRepository);
+            }
+            ChainingCode = 0;
+            return stringBuilder.ToString();
         }
     }
 }

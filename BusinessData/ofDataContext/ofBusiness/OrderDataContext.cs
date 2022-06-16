@@ -1,18 +1,17 @@
-﻿using BusinessData.ofDataContext;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
+using BusinessData.ofDataAccessLayer.ofOrder.ofModel;
+using BusinessData.ofDataAccessLayer.ofOrder.ofRepository;
+using BusinessData.ofDataContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class OrderDataContext : DataContext
     {
-        public OrderDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        public OrderDataContext(DataContextOptions dataContextOptions)
+            :base(dataContextOptions)
         {
         }
 
@@ -53,12 +52,45 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityId(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(OrderCenter), new EntityIdFactory<OrderCenter>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(OCommodity), new EntityIdFactory<OCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(SOCommodity), new EntityIdFactory<SOCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(MOCommodity), new EntityIdFactory<MOCommodity>());
+            entityManagerBuilder.ApplyEntityIdFactory(nameof(EOCommodity), new EntityIdFactory<EOCommodity>());
         }
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(OrderCenter), new OrderCenterRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(OCommodity), new OCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = false;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(SOCommodity), new SOCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(MOCommodity), new MOCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(EOCommodity), new EOCommodityRepository(e =>
+            {
+                e.UsingDistributedCache = true;
+                e.UsingMemoryCache = true;
+                e.UsedSingleton = true;
+            }));
         }
     }
 }

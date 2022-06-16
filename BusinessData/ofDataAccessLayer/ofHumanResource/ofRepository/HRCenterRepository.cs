@@ -4,6 +4,7 @@ using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployee;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofEmployer;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofInterface.ofPlatform;
 using BusinessData.ofDataAccessLayer.ofHumanResource.ofModel;
+using System;
 
 namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
 {
@@ -17,6 +18,11 @@ namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
             :base(HRDbContext)
         {
         }
+        public HRCenterRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public interface IHREmployeeRepository : IEntityDataRepository<HREmployee>
     {
@@ -27,6 +33,11 @@ namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
         public HREmployeeRepository(HRDbContext HRDbContext)
             :base(HRDbContext)
         {
+        }
+        public HREmployeeRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
         }
     }
     public interface IHRRoleRepository : IEntityDataRepository<HRRole>
@@ -39,6 +50,11 @@ namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
             :base(HRDbContext)
         {
         }
+        public HRRoleRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public interface IEmployeeRoleRepository : IEntityDataRepository<EmployeeRole>
     {
@@ -50,6 +66,11 @@ namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
             :base(HRDbContext)
         {
         }
+        public EmployeeRoleRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public interface IHRBusinessPartRepository : IEntityDataRepository<HRBusinessPart>
     {
@@ -60,6 +81,11 @@ namespace BusinessData.ofDataAccessLayer.ofHRCenter.ofRepository
         public HRBusinessPartRepository(HRDbContext HRDbContext)
             :base(HRDbContext)
         {
+        }
+        public HRBusinessPartRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
         }
     }
 }

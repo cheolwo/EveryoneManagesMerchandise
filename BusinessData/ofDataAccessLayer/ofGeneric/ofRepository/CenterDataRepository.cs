@@ -65,6 +65,11 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         {
             _DbContext = (DbContext)Activator.CreateInstance(entity.GetDbContextType(typeof(TEntity)), entity.GetDbConnetionString(typeof(TEntity)));
         }
+        public CenterDataRepository(Action<RepositoryOptions> options)
+            :base(options)
+        {
+            
+        }
         public async Task<TEntity> GetByAddressAsync(string Address)
         {
             return await _DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Address.Equals(Address));

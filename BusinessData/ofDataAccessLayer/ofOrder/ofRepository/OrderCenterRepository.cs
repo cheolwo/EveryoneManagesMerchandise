@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessData.ofDataAccessLayer.ofOrder.ofDbContext;
 using BusinessData.ofDataAccessLayer.ofOrder.ofInterface.ofEmployee;
@@ -34,6 +35,11 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofRepository
         {
 
         }
+        public OrderCenterRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
 
         public Task<OrderCenter> GetRelatedData(OrderCenter OrderCenter)
         {
@@ -47,11 +53,21 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofRepository
         {
 
         }
+        public OCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class SOCommodityRepository : StatusDataRepository<SOCommodity>, ISOCommodityRepository, IEmployeeSOCommodityRepository, IEmployerSOCommodityRepository, IPlatformSOCommodityRepository
     {
         public SOCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
+        {
+
+        }
+        public SOCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }
@@ -63,11 +79,21 @@ namespace BusinessData.ofDataAccessLayer.ofOrder.ofRepository
         {
 
         }
+        public MOCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
+        {
+
+        }
     }
     public class EOCommodityRepository : StatusDataRepository<EOCommodity>, IEOCommodityRepository, IEmployeeEOCommodityRepository, IEmployerEOCommodityRepository, IPlatformEOCommodityRepository
     {
         public EOCommodityRepository(OrderDbContext orderDbContext)
             :base(orderDbContext)
+        {
+
+        }
+        public EOCommodityRepository(Action<RepositoryOptions> options)
+                : base(options)
         {
 
         }

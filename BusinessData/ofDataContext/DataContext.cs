@@ -59,18 +59,37 @@ namespace BusinessData.ofDataContext
         // 이 위에 DataContext 가 업무단위별로 달라지는 면이 있으니까 Warehouse, GroupOrder
         등으로 나눠 논 것이지.
     */
-    public abstract class DataContext
+    public class DataContextOptions
     {
-        protected EntityManagerBuilder entityManagerBuilder = new();
-        protected readonly IMemoryCache _MemoryCache;
-        protected readonly IDistributedCache _DistributedCache;
-        protected readonly IServiceScopeFactory _ServiceScopeFactory;
-
-        public DataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory)
+        private readonly IMemoryCache _MemoryCache;
+        private readonly IDistributedCache _DistributedCache;
+        private readonly IServiceScopeFactory _ServiceScopeFactory;
+        public DataContextOptions(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory)
         {
             _MemoryCache = memoryCache;
             _DistributedCache = distributedCache;
             _ServiceScopeFactory = serviceScopeFactory;
+        }
+        public IMemoryCache MemoryCache
+        {
+            get => _MemoryCache;
+        }
+        public IDistributedCache DistributedCache
+        {
+            get => _DistributedCache;
+        }
+        public IServiceScopeFactory ServiceScopeFactory
+        {
+            get => _ServiceScopeFactory;
+        }
+    }
+    public abstract class DataContext
+    {
+        protected EntityManagerBuilder entityManagerBuilder = new();
+        protected readonly DataContextOptions _options;
+        public DataContext(DataContextOptions options)
+        {
+            _options = options;
             OnConfigureEntityBlobStorage(entityManagerBuilder);
             OnConfigureEntityFile(entityManagerBuilder);
             OnConfigureEntityId(entityManagerBuilder);
@@ -89,6 +108,7 @@ namespace BusinessData.ofDataContext
     }
     public class EntityManagerBuilder
     {
+        // 여기서 string 값이 될 예로 nameof(Warehouse), nameof(WCommodity)... 등이 있다.
         private Dictionary<string, IEntityDataRepository> DicEntityDataRepository = new();
         private Dictionary<string, IEntityIdFactory> DicEntityIdFactory = new();
         private Dictionary<string, IEntityBlobStorage> DicEntityBlobStorage = new();

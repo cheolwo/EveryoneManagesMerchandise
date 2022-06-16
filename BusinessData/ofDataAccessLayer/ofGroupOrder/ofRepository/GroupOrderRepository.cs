@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessData.ofDataAccessLayer.ofGroupOrder.ofDbContext;
@@ -35,16 +36,26 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
         {
 
         }
+        public GOCRepository(Action<RepositoryOptions> options)
+            :base(options)
+        {
 
+        }
         public Task<GOC> GetRelatedData(GOC GOC)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
+        
     }
     public class GOCCRepository : CommodityDataRepository<GOCC>, IGOCCRepository, IEmployeeGOCCRepository, IEmployerGOCCRepository, IPlatformGOCCRepository
     {
         public GOCCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
+        {
+
+        }
+        public GOCCRepository(Action<RepositoryOptions> options)
+            : base(options)
         {
 
         }
@@ -56,6 +67,11 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
         {
 
         }
+        public SGOCRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public class MGOCRepository : StatusDataRepository<MGOC>, IMGOCRepository, IEmployeeMGOCRepository, IEmployerMGOCRepository, IPlatformMGOCRepository
     {
@@ -64,11 +80,21 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
         {
 
         }
+        public MGOCRepository(Action<RepositoryOptions> options)
+            : base(options)
+        {
+
+        }
     }
     public class EGOCRepository : StatusDataRepository<EGOC>, IEGOCRepository, IEmployeeEGOCRepository, IEmployerEGOCRepository, IPlatformEGOCRepository
     {
         public EGOCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
+        {
+
+        }
+        public EGOCRepository(Action<RepositoryOptions> options)
+            : base(options)
         {
 
         }

@@ -15,6 +15,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         Task<Entity> UpdateAsync(Entity tentity, DbContext dbContext);
         Task DeleteByIdAsync(string Id, DbContext dbContext);
         Task<Entity> GetByIdAsync(string Id, DbContext dbContext);
+        Task<Entity> GetByContainerAsync(string containerName, DbContext dbContext);
     }
     public abstract class EntityDataRepository : IEntityDataRepository
     {
@@ -23,6 +24,7 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         public abstract Task<Entity> GetByIdAsync(string Id, DbContext dbContext);
         public abstract Task<List<Entity>> GetToListAsync(DbContext dbContext);
         public abstract Task<Entity> UpdateAsync(Entity tentity, DbContext dbContext);
+        public abstract Task<Entity> GetByContainerAsync(string containerName, DbContext dbContext);
     }
     
     public interface IEntityDataRepository<TEntity> : IEntityDataRepository where TEntity : Entity
@@ -57,13 +59,31 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
     }
     public class RepositoryOptions
     {
-        public bool IsSingleton;
+        private bool _UsedSingleton;
+        private bool _UsingMemoryCache;
+        private bool _UsingDistributedCache;
+        public bool UsedSingleton
+        {
+            get => _UsedSingleton;
+            set => _UsedSingleton = value;
+        }
+        public bool UsingMemoryCache
+        {
+            get => _UsingMemoryCache;
+            set => _UsingMemoryCache = value;
+        }
+        public bool UsingDistributedCache
+        {
+            get => _UsingDistributedCache;
+            set => _UsingDistributedCache = value;
+        }
+
     }
     public class EntityDataRepository<TEntity> : IEntityDataRepository<TEntity> where TEntity : Entity, new()
     {
         protected DbContext _DbContext;
         protected DbContext _InMemoryDbContext;
-        protected RepositoryOptions repositoryOptions = new();
+        protected RepositoryOptions _RepositoryOptions = new();
         public EntityDataRepository(DbContext DbContext)
         {
             if (DbContext != null)
@@ -74,8 +94,8 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         }
         public EntityDataRepository(Action<RepositoryOptions> options)
         {
-            options.Invoke(repositoryOptions);
-            if (repositoryOptions.IsSingleton)
+            options.Invoke(_RepositoryOptions);
+            if (_RepositoryOptions.UsedSingleton)
             {
                 // Singleton 개체에 등록할 Repository 면 DbContext를 생성하면 안된다. 메서드 상에서 동적으로 실행해서 해제해야된다. DbContext 특성 상 Singleton을 허용하지 않기 때문이다.
             }
@@ -280,6 +300,11 @@ namespace BusinessData.ofDataAccessLayer.ofGeneric.ofRepository
         public virtual async Task<Entity> GetByIdAsync(string Id, DbContext dbContext)
         {
             return await dbContext.FindAsync<TEntity>(Id);
+        }
+
+        public async Task<Entity> GetByContainerAsync(string containerName, DbContext dbContext)
+        {
+            return await dbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Container.Equals(containerName));
         }
     }
 }
