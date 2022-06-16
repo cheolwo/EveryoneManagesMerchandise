@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofCommon
+namespace BusinessData.ofPresentationLayer.ofCommon
 {
     public static class RoleView
     {

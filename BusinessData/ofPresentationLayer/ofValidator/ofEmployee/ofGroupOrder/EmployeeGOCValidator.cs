@@ -1,7 +1,12 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployee.ofGroupOrder
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofGroupOrder
 {
     public class EmployeeGOCValidator : GOCValidator<EmployeeGOC>
     {

@@ -1,5 +1,5 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTOServices;
 using FluentValidation;
 using NMemory.Tables;
 using System;

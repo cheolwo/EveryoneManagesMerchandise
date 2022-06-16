@@ -1,8 +1,12 @@
-using BusinessView.ofValidator.ofCommon.ofWarehouse;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofWarehouse;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofEmployer.ofWarehouse
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofWarehouse
 {
     public class EmployerMWCommodityValidator : MWCommodityValidator<EmployerMWCommodity>
     {

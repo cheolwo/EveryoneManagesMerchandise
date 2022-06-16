@@ -1,5 +1,6 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices;
+﻿using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTOServices;
 using FluentValidation;
 using NMemory.Tables;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace BusinessView.ofUser.ofCommon
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofCommon
 {
     public class ActorOption
     {

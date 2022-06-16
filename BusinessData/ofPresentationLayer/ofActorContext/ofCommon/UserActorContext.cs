@@ -1,13 +1,18 @@
-﻿using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofServices;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessView.ofCommon.ofServices;
 using NMemory.Tables;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessData.ofPresendationLayer.ofDTOServices;
+using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System;
+using BusinessData.ofPresentationLayer.ofDTOServices;
+using System.Linq;
+using System.Collections.Generic;
 
-namespace BusinessView.ofCommon.ofUser
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofCommon
 {
     public class UserActorContext : ActorContext
     {

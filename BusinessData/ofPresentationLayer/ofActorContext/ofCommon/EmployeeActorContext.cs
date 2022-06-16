@@ -1,15 +1,4 @@
-﻿using BusinessView.ofActorService;
-using BusinessView.ofUser.ofCommon;
-using BusinessView.ofValidator.ofEmployee.ofGroupOrder;
-using BusinessView.ofValidator.ofEmployee.ofHR;
-using BusinessView.ofValidator.ofEmployee.ofJournal;
-using BusinessView.ofValidator.ofEmployee.ofMarket;
-using BusinessView.ofValidator.ofEmployee.ofOrder;
-using BusinessView.ofValidator.ofEmployee.ofProduct;
-using BusinessView.ofValidator.ofEmployee.ofTrade;
-using BusinessView.ofValidator.ofEmployee.ofWarehouse;
-using BusinessView.ofStorage.ofEmployee;
-using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee;
@@ -25,8 +14,19 @@ using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofActorService;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofTrade;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofMarket;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofProduct;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofJournal;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofHR;
+using BusinessData.ofPresentationLayer.ofStorage.ofEmployee;
 
-namespace BusinessView.ofCommon.ofUser
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofCommon
 {
     public class EmployeeActorContext : UserActorContext
     {

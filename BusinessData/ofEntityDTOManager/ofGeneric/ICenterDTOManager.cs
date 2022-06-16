@@ -2,7 +2,7 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessLogic.ofEntityManager.ofGeneric;
 
-namespace BusinessLogic.ofEntityDTOManager.ofGeneric
+namespace BusinessData.ofEntityDTOManager.ofGeneric
 {
     public interface ICenterDTOManager<DTO, Model> : ICenterManager<Model>
         where DTO : CenterDTO, new()

@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofMarket;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofMarket;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployee.ofMarket
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofMarket
 {
     public class EmployeeEMCommodityValidator : EMCommodityValidator<EmployeeEMCommodity>
     {

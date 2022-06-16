@@ -1,6 +1,8 @@
 ﻿using BusinessData.ofPresentationLayer.ofCommon;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofCommon.ofInterface
+namespace BusinessData.ofPresendationLayer.ofCommon.ofInterface
 {
     public interface IViewService<T> where T : IDTO
     {

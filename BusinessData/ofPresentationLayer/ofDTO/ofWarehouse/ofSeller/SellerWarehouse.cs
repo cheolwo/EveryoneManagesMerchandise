@@ -1,5 +1,5 @@
-﻿using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresentationLayer.ofActorContext.ofBusiness;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofSeller
 {

@@ -1,4 +1,7 @@
 ﻿using BusinessData.ofDataContext;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +12,10 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class JournalDataContext : DataContext
     {
+        public JournalDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) : base(memoryCache, distributedCache, serviceScopeFactory)
+        {
+        }
+
         public override Task DeleteByIdAsync<T>(string id)
         {
             throw new NotImplementedException();

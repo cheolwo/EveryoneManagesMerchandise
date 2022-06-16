@@ -1,6 +1,10 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofCommon.ofTrade
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofTrade
 {
     public class TCommodityValidator<TCommodity> : CommodityDTOValidator<TCommodity> where TCommodity : TCommodityDTO
     {

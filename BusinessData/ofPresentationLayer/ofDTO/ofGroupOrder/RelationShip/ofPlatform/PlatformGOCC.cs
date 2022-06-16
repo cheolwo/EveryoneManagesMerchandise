@@ -2,10 +2,11 @@
 using BusinessData.ofDataAccessLayer.ofGroupOrder.ofModel;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
-using BusinessView.ofUser.ofCommon;
-using BusinessView.ofUser.ofPlatform;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofPlatform;
 
-namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform
+
+namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform
 {
     [AutoMap(typeof(GOCC))]
     [HttpDTOService(typeof(PlatformGOCCService))]

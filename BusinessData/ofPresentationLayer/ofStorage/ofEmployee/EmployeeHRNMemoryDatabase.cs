@@ -2,7 +2,7 @@ using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofEmployee;
 using NMemory;
 using NMemory.Tables;
 
-namespace BusinessView.ofStorage.ofEmployee
+namespace BusinessData.ofPresentationLayer.ofStorage.ofEmployee
 {
     public class EmployeeHRNMemoryDatabase : Database
     {

@@ -1,8 +1,12 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder;
 using FluentValidation;
-using BusinessView.ofValidator.ofCommon.ofGroupOrder;
-using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofPlatform.ofGroupOrder
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofGroupOrder
 {
     public class PlatformEGOCValidator : EGOCValidator<PlatformEGOC>
     {

@@ -1,7 +1,7 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
 using NMemory;
 using NMemory.Tables;
-namespace BusinessView.ofStorage.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofStorage.ofPlatform
 {
     public class PlatformHRNMemoryDatabase : Database
     {

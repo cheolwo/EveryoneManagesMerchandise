@@ -1,4 +1,7 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
+﻿using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
@@ -6,11 +9,8 @@ using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
 using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
-using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofUser.ofCommon;
 
-namespace BusinessView.ofUser.ofEmployee
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofEmployee
 {
     public class EmployeeOrdererContext : EmployeeActorContext
     {

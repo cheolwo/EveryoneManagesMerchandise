@@ -1,5 +1,4 @@
-﻿using BusinessView.ofCommon;
-using BusinessView.ofCommon.ofServices;
+﻿using BusinessData.ofPresentationLayer.ofDTOServices;
 using System;
 
 namespace BusinessData.ofPresendationLayer.ofDTOServices.ofJournal

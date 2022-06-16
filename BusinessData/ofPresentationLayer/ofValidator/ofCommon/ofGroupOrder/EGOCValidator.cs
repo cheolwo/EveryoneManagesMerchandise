@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
 using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofCommon.ofGroupOrder
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder
 {
     public class EGOCValidator<TEGOC> : EStatusDTOValidator<TEGOC> where TEGOC : EGOCDTO
     {

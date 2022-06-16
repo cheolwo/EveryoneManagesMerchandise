@@ -1,8 +1,12 @@
 using FluentValidation;
-using BusinessView.ofValidator.ofCommon.ofGroupOrder;
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployee;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofEmployee.ofGroupOrder
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofGroupOrder
 {
     public class EmployeeEGOCValidator : EGOCValidator<EmployeeEGOC>
     {

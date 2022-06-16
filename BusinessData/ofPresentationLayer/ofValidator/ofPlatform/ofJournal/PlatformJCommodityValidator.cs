@@ -1,8 +1,12 @@
-using BusinessView.ofValidator.ofCommon.ofJournal;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofJournal;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofPlatform.ofJournal
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofJournal
 {
     public class PlatformJCommodityValidator : JCommodityValidator<PlatformJCommodity>
     {

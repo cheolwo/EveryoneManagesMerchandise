@@ -1,19 +1,7 @@
-﻿using BusinessView.ofActorService;
-using BusinessView.ofUser.ofCommon;
-using BusinessView.ofValidator.ofPlatform.ofGroupOrder;
-using BusinessView.ofValidator.ofPlatform.ofHR;
-using BusinessView.ofValidator.ofPlatform.ofJournal;
-using BusinessView.ofValidator.ofPlatform.ofMarket;
-using BusinessView.ofValidator.ofPlatform.ofOrder;
-using BusinessView.ofValidator.ofPlatform.ofProduct;
-using BusinessView.ofValidator.ofPlatform.ofTrade;
-using BusinessView.ofValidator.ofPlatform.ofWarehouse;
-using BusinessView.ofStorage.ofPlatform;
-using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
-using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofPlatform;
@@ -25,8 +13,19 @@ using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofProduct;
+using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform;
+using BusinessData.ofPresentationLayer.ofStorage.ofPlatform;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofHR;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofJournal;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofTrade;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofGroupOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofMarket;
 
-namespace BusinessView.ofCommon.ofUser
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofCommon
 {
     public class PlatformActorContext : UserActorContext
     {

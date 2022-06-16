@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.ofExtensions
+namespace BusinessData.ofPresentationLayer.ofExtensions
 {
     public static class DTOActorContextExtensions
     {

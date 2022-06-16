@@ -1,7 +1,12 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofHR;
 using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofCommon.ofHR
+
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofHR
 {
     public class EmployeeRoleValidator<TEntity> : EntityDTOValidator<TEntity> where TEntity : EmployeeRoleDTO
     {

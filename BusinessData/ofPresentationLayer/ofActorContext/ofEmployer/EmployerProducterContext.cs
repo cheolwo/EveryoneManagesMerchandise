@@ -1,9 +1,8 @@
-﻿using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofUser.ofCommon;
-using Microsoft.Extensions.Options;
+﻿using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
 
-namespace BusinessView.ofUser.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofEmployer
 {
     public class EmployerProducterContext: EmployerActorContext
     {

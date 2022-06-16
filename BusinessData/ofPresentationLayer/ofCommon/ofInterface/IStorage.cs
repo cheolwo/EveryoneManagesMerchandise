@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Collections;
 
-namespace BusinessView.ofUser.ofCommon.ofInterface
+namespace BusinessData.ofPresendationLayer.ofCommon.ofInterface
 {
     // public interface IStorage<TEntity> where TEntity : class
     // {

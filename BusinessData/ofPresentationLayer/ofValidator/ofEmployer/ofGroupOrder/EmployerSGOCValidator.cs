@@ -1,7 +1,11 @@
-using BusinessView.ofValidator.ofCommon.ofGroupOrder;
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofEmployer;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployer.ofGroupOrder
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofGruopOrder
 {
     public class EmployerSGOCValidator : SGOCValidator<EmployerSGOC>
     {

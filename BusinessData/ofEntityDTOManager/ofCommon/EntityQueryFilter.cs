@@ -1,5 +1,4 @@
-﻿using BusienssData.ofPresentationLayer.ofController.ofCommon;
-using BusinessData.ofDataAccessLayer.ofCommon;
+﻿using BusinessData.ofDataAccessLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using System;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace BusinessLogic.oEntityDTOManager.ofCommon
+namespace BusinessData.oEntityDTOManager.ofCommon
 {
     public static class EntityQueryFilter
     {

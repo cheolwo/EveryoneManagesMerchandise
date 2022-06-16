@@ -30,7 +30,7 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
     }
     public class GOCRepository : CenterDataRepository<GOC>, IGOCRepository, IEmployeeGOCRepository, IEmployerGOCRepository, IPlatformGOCRepository
     {
-        public GOCRepository(GODbContext GODbContext)
+        public GOCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
         {
 
@@ -43,7 +43,7 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
     }
     public class GOCCRepository : CommodityDataRepository<GOCC>, IGOCCRepository, IEmployeeGOCCRepository, IEmployerGOCCRepository, IPlatformGOCCRepository
     {
-        public GOCCRepository(GODbContext GODbContext)
+        public GOCCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
         {
 
@@ -51,7 +51,7 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
     }
     public class SGOCRepository : StatusDataRepository<SGOC>, ISGOCRepository, IEmployeeSGOCRepository, IEmployerSGOCRepository, IPlatformSGOCRepository
     {
-        public SGOCRepository(GODbContext GODbContext)
+        public SGOCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
         {
 
@@ -59,7 +59,7 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
     }
     public class MGOCRepository : StatusDataRepository<MGOC>, IMGOCRepository, IEmployeeMGOCRepository, IEmployerMGOCRepository, IPlatformMGOCRepository
     {
-        public MGOCRepository(GODbContext GODbContext)
+        public MGOCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
         {
 
@@ -67,7 +67,7 @@ namespace BusinessData.ofDataAccessLayer.ofGroupOrder.ofRepository
     }
     public class EGOCRepository : StatusDataRepository<EGOC>, IEGOCRepository, IEmployeeEGOCRepository, IEmployerEGOCRepository, IPlatformEGOCRepository
     {
-        public EGOCRepository(GODbContext GODbContext)
+        public EGOCRepository(GroupOrderDbContext GODbContext)
             :base(GODbContext)
         {
 

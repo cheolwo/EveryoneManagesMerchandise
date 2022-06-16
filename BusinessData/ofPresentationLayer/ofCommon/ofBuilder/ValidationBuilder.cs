@@ -1,7 +1,8 @@
-﻿using BusinessView.ofValidator.ofCommon;
-using FluentValidation;
+﻿using FluentValidation;
+using System;
+using System.Collections.Generic;
 
-namespace BusinessView.ofUser.ofCommon
+namespace BusinessData.ofPresendationLayer.ofCommon.ofBuilder
 {
     public class ValidatorBuilder
     {

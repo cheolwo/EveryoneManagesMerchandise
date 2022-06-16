@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofProduct;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofProduct;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployee.ofProduct
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofProduct
 {
     public class EmployeeProductCenterValidator : ProductCenterValidator<EmployeeProductCenter>
     {

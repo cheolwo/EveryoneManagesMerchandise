@@ -1,27 +1,26 @@
-﻿using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofOrderer;
-using BusinessView.ofUser.ofCommon;
-using BusinessView.ofUser.ofEmployer;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofEmployer;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofProducter.ofEmployer
 {
-    [ActorContext(typeof(EmployerOrdererContext))]
-    public class EmployerOrdererGOC : OrdererGOC
+    [ActorContext(typeof(EmployerProducterContext))]
+    public class EmployerProducterGOC : ProducterGOC
     {
     }
-    [ActorContext(typeof(EmployerOrdererContext))]
-    public class EmployerOrdererGOCC : OrdererGOCC
+    [ActorContext(typeof(EmployerProducterContext))]
+    public class EmployerProducterGOCC : ProducterGOCC
     {
     }
-    [ActorContext(typeof(EmployerOrdererContext))]
-    public class EmployerOrdererSGOC : OrdererSGOC
+    [ActorContext(typeof(EmployerProducterContext))]
+    public class EmployerProducterSGOC : ProducterSGOC
     {
     }
-    [ActorContext(typeof(EmployerOrdererContext))]
-    public class EmployerOrdererMGOC : OrdererMGOC
+    [ActorContext(typeof(EmployerProducterContext))]
+    public class EmployerProducterMGOC : ProducterMGOC
     {
     }
-    [ActorContext(typeof(EmployerOrdererContext))]
-    public class EmployerOrdererEGOC : OrdererEGOC
+    [ActorContext(typeof(EmployerProducterContext))]
+    public class EmployerProducterEGOC : ProducterEGOC
     {
     }
 }

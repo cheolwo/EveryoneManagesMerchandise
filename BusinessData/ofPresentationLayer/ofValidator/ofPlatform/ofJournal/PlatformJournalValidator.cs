@@ -1,7 +1,11 @@
-using BusinessView.ofValidator.ofCommon.ofJournal;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofPlatform;
-namespace BusinessView.ofValidator.ofPlatform.ofJournal
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofJournal;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofJournal
 {
     public class PlatformJournalValidator : JournalValidator<PlatformJournal>
     {

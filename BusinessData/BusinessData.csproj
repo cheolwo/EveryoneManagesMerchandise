@@ -128,6 +128,12 @@
     <Folder Include="ofExternalLayer\ofWarehouse\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofBusiness\ofExtensions\" />
     <Folder Include="ofPresentationLayer\ofActorContext\ofExtensions\" />
+    <Folder Include="ofPresentationLayer\ofActorContext\ofViewModel\" />
+    <Folder Include="ofPresentationLayer\ofView\ofCommon\" />
+    <Folder Include="ofPresentationLayer\ofView\ofValidator\" />
+    <Folder Include="ofPresentationLayer\ofView\ofViewContext\ofBusinessRelationUser\" />
+    <Folder Include="ofPresentationLayer\ofView\ofViewContext\ofBusinessUser\" />
+    <Folder Include="ofPresentationLayer\ofView\ofViewContext\ofUser\" />
   </ItemGroup>
 
   <ItemGroup>

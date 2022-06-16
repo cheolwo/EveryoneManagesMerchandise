@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofTrade;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofTrade;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofPlatform.ofTrade
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofTrade
 {
     public class PlatformETCommodityValidator : ETCommodityValidator<PlatformETCommodity>
     {

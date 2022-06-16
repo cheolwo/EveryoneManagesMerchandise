@@ -1,8 +1,12 @@
-using BusinessView.ofValidator.ofCommon.ofOrder;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofOrder;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofPlatform.ofOrder
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofOrder
 {
     public class PlatformEOCommodityValidator : EOCommodityValidator<PlatformEOCommodity>
     {

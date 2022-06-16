@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.oEntityDTOManager.ofGeneric
+namespace BusinessData.ofEntityDTOManager.ofGeneric
 {
     public class CommodityDTOManager
     {

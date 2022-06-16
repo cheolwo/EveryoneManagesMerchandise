@@ -1,8 +1,11 @@
-using BusinessView.ofValidator.ofCommon.ofWarehouse;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployee;
-
-namespace BusinessView.ofValidator.ofEmployee.ofWarehouse
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofWarehouse;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofWarehouse
 {
     public class EmployeeWorkingDeskValidator : WorkingDeskValidator<EmployeeWorkingDesk>
     {

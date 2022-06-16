@@ -1,6 +1,10 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofCommon.ofWarehouse
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofWarehouse
 {
     public class WarehouseValidator<TCenter> : CenterDTOValidator<TCenter> where TCenter : WarehouseDTO
     {

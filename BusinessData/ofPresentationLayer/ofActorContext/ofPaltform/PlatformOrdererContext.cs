@@ -1,8 +1,8 @@
-﻿using BusinessView.ofUser.ofCommon;
-using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
+﻿using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
-using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofPlatform;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
@@ -10,7 +10,7 @@ using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
 
-namespace BusinessView.ofUser.ofPlatform
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofPlatform
 {
     public class PlatformOrdererContext : PlatformActorContext
     {

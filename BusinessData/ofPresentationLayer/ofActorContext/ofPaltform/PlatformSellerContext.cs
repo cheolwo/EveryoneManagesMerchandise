@@ -2,11 +2,11 @@
 using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofPlatform;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofPlatform;
-using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
 
-namespace BusinessView.ofUser.ofPlatform
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofPlatform
 {
     public class PlatformSellerContext : PlatformActorContext
     {

@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
 using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofCommon.ofWarehouse
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofWarehouse
 {
     public class WCommodityValidator<TCommodity> : CommodityDTOValidator<TCommodity> where TCommodity : WCommodityDTO
     {

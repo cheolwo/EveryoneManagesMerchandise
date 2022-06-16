@@ -5,7 +5,7 @@ using BusinessLogic.ofEntityManager.ofGeneric;
 using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
 
-namespace BusinessLogic.ofEntityDTOManager.ofGeneric
+namespace BusinessData.ofEntityDTOManager.ofGeneric
 {
     public class CenterDTOManager<DTO, Model> : CenterManager<Model>, ICenterDTOManager<DTO, Model> where DTO : CenterDTO, new() where Model : Center, new()
     {

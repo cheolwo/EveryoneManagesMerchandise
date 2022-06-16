@@ -3,6 +3,9 @@ using BusinessData.ofDataAccessLayer.ofGeneric.ofIdFactory;
 using BusinessData.ofDataAccessLayer.ofGeneric.ofRepository;
 using BusinessLogic.ofEntityManager.ofGeneric.ofBlobStorage;
 using BusinessLogic.ofEntityManager.ofGeneric.ofFileFactory;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -90,7 +93,7 @@ namespace BusinessData.ofDataContext
         private Dictionary<string, IEntityIdFactory> DicEntityIdFactory = new();
         private Dictionary<string, IEntityBlobStorage> DicEntityBlobStorage = new();
         private Dictionary<string, IEntityFileFactory> DicEntityFileFactory = new();
-        public virtual void ApplyEntityRepositoryServiceConfiguration(string nameofEntityDataRepository, IEntityDataRepository entityDataRepository)
+        public virtual void ApplyEntityDataRepository(string nameofEntityDataRepository, IEntityDataRepository entityDataRepository)
         {
             DicEntityDataRepository.Add(nameofEntityDataRepository, entityDataRepository);
         }

@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofOrder.ofEmployee;
-using BusinessView.ofValidator.ofCommon.ofOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofOrder;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployee.ofOrder
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployee.ofOrder
 {
     public class EmployeeMOCommodityValidator : MOCommodityValidator<EmployeeMOCommodity>
     {

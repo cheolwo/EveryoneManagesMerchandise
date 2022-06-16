@@ -2,13 +2,15 @@ using System;
 using System.Reflection;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTOServices;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace BusinessData.ofPresendationLayer.ofCommon
 {
     public static class DTOHttpServiceExtensions
     {
         public static DTOService GetHttpDTOService<T>(this T t) where T : class
         {
-            var httpDTOServiceAttribute = t.GetCustormAttribute<HttpDTOServiceAttribute>();
+            var httpDTOServiceAttribute = typeof(T).GetCustormAttributes<HttpDTOServiceAttribute>();
             if(httpDTOServiceAttribute != null)
             {
                 var ServiceOptions = new DTOServiceOptions();
@@ -17,7 +19,7 @@ namespace BusinessData.ofPresendationLayer.ofCommon
             }
             throw new ArgumentException("HttpDTOService Attribute Is Null");
         }
-        public static DTOService GetHttpDTOService<T>(this T t, ISeviceProvider seviceProvider) where T : class
+        public static DTOService GetHttpDTOService<T>(this T t, ServiceProvider serviceProvider) where T : class
         {
             var httpDTOServiceAttribute = t.GetCustomAttribute<HttpDTOServiceAttribute>();
             if(httpDTOServiceAttribute != null)

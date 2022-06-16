@@ -1,4 +1,6 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofHR;
+﻿using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofHR;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofJournal;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofOrder;
@@ -14,20 +16,17 @@ using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTOServices.ofGroupOrder;
-using BusinessView.ofActorService;
-using BusinessView.ofStorage.ofEmployer;
-using BusinessView.ofStorage.ofEmployer.ofGroupOrder;
-using BusinessView.ofUser.ofCommon;
-using BusinessView.ofValidator.ofEmployer.ofGroupOrder;
-using BusinessView.ofValidator.ofEmployer.ofHR;
-using BusinessView.ofValidator.ofEmployer.ofJournal;
-using BusinessView.ofValidator.ofEmployer.ofMarket;
-using BusinessView.ofValidator.ofEmployer.ofOrder;
-using BusinessView.ofValidator.ofEmployer.ofProduct;
-using BusinessView.ofValidator.ofEmployer.ofTrade;
-using BusinessView.ofValidator.ofEmployer.ofWarehouse;
+using BusinessData.ofPresentationLayer.ofStorage.ofEmployer;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofGruopOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofHR;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofJournal;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofMarket;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofOrder;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofProduct;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofTrade;
+using BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofWarehouse;
 
-namespace BusinessView.ofCommon.ofUser
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofCommon
 {
     public class EmployerActorContext : UserActorContext
     {

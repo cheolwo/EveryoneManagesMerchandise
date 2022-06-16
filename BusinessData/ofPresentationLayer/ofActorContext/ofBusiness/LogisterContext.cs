@@ -1,12 +1,10 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices;
-using BusinessView.ofUser.ofCommon;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresentationLayer.ofDTOServices;
 using FluentValidation;
 using NMemory.Tables;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessData.ofPresentationLayer.ofActorContext.ofBusiness

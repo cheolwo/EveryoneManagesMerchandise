@@ -1,5 +1,6 @@
-﻿using BusinessView.ofUser.ofCommon;
-using BusinessView.ofUser.ofPlatform;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofPlatform;
+
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofProducter.ofPlatform
 {

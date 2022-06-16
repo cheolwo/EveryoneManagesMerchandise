@@ -1,7 +1,11 @@
-using BusinessView.ofValidator.ofCommon.ofHR;
-using FluentValidation;
 using BusinessData.ofPresentationLayer.ofDTO.ofHR.ofPlatform;
-namespace BusinessView.ofValidator.ofPlatform.ofHR
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofHR;
+using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofHR
 {
     public class PlatformHRRoleValidator : HRRoleValidator<PlatformHRRole>
     {

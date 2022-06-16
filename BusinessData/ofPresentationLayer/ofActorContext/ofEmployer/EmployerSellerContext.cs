@@ -1,12 +1,12 @@
-﻿using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
+﻿using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofPresendationLayer.ofDTOServices.ofMarket;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 using BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
-using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofUser.ofCommon;
 
-namespace BusinessView.ofUser.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofEmployer
 {
     public class EmployerSellerContext: EmployerActorContext
     {

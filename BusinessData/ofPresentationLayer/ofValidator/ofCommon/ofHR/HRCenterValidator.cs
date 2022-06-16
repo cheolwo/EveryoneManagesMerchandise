@@ -1,6 +1,10 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofHR;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofCommon.ofHR
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofHR
 {
     public class HRCenterValidator<TCenter> : CenterDTOValidator<TCenter> where TCenter : HRCenterDTO
     {

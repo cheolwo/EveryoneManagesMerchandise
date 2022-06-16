@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal;
 using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofCommon.ofJournal
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofJournal
 {
     public class JCommodityValidator<TCommodity> : CommodityDTOValidator<TCommodity> where TCommodity : JCommodityDTO
     {

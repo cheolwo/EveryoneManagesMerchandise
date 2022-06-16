@@ -1,4 +1,9 @@
-﻿using BusinessData.ofDataContext;
+﻿using BusinessData.ofDataAccessLayer.ofWarehouse.Model;
+using BusinessData.ofDataAccessLayer.ofWarehouse.ofRepository;
+using BusinessData.ofDataContext;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +14,11 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 {
     public class WarehouseDataContext : DataContext
     {
+        public WarehouseDataContext(IMemoryCache memoryCache, IDistributedCache distributedCache, IServiceScopeFactory serviceScopeFactory) 
+            : base(memoryCache, distributedCache, serviceScopeFactory)
+        {
+        }
+
         public override Task DeleteByIdAsync<T>(string id)
         {
             throw new NotImplementedException();
@@ -51,7 +61,7 @@ namespace BusinessData.ofDataAccessLayer.ofDataContext.ofBusiness
 
         protected override void OnConfigureEntityRepository(EntityManagerBuilder entityManagerBuilder)
         {
-            throw new NotImplementedException();
+            entityManagerBuilder.ApplyEntityDataRepository(nameof(Warehouse), new WarehouseRepository(e=>)
         }
     }
 }

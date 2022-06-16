@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofEmployer;
-using BusinessView.ofValidator.ofCommon.ofJournal;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofJournal;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofEmployer.ofJournal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofEmployer.ofJournal
 {
     public class EmployerJournalValidator : JournalValidator<EmployerJournal>
     {

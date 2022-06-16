@@ -1,7 +1,11 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofProduct.ofPlatform;
-using BusinessView.ofValidator.ofCommon.ofProduct;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofProduct;
 using FluentValidation;
-namespace BusinessView.ofValidator.ofPlatform.ofProduct
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofProduct
 {
     public class PlatformMPCommodityValidator : MPCommodityValidator<PlatformMPCommodity>
     {

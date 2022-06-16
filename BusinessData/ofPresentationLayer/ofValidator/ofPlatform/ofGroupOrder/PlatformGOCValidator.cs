@@ -1,7 +1,11 @@
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform;
+using BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofGroupOrder;
 using FluentValidation;
-using BusinessView.ofValidator.ofCommon.ofGroupOrder;
-using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
-namespace BusinessView.ofValidator.ofPlatform.ofGroupOrder
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+namespace BusinessData.ofPresentationLayer.ofValidator.ofPlatform.ofGroupOrder
 {
     public class PlatformGOCValidator : GOCValidator<PlatformGOC>
     {

@@ -1,7 +1,10 @@
 ﻿using BusinessData.ofPresendationLayer.ofDTOServices;
+using BusinessData.ofPresentationLayer.ofDTOServices;
 using BusinessView.ofCommon.ofServices;
+using System;
+using System.Collections.Generic;
 
-namespace BusinessView.ofUser.ofCommon
+namespace BusinessData.ofPresendationLayer.ofCommon.ofBuilder
 {
     public class ServiceBuilder
     {

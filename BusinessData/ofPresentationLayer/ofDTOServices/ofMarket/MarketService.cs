@@ -1,4 +1,5 @@
-﻿using BusinessView.ofCommon;
+﻿using BusinessData.ofPresentationLayer.ofDTOServices;
+using BusinessView.ofCommon;
 using BusinessView.ofCommon.ofServices;
 using System;
 

@@ -1,7 +1,7 @@
-using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlaform;
+using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder.ofPlatform;
 using NMemory;
 using NMemory.Tables;
-namespace BusinessView.ofStorage.ofPlatform
+namespace BusinessData.ofPresentationLayer.ofStorage.ofPlatform
 {
     public class PlatformGroupOrderNMemoryDatabase : Database
     {

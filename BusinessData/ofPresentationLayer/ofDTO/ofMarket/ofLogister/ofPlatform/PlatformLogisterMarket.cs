@@ -1,10 +1,5 @@
-﻿using BusinessView.ofUser.ofCommon;
-using BusinessView.ofUser.ofPlatform;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofPlatform;
 
 namespace BusinessData.ofPresentationLayer.ofDTO.ofMarket.ofLogister.ofPlatform
 {

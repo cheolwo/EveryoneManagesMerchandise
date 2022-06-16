@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components.Forms;
-using BusinessView.ofDTO.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System.Collections.Generic;
 
-namespace BusinessView.ofCommon.ofInterface
+namespace BusinessData.ofPresendationLayer.ofCommon.ofInterface
 {
     public interface IEntityDTO
     {

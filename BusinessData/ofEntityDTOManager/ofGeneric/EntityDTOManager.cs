@@ -13,7 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.oEntityDTOManager.ofGeneric
+namespace BusinessData.ofEntityDTOManager.ofGeneric
 {
     public interface IEntityDTOManager<DTO, Model> : IEntityManager<Model> where DTO : EntityDTO, new() where Model : Entity, new()
     {

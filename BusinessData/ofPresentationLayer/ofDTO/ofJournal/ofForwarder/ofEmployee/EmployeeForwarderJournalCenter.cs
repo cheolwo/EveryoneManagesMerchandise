@@ -1,6 +1,5 @@
-﻿using BusinessView.ofUser.ofCommon;
-using BusinessView.ofUser.ofEmployee;
-
+﻿using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofEmployee;
 namespace BusinessData.ofPresentationLayer.ofDTO.ofJournal.ofForwarder.ofEmployee
 {
     [ActorContext(typeof(EmployeeForwarderContext))]

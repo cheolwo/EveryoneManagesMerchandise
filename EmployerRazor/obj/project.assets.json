@@ -1493,7 +1493,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BusinessView": "1.0.0",
           "Microsoft.AspNetCore.Components": "6.0.3",
           "Microsoft.AspNetCore.Components.Web": "6.0.2",
           "MudBlazor": "6.0.7"
@@ -1503,24 +1502,6 @@
         },
         "runtime": {
           "bin/placeholder/BusinessRazor.dll": {}
-        }
-      },
-      "BusinessView/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "AutoMapper": "11.0.1",
-          "BusinessData": "1.0.0",
-          "FluentValidation": "11.0.1",
-          "Microsoft.AspNetCore.Components": "6.0.3",
-          "NMemory": "3.1.4",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "bin/placeholder/BusinessView.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BusinessView.dll": {}
         }
       }
     }
@@ -4345,18 +4326,12 @@
       "type": "project",
       "path": "../BusinessRazor/BusinessRazor.csproj",
       "msbuildProject": "../BusinessRazor/BusinessRazor.csproj"
-    },
-    "BusinessView/1.0.0": {
-      "type": "project",
-      "path": "../BusinessView/BusinessView.csproj",
-      "msbuildProject": "../BusinessView/BusinessView.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessData >= 1.0.0",
       "BusinessRazor >= 1.0.0",
-      "BusinessView >= 1.0.0",
       "Microsoft.AspNetCore.Authorization >= 6.0.5",
       "Microsoft.AspNetCore.Components >= 6.0.5",
       "Microsoft.AspNetCore.Components.Authorization >= 6.0.5",
@@ -4397,9 +4372,6 @@
             },
             "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj": {
               "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessRazor\\BusinessRazor.csproj"
-            },
-            "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\EveryoneManagesMerchandise\\EveryoneManagesMerchandise\\BusinessView\\BusinessView.csproj"
             }
           }
         }

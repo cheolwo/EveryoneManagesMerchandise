@@ -1,17 +1,17 @@
-﻿using BusinessView.ofUser.ofCommon;
-using BusinessView.ofActorService;
-using BusinessView.ofCommon.ofUser;
-using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
+﻿using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse.ofEmployer;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade.ofEmployer;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofWarehouse;
 using BusinessData.ofPresendationLayer.ofDTOServices.ofTrade;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using BusinessData.ofActorService;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
 
-namespace BusinessView.ofUser.ofEmployer
+namespace BusinessData.ofPresendationLayer.ofActorContext.ofEmployer
 {
     public class EmployerLogisterContext : EmployerActorContext
     {
         public EmployerLogisterContext(ActorServiceOption options)
-            :base(options)
+            : base(options)
         {
 
         }

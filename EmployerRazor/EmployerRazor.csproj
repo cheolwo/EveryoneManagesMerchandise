@@ -50,7 +50,6 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessData\BusinessData.csproj" />
     <ProjectReference Include="..\BusinessRazor\BusinessRazor.csproj" />
-    <ProjectReference Include="..\BusinessView\BusinessView.csproj" />
   </ItemGroup>
 
   <ItemGroup>

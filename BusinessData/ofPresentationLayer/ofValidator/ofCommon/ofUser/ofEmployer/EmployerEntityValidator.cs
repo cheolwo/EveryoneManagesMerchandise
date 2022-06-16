@@ -1,8 +1,12 @@
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon.ofEmployer;
 using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofValidator.ofCommon.ofEmployer
+namespace BusinessData.ofPresentationLayer.ofValidator.ofCommon.ofUser.ofEmployer
 {
     public class EmployerEntityValidator<TEntity> : EntityDTOValidator<TEntity>, IValidator<TEntity> where TEntity : EntityDTO
     {
