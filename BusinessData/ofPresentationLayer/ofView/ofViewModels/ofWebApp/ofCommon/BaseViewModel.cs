@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components.Forms;
@@ -30,6 +33,16 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
         private class File
         {
             public string? Name { get; set; }
+        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName =null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
+            backingFiled = value;
+            OnPropertyChanged(propertyName);
         }
         private List<File> files = new();
         private List<UploadResult> uploadResults = new();
@@ -66,15 +79,5 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
             }
         }
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        protected void SetValue<T>(ref T backingFiled, T value, [CallerMemberName] string propertyName =null)
-        {
-            if (EqualityComparer<T>.Default.Equals(backingFiled, value)) return;
-            backingFiled = value;
-            OnPropertyChanged(propertyName);
-        }
     }
 }
