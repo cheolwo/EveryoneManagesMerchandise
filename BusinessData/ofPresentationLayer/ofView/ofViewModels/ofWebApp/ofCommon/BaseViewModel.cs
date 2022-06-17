@@ -5,9 +5,26 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components.Forms;
+using System;
 
 namespace BusinessView.ofViewModels.ofWebApp.ofCommon
 {
+    public interface IEntityPostViewModel
+    {
+        Task<Entity> PostAsync(EntityDTO entity);        
+    }
+    public interface IEntityPutVieWModel
+    {
+        Task<Entity> PutAsync(EntityDTO entity);
+    }
+    public interface IEntityDeleteViewModel
+    {
+        Task DeleteAsync(string id);
+    }
+    public interface IEntityGetsViewModel
+    {
+        Task<IEnumrable<EntityDTO>> GetToListAsync();
+    }
     public class UploadResult
     {
         public bool Uploaded { get; set; }
