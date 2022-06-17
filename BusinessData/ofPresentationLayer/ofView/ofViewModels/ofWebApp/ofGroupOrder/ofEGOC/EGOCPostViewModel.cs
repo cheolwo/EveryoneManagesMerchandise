@@ -6,7 +6,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
 {
     public class EGOCPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus> where TEStatus : EGOCDTO, new()
     {
-        public EGOCPostViewModel(ActorContext actorContext)
+        public EGOCPostViewModel()
             :base(actorContext)
         {
 
@@ -14,7 +14,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
     }
     public class EGOCPutViewModel<TEStatus> : EStatusPutViewModel<TEStatus> where TEStatus : EGOCDTO, new()
     {
-        public EGOCPutViewModel(ActorContext actorContext)
+        public EGOCPutViewModel()
             :base(actorContext)
         {
 
@@ -22,7 +22,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
     }
     public class EGOCDeleteViewModel<TEStatus> : EStatusDeleteViewModel<TEStatus> where TEStatus : EGOCDTO, new()
     {
-        public EGOCDeleteViewModel(ActorContext actorContext)
+        public EGOCDeleteViewModel()
             :base(actorContext)
         {
              
@@ -30,7 +30,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
     }
     public class EGOCGetsViewModel<TEStatus> : EStatusGetsViewModel<TEStatus> where TEStatus : EGOCDTO, new()
     {
-        public EGOCGetsViewModel(ActorContext actorContext)
+        public EGOCGetsViewModel()
             :base(actorContext)
         {
 
