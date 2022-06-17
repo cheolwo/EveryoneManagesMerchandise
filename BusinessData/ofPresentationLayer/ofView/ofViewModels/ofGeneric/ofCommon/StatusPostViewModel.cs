@@ -1,9 +1,9 @@
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
 
-namespace BusinessView.ofViewModels.ofGeneric.ofCommon
+namespace BusinessData.ofViewModels.ofGeneric.ofCommon
 {
-
     public class StatusPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : StatusDTO, new()
     {
         public StatusPostViewModel(ActorContext actorContext)
@@ -11,6 +11,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public StatusPostViewModel() { }
     }
     public class StatusPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : StatusDTO, new()
     {
@@ -19,6 +20,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public StatusPutViewModel() { }
     }
     public class StatusDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : StatusDTO, new()
     {
@@ -27,6 +29,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
              
         }
+        public StatusDeleteViewModel() { }
     }
     public class StatusGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : StatusDTO, new()
     {
@@ -35,6 +38,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public StatusGetsViewModel() { }
     }
     
 
@@ -42,6 +46,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     {
         public SStatusPostViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public SStatusPostViewModel()
         {
 
         }
@@ -53,6 +61,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public SStatusPutViewModel()
+        {
+
+        }
     }
     public class SStatusDeleteViewModel<TStatus> : StatusDeleteViewModel<TStatus> where TStatus : SStatusDTO, new()
     {
@@ -61,11 +73,19 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
              
         }
+        public SStatusDeleteViewModel()
+        {
+
+        }
     }
     public class SStatusGetsViewModel<TStatus> : StatusGetsViewModel<TStatus> where TStatus : SStatusDTO, new()
     {
         public SStatusGetsViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public SStatusGetsViewModel()
         {
 
         }
@@ -79,11 +99,19 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public MStatusPostViewModel()
+        {
+
+        }
     }
     public class MStatusPutViewModel<TStatus> : StatusPutViewModel<TStatus> where TStatus : MStatusDTO, new()
     {
         public MStatusPutViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public MStatusPutViewModel()
         {
 
         }
@@ -95,11 +123,19 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
              
         }
+        public MStatusDeleteViewModel()
+        {
+            
+        }
     }
     public class MStatusGetsViewModel<TStatus> : StatusGetsViewModel<TStatus> where TStatus : MStatusDTO, new()
     {
         public MStatusGetsViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public MStatusGetsViewModel()
         {
 
         }
@@ -113,11 +149,19 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public EStatusPostViewModel()
+        {
+
+        }
     }
     public class EStatusPutViewModel<TStatus> : StatusPutViewModel<TStatus> where TStatus : EStatusDTO, new()
     {
         public EStatusPutViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public EStatusPutViewModel()
         {
 
         }
@@ -129,11 +173,19 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
              
         }
+        public EStatusDeleteViewModel()
+        {
+
+        }
     }
     public class EStatusGetsViewModel<TStatus> : StatusGetsViewModel<TStatus> where TStatus : EStatusDTO, new()
     {
         public EStatusGetsViewModel(ActorContext actorContext)
             :base(actorContext)
+        {
+
+        }
+        public EStatusGetsViewModel()
         {
 
         }

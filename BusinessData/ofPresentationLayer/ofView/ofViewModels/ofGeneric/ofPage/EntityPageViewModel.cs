@@ -1,9 +1,10 @@
 using System.ComponentModel;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofViewModels.ofWebApp.ofCommon;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofViewModels.ofGeneric
+namespace BusinessData.ofViewModels.ofGeneric
 {
     public interface IPropManager
     {
@@ -160,12 +161,12 @@ namespace BusinessView.ofViewModels.ofGeneric
     }
     public class CenterPageViewModel<TCenter> : EntityPageViewModel<TCenter> where TCenter : CenterDTO, new()
     {
-        public readonly CenterPostViewModel<TCenter> _CenterPostViewModel;
+        public readonly ofCommon.CenterPostViewModel<TCenter> _CenterPostViewModel;
         public readonly CenterPutViewModel<TCenter> _CenterPutViewModel;
         public readonly CenterDeleteViewModel<TCenter> _CenterDeleteViewModel;
         public readonly CenterGetsViewModel<TCenter> _CenterGetViewMode;
         public CenterPageViewModel(
-            CenterPostViewModel<TCenter> CenterPostViewModel, 
+            ofCommon.CenterPostViewModel<TCenter> CenterPostViewModel, 
             CenterPutViewModel<TCenter> CenterPutViewModel,
             CenterDeleteViewModel<TCenter> CenterDeleteViewModel, 
             CenterGetsViewModel<TCenter> CenterGetViewModel)

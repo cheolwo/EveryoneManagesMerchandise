@@ -1,9 +1,7 @@
 ﻿using BusinessData.ofPresentationLayer.ofDTOServices;
+using BusinessData.ofViewModels.ofWebApp.ofCommon;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessView.ofViewContext
 {
@@ -70,7 +68,7 @@ namespace BusinessView.ofViewContext
             DicEntityPostViewModel.Add(nameofDTO.GetHashCode(), entityPostViewModel);
         }
 
-        public DTOService Get(string nameofDTO)
+        public IEntityPostViewModel Get(string nameofDTO)
         {
             return DicEntityPostViewModel[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include ViewModel");
@@ -89,7 +87,7 @@ namespace BusinessView.ofViewContext
             DicEntityPutViewModel.Add(nameofDTO.GetHashCode(), entityPutViewModel);
         }
 
-        public DTOService Get(string nameofDTO)
+        public IEntityPutViewModel Get(string nameofDTO)
         {
             return DicEntityPutViewModel[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include ViewModel");
@@ -108,7 +106,7 @@ namespace BusinessView.ofViewContext
             DicEntityDeleteViewModel.Add(nameofDTO.GetHashCode(), entityDeleteViewModel);
         }
 
-        public DTOService Get(string nameofDTO)
+        public IEntityDeleteViewModel Get(string nameofDTO)
         {
             return DicEntityDeleteViewModel[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include ViewModel");
@@ -127,7 +125,7 @@ namespace BusinessView.ofViewContext
             DicEntityGetsViewModel.Add(nameofDTO.GetHashCode(), entityGetsViewModel);
         }
 
-        public DTOService Get(string nameofDTO)
+        public IEntityGetsViewModel Get(string nameofDTO)
         {
             return DicEntityGetsViewModel[nameofDTO.GetHashCode()]
                    ?? throw new ArgumentNullException("Not Include ViewModel");

@@ -6,14 +6,17 @@ using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components.Forms;
 using System;
+using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofDataAccessLayer.ofCommon;
+using System.Threading.Tasks;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofCommon
+namespace BusinessData.ofViewModels.ofWebApp.ofCommon
 {
     public interface IEntityPostViewModel
     {
         Task<Entity> PostAsync(EntityDTO entity);        
     }
-    public interface IEntityPutVieWModel
+    public interface IEntityPutViewModel
     {
         Task<Entity> PutAsync(EntityDTO entity);
     }
@@ -23,7 +26,7 @@ namespace BusinessView.ofViewModels.ofWebApp.ofCommon
     }
     public interface IEntityGetsViewModel
     {
-        Task<IEnumrable<EntityDTO>> GetToListAsync();
+        Task<IEnumerable<EntityDTO>> GetToListAsync();
     }
     public class UploadResult
     {

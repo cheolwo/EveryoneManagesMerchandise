@@ -1,39 +1,86 @@
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofWarehouse;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
+using System;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofWarehouse.ofWCommodity
+namespace BusinessData.ofViewModels.ofWebApp.ofWarehouse.ofWCommodity
 {
-    public class WCommodityPostViewModel<TCommodity> : CommodityPostViewModel<TCommodity> where TCommodity : WCommodityDTO, new()
+    public class WCommodityPostViewModel<TEntity> : CommodityPostViewModel<TEntity>, IObservable<TEntity> where TEntity : WCommodityDTO, new()
     {
         public WCommodityPostViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
         }
+        public WCommodityPostViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class WCommodityPutViewModel<TCommodity> : CommodityPutViewModel<TCommodity> where TCommodity : WCommodityDTO, new()
+    public class WCommodityPutViewModel<TEntity> : CommodityPutViewModel<TEntity>, IObservable<TEntity> where TEntity : WCommodityDTO, new()
     {
         public WCommodityPutViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
         }
+        public WCommodityPutViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class WCommodityDeleteViewModel<TCommodity> : CommodityDeleteViewModel<TCommodity> where TCommodity : WCommodityDTO, new()
+    public class WCommodityDeleteViewModel<TEntity> : CommodityDeleteViewModel<TEntity>, IObservable<TEntity> where TEntity : WCommodityDTO, new()
     {
         public WCommodityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
         {
              
         }
+        public WCommodityDeleteViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class WCommodityGetsViewModel<TCommodity> : CommodityGetsViewModel<TCommodity> where TCommodity : WCommodityDTO, new()
+    public class WCommodityGetsViewModel<TEntity> : CommodityGetsViewModel<TEntity>, IObserver<TEntity> where TEntity : WCommodityDTO, new()
     {
         public WCommodityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
+        }
+        public WCommodityGetsViewModel()
+        {
+
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNext(TEntity value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

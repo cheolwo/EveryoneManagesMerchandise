@@ -1,8 +1,8 @@
-using BusinessView.ofCommon.ofUser;
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
 
-namespace BusinessView.ofViewModels.ofGeneric
+namespace BusinessData.ofViewModels.ofGeneric
 {
     public class EmployerPageViewModel<TEntity> : EntityPageViewModel<TEntity> where TEntity : EntityDTO, new()
     {

@@ -1,39 +1,86 @@
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofGroupOrder;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
+using System;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
+namespace BusinessData.ofViewModels.ofWebApp.ofGroupOrder.ofEGOC
 {
-    public class EGOCPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus> where TEStatus : EGOCDTO, new()
+    public class EGOCPostViewModel<TEStatus> : EStatusPostViewModel<TEStatus>, IObservable<TEStatus> where TEStatus : EGOCDTO, new()
     {
+        public EGOCPostViewModel(ActorContext actorContext)
+            : base(actorContext)
+        {
+
+        }
         public EGOCPostViewModel()
-            :base(actorContext)
         {
 
         }
+
+        public IDisposable Subscribe(IObserver<TEStatus> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class EGOCPutViewModel<TEStatus> : EStatusPutViewModel<TEStatus> where TEStatus : EGOCDTO, new()
+    public class EGOCPutViewModel<TEStatus> : EStatusPutViewModel<TEStatus>, IObservable<TEStatus> where TEStatus : EGOCDTO, new()
     {
+        public EGOCPutViewModel(ActorContext actorContext)
+            : base(actorContext)
+        {
+
+        }
         public EGOCPutViewModel()
-            :base(actorContext)
         {
 
         }
+
+        public IDisposable Subscribe(IObserver<TEStatus> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class EGOCDeleteViewModel<TEStatus> : EStatusDeleteViewModel<TEStatus> where TEStatus : EGOCDTO, new()
+    public class EGOCDeleteViewModel<TEStatus> : EStatusDeleteViewModel<TEStatus>, IObservable<TEStatus> where TEStatus : EGOCDTO, new()
     {
+        public EGOCDeleteViewModel(ActorContext actorContext)
+            : base(actorContext)
+        {
+
+        }
         public EGOCDeleteViewModel()
-            :base(actorContext)
-        {
-             
-        }
-    }
-    public class EGOCGetsViewModel<TEStatus> : EStatusGetsViewModel<TEStatus> where TEStatus : EGOCDTO, new()
-    {
-        public EGOCGetsViewModel()
-            :base(actorContext)
         {
 
+        }
+
+        public IDisposable Subscribe(IObserver<TEStatus> observer)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class EGOCGetsViewModel<TEStatus> : EStatusGetsViewModel<TEStatus>, IObserver<TEStatus> where TEStatus : EGOCDTO, new()
+    {
+        public EGOCGetsViewModel(ActorContext actorContext)
+            : base(actorContext)
+        {
+
+        }
+        public EGOCGetsViewModel()
+        {
+
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNext(TEStatus value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

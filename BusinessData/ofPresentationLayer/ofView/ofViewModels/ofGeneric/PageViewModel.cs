@@ -1,9 +1,11 @@
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
+using System.Collections.Generic;
 using System.ComponentModel;
-using BusinessView.ofUser.ofCommon;
+using System.Threading.Tasks;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using BusinessData.ofViewModels.ofWebApp.ofCommon;
 
-namespace BusinessView.ofViewModels.ofGeneric
+namespace BusinessData.ofViewModels.ofGeneric
 {
     public abstract class BaseEntityViewModel<TEntity> : BaseViewModel where TEntity : EntityDTO, new()
     {

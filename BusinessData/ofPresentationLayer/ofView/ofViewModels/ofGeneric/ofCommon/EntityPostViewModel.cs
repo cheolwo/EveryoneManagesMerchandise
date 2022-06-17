@@ -1,10 +1,14 @@
-using BusinessView.ofViewModels.ofWebApp.ofCommon;
 using System.Reflection;
-using BusinessView.ofUser.ofCommon;
 using BusinessData.ofPresentationLayer.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
+using System.Threading.Tasks;
+using BusinessData.ofViewModels.ofWebApp.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
+using System.Collections.Generic;
+using System;
+using BusinessData.ofDataAccessLayer.ofCommon;
 
-namespace BusinessView.ofViewModels.ofGeneric.ofCommon
+namespace BusinessData.ofViewModels.ofGeneric.ofCommon
 {
     public delegate void PostPageToGets();
     public delegate void PutPageToGets();
@@ -25,6 +29,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             ComponentMode = ComponentMode.Get;
             PropertiesByComponentMode = PropertyClassification.GetPropertiesByComponentMode(ComponentMode, typeof(TEntity));
             InitializedByComponentMode(ComponentMode);
+        }
+        public BaseEntityViewModel()
+        {
+
         }
         public readonly ActorContext _ActorContext;
         protected TEntity _TEntity = new();
@@ -120,11 +128,15 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
     }
     /*
     */
-    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
+    public class EntityPostViewModel<TEntity> : BaseEntityViewModel<TEntity>, IEntityPostViewModel where TEntity : EntityDTO, new()
     {
         public PostPageToGets? postPageToGets { get; set; }
         public EntityPostViewModel(ActorContext actorContext)
             : base(actorContext)
+        {
+
+        }
+        public EntityPostViewModel()
         {
 
         }
@@ -174,12 +186,21 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             _TEntity = new();
             OnPropertyChanged();
         }
+
+        public Task<Entity> PostAsync(EntityDTO entity)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
+    public class EntityPutViewModel<TEntity> : BaseEntityViewModel<TEntity>, IEntityPutViewModel where TEntity : EntityDTO, new()
     {
         public PutPageToGets? putPageToGets { get; set; }
         public EntityPutViewModel(ActorContext actorContext)
             : base(actorContext)
+        {
+
+        }
+        public EntityPutViewModel()
         {
 
         }
@@ -225,12 +246,21 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
             _putTEntity = new();
             OnPropertyChanged();
         }
+
+        public Task<Entity> PutAsync(EntityDTO entity)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
+    public class EntityDeleteViewModel<TEntity> : BaseEntityViewModel<TEntity>, IEntityDeleteViewModel where TEntity : EntityDTO, new()
     {
         public DeletePageToGets? deletePageToGets { get; set; }
         public EntityDeleteViewModel(ActorContext actorContext)
             : base(actorContext)
+        {
+
+        }
+        public EntityDeleteViewModel()
         {
 
         }
@@ -251,7 +281,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         }
     }
     public enum ViewMode { Table, Card, DashBoard }
-    public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity> where TEntity : EntityDTO, new()
+    public class EntityGetsViewModel<TEntity> : BaseEntityViewModel<TEntity>, IEntityGetsViewModel where TEntity : EntityDTO, new()
     {
         public GetsPageToPost? getsPageToPost { get; set; }
         public GetsPageToPut? getsPageToPut { get; set; }
@@ -260,6 +290,10 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
 
         public EntityGetsViewModel(ActorContext actorContext)
             : base(actorContext)
+        {
+
+        }
+        public EntityGetsViewModel()
         {
 
         }
@@ -347,6 +381,11 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
             if (getsPageToDelete == null) { throw new ArgumentNullException("GetsPageToDelete Is Null"); }
             await getsPageToDelete(id);
+        }
+
+        public Task<IEnumerable<EntityDTO>> GetToListAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

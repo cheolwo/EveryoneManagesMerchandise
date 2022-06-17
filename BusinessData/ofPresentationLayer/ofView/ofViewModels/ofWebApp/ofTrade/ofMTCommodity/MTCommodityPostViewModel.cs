@@ -1,39 +1,86 @@
-using BusinessView.ofViewModels.ofGeneric.ofCommon;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofTrade;
+using BusinessData.ofViewModels.ofGeneric.ofCommon;
+using System;
 
-namespace BusinessView.ofViewModels.ofWebApp.ofTrade.ofMTCommodity
+namespace BusinessData.ofViewModels.ofWebApp.ofTrade.ofMTCommodity
 {
-    public class MTCommodityPostViewModel<TMStatus> : MStatusPostViewModel<TMStatus> where TMStatus : MTCommodityDTO, new()
+    public class MTCommodityPostViewModel<TEntity> : MStatusPostViewModel<TEntity>, IObservable<TEntity> where TEntity : MTCommodityDTO, new()
     {
         public MTCommodityPostViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
         }
+        public MTCommodityPostViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class MTCommodityPutViewModel<TMStatus> : MStatusPutViewModel<TMStatus> where TMStatus : MTCommodityDTO, new()
+    public class MTCommodityPutViewModel<TEntity> : MStatusPutViewModel<TEntity>, IObservable<TEntity> where TEntity : MTCommodityDTO, new()
     {
         public MTCommodityPutViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
         }
+        public MTCommodityPutViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class MTCommodityDeleteViewModel<TMStatus> : MStatusDeleteViewModel<TMStatus> where TMStatus : MTCommodityDTO, new()
+    public class MTCommodityDeleteViewModel<TEntity> : MStatusDeleteViewModel<TEntity>, IObservable<TEntity> where TEntity : MTCommodityDTO, new()
     {
         public MTCommodityDeleteViewModel(ActorContext actorContext)
             :base(actorContext)
         {
              
         }
+        public MTCommodityDeleteViewModel()
+        {
+
+        }
+
+        public IDisposable Subscribe(IObserver<TEntity> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class MTCommodityGetsViewModel<TMStatus> : MStatusGetsViewModel<TMStatus> where TMStatus : MTCommodityDTO, new()
+    public class MTCommodityGetsViewModel<TEntity> : MStatusGetsViewModel<TEntity>, IObserver<TEntity> where TEntity : MTCommodityDTO, new()
     {
         public MTCommodityGetsViewModel(ActorContext actorContext)
             :base(actorContext)
         {
 
+        }
+        public MTCommodityGetsViewModel()
+        {
+
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNext(TEntity value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

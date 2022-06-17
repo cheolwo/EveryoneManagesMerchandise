@@ -1,7 +1,7 @@
+using BusinessData.ofPresendationLayer.ofActorContext.ofCommon;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
-using BusinessView.ofUser.ofCommon;
 
-namespace BusinessView.ofViewModels.ofGeneric.ofCommon
+namespace BusinessData.ofViewModels.ofGeneric.ofCommon
 {
     public class CommodityPostViewModel<TEntity> : EntityPostViewModel<TEntity> where TEntity : CommodityDTO, new()
     {
@@ -10,6 +10,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public CommodityPostViewModel() { }
     }
     public class CommodityPutViewModel<TEntity> : EntityPutViewModel<TEntity> where TEntity : CommodityDTO, new()
     {
@@ -18,6 +19,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public CommodityPutViewModel() { }
     }
     public class CommodityDeleteViewModel<TEntity> : EntityDeleteViewModel<TEntity> where TEntity : CommodityDTO, new()
     {
@@ -26,6 +28,7 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public CommodityDeleteViewModel() { }
     }
     public class CommodityGetsViewModel<TEntity> : EntityGetsViewModel<TEntity> where TEntity : CommodityDTO, new()
     {
@@ -34,5 +37,6 @@ namespace BusinessView.ofViewModels.ofGeneric.ofCommon
         {
 
         }
+        public CommodityGetsViewModel() { }
     }
 }
