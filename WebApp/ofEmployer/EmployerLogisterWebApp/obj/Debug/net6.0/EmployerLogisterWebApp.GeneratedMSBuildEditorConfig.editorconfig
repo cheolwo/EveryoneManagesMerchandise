@@ -8,45 +8,45 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EmployerLogisterWebApp
 build_property.RootNamespace = EmployerLogisterWebApp
-build_property.ProjectDir = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\
+build_property.ProjectDir = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp
+build_property.MSBuildProjectDirectory = C:\Users\user\Desktop\EveryoneManagesMerchandise\EveryoneManagesMerchandise\WebApp\ofEmployer\EmployerLogisterWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Components/ofUser/UserFormComponent.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Components/ofUser/UserFormComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlVzZXJcVXNlckZvcm1Db21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Components/ofUser/UserListComponent.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Components/ofUser/UserListComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xvZlVzZXJcVXNlckxpc3RDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/Index.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/_Imports.razor]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Areas/Identity/Pages/Account/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/Error.cshtml]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/_Host.cshtml]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/_Layout.cshtml]
+[C:/Users/user/Desktop/EveryoneManagesMerchandise/EveryoneManagesMerchandise/WebApp/ofEmployer/EmployerLogisterWebApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

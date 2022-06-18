@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BusinessData.ofPresendationLayer.ofDTOServices;
 using BusinessData.ofPresentationLayer.ofDTO.ofCommon;
 using FluentValidation;
 using NMemory.Tables;
 using System.Net.Http;
-using BusinessView.ofUser.ofCommon;
+using BusinessData.ofPresendationLayer.ofCommon.ofBuilder;
+using BusinessData.ofPresentationLayer.ofDTOServices;
 
 namespace BusinessData.ofPresentationLayer.ofDTOContext
 {
@@ -27,6 +27,7 @@ namespace BusinessData.ofPresentationLayer.ofDTOContext
         protected ServiceBuilder ServiceBuilder = new();
         protected StorageBuilder StorageBuilder = new();
         protected ValidatorBuilder ValidatorBuilder = new();
+        protected DTOFileBuilder DTOFileBuilder = new();
         public DTOContext()
         {
             OnServiceBuilder(ServiceBuilder);
